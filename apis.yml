@@ -1,0 +1,61 @@
+aid: aha
+name: Aha.io
+description: >-
+  Aha! is a product development suite that combines roadmapping, idea
+  management, requirements specification, whiteboarding, knowledge bases, and
+  development tracking into a single platform for product teams. The suite
+  spans Aha! Roadmaps, Aha! Ideas, Aha! Whiteboards, Aha! Knowledge, and
+  Aha! Develop with integrations into engineering tools like Jira and GitHub.
+  The Aha! REST API offers full CRUD access to products, releases, features,
+  ideas, and integrations with OAuth 2.0, API key, and Basic authentication
+  options.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Product Management
+  - Roadmapping
+  - Idea Management
+  - Product Development
+  - Requirements
+  - Agile
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/aha/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: aha:rest-api
+    name: Aha.io REST API
+    description: >-
+      REST API for managing products, releases, features, ideas, goals,
+      initiatives, and integrations across Aha! Roadmaps, Ideas, and Develop.
+      Supports OAuth 2.0, API key Bearer tokens, and deprecated Basic auth,
+      with 300 requests per minute and 20 per second rate limits.
+    humanURL: https://www.aha.io/api
+    baseURL: https://{subdomain}.aha.io/api/v1
+    tags:
+      - Roadmaps
+      - Releases
+      - Features
+      - Ideas
+      - Integrations
+    properties:
+      - type: Documentation
+        url: https://www.aha.io/api
+      - type: ReDoc
+        url: https://www.aha.io/redoc-static.html
+      - type: OpenAPI
+        url: https://www.aha.io/openapi.json
+
+common:
+  - type: Website
+    url: https://www.aha.io
+  - type: Documentation
+    url: https://www.aha.io/support
+  - type: Pricing
+    url: https://www.aha.io/pricing
+  - type: Sign Up
+    url: https://www.aha.io/signup
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
