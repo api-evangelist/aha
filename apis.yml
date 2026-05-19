@@ -48,6 +48,10 @@ apis:
         url: https://www.aha.io/openapi.json
 
 common:
+  - type: GitHubOrganization
+    url: https://github.com/aha-app
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/aha-labs-inc-
   - type: Website
     url: https://www.aha.io
   - type: Documentation
