@@ -58,7 +58,7 @@ common:
     url: https://www.aha.io/support
   - type: Pricing
     url: https://www.aha.io/pricing
-  - type: SignUp
+  - type: Signup
     url: https://www.aha.io/signup
 maintainers:
   - FN: Kin Lane
