@@ -1,0 +1,37 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/aha-openapi.json
+summary:
+  types:
+  - apiKey
+  - http
+  - oauth2
+  api_key_in:
+  - cookie
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: OAuth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+    tokenUrl: https://{account-domain}.aha.io/oauth/token
+    scopes: 0
+  description: OAuth2 authentication with bearer tokens
+  sources:
+  - openapi/aha-openapi.json
+- name: ApiKeyAuth
+  type: http
+  scheme: bearer
+  description: API key authentication using Bearer token in Authorization header. Generate API
+    keys at https://secure.aha.io/settings/api_keys
+  sources:
+  - openapi/aha-openapi.json
+- name: CookieAuth
+  type: apiKey
+  in: cookie
+  parameter: session
+  description: Cookie-based authentication for web browser integration
+  sources:
+  - openapi/aha-openapi.json

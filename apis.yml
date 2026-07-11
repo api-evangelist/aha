@@ -48,6 +48,10 @@ apis:
         url: https://www.aha.io/openapi.json
 
 common:
+  - type: DomainSecurity
+    url: security/aha-domain-security.yml
+  - type: Authentication
+    url: authentication/aha-authentication.yml
   - type: OAuthScopes
     url: scopes/aha-scopes.yml
   - url: https://www.aha.io/blog/feed
