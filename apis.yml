@@ -48,6 +48,10 @@ apis:
         url: https://www.aha.io/openapi.json
 
 common:
+  - type: OAuthScopes
+    url: scopes/aha-scopes.yml
+  - url: https://www.aha.io/blog/feed
+    type: Blog
   - type: GitHubOrganization
     url: https://github.com/aha-app
   - type: LinkedIn

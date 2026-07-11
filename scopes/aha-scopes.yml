@@ -1,0 +1,15 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/aha-openapi.json
+docs: https://www.aha.io/api/oauth2
+note: Aha! OAuth 2.0 does not define or document any scopes; access tokens inherit
+  the full permissions of the authorizing user's account role (https://www.aha.io/api/oauth2).
+schemes:
+- name: OAuth2
+  source: openapi/aha-openapi.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+    tokenUrl: https://{account-domain}.aha.io/oauth/token
+  description: OAuth2 authentication with bearer tokens
+scopes: []
