@@ -48,6 +48,8 @@ apis:
         url: https://www.aha.io/openapi.json
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/aha-agentic-access.yml
   - type: DomainSecurity
     url: security/aha-domain-security.yml
   - type: Authentication
