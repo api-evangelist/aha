@@ -1,0 +1,211 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Custom fields API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Custom fields
+paths:
+  /api/v1/custom_field_definitions:
+    get:
+      summary: List all custom fields
+      description: 'Custom fields are defined by record type, and are shared
+
+        across all workspaces across the account. Fields must be
+
+        added to a layout before they will appear on a record.
+
+
+        For custom fields that include options, (e.g. tags, choice
+
+        lists), you can also load the list of all available options.'
+      tags:
+      - Custom fields
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CustomfieldsGetResponse'
+              example:
+                custom_field_definitions:
+                - name: Priority
+                  id: '581360680'
+                  key: priority
+                  type: CustomFieldDefinitions::SelectConstant
+                  custom_fieldable_type: Feature
+                  internal_name: null
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/custom_field_definitions/{custom_field_definition_id}/options:
+    get:
+      summary: List options for a custom field
+      description: 'Custom fields are defined by record type, and are shared
+
+        across all workspaces across the account. Fields must be
+
+        added to a layout before they will appear on a record.
+
+
+        For custom fields that include options, (e.g. tags, choice
+
+        lists), you can also load the list of all available options.'
+      tags:
+      - Custom fields
+      parameters:
+      - name: custom_field_definition_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: CustomFieldDefinitionId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CustomfieldsGetResponse'
+              example:
+                options:
+                - text: P1
+                  value: '486420793'
+                  meta:
+                    color: '#666666'
+                - text: P2
+                  value: '100098181'
+                  meta:
+                    color: '#666666'
+                - text: P3
+                  value: '854609942'
+                  meta:
+                    color: '#666666'
+                - text: P4
+                  value: '747947447'
+                  meta:
+                    color: '#666666'
+                - text: P5
+                  value: '462681378'
+                  meta:
+                    color: '#666666'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  schemas:
+    CustomfieldsGetResponse:
+      type: object
+      properties:
+        options:
+          type: array
+          items:
+            type: object
+            properties:
+              text:
+                type: string
+                example: P1
+              value:
+                type: string
+                example: '486420793'
+              meta:
+                type: object
+                properties:
+                  color:
+                    type: string
+                example:
+                  color: '#666666'
+            example:
+              text: P1
+              value: '486420793'
+              meta:
+                color: '#666666'
+          example:
+          - text: P1
+            value: '486420793'
+            meta:
+              color: '#666666'
+          - text: P2
+            value: '100098181'
+            meta:
+              color: '#666666'
+          - text: P3
+            value: '854609942'
+            meta:
+              color: '#666666'
+          - text: P4
+            value: '747947447'
+            meta:
+              color: '#666666'
+          - text: P5
+            value: '462681378'
+            meta:
+              color: '#666666'
+      example:
+        options:
+        - text: P1
+          value: '486420793'
+          meta:
+            color: '#666666'
+        - text: P2
+          value: '100098181'
+          meta:
+            color: '#666666'
+        - text: P3
+          value: '854609942'
+          meta:
+            color: '#666666'
+        - text: P4
+          value: '747947447'
+          meta:
+            color: '#666666'
+        - text: P5
+          value: '462681378'
+          meta:
+            color: '#666666'
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

@@ -1,0 +1,227 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Account backups
+paths:
+  /api/v1/account_backups:
+    get:
+      summary: List account backups
+      description: "Account backups let you create a complete off-site backup of your Aha! account.\nThey can be [created](/api/resources/account_backups/create_an_account_backup),\n[listed](/api/resources/account_backups/list_account_backups), and [downloaded](/api/resources/account_backups/download_an_account_backup) via the API.\n\nAn account backup may only be created once every 24 hours.\n\nThe backup file contains a representation of all of the data in the Aha! account, including all relationships. \nIt does not contain user authentication data or integration secrets. The backup does not include any uploaded files.\n\n**[Account backups](https://www.aha.io/support/roadmaps/account/security-and-system-requirements/export-backup-aha-data) are an Enterprise+ exclusive feature.**"
+      tags:
+      - Account backups
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/AccountbackupsGetResponse'
+              example:
+                account_backups:
+                - id: '1'
+                  status_code: 2
+                  status_description: Completed
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  file_size: ''
+                  download_url: http://company.aha.io/api/v1/account_backups/1.tgz
+                - id: '2'
+                  status_code: 2
+                  status_description: Completed
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  file_size: ''
+                  download_url: http://company.aha.io/api/v1/account_backups/2.tgz
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    post:
+      summary: Create an account backup
+      description: "The backup may take some time to generate (as long as ten minutes in a \nlarge account). You should poll the GET endpoint to see when the backup \nis complete. You should not poll more frequently than once every twenty \nseconds. Returns an HTTP status of 429 if a backup was already created\nwithin the last 24 hours."
+      tags:
+      - Account backups
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/AccountbackupsPostResponse'
+              example:
+                account_backup:
+                  id: '6776881149498172525'
+                  status_code: 0
+                  status_description: In Queue
+                  created_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/account_backups/{id}:
+    get:
+      summary: Get a specific account backup
+      description: 'The status field indicates whether the backup is ready. The possible
+
+        values are: 0 (queued), 1 (in progress), 2 (completed), 3 (error).'
+      tags:
+      - Account backups
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/AccountbackupsGetResponse'
+              example:
+                account_backup:
+                  id: '6776881149499462668'
+                  status_code: 3
+                  status_description: Error
+                  created_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/account_backups/{id}.tgz:
+    get:
+      summary: Download an account backup
+      description: "Account backups let you create a complete off-site backup of your Aha! account.\nThey can be [created](/api/resources/account_backups/create_an_account_backup),\n[listed](/api/resources/account_backups/list_account_backups), and [downloaded](/api/resources/account_backups/download_an_account_backup) via the API.\n\nAn account backup may only be created once every 24 hours.\n\nThe backup file contains a representation of all of the data in the Aha! account, including all relationships. \nIt does not contain user authentication data or integration secrets. The backup does not include any uploaded files.\n\n**[Account backups](https://www.aha.io/support/roadmaps/account/security-and-system-requirements/export-backup-aha-data) are an Enterprise+ exclusive feature.**"
+      tags:
+      - Account backups
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/gzip
+              schema:
+                type: string
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  schemas:
+    AccountbackupsGetResponse:
+      type: object
+      properties:
+        account_backup:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149499462668'
+            status_code:
+              type: integer
+              example: 3
+            status_description:
+              type: string
+              example: Error
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+          example:
+            id: '6776881149499462668'
+            status_code: 3
+            status_description: Error
+            created_at: '2019-01-01T00:00:00.000Z'
+      example:
+        account_backup:
+          id: '6776881149499462668'
+          status_code: 3
+          status_description: Error
+          created_at: '2019-01-01T00:00:00.000Z'
+    AccountbackupsPostResponse:
+      type: object
+      properties:
+        account_backup:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149498172525'
+            status_code:
+              type: integer
+              example: 0
+            status_description:
+              type: string
+              example: In Queue
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+          example:
+            id: '6776881149498172525'
+            status_code: 0
+            status_description: In Queue
+            created_at: '2019-01-01T00:00:00.000Z'
+      example:
+        account_backup:
+          id: '6776881149498172525'
+          status_code: 0
+          status_description: In Queue
+          created_at: '2019-01-01T00:00:00.000Z'
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

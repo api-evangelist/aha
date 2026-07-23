@@ -1,0 +1,274 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Ideas portal user subscriptions API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Ideas portal user subscriptions
+paths:
+  /api/v1/idea_portals/{idea_portal_id}/portal_users/{portal_user_id}/portal_user_subscriptions:
+    get:
+      summary: List a portal user's preferences for the portal summary email
+      description: null
+      tags:
+      - Ideas portal user subscriptions
+      parameters:
+      - name: idea_portal_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: IdeaPortalId identifier
+      - name: portal_user_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: PortalUserId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeasportalusersubscriptionsGetResponse'
+              example:
+                portal_user_subscriptions:
+                  preferences:
+                  - type: project
+                    id: 131414752
+                  - type: category
+                    id: 251347229
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    post:
+      summary: Set a portal user's preferences to specific project and category updates
+      description: null
+      tags:
+      - Ideas portal user subscriptions
+      parameters:
+      - name: idea_portal_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: IdeaPortalId identifier
+      - name: portal_user_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: PortalUserId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeasportalusersubscriptionsPostResponse'
+              example:
+                portal_user_subscriptions:
+                  preferences:
+                  - type: category
+                    id: 251347229
+                  - type: category
+                    id: 552935478
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdeasportalusersubscriptionsPostRequest'
+            example:
+              portal_user_subscriptions:
+                preferences:
+                - type: project
+                  id: 131414752
+                - type: category
+                  id: 251347229
+  /api/v1/idea_portals/{idea_portal_id}/portal_users/{portal_user_id}/portal_user_subscriptions/subscribe_to_all:
+    post:
+      summary: Subscribe a portal user to updates from all projects and categories
+      description: null
+      tags:
+      - Ideas portal user subscriptions
+      parameters:
+      - name: idea_portal_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: IdeaPortalId identifier
+      - name: portal_user_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: PortalUserId identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  schemas:
+    IdeasportalusersubscriptionsPostResponse:
+      type: object
+      properties:
+        portal_user_subscriptions:
+          type: object
+          properties:
+            preferences:
+              type: array
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                  id:
+                    type: string
+                example:
+                  type: category
+                  id: 251347229
+              example:
+              - type: category
+                id: 251347229
+              - type: category
+                id: 552935478
+          example:
+            preferences:
+            - type: category
+              id: 251347229
+            - type: category
+              id: 552935478
+      example:
+        portal_user_subscriptions:
+          preferences:
+          - type: category
+            id: 251347229
+          - type: category
+            id: 552935478
+    IdeasportalusersubscriptionsPostRequest:
+      type: object
+      properties:
+        portal_user_subscriptions:
+          type: object
+          properties:
+            preferences:
+              type: array
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: project
+                  id:
+                    type: integer
+                    example: 131414752
+                example:
+                  type: project
+                  id: 131414752
+              example:
+              - type: project
+                id: 131414752
+              - type: category
+                id: 251347229
+          example:
+            preferences:
+            - type: project
+              id: 131414752
+            - type: category
+              id: 251347229
+      example:
+        portal_user_subscriptions:
+          preferences:
+          - type: project
+            id: 131414752
+          - type: category
+            id: 251347229
+    IdeasportalusersubscriptionsGetResponse:
+      type: object
+      properties:
+        portal_user_subscriptions:
+          type: object
+          properties:
+            preferences:
+              type: array
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                  id:
+                    type: string
+                example:
+                  type: project
+                  id: 131414752
+              example:
+              - type: project
+                id: 131414752
+              - type: category
+                id: 251347229
+          example:
+            preferences:
+            - type: project
+              id: 131414752
+            - type: category
+              id: 251347229
+      example:
+        portal_user_subscriptions:
+          preferences:
+          - type: project
+            id: 131414752
+          - type: category
+            id: 251347229
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

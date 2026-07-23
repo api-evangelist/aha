@@ -1,0 +1,447 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Attachments API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Attachments
+paths:
+  /api/v1/comments/{comment_id}/attachments:
+    post:
+      summary: Create an attachment on a comment
+      description: Uploads a file attachment to a comment using multipart/form-data
+      tags:
+      - Attachments
+      parameters:
+      - name: comment_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: CommentId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/AttachmentsPostResponse'
+              example:
+                attachment:
+                  id: '6776881149496969408'
+                  download_url: https://company.aha.io/attachments/6776881149496969408/token/5e0c5180006c4cfa.download?size=original
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  original_file_size: 0
+                  content_type: text/html
+                  file_name: home_page.html
+                  file_size: 0
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                attachment[data]:
+                  type: string
+                  format: binary
+                  description: File to upload
+  /api/v1/idea_comments/{idea_comment_id}/attachments:
+    post:
+      summary: Create an attachment on an idea comment
+      description: "Files can be uploaded to Aha! as a sub-resource on any resource that supports them.\nThese resources support attachments:\n\n- [Record descriptions](/api/resources/attachments/create_an_attachment_on_a_record_description) (the description of a feature, requirement, etc.)\n- [Comments](/api/resources/attachments/create_an_attachment_on_a_comment)\n- [To-dos](/api/resources/attachments/create_an_attachment_on_a_to-do)\n- [Custom note fields](/api/resources/attachments/create_an_attachment_on_a_custom_note_field)\n\nThe format of an attachment is either a `multipart/form-data` upload with\nthe input name `attachment[data]` or a JSON payload pointing to an URL link:\n\n```json\n{\n  \"attachment\": {\n    \"file_url\": \"http://www.aha.io/\",\n    \"content_type\": \"text/html\",\n    \"file_name\": \"home_page.html\"\n  }\n}\n```"
+      tags:
+      - Attachments
+      parameters:
+      - name: idea_comment_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: IdeaCommentId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/AttachmentsPostResponse'
+              example:
+                attachment:
+                  id: '6776881149499676024'
+                  download_url: https://company.aha.io/attachments/6776881149499676024/token/5e0c5180006af027.download?size=original
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  original_file_size: 0
+                  content_type: text/html
+                  file_name: home_page.html
+                  file_size: 0
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                attachment[data]:
+                  type: string
+                  format: binary
+                  description: File to upload
+  /api/v1/tasks/{task_id}/attachments:
+    post:
+      summary: Create an attachment on a to-do
+      description: "Files can be uploaded to Aha! as a sub-resource on any resource that supports them.\nThese resources support attachments:\n\n- [Record descriptions](/api/resources/attachments/create_an_attachment_on_a_record_description) (the description of a feature, requirement, etc.)\n- [Comments](/api/resources/attachments/create_an_attachment_on_a_comment)\n- [To-dos](/api/resources/attachments/create_an_attachment_on_a_to-do)\n- [Custom note fields](/api/resources/attachments/create_an_attachment_on_a_custom_note_field)\n\nThe format of an attachment is either a `multipart/form-data` upload with\nthe input name `attachment[data]` or a JSON payload pointing to an URL link:\n\n```json\n{\n  \"attachment\": {\n    \"file_url\": \"http://www.aha.io/\",\n    \"content_type\": \"text/html\",\n    \"file_name\": \"home_page.html\"\n  }\n}\n```"
+      tags:
+      - Attachments
+      parameters:
+      - name: task_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: TaskId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/AttachmentsPostResponse'
+              example:
+                attachment:
+                  id: '6776881149492544916'
+                  download_url: https://company.aha.io/attachments/6776881149492544916/token/5e0c518000a14554.download?size=original
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  original_file_size: 0
+                  content_type: text/html
+                  file_name: home_page.html
+                  file_size: 0
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                attachment[data]:
+                  type: string
+                  format: binary
+                  description: File to upload
+  /api/v1/custom_fields/{custom_field_id}/attachments:
+    post:
+      summary: Create an attachment on a custom note field
+      description: "Files can be uploaded to Aha! as a sub-resource on any resource that supports them.\nThese resources support attachments:\n\n- [Record descriptions](/api/resources/attachments/create_an_attachment_on_a_record_description) (the description of a feature, requirement, etc.)\n- [Comments](/api/resources/attachments/create_an_attachment_on_a_comment)\n- [To-dos](/api/resources/attachments/create_an_attachment_on_a_to-do)\n- [Custom note fields](/api/resources/attachments/create_an_attachment_on_a_custom_note_field)\n\nThe format of an attachment is either a `multipart/form-data` upload with\nthe input name `attachment[data]` or a JSON payload pointing to an URL link:\n\n```json\n{\n  \"attachment\": {\n    \"file_url\": \"http://www.aha.io/\",\n    \"content_type\": \"text/html\",\n    \"file_name\": \"home_page.html\"\n  }\n}\n```"
+      tags:
+      - Attachments
+      parameters:
+      - name: custom_field_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: CustomFieldId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/AttachmentsPostResponse'
+              example:
+                attachment:
+                  id: '6776881149491054206'
+                  download_url: https://company.aha.io/attachments/6776881149491054206/token/5e0c518000e0d32f.download?size=original
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  original_file_size: 0
+                  content_type: text/html
+                  file_name: home_page.html
+                  file_size: 0
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                attachment[data]:
+                  type: string
+                  format: binary
+                  description: File to upload
+  /api/v1/custom_field_values/{custom_field_value_id}/attachments:
+    post:
+      summary: Create an attachment on a custom attachment field
+      description: "Files can be uploaded to Aha! as a sub-resource on any resource that supports them.\nThese resources support attachments:\n\n- [Record descriptions](/api/resources/attachments/create_an_attachment_on_a_record_description) (the description of a feature, requirement, etc.)\n- [Comments](/api/resources/attachments/create_an_attachment_on_a_comment)\n- [To-dos](/api/resources/attachments/create_an_attachment_on_a_to-do)\n- [Custom note fields](/api/resources/attachments/create_an_attachment_on_a_custom_note_field)\n\nThe format of an attachment is either a `multipart/form-data` upload with\nthe input name `attachment[data]` or a JSON payload pointing to an URL link:\n\n```json\n{\n  \"attachment\": {\n    \"file_url\": \"http://www.aha.io/\",\n    \"content_type\": \"text/html\",\n    \"file_name\": \"home_page.html\"\n  }\n}\n```"
+      tags:
+      - Attachments
+      parameters:
+      - name: custom_field_value_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: CustomFieldValueId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/AttachmentsPostResponse'
+              example:
+                attachment:
+                  id: '6776881149499253955'
+                  download_url: https://company.aha.io/attachments/6776881149499253955/token/5e0c518000f7d402.download?size=original
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  original_file_size: 0
+                  content_type: text/html
+                  file_name: home_page.html
+                  file_size: 0
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                attachment[data]:
+                  type: string
+                  format: binary
+                  description: File to upload
+  /api/v1/notes/{note_id}/attachments:
+    post:
+      summary: Create an attachment on a record description
+      description: 'Many records throughout Aha! have an associated description: features, requirements, ideas, etc. You can find the ID of a record''s description within the `description` attribute returned by any record show endpoint. You can then use that description ID to create an attachment on the record by providing it as the `note_id` URL parameter for this endpoint.'
+      tags:
+      - Attachments
+      parameters:
+      - name: note_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: NoteId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/AttachmentsPostResponse'
+              example:
+                attachment:
+                  id: '6776881149488245716'
+                  download_url: https://company.aha.io/attachments/6776881149488245716/token/5e0c5180003396dd.download?size=original
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  original_file_size: 0
+                  content_type: text/html
+                  file_name: home_page.html
+                  file_size: 0
+        '412':
+          description: Precondition failed
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/AttachmentsPost412Response'
+              example:
+                status: duplicate
+                success: false
+                attachmentId: '6776881149490765072'
+                attachmentUrl: https://company.aha.io/attachments/6776881149490765072/token/5e0c518000ac2936?size=original
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                attachment[data]:
+                  type: string
+                  format: binary
+                  description: File to upload
+  /api/v1/attachments/{attachment_id}:
+    delete:
+      summary: Delete an attachment
+      description: "Files can be uploaded to Aha! as a sub-resource on any resource that supports them.\nThese resources support attachments:\n\n- [Record descriptions](/api/resources/attachments/create_an_attachment_on_a_record_description) (the description of a feature, requirement, etc.)\n- [Comments](/api/resources/attachments/create_an_attachment_on_a_comment)\n- [To-dos](/api/resources/attachments/create_an_attachment_on_a_to-do)\n- [Custom note fields](/api/resources/attachments/create_an_attachment_on_a_custom_note_field)\n\nThe format of an attachment is either a `multipart/form-data` upload with\nthe input name `attachment[data]` or a JSON payload pointing to an URL link:\n\n```json\n{\n  \"attachment\": {\n    \"file_url\": \"http://www.aha.io/\",\n    \"content_type\": \"text/html\",\n    \"file_name\": \"home_page.html\"\n  }\n}\n```"
+      tags:
+      - Attachments
+      parameters:
+      - name: attachment_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: AttachmentId identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  schemas:
+    AttachmentsPostResponse:
+      type: object
+      properties:
+        attachment:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149488245716'
+            download_url:
+              type: string
+              example: https://company.aha.io/attachments/6776881149488245716/token/5e0c5180003396dd.download?size=original
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            original_file_size:
+              type: integer
+              example: 0
+            content_type:
+              type: string
+              example: text/html
+            file_name:
+              type: string
+              example: home_page.html
+            file_size:
+              type: integer
+              example: 0
+          example:
+            id: '6776881149488245716'
+            download_url: https://company.aha.io/attachments/6776881149488245716/token/5e0c5180003396dd.download?size=original
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            original_file_size: 0
+            content_type: text/html
+            file_name: home_page.html
+            file_size: 0
+      example:
+        attachment:
+          id: '6776881149488245716'
+          download_url: https://company.aha.io/attachments/6776881149488245716/token/5e0c5180003396dd.download?size=original
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          original_file_size: 0
+          content_type: text/html
+          file_name: home_page.html
+          file_size: 0
+    AttachmentsPost412Response:
+      type: object
+      properties:
+        status:
+          type: string
+          example: duplicate
+        success:
+          type: boolean
+          example: false
+        attachmentId:
+          type: string
+          example: '6776881149490765072'
+        attachmentUrl:
+          type: string
+          example: https://company.aha.io/attachments/6776881149490765072/token/5e0c518000ac2936?size=original
+      example:
+        status: duplicate
+        success: false
+        attachmentId: '6776881149490765072'
+        attachmentUrl: https://company.aha.io/attachments/6776881149490765072/token/5e0c518000ac2936?size=original
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

@@ -1,0 +1,126 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Audits API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Audits
+paths:
+  /api/v1/audits:
+    get:
+      summary: Retrieve the history of only the description of a record
+      description: 'Audit records describe historical changes to records in Aha! and are created automatically when a record is created, updated, or deleted. Audits are immutable and cannot be modified or deleted.
+
+
+        Audits are stored not only for first-class objects such as Features or Release, but also for secondary objects attached to those records such as custom field values, equation field values, descriptions, and record links.
+
+
+        Audit records are only available for the last 12 calendar months. After that, they must be accessed using the [Historical Audits](/api/resources/historical_audits/create_an_audit_search/) endpoint.
+
+
+        The performance of the Audits API can be improved by judicious use of the `created_since` and `created_before` parameters. Since this is high-volume timeseries data, these parameters should be used when attempting to scan through record activity, and the `after_id` parameter should be used in lieu of pagination.'
+      tags:
+      - Audits
+      parameters:
+      - name: associated_id
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1007868956'
+      - name: associated_type
+        in: query
+        required: false
+        schema:
+          type: string
+        example: Feature
+      - name: auditable_type
+        in: query
+        required: false
+        schema:
+          type: string
+        example: Note
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/AuditsGetResponse'
+              example:
+                audits: []
+                pagination:
+                  total_records: 0
+                  total_pages: 0
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  schemas:
+    AuditsGetResponse:
+      type: object
+      properties:
+        audits:
+          type: array
+          items: {}
+        pagination:
+          type: object
+          properties:
+            total_records:
+              type: integer
+              example: 0
+            total_pages:
+              type: integer
+              example: 0
+            current_page:
+              type: integer
+              example: 1
+          example:
+            total_records: 0
+            total_pages: 0
+            current_page: 1
+      example:
+        audits: []
+        pagination:
+          total_records: 0
+          total_pages: 0
+          current_page: 1
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

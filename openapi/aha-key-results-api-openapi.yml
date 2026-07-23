@@ -1,0 +1,905 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Key results API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Key results
+paths:
+  /api/v1/goals/{goal_id}/key_results:
+    get:
+      summary: List key results for a goal
+      description: null
+      tags:
+      - Key results
+      parameters:
+      - name: goal_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: GoalId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/KeyresultsGetResponse'
+              example:
+                key_results:
+                - id: '631791848'
+                  name: KR 1
+                  reference_num: DEMOENT-G-1-KR-1
+                  position: 2
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  progress: null
+                  target_metric: 100%
+                  starting_metric: 5%
+                  current_metric: 20%
+                  description:
+                    id: '6776881149488268212'
+                    body: ''
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  assigned_to_user: null
+                  workflow_status:
+                    id: '934242751'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  custom_fields: []
+                - id: '1017196896'
+                  name: KR 2
+                  reference_num: DEMOENT-G-1-KR-2
+                  position: 1
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  progress: null
+                  target_metric: null
+                  starting_metric: null
+                  current_metric: null
+                  description:
+                    id: '6776881149485267751'
+                    body: ''
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  assigned_to_user: null
+                  workflow_status:
+                    id: '934242751'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  custom_fields: []
+                pagination:
+                  total_records: 2
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    post:
+      summary: Create a key result
+      description: null
+      tags:
+      - Key results
+      parameters:
+      - name: goal_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: GoalId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/KeyresultsPostResponse'
+              example:
+                key_result:
+                  id: '6776881149483625245'
+                  name: New name
+                  reference_num: DEMOENT-G-1-KR-1
+                  position: 3
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  progress: 0
+                  target_metric: null
+                  starting_metric: null
+                  current_metric: null
+                  description:
+                    id: '6776881149493544532'
+                    body: <p>This is the description</p>
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  assigned_to_user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    default_assignee: false
+                  workflow_status:
+                    id: '76947914'
+                    name: On Track
+                    position: 2
+                    complete: false
+                    color: '#ecdd8f'
+                  custom_fields: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeyresultsPostRequest'
+            example:
+              key_result:
+                name: New name
+                workflow_status:
+                  name: On track
+                description: <p>This is the description</p>
+                assigned_to_user:
+                  email: no-reply@aha.io
+  /api/v1/key_results/{id}:
+    get:
+      summary: Get a specific key result
+      description: null
+      tags:
+      - Key results
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/KeyresultsGetResponse'
+              example:
+                key_result:
+                  id: '631791848'
+                  name: KR 1
+                  reference_num: DEMOENT-G-1-KR-1
+                  position: 2
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  progress: null
+                  target_metric: 100%
+                  starting_metric: 5%
+                  current_metric: 20%
+                  description:
+                    id: '6776881149495921680'
+                    body: ''
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  assigned_to_user: null
+                  workflow_status:
+                    id: '934242751'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  custom_fields: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    put:
+      summary: Update a key result
+      description: null
+      tags:
+      - Key results
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/KeyresultsPutResponse'
+              example:
+                key_result:
+                  id: '631791848'
+                  name: KR 1
+                  reference_num: DEMOENT-G-1-KR-1
+                  position: 2
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  progress: null
+                  target_metric: 100%
+                  starting_metric: 5%
+                  current_metric: 20%
+                  description:
+                    id: ''
+                    body: '#<note:0x000000032e7e5c80></note:0x000000032e7e5c80>'
+                    editor_version: 2
+                    created_at: null
+                    updated_at: null
+                    attachments: []
+                  assigned_to_user: null
+                  workflow_status:
+                    id: '934242751'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  custom_fields:
+                  - id: '6776881149496972898'
+                    key: stretch_goal
+                    name: Stretch goal
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: my metric
+                    type: string
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeyresultsPostRequest'
+            example:
+              key_result:
+                name: Another name
+                workflow_status:
+                  name: On track
+                watchers:
+                - 689956296
+                description: <p>new description</p>
+                current_metric: 30%
+    delete:
+      summary: Delete a key result
+      description: null
+      tags:
+      - Key results
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  schemas:
+    KeyresultsPostRequest:
+      type: object
+      properties:
+        key_result:
+          type: object
+          properties:
+            name:
+              type: string
+              example: New name
+            workflow_status:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: On track
+              example:
+                name: On track
+            description:
+              type: string
+              example: <p>This is the description</p>
+            assigned_to_user:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: no-reply@aha.io
+              example:
+                email: no-reply@aha.io
+          example:
+            name: New name
+            workflow_status:
+              name: On track
+            description: <p>This is the description</p>
+            assigned_to_user:
+              email: no-reply@aha.io
+      example:
+        key_result:
+          name: New name
+          workflow_status:
+            name: On track
+          description: <p>This is the description</p>
+          assigned_to_user:
+            email: no-reply@aha.io
+    KeyresultsPostResponse:
+      type: object
+      properties:
+        key_result:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149483625245'
+            name:
+              type: string
+              example: New name
+            reference_num:
+              type: string
+              example: DEMOENT-G-1-KR-1
+            position:
+              type: integer
+              example: 3
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            progress:
+              type: integer
+              example: 0
+            target_metric:
+              type: 'null'
+            starting_metric:
+              type: 'null'
+            current_metric:
+              type: 'null'
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149493544532'
+                body:
+                  type: string
+                  example: <p>This is the description</p>
+                editor_version:
+                  type: integer
+                  example: 2
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: '6776881149493544532'
+                body: <p>This is the description</p>
+                editor_version: 2
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            assigned_to_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '689956296'
+                name:
+                  type: string
+                  example: Henry Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                default_assignee:
+                  type: boolean
+                  example: false
+              example:
+                id: '689956296'
+                name: Henry Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                default_assignee: false
+            workflow_status:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '76947914'
+                name:
+                  type: string
+                  example: On Track
+                position:
+                  type: integer
+                  example: 2
+                complete:
+                  type: boolean
+                  example: false
+                color:
+                  type: string
+                  example: '#ecdd8f'
+              example:
+                id: '76947914'
+                name: On Track
+                position: 2
+                complete: false
+                color: '#ecdd8f'
+            custom_fields:
+              type: array
+              items: {}
+          example:
+            id: '6776881149483625245'
+            name: New name
+            reference_num: DEMOENT-G-1-KR-1
+            position: 3
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            progress: 0
+            target_metric: null
+            starting_metric: null
+            current_metric: null
+            description:
+              id: '6776881149493544532'
+              body: <p>This is the description</p>
+              editor_version: 2
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            assigned_to_user:
+              id: '689956296'
+              name: Henry Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              default_assignee: false
+            workflow_status:
+              id: '76947914'
+              name: On Track
+              position: 2
+              complete: false
+              color: '#ecdd8f'
+            custom_fields: []
+      example:
+        key_result:
+          id: '6776881149483625245'
+          name: New name
+          reference_num: DEMOENT-G-1-KR-1
+          position: 3
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          progress: 0
+          target_metric: null
+          starting_metric: null
+          current_metric: null
+          description:
+            id: '6776881149493544532'
+            body: <p>This is the description</p>
+            editor_version: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+          assigned_to_user:
+            id: '689956296'
+            name: Henry Humpty
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            default_assignee: false
+          workflow_status:
+            id: '76947914'
+            name: On Track
+            position: 2
+            complete: false
+            color: '#ecdd8f'
+          custom_fields: []
+    KeyresultsPutResponse:
+      type: object
+      properties:
+        key_result:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '631791848'
+            name:
+              type: string
+              example: KR 1
+            reference_num:
+              type: string
+              example: DEMOENT-G-1-KR-1
+            position:
+              type: integer
+              example: 2
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            progress:
+              type: 'null'
+            target_metric:
+              type: string
+              example: 100%
+            starting_metric:
+              type: string
+              example: 5%
+            current_metric:
+              type: string
+              example: 20%
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: ''
+                body:
+                  type: string
+                  example: '#<note:0x000000032e7e5c80></note:0x000000032e7e5c80>'
+                editor_version:
+                  type: integer
+                  example: 2
+                created_at:
+                  type: 'null'
+                updated_at:
+                  type: 'null'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: ''
+                body: '#<note:0x000000032e7e5c80></note:0x000000032e7e5c80>'
+                editor_version: 2
+                created_at: null
+                updated_at: null
+                attachments: []
+            assigned_to_user:
+              type: 'null'
+            workflow_status:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '934242751'
+                name:
+                  type: string
+                  example: New
+                position:
+                  type: integer
+                  example: 1
+                complete:
+                  type: boolean
+                  example: false
+                color:
+                  type: string
+                  example: '#dce7c6'
+              example:
+                id: '934242751'
+                name: New
+                position: 1
+                complete: false
+                color: '#dce7c6'
+            custom_fields:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  key:
+                    type: string
+                  name:
+                    type: string
+                  updatedAt:
+                    type: string
+                  value:
+                    type: string
+                  type:
+                    type: string
+                example:
+                  id: '6776881149496972898'
+                  key: stretch_goal
+                  name: Stretch goal
+                  updatedAt: '2019-01-01T00:00:00Z'
+                  value: my metric
+                  type: string
+              example:
+              - id: '6776881149496972898'
+                key: stretch_goal
+                name: Stretch goal
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: my metric
+                type: string
+          example:
+            id: '631791848'
+            name: KR 1
+            reference_num: DEMOENT-G-1-KR-1
+            position: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            progress: null
+            target_metric: 100%
+            starting_metric: 5%
+            current_metric: 20%
+            description:
+              id: ''
+              body: '#<note:0x000000032e7e5c80></note:0x000000032e7e5c80>'
+              editor_version: 2
+              created_at: null
+              updated_at: null
+              attachments: []
+            assigned_to_user: null
+            workflow_status:
+              id: '934242751'
+              name: New
+              position: 1
+              complete: false
+              color: '#dce7c6'
+            custom_fields:
+            - id: '6776881149496972898'
+              key: stretch_goal
+              name: Stretch goal
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: my metric
+              type: string
+      example:
+        key_result:
+          id: '631791848'
+          name: KR 1
+          reference_num: DEMOENT-G-1-KR-1
+          position: 2
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          progress: null
+          target_metric: 100%
+          starting_metric: 5%
+          current_metric: 20%
+          description:
+            id: ''
+            body: '#<note:0x000000032e7e5c80></note:0x000000032e7e5c80>'
+            editor_version: 2
+            created_at: null
+            updated_at: null
+            attachments: []
+          assigned_to_user: null
+          workflow_status:
+            id: '934242751'
+            name: New
+            position: 1
+            complete: false
+            color: '#dce7c6'
+          custom_fields:
+          - id: '6776881149496972898'
+            key: stretch_goal
+            name: Stretch goal
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: my metric
+            type: string
+    KeyresultsGetResponse:
+      type: object
+      properties:
+        key_result:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '631791848'
+            name:
+              type: string
+              example: KR 1
+            reference_num:
+              type: string
+              example: DEMOENT-G-1-KR-1
+            position:
+              type: integer
+              example: 2
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            progress:
+              type: 'null'
+            target_metric:
+              type: string
+              example: 100%
+            starting_metric:
+              type: string
+              example: 5%
+            current_metric:
+              type: string
+              example: 20%
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149495921680'
+                body:
+                  type: string
+                  example: ''
+                editor_version:
+                  type: integer
+                  example: 2
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: '6776881149495921680'
+                body: ''
+                editor_version: 2
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            assigned_to_user:
+              type: 'null'
+            workflow_status:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '934242751'
+                name:
+                  type: string
+                  example: New
+                position:
+                  type: integer
+                  example: 1
+                complete:
+                  type: boolean
+                  example: false
+                color:
+                  type: string
+                  example: '#dce7c6'
+              example:
+                id: '934242751'
+                name: New
+                position: 1
+                complete: false
+                color: '#dce7c6'
+            custom_fields:
+              type: array
+              items: {}
+          example:
+            id: '631791848'
+            name: KR 1
+            reference_num: DEMOENT-G-1-KR-1
+            position: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            progress: null
+            target_metric: 100%
+            starting_metric: 5%
+            current_metric: 20%
+            description:
+              id: '6776881149495921680'
+              body: ''
+              editor_version: 2
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            assigned_to_user: null
+            workflow_status:
+              id: '934242751'
+              name: New
+              position: 1
+              complete: false
+              color: '#dce7c6'
+            custom_fields: []
+      example:
+        key_result:
+          id: '631791848'
+          name: KR 1
+          reference_num: DEMOENT-G-1-KR-1
+          position: 2
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          progress: null
+          target_metric: 100%
+          starting_metric: 5%
+          current_metric: 20%
+          description:
+            id: '6776881149495921680'
+            body: ''
+            editor_version: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+          assigned_to_user: null
+          workflow_status:
+            id: '934242751'
+            name: New
+            position: 1
+            complete: false
+            color: '#dce7c6'
+          custom_fields: []
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

@@ -1,0 +1,1978 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Custom pivots API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Custom pivots
+paths:
+  /api/v1/bookmarks/custom_pivots/{report_id}:
+    get:
+      summary: Get the list view of a saved report
+      description: "The list view responds with a JSON object with three attributes: pagination, columns, and rows.\n\nThe columns attribute is an array of objects that give detailed information\nabout the columns of the list. The objects include the name of the table, the field, and\na human readable title attribute.\n\nThe rows attribute is an of array of arrays. Each object within the inner array contains the value\nof that for a specific column. Each object contains attributes for various representations of the\ndata. The fields are:\n\n  - `id`: The unique id of the object\n  - `plain_value`: A string representation of the object\n  - `html_value`: An HTML representation of the object. This is the same HTML that\n  is used in Aha! to represent the value in our reports.\n  - `rich_value`: If the object is a reference to another object (such as a tag),\n  the, this will be the object representation. For instance, a tag would be\n  representated as:\n  ```\n  {\n    id: \"6013053275679792248\",\n    name: \"API\"\n  }\n  ```\n\nThe third attribute is pagination. This works like everywhere else in the Aha! API and is documented [here](/api#pagination)."
+      tags:
+      - Custom pivots
+      parameters:
+      - name: report_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ReportId identifier
+      - name: view
+        in: query
+        required: false
+        schema:
+          type: string
+        example: list
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CustompivotsGetResponse'
+              example:
+                top_level_columns:
+                - 1
+                - 2
+                - 3
+                columns:
+                  '1':
+                    ref: 1
+                    parent_ref: null
+                    child_refs: []
+                    id: 131414752
+                    plain_value: Project 1
+                    html_value: '<a data-drawer-url="/projects/PRJ1" href="/projects/PRJ1"><span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 1"></i></span><span>Project 1</span></span></a>'
+                    rich_value: '<span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 1"></i></span><span>Project 1</span></span>'
+                    field_definition_ref: 7
+                  '2':
+                    ref: 2
+                    parent_ref: null
+                    child_refs: []
+                    id: 517761884
+                    plain_value: Project 2
+                    html_value: '<a data-drawer-url="/projects/PRJ2" href="/projects/PRJ2"><span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 2"></i></span><span>Project 2</span></span></a>'
+                    rich_value: '<span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 2"></i></span><span>Project 2</span></span>'
+                    field_definition_ref: 7
+                  '3':
+                    ref: 3
+                    parent_ref: null
+                    child_refs: []
+                    id: 702241743
+                    plain_value: Project 3
+                    html_value: '<a data-drawer-url="/projects/PRJ3" href="/projects/PRJ3"><span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 3"></i></span><span>Project 3</span></span></a>'
+                    rich_value: '<span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 3"></i></span><span>Project 3</span></span>'
+                    field_definition_ref: 7
+                top_level_rows:
+                - 4
+                - 5
+                - 6
+                rows:
+                  '4':
+                    ref: 4
+                    parent_ref: null
+                    child_refs: []
+                    id: 278327321
+                    plain_value: Release 1
+                    html_value: <a data-drawer-url="/releases/PRJ1-R-1" href="/releases/PRJ1-R-1">Release 1</a>
+                    rich_value: Release 1
+                    field_definition_ref: 8
+                  '5':
+                    ref: 5
+                    parent_ref: null
+                    child_refs: []
+                    id: 1000426269
+                    plain_value: Release 2
+                    html_value: <a data-drawer-url="/releases/PRJ2-R-1" href="/releases/PRJ2-R-1">Release 2</a>
+                    rich_value: Release 2
+                    field_definition_ref: 8
+                  '6':
+                    ref: 6
+                    parent_ref: null
+                    child_refs: []
+                    id: 342040612
+                    plain_value: Release 3 Project 3
+                    html_value: <a data-drawer-url="/releases/PRJ3-R-1" href="/releases/PRJ3-R-1">Release 3 Project 3</a>
+                    rich_value: Release 3 Project 3
+                    field_definition_ref: 8
+                cells:
+                - - - - id: 1007868956
+                        plain_value: PRJ1-1
+                        html_value: <a data-drawer-url="/features/PRJ1-1" href="/features/PRJ1-1"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-1</aha-record-reference></a>
+                        rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-1</aha-record-reference>
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 9
+                      - id: 1007868956
+                        plain_value: Feature 1
+                        html_value: <a data-drawer-url="/features/PRJ1-1" href="/features/PRJ1-1">Feature 1</a>
+                        rich_value: Feature 1
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 10
+                      - id: 1007868956
+                        plain_value: New
+                        html_value: '<span class="status-pill" title="New" style="color: var(--theme-primary-text); border: none; background-color: #F1F5E8">New</span>'
+                        rich_value:
+                          id: 934242751
+                          name: New
+                          color: dce7c6
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 11
+                      - id: 1055237874
+                        plain_value: John Long (john@long.com)
+                        html_value: <a data-drawer-url="/ideas/idea_users/1056507375" href="/ideas/idea_users/1056507375">John Long (john@long.com)</a>
+                        rich_value:
+                          id: 1056507375
+                          name: John Long (john@long.com)
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 12
+                    - - id: 1007868956
+                        plain_value: PRJ1-1
+                        html_value: <a data-drawer-url="/features/PRJ1-1" href="/features/PRJ1-1"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-1</aha-record-reference></a>
+                        rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-1</aha-record-reference>
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 9
+                      - id: 1007868956
+                        plain_value: Feature 1
+                        html_value: <a data-drawer-url="/features/PRJ1-1" href="/features/PRJ1-1">Feature 1</a>
+                        rich_value: Feature 1
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 10
+                      - id: 1007868956
+                        plain_value: New
+                        html_value: '<span class="status-pill" title="New" style="color: var(--theme-primary-text); border: none; background-color: #F1F5E8">New</span>'
+                        rich_value:
+                          id: 934242751
+                          name: New
+                          color: dce7c6
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 11
+                      - id: 444379319
+                        plain_value: John Long (john@long.com)
+                        html_value: <a data-drawer-url="/ideas/idea_users/1056507375" href="/ideas/idea_users/1056507375">John Long (john@long.com)</a>
+                        rich_value:
+                          id: 1056507375
+                          name: John Long (john@long.com)
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 12
+                    - - id: 622562724
+                        plain_value: PRJ1-2
+                        html_value: <a data-drawer-url="/features/PRJ1-2" href="/features/PRJ1-2"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-2</aha-record-reference></a>
+                        rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-2</aha-record-reference>
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 9
+                      - id: 622562724
+                        plain_value: Another Feature
+                        html_value: <a data-drawer-url="/features/PRJ1-2" href="/features/PRJ1-2">Another Feature</a>
+                        rich_value: Another Feature
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 10
+                      - id: 622562724
+                        plain_value: Designed
+                        html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                        rich_value:
+                          id: 962984386
+                          name: Designed
+                          color: ecdd8f
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 11
+                      - id: null
+                        plain_value: null
+                        html_value: null
+                        rich_value: null
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 12
+                    - - id: 303873333
+                        plain_value: PRJ1-3
+                        html_value: <a data-drawer-url="/features/PRJ1-3" href="/features/PRJ1-3"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-3</aha-record-reference></a>
+                        rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-3</aha-record-reference>
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 9
+                      - id: 303873333
+                        plain_value: Another Third Feature
+                        html_value: <a data-drawer-url="/features/PRJ1-3" href="/features/PRJ1-3">Another Third Feature</a>
+                        rich_value: Another Third Feature
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 10
+                      - id: 303873333
+                        plain_value: Designed
+                        html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                        rich_value:
+                          id: 962984386
+                          name: Designed
+                          color: ecdd8f
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 11
+                      - id: null
+                        plain_value: null
+                        html_value: null
+                        rich_value: null
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 12
+                    - - id: 209201304
+                        plain_value: PRJ1-4
+                        html_value: <a data-drawer-url="/features/PRJ1-4" href="/features/PRJ1-4"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-4</aha-record-reference></a>
+                        rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-4</aha-record-reference>
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 9
+                      - id: 209201304
+                        plain_value: Another Fourth Feature
+                        html_value: <a data-drawer-url="/features/PRJ1-4" href="/features/PRJ1-4">Another Fourth Feature</a>
+                        rich_value: Another Fourth Feature
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 10
+                      - id: 209201304
+                        plain_value: Designed
+                        html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                        rich_value:
+                          id: 962984386
+                          name: Designed
+                          color: ecdd8f
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 11
+                      - id: null
+                        plain_value: null
+                        html_value: null
+                        rich_value: null
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 12
+                    - - id: 998184963
+                        plain_value: PRJ1-5
+                        html_value: <a data-drawer-url="/features/PRJ1-5" href="/features/PRJ1-5"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-5</aha-record-reference></a>
+                        rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-5</aha-record-reference>
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 9
+                      - id: 998184963
+                        plain_value: Another Fifth Feature
+                        html_value: <a data-drawer-url="/features/PRJ1-5" href="/features/PRJ1-5">Another Fifth Feature</a>
+                        rich_value: Another Fifth Feature
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 10
+                      - id: 998184963
+                        plain_value: Designed
+                        html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                        rich_value:
+                          id: 962984386
+                          name: Designed
+                          color: ecdd8f
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 11
+                      - id: null
+                        plain_value: null
+                        html_value: null
+                        rich_value: null
+                        row_ref: 4
+                        column_ref: 1
+                        field_definition_ref: 12
+                  - []
+                  - []
+                - - []
+                  - - - id: 101074039
+                        plain_value: PRJ2-1
+                        html_value: <a data-drawer-url="/features/PRJ2-1" href="/features/PRJ2-1"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ2-1</aha-record-reference></a>
+                        rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ2-1</aha-record-reference>
+                        row_ref: 5
+                        column_ref: 2
+                        field_definition_ref: 9
+                      - id: 101074039
+                        plain_value: A feature in project 2
+                        html_value: <a data-drawer-url="/features/PRJ2-1" href="/features/PRJ2-1">A feature in project 2</a>
+                        rich_value: A feature in project 2
+                        row_ref: 5
+                        column_ref: 2
+                        field_definition_ref: 10
+                      - id: 101074039
+                        plain_value: Designed
+                        html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                        rich_value:
+                          id: 962984386
+                          name: Designed
+                          color: ecdd8f
+                        row_ref: 5
+                        column_ref: 2
+                        field_definition_ref: 11
+                      - id: null
+                        plain_value: null
+                        html_value: null
+                        rich_value: null
+                        row_ref: 5
+                        column_ref: 2
+                        field_definition_ref: 12
+                  - []
+                - - []
+                  - []
+                  - - - id: 229579240
+                        plain_value: PRJ3-1
+                        html_value: <a data-drawer-url="/features/PRJ3-1" href="/features/PRJ3-1"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ3-1</aha-record-reference></a>
+                        rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ3-1</aha-record-reference>
+                        row_ref: 6
+                        column_ref: 3
+                        field_definition_ref: 9
+                      - id: 229579240
+                        plain_value: Feature without Requirements
+                        html_value: <a data-drawer-url="/features/PRJ3-1" href="/features/PRJ3-1">Feature without Requirements</a>
+                        rich_value: Feature without Requirements
+                        row_ref: 6
+                        column_ref: 3
+                        field_definition_ref: 10
+                      - id: 229579240
+                        plain_value: New
+                        html_value: '<span class="status-pill" title="New" style="color: var(--theme-primary-text); border: none; background-color: #F1F5E8">New</span>'
+                        rich_value:
+                          id: 934242751
+                          name: New
+                          color: dce7c6
+                        row_ref: 6
+                        column_ref: 3
+                        field_definition_ref: 11
+                      - id: null
+                        plain_value: null
+                        html_value: null
+                        rich_value: null
+                        row_ref: 6
+                        column_ref: 3
+                        field_definition_ref: 12
+                    - - id: 959120953
+                        plain_value: PRJ3-2
+                        html_value: <a data-drawer-url="/features/PRJ3-2" href="/features/PRJ3-2"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ3-2</aha-record-reference></a>
+                        rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ3-2</aha-record-reference>
+                        row_ref: 6
+                        column_ref: 3
+                        field_definition_ref: 9
+                      - id: 959120953
+                        plain_value: A third Feature
+                        html_value: <a data-drawer-url="/features/PRJ3-2" href="/features/PRJ3-2">A third Feature</a>
+                        rich_value: A third Feature
+                        row_ref: 6
+                        column_ref: 3
+                        field_definition_ref: 10
+                      - id: 959120953
+                        plain_value: Designed
+                        html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                        rich_value:
+                          id: 962984386
+                          name: Designed
+                          color: ecdd8f
+                        row_ref: 6
+                        column_ref: 3
+                        field_definition_ref: 11
+                      - id: null
+                        plain_value: null
+                        html_value: null
+                        rich_value: null
+                        row_ref: 6
+                        column_ref: 3
+                        field_definition_ref: 12
+                field_definitions:
+                  '7':
+                    ref: 7
+                    table: projects
+                    field: name
+                    title: Workspace name
+                  '8':
+                    ref: 8
+                    table: releases
+                    field: name
+                    title: Release name
+                  '9':
+                    ref: 9
+                    table: features
+                    field: reference_num
+                    title: 'Feature reference #'
+                  '10':
+                    ref: 10
+                    table: features
+                    field: name
+                    title: Feature name
+                  '11':
+                    ref: 11
+                    table: features
+                    field: status
+                    title: Feature status
+                  '12':
+                    ref: 12
+                    table: ideas
+                    field: created_by_user_id
+                    title: Idea created by
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  schemas:
+    CustompivotsGetResponse:
+      type: object
+      properties:
+        top_level_columns:
+          type: array
+          items:
+            type: integer
+            example: 1
+          example:
+          - 1
+          - 2
+          - 3
+        columns:
+          type: object
+          properties:
+            '1':
+              type: object
+              properties:
+                ref:
+                  type: integer
+                  example: 1
+                parent_ref:
+                  type: 'null'
+                child_refs:
+                  type: array
+                  items: {}
+                id:
+                  type: integer
+                  example: 131414752
+                plain_value:
+                  type: string
+                  example: Project 1
+                html_value:
+                  type: string
+                  example: '<a data-drawer-url="/projects/PRJ1" href="/projects/PRJ1"><span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 1"></i></span><span>Project 1</span></span></a>'
+                rich_value:
+                  type: string
+                  example: '<span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 1"></i></span><span>Project 1</span></span>'
+                field_definition_ref:
+                  type: integer
+                  example: 7
+              example:
+                ref: 1
+                parent_ref: null
+                child_refs: []
+                id: 131414752
+                plain_value: Project 1
+                html_value: '<a data-drawer-url="/projects/PRJ1" href="/projects/PRJ1"><span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 1"></i></span><span>Project 1</span></span></a>'
+                rich_value: '<span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 1"></i></span><span>Project 1</span></span>'
+                field_definition_ref: 7
+            '2':
+              type: object
+              properties:
+                ref:
+                  type: integer
+                  example: 2
+                parent_ref:
+                  type: 'null'
+                child_refs:
+                  type: array
+                  items: {}
+                id:
+                  type: integer
+                  example: 517761884
+                plain_value:
+                  type: string
+                  example: Project 2
+                html_value:
+                  type: string
+                  example: '<a data-drawer-url="/projects/PRJ2" href="/projects/PRJ2"><span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 2"></i></span><span>Project 2</span></span></a>'
+                rich_value:
+                  type: string
+                  example: '<span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 2"></i></span><span>Project 2</span></span>'
+                field_definition_ref:
+                  type: integer
+                  example: 7
+              example:
+                ref: 2
+                parent_ref: null
+                child_refs: []
+                id: 517761884
+                plain_value: Project 2
+                html_value: '<a data-drawer-url="/projects/PRJ2" href="/projects/PRJ2"><span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 2"></i></span><span>Project 2</span></span></a>'
+                rich_value: '<span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 2"></i></span><span>Project 2</span></span>'
+                field_definition_ref: 7
+            '3':
+              type: object
+              properties:
+                ref:
+                  type: integer
+                  example: 3
+                parent_ref:
+                  type: 'null'
+                child_refs:
+                  type: array
+                  items: {}
+                id:
+                  type: integer
+                  example: 702241743
+                plain_value:
+                  type: string
+                  example: Project 3
+                html_value:
+                  type: string
+                  example: '<a data-drawer-url="/projects/PRJ3" href="/projects/PRJ3"><span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 3"></i></span><span>Project 3</span></span></a>'
+                rich_value:
+                  type: string
+                  example: '<span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 3"></i></span><span>Project 3</span></span>'
+                field_definition_ref:
+                  type: integer
+                  example: 7
+              example:
+                ref: 3
+                parent_ref: null
+                child_refs: []
+                id: 702241743
+                plain_value: Project 3
+                html_value: '<a data-drawer-url="/projects/PRJ3" href="/projects/PRJ3"><span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 3"></i></span><span>Project 3</span></span></a>'
+                rich_value: '<span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 3"></i></span><span>Project 3</span></span>'
+                field_definition_ref: 7
+          example:
+            '1':
+              ref: 1
+              parent_ref: null
+              child_refs: []
+              id: 131414752
+              plain_value: Project 1
+              html_value: '<a data-drawer-url="/projects/PRJ1" href="/projects/PRJ1"><span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 1"></i></span><span>Project 1</span></span></a>'
+              rich_value: '<span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 1"></i></span><span>Project 1</span></span>'
+              field_definition_ref: 7
+            '2':
+              ref: 2
+              parent_ref: null
+              child_refs: []
+              id: 517761884
+              plain_value: Project 2
+              html_value: '<a data-drawer-url="/projects/PRJ2" href="/projects/PRJ2"><span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 2"></i></span><span>Project 2</span></span></a>'
+              rich_value: '<span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 2"></i></span><span>Project 2</span></span>'
+              field_definition_ref: 7
+            '3':
+              ref: 3
+              parent_ref: null
+              child_refs: []
+              id: 702241743
+              plain_value: Project 3
+              html_value: '<a data-drawer-url="/projects/PRJ3" href="/projects/PRJ3"><span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 3"></i></span><span>Project 3</span></span></a>'
+              rich_value: '<span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 3"></i></span><span>Project 3</span></span>'
+              field_definition_ref: 7
+        top_level_rows:
+          type: array
+          items:
+            type: integer
+            example: 4
+          example:
+          - 4
+          - 5
+          - 6
+        rows:
+          type: object
+          properties:
+            '4':
+              type: object
+              properties:
+                ref:
+                  type: integer
+                  example: 4
+                parent_ref:
+                  type: 'null'
+                child_refs:
+                  type: array
+                  items: {}
+                id:
+                  type: integer
+                  example: 278327321
+                plain_value:
+                  type: string
+                  example: Release 1
+                html_value:
+                  type: string
+                  example: <a data-drawer-url="/releases/PRJ1-R-1" href="/releases/PRJ1-R-1">Release 1</a>
+                rich_value:
+                  type: string
+                  example: Release 1
+                field_definition_ref:
+                  type: integer
+                  example: 8
+              example:
+                ref: 4
+                parent_ref: null
+                child_refs: []
+                id: 278327321
+                plain_value: Release 1
+                html_value: <a data-drawer-url="/releases/PRJ1-R-1" href="/releases/PRJ1-R-1">Release 1</a>
+                rich_value: Release 1
+                field_definition_ref: 8
+            '5':
+              type: object
+              properties:
+                ref:
+                  type: integer
+                  example: 5
+                parent_ref:
+                  type: 'null'
+                child_refs:
+                  type: array
+                  items: {}
+                id:
+                  type: integer
+                  example: 1000426269
+                plain_value:
+                  type: string
+                  example: Release 2
+                html_value:
+                  type: string
+                  example: <a data-drawer-url="/releases/PRJ2-R-1" href="/releases/PRJ2-R-1">Release 2</a>
+                rich_value:
+                  type: string
+                  example: Release 2
+                field_definition_ref:
+                  type: integer
+                  example: 8
+              example:
+                ref: 5
+                parent_ref: null
+                child_refs: []
+                id: 1000426269
+                plain_value: Release 2
+                html_value: <a data-drawer-url="/releases/PRJ2-R-1" href="/releases/PRJ2-R-1">Release 2</a>
+                rich_value: Release 2
+                field_definition_ref: 8
+            '6':
+              type: object
+              properties:
+                ref:
+                  type: integer
+                  example: 6
+                parent_ref:
+                  type: 'null'
+                child_refs:
+                  type: array
+                  items: {}
+                id:
+                  type: integer
+                  example: 342040612
+                plain_value:
+                  type: string
+                  example: Release 3 Project 3
+                html_value:
+                  type: string
+                  example: <a data-drawer-url="/releases/PRJ3-R-1" href="/releases/PRJ3-R-1">Release 3 Project 3</a>
+                rich_value:
+                  type: string
+                  example: Release 3 Project 3
+                field_definition_ref:
+                  type: integer
+                  example: 8
+              example:
+                ref: 6
+                parent_ref: null
+                child_refs: []
+                id: 342040612
+                plain_value: Release 3 Project 3
+                html_value: <a data-drawer-url="/releases/PRJ3-R-1" href="/releases/PRJ3-R-1">Release 3 Project 3</a>
+                rich_value: Release 3 Project 3
+                field_definition_ref: 8
+          example:
+            '4':
+              ref: 4
+              parent_ref: null
+              child_refs: []
+              id: 278327321
+              plain_value: Release 1
+              html_value: <a data-drawer-url="/releases/PRJ1-R-1" href="/releases/PRJ1-R-1">Release 1</a>
+              rich_value: Release 1
+              field_definition_ref: 8
+            '5':
+              ref: 5
+              parent_ref: null
+              child_refs: []
+              id: 1000426269
+              plain_value: Release 2
+              html_value: <a data-drawer-url="/releases/PRJ2-R-1" href="/releases/PRJ2-R-1">Release 2</a>
+              rich_value: Release 2
+              field_definition_ref: 8
+            '6':
+              ref: 6
+              parent_ref: null
+              child_refs: []
+              id: 342040612
+              plain_value: Release 3 Project 3
+              html_value: <a data-drawer-url="/releases/PRJ3-R-1" href="/releases/PRJ3-R-1">Release 3 Project 3</a>
+              rich_value: Release 3 Project 3
+              field_definition_ref: 8
+        cells:
+          type: array
+          items:
+            type: array
+            items:
+              type: array
+              items:
+                type: string
+              example:
+              - - id: 1007868956
+                  plain_value: PRJ1-1
+                  html_value: <a data-drawer-url="/features/PRJ1-1" href="/features/PRJ1-1"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-1</aha-record-reference></a>
+                  rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-1</aha-record-reference>
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 9
+                - id: 1007868956
+                  plain_value: Feature 1
+                  html_value: <a data-drawer-url="/features/PRJ1-1" href="/features/PRJ1-1">Feature 1</a>
+                  rich_value: Feature 1
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 10
+                - id: 1007868956
+                  plain_value: New
+                  html_value: '<span class="status-pill" title="New" style="color: var(--theme-primary-text); border: none; background-color: #F1F5E8">New</span>'
+                  rich_value:
+                    id: 934242751
+                    name: New
+                    color: dce7c6
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 11
+                - id: 1055237874
+                  plain_value: John Long (john@long.com)
+                  html_value: <a data-drawer-url="/ideas/idea_users/1056507375" href="/ideas/idea_users/1056507375">John Long (john@long.com)</a>
+                  rich_value:
+                    id: 1056507375
+                    name: John Long (john@long.com)
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 12
+              - - id: 1007868956
+                  plain_value: PRJ1-1
+                  html_value: <a data-drawer-url="/features/PRJ1-1" href="/features/PRJ1-1"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-1</aha-record-reference></a>
+                  rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-1</aha-record-reference>
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 9
+                - id: 1007868956
+                  plain_value: Feature 1
+                  html_value: <a data-drawer-url="/features/PRJ1-1" href="/features/PRJ1-1">Feature 1</a>
+                  rich_value: Feature 1
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 10
+                - id: 1007868956
+                  plain_value: New
+                  html_value: '<span class="status-pill" title="New" style="color: var(--theme-primary-text); border: none; background-color: #F1F5E8">New</span>'
+                  rich_value:
+                    id: 934242751
+                    name: New
+                    color: dce7c6
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 11
+                - id: 444379319
+                  plain_value: John Long (john@long.com)
+                  html_value: <a data-drawer-url="/ideas/idea_users/1056507375" href="/ideas/idea_users/1056507375">John Long (john@long.com)</a>
+                  rich_value:
+                    id: 1056507375
+                    name: John Long (john@long.com)
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 12
+              - - id: 622562724
+                  plain_value: PRJ1-2
+                  html_value: <a data-drawer-url="/features/PRJ1-2" href="/features/PRJ1-2"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-2</aha-record-reference></a>
+                  rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-2</aha-record-reference>
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 9
+                - id: 622562724
+                  plain_value: Another Feature
+                  html_value: <a data-drawer-url="/features/PRJ1-2" href="/features/PRJ1-2">Another Feature</a>
+                  rich_value: Another Feature
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 10
+                - id: 622562724
+                  plain_value: Designed
+                  html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                  rich_value:
+                    id: 962984386
+                    name: Designed
+                    color: ecdd8f
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 11
+                - id: null
+                  plain_value: null
+                  html_value: null
+                  rich_value: null
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 12
+              - - id: 303873333
+                  plain_value: PRJ1-3
+                  html_value: <a data-drawer-url="/features/PRJ1-3" href="/features/PRJ1-3"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-3</aha-record-reference></a>
+                  rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-3</aha-record-reference>
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 9
+                - id: 303873333
+                  plain_value: Another Third Feature
+                  html_value: <a data-drawer-url="/features/PRJ1-3" href="/features/PRJ1-3">Another Third Feature</a>
+                  rich_value: Another Third Feature
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 10
+                - id: 303873333
+                  plain_value: Designed
+                  html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                  rich_value:
+                    id: 962984386
+                    name: Designed
+                    color: ecdd8f
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 11
+                - id: null
+                  plain_value: null
+                  html_value: null
+                  rich_value: null
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 12
+              - - id: 209201304
+                  plain_value: PRJ1-4
+                  html_value: <a data-drawer-url="/features/PRJ1-4" href="/features/PRJ1-4"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-4</aha-record-reference></a>
+                  rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-4</aha-record-reference>
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 9
+                - id: 209201304
+                  plain_value: Another Fourth Feature
+                  html_value: <a data-drawer-url="/features/PRJ1-4" href="/features/PRJ1-4">Another Fourth Feature</a>
+                  rich_value: Another Fourth Feature
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 10
+                - id: 209201304
+                  plain_value: Designed
+                  html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                  rich_value:
+                    id: 962984386
+                    name: Designed
+                    color: ecdd8f
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 11
+                - id: null
+                  plain_value: null
+                  html_value: null
+                  rich_value: null
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 12
+              - - id: 998184963
+                  plain_value: PRJ1-5
+                  html_value: <a data-drawer-url="/features/PRJ1-5" href="/features/PRJ1-5"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-5</aha-record-reference></a>
+                  rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-5</aha-record-reference>
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 9
+                - id: 998184963
+                  plain_value: Another Fifth Feature
+                  html_value: <a data-drawer-url="/features/PRJ1-5" href="/features/PRJ1-5">Another Fifth Feature</a>
+                  rich_value: Another Fifth Feature
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 10
+                - id: 998184963
+                  plain_value: Designed
+                  html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                  rich_value:
+                    id: 962984386
+                    name: Designed
+                    color: ecdd8f
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 11
+                - id: null
+                  plain_value: null
+                  html_value: null
+                  rich_value: null
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 12
+            example:
+            - - - id: 1007868956
+                  plain_value: PRJ1-1
+                  html_value: <a data-drawer-url="/features/PRJ1-1" href="/features/PRJ1-1"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-1</aha-record-reference></a>
+                  rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-1</aha-record-reference>
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 9
+                - id: 1007868956
+                  plain_value: Feature 1
+                  html_value: <a data-drawer-url="/features/PRJ1-1" href="/features/PRJ1-1">Feature 1</a>
+                  rich_value: Feature 1
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 10
+                - id: 1007868956
+                  plain_value: New
+                  html_value: '<span class="status-pill" title="New" style="color: var(--theme-primary-text); border: none; background-color: #F1F5E8">New</span>'
+                  rich_value:
+                    id: 934242751
+                    name: New
+                    color: dce7c6
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 11
+                - id: 1055237874
+                  plain_value: John Long (john@long.com)
+                  html_value: <a data-drawer-url="/ideas/idea_users/1056507375" href="/ideas/idea_users/1056507375">John Long (john@long.com)</a>
+                  rich_value:
+                    id: 1056507375
+                    name: John Long (john@long.com)
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 12
+              - - id: 1007868956
+                  plain_value: PRJ1-1
+                  html_value: <a data-drawer-url="/features/PRJ1-1" href="/features/PRJ1-1"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-1</aha-record-reference></a>
+                  rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-1</aha-record-reference>
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 9
+                - id: 1007868956
+                  plain_value: Feature 1
+                  html_value: <a data-drawer-url="/features/PRJ1-1" href="/features/PRJ1-1">Feature 1</a>
+                  rich_value: Feature 1
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 10
+                - id: 1007868956
+                  plain_value: New
+                  html_value: '<span class="status-pill" title="New" style="color: var(--theme-primary-text); border: none; background-color: #F1F5E8">New</span>'
+                  rich_value:
+                    id: 934242751
+                    name: New
+                    color: dce7c6
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 11
+                - id: 444379319
+                  plain_value: John Long (john@long.com)
+                  html_value: <a data-drawer-url="/ideas/idea_users/1056507375" href="/ideas/idea_users/1056507375">John Long (john@long.com)</a>
+                  rich_value:
+                    id: 1056507375
+                    name: John Long (john@long.com)
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 12
+              - - id: 622562724
+                  plain_value: PRJ1-2
+                  html_value: <a data-drawer-url="/features/PRJ1-2" href="/features/PRJ1-2"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-2</aha-record-reference></a>
+                  rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-2</aha-record-reference>
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 9
+                - id: 622562724
+                  plain_value: Another Feature
+                  html_value: <a data-drawer-url="/features/PRJ1-2" href="/features/PRJ1-2">Another Feature</a>
+                  rich_value: Another Feature
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 10
+                - id: 622562724
+                  plain_value: Designed
+                  html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                  rich_value:
+                    id: 962984386
+                    name: Designed
+                    color: ecdd8f
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 11
+                - id: null
+                  plain_value: null
+                  html_value: null
+                  rich_value: null
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 12
+              - - id: 303873333
+                  plain_value: PRJ1-3
+                  html_value: <a data-drawer-url="/features/PRJ1-3" href="/features/PRJ1-3"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-3</aha-record-reference></a>
+                  rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-3</aha-record-reference>
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 9
+                - id: 303873333
+                  plain_value: Another Third Feature
+                  html_value: <a data-drawer-url="/features/PRJ1-3" href="/features/PRJ1-3">Another Third Feature</a>
+                  rich_value: Another Third Feature
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 10
+                - id: 303873333
+                  plain_value: Designed
+                  html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                  rich_value:
+                    id: 962984386
+                    name: Designed
+                    color: ecdd8f
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 11
+                - id: null
+                  plain_value: null
+                  html_value: null
+                  rich_value: null
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 12
+              - - id: 209201304
+                  plain_value: PRJ1-4
+                  html_value: <a data-drawer-url="/features/PRJ1-4" href="/features/PRJ1-4"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-4</aha-record-reference></a>
+                  rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-4</aha-record-reference>
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 9
+                - id: 209201304
+                  plain_value: Another Fourth Feature
+                  html_value: <a data-drawer-url="/features/PRJ1-4" href="/features/PRJ1-4">Another Fourth Feature</a>
+                  rich_value: Another Fourth Feature
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 10
+                - id: 209201304
+                  plain_value: Designed
+                  html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                  rich_value:
+                    id: 962984386
+                    name: Designed
+                    color: ecdd8f
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 11
+                - id: null
+                  plain_value: null
+                  html_value: null
+                  rich_value: null
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 12
+              - - id: 998184963
+                  plain_value: PRJ1-5
+                  html_value: <a data-drawer-url="/features/PRJ1-5" href="/features/PRJ1-5"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-5</aha-record-reference></a>
+                  rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-5</aha-record-reference>
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 9
+                - id: 998184963
+                  plain_value: Another Fifth Feature
+                  html_value: <a data-drawer-url="/features/PRJ1-5" href="/features/PRJ1-5">Another Fifth Feature</a>
+                  rich_value: Another Fifth Feature
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 10
+                - id: 998184963
+                  plain_value: Designed
+                  html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                  rich_value:
+                    id: 962984386
+                    name: Designed
+                    color: ecdd8f
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 11
+                - id: null
+                  plain_value: null
+                  html_value: null
+                  rich_value: null
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 12
+            - []
+            - []
+          example:
+          - - - - id: 1007868956
+                  plain_value: PRJ1-1
+                  html_value: <a data-drawer-url="/features/PRJ1-1" href="/features/PRJ1-1"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-1</aha-record-reference></a>
+                  rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-1</aha-record-reference>
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 9
+                - id: 1007868956
+                  plain_value: Feature 1
+                  html_value: <a data-drawer-url="/features/PRJ1-1" href="/features/PRJ1-1">Feature 1</a>
+                  rich_value: Feature 1
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 10
+                - id: 1007868956
+                  plain_value: New
+                  html_value: '<span class="status-pill" title="New" style="color: var(--theme-primary-text); border: none; background-color: #F1F5E8">New</span>'
+                  rich_value:
+                    id: 934242751
+                    name: New
+                    color: dce7c6
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 11
+                - id: 1055237874
+                  plain_value: John Long (john@long.com)
+                  html_value: <a data-drawer-url="/ideas/idea_users/1056507375" href="/ideas/idea_users/1056507375">John Long (john@long.com)</a>
+                  rich_value:
+                    id: 1056507375
+                    name: John Long (john@long.com)
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 12
+              - - id: 1007868956
+                  plain_value: PRJ1-1
+                  html_value: <a data-drawer-url="/features/PRJ1-1" href="/features/PRJ1-1"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-1</aha-record-reference></a>
+                  rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-1</aha-record-reference>
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 9
+                - id: 1007868956
+                  plain_value: Feature 1
+                  html_value: <a data-drawer-url="/features/PRJ1-1" href="/features/PRJ1-1">Feature 1</a>
+                  rich_value: Feature 1
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 10
+                - id: 1007868956
+                  plain_value: New
+                  html_value: '<span class="status-pill" title="New" style="color: var(--theme-primary-text); border: none; background-color: #F1F5E8">New</span>'
+                  rich_value:
+                    id: 934242751
+                    name: New
+                    color: dce7c6
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 11
+                - id: 444379319
+                  plain_value: John Long (john@long.com)
+                  html_value: <a data-drawer-url="/ideas/idea_users/1056507375" href="/ideas/idea_users/1056507375">John Long (john@long.com)</a>
+                  rich_value:
+                    id: 1056507375
+                    name: John Long (john@long.com)
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 12
+              - - id: 622562724
+                  plain_value: PRJ1-2
+                  html_value: <a data-drawer-url="/features/PRJ1-2" href="/features/PRJ1-2"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-2</aha-record-reference></a>
+                  rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-2</aha-record-reference>
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 9
+                - id: 622562724
+                  plain_value: Another Feature
+                  html_value: <a data-drawer-url="/features/PRJ1-2" href="/features/PRJ1-2">Another Feature</a>
+                  rich_value: Another Feature
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 10
+                - id: 622562724
+                  plain_value: Designed
+                  html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                  rich_value:
+                    id: 962984386
+                    name: Designed
+                    color: ecdd8f
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 11
+                - id: null
+                  plain_value: null
+                  html_value: null
+                  rich_value: null
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 12
+              - - id: 303873333
+                  plain_value: PRJ1-3
+                  html_value: <a data-drawer-url="/features/PRJ1-3" href="/features/PRJ1-3"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-3</aha-record-reference></a>
+                  rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-3</aha-record-reference>
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 9
+                - id: 303873333
+                  plain_value: Another Third Feature
+                  html_value: <a data-drawer-url="/features/PRJ1-3" href="/features/PRJ1-3">Another Third Feature</a>
+                  rich_value: Another Third Feature
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 10
+                - id: 303873333
+                  plain_value: Designed
+                  html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                  rich_value:
+                    id: 962984386
+                    name: Designed
+                    color: ecdd8f
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 11
+                - id: null
+                  plain_value: null
+                  html_value: null
+                  rich_value: null
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 12
+              - - id: 209201304
+                  plain_value: PRJ1-4
+                  html_value: <a data-drawer-url="/features/PRJ1-4" href="/features/PRJ1-4"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-4</aha-record-reference></a>
+                  rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-4</aha-record-reference>
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 9
+                - id: 209201304
+                  plain_value: Another Fourth Feature
+                  html_value: <a data-drawer-url="/features/PRJ1-4" href="/features/PRJ1-4">Another Fourth Feature</a>
+                  rich_value: Another Fourth Feature
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 10
+                - id: 209201304
+                  plain_value: Designed
+                  html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                  rich_value:
+                    id: 962984386
+                    name: Designed
+                    color: ecdd8f
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 11
+                - id: null
+                  plain_value: null
+                  html_value: null
+                  rich_value: null
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 12
+              - - id: 998184963
+                  plain_value: PRJ1-5
+                  html_value: <a data-drawer-url="/features/PRJ1-5" href="/features/PRJ1-5"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-5</aha-record-reference></a>
+                  rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-5</aha-record-reference>
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 9
+                - id: 998184963
+                  plain_value: Another Fifth Feature
+                  html_value: <a data-drawer-url="/features/PRJ1-5" href="/features/PRJ1-5">Another Fifth Feature</a>
+                  rich_value: Another Fifth Feature
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 10
+                - id: 998184963
+                  plain_value: Designed
+                  html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                  rich_value:
+                    id: 962984386
+                    name: Designed
+                    color: ecdd8f
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 11
+                - id: null
+                  plain_value: null
+                  html_value: null
+                  rich_value: null
+                  row_ref: 4
+                  column_ref: 1
+                  field_definition_ref: 12
+            - []
+            - []
+          - - []
+            - - - id: 101074039
+                  plain_value: PRJ2-1
+                  html_value: <a data-drawer-url="/features/PRJ2-1" href="/features/PRJ2-1"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ2-1</aha-record-reference></a>
+                  rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ2-1</aha-record-reference>
+                  row_ref: 5
+                  column_ref: 2
+                  field_definition_ref: 9
+                - id: 101074039
+                  plain_value: A feature in project 2
+                  html_value: <a data-drawer-url="/features/PRJ2-1" href="/features/PRJ2-1">A feature in project 2</a>
+                  rich_value: A feature in project 2
+                  row_ref: 5
+                  column_ref: 2
+                  field_definition_ref: 10
+                - id: 101074039
+                  plain_value: Designed
+                  html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                  rich_value:
+                    id: 962984386
+                    name: Designed
+                    color: ecdd8f
+                  row_ref: 5
+                  column_ref: 2
+                  field_definition_ref: 11
+                - id: null
+                  plain_value: null
+                  html_value: null
+                  rich_value: null
+                  row_ref: 5
+                  column_ref: 2
+                  field_definition_ref: 12
+            - []
+          - - []
+            - []
+            - - - id: 229579240
+                  plain_value: PRJ3-1
+                  html_value: <a data-drawer-url="/features/PRJ3-1" href="/features/PRJ3-1"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ3-1</aha-record-reference></a>
+                  rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ3-1</aha-record-reference>
+                  row_ref: 6
+                  column_ref: 3
+                  field_definition_ref: 9
+                - id: 229579240
+                  plain_value: Feature without Requirements
+                  html_value: <a data-drawer-url="/features/PRJ3-1" href="/features/PRJ3-1">Feature without Requirements</a>
+                  rich_value: Feature without Requirements
+                  row_ref: 6
+                  column_ref: 3
+                  field_definition_ref: 10
+                - id: 229579240
+                  plain_value: New
+                  html_value: '<span class="status-pill" title="New" style="color: var(--theme-primary-text); border: none; background-color: #F1F5E8">New</span>'
+                  rich_value:
+                    id: 934242751
+                    name: New
+                    color: dce7c6
+                  row_ref: 6
+                  column_ref: 3
+                  field_definition_ref: 11
+                - id: null
+                  plain_value: null
+                  html_value: null
+                  rich_value: null
+                  row_ref: 6
+                  column_ref: 3
+                  field_definition_ref: 12
+              - - id: 959120953
+                  plain_value: PRJ3-2
+                  html_value: <a data-drawer-url="/features/PRJ3-2" href="/features/PRJ3-2"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ3-2</aha-record-reference></a>
+                  rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ3-2</aha-record-reference>
+                  row_ref: 6
+                  column_ref: 3
+                  field_definition_ref: 9
+                - id: 959120953
+                  plain_value: A third Feature
+                  html_value: <a data-drawer-url="/features/PRJ3-2" href="/features/PRJ3-2">A third Feature</a>
+                  rich_value: A third Feature
+                  row_ref: 6
+                  column_ref: 3
+                  field_definition_ref: 10
+                - id: 959120953
+                  plain_value: Designed
+                  html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                  rich_value:
+                    id: 962984386
+                    name: Designed
+                    color: ecdd8f
+                  row_ref: 6
+                  column_ref: 3
+                  field_definition_ref: 11
+                - id: null
+                  plain_value: null
+                  html_value: null
+                  rich_value: null
+                  row_ref: 6
+                  column_ref: 3
+                  field_definition_ref: 12
+        field_definitions:
+          type: object
+          properties:
+            '7':
+              type: object
+              properties:
+                ref:
+                  type: integer
+                  example: 7
+                table:
+                  type: string
+                  example: projects
+                field:
+                  type: string
+                  example: name
+                title:
+                  type: string
+                  example: Workspace name
+              example:
+                ref: 7
+                table: projects
+                field: name
+                title: Workspace name
+            '8':
+              type: object
+              properties:
+                ref:
+                  type: integer
+                  example: 8
+                table:
+                  type: string
+                  example: releases
+                field:
+                  type: string
+                  example: name
+                title:
+                  type: string
+                  example: Release name
+              example:
+                ref: 8
+                table: releases
+                field: name
+                title: Release name
+            '9':
+              type: object
+              properties:
+                ref:
+                  type: integer
+                  example: 9
+                table:
+                  type: string
+                  example: features
+                field:
+                  type: string
+                  example: reference_num
+                title:
+                  type: string
+                  example: 'Feature reference #'
+              example:
+                ref: 9
+                table: features
+                field: reference_num
+                title: 'Feature reference #'
+            '10':
+              type: object
+              properties:
+                ref:
+                  type: integer
+                  example: 10
+                table:
+                  type: string
+                  example: features
+                field:
+                  type: string
+                  example: name
+                title:
+                  type: string
+                  example: Feature name
+              example:
+                ref: 10
+                table: features
+                field: name
+                title: Feature name
+            '11':
+              type: object
+              properties:
+                ref:
+                  type: integer
+                  example: 11
+                table:
+                  type: string
+                  example: features
+                field:
+                  type: string
+                  example: status
+                title:
+                  type: string
+                  example: Feature status
+              example:
+                ref: 11
+                table: features
+                field: status
+                title: Feature status
+            '12':
+              type: object
+              properties:
+                ref:
+                  type: integer
+                  example: 12
+                table:
+                  type: string
+                  example: ideas
+                field:
+                  type: string
+                  example: created_by_user_id
+                title:
+                  type: string
+                  example: Idea created by
+              example:
+                ref: 12
+                table: ideas
+                field: created_by_user_id
+                title: Idea created by
+          example:
+            '7':
+              ref: 7
+              table: projects
+              field: name
+              title: Workspace name
+            '8':
+              ref: 8
+              table: releases
+              field: name
+              title: Release name
+            '9':
+              ref: 9
+              table: features
+              field: reference_num
+              title: 'Feature reference #'
+            '10':
+              ref: 10
+              table: features
+              field: name
+              title: Feature name
+            '11':
+              ref: 11
+              table: features
+              field: status
+              title: Feature status
+            '12':
+              ref: 12
+              table: ideas
+              field: created_by_user_id
+              title: Idea created by
+      example:
+        top_level_columns:
+        - 1
+        - 2
+        - 3
+        columns:
+          '1':
+            ref: 1
+            parent_ref: null
+            child_refs: []
+            id: 131414752
+            plain_value: Project 1
+            html_value: '<a data-drawer-url="/projects/PRJ1" href="/projects/PRJ1"><span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 1"></i></span><span>Project 1</span></span></a>'
+            rich_value: '<span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 1"></i></span><span>Project 1</span></span>'
+            field_definition_ref: 7
+          '2':
+            ref: 2
+            parent_ref: null
+            child_refs: []
+            id: 517761884
+            plain_value: Project 2
+            html_value: '<a data-drawer-url="/projects/PRJ2" href="/projects/PRJ2"><span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 2"></i></span><span>Project 2</span></span></a>'
+            rich_value: '<span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 2"></i></span><span>Project 2</span></span>'
+            field_definition_ref: 7
+          '3':
+            ref: 3
+            parent_ref: null
+            child_refs: []
+            id: 702241743
+            plain_value: Project 3
+            html_value: '<a data-drawer-url="/projects/PRJ3" href="/projects/PRJ3"><span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 3"></i></span><span>Project 3</span></span></a>'
+            rich_value: '<span class="project-name"><span><i class="fa-regular fa-browser" style="display: table-cell; vertical-align: middle; padding-right: 5px; " data-title="Project 3"></i></span><span>Project 3</span></span>'
+            field_definition_ref: 7
+        top_level_rows:
+        - 4
+        - 5
+        - 6
+        rows:
+          '4':
+            ref: 4
+            parent_ref: null
+            child_refs: []
+            id: 278327321
+            plain_value: Release 1
+            html_value: <a data-drawer-url="/releases/PRJ1-R-1" href="/releases/PRJ1-R-1">Release 1</a>
+            rich_value: Release 1
+            field_definition_ref: 8
+          '5':
+            ref: 5
+            parent_ref: null
+            child_refs: []
+            id: 1000426269
+            plain_value: Release 2
+            html_value: <a data-drawer-url="/releases/PRJ2-R-1" href="/releases/PRJ2-R-1">Release 2</a>
+            rich_value: Release 2
+            field_definition_ref: 8
+          '6':
+            ref: 6
+            parent_ref: null
+            child_refs: []
+            id: 342040612
+            plain_value: Release 3 Project 3
+            html_value: <a data-drawer-url="/releases/PRJ3-R-1" href="/releases/PRJ3-R-1">Release 3 Project 3</a>
+            rich_value: Release 3 Project 3
+            field_definition_ref: 8
+        cells:
+        - - - - id: 1007868956
+                plain_value: PRJ1-1
+                html_value: <a data-drawer-url="/features/PRJ1-1" href="/features/PRJ1-1"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-1</aha-record-reference></a>
+                rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-1</aha-record-reference>
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 9
+              - id: 1007868956
+                plain_value: Feature 1
+                html_value: <a data-drawer-url="/features/PRJ1-1" href="/features/PRJ1-1">Feature 1</a>
+                rich_value: Feature 1
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 10
+              - id: 1007868956
+                plain_value: New
+                html_value: '<span class="status-pill" title="New" style="color: var(--theme-primary-text); border: none; background-color: #F1F5E8">New</span>'
+                rich_value:
+                  id: 934242751
+                  name: New
+                  color: dce7c6
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 11
+              - id: 1055237874
+                plain_value: John Long (john@long.com)
+                html_value: <a data-drawer-url="/ideas/idea_users/1056507375" href="/ideas/idea_users/1056507375">John Long (john@long.com)</a>
+                rich_value:
+                  id: 1056507375
+                  name: John Long (john@long.com)
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 12
+            - - id: 1007868956
+                plain_value: PRJ1-1
+                html_value: <a data-drawer-url="/features/PRJ1-1" href="/features/PRJ1-1"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-1</aha-record-reference></a>
+                rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-1</aha-record-reference>
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 9
+              - id: 1007868956
+                plain_value: Feature 1
+                html_value: <a data-drawer-url="/features/PRJ1-1" href="/features/PRJ1-1">Feature 1</a>
+                rich_value: Feature 1
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 10
+              - id: 1007868956
+                plain_value: New
+                html_value: '<span class="status-pill" title="New" style="color: var(--theme-primary-text); border: none; background-color: #F1F5E8">New</span>'
+                rich_value:
+                  id: 934242751
+                  name: New
+                  color: dce7c6
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 11
+              - id: 444379319
+                plain_value: John Long (john@long.com)
+                html_value: <a data-drawer-url="/ideas/idea_users/1056507375" href="/ideas/idea_users/1056507375">John Long (john@long.com)</a>
+                rich_value:
+                  id: 1056507375
+                  name: John Long (john@long.com)
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 12
+            - - id: 622562724
+                plain_value: PRJ1-2
+                html_value: <a data-drawer-url="/features/PRJ1-2" href="/features/PRJ1-2"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-2</aha-record-reference></a>
+                rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-2</aha-record-reference>
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 9
+              - id: 622562724
+                plain_value: Another Feature
+                html_value: <a data-drawer-url="/features/PRJ1-2" href="/features/PRJ1-2">Another Feature</a>
+                rich_value: Another Feature
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 10
+              - id: 622562724
+                plain_value: Designed
+                html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                rich_value:
+                  id: 962984386
+                  name: Designed
+                  color: ecdd8f
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 11
+              - id: null
+                plain_value: null
+                html_value: null
+                rich_value: null
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 12
+            - - id: 303873333
+                plain_value: PRJ1-3
+                html_value: <a data-drawer-url="/features/PRJ1-3" href="/features/PRJ1-3"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-3</aha-record-reference></a>
+                rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-3</aha-record-reference>
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 9
+              - id: 303873333
+                plain_value: Another Third Feature
+                html_value: <a data-drawer-url="/features/PRJ1-3" href="/features/PRJ1-3">Another Third Feature</a>
+                rich_value: Another Third Feature
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 10
+              - id: 303873333
+                plain_value: Designed
+                html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                rich_value:
+                  id: 962984386
+                  name: Designed
+                  color: ecdd8f
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 11
+              - id: null
+                plain_value: null
+                html_value: null
+                rich_value: null
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 12
+            - - id: 209201304
+                plain_value: PRJ1-4
+                html_value: <a data-drawer-url="/features/PRJ1-4" href="/features/PRJ1-4"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-4</aha-record-reference></a>
+                rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-4</aha-record-reference>
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 9
+              - id: 209201304
+                plain_value: Another Fourth Feature
+                html_value: <a data-drawer-url="/features/PRJ1-4" href="/features/PRJ1-4">Another Fourth Feature</a>
+                rich_value: Another Fourth Feature
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 10
+              - id: 209201304
+                plain_value: Designed
+                html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                rich_value:
+                  id: 962984386
+                  name: Designed
+                  color: ecdd8f
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 11
+              - id: null
+                plain_value: null
+                html_value: null
+                rich_value: null
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 12
+            - - id: 998184963
+                plain_value: PRJ1-5
+                html_value: <a data-drawer-url="/features/PRJ1-5" href="/features/PRJ1-5"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-5</aha-record-reference></a>
+                rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ1-5</aha-record-reference>
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 9
+              - id: 998184963
+                plain_value: Another Fifth Feature
+                html_value: <a data-drawer-url="/features/PRJ1-5" href="/features/PRJ1-5">Another Fifth Feature</a>
+                rich_value: Another Fifth Feature
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 10
+              - id: 998184963
+                plain_value: Designed
+                html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                rich_value:
+                  id: 962984386
+                  name: Designed
+                  color: ecdd8f
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 11
+              - id: null
+                plain_value: null
+                html_value: null
+                rich_value: null
+                row_ref: 4
+                column_ref: 1
+                field_definition_ref: 12
+          - []
+          - []
+        - - []
+          - - - id: 101074039
+                plain_value: PRJ2-1
+                html_value: <a data-drawer-url="/features/PRJ2-1" href="/features/PRJ2-1"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ2-1</aha-record-reference></a>
+                rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ2-1</aha-record-reference>
+                row_ref: 5
+                column_ref: 2
+                field_definition_ref: 9
+              - id: 101074039
+                plain_value: A feature in project 2
+                html_value: <a data-drawer-url="/features/PRJ2-1" href="/features/PRJ2-1">A feature in project 2</a>
+                rich_value: A feature in project 2
+                row_ref: 5
+                column_ref: 2
+                field_definition_ref: 10
+              - id: 101074039
+                plain_value: Designed
+                html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                rich_value:
+                  id: 962984386
+                  name: Designed
+                  color: ecdd8f
+                row_ref: 5
+                column_ref: 2
+                field_definition_ref: 11
+              - id: null
+                plain_value: null
+                html_value: null
+                rich_value: null
+                row_ref: 5
+                column_ref: 2
+                field_definition_ref: 12
+          - []
+        - - []
+          - []
+          - - - id: 229579240
+                plain_value: PRJ3-1
+                html_value: <a data-drawer-url="/features/PRJ3-1" href="/features/PRJ3-1"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ3-1</aha-record-reference></a>
+                rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ3-1</aha-record-reference>
+                row_ref: 6
+                column_ref: 3
+                field_definition_ref: 9
+              - id: 229579240
+                plain_value: Feature without Requirements
+                html_value: <a data-drawer-url="/features/PRJ3-1" href="/features/PRJ3-1">Feature without Requirements</a>
+                rich_value: Feature without Requirements
+                row_ref: 6
+                column_ref: 3
+                field_definition_ref: 10
+              - id: 229579240
+                plain_value: New
+                html_value: '<span class="status-pill" title="New" style="color: var(--theme-primary-text); border: none; background-color: #F1F5E8">New</span>'
+                rich_value:
+                  id: 934242751
+                  name: New
+                  color: dce7c6
+                row_ref: 6
+                column_ref: 3
+                field_definition_ref: 11
+              - id: null
+                plain_value: null
+                html_value: null
+                rich_value: null
+                row_ref: 6
+                column_ref: 3
+                field_definition_ref: 12
+            - - id: 959120953
+                plain_value: PRJ3-2
+                html_value: <a data-drawer-url="/features/PRJ3-2" href="/features/PRJ3-2"><aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ3-2</aha-record-reference></a>
+                rich_value: <aha-record-reference record-type="Feature" size="small" icon-override="fa-solid fa-grid-2">PRJ3-2</aha-record-reference>
+                row_ref: 6
+                column_ref: 3
+                field_definition_ref: 9
+              - id: 959120953
+                plain_value: A third Feature
+                html_value: <a data-drawer-url="/features/PRJ3-2" href="/features/PRJ3-2">A third Feature</a>
+                rich_value: A third Feature
+                row_ref: 6
+                column_ref: 3
+                field_definition_ref: 10
+              - id: 959120953
+                plain_value: Designed
+                html_value: '<span class="status-pill" title="Designed" style="color: var(--theme-primary-text); border: none; background-color: #F7F1D2">Designed</span>'
+                rich_value:
+                  id: 962984386
+                  name: Designed
+                  color: ecdd8f
+                row_ref: 6
+                column_ref: 3
+                field_definition_ref: 11
+              - id: null
+                plain_value: null
+                html_value: null
+                rich_value: null
+                row_ref: 6
+                column_ref: 3
+                field_definition_ref: 12
+        field_definitions:
+          '7':
+            ref: 7
+            table: projects
+            field: name
+            title: Workspace name
+          '8':
+            ref: 8
+            table: releases
+            field: name
+            title: Release name
+          '9':
+            ref: 9
+            table: features
+            field: reference_num
+            title: 'Feature reference #'
+          '10':
+            ref: 10
+            table: features
+            field: name
+            title: Feature name
+          '11':
+            ref: 11
+            table: features
+            field: status
+            title: Feature status
+          '12':
+            ref: 12
+            table: ideas
+            field: created_by_user_id
+            title: Idea created by
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

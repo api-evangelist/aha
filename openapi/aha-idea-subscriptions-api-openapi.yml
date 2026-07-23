@@ -1,0 +1,622 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Idea subscriptions API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Idea subscriptions
+paths:
+  /api/v1/ideas/{idea_id}/subscriptions:
+    post:
+      summary: Create an idea subscription
+      description: null
+      tags:
+      - Idea subscriptions
+      parameters:
+      - name: idea_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: IdeaId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeasubscriptionsPostResponse'
+              example:
+                idea_subscription:
+                  id: '6776881149499782711'
+                  idea_id: '58056975'
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  portal_user:
+                    id: '6776881149490241023'
+                    name: username@example.com
+                    email: username@example.com
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  idea:
+                    id: '58056975'
+                    reference_num: PRJ1-I-1
+                    name: Idea 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    workflow_status:
+                      id: '3259216'
+                      name: New
+                      position: 1
+                      complete: false
+                      color: '#dce7c6'
+                    description:
+                      id: '103757394'
+                      body: Description of idea 1
+                      editor_version: 1
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                      attachments: []
+                    url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+                    resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdeasubscriptionsPostRequest'
+            example:
+              idea_subscription:
+                email: username@example.com
+    get:
+      summary: List subscriptions for an idea
+      description: null
+      tags:
+      - Idea subscriptions
+      parameters:
+      - name: idea_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: IdeaId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeasubscriptionsGetResponse'
+              example:
+                idea_subscriptions:
+                - id: '783147498'
+                  idea_id: '58056975'
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  portal_user:
+                    id: '646391926'
+                    name: John Long
+                    email: john@long.com
+                    created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/ideas/{idea_id}/subscriptions/{id}:
+    get:
+      summary: Get a specific subscription for an idea
+      description: null
+      tags:
+      - Idea subscriptions
+      parameters:
+      - name: idea_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: IdeaId identifier
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeasubscriptionsGetResponse'
+              example:
+                idea_subscription:
+                  id: '783147498'
+                  idea_id: '58056975'
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  portal_user:
+                    id: '646391926'
+                    name: John Long
+                    email: john@long.com
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  idea:
+                    id: '58056975'
+                    reference_num: PRJ1-I-1
+                    name: Idea 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    workflow_status:
+                      id: '3259216'
+                      name: New
+                      position: 1
+                      complete: false
+                      color: '#dce7c6'
+                    description:
+                      id: '103757394'
+                      body: Description of idea 1
+                      editor_version: 1
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                      attachments: []
+                    url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+                    resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    delete:
+      summary: Delete an idea subscription
+      description: null
+      tags:
+      - Idea subscriptions
+      parameters:
+      - name: idea_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: IdeaId identifier
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  schemas:
+    IdeasubscriptionsGetResponse:
+      type: object
+      properties:
+        idea_subscription:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '783147498'
+            idea_id:
+              type: string
+              example: '58056975'
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            portal_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '646391926'
+                name:
+                  type: string
+                  example: John Long
+                email:
+                  type: string
+                  example: john@long.com
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '646391926'
+                name: John Long
+                email: john@long.com
+                created_at: '2019-01-01T00:00:00.000Z'
+            idea:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '58056975'
+                reference_num:
+                  type: string
+                  example: PRJ1-I-1
+                name:
+                  type: string
+                  example: Idea 1
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                workflow_status:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    position:
+                      type: string
+                    complete:
+                      type: string
+                    color:
+                      type: string
+                  example:
+                    id: '3259216'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                description:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    body:
+                      type: string
+                    editor_version:
+                      type: string
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
+                    attachments:
+                      type: string
+                  example:
+                    id: '103757394'
+                    body: Description of idea 1
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                url:
+                  type: string
+                  example: http://company.aha.io/ideas/ideas/PRJ1-I-1
+                resource:
+                  type: string
+                  example: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+              example:
+                id: '58056975'
+                reference_num: PRJ1-I-1
+                name: Idea 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                workflow_status:
+                  id: '3259216'
+                  name: New
+                  position: 1
+                  complete: false
+                  color: '#dce7c6'
+                description:
+                  id: '103757394'
+                  body: Description of idea 1
+                  editor_version: 1
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+                resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+          example:
+            id: '783147498'
+            idea_id: '58056975'
+            created_at: '2019-01-01T00:00:00.000Z'
+            portal_user:
+              id: '646391926'
+              name: John Long
+              email: john@long.com
+              created_at: '2019-01-01T00:00:00.000Z'
+            idea:
+              id: '58056975'
+              reference_num: PRJ1-I-1
+              name: Idea 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              workflow_status:
+                id: '3259216'
+                name: New
+                position: 1
+                complete: false
+                color: '#dce7c6'
+              description:
+                id: '103757394'
+                body: Description of idea 1
+                editor_version: 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+              url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+              resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+      example:
+        idea_subscription:
+          id: '783147498'
+          idea_id: '58056975'
+          created_at: '2019-01-01T00:00:00.000Z'
+          portal_user:
+            id: '646391926'
+            name: John Long
+            email: john@long.com
+            created_at: '2019-01-01T00:00:00.000Z'
+          idea:
+            id: '58056975'
+            reference_num: PRJ1-I-1
+            name: Idea 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            workflow_status:
+              id: '3259216'
+              name: New
+              position: 1
+              complete: false
+              color: '#dce7c6'
+            description:
+              id: '103757394'
+              body: Description of idea 1
+              editor_version: 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+            resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+    IdeasubscriptionsPostResponse:
+      type: object
+      properties:
+        idea_subscription:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149499782711'
+            idea_id:
+              type: string
+              example: '58056975'
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            portal_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149490241023'
+                name:
+                  type: string
+                  example: username@example.com
+                email:
+                  type: string
+                  example: username@example.com
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '6776881149490241023'
+                name: username@example.com
+                email: username@example.com
+                created_at: '2019-01-01T00:00:00.000Z'
+            idea:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '58056975'
+                reference_num:
+                  type: string
+                  example: PRJ1-I-1
+                name:
+                  type: string
+                  example: Idea 1
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                workflow_status:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    position:
+                      type: string
+                    complete:
+                      type: string
+                    color:
+                      type: string
+                  example:
+                    id: '3259216'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                description:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    body:
+                      type: string
+                    editor_version:
+                      type: string
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
+                    attachments:
+                      type: string
+                  example:
+                    id: '103757394'
+                    body: Description of idea 1
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                url:
+                  type: string
+                  example: http://company.aha.io/ideas/ideas/PRJ1-I-1
+                resource:
+                  type: string
+                  example: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+              example:
+                id: '58056975'
+                reference_num: PRJ1-I-1
+                name: Idea 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                workflow_status:
+                  id: '3259216'
+                  name: New
+                  position: 1
+                  complete: false
+                  color: '#dce7c6'
+                description:
+                  id: '103757394'
+                  body: Description of idea 1
+                  editor_version: 1
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+                resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+          example:
+            id: '6776881149499782711'
+            idea_id: '58056975'
+            created_at: '2019-01-01T00:00:00.000Z'
+            portal_user:
+              id: '6776881149490241023'
+              name: username@example.com
+              email: username@example.com
+              created_at: '2019-01-01T00:00:00.000Z'
+            idea:
+              id: '58056975'
+              reference_num: PRJ1-I-1
+              name: Idea 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              workflow_status:
+                id: '3259216'
+                name: New
+                position: 1
+                complete: false
+                color: '#dce7c6'
+              description:
+                id: '103757394'
+                body: Description of idea 1
+                editor_version: 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+              url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+              resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+      example:
+        idea_subscription:
+          id: '6776881149499782711'
+          idea_id: '58056975'
+          created_at: '2019-01-01T00:00:00.000Z'
+          portal_user:
+            id: '6776881149490241023'
+            name: username@example.com
+            email: username@example.com
+            created_at: '2019-01-01T00:00:00.000Z'
+          idea:
+            id: '58056975'
+            reference_num: PRJ1-I-1
+            name: Idea 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            workflow_status:
+              id: '3259216'
+              name: New
+              position: 1
+              complete: false
+              color: '#dce7c6'
+            description:
+              id: '103757394'
+              body: Description of idea 1
+              editor_version: 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+            resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+    IdeasubscriptionsPostRequest:
+      type: object
+      properties:
+        idea_subscription:
+          type: object
+          properties:
+            email:
+              type: string
+              example: username@example.com
+          example:
+            email: username@example.com
+      example:
+        idea_subscription:
+          email: username@example.com
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

@@ -1,0 +1,865 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Custom table records API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Custom table records
+paths:
+  /api/v1/custom_object_records/{id}:
+    get:
+      summary: Get a specific custom table record
+      description: 'Custom tables have a different set of records for each product.
+
+        This means that if you want to
+
+        [create one](/api/resources/custom_table_records/create_a_custom_table_record)
+
+        or
+
+        [list them](/api/resources/custom_table_records/list_records_in_a_custom_table_for_a_product)
+
+        you must scope them to a product.
+
+
+        Once you have the ID of a specific custom table record, you can
+
+        [get](/api/resources/custom_table_records/get_a_specific_custom_table_record),
+
+        [modify](/api/resources/custom_table_records/update_a_custom_table_record),
+
+        or
+
+        [delete](/api/resources/custom_table_records/delete_a_custom_table_record)
+
+        them on the root custom table records resource.
+
+
+        **[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**'
+      tags:
+      - Custom table records
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CustomtablerecordsGetResponse'
+              example:
+                custom_object_record:
+                  id: '640362830'
+                  product_id: '131414752'
+                  key: customers
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  custom_fields:
+                  - id: 262515157
+                    key: name
+                    name: Name
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: Acme Corp
+                    type: string
+                  - id: 883926222
+                    key: website
+                    name: Website
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: www.acme.com
+                    type: url
+                  custom_object_links:
+                  - key: custom_table_name_link_many
+                    name: Custom Table Linked Records
+                    record_type: CustomObjectRecord
+                    record_ids:
+                    - 1059223798
+                  - key: custom_table_name_link_many_to_one
+                    name: Custom Table Many to One Field
+                    record_type: CustomObjectRecord
+                    record_ids: []
+                  - key: custom_table_name_submitters
+                    name: Custom Table Linked Submitters
+                    record_type: CustomObjectRecord
+                    record_ids: []
+                  linked_records:
+                  - key: customers
+                    name: Customers
+                    record_type: Ideas::Idea
+                    record_id: 162120796
+                  - key: revenue
+                    name: Revenue
+                    record_type: Ideas::Idea
+                    record_id: 58056975
+                  - key: submitters
+                    name: Submitters
+                    record_type: Ideas::Idea
+                    record_id: 58056975
+                  created_by_user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    delete:
+      summary: Delete a custom table record
+      description: 'Custom tables have a different set of records for each product.
+
+        This means that if you want to
+
+        [create one](/api/resources/custom_table_records/create_a_custom_table_record)
+
+        or
+
+        [list them](/api/resources/custom_table_records/list_records_in_a_custom_table_for_a_product)
+
+        you must scope them to a product.
+
+
+        Once you have the ID of a specific custom table record, you can
+
+        [get](/api/resources/custom_table_records/get_a_specific_custom_table_record),
+
+        [modify](/api/resources/custom_table_records/update_a_custom_table_record),
+
+        or
+
+        [delete](/api/resources/custom_table_records/delete_a_custom_table_record)
+
+        them on the root custom table records resource.
+
+
+        **[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**'
+      tags:
+      - Custom table records
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/products/{product_id}/custom_objects/{key}/records:
+    post:
+      summary: Create a custom table record
+      description: 'Custom tables have a different set of records for each product.
+
+        This means that if you want to
+
+        [create one](/api/resources/custom_table_records/create_a_custom_table_record)
+
+        or
+
+        [list them](/api/resources/custom_table_records/list_records_in_a_custom_table_for_a_product)
+
+        you must scope them to a product.
+
+
+        Once you have the ID of a specific custom table record, you can
+
+        [get](/api/resources/custom_table_records/get_a_specific_custom_table_record),
+
+        [modify](/api/resources/custom_table_records/update_a_custom_table_record),
+
+        or
+
+        [delete](/api/resources/custom_table_records/delete_a_custom_table_record)
+
+        them on the root custom table records resource.
+
+
+        **[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**'
+      tags:
+      - Custom table records
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      - name: key
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Key identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CustomtablerecordsPostResponse'
+              example:
+                custom_object_record:
+                  id: '6776881149486714349'
+                  product_id: '131414752'
+                  key: customers
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  custom_fields:
+                  - id: '6776881149493312138'
+                    key: name
+                    name: Name
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: Major conglomerate
+                    type: string
+                  - id: '6776881149489312610'
+                    key: website
+                    name: Website
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: www.conglom.com
+                    type: url
+                  custom_object_links: []
+                  linked_records: []
+                  created_by_user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomtablerecordsPostRequest'
+            example:
+              custom_object_record:
+                custom_fields:
+                  name: Major conglomerate
+                  website: www.conglom.com
+    get:
+      summary: List records in a custom table for a product
+      description: 'Custom tables have a different set of records for each product.
+
+        This means that if you want to
+
+        [create one](/api/resources/custom_table_records/create_a_custom_table_record)
+
+        or
+
+        [list them](/api/resources/custom_table_records/list_records_in_a_custom_table_for_a_product)
+
+        you must scope them to a product.
+
+
+        Once you have the ID of a specific custom table record, you can
+
+        [get](/api/resources/custom_table_records/get_a_specific_custom_table_record),
+
+        [modify](/api/resources/custom_table_records/update_a_custom_table_record),
+
+        or
+
+        [delete](/api/resources/custom_table_records/delete_a_custom_table_record)
+
+        them on the root custom table records resource.
+
+
+        **[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**'
+      tags:
+      - Custom table records
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      - name: key
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Key identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CustomtablerecordsGetResponse'
+              example:
+                custom_object_records:
+                - id: '8397122'
+                  product_id: '131414752'
+                  key: customers
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  custom_fields:
+                  - id: 564906240
+                    key: name
+                    name: Name
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: Zane Corp
+                    type: string
+                  custom_object_links:
+                  - key: custom_table_name_link_many
+                    name: Custom Table Linked Records
+                    record_type: CustomObjectRecord
+                    record_ids: []
+                  - key: custom_table_name_link_many_to_one
+                    name: Custom Table Many to One Field
+                    record_type: CustomObjectRecord
+                    record_ids: []
+                  - key: custom_table_name_submitters
+                    name: Custom Table Linked Submitters
+                    record_type: CustomObjectRecord
+                    record_ids: []
+                  linked_records: []
+                  created_by_user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                - id: '640362830'
+                  product_id: '131414752'
+                  key: customers
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  custom_fields:
+                  - id: 262515157
+                    key: name
+                    name: Name
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: Acme Corp
+                    type: string
+                  - id: 883926222
+                    key: website
+                    name: Website
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: www.acme.com
+                    type: url
+                  custom_object_links:
+                  - key: custom_table_name_link_many
+                    name: Custom Table Linked Records
+                    record_type: CustomObjectRecord
+                    record_ids:
+                    - 1059223798
+                  - key: custom_table_name_link_many_to_one
+                    name: Custom Table Many to One Field
+                    record_type: CustomObjectRecord
+                    record_ids: []
+                  - key: custom_table_name_submitters
+                    name: Custom Table Linked Submitters
+                    record_type: CustomObjectRecord
+                    record_ids: []
+                  linked_records:
+                  - key: customers
+                    name: Customers
+                    record_type: Ideas::Idea
+                    record_id: 162120796
+                  - key: revenue
+                    name: Revenue
+                    record_type: Ideas::Idea
+                    record_id: 58056975
+                  - key: submitters
+                    name: Submitters
+                    record_type: Ideas::Idea
+                    record_id: 58056975
+                  created_by_user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 2
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  schemas:
+    CustomtablerecordsPostRequest:
+      type: object
+      properties:
+        custom_object_record:
+          type: object
+          properties:
+            custom_fields:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Major conglomerate
+                website:
+                  type: string
+                  example: www.conglom.com
+              example:
+                name: Major conglomerate
+                website: www.conglom.com
+          example:
+            custom_fields:
+              name: Major conglomerate
+              website: www.conglom.com
+      example:
+        custom_object_record:
+          custom_fields:
+            name: Major conglomerate
+            website: www.conglom.com
+    CustomtablerecordsPostResponse:
+      type: object
+      properties:
+        custom_object_record:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149486714349'
+            product_id:
+              type: string
+              example: '131414752'
+            key:
+              type: string
+              example: customers
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            custom_fields:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  key:
+                    type: string
+                  name:
+                    type: string
+                  updatedAt:
+                    type: string
+                  value:
+                    type: string
+                  type:
+                    type: string
+                example:
+                  id: '6776881149493312138'
+                  key: name
+                  name: Name
+                  updatedAt: '2019-01-01T00:00:00Z'
+                  value: Major conglomerate
+                  type: string
+              example:
+              - id: '6776881149493312138'
+                key: name
+                name: Name
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: Major conglomerate
+                type: string
+              - id: '6776881149489312610'
+                key: website
+                name: Website
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: www.conglom.com
+                type: url
+            custom_object_links:
+              type: array
+              items: {}
+            linked_records:
+              type: array
+              items: {}
+            created_by_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1020675218'
+                name:
+                  type: string
+                  example: Mary Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+          example:
+            id: '6776881149486714349'
+            product_id: '131414752'
+            key: customers
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            custom_fields:
+            - id: '6776881149493312138'
+              key: name
+              name: Name
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: Major conglomerate
+              type: string
+            - id: '6776881149489312610'
+              key: website
+              name: Website
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: www.conglom.com
+              type: url
+            custom_object_links: []
+            linked_records: []
+            created_by_user:
+              id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+      example:
+        custom_object_record:
+          id: '6776881149486714349'
+          product_id: '131414752'
+          key: customers
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          custom_fields:
+          - id: '6776881149493312138'
+            key: name
+            name: Name
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: Major conglomerate
+            type: string
+          - id: '6776881149489312610'
+            key: website
+            name: Website
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: www.conglom.com
+            type: url
+          custom_object_links: []
+          linked_records: []
+          created_by_user:
+            id: '1020675218'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+    CustomtablerecordsGetResponse:
+      type: object
+      properties:
+        custom_object_record:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '640362830'
+            product_id:
+              type: string
+              example: '131414752'
+            key:
+              type: string
+              example: customers
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            custom_fields:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  key:
+                    type: string
+                  name:
+                    type: string
+                  updatedAt:
+                    type: string
+                  value:
+                    type: string
+                  type:
+                    type: string
+                example:
+                  id: 262515157
+                  key: name
+                  name: Name
+                  updatedAt: '2019-01-01T00:00:00Z'
+                  value: Acme Corp
+                  type: string
+              example:
+              - id: 262515157
+                key: name
+                name: Name
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: Acme Corp
+                type: string
+              - id: 883926222
+                key: website
+                name: Website
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: www.acme.com
+                type: url
+            custom_object_links:
+              type: array
+              items:
+                type: object
+                properties:
+                  key:
+                    type: string
+                  name:
+                    type: string
+                  record_type:
+                    type: string
+                  record_ids:
+                    type: string
+                example:
+                  key: custom_table_name_link_many
+                  name: Custom Table Linked Records
+                  record_type: CustomObjectRecord
+                  record_ids:
+                  - 1059223798
+              example:
+              - key: custom_table_name_link_many
+                name: Custom Table Linked Records
+                record_type: CustomObjectRecord
+                record_ids:
+                - 1059223798
+              - key: custom_table_name_link_many_to_one
+                name: Custom Table Many to One Field
+                record_type: CustomObjectRecord
+                record_ids: []
+              - key: custom_table_name_submitters
+                name: Custom Table Linked Submitters
+                record_type: CustomObjectRecord
+                record_ids: []
+            linked_records:
+              type: array
+              items:
+                type: object
+                properties:
+                  key:
+                    type: string
+                  name:
+                    type: string
+                  record_type:
+                    type: string
+                  record_id:
+                    type: string
+                example:
+                  key: customers
+                  name: Customers
+                  record_type: Ideas::Idea
+                  record_id: 162120796
+              example:
+              - key: customers
+                name: Customers
+                record_type: Ideas::Idea
+                record_id: 162120796
+              - key: revenue
+                name: Revenue
+                record_type: Ideas::Idea
+                record_id: 58056975
+              - key: submitters
+                name: Submitters
+                record_type: Ideas::Idea
+                record_id: 58056975
+            created_by_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1020675218'
+                name:
+                  type: string
+                  example: Mary Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+          example:
+            id: '640362830'
+            product_id: '131414752'
+            key: customers
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            custom_fields:
+            - id: 262515157
+              key: name
+              name: Name
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: Acme Corp
+              type: string
+            - id: 883926222
+              key: website
+              name: Website
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: www.acme.com
+              type: url
+            custom_object_links:
+            - key: custom_table_name_link_many
+              name: Custom Table Linked Records
+              record_type: CustomObjectRecord
+              record_ids:
+              - 1059223798
+            - key: custom_table_name_link_many_to_one
+              name: Custom Table Many to One Field
+              record_type: CustomObjectRecord
+              record_ids: []
+            - key: custom_table_name_submitters
+              name: Custom Table Linked Submitters
+              record_type: CustomObjectRecord
+              record_ids: []
+            linked_records:
+            - key: customers
+              name: Customers
+              record_type: Ideas::Idea
+              record_id: 162120796
+            - key: revenue
+              name: Revenue
+              record_type: Ideas::Idea
+              record_id: 58056975
+            - key: submitters
+              name: Submitters
+              record_type: Ideas::Idea
+              record_id: 58056975
+            created_by_user:
+              id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+      example:
+        custom_object_record:
+          id: '640362830'
+          product_id: '131414752'
+          key: customers
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          custom_fields:
+          - id: 262515157
+            key: name
+            name: Name
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: Acme Corp
+            type: string
+          - id: 883926222
+            key: website
+            name: Website
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: www.acme.com
+            type: url
+          custom_object_links:
+          - key: custom_table_name_link_many
+            name: Custom Table Linked Records
+            record_type: CustomObjectRecord
+            record_ids:
+            - 1059223798
+          - key: custom_table_name_link_many_to_one
+            name: Custom Table Many to One Field
+            record_type: CustomObjectRecord
+            record_ids: []
+          - key: custom_table_name_submitters
+            name: Custom Table Linked Submitters
+            record_type: CustomObjectRecord
+            record_ids: []
+          linked_records:
+          - key: customers
+            name: Customers
+            record_type: Ideas::Idea
+            record_id: 162120796
+          - key: revenue
+            name: Revenue
+            record_type: Ideas::Idea
+            record_id: 58056975
+          - key: submitters
+            name: Submitters
+            record_type: Ideas::Idea
+            record_id: 58056975
+          created_by_user:
+            id: '1020675218'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

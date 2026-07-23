@@ -1,0 +1,99 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Webhooks API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Webhooks
+paths:
+  /api/v1/webhooks/{token}:
+    post:
+      summary: Process a Jira webhook
+      description: 'Receives and processes a webhook from Jira when an issue is updated.
+
+
+        Typical Jira webhook payload includes:
+
+        - issue: { id: "12345", key: "PROJ-123", fields: { summary: "Feature name", status: { name: "In Progress" } } }
+
+        - webhookEvent: "jira:issue_updated"
+
+        - timestamp: "2019-01-01T00:00:00Z"'
+      tags:
+      - Webhooks
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Token identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json
+              schema:
+                type: string
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    get:
+      summary: Validate webhook endpoint
+      description: "This endpoint allows integration services to validate that the webhook URL \nis accessible and properly configured without triggering actual webhook processing.\nUseful for testing webhook connectivity during integration setup."
+      tags:
+      - Webhooks
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Token identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: text/plain; charset=utf-8
+              schema:
+                type: string
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

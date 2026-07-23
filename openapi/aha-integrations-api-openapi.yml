@@ -1,0 +1,828 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Integrations API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Integrations
+paths:
+  /api/v1/integrations:
+    post:
+      summary: Create an integration for an account
+      description: null
+      tags:
+      - Integrations
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IntegrationsPostResponse'
+              example:
+                integration:
+                  id: '6776881149498164474'
+                  service_name: zendesk
+                  template_id: null
+                  name: Zendesk
+                  enabled: true
+                  callback_token: 5e0c51800087c7f9
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  last_error_at: null
+                  last_webhook_request_at: null
+                  url: http://company.aha.io/integrations/6776881149498164474
+                  resource: http://company.aha.io/api/v1/integrations/6776881149498164474
+                  owner:
+                    type: Account
+                    id: '303742481'
+                    url: http://company.aha.io/account/303742481
+                    resource: http://company.aha.io/account/303742481
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IntegrationsPostRequest'
+            example:
+              integration:
+                service_name: zendesk
+                enabled: true
+    get:
+      summary: List integrations for an account
+      description: null
+      tags:
+      - Integrations
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IntegrationsGetResponse'
+              example:
+                integrations:
+                - id: '79015308'
+                  name: Salesforce
+                  service_name: salesforce
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '84619270'
+                  name: Salesforce V2
+                  service_name: salesforce
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '163322775'
+                  name: Activity webhook
+                  service_name: audit_webhook
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '241856910'
+                  name: Trello
+                  service_name: trello
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '390243673'
+                  name: Zendesk
+                  service_name: zendesk
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '578818383'
+                  name: Aha! (to Slack)
+                  service_name: slack
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '828392279'
+                  name: Security webhook
+                  service_name: security_webhook
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '922472543'
+                  name: Aha! (from Slack)
+                  service_name: slack_commands
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '938531265'
+                  name: Aha! (from Slack)
+                  service_name: slack_commands
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 9
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/products/{product_id}/integrations:
+    post:
+      summary: Create an integration for a product
+      description: null
+      tags:
+      - Integrations
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IntegrationsPostResponse'
+              example:
+                integration:
+                  id: '6776881149497259401'
+                  service_name: jira
+                  template_id: null
+                  name: Jira
+                  enabled: true
+                  callback_token: 5e0c518000b1e19f
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  last_error_at: null
+                  last_webhook_request_at: null
+                  url: http://company.aha.io/integrations/6776881149497259401
+                  resource: http://company.aha.io/api/v1/integrations/6776881149497259401
+                  jql_filter: null
+                  owner:
+                    type: Project
+                    id: '131414752'
+                    url: http://company.aha.io/projects/PRJ1
+                    resource: http://company.aha.io/projects/PRJ1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IntegrationsPostRequest'
+            example:
+              integration:
+                service_name: zendesk
+                enabled: true
+    get:
+      summary: List integrations for a product
+      description: null
+      tags:
+      - Integrations
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      - name: '{}'
+        in: query
+        required: false
+        schema:
+          type: string
+        example: null
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IntegrationsGetResponse'
+              example:
+                integrations:
+                - id: '31907509'
+                  name: Rally
+                  service_name: rally
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '36231792'
+                  name: GitHub Issues
+                  service_name: github_issues
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '186281709'
+                  name: Jira
+                  service_name: jira
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '202598724'
+                  name: Jira via Connect
+                  service_name: jira_connect
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '204584239'
+                  name: Jira
+                  service_name: jira
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '207648948'
+                  name: Jira
+                  service_name: jira
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '222276392'
+                  name: Jira
+                  service_name: jira
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '322044925'
+                  name: Jira
+                  service_name: jira
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '342659513'
+                  name: Jira
+                  service_name: jira
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '386928799'
+                  name: Azure DevOps Services
+                  service_name: vsts
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '413207847'
+                  name: Jira
+                  service_name: jira
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '453754848'
+                  name: Jira
+                  service_name: jira
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '550349479'
+                  name: Jira via Connect
+                  service_name: jira_connect
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '583937884'
+                  name: Jira template (visible to all)
+                  service_name: jira
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '706216981'
+                  name: Rally
+                  service_name: rally
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '791044582'
+                  name: Azure DevOps Services
+                  service_name: vsts
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '804274302'
+                  name: Jira V2 Disabled
+                  service_name: jira
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '846899991'
+                  name: Azure DevOps Services
+                  service_name: tfs
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '868040294'
+                  name: Rally
+                  service_name: rally
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '945767377'
+                  name: Trello
+                  service_name: trello
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '952935179'
+                  name: Jira
+                  service_name: jira
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 21
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/products/{product_id}/integrations/{integration_id}:
+    get:
+      summary: Get a specific integration
+      description: null
+      tags:
+      - Integrations
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      - name: integration_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: IntegrationId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IntegrationsGetResponse'
+              example:
+                integration:
+                  id: '204584239'
+                  service_name: jira
+                  template_id: null
+                  name: Jira
+                  enabled: true
+                  callback_token: 22b7893e7fa1c4c60847090f78fbf0ec
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  last_error_at: null
+                  last_webhook_request_at: null
+                  url: http://company.aha.io/integrations/204584239
+                  resource: http://company.aha.io/api/v1/integrations/204584239
+                  jql_filter: null
+                  owner:
+                    type: Project
+                    id: '131414752'
+                    url: http://company.aha.io/projects/PRJ1
+                    resource: http://company.aha.io/projects/PRJ1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    put:
+      summary: Enable integration
+      description: null
+      tags:
+      - Integrations
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      - name: integration_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: IntegrationId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IntegrationsPutResponse'
+              example:
+                integration:
+                  id: '204584239'
+                  service_name: jira
+                  template_id: null
+                  name: Jira
+                  enabled: true
+                  callback_token: 22b7893e7fa1c4c60847090f78fbf0ec
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  last_error_at: null
+                  last_webhook_request_at: null
+                  url: http://company.aha.io/integrations/204584239
+                  resource: http://company.aha.io/api/v1/integrations/204584239
+                  jql_filter: null
+                  owner:
+                    type: Project
+                    id: '131414752'
+                    url: http://company.aha.io/projects/PRJ1
+                    resource: http://company.aha.io/projects/PRJ1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IntegrationsPostRequest'
+            example:
+              integration:
+                enabled: true
+  /api/v1/products/{product_id}/integrations/{service_name}:
+    get:
+      summary: Get a specific integration by service name
+      description: 'DEPRECATED: provide :integration_id rather than :service_name to identify the integration.'
+      tags:
+      - Integrations
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      - name: service_name
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ServiceName identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IntegrationsGetResponse'
+              example:
+                integration:
+                  id: '204584239'
+                  service_name: jira
+                  template_id: null
+                  name: Jira
+                  enabled: true
+                  callback_token: 22b7893e7fa1c4c60847090f78fbf0ec
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  last_error_at: null
+                  last_webhook_request_at: null
+                  url: http://company.aha.io/integrations/204584239
+                  resource: http://company.aha.io/api/v1/integrations/204584239
+                  jql_filter: null
+                  owner:
+                    type: Project
+                    id: '131414752'
+                    url: http://company.aha.io/projects/PRJ1
+                    resource: http://company.aha.io/projects/PRJ1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  schemas:
+    IntegrationsGetResponse:
+      type: object
+      properties:
+        integration:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '204584239'
+            service_name:
+              type: string
+              example: jira
+            template_id:
+              type: 'null'
+            name:
+              type: string
+              example: Jira
+            enabled:
+              type: boolean
+              example: true
+            callback_token:
+              type: string
+              example: 22b7893e7fa1c4c60847090f78fbf0ec
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            last_error_at:
+              type: 'null'
+            last_webhook_request_at:
+              type: 'null'
+            url:
+              type: string
+              example: http://company.aha.io/integrations/204584239
+            resource:
+              type: string
+              example: http://company.aha.io/api/v1/integrations/204584239
+            jql_filter:
+              type: 'null'
+            owner:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: Project
+                id:
+                  type: string
+                  example: '131414752'
+                url:
+                  type: string
+                  example: http://company.aha.io/projects/PRJ1
+                resource:
+                  type: string
+                  example: http://company.aha.io/projects/PRJ1
+              example:
+                type: Project
+                id: '131414752'
+                url: http://company.aha.io/projects/PRJ1
+                resource: http://company.aha.io/projects/PRJ1
+          example:
+            id: '204584239'
+            service_name: jira
+            template_id: null
+            name: Jira
+            enabled: true
+            callback_token: 22b7893e7fa1c4c60847090f78fbf0ec
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            last_error_at: null
+            last_webhook_request_at: null
+            url: http://company.aha.io/integrations/204584239
+            resource: http://company.aha.io/api/v1/integrations/204584239
+            jql_filter: null
+            owner:
+              type: Project
+              id: '131414752'
+              url: http://company.aha.io/projects/PRJ1
+              resource: http://company.aha.io/projects/PRJ1
+      example:
+        integration:
+          id: '204584239'
+          service_name: jira
+          template_id: null
+          name: Jira
+          enabled: true
+          callback_token: 22b7893e7fa1c4c60847090f78fbf0ec
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          last_error_at: null
+          last_webhook_request_at: null
+          url: http://company.aha.io/integrations/204584239
+          resource: http://company.aha.io/api/v1/integrations/204584239
+          jql_filter: null
+          owner:
+            type: Project
+            id: '131414752'
+            url: http://company.aha.io/projects/PRJ1
+            resource: http://company.aha.io/projects/PRJ1
+    IntegrationsPutResponse:
+      type: object
+      properties:
+        integration:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '204584239'
+            service_name:
+              type: string
+              example: jira
+            template_id:
+              type: 'null'
+            name:
+              type: string
+              example: Jira
+            enabled:
+              type: boolean
+              example: true
+            callback_token:
+              type: string
+              example: 22b7893e7fa1c4c60847090f78fbf0ec
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            last_error_at:
+              type: 'null'
+            last_webhook_request_at:
+              type: 'null'
+            url:
+              type: string
+              example: http://company.aha.io/integrations/204584239
+            resource:
+              type: string
+              example: http://company.aha.io/api/v1/integrations/204584239
+            jql_filter:
+              type: 'null'
+            owner:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: Project
+                id:
+                  type: string
+                  example: '131414752'
+                url:
+                  type: string
+                  example: http://company.aha.io/projects/PRJ1
+                resource:
+                  type: string
+                  example: http://company.aha.io/projects/PRJ1
+              example:
+                type: Project
+                id: '131414752'
+                url: http://company.aha.io/projects/PRJ1
+                resource: http://company.aha.io/projects/PRJ1
+          example:
+            id: '204584239'
+            service_name: jira
+            template_id: null
+            name: Jira
+            enabled: true
+            callback_token: 22b7893e7fa1c4c60847090f78fbf0ec
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            last_error_at: null
+            last_webhook_request_at: null
+            url: http://company.aha.io/integrations/204584239
+            resource: http://company.aha.io/api/v1/integrations/204584239
+            jql_filter: null
+            owner:
+              type: Project
+              id: '131414752'
+              url: http://company.aha.io/projects/PRJ1
+              resource: http://company.aha.io/projects/PRJ1
+      example:
+        integration:
+          id: '204584239'
+          service_name: jira
+          template_id: null
+          name: Jira
+          enabled: true
+          callback_token: 22b7893e7fa1c4c60847090f78fbf0ec
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          last_error_at: null
+          last_webhook_request_at: null
+          url: http://company.aha.io/integrations/204584239
+          resource: http://company.aha.io/api/v1/integrations/204584239
+          jql_filter: null
+          owner:
+            type: Project
+            id: '131414752'
+            url: http://company.aha.io/projects/PRJ1
+            resource: http://company.aha.io/projects/PRJ1
+    IntegrationsPostRequest:
+      type: object
+      properties:
+        integration:
+          type: object
+          properties:
+            enabled:
+              type: boolean
+              example: true
+          example:
+            enabled: true
+      example:
+        integration:
+          enabled: true
+    IntegrationsPostResponse:
+      type: object
+      properties:
+        integration:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149497259401'
+            service_name:
+              type: string
+              example: jira
+            template_id:
+              type: 'null'
+            name:
+              type: string
+              example: Jira
+            enabled:
+              type: boolean
+              example: true
+            callback_token:
+              type: string
+              example: 5e0c518000b1e19f
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            last_error_at:
+              type: 'null'
+            last_webhook_request_at:
+              type: 'null'
+            url:
+              type: string
+              example: http://company.aha.io/integrations/6776881149497259401
+            resource:
+              type: string
+              example: http://company.aha.io/api/v1/integrations/6776881149497259401
+            jql_filter:
+              type: 'null'
+            owner:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: Project
+                id:
+                  type: string
+                  example: '131414752'
+                url:
+                  type: string
+                  example: http://company.aha.io/projects/PRJ1
+                resource:
+                  type: string
+                  example: http://company.aha.io/projects/PRJ1
+              example:
+                type: Project
+                id: '131414752'
+                url: http://company.aha.io/projects/PRJ1
+                resource: http://company.aha.io/projects/PRJ1
+          example:
+            id: '6776881149497259401'
+            service_name: jira
+            template_id: null
+            name: Jira
+            enabled: true
+            callback_token: 5e0c518000b1e19f
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            last_error_at: null
+            last_webhook_request_at: null
+            url: http://company.aha.io/integrations/6776881149497259401
+            resource: http://company.aha.io/api/v1/integrations/6776881149497259401
+            jql_filter: null
+            owner:
+              type: Project
+              id: '131414752'
+              url: http://company.aha.io/projects/PRJ1
+              resource: http://company.aha.io/projects/PRJ1
+      example:
+        integration:
+          id: '6776881149497259401'
+          service_name: jira
+          template_id: null
+          name: Jira
+          enabled: true
+          callback_token: 5e0c518000b1e19f
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          last_error_at: null
+          last_webhook_request_at: null
+          url: http://company.aha.io/integrations/6776881149497259401
+          resource: http://company.aha.io/api/v1/integrations/6776881149497259401
+          jql_filter: null
+          owner:
+            type: Project
+            id: '131414752'
+            url: http://company.aha.io/projects/PRJ1
+            resource: http://company.aha.io/projects/PRJ1
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

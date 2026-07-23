@@ -1,0 +1,1216 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Capacity investments API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Capacity investments
+paths:
+  /api/v1/initiatives/{initiative_id}/capacity_investments:
+    post:
+      summary: Create a capacity investment on an initiative
+      description: null
+      tags:
+      - Capacity investments
+      parameters:
+      - name: initiative_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: InitiativeId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CapacityinvestmentsPostResponse'
+              example:
+                capacity_investment:
+                  id: '6776881149484188557'
+                  capacity_scenario_id: '997808419'
+                  total: 0.0
+                  estimate_source: epics
+                  date_source: manual_dates
+                  start_date: '2019-01-01'
+                  end_date: '2019-01-01'
+                  initiative:
+                    id: '1042392694'
+                    reference_num: PL1-S-1
+                    name: Workspace line initiative 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/initiatives/PL1-S-1
+                    resource: http://company.aha.io/api/v1/initiatives/PL1-S-1
+                  estimate_values:
+                  - id: '6776881149486881903'
+                    team_id: null
+                    team_membership_id: null
+                    period_start: null
+                    total: 0.0
+                    computed: true
+                    ignored: false
+                  custom_fields: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CapacityinvestmentsPostRequest'
+            example:
+              capacity_investment:
+                start_date: '2019-01-01'
+                end_date: '2019-01-01'
+                date_source: manual_dates
+                estimate_source: epics
+    get:
+      summary: List capacity investments for an initiative
+      description: null
+      tags:
+      - Capacity investments
+      parameters:
+      - name: initiative_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: InitiativeId identifier
+      - name: '{}'
+        in: query
+        required: false
+        schema:
+          type: string
+        example: null
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CapacityinvestmentsGetResponse'
+              example:
+                capacity_investments:
+                - id: '756888381'
+                  capacity_scenario_id: '997808419'
+                  total: null
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/epics/{epic_id}/capacity_investments:
+    post:
+      summary: Create a capacity investment on an epic
+      description: null
+      tags:
+      - Capacity investments
+      parameters:
+      - name: epic_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: EpicId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CapacityinvestmentsPostResponse'
+              example:
+                capacity_investment:
+                  id: '6776881149493463903'
+                  capacity_scenario_id: '997808419'
+                  total: 0.0
+                  estimate_source: features
+                  date_source: manual_dates
+                  start_date: '2019-01-01'
+                  end_date: '2019-01-01'
+                  master_feature:
+                    id: '999605892'
+                    reference_num: PRJ1-E-1
+                    name: Epic 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-1
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+                  epic:
+                    id: '999605892'
+                    reference_num: PRJ1-E-1
+                    name: Epic 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-1
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+                  estimate_values:
+                  - id: '6776881149496741502'
+                    team_id: null
+                    team_membership_id: null
+                    period_start: null
+                    total: 0.0
+                    computed: true
+                    ignored: false
+                  custom_fields: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CapacityinvestmentsPostRequest'
+            example:
+              capacity_investment:
+                start_date: '2019-01-01'
+                end_date: '2019-01-01'
+                date_source: manual_dates
+                estimate_source: features
+    get:
+      summary: List capacity investments for an epic
+      description: null
+      tags:
+      - Capacity investments
+      parameters:
+      - name: epic_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: EpicId identifier
+      - name: '{}'
+        in: query
+        required: false
+        schema:
+          type: string
+        example: null
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CapacityinvestmentsGetResponse'
+              example:
+                capacity_investments:
+                - id: '6776881149495109598'
+                  capacity_scenario_id: '997808419'
+                  total: null
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/features/{feature_id}/capacity_investments:
+    post:
+      summary: Create a Capacity Investment with custom fields
+      description: null
+      tags:
+      - Capacity investments
+      parameters:
+      - name: feature_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: FeatureId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CapacityinvestmentsPostResponse'
+              example:
+                capacity_investment:
+                  id: '6776881149497074336'
+                  capacity_scenario_id: '997808419'
+                  total: null
+                  estimate_source: manual_estimate
+                  date_source: manual_dates
+                  start_date: '2019-01-01'
+                  end_date: '2019-01-01'
+                  feature:
+                    id: '1007868956'
+                    reference_num: PRJ1-1
+                    name: Feature 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/features/PRJ1-1
+                    resource: http://company.aha.io/api/v1/features/PRJ1-1
+                    product_id: '131414752'
+                  estimate_values: []
+                  custom_fields: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CapacityinvestmentsPostRequest'
+            example:
+              capacity_investment:
+                start_date: '2019-01-01'
+                end_date: '2019-01-01'
+                date_source: manual_dates
+                custom_fields:
+                  priority: P3
+    get:
+      summary: List capacity investments for a feature
+      description: null
+      tags:
+      - Capacity investments
+      parameters:
+      - name: feature_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: FeatureId identifier
+      - name: '{}'
+        in: query
+        required: false
+        schema:
+          type: string
+        example: null
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CapacityinvestmentsGetResponse'
+              example:
+                capacity_investments:
+                - id: '6776881149498957294'
+                  capacity_scenario_id: '997808419'
+                  total: null
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/products/{product_id}/capacity_investments:
+    get:
+      summary: List capacity investments for a product
+      description: null
+      tags:
+      - Capacity investments
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      - name: '{}'
+        in: query
+        required: false
+        schema:
+          type: string
+        example: null
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CapacityinvestmentsGetResponse'
+              example:
+                capacity_investments:
+                - id: '756888381'
+                  capacity_scenario_id: '997808419'
+                  total: null
+                - id: '873751177'
+                  capacity_scenario_id: '997808419'
+                  total: 100.0
+                pagination:
+                  total_records: 2
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/capacity_investments/{id}:
+    get:
+      summary: Get a capacity investment
+      description: null
+      tags:
+      - Capacity investments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      - name: '{}'
+        in: query
+        required: false
+        schema:
+          type: string
+        example: null
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CapacityinvestmentsGetResponse'
+              example:
+                capacity_investment:
+                  id: '6776881149492244248'
+                  capacity_scenario_id: '997808419'
+                  total: 50.0
+                  estimate_source: manual_estimate
+                  date_source: capacity_plannable
+                  start_date: '2019-01-01'
+                  end_date: '2019-01-01'
+                  feature:
+                    id: '1007868956'
+                    reference_num: PRJ1-1
+                    name: Feature 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/features/PRJ1-1
+                    resource: http://company.aha.io/api/v1/features/PRJ1-1
+                    product_id: '131414752'
+                  estimate_values:
+                  - id: '6776881149484177228'
+                    team_id: null
+                    team_membership_id: null
+                    period_start: '2019-01-01'
+                    total: 20.0
+                    computed: true
+                    ignored: false
+                  - id: '6776881149485556219'
+                    team_id: null
+                    team_membership_id: null
+                    period_start: '2019-01-01'
+                    total: 5.0
+                    computed: true
+                    ignored: false
+                  - id: '6776881149487389839'
+                    team_id: null
+                    team_membership_id: null
+                    period_start: '2019-01-01'
+                    total: 25.0
+                    computed: true
+                    ignored: false
+                  - id: '6776881149489538211'
+                    team_id: 949295028
+                    team_membership_id: null
+                    period_start: '2019-01-01'
+                    total: 5.0
+                    computed: false
+                    ignored: false
+                  - id: '6776881149491485839'
+                    team_id: 563889676
+                    team_membership_id: null
+                    period_start: null
+                    total: 35.0
+                    computed: true
+                    ignored: false
+                  - id: '6776881149492682136'
+                    team_id: 949295028
+                    team_membership_id: null
+                    period_start: null
+                    total: 15.0
+                    computed: true
+                    ignored: false
+                  - id: '6776881149493180575'
+                    team_id: 949295028
+                    team_membership_id: null
+                    period_start: '2019-01-01'
+                    total: 10.0
+                    computed: false
+                    ignored: false
+                  - id: '6776881149496397024'
+                    team_id: null
+                    team_membership_id: null
+                    period_start: null
+                    total: 50.0
+                    computed: true
+                    ignored: false
+                  - id: '6776881149497562730'
+                    team_id: 563889676
+                    team_membership_id: null
+                    period_start: '2019-01-01'
+                    total: 20.0
+                    computed: false
+                    ignored: false
+                  - id: '6776881149499233465'
+                    team_id: 563889676
+                    team_membership_id: null
+                    period_start: '2019-01-01'
+                    total: 15.0
+                    computed: false
+                    ignored: false
+                  custom_fields:
+                  - id: 424324947
+                    key: text_field
+                    name: TextField
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: Acme Corp
+                    type: string
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    put:
+      summary: Update a capacity investment's custom fields
+      description: null
+      tags:
+      - Capacity investments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CapacityinvestmentsPutResponse'
+              example:
+                capacity_investment:
+                  id: '756888381'
+                  capacity_scenario_id: '997808419'
+                  total: null
+                  estimate_source: manual_estimate
+                  date_source: manual_dates
+                  start_date: '2019-01-01'
+                  end_date: '2019-01-01'
+                  initiative:
+                    id: '423077122'
+                    reference_num: PRJ1-S-1
+                    name: Initiative 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/initiatives/PRJ1-S-1
+                    resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+                  estimate_values: []
+                  custom_fields: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CapacityinvestmentsPostRequest'
+            example:
+              capacity_investment:
+                start_date: '2019-01-01'
+                end_date: '2019-01-01'
+                date_source: manual_dates
+                custom_fields:
+                  priority: P3
+components:
+  schemas:
+    CapacityinvestmentsPostResponse:
+      type: object
+      properties:
+        capacity_investment:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149497074336'
+            capacity_scenario_id:
+              type: string
+              example: '997808419'
+            total:
+              type: 'null'
+            estimate_source:
+              type: string
+              example: manual_estimate
+            date_source:
+              type: string
+              example: manual_dates
+            start_date:
+              type: string
+              example: '2019-01-01'
+            end_date:
+              type: string
+              example: '2019-01-01'
+            feature:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1007868956'
+                reference_num:
+                  type: string
+                  example: PRJ1-1
+                name:
+                  type: string
+                  example: Feature 1
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                url:
+                  type: string
+                  example: http://company.aha.io/features/PRJ1-1
+                resource:
+                  type: string
+                  example: http://company.aha.io/api/v1/features/PRJ1-1
+                product_id:
+                  type: string
+                  example: '131414752'
+              example:
+                id: '1007868956'
+                reference_num: PRJ1-1
+                name: Feature 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/features/PRJ1-1
+                resource: http://company.aha.io/api/v1/features/PRJ1-1
+                product_id: '131414752'
+            estimate_values:
+              type: array
+              items: {}
+            custom_fields:
+              type: array
+              items: {}
+          example:
+            id: '6776881149497074336'
+            capacity_scenario_id: '997808419'
+            total: null
+            estimate_source: manual_estimate
+            date_source: manual_dates
+            start_date: '2019-01-01'
+            end_date: '2019-01-01'
+            feature:
+              id: '1007868956'
+              reference_num: PRJ1-1
+              name: Feature 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/features/PRJ1-1
+              resource: http://company.aha.io/api/v1/features/PRJ1-1
+              product_id: '131414752'
+            estimate_values: []
+            custom_fields: []
+      example:
+        capacity_investment:
+          id: '6776881149497074336'
+          capacity_scenario_id: '997808419'
+          total: null
+          estimate_source: manual_estimate
+          date_source: manual_dates
+          start_date: '2019-01-01'
+          end_date: '2019-01-01'
+          feature:
+            id: '1007868956'
+            reference_num: PRJ1-1
+            name: Feature 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/features/PRJ1-1
+            resource: http://company.aha.io/api/v1/features/PRJ1-1
+            product_id: '131414752'
+          estimate_values: []
+          custom_fields: []
+    CapacityinvestmentsGetResponse:
+      type: object
+      properties:
+        capacity_investment:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149492244248'
+            capacity_scenario_id:
+              type: string
+              example: '997808419'
+            total:
+              type: number
+              example: 50.0
+            estimate_source:
+              type: string
+              example: manual_estimate
+            date_source:
+              type: string
+              example: capacity_plannable
+            start_date:
+              type: string
+              example: '2019-01-01'
+            end_date:
+              type: string
+              example: '2019-01-01'
+            feature:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1007868956'
+                reference_num:
+                  type: string
+                  example: PRJ1-1
+                name:
+                  type: string
+                  example: Feature 1
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                url:
+                  type: string
+                  example: http://company.aha.io/features/PRJ1-1
+                resource:
+                  type: string
+                  example: http://company.aha.io/api/v1/features/PRJ1-1
+                product_id:
+                  type: string
+                  example: '131414752'
+              example:
+                id: '1007868956'
+                reference_num: PRJ1-1
+                name: Feature 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/features/PRJ1-1
+                resource: http://company.aha.io/api/v1/features/PRJ1-1
+                product_id: '131414752'
+            estimate_values:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  team_id:
+                    type: 'null'
+                  team_membership_id:
+                    type: 'null'
+                  period_start:
+                    type: string
+                  total:
+                    type: string
+                  computed:
+                    type: string
+                  ignored:
+                    type: string
+                example:
+                  id: '6776881149484177228'
+                  team_id: null
+                  team_membership_id: null
+                  period_start: '2019-01-01'
+                  total: 20.0
+                  computed: true
+                  ignored: false
+              example:
+              - id: '6776881149484177228'
+                team_id: null
+                team_membership_id: null
+                period_start: '2019-01-01'
+                total: 20.0
+                computed: true
+                ignored: false
+              - id: '6776881149485556219'
+                team_id: null
+                team_membership_id: null
+                period_start: '2019-01-01'
+                total: 5.0
+                computed: true
+                ignored: false
+              - id: '6776881149487389839'
+                team_id: null
+                team_membership_id: null
+                period_start: '2019-01-01'
+                total: 25.0
+                computed: true
+                ignored: false
+              - id: '6776881149489538211'
+                team_id: 949295028
+                team_membership_id: null
+                period_start: '2019-01-01'
+                total: 5.0
+                computed: false
+                ignored: false
+              - id: '6776881149491485839'
+                team_id: 563889676
+                team_membership_id: null
+                period_start: null
+                total: 35.0
+                computed: true
+                ignored: false
+              - id: '6776881149492682136'
+                team_id: 949295028
+                team_membership_id: null
+                period_start: null
+                total: 15.0
+                computed: true
+                ignored: false
+              - id: '6776881149493180575'
+                team_id: 949295028
+                team_membership_id: null
+                period_start: '2019-01-01'
+                total: 10.0
+                computed: false
+                ignored: false
+              - id: '6776881149496397024'
+                team_id: null
+                team_membership_id: null
+                period_start: null
+                total: 50.0
+                computed: true
+                ignored: false
+              - id: '6776881149497562730'
+                team_id: 563889676
+                team_membership_id: null
+                period_start: '2019-01-01'
+                total: 20.0
+                computed: false
+                ignored: false
+              - id: '6776881149499233465'
+                team_id: 563889676
+                team_membership_id: null
+                period_start: '2019-01-01'
+                total: 15.0
+                computed: false
+                ignored: false
+            custom_fields:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  key:
+                    type: string
+                  name:
+                    type: string
+                  updatedAt:
+                    type: string
+                  value:
+                    type: string
+                  type:
+                    type: string
+                example:
+                  id: 424324947
+                  key: text_field
+                  name: TextField
+                  updatedAt: '2019-01-01T00:00:00Z'
+                  value: Acme Corp
+                  type: string
+              example:
+              - id: 424324947
+                key: text_field
+                name: TextField
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: Acme Corp
+                type: string
+          example:
+            id: '6776881149492244248'
+            capacity_scenario_id: '997808419'
+            total: 50.0
+            estimate_source: manual_estimate
+            date_source: capacity_plannable
+            start_date: '2019-01-01'
+            end_date: '2019-01-01'
+            feature:
+              id: '1007868956'
+              reference_num: PRJ1-1
+              name: Feature 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/features/PRJ1-1
+              resource: http://company.aha.io/api/v1/features/PRJ1-1
+              product_id: '131414752'
+            estimate_values:
+            - id: '6776881149484177228'
+              team_id: null
+              team_membership_id: null
+              period_start: '2019-01-01'
+              total: 20.0
+              computed: true
+              ignored: false
+            - id: '6776881149485556219'
+              team_id: null
+              team_membership_id: null
+              period_start: '2019-01-01'
+              total: 5.0
+              computed: true
+              ignored: false
+            - id: '6776881149487389839'
+              team_id: null
+              team_membership_id: null
+              period_start: '2019-01-01'
+              total: 25.0
+              computed: true
+              ignored: false
+            - id: '6776881149489538211'
+              team_id: 949295028
+              team_membership_id: null
+              period_start: '2019-01-01'
+              total: 5.0
+              computed: false
+              ignored: false
+            - id: '6776881149491485839'
+              team_id: 563889676
+              team_membership_id: null
+              period_start: null
+              total: 35.0
+              computed: true
+              ignored: false
+            - id: '6776881149492682136'
+              team_id: 949295028
+              team_membership_id: null
+              period_start: null
+              total: 15.0
+              computed: true
+              ignored: false
+            - id: '6776881149493180575'
+              team_id: 949295028
+              team_membership_id: null
+              period_start: '2019-01-01'
+              total: 10.0
+              computed: false
+              ignored: false
+            - id: '6776881149496397024'
+              team_id: null
+              team_membership_id: null
+              period_start: null
+              total: 50.0
+              computed: true
+              ignored: false
+            - id: '6776881149497562730'
+              team_id: 563889676
+              team_membership_id: null
+              period_start: '2019-01-01'
+              total: 20.0
+              computed: false
+              ignored: false
+            - id: '6776881149499233465'
+              team_id: 563889676
+              team_membership_id: null
+              period_start: '2019-01-01'
+              total: 15.0
+              computed: false
+              ignored: false
+            custom_fields:
+            - id: 424324947
+              key: text_field
+              name: TextField
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: Acme Corp
+              type: string
+      example:
+        capacity_investment:
+          id: '6776881149492244248'
+          capacity_scenario_id: '997808419'
+          total: 50.0
+          estimate_source: manual_estimate
+          date_source: capacity_plannable
+          start_date: '2019-01-01'
+          end_date: '2019-01-01'
+          feature:
+            id: '1007868956'
+            reference_num: PRJ1-1
+            name: Feature 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/features/PRJ1-1
+            resource: http://company.aha.io/api/v1/features/PRJ1-1
+            product_id: '131414752'
+          estimate_values:
+          - id: '6776881149484177228'
+            team_id: null
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 20.0
+            computed: true
+            ignored: false
+          - id: '6776881149485556219'
+            team_id: null
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 5.0
+            computed: true
+            ignored: false
+          - id: '6776881149487389839'
+            team_id: null
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 25.0
+            computed: true
+            ignored: false
+          - id: '6776881149489538211'
+            team_id: 949295028
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 5.0
+            computed: false
+            ignored: false
+          - id: '6776881149491485839'
+            team_id: 563889676
+            team_membership_id: null
+            period_start: null
+            total: 35.0
+            computed: true
+            ignored: false
+          - id: '6776881149492682136'
+            team_id: 949295028
+            team_membership_id: null
+            period_start: null
+            total: 15.0
+            computed: true
+            ignored: false
+          - id: '6776881149493180575'
+            team_id: 949295028
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 10.0
+            computed: false
+            ignored: false
+          - id: '6776881149496397024'
+            team_id: null
+            team_membership_id: null
+            period_start: null
+            total: 50.0
+            computed: true
+            ignored: false
+          - id: '6776881149497562730'
+            team_id: 563889676
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 20.0
+            computed: false
+            ignored: false
+          - id: '6776881149499233465'
+            team_id: 563889676
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 15.0
+            computed: false
+            ignored: false
+          custom_fields:
+          - id: 424324947
+            key: text_field
+            name: TextField
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: Acme Corp
+            type: string
+    CapacityinvestmentsPutResponse:
+      type: object
+      properties:
+        capacity_investment:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '756888381'
+            capacity_scenario_id:
+              type: string
+              example: '997808419'
+            total:
+              type: 'null'
+            estimate_source:
+              type: string
+              example: manual_estimate
+            date_source:
+              type: string
+              example: manual_dates
+            start_date:
+              type: string
+              example: '2019-01-01'
+            end_date:
+              type: string
+              example: '2019-01-01'
+            initiative:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '423077122'
+                reference_num:
+                  type: string
+                  example: PRJ1-S-1
+                name:
+                  type: string
+                  example: Initiative 1
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                url:
+                  type: string
+                  example: http://company.aha.io/initiatives/PRJ1-S-1
+                resource:
+                  type: string
+                  example: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+              example:
+                id: '423077122'
+                reference_num: PRJ1-S-1
+                name: Initiative 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/initiatives/PRJ1-S-1
+                resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+            estimate_values:
+              type: array
+              items: {}
+            custom_fields:
+              type: array
+              items: {}
+          example:
+            id: '756888381'
+            capacity_scenario_id: '997808419'
+            total: null
+            estimate_source: manual_estimate
+            date_source: manual_dates
+            start_date: '2019-01-01'
+            end_date: '2019-01-01'
+            initiative:
+              id: '423077122'
+              reference_num: PRJ1-S-1
+              name: Initiative 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/initiatives/PRJ1-S-1
+              resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+            estimate_values: []
+            custom_fields: []
+      example:
+        capacity_investment:
+          id: '756888381'
+          capacity_scenario_id: '997808419'
+          total: null
+          estimate_source: manual_estimate
+          date_source: manual_dates
+          start_date: '2019-01-01'
+          end_date: '2019-01-01'
+          initiative:
+            id: '423077122'
+            reference_num: PRJ1-S-1
+            name: Initiative 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/initiatives/PRJ1-S-1
+            resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+          estimate_values: []
+          custom_fields: []
+    CapacityinvestmentsPostRequest:
+      type: object
+      properties:
+        capacity_investment:
+          type: object
+          properties:
+            start_date:
+              type: string
+              example: '2019-01-01'
+            end_date:
+              type: string
+              example: '2019-01-01'
+            date_source:
+              type: string
+              example: manual_dates
+            custom_fields:
+              type: object
+              properties:
+                priority:
+                  type: string
+                  example: P3
+              example:
+                priority: P3
+          example:
+            start_date: '2019-01-01'
+            end_date: '2019-01-01'
+            date_source: manual_dates
+            custom_fields:
+              priority: P3
+      example:
+        capacity_investment:
+          start_date: '2019-01-01'
+          end_date: '2019-01-01'
+          date_source: manual_dates
+          custom_fields:
+            priority: P3
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

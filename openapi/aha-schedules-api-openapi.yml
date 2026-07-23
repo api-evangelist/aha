@@ -1,0 +1,174 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Schedules API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Schedules
+paths:
+  /api/v1/schedules:
+    get:
+      summary: List schedules
+      description: Retrieves schedules for capacity planning, showing working hours, velocity, and weekly patterns
+      tags:
+      - Schedules
+      parameters:
+      - name: fields
+        in: query
+        required: false
+        schema:
+          type: string
+        example: name,hours_per_day,story_points_per_day,velocity,monday,tuesday,wednesday,thursday,friday,saturday,sunday
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/SchedulesGetResponse'
+              example:
+                schedules:
+                - id: '54870801'
+                  name: Another schedule
+                  hours_per_day: '10.0'
+                  story_points_per_day: '5.0'
+                  velocity: '10.0'
+                - id: '441193141'
+                  name: Default schedule
+                  hours_per_day: '8.2'
+                  story_points_per_day: '1.0'
+                  velocity: '10.5'
+                - id: '876770204'
+                  name: Child schedule
+                  hours_per_day: '19.0'
+                  story_points_per_day: '28.0'
+                  velocity: null
+                pagination:
+                  total_records: 3
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  schemas:
+    SchedulesGetResponse:
+      type: object
+      properties:
+        schedules:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: '54870801'
+              name:
+                type: string
+                example: Another schedule
+              hours_per_day:
+                type: string
+                example: '10.0'
+              story_points_per_day:
+                type: string
+                example: '5.0'
+              velocity:
+                type: string
+                example: '10.0'
+            example:
+              id: '54870801'
+              name: Another schedule
+              hours_per_day: '10.0'
+              story_points_per_day: '5.0'
+              velocity: '10.0'
+          example:
+          - id: '54870801'
+            name: Another schedule
+            hours_per_day: '10.0'
+            story_points_per_day: '5.0'
+            velocity: '10.0'
+          - id: '441193141'
+            name: Default schedule
+            hours_per_day: '8.2'
+            story_points_per_day: '1.0'
+            velocity: '10.5'
+          - id: '876770204'
+            name: Child schedule
+            hours_per_day: '19.0'
+            story_points_per_day: '28.0'
+            velocity: null
+        pagination:
+          type: object
+          properties:
+            total_records:
+              type: integer
+              example: 3
+            total_pages:
+              type: integer
+              example: 1
+            current_page:
+              type: integer
+              example: 1
+          example:
+            total_records: 3
+            total_pages: 1
+            current_page: 1
+      example:
+        schedules:
+        - id: '54870801'
+          name: Another schedule
+          hours_per_day: '10.0'
+          story_points_per_day: '5.0'
+          velocity: '10.0'
+        - id: '441193141'
+          name: Default schedule
+          hours_per_day: '8.2'
+          story_points_per_day: '1.0'
+          velocity: '10.5'
+        - id: '876770204'
+          name: Child schedule
+          hours_per_day: '19.0'
+          story_points_per_day: '28.0'
+          velocity: null
+        pagination:
+          total_records: 3
+          total_pages: 1
+          current_page: 1
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

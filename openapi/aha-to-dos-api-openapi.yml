@@ -1,0 +1,1205 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups To-dos API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: To-dos
+paths:
+  /api/v1/tasks:
+    post:
+      summary: Create a task
+      description: null
+      tags:
+      - To-dos
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/To-dosPostResponse'
+              example:
+                task:
+                  id: '6776881149495424765'
+                  name: Review press release
+                  body: <p>Can you please review the press release</p>
+                  due_date: null
+                  status: pending
+                  position: null
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: ''
+                  assigned_to_users:
+                  - id: '6776881149484955852'
+                    status: pending
+                    user:
+                      id: '349538572'
+                      name: Sally Sane
+                      email: sally.sane@account2.com
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                  - id: '6776881149486559736'
+                    status: pending
+                    user:
+                      id: '689956296'
+                      name: Henry Humpty
+                      email: no-reply@aha.io
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                  created_by_user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/tasks/6776881149495424765
+                  resource: http://company.aha.io/api/v1/tasks/6776881149495424765
+                  comments_count: 0
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/To-dosPostRequest'
+            example:
+              task:
+                name: Review press release
+                body: <p>Can you please review the press release</p>
+                assigned_to_users:
+                - email: no-reply@aha.io
+    get:
+      summary: List to-dos
+      description: null
+      tags:
+      - To-dos
+      parameters:
+      - name: updated_since
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2019-01-01T00:00:00Z'
+      - name: type
+        in: query
+        required: false
+        schema:
+          type: string
+        example: Approval
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/To-dosGetResponse'
+              example:
+                tasks:
+                - id: '568474467'
+                  name: Task name
+                  due_date: '2019-01-01'
+                  status: pending
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/features/{feature_id}/tasks:
+    get:
+      summary: List to-dos associated with a feature
+      description: null
+      tags:
+      - To-dos
+      parameters:
+      - name: feature_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: FeatureId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/To-dosGetResponse'
+              example:
+                tasks:
+                - id: '748715293'
+                  name: Task name
+                  due_date: '2019-01-01'
+                  status: completed
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/epics/{epic_id}/tasks:
+    get:
+      summary: List to-dos associated with an epic
+      description: null
+      tags:
+      - To-dos
+      parameters:
+      - name: epic_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: EpicId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/To-dosGetResponse'
+              example:
+                tasks:
+                - id: '486361616'
+                  name: Task name
+                  due_date: '2019-01-01'
+                  status: pending
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/releases/{release_id}/tasks:
+    get:
+      summary: List to-dos associated with a release
+      description: null
+      tags:
+      - To-dos
+      parameters:
+      - name: release_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ReleaseId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/To-dosGetResponse'
+              example:
+                tasks: []
+                pagination:
+                  total_records: 0
+                  total_pages: 0
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/ideas/{idea_id}/tasks:
+    get:
+      summary: List to-dos associated with an idea
+      description: null
+      tags:
+      - To-dos
+      parameters:
+      - name: idea_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: IdeaId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/To-dosGetResponse'
+              example:
+                tasks: []
+                pagination:
+                  total_records: 0
+                  total_pages: 0
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/requirements/{requirement_id}/tasks:
+    get:
+      summary: List to-dos associated with a requirement
+      description: null
+      tags:
+      - To-dos
+      parameters:
+      - name: requirement_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: RequirementId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/To-dosGetResponse'
+              example:
+                tasks:
+                - id: '270131066'
+                  name: Do this thing.
+                  due_date: '2019-01-01'
+                  status: pending
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/products/{product_id}/tasks:
+    get:
+      summary: List to-dos associated with a product
+      description: null
+      tags:
+      - To-dos
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/To-dosGetResponse'
+              example:
+                tasks:
+                - id: '270131066'
+                  name: Do this thing.
+                  due_date: '2019-01-01'
+                  status: pending
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '486361616'
+                  name: Task name
+                  due_date: '2019-01-01'
+                  status: pending
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '491284354'
+                  name: Task name
+                  due_date: '2019-01-01'
+                  status: pending
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '644916258'
+                  name: Task name 1
+                  due_date: '2019-01-01'
+                  status: pending
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '742756265'
+                  name: Get it done
+                  due_date: '2019-01-01'
+                  status: partially_complete
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '748715293'
+                  name: Task name
+                  due_date: '2019-01-01'
+                  status: completed
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '785584324'
+                  name: Task name
+                  due_date: '2019-01-01'
+                  status: pending
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '896534432'
+                  name: Annotations task
+                  due_date: '2019-01-01'
+                  status: pending
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '937465541'
+                  name: Task name 2
+                  due_date: '2019-01-01'
+                  status: pending
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 9
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/users/{user_id}/tasks:
+    get:
+      summary: List to-dos assigned to a user
+      description: null
+      tags:
+      - To-dos
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: UserId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/To-dosGetResponse'
+              example:
+                tasks: []
+                pagination:
+                  total_records: 0
+                  total_pages: 0
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/tasks/{id}:
+    get:
+      summary: Get a specific to-do
+      description: null
+      tags:
+      - To-dos
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/To-dosGetResponse'
+              example:
+                task:
+                  id: '1041191038'
+                  name: Task name
+                  body: Task body
+                  due_date: '2019-01-01'
+                  status: partially_complete
+                  position: 1
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: ''
+                  assigned_to_users:
+                  - id: '1061194521'
+                    status: completed
+                    user:
+                      id: '601067208'
+                      name: Jeremy Smith
+                      email: no-reply@aha.io
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                  - id: '642374309'
+                    status: pending
+                    user:
+                      id: '689956296'
+                      name: Henry Humpty
+                      email: no-reply@aha.io
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                  created_by_user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/tasks/1041191038
+                  resource: http://company.aha.io/api/v1/tasks/1041191038
+                  comments_count: 0
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    put:
+      summary: Update a to-do
+      description: null
+      tags:
+      - To-dos
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/To-dosPutResponse'
+              example:
+                task:
+                  id: '568474467'
+                  name: Task name
+                  body: Task body
+                  due_date: '2019-01-01'
+                  status: completed
+                  position: 1
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '702241743'
+                  assigned_to_users:
+                  - id: '938180846'
+                    status: completed
+                    completed_date: '2019-01-01T00:00:00.000Z'
+                    user:
+                      id: '1020675218'
+                      name: Mary Humpty
+                      email: no-reply@aha.io
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                  created_by_user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/tasks/568474467
+                  resource: http://company.aha.io/api/v1/tasks/568474467
+                  comments_count: 0
+                  taskable:
+                    type: Feature
+                    id: '959120953'
+                    reference_num: PRJ3-2
+                    name: A third Feature
+                    url: http://company.aha.io/features/PRJ3-2
+                    resource: http://company.aha.io/api/v1/features/PRJ3-2
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/To-dosPostRequest'
+            example:
+              task:
+                body: <p>Can you please review this press release</p>
+    delete:
+      summary: Delete a to-do
+      description: null
+      tags:
+      - To-dos
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  schemas:
+    To-dosPutResponse:
+      type: object
+      properties:
+        task:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '568474467'
+            name:
+              type: string
+              example: Task name
+            body:
+              type: string
+              example: Task body
+            due_date:
+              type: string
+              example: '2019-01-01'
+            status:
+              type: string
+              example: completed
+            position:
+              type: integer
+              example: 1
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            product_id:
+              type: string
+              example: '702241743'
+            assigned_to_users:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  status:
+                    type: string
+                  completed_date:
+                    type: string
+                  user:
+                    type: string
+                example:
+                  id: '938180846'
+                  status: completed
+                  completed_date: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+              example:
+              - id: '938180846'
+                status: completed
+                completed_date: '2019-01-01T00:00:00.000Z'
+                user:
+                  id: '1020675218'
+                  name: Mary Humpty
+                  email: no-reply@aha.io
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+            created_by_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1020675218'
+                name:
+                  type: string
+                  example: Mary Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+            attachments:
+              type: array
+              items: {}
+            url:
+              type: string
+              example: http://company.aha.io/tasks/568474467
+            resource:
+              type: string
+              example: http://company.aha.io/api/v1/tasks/568474467
+            comments_count:
+              type: integer
+              example: 0
+            taskable:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: Feature
+                id:
+                  type: string
+                  example: '959120953'
+                reference_num:
+                  type: string
+                  example: PRJ3-2
+                name:
+                  type: string
+                  example: A third Feature
+                url:
+                  type: string
+                  example: http://company.aha.io/features/PRJ3-2
+                resource:
+                  type: string
+                  example: http://company.aha.io/api/v1/features/PRJ3-2
+              example:
+                type: Feature
+                id: '959120953'
+                reference_num: PRJ3-2
+                name: A third Feature
+                url: http://company.aha.io/features/PRJ3-2
+                resource: http://company.aha.io/api/v1/features/PRJ3-2
+          example:
+            id: '568474467'
+            name: Task name
+            body: Task body
+            due_date: '2019-01-01'
+            status: completed
+            position: 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            product_id: '702241743'
+            assigned_to_users:
+            - id: '938180846'
+              status: completed
+              completed_date: '2019-01-01T00:00:00.000Z'
+              user:
+                id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+            created_by_user:
+              id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+            url: http://company.aha.io/tasks/568474467
+            resource: http://company.aha.io/api/v1/tasks/568474467
+            comments_count: 0
+            taskable:
+              type: Feature
+              id: '959120953'
+              reference_num: PRJ3-2
+              name: A third Feature
+              url: http://company.aha.io/features/PRJ3-2
+              resource: http://company.aha.io/api/v1/features/PRJ3-2
+      example:
+        task:
+          id: '568474467'
+          name: Task name
+          body: Task body
+          due_date: '2019-01-01'
+          status: completed
+          position: 1
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          product_id: '702241743'
+          assigned_to_users:
+          - id: '938180846'
+            status: completed
+            completed_date: '2019-01-01T00:00:00.000Z'
+            user:
+              id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+          created_by_user:
+            id: '1020675218'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          attachments: []
+          url: http://company.aha.io/tasks/568474467
+          resource: http://company.aha.io/api/v1/tasks/568474467
+          comments_count: 0
+          taskable:
+            type: Feature
+            id: '959120953'
+            reference_num: PRJ3-2
+            name: A third Feature
+            url: http://company.aha.io/features/PRJ3-2
+            resource: http://company.aha.io/api/v1/features/PRJ3-2
+    To-dosGetResponse:
+      type: object
+      properties:
+        task:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '1041191038'
+            name:
+              type: string
+              example: Task name
+            body:
+              type: string
+              example: Task body
+            due_date:
+              type: string
+              example: '2019-01-01'
+            status:
+              type: string
+              example: partially_complete
+            position:
+              type: integer
+              example: 1
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            product_id:
+              type: string
+              example: ''
+            assigned_to_users:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  status:
+                    type: string
+                  user:
+                    type: string
+                example:
+                  id: '1061194521'
+                  status: completed
+                  user:
+                    id: '601067208'
+                    name: Jeremy Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+              example:
+              - id: '1061194521'
+                status: completed
+                user:
+                  id: '601067208'
+                  name: Jeremy Smith
+                  email: no-reply@aha.io
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+              - id: '642374309'
+                status: pending
+                user:
+                  id: '689956296'
+                  name: Henry Humpty
+                  email: no-reply@aha.io
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+            created_by_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1020675218'
+                name:
+                  type: string
+                  example: Mary Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+            attachments:
+              type: array
+              items: {}
+            url:
+              type: string
+              example: http://company.aha.io/tasks/1041191038
+            resource:
+              type: string
+              example: http://company.aha.io/api/v1/tasks/1041191038
+            comments_count:
+              type: integer
+              example: 0
+          example:
+            id: '1041191038'
+            name: Task name
+            body: Task body
+            due_date: '2019-01-01'
+            status: partially_complete
+            position: 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            product_id: ''
+            assigned_to_users:
+            - id: '1061194521'
+              status: completed
+              user:
+                id: '601067208'
+                name: Jeremy Smith
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+            - id: '642374309'
+              status: pending
+              user:
+                id: '689956296'
+                name: Henry Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+            created_by_user:
+              id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+            url: http://company.aha.io/tasks/1041191038
+            resource: http://company.aha.io/api/v1/tasks/1041191038
+            comments_count: 0
+      example:
+        task:
+          id: '1041191038'
+          name: Task name
+          body: Task body
+          due_date: '2019-01-01'
+          status: partially_complete
+          position: 1
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          product_id: ''
+          assigned_to_users:
+          - id: '1061194521'
+            status: completed
+            user:
+              id: '601067208'
+              name: Jeremy Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+          - id: '642374309'
+            status: pending
+            user:
+              id: '689956296'
+              name: Henry Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+          created_by_user:
+            id: '1020675218'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          attachments: []
+          url: http://company.aha.io/tasks/1041191038
+          resource: http://company.aha.io/api/v1/tasks/1041191038
+          comments_count: 0
+    To-dosPostRequest:
+      type: object
+      properties:
+        task:
+          type: object
+          properties:
+            body:
+              type: string
+              example: <p>Can you please review this press release</p>
+          example:
+            body: <p>Can you please review this press release</p>
+      example:
+        task:
+          body: <p>Can you please review this press release</p>
+    To-dosPostResponse:
+      type: object
+      properties:
+        task:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149495424765'
+            name:
+              type: string
+              example: Review press release
+            body:
+              type: string
+              example: <p>Can you please review the press release</p>
+            due_date:
+              type: 'null'
+            status:
+              type: string
+              example: pending
+            position:
+              type: 'null'
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            product_id:
+              type: string
+              example: ''
+            assigned_to_users:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  status:
+                    type: string
+                  user:
+                    type: string
+                example:
+                  id: '6776881149484955852'
+                  status: pending
+                  user:
+                    id: '349538572'
+                    name: Sally Sane
+                    email: sally.sane@account2.com
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+              example:
+              - id: '6776881149484955852'
+                status: pending
+                user:
+                  id: '349538572'
+                  name: Sally Sane
+                  email: sally.sane@account2.com
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+              - id: '6776881149486559736'
+                status: pending
+                user:
+                  id: '689956296'
+                  name: Henry Humpty
+                  email: no-reply@aha.io
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+            created_by_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1020675218'
+                name:
+                  type: string
+                  example: Mary Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+            attachments:
+              type: array
+              items: {}
+            url:
+              type: string
+              example: http://company.aha.io/tasks/6776881149495424765
+            resource:
+              type: string
+              example: http://company.aha.io/api/v1/tasks/6776881149495424765
+            comments_count:
+              type: integer
+              example: 0
+          example:
+            id: '6776881149495424765'
+            name: Review press release
+            body: <p>Can you please review the press release</p>
+            due_date: null
+            status: pending
+            position: null
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            product_id: ''
+            assigned_to_users:
+            - id: '6776881149484955852'
+              status: pending
+              user:
+                id: '349538572'
+                name: Sally Sane
+                email: sally.sane@account2.com
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+            - id: '6776881149486559736'
+              status: pending
+              user:
+                id: '689956296'
+                name: Henry Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+            created_by_user:
+              id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+            url: http://company.aha.io/tasks/6776881149495424765
+            resource: http://company.aha.io/api/v1/tasks/6776881149495424765
+            comments_count: 0
+      example:
+        task:
+          id: '6776881149495424765'
+          name: Review press release
+          body: <p>Can you please review the press release</p>
+          due_date: null
+          status: pending
+          position: null
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          product_id: ''
+          assigned_to_users:
+          - id: '6776881149484955852'
+            status: pending
+            user:
+              id: '349538572'
+              name: Sally Sane
+              email: sally.sane@account2.com
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+          - id: '6776881149486559736'
+            status: pending
+            user:
+              id: '689956296'
+              name: Henry Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+          created_by_user:
+            id: '1020675218'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          attachments: []
+          url: http://company.aha.io/tasks/6776881149495424765
+          resource: http://company.aha.io/api/v1/tasks/6776881149495424765
+          comments_count: 0
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

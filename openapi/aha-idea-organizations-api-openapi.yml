@@ -1,0 +1,782 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Idea organizations API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Idea organizations
+paths:
+  /api/v1/idea_organizations:
+    get:
+      summary: List idea organizations
+      description: null
+      tags:
+      - Idea organizations
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeaorganizationsGetResponse'
+              example:
+                idea_organizations:
+                - id: '138732915'
+                  name: Acme
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: http://company.aha.io/ideas/idea_organizations/138732915
+                  resource: http://company.aha.io/api/v1/idea_organizations/138732915
+                - id: '290305227'
+                  name: FaceTube
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: http://company.aha.io/ideas/idea_organizations/290305227
+                  resource: http://company.aha.io/api/v1/idea_organizations/290305227
+                pagination:
+                  total_records: 2
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    post:
+      summary: Create an idea organization
+      description: null
+      tags:
+      - Idea organizations
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeaorganizationsPostResponse'
+              example:
+                idea_organization:
+                  id: '6776881149496968773'
+                  name: My organization
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  url: http://company.aha.io/ideas/idea_organizations/6776881149496968773
+                  description:
+                    id: '6776881149489955957'
+                    body: ''
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  created_by_user:
+                    id: '1049303076'
+                    name: George Gently
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  endorsements_count: 0
+                  email_domains: example.com, example.org
+                  revenue: '55000.0'
+                  custom_fields: []
+                  integration_fields: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdeaorganizationsPostRequest'
+            example:
+              idea_organization:
+                name: My organization
+                email_domains: example.com, example.org
+                revenue: '55000'
+  /api/v1/idea_organizations/{id}:
+    get:
+      summary: Get a specific organization
+      description: null
+      tags:
+      - Idea organizations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeaorganizationsGetResponse'
+              example:
+                idea_organization:
+                  id: '138732915'
+                  name: Acme
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  url: http://company.aha.io/ideas/idea_organizations/138732915
+                  description:
+                    id: '6776881149484915034'
+                    body: ''
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  endorsements_count: 2
+                  email_domains: ''
+                  revenue: null
+                  custom_fields:
+                  - id: 957991743
+                    key: org_equation_field
+                    name: Org equation field
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value:
+                      values:
+                        test:
+                          value: 10
+                          name: a
+                          display_value: '10.0'
+                    type: equation_sheet
+                  integration_fields: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    put:
+      summary: Update organization
+      description: null
+      tags:
+      - Idea organizations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeaorganizationsPutResponse'
+              example:
+                idea_organization:
+                  id: '138732915'
+                  name: Acme
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  url: http://company.aha.io/ideas/idea_organizations/138732915
+                  description:
+                    id: ''
+                    body: '#<note:0x000000032df23480></note:0x000000032df23480>'
+                    editor_version: 2
+                    created_at: null
+                    updated_at: null
+                    attachments: []
+                  endorsements_count: 2
+                  email_domains: ''
+                  revenue: null
+                  custom_fields:
+                  - id: '6776881149493996495'
+                    key: industry
+                    name: Industry
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: retail
+                    type: string
+                  - id: 957991743
+                    key: org_equation_field
+                    name: Org equation field
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value:
+                      values:
+                        test:
+                          value: 10
+                          name: a
+                          display_value: '10.0'
+                    type: equation_sheet
+                  integration_fields: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdeaorganizationsPostRequest'
+            example:
+              idea_organization:
+                name: A new name
+    delete:
+      summary: Delete organization
+      description: null
+      tags:
+      - Idea organizations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  schemas:
+    IdeaorganizationsPostResponse:
+      type: object
+      properties:
+        idea_organization:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149496968773'
+            name:
+              type: string
+              example: My organization
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            url:
+              type: string
+              example: http://company.aha.io/ideas/idea_organizations/6776881149496968773
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149489955957'
+                body:
+                  type: string
+                  example: ''
+                editor_version:
+                  type: integer
+                  example: 2
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: '6776881149489955957'
+                body: ''
+                editor_version: 2
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            created_by_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1049303076'
+                name:
+                  type: string
+                  example: George Gently
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '1049303076'
+                name: George Gently
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+            endorsements_count:
+              type: integer
+              example: 0
+            email_domains:
+              type: string
+              example: example.com, example.org
+            revenue:
+              type: string
+              example: '55000.0'
+            custom_fields:
+              type: array
+              items: {}
+            integration_fields:
+              type: array
+              items: {}
+          example:
+            id: '6776881149496968773'
+            name: My organization
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/ideas/idea_organizations/6776881149496968773
+            description:
+              id: '6776881149489955957'
+              body: ''
+              editor_version: 2
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            created_by_user:
+              id: '1049303076'
+              name: George Gently
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            endorsements_count: 0
+            email_domains: example.com, example.org
+            revenue: '55000.0'
+            custom_fields: []
+            integration_fields: []
+      example:
+        idea_organization:
+          id: '6776881149496968773'
+          name: My organization
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          url: http://company.aha.io/ideas/idea_organizations/6776881149496968773
+          description:
+            id: '6776881149489955957'
+            body: ''
+            editor_version: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+          created_by_user:
+            id: '1049303076'
+            name: George Gently
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          endorsements_count: 0
+          email_domains: example.com, example.org
+          revenue: '55000.0'
+          custom_fields: []
+          integration_fields: []
+    IdeaorganizationsGetResponse:
+      type: object
+      properties:
+        idea_organization:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '138732915'
+            name:
+              type: string
+              example: Acme
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            url:
+              type: string
+              example: http://company.aha.io/ideas/idea_organizations/138732915
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149484915034'
+                body:
+                  type: string
+                  example: ''
+                editor_version:
+                  type: integer
+                  example: 2
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: '6776881149484915034'
+                body: ''
+                editor_version: 2
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            endorsements_count:
+              type: integer
+              example: 2
+            email_domains:
+              type: string
+              example: ''
+            revenue:
+              type: 'null'
+            custom_fields:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  key:
+                    type: string
+                  name:
+                    type: string
+                  updatedAt:
+                    type: string
+                  value:
+                    type: string
+                  type:
+                    type: string
+                example:
+                  id: 957991743
+                  key: org_equation_field
+                  name: Org equation field
+                  updatedAt: '2019-01-01T00:00:00Z'
+                  value:
+                    values:
+                      test:
+                        value: 10
+                        name: a
+                        display_value: '10.0'
+                  type: equation_sheet
+              example:
+              - id: 957991743
+                key: org_equation_field
+                name: Org equation field
+                updatedAt: '2019-01-01T00:00:00Z'
+                value:
+                  values:
+                    test:
+                      value: 10
+                      name: a
+                      display_value: '10.0'
+                type: equation_sheet
+            integration_fields:
+              type: array
+              items: {}
+          example:
+            id: '138732915'
+            name: Acme
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/ideas/idea_organizations/138732915
+            description:
+              id: '6776881149484915034'
+              body: ''
+              editor_version: 2
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            endorsements_count: 2
+            email_domains: ''
+            revenue: null
+            custom_fields:
+            - id: 957991743
+              key: org_equation_field
+              name: Org equation field
+              updatedAt: '2019-01-01T00:00:00Z'
+              value:
+                values:
+                  test:
+                    value: 10
+                    name: a
+                    display_value: '10.0'
+              type: equation_sheet
+            integration_fields: []
+      example:
+        idea_organization:
+          id: '138732915'
+          name: Acme
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          url: http://company.aha.io/ideas/idea_organizations/138732915
+          description:
+            id: '6776881149484915034'
+            body: ''
+            editor_version: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+          endorsements_count: 2
+          email_domains: ''
+          revenue: null
+          custom_fields:
+          - id: 957991743
+            key: org_equation_field
+            name: Org equation field
+            updatedAt: '2019-01-01T00:00:00Z'
+            value:
+              values:
+                test:
+                  value: 10
+                  name: a
+                  display_value: '10.0'
+            type: equation_sheet
+          integration_fields: []
+    IdeaorganizationsPostRequest:
+      type: object
+      properties:
+        idea_organization:
+          type: object
+          properties:
+            name:
+              type: string
+              example: My organization
+            email_domains:
+              type: string
+              example: example.com, example.org
+            revenue:
+              type: string
+              example: '55000'
+          example:
+            name: My organization
+            email_domains: example.com, example.org
+            revenue: '55000'
+      example:
+        idea_organization:
+          name: My organization
+          email_domains: example.com, example.org
+          revenue: '55000'
+    IdeaorganizationsPutResponse:
+      type: object
+      properties:
+        idea_organization:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '138732915'
+            name:
+              type: string
+              example: Acme
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            url:
+              type: string
+              example: http://company.aha.io/ideas/idea_organizations/138732915
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: ''
+                body:
+                  type: string
+                  example: '#<note:0x000000032df23480></note:0x000000032df23480>'
+                editor_version:
+                  type: integer
+                  example: 2
+                created_at:
+                  type: 'null'
+                updated_at:
+                  type: 'null'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: ''
+                body: '#<note:0x000000032df23480></note:0x000000032df23480>'
+                editor_version: 2
+                created_at: null
+                updated_at: null
+                attachments: []
+            endorsements_count:
+              type: integer
+              example: 2
+            email_domains:
+              type: string
+              example: ''
+            revenue:
+              type: 'null'
+            custom_fields:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  key:
+                    type: string
+                  name:
+                    type: string
+                  updatedAt:
+                    type: string
+                  value:
+                    type: string
+                  type:
+                    type: string
+                example:
+                  id: '6776881149493996495'
+                  key: industry
+                  name: Industry
+                  updatedAt: '2019-01-01T00:00:00Z'
+                  value: retail
+                  type: string
+              example:
+              - id: '6776881149493996495'
+                key: industry
+                name: Industry
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: retail
+                type: string
+              - id: 957991743
+                key: org_equation_field
+                name: Org equation field
+                updatedAt: '2019-01-01T00:00:00Z'
+                value:
+                  values:
+                    test:
+                      value: 10
+                      name: a
+                      display_value: '10.0'
+                type: equation_sheet
+            integration_fields:
+              type: array
+              items: {}
+          example:
+            id: '138732915'
+            name: Acme
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/ideas/idea_organizations/138732915
+            description:
+              id: ''
+              body: '#<note:0x000000032df23480></note:0x000000032df23480>'
+              editor_version: 2
+              created_at: null
+              updated_at: null
+              attachments: []
+            endorsements_count: 2
+            email_domains: ''
+            revenue: null
+            custom_fields:
+            - id: '6776881149493996495'
+              key: industry
+              name: Industry
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: retail
+              type: string
+            - id: 957991743
+              key: org_equation_field
+              name: Org equation field
+              updatedAt: '2019-01-01T00:00:00Z'
+              value:
+                values:
+                  test:
+                    value: 10
+                    name: a
+                    display_value: '10.0'
+              type: equation_sheet
+            integration_fields: []
+      example:
+        idea_organization:
+          id: '138732915'
+          name: Acme
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          url: http://company.aha.io/ideas/idea_organizations/138732915
+          description:
+            id: ''
+            body: '#<note:0x000000032df23480></note:0x000000032df23480>'
+            editor_version: 2
+            created_at: null
+            updated_at: null
+            attachments: []
+          endorsements_count: 2
+          email_domains: ''
+          revenue: null
+          custom_fields:
+          - id: '6776881149493996495'
+            key: industry
+            name: Industry
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: retail
+            type: string
+          - id: 957991743
+            key: org_equation_field
+            name: Org equation field
+            updatedAt: '2019-01-01T00:00:00Z'
+            value:
+              values:
+                test:
+                  value: 10
+                  name: a
+                  display_value: '10.0'
+            type: equation_sheet
+          integration_fields: []
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

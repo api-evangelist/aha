@@ -1,0 +1,432 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Record links API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Record links
+paths:
+  /api/v1/features/{id}/record_links:
+    get:
+      summary: List record links for a feature
+      description: null
+      tags:
+      - Record links
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      - name: parent_and_child_links
+        in: query
+        required: false
+        schema:
+          type: string
+        example: 'true'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RecordlinksGetResponse'
+              example:
+                record_links:
+                - id: 170959948
+                  link_type: Depends on
+                  link_type_id: 20
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  parent_record_type: feature
+                  parent_record_id: 1007868956
+                  child_record_type: feature
+                  child_record_id: 622562724
+                  parent: true
+                  parent_record:
+                    record_type: feature
+                    id: '1007868956'
+                    reference_num: PRJ1-1
+                    name: Feature 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/features/PRJ1-1
+                    resource: http://company.aha.io/api/v1/features/PRJ1-1
+                    product_id: '131414752'
+                  child_record:
+                    record_type: feature
+                    id: '622562724'
+                    reference_num: PRJ1-2
+                    name: Another Feature
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/features/PRJ1-2
+                    resource: http://company.aha.io/api/v1/features/PRJ1-2
+                    product_id: '131414752'
+                - id: '6776881149496786945'
+                  link_type: Depends on
+                  link_type_id: 20
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  parent_record_type: master_feature
+                  parent_record_id: 999605892
+                  child_record_type: feature
+                  child_record_id: 1007868956
+                  parent: false
+                  parent_record:
+                    record_type: master_feature
+                    id: '999605892'
+                    reference_num: PRJ1-E-1
+                    name: Epic 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-1
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+                  child_record:
+                    record_type: feature
+                    id: '1007868956'
+                    reference_num: PRJ1-1
+                    name: Feature 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/features/PRJ1-1
+                    resource: http://company.aha.io/api/v1/features/PRJ1-1
+                    product_id: '131414752'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/record_links/{id}:
+    get:
+      summary: Get a specific record link
+      description: null
+      tags:
+      - Record links
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RecordlinksGetResponse'
+              example:
+                record_link:
+                  id: 170959948
+                  link_type: Depends on
+                  link_type_id: 20
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  parent_record_type: feature
+                  parent_record_id: 1007868956
+                  child_record_type: feature
+                  child_record_id: 622562724
+                  parent: true
+                  parent_record:
+                    record_type: feature
+                    id: '1007868956'
+                    reference_num: PRJ1-1
+                    name: Feature 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/features/PRJ1-1
+                    resource: http://company.aha.io/api/v1/features/PRJ1-1
+                    product_id: '131414752'
+                  child_record:
+                    record_type: feature
+                    id: '622562724'
+                    reference_num: PRJ1-2
+                    name: Another Feature
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/features/PRJ1-2
+                    resource: http://company.aha.io/api/v1/features/PRJ1-2
+                    product_id: '131414752'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    delete:
+      summary: Delete a record link
+      description: null
+      tags:
+      - Record links
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/{record_type}/{id}/record_links:
+    post:
+      summary: Create a record link for a feature
+      description: null
+      tags:
+      - Record links
+      parameters:
+      - name: record_type
+        in: path
+        required: true
+        schema:
+          type: string
+        description: RecordType identifier
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecordlinksPostRequest'
+            example:
+              record_link:
+                record_type: feature
+                record_id: 303873333
+                link_type: 10
+components:
+  schemas:
+    RecordlinksGetResponse:
+      type: object
+      properties:
+        record_link:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 170959948
+            link_type:
+              type: string
+              example: Depends on
+            link_type_id:
+              type: integer
+              example: 20
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            parent_record_type:
+              type: string
+              example: feature
+            parent_record_id:
+              type: integer
+              example: 1007868956
+            child_record_type:
+              type: string
+              example: feature
+            child_record_id:
+              type: integer
+              example: 622562724
+            parent:
+              type: boolean
+              example: true
+            parent_record:
+              type: object
+              properties:
+                record_type:
+                  type: string
+                  example: feature
+                id:
+                  type: string
+                  example: '1007868956'
+                reference_num:
+                  type: string
+                  example: PRJ1-1
+                name:
+                  type: string
+                  example: Feature 1
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                url:
+                  type: string
+                  example: http://company.aha.io/features/PRJ1-1
+                resource:
+                  type: string
+                  example: http://company.aha.io/api/v1/features/PRJ1-1
+                product_id:
+                  type: string
+                  example: '131414752'
+              example:
+                record_type: feature
+                id: '1007868956'
+                reference_num: PRJ1-1
+                name: Feature 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/features/PRJ1-1
+                resource: http://company.aha.io/api/v1/features/PRJ1-1
+                product_id: '131414752'
+            child_record:
+              type: object
+              properties:
+                record_type:
+                  type: string
+                  example: feature
+                id:
+                  type: string
+                  example: '622562724'
+                reference_num:
+                  type: string
+                  example: PRJ1-2
+                name:
+                  type: string
+                  example: Another Feature
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                url:
+                  type: string
+                  example: http://company.aha.io/features/PRJ1-2
+                resource:
+                  type: string
+                  example: http://company.aha.io/api/v1/features/PRJ1-2
+                product_id:
+                  type: string
+                  example: '131414752'
+              example:
+                record_type: feature
+                id: '622562724'
+                reference_num: PRJ1-2
+                name: Another Feature
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/features/PRJ1-2
+                resource: http://company.aha.io/api/v1/features/PRJ1-2
+                product_id: '131414752'
+          example:
+            id: 170959948
+            link_type: Depends on
+            link_type_id: 20
+            created_at: '2019-01-01T00:00:00.000Z'
+            parent_record_type: feature
+            parent_record_id: 1007868956
+            child_record_type: feature
+            child_record_id: 622562724
+            parent: true
+            parent_record:
+              record_type: feature
+              id: '1007868956'
+              reference_num: PRJ1-1
+              name: Feature 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/features/PRJ1-1
+              resource: http://company.aha.io/api/v1/features/PRJ1-1
+              product_id: '131414752'
+            child_record:
+              record_type: feature
+              id: '622562724'
+              reference_num: PRJ1-2
+              name: Another Feature
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/features/PRJ1-2
+              resource: http://company.aha.io/api/v1/features/PRJ1-2
+              product_id: '131414752'
+      example:
+        record_link:
+          id: 170959948
+          link_type: Depends on
+          link_type_id: 20
+          created_at: '2019-01-01T00:00:00.000Z'
+          parent_record_type: feature
+          parent_record_id: 1007868956
+          child_record_type: feature
+          child_record_id: 622562724
+          parent: true
+          parent_record:
+            record_type: feature
+            id: '1007868956'
+            reference_num: PRJ1-1
+            name: Feature 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/features/PRJ1-1
+            resource: http://company.aha.io/api/v1/features/PRJ1-1
+            product_id: '131414752'
+          child_record:
+            record_type: feature
+            id: '622562724'
+            reference_num: PRJ1-2
+            name: Another Feature
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/features/PRJ1-2
+            resource: http://company.aha.io/api/v1/features/PRJ1-2
+            product_id: '131414752'
+    RecordlinksPostRequest:
+      type: object
+      properties:
+        record_link:
+          type: object
+          properties:
+            record_type:
+              type: string
+              example: feature
+            record_id:
+              type: integer
+              example: 303873333
+            link_type:
+              type: integer
+              example: 10
+          example:
+            record_type: feature
+            record_id: 303873333
+            link_type: 10
+      example:
+        record_link:
+          record_type: feature
+          record_id: 303873333
+          link_type: 10
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

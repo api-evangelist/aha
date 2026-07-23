@@ -1,0 +1,195 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Capacity scenarios API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Capacity scenarios
+paths:
+  /api/v1/capacity_scenarios:
+    get:
+      summary: List capacity scenarios
+      description: null
+      tags:
+      - Capacity scenarios
+      parameters:
+      - name: '{}'
+        in: query
+        required: false
+        schema:
+          type: string
+        example: null
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CapacityscenariosGetResponse'
+              example:
+                capacity_scenarios:
+                - id: 16603097
+                  name: Custom test scenario
+                  planning_interval: month
+                  planning_start_date: '2019-01-01'
+                  planning_end_date: '2019-01-01'
+                  estimate_value_layout: team_by_time
+                  data_entry_units: custom
+                  archived: false
+                - id: 454855257
+                  name: Second test scenario
+                  planning_interval: month
+                  planning_start_date: '2019-01-01'
+                  planning_end_date: '2019-01-01'
+                  estimate_value_layout: team_by_time
+                  data_entry_units: headcount
+                  archived: false
+                - id: 997808419
+                  name: Default test scenario
+                  planning_interval: month
+                  planning_start_date: '2019-01-01'
+                  planning_end_date: '2019-01-01'
+                  estimate_value_layout: team_by_time
+                  data_entry_units: headcount
+                  archived: false
+                pagination:
+                  total_records: 3
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/capacity_scenarios/{id}:
+    get:
+      summary: Get a capacity scenario
+      description: null
+      tags:
+      - Capacity scenarios
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      - name: '{}'
+        in: query
+        required: false
+        schema:
+          type: string
+        example: null
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CapacityscenariosGetResponse'
+              example:
+                capacity_scenario:
+                  id: 997808419
+                  name: Default test scenario
+                  planning_interval: month
+                  planning_start_date: '2019-01-01'
+                  planning_end_date: '2019-01-01'
+                  estimate_value_layout: team_by_time
+                  data_entry_units: headcount
+                  archived: false
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  schemas:
+    CapacityscenariosGetResponse:
+      type: object
+      properties:
+        capacity_scenario:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 997808419
+            name:
+              type: string
+              example: Default test scenario
+            planning_interval:
+              type: string
+              example: month
+            planning_start_date:
+              type: string
+              example: '2019-01-01'
+            planning_end_date:
+              type: string
+              example: '2019-01-01'
+            estimate_value_layout:
+              type: string
+              example: team_by_time
+            data_entry_units:
+              type: string
+              example: headcount
+            archived:
+              type: boolean
+              example: false
+          example:
+            id: 997808419
+            name: Default test scenario
+            planning_interval: month
+            planning_start_date: '2019-01-01'
+            planning_end_date: '2019-01-01'
+            estimate_value_layout: team_by_time
+            data_entry_units: headcount
+            archived: false
+      example:
+        capacity_scenario:
+          id: 997808419
+          name: Default test scenario
+          planning_interval: month
+          planning_start_date: '2019-01-01'
+          planning_end_date: '2019-01-01'
+          estimate_value_layout: team_by_time
+          data_entry_units: headcount
+          archived: false
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

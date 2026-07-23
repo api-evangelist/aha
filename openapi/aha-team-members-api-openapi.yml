@@ -1,0 +1,262 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Team members API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Team members
+paths:
+  /api/v1/team_members:
+    post:
+      summary: Create a virtual user
+      description: Manage virtual users used in capacity planning
+      tags:
+      - Team members
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/TeammembersPostResponse'
+              example:
+                team_member:
+                  id: '6776881149494512236'
+                  name: Sam Doe
+                  email: sam.doe@example.com
+                  user_id: null
+                  virtual: true
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeammembersPostRequest'
+            example:
+              team_member:
+                first_name: Sam
+                last_name: Doe
+                email: sam.doe@example.com
+    get:
+      summary: List virtual team members
+      description: Manage virtual users used in capacity planning
+      tags:
+      - Team members
+      parameters:
+      - name: '{}'
+        in: query
+        required: false
+        schema:
+          type: string
+        example: null
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/TeammembersGetResponse'
+              example:
+                team_members:
+                - id: '540018633'
+                  name: John Johnson
+                  email: john.johnson@corporation.com
+                  user_id: null
+                  virtual: true
+                - id: '960059005'
+                  name: Mary Humpty
+                  email: no-reply@aha.io
+                  user_id: '1020675218'
+                  virtual: false
+                pagination:
+                  total_records: 2
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/team_members/{id}:
+    delete:
+      summary: Delete a virtual team member
+      description: Manage virtual users used in capacity planning
+      tags:
+      - Team members
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeammembersPostRequest'
+            example: {}
+components:
+  schemas:
+    TeammembersPostRequest:
+      type: object
+      properties: {}
+      example: {}
+    TeammembersPostResponse:
+      type: object
+      properties:
+        team_member:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149494512236'
+            name:
+              type: string
+              example: Sam Doe
+            email:
+              type: string
+              example: sam.doe@example.com
+            user_id:
+              type: 'null'
+            virtual:
+              type: boolean
+              example: true
+          example:
+            id: '6776881149494512236'
+            name: Sam Doe
+            email: sam.doe@example.com
+            user_id: null
+            virtual: true
+      example:
+        team_member:
+          id: '6776881149494512236'
+          name: Sam Doe
+          email: sam.doe@example.com
+          user_id: null
+          virtual: true
+    TeammembersGetResponse:
+      type: object
+      properties:
+        team_members:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: '540018633'
+              name:
+                type: string
+                example: John Johnson
+              email:
+                type: string
+                example: john.johnson@corporation.com
+              user_id:
+                type: 'null'
+              virtual:
+                type: boolean
+                example: true
+            example:
+              id: '540018633'
+              name: John Johnson
+              email: john.johnson@corporation.com
+              user_id: null
+              virtual: true
+          example:
+          - id: '540018633'
+            name: John Johnson
+            email: john.johnson@corporation.com
+            user_id: null
+            virtual: true
+          - id: '960059005'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            user_id: '1020675218'
+            virtual: false
+        pagination:
+          type: object
+          properties:
+            total_records:
+              type: integer
+              example: 2
+            total_pages:
+              type: integer
+              example: 1
+            current_page:
+              type: integer
+              example: 1
+          example:
+            total_records: 2
+            total_pages: 1
+            current_page: 1
+      example:
+        team_members:
+        - id: '540018633'
+          name: John Johnson
+          email: john.johnson@corporation.com
+          user_id: null
+          virtual: true
+        - id: '960059005'
+          name: Mary Humpty
+          email: no-reply@aha.io
+          user_id: '1020675218'
+          virtual: false
+        pagination:
+          total_records: 2
+          total_pages: 1
+          current_page: 1
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

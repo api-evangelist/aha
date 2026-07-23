@@ -1,0 +1,1379 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Users API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Users
+paths:
+  /api/v1/products/{product_id}/users:
+    post:
+      summary: Create a user
+      description: null
+      tags:
+      - Users
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/UsersPostResponse'
+              example:
+                role: 20
+                role_description: Owner
+                user:
+                  id: '6776881149496250378'
+                  name: sam doe
+                  email: sam.doe@example.com
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsersPostRequest'
+            example:
+              user:
+                email: sam.doe@example.com
+                first_name: sam
+                last_name: doe
+                role: product_owner
+    get:
+      summary: List users associated with a product
+      description: null
+      tags:
+      - Users
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/UsersGetResponse'
+              example:
+                project_users:
+                - role: 50
+                  role_description: Viewer
+                  user:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                - role: 20
+                  role_description: Owner
+                  user:
+                    id: '82352673'
+                    name: Bob Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                - role: 30
+                  role_description: Contributor
+                  user:
+                    id: '289520357'
+                    name: John Doe
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                - role: 30
+                  role_description: Contributor
+                  user:
+                    id: '349538572'
+                    name: Sally Sane
+                    email: sally.sane@account2.com
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                - role: 35
+                  role_description: Developer
+                  user:
+                    id: '375285024'
+                    name: Gregory McSmith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                - role: 50
+                  role_description: Viewer
+                  user:
+                    id: '435166761'
+                    name: Jane Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                - role: 40
+                  role_description: Reviewer
+                  user:
+                    id: '601067208'
+                    name: Jeremy Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                - role: 30
+                  role_description: Contributor
+                  user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                - role: 20
+                  role_description: Owner
+                  user:
+                    id: '871344824'
+                    name: Joan Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                - role: 20
+                  role_description: Owner
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                - role: 20
+                  role_description: Owner
+                  user:
+                    id: '1049303076'
+                    name: George Gently
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 11
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/users:
+    get:
+      summary: List users
+      description: '**[Custom roles](https://www.aha.io/support/roadmaps/account/billing-and-users/custom-user-permission-roles) are an Enterprise+ exclusive feature.**'
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/UsersGetResponse'
+              example:
+                users:
+                - id: '16338845'
+                  name: John Smith
+                  email: no-reply@aha.io
+                  timezone: Pacific/Auckland
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: null
+                  product_roles:
+                  - role: 50
+                    role_description: Viewer
+                    product_id: '131414752'
+                    product_name: Project 1
+                  user_roles: []
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: false
+                  administrator_roles:
+                    administer_account: false
+                    administer_billing: false
+                    administer_configuration: false
+                  identity_provider:
+                    type: password
+                - id: '37063167'
+                  name: No Projects
+                  email: no-reply@aha.io
+                  timezone: America/Mexico_City
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: null
+                  product_roles: []
+                  user_roles: []
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: true
+                  administrator_roles:
+                    administer_account: true
+                    administer_billing: true
+                    administer_configuration: true
+                  identity_provider:
+                    type: password
+                - id: '82352673'
+                  name: Bob Smith
+                  email: no-reply@aha.io
+                  timezone: Asia/Istanbul
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: null
+                  product_roles:
+                  - role: 20
+                    role_description: Owner
+                    product_id: '131414752'
+                    product_name: Project 1
+                  - role: 20
+                    role_description: Owner
+                    product_id: '517761884'
+                    product_name: null
+                  - role: 20
+                    role_description: Owner
+                    product_id: '610602692'
+                    product_name: null
+                  - role: 20
+                    role_description: Owner
+                    product_id: '787060436'
+                    product_name: null
+                  - role: 20
+                    role_description: Owner
+                    product_id: '682804944'
+                    product_name: null
+                  - role: 20
+                    role_description: Owner
+                    product_id: '774939364'
+                    product_name: null
+                  user_roles: []
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: true
+                  administrator_roles:
+                    administer_account: true
+                    administer_billing: false
+                    administer_configuration: true
+                  paid_seat_group:
+                    id: 572805993
+                    name: Group 2
+                  identity_provider:
+                    type: password
+                - id: '126225962'
+                  name: Multi Account
+                  email: mulit-account@trial-account.com
+                  timezone: Asia/Kolkata
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: null
+                  product_roles: []
+                  user_roles: []
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: true
+                  administrator_roles:
+                    administer_account: true
+                    administer_billing: true
+                    administer_configuration: true
+                  identity_provider:
+                    type: password
+                - id: '267654265'
+                  name: John's First ("name") 私 Smith
+                  email: no-reply@aha.io
+                  timezone: America/Indiana/Knox
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: null
+                  product_roles: []
+                  user_roles: []
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: false
+                  administrator_roles:
+                    administer_account: false
+                    administer_billing: false
+                    administer_configuration: false
+                  identity_provider:
+                    type: password
+                - id: '268195287'
+                  name: Super Admin
+                  email: admin@aha.io
+                  timezone: America/New_York
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: null
+                  product_roles: []
+                  user_roles: []
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: false
+                  administrator_roles:
+                    administer_account: false
+                    administer_billing: false
+                    administer_configuration: false
+                  identity_provider:
+                    type: password
+                - id: '289520357'
+                  name: John Doe
+                  email: no-reply@aha.io
+                  timezone: America/Mexico_City
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: null
+                  product_roles:
+                  - role: 30
+                    role_description: Contributor
+                    product_id: '131414752'
+                    product_name: Project 1
+                  - role: 50
+                    role_description: Viewer
+                    product_id: '517761884'
+                    product_name: null
+                  user_roles: []
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: false
+                  administrator_roles:
+                    administer_account: false
+                    administer_billing: false
+                    administer_configuration: false
+                  identity_provider:
+                    type: password
+                - id: '349538572'
+                  name: Sally Sane
+                  email: sally.sane@account2.com
+                  timezone: Europe/London
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: null
+                  product_roles:
+                  - role: 30
+                    role_description: Contributor
+                    product_id: '131414752'
+                    product_name: Project 1
+                  user_roles: []
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: false
+                  administrator_roles:
+                    administer_account: false
+                    administer_billing: false
+                    administer_configuration: false
+                  identity_provider:
+                    type: password
+                - id: '373433676'
+                  name: Jim Jingles
+                  email: no-reply@aha.io
+                  timezone: Pacific Time (US & Canada)
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: null
+                  product_roles: []
+                  user_roles: []
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: true
+                  administrator_roles:
+                    administer_account: true
+                    administer_billing: true
+                    administer_configuration: true
+                  paid_seat_group:
+                    id: 992805589
+                    name: Group 1
+                  identity_provider:
+                    type: password
+                - id: '375285024'
+                  name: Gregory McSmith
+                  email: no-reply@aha.io
+                  timezone: America/Los_Angeles
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: null
+                  product_roles:
+                  - role: 35
+                    role_description: Developer
+                    product_id: '131414752'
+                    product_name: Project 1
+                  user_roles: []
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: false
+                  administrator_roles:
+                    administer_account: false
+                    administer_billing: false
+                    administer_configuration: false
+                  identity_provider:
+                    type: password
+                - id: '435166761'
+                  name: Jane Smith
+                  email: no-reply@aha.io
+                  timezone: Antarctica/McMurdo
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: null
+                  product_roles:
+                  - role: 50
+                    role_description: Viewer
+                    product_id: '131414752'
+                    product_name: Project 1
+                  user_roles: []
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: false
+                  administrator_roles:
+                    administer_account: false
+                    administer_billing: false
+                    administer_configuration: false
+                  identity_provider:
+                    type: password
+                - id: '501775768'
+                  name: Frank Sane
+                  email: frank.sane@account2.com
+                  timezone: Europe/Lisbon
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: null
+                  product_roles: []
+                  user_roles: []
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: false
+                  administrator_roles:
+                    administer_account: false
+                    administer_billing: false
+                    administer_configuration: false
+                  identity_provider:
+                    type: password
+                - id: '530313708'
+                  name: Bill Billings
+                  email: no-reply@aha.io
+                  timezone: Pacific Time (US & Canada)
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: null
+                  product_roles: []
+                  user_roles: []
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: true
+                  administrator_roles:
+                    administer_account: false
+                    administer_billing: true
+                    administer_configuration: false
+                  identity_provider:
+                    type: password
+                - id: '601067208'
+                  name: Jeremy Smith
+                  email: no-reply@aha.io
+                  timezone: America/Indiana/Indianapolis
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: null
+                  product_roles:
+                  - role: 40
+                    role_description: Reviewer
+                    product_id: '131414752'
+                    product_name: Project 1
+                  user_roles: []
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: false
+                  administrator_roles:
+                    administer_account: false
+                    administer_billing: false
+                    administer_configuration: false
+                  identity_provider:
+                    type: password
+                - id: '689956296'
+                  name: Henry Humpty
+                  email: no-reply@aha.io
+                  timezone: Asia/Tokyo
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: '2019-01-01T00:00:00.000Z'
+                  product_roles:
+                  - role: 30
+                    role_description: Contributor
+                    product_id: '131414752'
+                    product_name: Project 1
+                  user_roles: []
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: false
+                  administrator_roles:
+                    administer_account: false
+                    administer_billing: false
+                    administer_configuration: false
+                  identity_provider:
+                    type: password
+                - id: '733218216'
+                  name: Everso Gently
+                  email: no-reply@aha.io
+                  timezone: Asia/Kathmandu
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: null
+                  product_roles: []
+                  user_roles: []
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: true
+                  administrator_roles:
+                    administer_account: true
+                    administer_billing: true
+                    administer_configuration: true
+                  identity_provider:
+                    type: password
+                - id: '787951284'
+                  name: Jeremy Thompson
+                  email: no-reply@aha.io
+                  timezone: America/Regina
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: null
+                  product_roles:
+                  - role: 50
+                    role_description: Viewer
+                    product_id: '1040810565'
+                    product_name: null
+                  user_roles: []
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: false
+                  administrator_roles:
+                    administer_account: false
+                    administer_billing: false
+                    administer_configuration: false
+                  identity_provider:
+                    type: password
+                - id: '869174989'
+                  name: Dirk Gently
+                  email: no-reply@aha.io
+                  timezone: America/Havana
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: null
+                  product_roles: []
+                  user_roles: []
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: true
+                  administrator_roles:
+                    administer_account: true
+                    administer_billing: true
+                    administer_configuration: true
+                  identity_provider:
+                    type: password
+                - id: '871344824'
+                  name: Joan Smith
+                  email: no-reply@aha.io
+                  timezone: Asia/Istanbul
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: null
+                  product_roles:
+                  - role: 20
+                    role_description: Owner
+                    product_id: '131414752'
+                    product_name: Project 1
+                  user_roles: []
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: true
+                  administrator_roles:
+                    administer_account: true
+                    administer_billing: false
+                    administer_configuration: true
+                  paid_seat_group:
+                    id: 572805993
+                    name: Group 2
+                  identity_provider:
+                    type: password
+                - id: '1020675218'
+                  name: Mary Humpty
+                  email: no-reply@aha.io
+                  timezone: America/Los_Angeles
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: '2019-01-01T00:00:00.000Z'
+                  product_roles:
+                  - role: 20
+                    role_description: Owner
+                    product_id: '131414752'
+                    product_name: Project 1
+                  - role: 20
+                    role_description: Owner
+                    product_id: '517761884'
+                    product_name: null
+                  - role: 20
+                    role_description: Owner
+                    product_id: '610602692'
+                    product_name: null
+                  user_roles: []
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: false
+                  administrator_roles:
+                    administer_account: false
+                    administer_billing: false
+                    administer_configuration: false
+                  identity_provider:
+                    type: password
+                - id: '1049303076'
+                  name: George Gently
+                  email: no-reply@aha.io
+                  timezone: America/Los_Angeles
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: null
+                  product_roles:
+                  - role: 20
+                    role_description: Owner
+                    product_id: '131414752'
+                    product_name: Project 1
+                  user_roles:
+                  - role_id: 409541421
+                    name: Project scoped role 1
+                    scope:
+                      type: project
+                      name: Account 1
+                      id: 303742481
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: true
+                  administrator_roles:
+                    administer_account: true
+                    administer_billing: true
+                    administer_configuration: true
+                  identity_provider:
+                    type: password
+                pagination:
+                  total_records: 21
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/users/{id}:
+    get:
+      summary: Get a specific user
+      description: null
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/UsersGetResponse'
+              example:
+                user:
+                  id: '1049303076'
+                  name: George Gently
+                  email: no-reply@aha.io
+                  timezone: America/Los_Angeles
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: null
+                  product_roles:
+                  - role: 20
+                    role_description: Owner
+                    product_id: '131414752'
+                    product_name: Project 1
+                  enabled: true
+                  paid_seat: true
+                  roadmaps_seat: true
+                  develop_seat: false
+                  teamwork_seat: false
+                  administrator: true
+                  administrator_roles:
+                    administer_account: true
+                    administer_billing: true
+                    administer_configuration: true
+                  identity_provider:
+                    type: password
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    put:
+      summary: Update a user
+      description: null
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/UsersPutResponse'
+              example:
+                id: '1020675218'
+                name: Sarah Humpty
+                email: no-reply@aha.io
+                timezone: America/Los_Angeles
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                accessed_at: '2019-01-01T00:00:00.000Z'
+                product_roles:
+                - role: 20
+                  role_description: Owner
+                  product_id: '131414752'
+                  product_name: Project 1
+                - role: 20
+                  role_description: Owner
+                  product_id: '517761884'
+                  product_name: null
+                - role: 20
+                  role_description: Owner
+                  product_id: '610602692'
+                  product_name: null
+                enabled: false
+                paid_seat: true
+                roadmaps_seat: true
+                develop_seat: false
+                teamwork_seat: false
+                administrator: false
+                administrator_roles:
+                  administer_account: false
+                  administer_billing: false
+                  administer_configuration: false
+                identity_provider:
+                  type: password
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsersPostRequest'
+            example:
+              user:
+                first_name: Sarah
+                enabled: false
+  /api/v1/users/{id}/product_roles:
+    get:
+      summary: List a user's product roles
+      description: null
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/UsersGetResponse'
+              example:
+                product_roles:
+                - role: 20
+                  role_description: Owner
+                  product_id: '131414752'
+                  product_name: Project 1
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    post:
+      summary: Update a user's product roles
+      description: null
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/UsersPostResponse'
+              example:
+                role: 20
+                role_description: Owner
+                product_id: '702241743'
+                product_name: null
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsersPostRequest'
+            example:
+              product_role:
+                role: product_owner
+                product_id: PRJ3
+  /api/v1/users/{id}/product_roles/{product_id}:
+    delete:
+      summary: Delete a user's product role
+      description: null
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/users/{id}/user_roles:
+    get:
+      summary: List a user's custom roles
+      description: null
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/UsersGetResponse'
+              example:
+                user_roles:
+                - role_id: 409541421
+                  name: Project scoped role 1
+                  scope:
+                    type: project
+                    name: Project 1
+                    id: 131414752
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    post:
+      summary: Update a user's custom roles
+      description: null
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/UsersPostResponse'
+              example:
+                role_id: 409541421
+                name: Project scoped role 1
+                scope:
+                  type: project
+                  name: Project 1
+                  id: 131414752
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsersPostRequest'
+            example:
+              user_role:
+                custom_role_id: 409541421
+                product_id: 131414752
+  /api/v1/users/{id}/user_roles/{product_id}:
+    delete:
+      summary: Delete a user's custom role
+      description: null
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  schemas:
+    UsersPostRequest:
+      type: object
+      properties:
+        user_role:
+          type: object
+          properties:
+            custom_role_id:
+              type: integer
+              example: 409541421
+            product_id:
+              type: integer
+              example: 131414752
+          example:
+            custom_role_id: 409541421
+            product_id: 131414752
+      example:
+        user_role:
+          custom_role_id: 409541421
+          product_id: 131414752
+    UsersGetResponse:
+      type: object
+      properties:
+        user_roles:
+          type: array
+          items:
+            type: object
+            properties:
+              role_id:
+                type: integer
+                example: 409541421
+              name:
+                type: string
+                example: Project scoped role 1
+              scope:
+                type: object
+                properties:
+                  type:
+                    type: string
+                  name:
+                    type: string
+                  id:
+                    type: string
+                example:
+                  type: project
+                  name: Project 1
+                  id: 131414752
+            example:
+              role_id: 409541421
+              name: Project scoped role 1
+              scope:
+                type: project
+                name: Project 1
+                id: 131414752
+          example:
+          - role_id: 409541421
+            name: Project scoped role 1
+            scope:
+              type: project
+              name: Project 1
+              id: 131414752
+        pagination:
+          type: object
+          properties:
+            total_records:
+              type: integer
+              example: 1
+            total_pages:
+              type: integer
+              example: 1
+            current_page:
+              type: integer
+              example: 1
+          example:
+            total_records: 1
+            total_pages: 1
+            current_page: 1
+      example:
+        user_roles:
+        - role_id: 409541421
+          name: Project scoped role 1
+          scope:
+            type: project
+            name: Project 1
+            id: 131414752
+        pagination:
+          total_records: 1
+          total_pages: 1
+          current_page: 1
+    UsersPutResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: '1020675218'
+        name:
+          type: string
+          example: Sarah Humpty
+        email:
+          type: string
+          example: no-reply@aha.io
+        timezone:
+          type: string
+          example: America/Los_Angeles
+        created_at:
+          type: string
+          example: '2019-01-01T00:00:00.000Z'
+        updated_at:
+          type: string
+          example: '2019-01-01T00:00:00.000Z'
+        accessed_at:
+          type: string
+          example: '2019-01-01T00:00:00.000Z'
+        product_roles:
+          type: array
+          items:
+            type: object
+            properties:
+              role:
+                type: integer
+                example: 20
+              role_description:
+                type: string
+                example: Owner
+              product_id:
+                type: string
+                example: '131414752'
+              product_name:
+                type: string
+                example: Project 1
+            example:
+              role: 20
+              role_description: Owner
+              product_id: '131414752'
+              product_name: Project 1
+          example:
+          - role: 20
+            role_description: Owner
+            product_id: '131414752'
+            product_name: Project 1
+          - role: 20
+            role_description: Owner
+            product_id: '517761884'
+            product_name: null
+          - role: 20
+            role_description: Owner
+            product_id: '610602692'
+            product_name: null
+        enabled:
+          type: boolean
+          example: false
+        paid_seat:
+          type: boolean
+          example: true
+        roadmaps_seat:
+          type: boolean
+          example: true
+        develop_seat:
+          type: boolean
+          example: false
+        teamwork_seat:
+          type: boolean
+          example: false
+        administrator:
+          type: boolean
+          example: false
+        administrator_roles:
+          type: object
+          properties:
+            administer_account:
+              type: boolean
+              example: false
+            administer_billing:
+              type: boolean
+              example: false
+            administer_configuration:
+              type: boolean
+              example: false
+          example:
+            administer_account: false
+            administer_billing: false
+            administer_configuration: false
+        identity_provider:
+          type: object
+          properties:
+            type:
+              type: string
+              example: password
+          example:
+            type: password
+      example:
+        id: '1020675218'
+        name: Sarah Humpty
+        email: no-reply@aha.io
+        timezone: America/Los_Angeles
+        created_at: '2019-01-01T00:00:00.000Z'
+        updated_at: '2019-01-01T00:00:00.000Z'
+        accessed_at: '2019-01-01T00:00:00.000Z'
+        product_roles:
+        - role: 20
+          role_description: Owner
+          product_id: '131414752'
+          product_name: Project 1
+        - role: 20
+          role_description: Owner
+          product_id: '517761884'
+          product_name: null
+        - role: 20
+          role_description: Owner
+          product_id: '610602692'
+          product_name: null
+        enabled: false
+        paid_seat: true
+        roadmaps_seat: true
+        develop_seat: false
+        teamwork_seat: false
+        administrator: false
+        administrator_roles:
+          administer_account: false
+          administer_billing: false
+          administer_configuration: false
+        identity_provider:
+          type: password
+    UsersPostResponse:
+      type: object
+      properties:
+        role_id:
+          type: integer
+          example: 409541421
+        name:
+          type: string
+          example: Project scoped role 1
+        scope:
+          type: object
+          properties:
+            type:
+              type: string
+              example: project
+            name:
+              type: string
+              example: Project 1
+            id:
+              type: integer
+              example: 131414752
+          example:
+            type: project
+            name: Project 1
+            id: 131414752
+      example:
+        role_id: 409541421
+        name: Project scoped role 1
+        scope:
+          type: project
+          name: Project 1
+          id: 131414752
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

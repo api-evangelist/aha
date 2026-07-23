@@ -1,0 +1,917 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Release phases API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Release phases
+paths:
+  /api/v1/releases/{id}/release_phases:
+    get:
+      summary: List release phases for a release
+      description: null
+      tags:
+      - Release phases
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ReleasephasesGetResponse'
+              example:
+                release_phases:
+                - id: '20526005'
+                  name: Alpha
+                  start_on: '2019-01-01'
+                  end_on: '2019-01-01'
+                  type: phase
+                  release_id: 278327321
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  description:
+                    id: '243384959'
+                    body: Description of release phase 1
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                - id: '405824017'
+                  name: Beta
+                  start_on: '2019-01-01'
+                  end_on: '2019-01-01'
+                  type: milestone
+                  release_id: 278327321
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  description:
+                    id: '965145324'
+                    body: Description of release phase 2
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                - id: '792154778'
+                  name: Beta [2]
+                  start_on: '2019-01-01'
+                  end_on: '2019-01-01'
+                  type: milestone
+                  release_id: 278327321
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  description:
+                    id: '6776881149494153311'
+                    body: ''
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                - id: '827574075'
+                  name: Gamma
+                  start_on: '2019-01-01'
+                  end_on: '2019-01-01'
+                  type: milestone
+                  release_id: 278327321
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  description:
+                    id: '6776881149486508174'
+                    body: ''
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                pagination:
+                  total_records: 4
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/release_phases/{id}:
+    get:
+      summary: Get a specific release phase
+      description: null
+      tags:
+      - Release phases
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ReleasephasesGetResponse'
+              example:
+                release_phase:
+                  id: '20526005'
+                  name: Alpha
+                  start_on: '2019-01-01'
+                  end_on: '2019-01-01'
+                  type: phase
+                  release_id: 278327321
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  description:
+                    id: '243384959'
+                    body: Description of release phase 1
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    put:
+      summary: Update a release phase
+      description: null
+      tags:
+      - Release phases
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ReleasephasesPutResponse'
+              example:
+                release_phase:
+                  id: '20526005'
+                  name: Alpha
+                  start_on: '2019-01-01'
+                  end_on: '2019-01-01'
+                  type: phase
+                  release_id: 278327321
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  progress: 25
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  description:
+                    id: '243384959'
+                    body: Description of release phase 1
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReleasephasesPostRequest'
+            example:
+              release_phase:
+                name: Another name
+                description: <p>new description</p>
+                phase_type: milestone
+    delete:
+      summary: Delete a release phase
+      description: null
+      tags:
+      - Release phases
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/release_phases:
+    get:
+      summary: List release phases in the account
+      description: null
+      tags:
+      - Release phases
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ReleasephasesGetResponse'
+              example:
+                release_phases:
+                - id: '20526005'
+                  name: Alpha
+                  start_on: '2019-01-01'
+                  end_on: '2019-01-01'
+                  type: phase
+                  release_id: 278327321
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  description:
+                    id: '243384959'
+                    body: Description of release phase 1
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                - id: '405824017'
+                  name: Beta
+                  start_on: '2019-01-01'
+                  end_on: '2019-01-01'
+                  type: milestone
+                  release_id: 278327321
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  description:
+                    id: '965145324'
+                    body: Description of release phase 2
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                - id: '792154778'
+                  name: Beta [2]
+                  start_on: '2019-01-01'
+                  end_on: '2019-01-01'
+                  type: milestone
+                  release_id: 278327321
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  description:
+                    id: '6776881149487000230'
+                    body: ''
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                - id: '827574075'
+                  name: Gamma
+                  start_on: '2019-01-01'
+                  end_on: '2019-01-01'
+                  type: milestone
+                  release_id: 278327321
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  description:
+                    id: '6776881149494371573'
+                    body: ''
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                pagination:
+                  total_records: 4
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    post:
+      summary: Create a release phase
+      description: null
+      tags:
+      - Release phases
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ReleasephasesPostResponse'
+              example:
+                release_phase:
+                  id: '6776881149493480488'
+                  name: New release milestone
+                  start_on: '2019-01-01'
+                  end_on: '2019-01-01'
+                  type: milestone
+                  release_id: 278327321
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  progress: 0
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  description:
+                    id: '6776881149492778822'
+                    body: <p>This is the description</p>
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReleasephasesPostRequest'
+            example:
+              release_phase:
+                name: New release phase
+                phase_type: phase
+                release_id: 278327321
+                start_on: '2019-01-01'
+                end_on: '2019-01-01'
+                description: <p>This is the description</p>
+components:
+  schemas:
+    ReleasephasesPostResponse:
+      type: object
+      properties:
+        release_phase:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149493480488'
+            name:
+              type: string
+              example: New release milestone
+            start_on:
+              type: string
+              example: '2019-01-01'
+            end_on:
+              type: string
+              example: '2019-01-01'
+            type:
+              type: string
+              example: milestone
+            release_id:
+              type: integer
+              example: 278327321
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            progress:
+              type: integer
+              example: 0
+            progress_source:
+              type: string
+              example: progress_manual
+            duration_source:
+              type: string
+              example: duration_manual
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149492778822'
+                body:
+                  type: string
+                  example: <p>This is the description</p>
+                editor_version:
+                  type: integer
+                  example: 2
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: '6776881149492778822'
+                body: <p>This is the description</p>
+                editor_version: 2
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+          example:
+            id: '6776881149493480488'
+            name: New release milestone
+            start_on: '2019-01-01'
+            end_on: '2019-01-01'
+            type: milestone
+            release_id: 278327321
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            progress: 0
+            progress_source: progress_manual
+            duration_source: duration_manual
+            description:
+              id: '6776881149492778822'
+              body: <p>This is the description</p>
+              editor_version: 2
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+      example:
+        release_phase:
+          id: '6776881149493480488'
+          name: New release milestone
+          start_on: '2019-01-01'
+          end_on: '2019-01-01'
+          type: milestone
+          release_id: 278327321
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          progress: 0
+          progress_source: progress_manual
+          duration_source: duration_manual
+          description:
+            id: '6776881149492778822'
+            body: <p>This is the description</p>
+            editor_version: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+    ReleasephasesGetResponse:
+      type: object
+      properties:
+        release_phases:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: '20526005'
+              name:
+                type: string
+                example: Alpha
+              start_on:
+                type: string
+                example: '2019-01-01'
+              end_on:
+                type: string
+                example: '2019-01-01'
+              type:
+                type: string
+                example: phase
+              release_id:
+                type: integer
+                example: 278327321
+              created_at:
+                type: string
+                example: '2019-01-01T00:00:00.000Z'
+              updated_at:
+                type: string
+                example: '2019-01-01T00:00:00.000Z'
+              progress:
+                type: 'null'
+              progress_source:
+                type: string
+                example: progress_manual
+              duration_source:
+                type: string
+                example: duration_manual
+              description:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  body:
+                    type: string
+                  editor_version:
+                    type: string
+                  created_at:
+                    type: string
+                  updated_at:
+                    type: string
+                  attachments:
+                    type: string
+                example:
+                  id: '243384959'
+                  body: Description of release phase 1
+                  editor_version: 1
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+            example:
+              id: '20526005'
+              name: Alpha
+              start_on: '2019-01-01'
+              end_on: '2019-01-01'
+              type: phase
+              release_id: 278327321
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              progress: null
+              progress_source: progress_manual
+              duration_source: duration_manual
+              description:
+                id: '243384959'
+                body: Description of release phase 1
+                editor_version: 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+          example:
+          - id: '20526005'
+            name: Alpha
+            start_on: '2019-01-01'
+            end_on: '2019-01-01'
+            type: phase
+            release_id: 278327321
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            progress: null
+            progress_source: progress_manual
+            duration_source: duration_manual
+            description:
+              id: '243384959'
+              body: Description of release phase 1
+              editor_version: 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+          - id: '405824017'
+            name: Beta
+            start_on: '2019-01-01'
+            end_on: '2019-01-01'
+            type: milestone
+            release_id: 278327321
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            progress: null
+            progress_source: progress_manual
+            duration_source: duration_manual
+            description:
+              id: '965145324'
+              body: Description of release phase 2
+              editor_version: 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+          - id: '792154778'
+            name: Beta [2]
+            start_on: '2019-01-01'
+            end_on: '2019-01-01'
+            type: milestone
+            release_id: 278327321
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            progress: null
+            progress_source: progress_manual
+            duration_source: duration_manual
+            description:
+              id: '6776881149487000230'
+              body: ''
+              editor_version: 2
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+          - id: '827574075'
+            name: Gamma
+            start_on: '2019-01-01'
+            end_on: '2019-01-01'
+            type: milestone
+            release_id: 278327321
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            progress: null
+            progress_source: progress_manual
+            duration_source: duration_manual
+            description:
+              id: '6776881149494371573'
+              body: ''
+              editor_version: 2
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+        pagination:
+          type: object
+          properties:
+            total_records:
+              type: integer
+              example: 4
+            total_pages:
+              type: integer
+              example: 1
+            current_page:
+              type: integer
+              example: 1
+          example:
+            total_records: 4
+            total_pages: 1
+            current_page: 1
+      example:
+        release_phases:
+        - id: '20526005'
+          name: Alpha
+          start_on: '2019-01-01'
+          end_on: '2019-01-01'
+          type: phase
+          release_id: 278327321
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          progress: null
+          progress_source: progress_manual
+          duration_source: duration_manual
+          description:
+            id: '243384959'
+            body: Description of release phase 1
+            editor_version: 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+        - id: '405824017'
+          name: Beta
+          start_on: '2019-01-01'
+          end_on: '2019-01-01'
+          type: milestone
+          release_id: 278327321
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          progress: null
+          progress_source: progress_manual
+          duration_source: duration_manual
+          description:
+            id: '965145324'
+            body: Description of release phase 2
+            editor_version: 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+        - id: '792154778'
+          name: Beta [2]
+          start_on: '2019-01-01'
+          end_on: '2019-01-01'
+          type: milestone
+          release_id: 278327321
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          progress: null
+          progress_source: progress_manual
+          duration_source: duration_manual
+          description:
+            id: '6776881149487000230'
+            body: ''
+            editor_version: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+        - id: '827574075'
+          name: Gamma
+          start_on: '2019-01-01'
+          end_on: '2019-01-01'
+          type: milestone
+          release_id: 278327321
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          progress: null
+          progress_source: progress_manual
+          duration_source: duration_manual
+          description:
+            id: '6776881149494371573'
+            body: ''
+            editor_version: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+        pagination:
+          total_records: 4
+          total_pages: 1
+          current_page: 1
+    ReleasephasesPostRequest:
+      type: object
+      properties:
+        release_phase:
+          type: object
+          properties:
+            name:
+              type: string
+              example: Another name
+            description:
+              type: string
+              example: <p>new description</p>
+            phase_type:
+              type: string
+              example: milestone
+          example:
+            name: Another name
+            description: <p>new description</p>
+            phase_type: milestone
+      example:
+        release_phase:
+          name: Another name
+          description: <p>new description</p>
+          phase_type: milestone
+    ReleasephasesPutResponse:
+      type: object
+      properties:
+        release_phase:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '20526005'
+            name:
+              type: string
+              example: Alpha
+            start_on:
+              type: string
+              example: '2019-01-01'
+            end_on:
+              type: string
+              example: '2019-01-01'
+            type:
+              type: string
+              example: phase
+            release_id:
+              type: integer
+              example: 278327321
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            progress:
+              type: integer
+              example: 25
+            progress_source:
+              type: string
+              example: progress_manual
+            duration_source:
+              type: string
+              example: duration_manual
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '243384959'
+                body:
+                  type: string
+                  example: Description of release phase 1
+                editor_version:
+                  type: integer
+                  example: 1
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: '243384959'
+                body: Description of release phase 1
+                editor_version: 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+          example:
+            id: '20526005'
+            name: Alpha
+            start_on: '2019-01-01'
+            end_on: '2019-01-01'
+            type: phase
+            release_id: 278327321
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            progress: 25
+            progress_source: progress_manual
+            duration_source: duration_manual
+            description:
+              id: '243384959'
+              body: Description of release phase 1
+              editor_version: 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+      example:
+        release_phase:
+          id: '20526005'
+          name: Alpha
+          start_on: '2019-01-01'
+          end_on: '2019-01-01'
+          type: phase
+          release_id: 278327321
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          progress: 25
+          progress_source: progress_manual
+          duration_source: duration_manual
+          description:
+            id: '243384959'
+            body: Description of release phase 1
+            editor_version: 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

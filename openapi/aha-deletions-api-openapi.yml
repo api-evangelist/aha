@@ -1,0 +1,213 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Deletions API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Deletions
+paths:
+  /api/v1/deletions:
+    get:
+      summary: List contents of recycle bin
+      description: The recycle bin contains recently deleted workspaces, teams, and records. It is possible to restore items up to 7 days after they have been deleted.
+      tags:
+      - Deletions
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/DeletionsGetResponse'
+              example:
+                deletions: []
+                pagination:
+                  total_records: 0
+                  total_pages: 0
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/deletions/{id}/restore:
+    post:
+      summary: restore a specific record
+      description: The recycle bin contains recently deleted workspaces, teams, and records. It is possible to restore items up to 7 days after they have been deleted.
+      tags:
+      - Deletions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/DeletionsPostResponse'
+              example:
+                deletion:
+                  status: restore_in_progress
+                  record:
+                    name: Feature 1
+                    type: Feature
+                    reference_num: PRJ1-1
+                  deleted_by:
+                    id: 1049303076
+                    name: George Gently
+                    email: no-reply@aha.io
+                  id: '6776881149497698683'
+                  deleted_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  schemas:
+    DeletionsGetResponse:
+      type: object
+      properties:
+        deletions:
+          type: array
+          items: {}
+        pagination:
+          type: object
+          properties:
+            total_records:
+              type: integer
+              example: 0
+            total_pages:
+              type: integer
+              example: 0
+            current_page:
+              type: integer
+              example: 1
+          example:
+            total_records: 0
+            total_pages: 0
+            current_page: 1
+      example:
+        deletions: []
+        pagination:
+          total_records: 0
+          total_pages: 0
+          current_page: 1
+    DeletionsPostResponse:
+      type: object
+      properties:
+        deletion:
+          type: object
+          properties:
+            status:
+              type: string
+              example: restore_in_progress
+            record:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Feature 1
+                type:
+                  type: string
+                  example: Feature
+                reference_num:
+                  type: string
+                  example: PRJ1-1
+              example:
+                name: Feature 1
+                type: Feature
+                reference_num: PRJ1-1
+            deleted_by:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 1049303076
+                name:
+                  type: string
+                  example: George Gently
+                email:
+                  type: string
+                  example: no-reply@aha.io
+              example:
+                id: 1049303076
+                name: George Gently
+                email: no-reply@aha.io
+            id:
+              type: string
+              example: '6776881149497698683'
+            deleted_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+          example:
+            status: restore_in_progress
+            record:
+              name: Feature 1
+              type: Feature
+              reference_num: PRJ1-1
+            deleted_by:
+              id: 1049303076
+              name: George Gently
+              email: no-reply@aha.io
+            id: '6776881149497698683'
+            deleted_at: '2019-01-01T00:00:00.000Z'
+      example:
+        deletion:
+          status: restore_in_progress
+          record:
+            name: Feature 1
+            type: Feature
+            reference_num: PRJ1-1
+          deleted_by:
+            id: 1049303076
+            name: George Gently
+            email: no-reply@aha.io
+          id: '6776881149497698683'
+          deleted_at: '2019-01-01T00:00:00.000Z'
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

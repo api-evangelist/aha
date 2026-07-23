@@ -1,0 +1,2265 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Ideas API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Ideas
+paths:
+  /api/v1/ideas/{id}:
+    get:
+      summary: Get a specific idea
+      description: 'When creating an idea where the creator is an idea user we strongly suggest
+
+        to provide the `submitted_idea_portal_id` attribute to the idea
+
+        to ensure that the idea is created in the correct ideas portal and the user
+
+        gets access to the portal.
+
+
+        If you don''t want the idea to be submitted to any portal, you can skip this
+
+        by setting `skip_portal: true` in the request body.'
+      tags:
+      - Ideas
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeasGetResponse'
+              example:
+                idea:
+                  id: '1055237874'
+                  name: Idea 3 Merged
+                  reference_num: PRJ1-I-3
+                  score: 0
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '131414752'
+                  votes: 2
+                  initial_votes: 2
+                  status_changed_at: null
+                  workflow_status:
+                    id: '1009437757'
+                    name: In progress
+                    position: 2
+                    complete: false
+                    color: '#ecdd8f'
+                  description:
+                    id: '506957205'
+                    body: Description of idea 3
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  visibility: Visible to all ideas portal users
+                  duplicate_of:
+                    id: '444379319'
+                    reference_num: PRJ1-I-2
+                    name: Idea 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    workflow_status:
+                      id: '1009437757'
+                      name: In progress
+                      position: 2
+                      complete: false
+                      color: '#ecdd8f'
+                    description:
+                      id: '378547141'
+                      body: Description of idea 2
+                      editor_version: 1
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                      attachments: []
+                    url: http://company.aha.io/ideas/ideas/PRJ1-I-2
+                    resource: http://company.aha.io/api/v1/ideas/PRJ1-I-2
+                  url: http://company.aha.io/ideas/ideas/PRJ1-I-3
+                  resource: http://company.aha.io/api/v1/ideas/PRJ1-I-3
+                  product:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+                  created_by_portal_user:
+                    id: '646391926'
+                    name: John Long
+                    email: john@long.com
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  created_by_idea_user:
+                    id: '1056507375'
+                    name: John Long
+                    email: john@long.com
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    title: null
+                  assigned_to_user: null
+                  feature:
+                    id: '1007868956'
+                    reference_num: PRJ1-1
+                    name: Feature 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/features/PRJ1-1
+                    resource: http://company.aha.io/api/v1/features/PRJ1-1
+                    product_id: '131414752'
+                  endorsements_count: 0
+                  comments_count: 0
+                  score_facts: []
+                  tags: []
+                  full_tags: []
+                  categories: []
+                  custom_fields: []
+                  submitted_idea_portal_record_url: https://ideas.example.com:8338/ideas/PRJ1-I-3
+                  integration_fields: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    delete:
+      summary: Delete an idea
+      description: 'When creating an idea where the creator is an idea user we strongly suggest
+
+        to provide the `submitted_idea_portal_id` attribute to the idea
+
+        to ensure that the idea is created in the correct ideas portal and the user
+
+        gets access to the portal.
+
+
+        If you don''t want the idea to be submitted to any portal, you can skip this
+
+        by setting `skip_portal: true` in the request body.'
+      tags:
+      - Ideas
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/products/{product_id}/ideas:
+    post:
+      summary: Create an idea
+      description: Creates a new idea with basic details including initial vote count
+      tags:
+      - Ideas
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeasPostResponse'
+              example:
+                idea:
+                  id: '6776881149487483845'
+                  name: Comprehensive Feature Request
+                  reference_num: PRJ1-I-10
+                  score: 2
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '131414752'
+                  votes: 15
+                  initial_votes: 15
+                  status_changed_at: '2019-01-01T00:00:00.000Z'
+                  workflow_status:
+                    id: '3259216'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '6776881149489364397'
+                    body: <h1>Problem Statement</h1><p>Users need better mobile experience</p><h2>Proposed Solution</h2><p>Native mobile app with offline capabilities</p>
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  visibility: Visible to all ideas portal users
+                  admin_response:
+                    id: '6776881149492320383'
+                    body: Great idea! This aligns with our mobile strategy roadmap. We'll evaluate this for Q3 implementation.
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                    responded_by_user:
+                      id: '1020675218'
+                      name: Mary Humpty
+                      email: no-reply@aha.io
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                  url: http://company.aha.io/ideas/ideas/PRJ1-I-10
+                  resource: http://company.aha.io/api/v1/ideas/PRJ1-I-10
+                  product:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+                  created_by_portal_user:
+                    id: '384687358'
+                    name: Sammy Smith
+                    email: sammy@smith.com
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  created_by_idea_user:
+                    id: '244576613'
+                    name: Sammy Smith
+                    email: sammy@smith.com
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    title: null
+                  assigned_to_user: null
+                  endorsements_count: 0
+                  comments_count: 0
+                  score_facts: []
+                  tags:
+                  - mobile
+                  - offline
+                  - performance
+                  - UX
+                  full_tags:
+                  - id: '6776881149483567678'
+                    name: performance
+                    color: '#e05298'
+                  - id: '6776881149486951248'
+                    name: UX
+                    color: '#a952e0'
+                  - id: '6776881149488941674'
+                    name: mobile
+                    color: '#bae052'
+                  - id: '6776881149490298781'
+                    name: offline
+                    color: '#9ae052'
+                  categories:
+                  - id: '552935478'
+                    name: Storage
+                    parent_id: null
+                    project_id: 131414752
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  custom_fields: []
+                  workflow_status_times:
+                  - status_id: '3259216'
+                    status_name: New
+                    started_at: '2019-01-01T00:00:00.000Z'
+                    ended_at: null
+                  submitted_idea_portal_record_url: https://testideaportal1.ideas.aha.io:8338/ideas/PRJ1-I-10
+                  integration_fields: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdeasPostRequest'
+            example:
+              idea:
+                name: New idea
+                description: <p>This is the description</p>
+                initial_votes: 3
+    get:
+      summary: List ideas for a product
+      description: 'When creating an idea where the creator is an idea user we strongly suggest
+
+        to provide the `submitted_idea_portal_id` attribute to the idea
+
+        to ensure that the idea is created in the correct ideas portal and the user
+
+        gets access to the portal.
+
+
+        If you don''t want the idea to be submitted to any portal, you can skip this
+
+        by setting `skip_portal: true` in the request body.'
+      tags:
+      - Ideas
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeasGetResponse'
+              example:
+                ideas:
+                - id: '58056975'
+                  reference_num: PRJ1-I-1
+                  name: Idea 1
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  workflow_status:
+                    id: '3259216'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '103757394'
+                    body: Description of idea 1
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+                  resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+                - id: '68691224'
+                  reference_num: PRJ1-I-12
+                  name: Idea 5
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  workflow_status:
+                    id: '3259216'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '6776881149495843340'
+                    body: ''
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  url: http://company.aha.io/ideas/ideas/PRJ1-I-12
+                  resource: http://company.aha.io/api/v1/ideas/PRJ1-I-12
+                - id: '162120796'
+                  reference_num: PRJ1-I-5
+                  name: Idea 4
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  workflow_status:
+                    id: '3259216'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '478357480'
+                    body: Description of idea custom tables
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  url: http://company.aha.io/ideas/ideas/PRJ1-I-5
+                  resource: http://company.aha.io/api/v1/ideas/PRJ1-I-5
+                - id: '444379319'
+                  reference_num: PRJ1-I-2
+                  name: Idea 2
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  workflow_status:
+                    id: '1009437757'
+                    name: In progress
+                    position: 2
+                    complete: false
+                    color: '#ecdd8f'
+                  description:
+                    id: '378547141'
+                    body: Description of idea 2
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  url: http://company.aha.io/ideas/ideas/PRJ1-I-2
+                  resource: http://company.aha.io/api/v1/ideas/PRJ1-I-2
+                - id: '857675141'
+                  reference_num: PRJ1-I-11
+                  name: Idea 004
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  workflow_status:
+                    id: '3259216'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '6776881149485861297'
+                    body: ''
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  url: http://company.aha.io/ideas/ideas/PRJ1-I-11
+                  resource: http://company.aha.io/api/v1/ideas/PRJ1-I-11
+                - id: '1055237874'
+                  reference_num: PRJ1-I-3
+                  name: Idea 3 Merged
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  workflow_status:
+                    id: '1009437757'
+                    name: In progress
+                    position: 2
+                    complete: false
+                    color: '#ecdd8f'
+                  description:
+                    id: '506957205'
+                    body: Description of idea 3
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  url: http://company.aha.io/ideas/ideas/PRJ1-I-3
+                  resource: http://company.aha.io/api/v1/ideas/PRJ1-I-3
+                pagination:
+                  total_records: 6
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/ideas:
+    get:
+      summary: List ideas
+      description: 'When creating an idea where the creator is an idea user we strongly suggest
+
+        to provide the `submitted_idea_portal_id` attribute to the idea
+
+        to ensure that the idea is created in the correct ideas portal and the user
+
+        gets access to the portal.
+
+
+        If you don''t want the idea to be submitted to any portal, you can skip this
+
+        by setting `skip_portal: true` in the request body.'
+      tags:
+      - Ideas
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeasGetResponse'
+              example:
+                ideas:
+                - id: '58056975'
+                  reference_num: PRJ1-I-1
+                  name: Idea 1
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  workflow_status:
+                    id: '3259216'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '103757394'
+                    body: Description of idea 1
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+                  resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+                - id: '68691224'
+                  reference_num: PRJ1-I-12
+                  name: Idea 5
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  workflow_status:
+                    id: '3259216'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '6776881149484500966'
+                    body: ''
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  url: http://company.aha.io/ideas/ideas/PRJ1-I-12
+                  resource: http://company.aha.io/api/v1/ideas/PRJ1-I-12
+                - id: '140490859'
+                  reference_num: PRJ1-I-8
+                  name: Some idea name 3
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  workflow_status:
+                    id: '3259216'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '6776881149490665511'
+                    body: ''
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  url: http://company.aha.io/ideas/ideas/PRJ1-I-8
+                  resource: http://company.aha.io/api/v1/ideas/PRJ1-I-8
+                - id: '162120796'
+                  reference_num: PRJ1-I-5
+                  name: Idea 4
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  workflow_status:
+                    id: '3259216'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '478357480'
+                    body: Description of idea custom tables
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  url: http://company.aha.io/ideas/ideas/PRJ1-I-5
+                  resource: http://company.aha.io/api/v1/ideas/PRJ1-I-5
+                - id: '245519441'
+                  reference_num: PRJ1-I-7
+                  name: Some idea name 2
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  workflow_status:
+                    id: '3259216'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '716451363'
+                    body: Description of idea endorsement 2
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  url: http://company.aha.io/ideas/ideas/PRJ1-I-7
+                  resource: http://company.aha.io/api/v1/ideas/PRJ1-I-7
+                - id: '290908627'
+                  reference_num: PRJ1-I-9
+                  name: Some idea name 4
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  workflow_status:
+                    id: '3259216'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '6776881149497367311'
+                    body: ''
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  url: http://company.aha.io/ideas/ideas/PRJ1-I-9
+                  resource: http://company.aha.io/api/v1/ideas/PRJ1-I-9
+                - id: '397084149'
+                  reference_num: PRJ1-I-6
+                  name: Some idea name 1
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  workflow_status:
+                    id: '3259216'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '868056987'
+                    body: Description of idea endorsement 1
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  url: http://company.aha.io/ideas/ideas/PRJ1-I-6
+                  resource: http://company.aha.io/api/v1/ideas/PRJ1-I-6
+                - id: '444379319'
+                  reference_num: PRJ1-I-2
+                  name: Idea 2
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  workflow_status:
+                    id: '1009437757'
+                    name: In progress
+                    position: 2
+                    complete: false
+                    color: '#ecdd8f'
+                  description:
+                    id: '378547141'
+                    body: Description of idea 2
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  url: http://company.aha.io/ideas/ideas/PRJ1-I-2
+                  resource: http://company.aha.io/api/v1/ideas/PRJ1-I-2
+                - id: '731163180'
+                  reference_num: PRJ2-I-2
+                  name: Idea 2 project 2
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  workflow_status:
+                    id: '3259216'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '928262307'
+                    body: Description of idea 2 project2
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  url: http://company.aha.io/ideas/ideas/PRJ2-I-2
+                  resource: http://company.aha.io/api/v1/ideas/PRJ2-I-2
+                - id: '849214356'
+                  reference_num: PRJ2-I-1
+                  name: Idea 1 project 2
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  workflow_status:
+                    id: '3259216'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '5445688'
+                    body: Description of idea 1 project2
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  url: http://company.aha.io/ideas/ideas/PRJ2-I-1
+                  resource: http://company.aha.io/api/v1/ideas/PRJ2-I-1
+                - id: '857675141'
+                  reference_num: PRJ1-I-11
+                  name: Idea 004
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  workflow_status:
+                    id: '3259216'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '6776881149494084357'
+                    body: ''
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  url: http://company.aha.io/ideas/ideas/PRJ1-I-11
+                  resource: http://company.aha.io/api/v1/ideas/PRJ1-I-11
+                - id: '926598431'
+                  reference_num: PRJ5-I-1
+                  name: Idea 1 Project 5
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  workflow_status:
+                    id: '1009437757'
+                    name: In progress
+                    position: 2
+                    complete: false
+                    color: '#ecdd8f'
+                  description:
+                    id: '6776881149487190134'
+                    body: ''
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  url: http://company.aha.io/ideas/ideas/PRJ5-I-1
+                  resource: http://company.aha.io/api/v1/ideas/PRJ5-I-1
+                - id: '1055237874'
+                  reference_num: PRJ1-I-3
+                  name: Idea 3 Merged
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  workflow_status:
+                    id: '1009437757'
+                    name: In progress
+                    position: 2
+                    complete: false
+                    color: '#ecdd8f'
+                  description:
+                    id: '506957205'
+                    body: Description of idea 3
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  url: http://company.aha.io/ideas/ideas/PRJ1-I-3
+                  resource: http://company.aha.io/api/v1/ideas/PRJ1-I-3
+                pagination:
+                  total_records: 13
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/ideas/{id}?fields=description,plain_text_body:
+    get:
+      summary: Get a specific idea with plain text body
+      description: 'When creating an idea where the creator is an idea user we strongly suggest
+
+        to provide the `submitted_idea_portal_id` attribute to the idea
+
+        to ensure that the idea is created in the correct ideas portal and the user
+
+        gets access to the portal.
+
+
+        If you don''t want the idea to be submitted to any portal, you can skip this
+
+        by setting `skip_portal: true` in the request body.'
+      tags:
+      - Ideas
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      - name: fields
+        in: query
+        required: false
+        schema:
+          type: string
+        example: description,plain_text_body
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeasGetResponse'
+              example:
+                idea:
+                  id: '58056975'
+                  product_id: '131414752'
+                  description:
+                    id: '103757394'
+                    body: <p>Description of idea 1</p>
+                    plain_text_body: Description of idea 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/ideas/related:
+    get:
+      summary: List ideas related to a particular term
+      description: 'When creating an idea where the creator is an idea user we strongly suggest
+
+        to provide the `submitted_idea_portal_id` attribute to the idea
+
+        to ensure that the idea is created in the correct ideas portal and the user
+
+        gets access to the portal.
+
+
+        If you don''t want the idea to be submitted to any portal, you can skip this
+
+        by setting `skip_portal: true` in the request body.'
+      tags:
+      - Ideas
+      parameters:
+      - name: q
+        in: query
+        required: false
+        schema:
+          type: string
+        example: ideas are a dime a dozen
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeasGetResponse'
+              example:
+                ideas: []
+                pagination:
+                  total_records: 0
+                  total_pages: 0
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/ideas/{id}/promote:
+    put:
+      summary: Promote an idea
+      description: 'When creating an idea where the creator is an idea user we strongly suggest
+
+        to provide the `submitted_idea_portal_id` attribute to the idea
+
+        to ensure that the idea is created in the correct ideas portal and the user
+
+        gets access to the portal.
+
+
+        If you don''t want the idea to be submitted to any portal, you can skip this
+
+        by setting `skip_portal: true` in the request body.'
+      tags:
+      - Ideas
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeasPutResponse'
+              example:
+                idea:
+                  id: '58056975'
+                  name: Idea 1
+                  reference_num: PRJ1-I-1
+                  score: 15
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '131414752'
+                  votes: 1
+                  initial_votes: 0
+                  status_changed_at: '2019-01-01T00:00:00.000Z'
+                  workflow_status:
+                    id: '1009437757'
+                    name: In progress
+                    position: 2
+                    complete: false
+                    color: '#ecdd8f'
+                  description:
+                    id: '103757394'
+                    body: Description of idea 1
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  visibility: Visible to all ideas portal users
+                  url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+                  resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+                  product:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+                  created_by_user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  assigned_to_user: null
+                  feature:
+                    id: '6776881149492554846'
+                    reference_num: PRJ1-251
+                    name: Idea 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/features/PRJ1-251
+                    resource: http://company.aha.io/api/v1/features/PRJ1-251
+                    product_id: '131414752'
+                  endorsements_count: 1
+                  comments_count: 0
+                  score_facts:
+                  - id: '244026645'
+                    value: 10
+                    name: Effort
+                  - id: '394452137'
+                    value: 5
+                    name: Benefit
+                  tags:
+                  - Infrastructure
+                  full_tags:
+                  - id: 775582684
+                    name: Infrastructure
+                    color: '#7552e0'
+                  categories:
+                  - id: '972845454'
+                    name: Hard disk drive
+                    parent_id: 552935478
+                    project_id: 131414752
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  custom_fields:
+                  - id: 585340588
+                    key: component
+                    name: Component
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value:
+                    - web
+                    type: array
+                  - id: 267687015
+                    key: custom_scorecard_definition
+                    name: Some custom scorecard definition
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: 11
+                    type: scorecard
+                    score_facts: []
+                  - id: 193641455
+                    key: text_field1
+                    name: TextField1
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: Cairo
+                    type: string
+                  - id: 310635095
+                    key: text_field2
+                    name: TextField2
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: Rennes
+                    type: string
+                  - id: 800380718
+                    key: upload
+                    name: Upload
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    attachments: []
+                    type: attachment
+                  custom_object_links:
+                  - key: revenue
+                    name: Revenue
+                    record_type: CustomObjectRecord
+                    record_ids:
+                    - 640362830
+                  - key: submitters
+                    name: Submitters
+                    record_type: CustomObjectRecord
+                    record_ids:
+                    - 640362830
+                  workflow_status_times:
+                  - status_id: '1009437757'
+                    status_name: In progress
+                    started_at: '2019-01-01T00:00:00.000Z'
+                    ended_at: null
+                  submitted_idea_portal_record_url: https://ideas.example.com:8338/ideas/PRJ1-I-1
+                  integration_fields: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdeasPostRequest'
+            example:
+              promotable_type: feature
+              release_id: 278327321
+components:
+  schemas:
+    IdeasPostRequest:
+      type: object
+      properties:
+        promotable_type:
+          type: string
+          example: feature
+        release_id:
+          type: integer
+          example: 278327321
+      example:
+        promotable_type: feature
+        release_id: 278327321
+    IdeasPutResponse:
+      type: object
+      properties:
+        idea:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '58056975'
+            name:
+              type: string
+              example: Idea 1
+            reference_num:
+              type: string
+              example: PRJ1-I-1
+            score:
+              type: integer
+              example: 15
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            product_id:
+              type: string
+              example: '131414752'
+            votes:
+              type: integer
+              example: 1
+            initial_votes:
+              type: integer
+              example: 0
+            status_changed_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            workflow_status:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1009437757'
+                name:
+                  type: string
+                  example: In progress
+                position:
+                  type: integer
+                  example: 2
+                complete:
+                  type: boolean
+                  example: false
+                color:
+                  type: string
+                  example: '#ecdd8f'
+              example:
+                id: '1009437757'
+                name: In progress
+                position: 2
+                complete: false
+                color: '#ecdd8f'
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '103757394'
+                body:
+                  type: string
+                  example: Description of idea 1
+                editor_version:
+                  type: integer
+                  example: 1
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: '103757394'
+                body: Description of idea 1
+                editor_version: 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            visibility:
+              type: string
+              example: Visible to all ideas portal users
+            url:
+              type: string
+              example: http://company.aha.io/ideas/ideas/PRJ1-I-1
+            resource:
+              type: string
+              example: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+            product:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '131414752'
+                reference_prefix:
+                  type: string
+                  example: PRJ1
+                name:
+                  type: string
+                  example: Project 1
+                product_line:
+                  type: boolean
+                  example: false
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                workspace_type:
+                  type: string
+                  example: product_workspace
+                url:
+                  type: string
+                  example: http://company.aha.io/projects/PRJ1
+              example:
+                id: '131414752'
+                reference_prefix: PRJ1
+                name: Project 1
+                product_line: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                workspace_type: product_workspace
+                url: http://company.aha.io/projects/PRJ1
+            created_by_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1020675218'
+                name:
+                  type: string
+                  example: Mary Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+            assigned_to_user:
+              type: 'null'
+            feature:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149492554846'
+                reference_num:
+                  type: string
+                  example: PRJ1-251
+                name:
+                  type: string
+                  example: Idea 1
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                url:
+                  type: string
+                  example: http://company.aha.io/features/PRJ1-251
+                resource:
+                  type: string
+                  example: http://company.aha.io/api/v1/features/PRJ1-251
+                product_id:
+                  type: string
+                  example: '131414752'
+              example:
+                id: '6776881149492554846'
+                reference_num: PRJ1-251
+                name: Idea 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/features/PRJ1-251
+                resource: http://company.aha.io/api/v1/features/PRJ1-251
+                product_id: '131414752'
+            endorsements_count:
+              type: integer
+              example: 1
+            comments_count:
+              type: integer
+              example: 0
+            score_facts:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  value:
+                    type: string
+                  name:
+                    type: string
+                example:
+                  id: '244026645'
+                  value: 10
+                  name: Effort
+              example:
+              - id: '244026645'
+                value: 10
+                name: Effort
+              - id: '394452137'
+                value: 5
+                name: Benefit
+            tags:
+              type: array
+              items:
+                type: string
+                example: Infrastructure
+              example:
+              - Infrastructure
+            full_tags:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  color:
+                    type: string
+                example:
+                  id: 775582684
+                  name: Infrastructure
+                  color: '#7552e0'
+              example:
+              - id: 775582684
+                name: Infrastructure
+                color: '#7552e0'
+            categories:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  parent_id:
+                    type: string
+                  project_id:
+                    type: string
+                  created_at:
+                    type: string
+                example:
+                  id: '972845454'
+                  name: Hard disk drive
+                  parent_id: 552935478
+                  project_id: 131414752
+                  created_at: '2019-01-01T00:00:00.000Z'
+              example:
+              - id: '972845454'
+                name: Hard disk drive
+                parent_id: 552935478
+                project_id: 131414752
+                created_at: '2019-01-01T00:00:00.000Z'
+            custom_fields:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  key:
+                    type: string
+                  name:
+                    type: string
+                  updatedAt:
+                    type: string
+                  value:
+                    type: string
+                  type:
+                    type: string
+                example:
+                  id: 585340588
+                  key: component
+                  name: Component
+                  updatedAt: '2019-01-01T00:00:00Z'
+                  value:
+                  - web
+                  type: array
+              example:
+              - id: 585340588
+                key: component
+                name: Component
+                updatedAt: '2019-01-01T00:00:00Z'
+                value:
+                - web
+                type: array
+              - id: 267687015
+                key: custom_scorecard_definition
+                name: Some custom scorecard definition
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: 11
+                type: scorecard
+                score_facts: []
+              - id: 193641455
+                key: text_field1
+                name: TextField1
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: Cairo
+                type: string
+              - id: 310635095
+                key: text_field2
+                name: TextField2
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: Rennes
+                type: string
+              - id: 800380718
+                key: upload
+                name: Upload
+                updatedAt: '2019-01-01T00:00:00Z'
+                attachments: []
+                type: attachment
+            custom_object_links:
+              type: array
+              items:
+                type: object
+                properties:
+                  key:
+                    type: string
+                  name:
+                    type: string
+                  record_type:
+                    type: string
+                  record_ids:
+                    type: string
+                example:
+                  key: revenue
+                  name: Revenue
+                  record_type: CustomObjectRecord
+                  record_ids:
+                  - 640362830
+              example:
+              - key: revenue
+                name: Revenue
+                record_type: CustomObjectRecord
+                record_ids:
+                - 640362830
+              - key: submitters
+                name: Submitters
+                record_type: CustomObjectRecord
+                record_ids:
+                - 640362830
+            workflow_status_times:
+              type: array
+              items:
+                type: object
+                properties:
+                  status_id:
+                    type: string
+                  status_name:
+                    type: string
+                  started_at:
+                    type: string
+                  ended_at:
+                    type: 'null'
+                example:
+                  status_id: '1009437757'
+                  status_name: In progress
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: null
+              example:
+              - status_id: '1009437757'
+                status_name: In progress
+                started_at: '2019-01-01T00:00:00.000Z'
+                ended_at: null
+            submitted_idea_portal_record_url:
+              type: string
+              example: https://ideas.example.com:8338/ideas/PRJ1-I-1
+            integration_fields:
+              type: array
+              items: {}
+          example:
+            id: '58056975'
+            name: Idea 1
+            reference_num: PRJ1-I-1
+            score: 15
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            product_id: '131414752'
+            votes: 1
+            initial_votes: 0
+            status_changed_at: '2019-01-01T00:00:00.000Z'
+            workflow_status:
+              id: '1009437757'
+              name: In progress
+              position: 2
+              complete: false
+              color: '#ecdd8f'
+            description:
+              id: '103757394'
+              body: Description of idea 1
+              editor_version: 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            visibility: Visible to all ideas portal users
+            url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+            resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+            product:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              workspace_type: product_workspace
+              url: http://company.aha.io/projects/PRJ1
+            created_by_user:
+              id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            assigned_to_user: null
+            feature:
+              id: '6776881149492554846'
+              reference_num: PRJ1-251
+              name: Idea 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/features/PRJ1-251
+              resource: http://company.aha.io/api/v1/features/PRJ1-251
+              product_id: '131414752'
+            endorsements_count: 1
+            comments_count: 0
+            score_facts:
+            - id: '244026645'
+              value: 10
+              name: Effort
+            - id: '394452137'
+              value: 5
+              name: Benefit
+            tags:
+            - Infrastructure
+            full_tags:
+            - id: 775582684
+              name: Infrastructure
+              color: '#7552e0'
+            categories:
+            - id: '972845454'
+              name: Hard disk drive
+              parent_id: 552935478
+              project_id: 131414752
+              created_at: '2019-01-01T00:00:00.000Z'
+            custom_fields:
+            - id: 585340588
+              key: component
+              name: Component
+              updatedAt: '2019-01-01T00:00:00Z'
+              value:
+              - web
+              type: array
+            - id: 267687015
+              key: custom_scorecard_definition
+              name: Some custom scorecard definition
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: 11
+              type: scorecard
+              score_facts: []
+            - id: 193641455
+              key: text_field1
+              name: TextField1
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: Cairo
+              type: string
+            - id: 310635095
+              key: text_field2
+              name: TextField2
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: Rennes
+              type: string
+            - id: 800380718
+              key: upload
+              name: Upload
+              updatedAt: '2019-01-01T00:00:00Z'
+              attachments: []
+              type: attachment
+            custom_object_links:
+            - key: revenue
+              name: Revenue
+              record_type: CustomObjectRecord
+              record_ids:
+              - 640362830
+            - key: submitters
+              name: Submitters
+              record_type: CustomObjectRecord
+              record_ids:
+              - 640362830
+            workflow_status_times:
+            - status_id: '1009437757'
+              status_name: In progress
+              started_at: '2019-01-01T00:00:00.000Z'
+              ended_at: null
+            submitted_idea_portal_record_url: https://ideas.example.com:8338/ideas/PRJ1-I-1
+            integration_fields: []
+      example:
+        idea:
+          id: '58056975'
+          name: Idea 1
+          reference_num: PRJ1-I-1
+          score: 15
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          product_id: '131414752'
+          votes: 1
+          initial_votes: 0
+          status_changed_at: '2019-01-01T00:00:00.000Z'
+          workflow_status:
+            id: '1009437757'
+            name: In progress
+            position: 2
+            complete: false
+            color: '#ecdd8f'
+          description:
+            id: '103757394'
+            body: Description of idea 1
+            editor_version: 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+          visibility: Visible to all ideas portal users
+          url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+          resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+          product:
+            id: '131414752'
+            reference_prefix: PRJ1
+            name: Project 1
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            workspace_type: product_workspace
+            url: http://company.aha.io/projects/PRJ1
+          created_by_user:
+            id: '1020675218'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          assigned_to_user: null
+          feature:
+            id: '6776881149492554846'
+            reference_num: PRJ1-251
+            name: Idea 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/features/PRJ1-251
+            resource: http://company.aha.io/api/v1/features/PRJ1-251
+            product_id: '131414752'
+          endorsements_count: 1
+          comments_count: 0
+          score_facts:
+          - id: '244026645'
+            value: 10
+            name: Effort
+          - id: '394452137'
+            value: 5
+            name: Benefit
+          tags:
+          - Infrastructure
+          full_tags:
+          - id: 775582684
+            name: Infrastructure
+            color: '#7552e0'
+          categories:
+          - id: '972845454'
+            name: Hard disk drive
+            parent_id: 552935478
+            project_id: 131414752
+            created_at: '2019-01-01T00:00:00.000Z'
+          custom_fields:
+          - id: 585340588
+            key: component
+            name: Component
+            updatedAt: '2019-01-01T00:00:00Z'
+            value:
+            - web
+            type: array
+          - id: 267687015
+            key: custom_scorecard_definition
+            name: Some custom scorecard definition
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: 11
+            type: scorecard
+            score_facts: []
+          - id: 193641455
+            key: text_field1
+            name: TextField1
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: Cairo
+            type: string
+          - id: 310635095
+            key: text_field2
+            name: TextField2
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: Rennes
+            type: string
+          - id: 800380718
+            key: upload
+            name: Upload
+            updatedAt: '2019-01-01T00:00:00Z'
+            attachments: []
+            type: attachment
+          custom_object_links:
+          - key: revenue
+            name: Revenue
+            record_type: CustomObjectRecord
+            record_ids:
+            - 640362830
+          - key: submitters
+            name: Submitters
+            record_type: CustomObjectRecord
+            record_ids:
+            - 640362830
+          workflow_status_times:
+          - status_id: '1009437757'
+            status_name: In progress
+            started_at: '2019-01-01T00:00:00.000Z'
+            ended_at: null
+          submitted_idea_portal_record_url: https://ideas.example.com:8338/ideas/PRJ1-I-1
+          integration_fields: []
+    IdeasPostResponse:
+      type: object
+      properties:
+        idea:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149487483845'
+            name:
+              type: string
+              example: Comprehensive Feature Request
+            reference_num:
+              type: string
+              example: PRJ1-I-10
+            score:
+              type: integer
+              example: 2
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            product_id:
+              type: string
+              example: '131414752'
+            votes:
+              type: integer
+              example: 15
+            initial_votes:
+              type: integer
+              example: 15
+            status_changed_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            workflow_status:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '3259216'
+                name:
+                  type: string
+                  example: New
+                position:
+                  type: integer
+                  example: 1
+                complete:
+                  type: boolean
+                  example: false
+                color:
+                  type: string
+                  example: '#dce7c6'
+              example:
+                id: '3259216'
+                name: New
+                position: 1
+                complete: false
+                color: '#dce7c6'
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149489364397'
+                body:
+                  type: string
+                  example: <h1>Problem Statement</h1><p>Users need better mobile experience</p><h2>Proposed Solution</h2><p>Native mobile app with offline capabilities</p>
+                editor_version:
+                  type: integer
+                  example: 2
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: '6776881149489364397'
+                body: <h1>Problem Statement</h1><p>Users need better mobile experience</p><h2>Proposed Solution</h2><p>Native mobile app with offline capabilities</p>
+                editor_version: 2
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            visibility:
+              type: string
+              example: Visible to all ideas portal users
+            admin_response:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149492320383'
+                body:
+                  type: string
+                  example: Great idea! This aligns with our mobile strategy roadmap. We'll evaluate this for Q3 implementation.
+                editor_version:
+                  type: integer
+                  example: 2
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+                responded_by_user:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    email:
+                      type: string
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
+                  example:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '6776881149492320383'
+                body: Great idea! This aligns with our mobile strategy roadmap. We'll evaluate this for Q3 implementation.
+                editor_version: 2
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+                responded_by_user:
+                  id: '1020675218'
+                  name: Mary Humpty
+                  email: no-reply@aha.io
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+            url:
+              type: string
+              example: http://company.aha.io/ideas/ideas/PRJ1-I-10
+            resource:
+              type: string
+              example: http://company.aha.io/api/v1/ideas/PRJ1-I-10
+            product:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '131414752'
+                reference_prefix:
+                  type: string
+                  example: PRJ1
+                name:
+                  type: string
+                  example: Project 1
+                product_line:
+                  type: boolean
+                  example: false
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                workspace_type:
+                  type: string
+                  example: product_workspace
+                url:
+                  type: string
+                  example: http://company.aha.io/projects/PRJ1
+              example:
+                id: '131414752'
+                reference_prefix: PRJ1
+                name: Project 1
+                product_line: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                workspace_type: product_workspace
+                url: http://company.aha.io/projects/PRJ1
+            created_by_portal_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '384687358'
+                name:
+                  type: string
+                  example: Sammy Smith
+                email:
+                  type: string
+                  example: sammy@smith.com
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '384687358'
+                name: Sammy Smith
+                email: sammy@smith.com
+                created_at: '2019-01-01T00:00:00.000Z'
+            created_by_idea_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '244576613'
+                name:
+                  type: string
+                  example: Sammy Smith
+                email:
+                  type: string
+                  example: sammy@smith.com
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                title:
+                  type: 'null'
+              example:
+                id: '244576613'
+                name: Sammy Smith
+                email: sammy@smith.com
+                created_at: '2019-01-01T00:00:00.000Z'
+                title: null
+            assigned_to_user:
+              type: 'null'
+            endorsements_count:
+              type: integer
+              example: 0
+            comments_count:
+              type: integer
+              example: 0
+            score_facts:
+              type: array
+              items: {}
+            tags:
+              type: array
+              items:
+                type: string
+                example: mobile
+              example:
+              - mobile
+              - offline
+              - performance
+              - UX
+            full_tags:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  color:
+                    type: string
+                example:
+                  id: '6776881149483567678'
+                  name: performance
+                  color: '#e05298'
+              example:
+              - id: '6776881149483567678'
+                name: performance
+                color: '#e05298'
+              - id: '6776881149486951248'
+                name: UX
+                color: '#a952e0'
+              - id: '6776881149488941674'
+                name: mobile
+                color: '#bae052'
+              - id: '6776881149490298781'
+                name: offline
+                color: '#9ae052'
+            categories:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  parent_id:
+                    type: 'null'
+                  project_id:
+                    type: string
+                  created_at:
+                    type: string
+                example:
+                  id: '552935478'
+                  name: Storage
+                  parent_id: null
+                  project_id: 131414752
+                  created_at: '2019-01-01T00:00:00.000Z'
+              example:
+              - id: '552935478'
+                name: Storage
+                parent_id: null
+                project_id: 131414752
+                created_at: '2019-01-01T00:00:00.000Z'
+            custom_fields:
+              type: array
+              items: {}
+            workflow_status_times:
+              type: array
+              items:
+                type: object
+                properties:
+                  status_id:
+                    type: string
+                  status_name:
+                    type: string
+                  started_at:
+                    type: string
+                  ended_at:
+                    type: 'null'
+                example:
+                  status_id: '3259216'
+                  status_name: New
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: null
+              example:
+              - status_id: '3259216'
+                status_name: New
+                started_at: '2019-01-01T00:00:00.000Z'
+                ended_at: null
+            submitted_idea_portal_record_url:
+              type: string
+              example: https://testideaportal1.ideas.aha.io:8338/ideas/PRJ1-I-10
+            integration_fields:
+              type: array
+              items: {}
+          example:
+            id: '6776881149487483845'
+            name: Comprehensive Feature Request
+            reference_num: PRJ1-I-10
+            score: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            product_id: '131414752'
+            votes: 15
+            initial_votes: 15
+            status_changed_at: '2019-01-01T00:00:00.000Z'
+            workflow_status:
+              id: '3259216'
+              name: New
+              position: 1
+              complete: false
+              color: '#dce7c6'
+            description:
+              id: '6776881149489364397'
+              body: <h1>Problem Statement</h1><p>Users need better mobile experience</p><h2>Proposed Solution</h2><p>Native mobile app with offline capabilities</p>
+              editor_version: 2
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            visibility: Visible to all ideas portal users
+            admin_response:
+              id: '6776881149492320383'
+              body: Great idea! This aligns with our mobile strategy roadmap. We'll evaluate this for Q3 implementation.
+              editor_version: 2
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+              responded_by_user:
+                id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/ideas/ideas/PRJ1-I-10
+            resource: http://company.aha.io/api/v1/ideas/PRJ1-I-10
+            product:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              workspace_type: product_workspace
+              url: http://company.aha.io/projects/PRJ1
+            created_by_portal_user:
+              id: '384687358'
+              name: Sammy Smith
+              email: sammy@smith.com
+              created_at: '2019-01-01T00:00:00.000Z'
+            created_by_idea_user:
+              id: '244576613'
+              name: Sammy Smith
+              email: sammy@smith.com
+              created_at: '2019-01-01T00:00:00.000Z'
+              title: null
+            assigned_to_user: null
+            endorsements_count: 0
+            comments_count: 0
+            score_facts: []
+            tags:
+            - mobile
+            - offline
+            - performance
+            - UX
+            full_tags:
+            - id: '6776881149483567678'
+              name: performance
+              color: '#e05298'
+            - id: '6776881149486951248'
+              name: UX
+              color: '#a952e0'
+            - id: '6776881149488941674'
+              name: mobile
+              color: '#bae052'
+            - id: '6776881149490298781'
+              name: offline
+              color: '#9ae052'
+            categories:
+            - id: '552935478'
+              name: Storage
+              parent_id: null
+              project_id: 131414752
+              created_at: '2019-01-01T00:00:00.000Z'
+            custom_fields: []
+            workflow_status_times:
+            - status_id: '3259216'
+              status_name: New
+              started_at: '2019-01-01T00:00:00.000Z'
+              ended_at: null
+            submitted_idea_portal_record_url: https://testideaportal1.ideas.aha.io:8338/ideas/PRJ1-I-10
+            integration_fields: []
+      example:
+        idea:
+          id: '6776881149487483845'
+          name: Comprehensive Feature Request
+          reference_num: PRJ1-I-10
+          score: 2
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          product_id: '131414752'
+          votes: 15
+          initial_votes: 15
+          status_changed_at: '2019-01-01T00:00:00.000Z'
+          workflow_status:
+            id: '3259216'
+            name: New
+            position: 1
+            complete: false
+            color: '#dce7c6'
+          description:
+            id: '6776881149489364397'
+            body: <h1>Problem Statement</h1><p>Users need better mobile experience</p><h2>Proposed Solution</h2><p>Native mobile app with offline capabilities</p>
+            editor_version: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+          visibility: Visible to all ideas portal users
+          admin_response:
+            id: '6776881149492320383'
+            body: Great idea! This aligns with our mobile strategy roadmap. We'll evaluate this for Q3 implementation.
+            editor_version: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+            responded_by_user:
+              id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+          url: http://company.aha.io/ideas/ideas/PRJ1-I-10
+          resource: http://company.aha.io/api/v1/ideas/PRJ1-I-10
+          product:
+            id: '131414752'
+            reference_prefix: PRJ1
+            name: Project 1
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            workspace_type: product_workspace
+            url: http://company.aha.io/projects/PRJ1
+          created_by_portal_user:
+            id: '384687358'
+            name: Sammy Smith
+            email: sammy@smith.com
+            created_at: '2019-01-01T00:00:00.000Z'
+          created_by_idea_user:
+            id: '244576613'
+            name: Sammy Smith
+            email: sammy@smith.com
+            created_at: '2019-01-01T00:00:00.000Z'
+            title: null
+          assigned_to_user: null
+          endorsements_count: 0
+          comments_count: 0
+          score_facts: []
+          tags:
+          - mobile
+          - offline
+          - performance
+          - UX
+          full_tags:
+          - id: '6776881149483567678'
+            name: performance
+            color: '#e05298'
+          - id: '6776881149486951248'
+            name: UX
+            color: '#a952e0'
+          - id: '6776881149488941674'
+            name: mobile
+            color: '#bae052'
+          - id: '6776881149490298781'
+            name: offline
+            color: '#9ae052'
+          categories:
+          - id: '552935478'
+            name: Storage
+            parent_id: null
+            project_id: 131414752
+            created_at: '2019-01-01T00:00:00.000Z'
+          custom_fields: []
+          workflow_status_times:
+          - status_id: '3259216'
+            status_name: New
+            started_at: '2019-01-01T00:00:00.000Z'
+            ended_at: null
+          submitted_idea_portal_record_url: https://testideaportal1.ideas.aha.io:8338/ideas/PRJ1-I-10
+          integration_fields: []
+    IdeasGetResponse:
+      type: object
+      properties:
+        ideas:
+          type: array
+          items: {}
+        pagination:
+          type: object
+          properties:
+            total_records:
+              type: integer
+              example: 0
+            total_pages:
+              type: integer
+              example: 0
+            current_page:
+              type: integer
+              example: 1
+          example:
+            total_records: 0
+            total_pages: 0
+            current_page: 1
+      example:
+        ideas: []
+        pagination:
+          total_records: 0
+          total_pages: 0
+          current_page: 1
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

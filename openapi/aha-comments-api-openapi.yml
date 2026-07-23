@@ -1,0 +1,2899 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Comments API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Comments
+paths:
+  /api/v1/features/{feature_id}/comments:
+    post:
+      summary: Create a comment on a feature
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: feature_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: FeatureId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsPostResponse'
+              example:
+                comment:
+                  id: '6776881149488625529'
+                  body: <p>This is the comment body for a feature.</p>
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/6776881149488625529
+                  resource: http://company.aha.io/api/v1/comments/6776881149488625529
+                  commentable:
+                    type: Feature
+                    id: '1007868956'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-1
+                    resource: http://company.aha.io/api/v1/features/PRJ1-1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentsPostRequest'
+            example:
+              comment:
+                body: <p>This is the comment body for a feature.</p>
+    get:
+      summary: List comments on a feature
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: feature_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: FeatureId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsGetResponse'
+              example:
+                comments:
+                - id: '781701978'
+                  body: Comment on feature
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments:
+                  - id: '180276963'
+                    download_url: https://company.aha.io/attachments/180276963/token/aaabbbccc9.download?size=original
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    original_file_size: 123
+                    content_type: text/plain
+                    file_name: uploaded_file_name.txt
+                    file_size: 123
+                  - id: '822785180'
+                    download_url: https://company.aha.io/attachments/822785180/token/aaabbbccc8.download?size=original
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    original_file_size: 123
+                    content_type: text/plain
+                    file_name: uploaded_file_name.txt
+                    file_size: 123
+                  url: http://company.aha.io/comments/781701978
+                  resource: http://company.aha.io/api/v1/comments/781701978
+                  commentable:
+                    type: Feature
+                    id: '1007868956'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-1
+                    resource: http://company.aha.io/api/v1/features/PRJ1-1
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/epics/{epic_id}/comments:
+    post:
+      summary: Create a comment on an epic
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: epic_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: EpicId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsPostResponse'
+              example:
+                comment:
+                  id: '6776881149490456459'
+                  body: <p>This is the comment body for an epic.</p>
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/6776881149490456459
+                  resource: http://company.aha.io/api/v1/comments/6776881149490456459
+                  commentable:
+                    type: Epic
+                    id: '999605892'
+                    product_id: '131414752'
+                    url: http://company.aha.io/epics/PRJ1-E-1
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentsPostRequest'
+            example:
+              comment:
+                body: <p>This is the comment body for an epic.</p>
+    get:
+      summary: List comments on an epic
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: epic_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: EpicId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsGetResponse'
+              example:
+                comments:
+                - id: '465979716'
+                  body: This is an epic comment
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/465979716
+                  resource: http://company.aha.io/api/v1/comments/465979716
+                  commentable:
+                    type: Epic
+                    id: '999605892'
+                    product_id: '131414752'
+                    url: http://company.aha.io/epics/PRJ1-E-1
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/requirements/{requirement_id}/comments:
+    post:
+      summary: Create a comment on a requirement
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: requirement_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: RequirementId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsPostResponse'
+              example:
+                comment:
+                  id: '6776881149487246030'
+                  body: <p>This is the comment body for a requirement.</p>
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/6776881149487246030
+                  resource: http://company.aha.io/api/v1/comments/6776881149487246030
+                  commentable:
+                    type: Requirement
+                    id: '483368544'
+                    product_id: '131414752'
+                    url: http://company.aha.io/requirements/PRJ1-1-1
+                    resource: http://company.aha.io/api/v1/requirements/PRJ1-1-1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentsPostRequest'
+            example:
+              comment:
+                body: <p>This is the comment body for a requirement.</p>
+    get:
+      summary: List comments on a requirement
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: requirement_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: RequirementId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsGetResponse'
+              example:
+                comments:
+                - id: '971503243'
+                  body: This is a requirement comment
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/971503243
+                  resource: http://company.aha.io/api/v1/comments/971503243
+                  commentable:
+                    type: Requirement
+                    id: '483368544'
+                    product_id: '131414752'
+                    url: http://company.aha.io/requirements/PRJ1-1-1
+                    resource: http://company.aha.io/api/v1/requirements/PRJ1-1-1
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/pages/{page_id}/comments:
+    post:
+      summary: Create a comment on a note
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: page_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: PageId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsPostResponse'
+              example:
+                comment:
+                  id: '6776881149494267635'
+                  body: <p>This is the comment body for a note.</p>
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/6776881149494267635
+                  resource: http://company.aha.io/api/v1/comments/6776881149494267635
+                  commentable:
+                    type: Page
+                    id: '1051981226'
+                    product_id: '131414752'
+                    url: http://company.aha.io/pages/PRJ1-N-1
+                    resource: http://company.aha.io/api/v1/pages/PRJ1-N-1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentsPostRequest'
+            example:
+              comment:
+                body: <p>This is the comment body for a note.</p>
+    get:
+      summary: List comments on a note
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: page_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: PageId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsGetResponse'
+              example:
+                comments: []
+                pagination:
+                  total_records: 0
+                  total_pages: 0
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/ideas/{idea_id}/comments:
+    post:
+      summary: Create an internal comment for an idea
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: idea_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: IdeaId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsPostResponse'
+              example:
+                comment:
+                  id: '6776881149495437410'
+                  body: <p>This is the comment body for an idea.</p>
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/6776881149495437410
+                  resource: http://company.aha.io/api/v1/comments/6776881149495437410
+                  commentable:
+                    type: Ideas::Idea
+                    id: '58056975'
+                    product_id: '131414752'
+                    url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+                    resource: http://company.aha.io/api/v1/ideas/ideas/PRJ1-I-1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentsPostRequest'
+            example:
+              comment:
+                body: <p>This is the comment body for an idea.</p>
+    get:
+      summary: List comments on an idea
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: idea_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: IdeaId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsGetResponse'
+              example:
+                comments: []
+                pagination:
+                  total_records: 0
+                  total_pages: 0
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/initiatives/{initiative_id}/comments:
+    post:
+      summary: Create a comment on an initiative
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: initiative_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: InitiativeId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsPostResponse'
+              example:
+                comment:
+                  id: '6776881149497068301'
+                  body: <p>This is the comment body for an initiative.</p>
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/6776881149497068301
+                  resource: http://company.aha.io/api/v1/comments/6776881149497068301
+                  commentable:
+                    type: Initiative
+                    id: '423077122'
+                    product_id: '131414752'
+                    url: http://company.aha.io/initiatives/PRJ1-S-1
+                    resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentsPostRequest'
+            example:
+              comment:
+                body: <p>This is the comment body for an initiative.</p>
+    get:
+      summary: List comments on an initiative
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: initiative_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: InitiativeId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsGetResponse'
+              example:
+                comments:
+                - id: '133461614'
+                  body: Comment on initiative
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '601067208'
+                    name: Jeremy Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/133461614
+                  resource: http://company.aha.io/api/v1/comments/133461614
+                  commentable:
+                    type: Initiative
+                    id: '423077122'
+                    product_id: '131414752'
+                    url: http://company.aha.io/initiatives/PRJ1-S-1
+                    resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/goals/{goal_id}/comments:
+    post:
+      summary: Create a comment on a goal
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: goal_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: GoalId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsPostResponse'
+              example:
+                comment:
+                  id: '6776881149486535140'
+                  body: <p>This is the comment body for a goal.</p>
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/6776881149486535140
+                  resource: http://company.aha.io/api/v1/comments/6776881149486535140
+                  commentable:
+                    type: StrategicImperative
+                    id: '602095703'
+                    product_id: '131414752'
+                    url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
+                    resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentsPostRequest'
+            example:
+              comment:
+                body: <p>This is the comment body for a goal.</p>
+    get:
+      summary: List comments on a goal
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: goal_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: GoalId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsGetResponse'
+              example:
+                comments:
+                - id: '821249787'
+                  body: Comment on goal
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '601067208'
+                    name: Jeremy Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/821249787
+                  resource: http://company.aha.io/api/v1/comments/821249787
+                  commentable:
+                    type: StrategicImperative
+                    id: '602095703'
+                    product_id: '131414752'
+                    url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
+                    resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/releases/{release_id}/comments:
+    post:
+      summary: Create a comment on a release
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: release_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ReleaseId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsPostResponse'
+              example:
+                comment:
+                  id: '6776881149487602359'
+                  body: <p>This is the comment body for a release.</p>
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/6776881149487602359
+                  resource: http://company.aha.io/api/v1/comments/6776881149487602359
+                  commentable:
+                    type: Release
+                    id: '278327321'
+                    product_id: '131414752'
+                    url: http://company.aha.io/releases/PRJ1-R-1
+                    resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentsPostRequest'
+            example:
+              comment:
+                body: <p>This is the comment body for a release.</p>
+    get:
+      summary: List comments on a release
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: release_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ReleaseId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsGetResponse'
+              example:
+                comments:
+                - id: '428925905'
+                  body: Comment on release
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '601067208'
+                    name: Jeremy Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/428925905
+                  resource: http://company.aha.io/api/v1/comments/428925905
+                  commentable:
+                    type: Release
+                    id: '278327321'
+                    product_id: '131414752'
+                    url: http://company.aha.io/releases/PRJ1-R-1
+                    resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/release_phases/{release_phase_id}/comments:
+    post:
+      summary: Create a comment on a release phase
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: release_phase_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ReleasePhaseId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsPostResponse'
+              example:
+                comment:
+                  id: '6776881149489627713'
+                  body: <p>This is the comment body for a release phase.</p>
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/6776881149489627713
+                  resource: http://company.aha.io/api/v1/comments/6776881149489627713
+                  commentable:
+                    type: ReleasePhase
+                    id: '20526005'
+                    url: http://company.aha.io/release_phases/20526005
+                    resource: http://company.aha.io/api/v1/release_phases/20526005
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentsPostRequest'
+            example:
+              comment:
+                body: <p>This is the comment body for a release phase.</p>
+    get:
+      summary: List comments on a release phase
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: release_phase_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ReleasePhaseId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsGetResponse'
+              example:
+                comments: []
+                pagination:
+                  total_records: 0
+                  total_pages: 0
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/tasks/{task_id}/comments:
+    post:
+      summary: Create a comment on a to-do
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: task_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: TaskId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsPostResponse'
+              example:
+                comment:
+                  id: '6776881149487788674'
+                  body: <p>This is the comment body for a to-do.</p>
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/6776881149487788674
+                  resource: http://company.aha.io/api/v1/comments/6776881149487788674
+                  commentable:
+                    type: Task
+                    id: '748715293'
+                    product_id: '131414752'
+                    url: http://company.aha.io/tasks/748715293
+                    resource: http://company.aha.io/api/v1/tasks/748715293
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentsPostRequest'
+            example:
+              comment:
+                body: <p>This is the comment body for a to-do.</p>
+    get:
+      summary: List comments on a to-do
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: task_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: TaskId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsGetResponse'
+              example:
+                comments:
+                - id: '55160124'
+                  body: Comment on project
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/55160124
+                  resource: http://company.aha.io/api/v1/comments/55160124
+                  commentable:
+                    type: Task
+                    id: '748715293'
+                    product_id: '131414752'
+                    url: http://company.aha.io/tasks/748715293
+                    resource: http://company.aha.io/api/v1/tasks/748715293
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/comments/{id}:
+    get:
+      summary: Get a specific comment
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsGetResponse'
+              example:
+                comment:
+                  id: '781701978'
+                  body: Comment on feature
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments:
+                  - id: '180276963'
+                    download_url: https://company.aha.io/attachments/180276963/token/aaabbbccc9.download?size=original
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    original_file_size: 123
+                    content_type: text/plain
+                    file_name: uploaded_file_name.txt
+                    file_size: 123
+                  - id: '822785180'
+                    download_url: https://company.aha.io/attachments/822785180/token/aaabbbccc8.download?size=original
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    original_file_size: 123
+                    content_type: text/plain
+                    file_name: uploaded_file_name.txt
+                    file_size: 123
+                  url: http://company.aha.io/comments/781701978
+                  resource: http://company.aha.io/api/v1/comments/781701978
+                  commentable:
+                    type: Feature
+                    id: '1007868956'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-1
+                    resource: http://company.aha.io/api/v1/features/PRJ1-1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    put:
+      summary: Update a comment
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsPutResponse'
+              example:
+                comment:
+                  id: '781701978'
+                  body: <p>Updated comment body.</p>
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments:
+                  - id: '180276963'
+                    download_url: https://company.aha.io/attachments/180276963/token/aaabbbccc9.download?size=original
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    original_file_size: 123
+                    content_type: text/plain
+                    file_name: uploaded_file_name.txt
+                    file_size: 123
+                  - id: '822785180'
+                    download_url: https://company.aha.io/attachments/822785180/token/aaabbbccc8.download?size=original
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    original_file_size: 123
+                    content_type: text/plain
+                    file_name: uploaded_file_name.txt
+                    file_size: 123
+                  url: http://company.aha.io/comments/781701978
+                  resource: http://company.aha.io/api/v1/comments/781701978
+                  commentable:
+                    type: Feature
+                    id: '1007868956'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-1
+                    resource: http://company.aha.io/api/v1/features/PRJ1-1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentsPostRequest'
+            example:
+              comment:
+                body: <p>Updated comment body.</p>
+    delete:
+      summary: Delete a comment
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/products/{project_id}/comments:
+    get:
+      summary: List comments in a product
+      description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
+
+        These resources support comments:
+
+
+        - [Features](/api/resources/comments/list_comments_on_a_feature)
+
+        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+
+        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+
+        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+
+        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+
+        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+
+        - [Releases](/api/resources/comments/list_comments_on_a_release)
+
+        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+
+        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+
+
+        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+
+        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+      tags:
+      - Comments
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProjectId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CommentsGetResponse'
+              example:
+                comments:
+                - id: '428925905'
+                  body: Comment on release
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '601067208'
+                    name: Jeremy Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/428925905
+                  resource: http://company.aha.io/api/v1/comments/428925905
+                  commentable:
+                    type: Release
+                    id: '278327321'
+                    product_id: '131414752'
+                    url: http://company.aha.io/releases/PRJ1-R-1
+                    resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
+                - id: '133461614'
+                  body: Comment on initiative
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '601067208'
+                    name: Jeremy Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/133461614
+                  resource: http://company.aha.io/api/v1/comments/133461614
+                  commentable:
+                    type: Initiative
+                    id: '423077122'
+                    product_id: '131414752'
+                    url: http://company.aha.io/initiatives/PRJ1-S-1
+                    resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+                - id: '821249787'
+                  body: Comment on goal
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '601067208'
+                    name: Jeremy Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/821249787
+                  resource: http://company.aha.io/api/v1/comments/821249787
+                  commentable:
+                    type: StrategicImperative
+                    id: '602095703'
+                    product_id: '131414752'
+                    url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
+                    resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+                - id: '102125331'
+                  body: Comment 5
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/102125331
+                  resource: http://company.aha.io/api/v1/comments/102125331
+                  commentable:
+                    type: Feature
+                    id: '622562724'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-2
+                    resource: http://company.aha.io/api/v1/features/PRJ1-2
+                - id: '522133163'
+                  body: Comment 6
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/522133163
+                  resource: http://company.aha.io/api/v1/comments/522133163
+                  commentable:
+                    type: Feature
+                    id: '622562724'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-2
+                    resource: http://company.aha.io/api/v1/features/PRJ1-2
+                - id: '672673340'
+                  body: Comment 7
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/672673340
+                  resource: http://company.aha.io/api/v1/comments/672673340
+                  commentable:
+                    type: Feature
+                    id: '622562724'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-2
+                    resource: http://company.aha.io/api/v1/features/PRJ1-2
+                - id: '950481839'
+                  body: Comment 8
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/950481839
+                  resource: http://company.aha.io/api/v1/comments/950481839
+                  commentable:
+                    type: Feature
+                    id: '622562724'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-2
+                    resource: http://company.aha.io/api/v1/features/PRJ1-2
+                - id: '262144830'
+                  body: Comment 9
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/262144830
+                  resource: http://company.aha.io/api/v1/comments/262144830
+                  commentable:
+                    type: Feature
+                    id: '622562724'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-2
+                    resource: http://company.aha.io/api/v1/features/PRJ1-2
+                - id: '231087120'
+                  body: Comment 10
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/231087120
+                  resource: http://company.aha.io/api/v1/comments/231087120
+                  commentable:
+                    type: Feature
+                    id: '622562724'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-2
+                    resource: http://company.aha.io/api/v1/features/PRJ1-2
+                - id: '985738395'
+                  body: Comment 11
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/985738395
+                  resource: http://company.aha.io/api/v1/comments/985738395
+                  commentable:
+                    type: Feature
+                    id: '622562724'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-2
+                    resource: http://company.aha.io/api/v1/features/PRJ1-2
+                - id: '600341795'
+                  body: Comment 12
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/600341795
+                  resource: http://company.aha.io/api/v1/comments/600341795
+                  commentable:
+                    type: Feature
+                    id: '622562724'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-2
+                    resource: http://company.aha.io/api/v1/features/PRJ1-2
+                - id: '349130164'
+                  body: Comment 13
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/349130164
+                  resource: http://company.aha.io/api/v1/comments/349130164
+                  commentable:
+                    type: Feature
+                    id: '622562724'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-2
+                    resource: http://company.aha.io/api/v1/features/PRJ1-2
+                - id: '179034137'
+                  body: Comment 14
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/179034137
+                  resource: http://company.aha.io/api/v1/comments/179034137
+                  commentable:
+                    type: Feature
+                    id: '622562724'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-2
+                    resource: http://company.aha.io/api/v1/features/PRJ1-2
+                - id: '1034741892'
+                  body: Comment 15
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/1034741892
+                  resource: http://company.aha.io/api/v1/comments/1034741892
+                  commentable:
+                    type: Feature
+                    id: '622562724'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-2
+                    resource: http://company.aha.io/api/v1/features/PRJ1-2
+                - id: '614840636'
+                  body: Comment 16
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/614840636
+                  resource: http://company.aha.io/api/v1/comments/614840636
+                  commentable:
+                    type: Feature
+                    id: '622562724'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-2
+                    resource: http://company.aha.io/api/v1/features/PRJ1-2
+                - id: '329419181'
+                  body: Comment 17
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/329419181
+                  resource: http://company.aha.io/api/v1/comments/329419181
+                  commentable:
+                    type: Feature
+                    id: '622562724'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-2
+                    resource: http://company.aha.io/api/v1/features/PRJ1-2
+                - id: '52270142'
+                  body: Comment 18
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/52270142
+                  resource: http://company.aha.io/api/v1/comments/52270142
+                  commentable:
+                    type: Feature
+                    id: '622562724'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-2
+                    resource: http://company.aha.io/api/v1/features/PRJ1-2
+                - id: '823230344'
+                  body: Comment 4
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/823230344
+                  resource: http://company.aha.io/api/v1/comments/823230344
+                  commentable:
+                    type: Feature
+                    id: '622562724'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-2
+                    resource: http://company.aha.io/api/v1/features/PRJ1-2
+                - id: '796256805'
+                  body: Comment 3
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/796256805
+                  resource: http://company.aha.io/api/v1/comments/796256805
+                  commentable:
+                    type: Feature
+                    id: '622562724'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-2
+                    resource: http://company.aha.io/api/v1/features/PRJ1-2
+                - id: '410180276'
+                  body: Comment 2
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/410180276
+                  resource: http://company.aha.io/api/v1/comments/410180276
+                  commentable:
+                    type: Feature
+                    id: '622562724'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-2
+                    resource: http://company.aha.io/api/v1/features/PRJ1-2
+                - id: '24873740'
+                  body: Comment 1
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/24873740
+                  resource: http://company.aha.io/api/v1/comments/24873740
+                  commentable:
+                    type: Feature
+                    id: '622562724'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-2
+                    resource: http://company.aha.io/api/v1/features/PRJ1-2
+                - id: '213086058'
+                  body: An annotation comment
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/213086058
+                  resource: http://company.aha.io/api/v1/comments/213086058
+                  commentable:
+                    type: Annotation
+                    id: '541632378'
+                    url: http://company.aha.io/annotations/541632378
+                - id: '971503243'
+                  body: This is a requirement comment
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/971503243
+                  resource: http://company.aha.io/api/v1/comments/971503243
+                  commentable:
+                    type: Requirement
+                    id: '483368544'
+                    product_id: '131414752'
+                    url: http://company.aha.io/requirements/PRJ1-1-1
+                    resource: http://company.aha.io/api/v1/requirements/PRJ1-1-1
+                - id: '340318108'
+                  body: This feature is integrated
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/340318108
+                  resource: http://company.aha.io/api/v1/comments/340318108
+                  commentable:
+                    type: Feature
+                    id: '303873333'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-3
+                    resource: http://company.aha.io/api/v1/features/PRJ1-3
+                - id: '110125740'
+                  body: Comment on competitor 1
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/110125740
+                  resource: http://company.aha.io/api/v1/comments/110125740
+                  commentable:
+                    type: Competitor
+                    id: '892399625'
+                    product_id: '131414752'
+                    url: http://company.aha.io/competitors/PROD-C-1
+                    resource: http://company.aha.io/api/v1/competitors/PROD-C-1
+                - id: '781701978'
+                  body: Comment on feature
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments:
+                  - id: '180276963'
+                    download_url: https://company.aha.io/attachments/180276963/token/aaabbbccc9.download?size=original
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    original_file_size: 123
+                    content_type: text/plain
+                    file_name: uploaded_file_name.txt
+                    file_size: 123
+                  - id: '822785180'
+                    download_url: https://company.aha.io/attachments/822785180/token/aaabbbccc8.download?size=original
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    original_file_size: 123
+                    content_type: text/plain
+                    file_name: uploaded_file_name.txt
+                    file_size: 123
+                  url: http://company.aha.io/comments/781701978
+                  resource: http://company.aha.io/api/v1/comments/781701978
+                  commentable:
+                    type: Feature
+                    id: '1007868956'
+                    product_id: '131414752'
+                    url: http://company.aha.io/features/PRJ1-1
+                    resource: http://company.aha.io/api/v1/features/PRJ1-1
+                - id: '933135074'
+                  body: Comment on project
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments:
+                  - id: '109125418'
+                    download_url: https://company.aha.io/attachments/109125418/token/aaabbbccc6.download?size=original
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    original_file_size: 67794
+                    content_type: application/pdf
+                    file_name: google_doc.pdf
+                    file_size: 67794
+                  - id: '221084308'
+                    download_url: https://company.aha.io/attachments/221084308/token/aaabbbccc14.download?size=original
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    original_file_size: 123
+                    content_type: image/png
+                    file_name: Mockup.png
+                    file_size: 123
+                  - id: '229957526'
+                    download_url: https://company.aha.io/attachments/229957526/token/aaabbbccc15.download?size=original
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    original_file_size: 123
+                    content_type: image/png
+                    file_name: not-a-mockup.png
+                    file_size: 123
+                  - id: '744925247'
+                    download_url: https://company.aha.io/attachments/744925247/token/aaabbbccc1.download?size=original
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    original_file_size: 123
+                    content_type: text/plain
+                    file_name: uploaded_file_name.txt
+                    file_size: 123
+                  url: http://company.aha.io/comments/933135074
+                  resource: http://company.aha.io/api/v1/comments/933135074
+                  commentable:
+                    type: Project
+                    id: '131414752'
+                    url: http://company.aha.io/projects/PRJ1
+                    resource: http://company.aha.io/api/v1/products/PRJ1
+                - id: '55160124'
+                  body: Comment on project
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/55160124
+                  resource: http://company.aha.io/api/v1/comments/55160124
+                  commentable:
+                    type: Task
+                    id: '748715293'
+                    product_id: '131414752'
+                    url: http://company.aha.io/tasks/748715293
+                    resource: http://company.aha.io/api/v1/tasks/748715293
+                - id: '779056158'
+                  body: An annotation comment
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1049303076'
+                    name: George Gently
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/779056158
+                  resource: http://company.aha.io/api/v1/comments/779056158
+                  commentable:
+                    type: Annotation
+                    id: '594874923'
+                    url: http://company.aha.io/annotations/594874923
+                - id: '714777635'
+                  body: An annotation comment
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  user:
+                    id: '1049303076'
+                    name: George Gently
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                  url: http://company.aha.io/comments/714777635
+                  resource: http://company.aha.io/api/v1/comments/714777635
+                  commentable:
+                    type: Annotation
+                    id: '345680906'
+                    url: http://company.aha.io/annotations/345680906
+                pagination:
+                  total_records: 69
+                  total_pages: 3
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  schemas:
+    CommentsPutResponse:
+      type: object
+      properties:
+        comment:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '781701978'
+            body:
+              type: string
+              example: <p>Updated comment body.</p>
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1020675218'
+                name:
+                  type: string
+                  example: Mary Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+            attachments:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  download_url:
+                    type: string
+                  created_at:
+                    type: string
+                  updated_at:
+                    type: string
+                  original_file_size:
+                    type: string
+                  content_type:
+                    type: string
+                  file_name:
+                    type: string
+                  file_size:
+                    type: string
+                example:
+                  id: '180276963'
+                  download_url: https://company.aha.io/attachments/180276963/token/aaabbbccc9.download?size=original
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  original_file_size: 123
+                  content_type: text/plain
+                  file_name: uploaded_file_name.txt
+                  file_size: 123
+              example:
+              - id: '180276963'
+                download_url: https://company.aha.io/attachments/180276963/token/aaabbbccc9.download?size=original
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                original_file_size: 123
+                content_type: text/plain
+                file_name: uploaded_file_name.txt
+                file_size: 123
+              - id: '822785180'
+                download_url: https://company.aha.io/attachments/822785180/token/aaabbbccc8.download?size=original
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                original_file_size: 123
+                content_type: text/plain
+                file_name: uploaded_file_name.txt
+                file_size: 123
+            url:
+              type: string
+              example: http://company.aha.io/comments/781701978
+            resource:
+              type: string
+              example: http://company.aha.io/api/v1/comments/781701978
+            commentable:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: Feature
+                id:
+                  type: string
+                  example: '1007868956'
+                product_id:
+                  type: string
+                  example: '131414752'
+                url:
+                  type: string
+                  example: http://company.aha.io/features/PRJ1-1
+                resource:
+                  type: string
+                  example: http://company.aha.io/api/v1/features/PRJ1-1
+              example:
+                type: Feature
+                id: '1007868956'
+                product_id: '131414752'
+                url: http://company.aha.io/features/PRJ1-1
+                resource: http://company.aha.io/api/v1/features/PRJ1-1
+          example:
+            id: '781701978'
+            body: <p>Updated comment body.</p>
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            user:
+              id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            attachments:
+            - id: '180276963'
+              download_url: https://company.aha.io/attachments/180276963/token/aaabbbccc9.download?size=original
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              original_file_size: 123
+              content_type: text/plain
+              file_name: uploaded_file_name.txt
+              file_size: 123
+            - id: '822785180'
+              download_url: https://company.aha.io/attachments/822785180/token/aaabbbccc8.download?size=original
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              original_file_size: 123
+              content_type: text/plain
+              file_name: uploaded_file_name.txt
+              file_size: 123
+            url: http://company.aha.io/comments/781701978
+            resource: http://company.aha.io/api/v1/comments/781701978
+            commentable:
+              type: Feature
+              id: '1007868956'
+              product_id: '131414752'
+              url: http://company.aha.io/features/PRJ1-1
+              resource: http://company.aha.io/api/v1/features/PRJ1-1
+      example:
+        comment:
+          id: '781701978'
+          body: <p>Updated comment body.</p>
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          user:
+            id: '1020675218'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          attachments:
+          - id: '180276963'
+            download_url: https://company.aha.io/attachments/180276963/token/aaabbbccc9.download?size=original
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            original_file_size: 123
+            content_type: text/plain
+            file_name: uploaded_file_name.txt
+            file_size: 123
+          - id: '822785180'
+            download_url: https://company.aha.io/attachments/822785180/token/aaabbbccc8.download?size=original
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            original_file_size: 123
+            content_type: text/plain
+            file_name: uploaded_file_name.txt
+            file_size: 123
+          url: http://company.aha.io/comments/781701978
+          resource: http://company.aha.io/api/v1/comments/781701978
+          commentable:
+            type: Feature
+            id: '1007868956'
+            product_id: '131414752'
+            url: http://company.aha.io/features/PRJ1-1
+            resource: http://company.aha.io/api/v1/features/PRJ1-1
+    CommentsPostRequest:
+      type: object
+      properties:
+        comment:
+          type: object
+          properties:
+            body:
+              type: string
+              example: <p>Updated comment body.</p>
+          example:
+            body: <p>Updated comment body.</p>
+      example:
+        comment:
+          body: <p>Updated comment body.</p>
+    CommentsGetResponse:
+      type: object
+      properties:
+        comments:
+          type: array
+          items: {}
+        pagination:
+          type: object
+          properties:
+            total_records:
+              type: integer
+              example: 0
+            total_pages:
+              type: integer
+              example: 0
+            current_page:
+              type: integer
+              example: 1
+          example:
+            total_records: 0
+            total_pages: 0
+            current_page: 1
+      example:
+        comments: []
+        pagination:
+          total_records: 0
+          total_pages: 0
+          current_page: 1
+    CommentsPostResponse:
+      type: object
+      properties:
+        comment:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149487788674'
+            body:
+              type: string
+              example: <p>This is the comment body for a to-do.</p>
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1020675218'
+                name:
+                  type: string
+                  example: Mary Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+            attachments:
+              type: array
+              items: {}
+            url:
+              type: string
+              example: http://company.aha.io/comments/6776881149487788674
+            resource:
+              type: string
+              example: http://company.aha.io/api/v1/comments/6776881149487788674
+            commentable:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: Task
+                id:
+                  type: string
+                  example: '748715293'
+                product_id:
+                  type: string
+                  example: '131414752'
+                url:
+                  type: string
+                  example: http://company.aha.io/tasks/748715293
+                resource:
+                  type: string
+                  example: http://company.aha.io/api/v1/tasks/748715293
+              example:
+                type: Task
+                id: '748715293'
+                product_id: '131414752'
+                url: http://company.aha.io/tasks/748715293
+                resource: http://company.aha.io/api/v1/tasks/748715293
+          example:
+            id: '6776881149487788674'
+            body: <p>This is the comment body for a to-do.</p>
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            user:
+              id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+            url: http://company.aha.io/comments/6776881149487788674
+            resource: http://company.aha.io/api/v1/comments/6776881149487788674
+            commentable:
+              type: Task
+              id: '748715293'
+              product_id: '131414752'
+              url: http://company.aha.io/tasks/748715293
+              resource: http://company.aha.io/api/v1/tasks/748715293
+      example:
+        comment:
+          id: '6776881149487788674'
+          body: <p>This is the comment body for a to-do.</p>
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          user:
+            id: '1020675218'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          attachments: []
+          url: http://company.aha.io/comments/6776881149487788674
+          resource: http://company.aha.io/api/v1/comments/6776881149487788674
+          commentable:
+            type: Task
+            id: '748715293'
+            product_id: '131414752'
+            url: http://company.aha.io/tasks/748715293
+            resource: http://company.aha.io/api/v1/tasks/748715293
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

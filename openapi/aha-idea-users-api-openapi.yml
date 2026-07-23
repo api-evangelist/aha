@@ -1,0 +1,580 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Idea users API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Idea users
+paths:
+  /api/v1/idea_users:
+    post:
+      summary: Create a idea user
+      description: null
+      tags:
+      - Idea users
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeausersPostResponse'
+              example:
+                idea_user:
+                  id: '6776881149489958901'
+                  name: sam doe
+                  email: sam.doe@example.com
+                  discovery_interview_count: 0
+                  discovery_last_invite: null
+                  discovery_last_interview: null
+                  discovery_next_interview: null
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  idea_organizations: []
+                  custom_fields: []
+                  integration_fields: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdeausersPostRequest'
+            example:
+              idea_user:
+                email: sam.doe@example.com
+                first_name: sam
+                last_name: doe
+    get:
+      summary: List idea users for an account
+      description: null
+      tags:
+      - Idea users
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeausersGetResponse'
+              example:
+                idea_users:
+                - id: '55650758'
+                  name: Sir Mixalot
+                  email: spins@example.com
+                  discovery_interview_count: 0
+                  discovery_last_invite: null
+                  discovery_last_interview: null
+                  discovery_next_interview: null
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  idea_organizations:
+                  - id: '138732915'
+                    name: Acme
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/ideas/idea_organizations/138732915
+                    resource: http://company.aha.io/api/v1/idea_organizations/138732915
+                  custom_fields: []
+                  integration_fields: []
+                - id: '244576613'
+                  name: Sammy Smith
+                  email: sammy@smith.com
+                  discovery_interview_count: 0
+                  discovery_last_invite: null
+                  discovery_last_interview: null
+                  discovery_next_interview: null
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  idea_organizations: []
+                  custom_fields: []
+                  integration_fields: []
+                - id: '284648642'
+                  name: Joe Shmo
+                  email: joe@shmo.com
+                  discovery_interview_count: 0
+                  discovery_last_invite: null
+                  discovery_last_interview: null
+                  discovery_next_interview: null
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  idea_organizations: []
+                  custom_fields: []
+                  integration_fields: []
+                - id: '446386906'
+                  name: Timmy Smith
+                  email: timmy@smith.com
+                  discovery_interview_count: 0
+                  discovery_last_invite: null
+                  discovery_last_interview: null
+                  discovery_next_interview: null
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  idea_organizations: []
+                  custom_fields: []
+                  integration_fields: []
+                - id: '670061655'
+                  name: Tim Smith
+                  email: tim@smith.com
+                  discovery_interview_count: 0
+                  discovery_last_invite: null
+                  discovery_last_interview: null
+                  discovery_next_interview: null
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  idea_organizations: []
+                  custom_fields: []
+                  integration_fields: []
+                - id: '761219305'
+                  name: Mr Scrooge
+                  email: lot@example.com
+                  discovery_interview_count: 0
+                  discovery_last_invite: null
+                  discovery_last_interview: null
+                  discovery_next_interview: null
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  idea_organizations:
+                  - id: '138732915'
+                    name: Acme
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/ideas/idea_organizations/138732915
+                    resource: http://company.aha.io/api/v1/idea_organizations/138732915
+                  custom_fields: []
+                  integration_fields: []
+                - id: '870840916'
+                  name: Bill Billings
+                  email: no-reply@aha.io
+                  discovery_interview_count: 0
+                  discovery_last_invite: null
+                  discovery_last_interview: null
+                  discovery_next_interview: null
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  idea_organizations: []
+                  custom_fields: []
+                  integration_fields: []
+                - id: '966050294'
+                  name: John Long
+                  email: johnvery@long.com
+                  discovery_interview_count: 0
+                  discovery_last_invite: null
+                  discovery_last_interview: null
+                  discovery_next_interview: null
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  idea_organizations: []
+                  custom_fields: []
+                  integration_fields: []
+                - id: '1056507375'
+                  name: John Long
+                  email: john@long.com
+                  discovery_interview_count: 0
+                  discovery_last_invite: null
+                  discovery_last_interview: null
+                  discovery_next_interview: null
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  idea_organizations: []
+                  custom_fields: []
+                  integration_fields: []
+                pagination:
+                  total_records: 9
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/idea_users/{id}:
+    get:
+      summary: Get a specific idea user
+      description: null
+      tags:
+      - Idea users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeausersGetResponse'
+              example:
+                idea_user:
+                  id: '1056507375'
+                  name: John Long
+                  email: john@long.com
+                  discovery_interview_count: 0
+                  discovery_last_invite: null
+                  discovery_last_interview: null
+                  discovery_next_interview: null
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  idea_organizations: []
+                  custom_fields:
+                  - id: '6776881149490597073'
+                    key: text_field
+                    name: TextField
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: the value for the field
+                    type: string
+                  integration_fields: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    put:
+      summary: Update an idea user
+      description: null
+      tags:
+      - Idea users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeausersPutResponse'
+              example:
+                idea_user:
+                  id: '1056507375'
+                  name: John Long
+                  email: john@long.com
+                  discovery_interview_count: 0
+                  discovery_last_invite: null
+                  discovery_last_interview: null
+                  discovery_next_interview: null
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  idea_organizations: []
+                  custom_fields: []
+                  integration_fields: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdeausersPostRequest'
+            example:
+              idea_user:
+                first_name: Sarah
+    delete:
+      summary: Delete an idea user
+      description: null
+      tags:
+      - Idea users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  schemas:
+    IdeausersPostRequest:
+      type: object
+      properties:
+        idea_user:
+          type: object
+          properties:
+            first_name:
+              type: string
+              example: Sarah
+          example:
+            first_name: Sarah
+      example:
+        idea_user:
+          first_name: Sarah
+    IdeausersPostResponse:
+      type: object
+      properties:
+        idea_user:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149489958901'
+            name:
+              type: string
+              example: sam doe
+            email:
+              type: string
+              example: sam.doe@example.com
+            discovery_interview_count:
+              type: integer
+              example: 0
+            discovery_last_invite:
+              type: 'null'
+            discovery_last_interview:
+              type: 'null'
+            discovery_next_interview:
+              type: 'null'
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            idea_organizations:
+              type: array
+              items: {}
+            custom_fields:
+              type: array
+              items: {}
+            integration_fields:
+              type: array
+              items: {}
+          example:
+            id: '6776881149489958901'
+            name: sam doe
+            email: sam.doe@example.com
+            discovery_interview_count: 0
+            discovery_last_invite: null
+            discovery_last_interview: null
+            discovery_next_interview: null
+            created_at: '2019-01-01T00:00:00.000Z'
+            idea_organizations: []
+            custom_fields: []
+            integration_fields: []
+      example:
+        idea_user:
+          id: '6776881149489958901'
+          name: sam doe
+          email: sam.doe@example.com
+          discovery_interview_count: 0
+          discovery_last_invite: null
+          discovery_last_interview: null
+          discovery_next_interview: null
+          created_at: '2019-01-01T00:00:00.000Z'
+          idea_organizations: []
+          custom_fields: []
+          integration_fields: []
+    IdeausersGetResponse:
+      type: object
+      properties:
+        idea_user:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '1056507375'
+            name:
+              type: string
+              example: John Long
+            email:
+              type: string
+              example: john@long.com
+            discovery_interview_count:
+              type: integer
+              example: 0
+            discovery_last_invite:
+              type: 'null'
+            discovery_last_interview:
+              type: 'null'
+            discovery_next_interview:
+              type: 'null'
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            idea_organizations:
+              type: array
+              items: {}
+            custom_fields:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  key:
+                    type: string
+                  name:
+                    type: string
+                  updatedAt:
+                    type: string
+                  value:
+                    type: string
+                  type:
+                    type: string
+                example:
+                  id: '6776881149490597073'
+                  key: text_field
+                  name: TextField
+                  updatedAt: '2019-01-01T00:00:00Z'
+                  value: the value for the field
+                  type: string
+              example:
+              - id: '6776881149490597073'
+                key: text_field
+                name: TextField
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: the value for the field
+                type: string
+            integration_fields:
+              type: array
+              items: {}
+          example:
+            id: '1056507375'
+            name: John Long
+            email: john@long.com
+            discovery_interview_count: 0
+            discovery_last_invite: null
+            discovery_last_interview: null
+            discovery_next_interview: null
+            created_at: '2019-01-01T00:00:00.000Z'
+            idea_organizations: []
+            custom_fields:
+            - id: '6776881149490597073'
+              key: text_field
+              name: TextField
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: the value for the field
+              type: string
+            integration_fields: []
+      example:
+        idea_user:
+          id: '1056507375'
+          name: John Long
+          email: john@long.com
+          discovery_interview_count: 0
+          discovery_last_invite: null
+          discovery_last_interview: null
+          discovery_next_interview: null
+          created_at: '2019-01-01T00:00:00.000Z'
+          idea_organizations: []
+          custom_fields:
+          - id: '6776881149490597073'
+            key: text_field
+            name: TextField
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: the value for the field
+            type: string
+          integration_fields: []
+    IdeausersPutResponse:
+      type: object
+      properties:
+        idea_user:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '1056507375'
+            name:
+              type: string
+              example: John Long
+            email:
+              type: string
+              example: john@long.com
+            discovery_interview_count:
+              type: integer
+              example: 0
+            discovery_last_invite:
+              type: 'null'
+            discovery_last_interview:
+              type: 'null'
+            discovery_next_interview:
+              type: 'null'
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            idea_organizations:
+              type: array
+              items: {}
+            custom_fields:
+              type: array
+              items: {}
+            integration_fields:
+              type: array
+              items: {}
+          example:
+            id: '1056507375'
+            name: John Long
+            email: john@long.com
+            discovery_interview_count: 0
+            discovery_last_invite: null
+            discovery_last_interview: null
+            discovery_next_interview: null
+            created_at: '2019-01-01T00:00:00.000Z'
+            idea_organizations: []
+            custom_fields: []
+            integration_fields: []
+      example:
+        idea_user:
+          id: '1056507375'
+          name: John Long
+          email: john@long.com
+          discovery_interview_count: 0
+          discovery_last_invite: null
+          discovery_last_interview: null
+          discovery_next_interview: null
+          created_at: '2019-01-01T00:00:00.000Z'
+          idea_organizations: []
+          custom_fields: []
+          integration_fields: []
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

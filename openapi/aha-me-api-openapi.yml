@@ -1,0 +1,250 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Me API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Me
+paths:
+  /api/v1/me:
+    get:
+      summary: Get the current user profile
+      description: Retrieves current user information including account memberships and basic profile data
+      tags:
+      - Me
+      parameters:
+      - name: include
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '#<RSpec::Matchers::BuiltIn::Include:0x0000000336976830>'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/MeGetResponse'
+              example:
+                user:
+                  id: '1020675218'
+                  name: Mary Humpty
+                  email: no-reply@aha.io
+                  timezone: America/Los_Angeles
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  accessed_at: '2019-01-01T00:00:00.000Z'
+                  product_roles:
+                  - role: 20
+                    role_description: Owner
+                    product_id: '131414752'
+                    product_name: Project 1
+                  - role: 20
+                    role_description: Owner
+                    product_id: '517761884'
+                    product_name: Project 2
+                  - role: 20
+                    role_description: Owner
+                    product_id: '610602692'
+                    product_name: Product Line 1
+                  preferences:
+                    current_product_id: 12123897
+                  accounts:
+                  - account:
+                      name: Account 1
+                      domain: company
+                      logo: null
+                      alt_logo: null
+                      enabled: true
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/me/assigned:
+    get:
+      summary: List records assigned to the current user
+      description: 'The Me API provides access to current user information, assigned records, and pending tasks.
+
+        This endpoint serves as the primary interface for user-specific data and personal workspace functionality.
+
+
+        **Core Functionality**:
+
+        - **User Profile** - Current user information including accounts and permissions
+
+        - **Assigned Records** - All records assigned to the current user across different types
+
+        - **Task Management** - Pending tasks assigned to the current user
+
+
+        **User Context**:
+
+        - All endpoints return data scoped to the authenticated user
+
+        - Account context is automatically determined from user session
+
+        - Permissions are enforced based on user roles and project access
+
+
+        **Response Structure**:
+
+        - User profile includes account memberships and role information
+
+        - Assigned records include features, epics, requirements, ideas, releases, and tasks
+
+        - Task lists include status information and completion tracking
+
+
+        **Authentication**: Standard API authentication (OAuth, session cookies, HTTP Basic until 2025).
+
+        All operations require valid authentication and return user-specific data.'
+      tags:
+      - Me
+      parameters:
+      - name: record_type
+        in: query
+        required: false
+        schema:
+          type: string
+        example: InvalidType
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/MeGetResponse'
+              example:
+                assigned: []
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              description: text/html
+              schema:
+                type: string
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/me/tasks:
+    get:
+      summary: List pending tasks assigned to the current user
+      description: 'The Me API provides access to current user information, assigned records, and pending tasks.
+
+        This endpoint serves as the primary interface for user-specific data and personal workspace functionality.
+
+
+        **Core Functionality**:
+
+        - **User Profile** - Current user information including accounts and permissions
+
+        - **Assigned Records** - All records assigned to the current user across different types
+
+        - **Task Management** - Pending tasks assigned to the current user
+
+
+        **User Context**:
+
+        - All endpoints return data scoped to the authenticated user
+
+        - Account context is automatically determined from user session
+
+        - Permissions are enforced based on user roles and project access
+
+
+        **Response Structure**:
+
+        - User profile includes account memberships and role information
+
+        - Assigned records include features, epics, requirements, ideas, releases, and tasks
+
+        - Task lists include status information and completion tracking
+
+
+        **Authentication**: Standard API authentication (OAuth, session cookies, HTTP Basic until 2025).
+
+        All operations require valid authentication and return user-specific data.'
+      tags:
+      - Me
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/MeGetResponse'
+              example:
+                tasks:
+                - id: '6776881149494751081'
+                  name: Review first widget
+                  due_date: null
+                  status: pending
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  schemas:
+    MeGetResponse:
+      type: object
+      properties:
+        assigned:
+          type: array
+          items: {}
+      example:
+        assigned: []
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

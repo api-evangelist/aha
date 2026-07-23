@@ -1,0 +1,460 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Personas API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Personas
+paths:
+  /api/v1/products/{product_id}/personas:
+    post:
+      summary: Create a persona
+      description: null
+      tags:
+      - Personas
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/PersonasPostResponse'
+              example:
+                persona:
+                  id: '6776881149484114529'
+                  name: John
+                  color: 13421772
+                  occupation: null
+                  quote: null
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  url: http://company.aha.io/personas/PRJ1-P-1
+                  resource: http://company.aha.io/personas/PRJ1-P-1
+                  custom_fields: []
+                  comments_count: 0
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonasPostRequest'
+            example:
+              persona:
+                name: John
+    get:
+      summary: List personas in a product
+      description: null
+      tags:
+      - Personas
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/PersonasGetResponse'
+              example:
+                personas:
+                - id: '227222789'
+                  name: Jim the cyclist
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '344093881'
+                  name: Jane the athlete
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '982259096'
+                  name: Tim the repairer
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 3
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/personas/{id}:
+    get:
+      summary: Get a specific persona
+      description: null
+      tags:
+      - Personas
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/PersonasGetResponse'
+              example:
+                persona:
+                  id: '344093881'
+                  name: Jane the athlete
+                  color: 13421772
+                  occupation: null
+                  quote: null
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  url: http://company.aha.io/personas/PROD-P-1
+                  resource: http://company.aha.io/personas/PROD-P-1
+                  custom_fields: []
+                  comments_count: 0
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/products/{product_id}/personas/{id}:
+    put:
+      summary: Update a persona
+      description: null
+      tags:
+      - Personas
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/PersonasPutResponse'
+              example:
+                persona:
+                  id: '344093881'
+                  name: Julie
+                  color: 13421772
+                  occupation: null
+                  quote: null
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  url: http://company.aha.io/personas/PROD-P-1
+                  resource: http://company.aha.io/personas/PROD-P-1
+                  custom_fields: []
+                  comments_count: 0
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonasPostRequest'
+            example:
+              persona:
+                name: Julie
+    delete:
+      summary: Delete a persona
+      description: null
+      tags:
+      - Personas
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  schemas:
+    PersonasPostRequest:
+      type: object
+      properties:
+        persona:
+          type: object
+          properties:
+            name:
+              type: string
+              example: Julie
+          example:
+            name: Julie
+      example:
+        persona:
+          name: Julie
+    PersonasPutResponse:
+      type: object
+      properties:
+        persona:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '344093881'
+            name:
+              type: string
+              example: Julie
+            color:
+              type: integer
+              example: 13421772
+            occupation:
+              type: 'null'
+            quote:
+              type: 'null'
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            url:
+              type: string
+              example: http://company.aha.io/personas/PROD-P-1
+            resource:
+              type: string
+              example: http://company.aha.io/personas/PROD-P-1
+            custom_fields:
+              type: array
+              items: {}
+            comments_count:
+              type: integer
+              example: 0
+          example:
+            id: '344093881'
+            name: Julie
+            color: 13421772
+            occupation: null
+            quote: null
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/personas/PROD-P-1
+            resource: http://company.aha.io/personas/PROD-P-1
+            custom_fields: []
+            comments_count: 0
+      example:
+        persona:
+          id: '344093881'
+          name: Julie
+          color: 13421772
+          occupation: null
+          quote: null
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          url: http://company.aha.io/personas/PROD-P-1
+          resource: http://company.aha.io/personas/PROD-P-1
+          custom_fields: []
+          comments_count: 0
+    PersonasPostResponse:
+      type: object
+      properties:
+        persona:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149484114529'
+            name:
+              type: string
+              example: John
+            color:
+              type: integer
+              example: 13421772
+            occupation:
+              type: 'null'
+            quote:
+              type: 'null'
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            url:
+              type: string
+              example: http://company.aha.io/personas/PRJ1-P-1
+            resource:
+              type: string
+              example: http://company.aha.io/personas/PRJ1-P-1
+            custom_fields:
+              type: array
+              items: {}
+            comments_count:
+              type: integer
+              example: 0
+          example:
+            id: '6776881149484114529'
+            name: John
+            color: 13421772
+            occupation: null
+            quote: null
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/personas/PRJ1-P-1
+            resource: http://company.aha.io/personas/PRJ1-P-1
+            custom_fields: []
+            comments_count: 0
+      example:
+        persona:
+          id: '6776881149484114529'
+          name: John
+          color: 13421772
+          occupation: null
+          quote: null
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          url: http://company.aha.io/personas/PRJ1-P-1
+          resource: http://company.aha.io/personas/PRJ1-P-1
+          custom_fields: []
+          comments_count: 0
+    PersonasGetResponse:
+      type: object
+      properties:
+        persona:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '344093881'
+            name:
+              type: string
+              example: Jane the athlete
+            color:
+              type: integer
+              example: 13421772
+            occupation:
+              type: 'null'
+            quote:
+              type: 'null'
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            url:
+              type: string
+              example: http://company.aha.io/personas/PROD-P-1
+            resource:
+              type: string
+              example: http://company.aha.io/personas/PROD-P-1
+            custom_fields:
+              type: array
+              items: {}
+            comments_count:
+              type: integer
+              example: 0
+          example:
+            id: '344093881'
+            name: Jane the athlete
+            color: 13421772
+            occupation: null
+            quote: null
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/personas/PROD-P-1
+            resource: http://company.aha.io/personas/PROD-P-1
+            custom_fields: []
+            comments_count: 0
+      example:
+        persona:
+          id: '344093881'
+          name: Jane the athlete
+          color: 13421772
+          occupation: null
+          quote: null
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          url: http://company.aha.io/personas/PROD-P-1
+          resource: http://company.aha.io/personas/PROD-P-1
+          custom_fields: []
+          comments_count: 0
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

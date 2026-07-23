@@ -1,0 +1,362 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Custom field options API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Custom field options
+paths:
+  /api/v1/custom_field_definitions/{custom_field_definition_id}/custom_field_options:
+    get:
+      summary: List all custom fields
+      description: null
+      tags:
+      - Custom field options
+      parameters:
+      - name: custom_field_definition_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: CustomFieldDefinitionId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CustomfieldoptionsGetResponse'
+              example:
+                custom_field_options:
+                - id: '100098181'
+                  value: P2
+                  color: 6710886
+                  hidden: false
+                - id: '462681378'
+                  value: P5
+                  color: 6710886
+                  hidden: false
+                - id: '486420793'
+                  value: P1
+                  color: 6710886
+                  hidden: false
+                - id: '747947447'
+                  value: P4
+                  color: 6710886
+                  hidden: false
+                - id: '854609942'
+                  value: P3
+                  color: 6710886
+                  hidden: false
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    post:
+      summary: Create a custom field option
+      description: null
+      tags:
+      - Custom field options
+      parameters:
+      - name: custom_field_definition_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: CustomFieldDefinitionId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CustomfieldoptionsPostResponse'
+              example:
+                id: '6776881149485179355'
+                value: New option
+                color: 6710886
+                hidden: false
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomfieldoptionsPostRequest'
+            example:
+              custom_field_option:
+                value: New option
+  /api/v1/custom_field_definitions/{custom_field_definition_id}/custom_field_options/{id}:
+    put:
+      summary: Update a custom field option
+      description: null
+      tags:
+      - Custom field options
+      parameters:
+      - name: custom_field_definition_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: CustomFieldDefinitionId identifier
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CustomfieldoptionsPutResponse'
+              example:
+                id: '486420793'
+                value: New option2
+                color: 6710886
+                hidden: false
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomfieldoptionsPostRequest'
+            example:
+              custom_field_option:
+                value: New option2
+    delete:
+      summary: Delete a custom field option
+      description: null
+      tags:
+      - Custom field options
+      parameters:
+      - name: custom_field_definition_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: CustomFieldDefinitionId identifier
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CustomfieldoptionsDeleteResponse'
+              example:
+                id: '486420793'
+                value: P1
+                color: 6710886
+                hidden: false
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomfieldoptionsPostRequest'
+            example: {}
+components:
+  schemas:
+    CustomfieldoptionsPostRequest:
+      type: object
+      properties: {}
+      example: {}
+    CustomfieldoptionsDeleteResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: '486420793'
+        value:
+          type: string
+          example: P1
+        color:
+          type: integer
+          example: 6710886
+        hidden:
+          type: boolean
+          example: false
+      example:
+        id: '486420793'
+        value: P1
+        color: 6710886
+        hidden: false
+    CustomfieldoptionsGetResponse:
+      type: object
+      properties:
+        custom_field_options:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: '100098181'
+              value:
+                type: string
+                example: P2
+              color:
+                type: integer
+                example: 6710886
+              hidden:
+                type: boolean
+                example: false
+            example:
+              id: '100098181'
+              value: P2
+              color: 6710886
+              hidden: false
+          example:
+          - id: '100098181'
+            value: P2
+            color: 6710886
+            hidden: false
+          - id: '462681378'
+            value: P5
+            color: 6710886
+            hidden: false
+          - id: '486420793'
+            value: P1
+            color: 6710886
+            hidden: false
+          - id: '747947447'
+            value: P4
+            color: 6710886
+            hidden: false
+          - id: '854609942'
+            value: P3
+            color: 6710886
+            hidden: false
+      example:
+        custom_field_options:
+        - id: '100098181'
+          value: P2
+          color: 6710886
+          hidden: false
+        - id: '462681378'
+          value: P5
+          color: 6710886
+          hidden: false
+        - id: '486420793'
+          value: P1
+          color: 6710886
+          hidden: false
+        - id: '747947447'
+          value: P4
+          color: 6710886
+          hidden: false
+        - id: '854609942'
+          value: P3
+          color: 6710886
+          hidden: false
+    CustomfieldoptionsPostResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: '6776881149485179355'
+        value:
+          type: string
+          example: New option
+        color:
+          type: integer
+          example: 6710886
+        hidden:
+          type: boolean
+          example: false
+      example:
+        id: '6776881149485179355'
+        value: New option
+        color: 6710886
+        hidden: false
+    CustomfieldoptionsPutResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: '486420793'
+        value:
+          type: string
+          example: New option2
+        color:
+          type: integer
+          example: 6710886
+        hidden:
+          type: boolean
+          example: false
+      example:
+        id: '486420793'
+        value: New option2
+        color: 6710886
+        hidden: false
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

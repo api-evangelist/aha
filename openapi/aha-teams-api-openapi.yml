@@ -1,0 +1,918 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Teams API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Teams
+paths:
+  /api/v1/teams:
+    post:
+      summary: Create a team
+      description: null
+      tags:
+      - Teams
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/TeamsPostResponse'
+              example:
+                team:
+                  id: '6776881149488280595'
+                  name: Account team
+                  team_members_count: 0
+                  automatically_calculate_team_members_count: true
+                  capacity: 0
+                  hourly_rate: null
+                  color: '#666666'
+                  start_date: null
+                  end_date: null
+                  project: null
+                  schedule:
+                    id: '441193141'
+                    name: Default schedule
+                    hours_per_day: '8.2'
+                    story_points_per_day: '1.0'
+                    velocity: '10.5'
+                  custom_fields: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamsPostRequest'
+            example:
+              team:
+                name: Account team
+    get:
+      summary: List teams
+      description: null
+      tags:
+      - Teams
+      parameters:
+      - name: fields
+        in: query
+        required: false
+        schema:
+          type: string
+        example: name,team_members_count,automatically_calculate_team_members_count,capacity,hourly_rate,color,start_date,end_date,project,schedule,custom_fields,team_members
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/TeamsGetResponse'
+              example:
+                teams:
+                - id: '134558347'
+                  name: Project team
+                  team_members_count: 0
+                  automatically_calculate_team_members_count: false
+                  capacity: '0.0'
+                  hourly_rate: '250.0'
+                  color: '#666666'
+                  start_date: '2019-01-01'
+                  end_date: '2019-01-01'
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    workspace_type: product_workspace
+                  schedule:
+                    id: '441193141'
+                    name: Default schedule
+                    hours_per_day: '8.2'
+                    story_points_per_day: '1.0'
+                    velocity: '10.5'
+                  custom_fields: []
+                  team_members:
+                    id: '730311797'
+                    name: Peter Parker
+                    email: null
+                    user_id: null
+                    virtual: true
+                - id: '563889676'
+                  name: Another team
+                  team_members_count: 0
+                  automatically_calculate_team_members_count: false
+                  capacity: '0.0'
+                  hourly_rate: '150.0'
+                  color: '#666666'
+                  start_date: '2019-01-01'
+                  end_date: '2019-01-01'
+                  project: null
+                  schedule:
+                    id: '441193141'
+                    name: Default schedule
+                    hours_per_day: '8.2'
+                    story_points_per_day: '1.0'
+                    velocity: '10.5'
+                  custom_fields: []
+                  team_members:
+                    id: '960059005'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    user_id: '1020675218'
+                    virtual: false
+                - id: '949295028'
+                  name: Default team
+                  team_members_count: 5
+                  automatically_calculate_team_members_count: false
+                  capacity: '205.0'
+                  hourly_rate: '100.0'
+                  color: '#666666'
+                  start_date: '2019-01-01'
+                  end_date: '2019-01-01'
+                  project: null
+                  schedule:
+                    id: '441193141'
+                    name: Default schedule
+                    hours_per_day: '8.2'
+                    story_points_per_day: '1.0'
+                    velocity: '10.5'
+                  custom_fields: []
+                  team_members:
+                    id: '960059005'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    user_id: '1020675218'
+                    virtual: false
+                pagination:
+                  total_records: 3
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/products/{product_id}/teams:
+    post:
+      summary: Create a team associated with a product
+      description: null
+      tags:
+      - Teams
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/TeamsPostResponse'
+              example:
+                team:
+                  id: '6776881149489987892'
+                  name: Product team
+                  team_members_count: 0
+                  automatically_calculate_team_members_count: true
+                  capacity: 0
+                  hourly_rate: null
+                  color: '#666666'
+                  start_date: null
+                  end_date: null
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+                  schedule:
+                    id: '441193141'
+                    name: Default schedule
+                    hours_per_day: '8.2'
+                    story_points_per_day: '1.0'
+                    velocity: '10.5'
+                  custom_fields: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamsPostRequest'
+            example:
+              team:
+                product_id: PRJ1
+                name: Product team
+    get:
+      summary: List teams in a product
+      description: null
+      tags:
+      - Teams
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      - name: '{}'
+        in: query
+        required: false
+        schema:
+          type: string
+        example: null
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/TeamsGetResponse'
+              example:
+                teams: []
+                pagination:
+                  total_records: 0
+                  total_pages: 0
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/teams/{id}:
+    get:
+      summary: Get a specific team
+      description: null
+      tags:
+      - Teams
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      - name: '{}'
+        in: query
+        required: false
+        schema:
+          type: string
+        example: null
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/TeamsGetResponse'
+              example:
+                team:
+                  id: '949295028'
+                  name: Default team
+                  team_members_count: 5
+                  automatically_calculate_team_members_count: false
+                  capacity: '205.0'
+                  hourly_rate: '100.0'
+                  color: '#666666'
+                  start_date: '2019-01-01'
+                  end_date: '2019-01-01'
+                  project: null
+                  schedule:
+                    id: '441193141'
+                    name: Default schedule
+                    hours_per_day: '8.2'
+                    story_points_per_day: '1.0'
+                    velocity: '10.5'
+                  custom_fields: []
+                  team_members:
+                    id: '960059005'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    user_id: '1020675218'
+                    virtual: false
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+    put:
+      summary: Update a team's product
+      description: null
+      tags:
+      - Teams
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/TeamsPutResponse'
+              example:
+                team:
+                  id: '134558347'
+                  name: Project team
+                  team_members_count: 1
+                  automatically_calculate_team_members_count: true
+                  capacity: '41.0'
+                  hourly_rate: '250.0'
+                  color: '#666666'
+                  start_date: '2019-01-01'
+                  end_date: '2019-01-01'
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+                  schedule:
+                    id: '441193141'
+                    name: Default schedule
+                    hours_per_day: '8.2'
+                    story_points_per_day: '1.0'
+                    velocity: '10.5'
+                  custom_fields: []
+                  team_members:
+                    id: '730311797'
+                    name: Peter Parker
+                    email: null
+                    user_id: null
+                    virtual: true
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamsPostRequest'
+            example:
+              team:
+                name: Product 2 team
+                product_id: PRJ2
+    delete:
+      summary: Delete a team
+      description: null
+      tags:
+      - Teams
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamsPostRequest'
+            example: {}
+components:
+  schemas:
+    TeamsPostRequest:
+      type: object
+      properties: {}
+      example: {}
+    TeamsPutResponse:
+      type: object
+      properties:
+        team:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '134558347'
+            name:
+              type: string
+              example: Project team
+            team_members_count:
+              type: integer
+              example: 1
+            automatically_calculate_team_members_count:
+              type: boolean
+              example: true
+            capacity:
+              type: string
+              example: '41.0'
+            hourly_rate:
+              type: string
+              example: '250.0'
+            color:
+              type: string
+              example: '#666666'
+            start_date:
+              type: string
+              example: '2019-01-01'
+            end_date:
+              type: string
+              example: '2019-01-01'
+            project:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '131414752'
+                reference_prefix:
+                  type: string
+                  example: PRJ1
+                name:
+                  type: string
+                  example: Project 1
+                product_line:
+                  type: boolean
+                  example: false
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                workspace_type:
+                  type: string
+                  example: product_workspace
+                url:
+                  type: string
+                  example: http://company.aha.io/projects/PRJ1
+              example:
+                id: '131414752'
+                reference_prefix: PRJ1
+                name: Project 1
+                product_line: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                workspace_type: product_workspace
+                url: http://company.aha.io/projects/PRJ1
+            schedule:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '441193141'
+                name:
+                  type: string
+                  example: Default schedule
+                hours_per_day:
+                  type: string
+                  example: '8.2'
+                story_points_per_day:
+                  type: string
+                  example: '1.0'
+                velocity:
+                  type: string
+                  example: '10.5'
+              example:
+                id: '441193141'
+                name: Default schedule
+                hours_per_day: '8.2'
+                story_points_per_day: '1.0'
+                velocity: '10.5'
+            custom_fields:
+              type: array
+              items: {}
+            team_members:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '730311797'
+                name:
+                  type: string
+                  example: Peter Parker
+                email:
+                  type: 'null'
+                user_id:
+                  type: 'null'
+                virtual:
+                  type: boolean
+                  example: true
+              example:
+                id: '730311797'
+                name: Peter Parker
+                email: null
+                user_id: null
+                virtual: true
+          example:
+            id: '134558347'
+            name: Project team
+            team_members_count: 1
+            automatically_calculate_team_members_count: true
+            capacity: '41.0'
+            hourly_rate: '250.0'
+            color: '#666666'
+            start_date: '2019-01-01'
+            end_date: '2019-01-01'
+            project:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              workspace_type: product_workspace
+              url: http://company.aha.io/projects/PRJ1
+            schedule:
+              id: '441193141'
+              name: Default schedule
+              hours_per_day: '8.2'
+              story_points_per_day: '1.0'
+              velocity: '10.5'
+            custom_fields: []
+            team_members:
+              id: '730311797'
+              name: Peter Parker
+              email: null
+              user_id: null
+              virtual: true
+      example:
+        team:
+          id: '134558347'
+          name: Project team
+          team_members_count: 1
+          automatically_calculate_team_members_count: true
+          capacity: '41.0'
+          hourly_rate: '250.0'
+          color: '#666666'
+          start_date: '2019-01-01'
+          end_date: '2019-01-01'
+          project:
+            id: '131414752'
+            reference_prefix: PRJ1
+            name: Project 1
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            workspace_type: product_workspace
+            url: http://company.aha.io/projects/PRJ1
+          schedule:
+            id: '441193141'
+            name: Default schedule
+            hours_per_day: '8.2'
+            story_points_per_day: '1.0'
+            velocity: '10.5'
+          custom_fields: []
+          team_members:
+            id: '730311797'
+            name: Peter Parker
+            email: null
+            user_id: null
+            virtual: true
+    TeamsGetResponse:
+      type: object
+      properties:
+        team:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '949295028'
+            name:
+              type: string
+              example: Default team
+            team_members_count:
+              type: integer
+              example: 5
+            automatically_calculate_team_members_count:
+              type: boolean
+              example: false
+            capacity:
+              type: string
+              example: '205.0'
+            hourly_rate:
+              type: string
+              example: '100.0'
+            color:
+              type: string
+              example: '#666666'
+            start_date:
+              type: string
+              example: '2019-01-01'
+            end_date:
+              type: string
+              example: '2019-01-01'
+            project:
+              type: 'null'
+            schedule:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '441193141'
+                name:
+                  type: string
+                  example: Default schedule
+                hours_per_day:
+                  type: string
+                  example: '8.2'
+                story_points_per_day:
+                  type: string
+                  example: '1.0'
+                velocity:
+                  type: string
+                  example: '10.5'
+              example:
+                id: '441193141'
+                name: Default schedule
+                hours_per_day: '8.2'
+                story_points_per_day: '1.0'
+                velocity: '10.5'
+            custom_fields:
+              type: array
+              items: {}
+            team_members:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '960059005'
+                name:
+                  type: string
+                  example: Mary Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                user_id:
+                  type: string
+                  example: '1020675218'
+                virtual:
+                  type: boolean
+                  example: false
+              example:
+                id: '960059005'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                user_id: '1020675218'
+                virtual: false
+          example:
+            id: '949295028'
+            name: Default team
+            team_members_count: 5
+            automatically_calculate_team_members_count: false
+            capacity: '205.0'
+            hourly_rate: '100.0'
+            color: '#666666'
+            start_date: '2019-01-01'
+            end_date: '2019-01-01'
+            project: null
+            schedule:
+              id: '441193141'
+              name: Default schedule
+              hours_per_day: '8.2'
+              story_points_per_day: '1.0'
+              velocity: '10.5'
+            custom_fields: []
+            team_members:
+              id: '960059005'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              user_id: '1020675218'
+              virtual: false
+      example:
+        team:
+          id: '949295028'
+          name: Default team
+          team_members_count: 5
+          automatically_calculate_team_members_count: false
+          capacity: '205.0'
+          hourly_rate: '100.0'
+          color: '#666666'
+          start_date: '2019-01-01'
+          end_date: '2019-01-01'
+          project: null
+          schedule:
+            id: '441193141'
+            name: Default schedule
+            hours_per_day: '8.2'
+            story_points_per_day: '1.0'
+            velocity: '10.5'
+          custom_fields: []
+          team_members:
+            id: '960059005'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            user_id: '1020675218'
+            virtual: false
+    TeamsPostResponse:
+      type: object
+      properties:
+        team:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149489987892'
+            name:
+              type: string
+              example: Product team
+            team_members_count:
+              type: integer
+              example: 0
+            automatically_calculate_team_members_count:
+              type: boolean
+              example: true
+            capacity:
+              type: integer
+              example: 0
+            hourly_rate:
+              type: 'null'
+            color:
+              type: string
+              example: '#666666'
+            start_date:
+              type: 'null'
+            end_date:
+              type: 'null'
+            project:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '131414752'
+                reference_prefix:
+                  type: string
+                  example: PRJ1
+                name:
+                  type: string
+                  example: Project 1
+                product_line:
+                  type: boolean
+                  example: false
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                workspace_type:
+                  type: string
+                  example: product_workspace
+                url:
+                  type: string
+                  example: http://company.aha.io/projects/PRJ1
+              example:
+                id: '131414752'
+                reference_prefix: PRJ1
+                name: Project 1
+                product_line: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                workspace_type: product_workspace
+                url: http://company.aha.io/projects/PRJ1
+            schedule:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '441193141'
+                name:
+                  type: string
+                  example: Default schedule
+                hours_per_day:
+                  type: string
+                  example: '8.2'
+                story_points_per_day:
+                  type: string
+                  example: '1.0'
+                velocity:
+                  type: string
+                  example: '10.5'
+              example:
+                id: '441193141'
+                name: Default schedule
+                hours_per_day: '8.2'
+                story_points_per_day: '1.0'
+                velocity: '10.5'
+            custom_fields:
+              type: array
+              items: {}
+          example:
+            id: '6776881149489987892'
+            name: Product team
+            team_members_count: 0
+            automatically_calculate_team_members_count: true
+            capacity: 0
+            hourly_rate: null
+            color: '#666666'
+            start_date: null
+            end_date: null
+            project:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              workspace_type: product_workspace
+              url: http://company.aha.io/projects/PRJ1
+            schedule:
+              id: '441193141'
+              name: Default schedule
+              hours_per_day: '8.2'
+              story_points_per_day: '1.0'
+              velocity: '10.5'
+            custom_fields: []
+      example:
+        team:
+          id: '6776881149489987892'
+          name: Product team
+          team_members_count: 0
+          automatically_calculate_team_members_count: true
+          capacity: 0
+          hourly_rate: null
+          color: '#666666'
+          start_date: null
+          end_date: null
+          project:
+            id: '131414752'
+            reference_prefix: PRJ1
+            name: Project 1
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            workspace_type: product_workspace
+            url: http://company.aha.io/projects/PRJ1
+          schedule:
+            id: '441193141'
+            name: Default schedule
+            hours_per_day: '8.2'
+            story_points_per_day: '1.0'
+            velocity: '10.5'
+          custom_fields: []
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

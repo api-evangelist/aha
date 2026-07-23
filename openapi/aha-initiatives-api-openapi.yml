@@ -1,0 +1,4420 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Initiatives API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Initiatives
+paths:
+  /api/v1/initiatives/{id}:
+    get:
+      summary: Get a specific initiative
+      description: null
+      tags:
+      - Initiatives
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/InitiativesGetResponse'
+              example:
+                initiative:
+                  id: '423077122'
+                  name: Initiative 1
+                  reference_num: PRJ1-S-1
+                  status: not_started
+                  effort: 30
+                  value: 50
+                  presented: true
+                  color: '#bada55'
+                  start_date: null
+                  end_date: null
+                  position: 1
+                  score: 4
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '131414752'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  url: http://company.aha.io/initiatives/PRJ1-S-1
+                  resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+                  workflow_status:
+                    id: '53968949'
+                    name: Not Started
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '673273729'
+                    body: Description of initiative 1
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  attachments: []
+                  assigned_to_user:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    default_assignee: false
+                  comments_count: 1
+                  goals:
+                  - id: '602095703'
+                    name: Goal 1
+                    url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
+                    resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    description:
+                      id: '166463080'
+                      body: Description of goal 1
+                      editor_version: 1
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                      attachments: []
+                  key_results: []
+                  score_facts: []
+                  features:
+                  - id: '1007868956'
+                    reference_num: PRJ1-1
+                    name: Feature 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/features/PRJ1-1
+                    resource: http://company.aha.io/api/v1/features/PRJ1-1
+                    product_id: '131414752'
+                  master_features:
+                  - id: '269219656'
+                    reference_num: PRJ3-E-3
+                    name: A different project epic
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ3-E-3
+                    resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+                  - id: '362457003'
+                    reference_num: PRJ1-E-3
+                    name: And a third
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-3
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+                  - id: '580753216'
+                    reference_num: PRJ1-E-2
+                    name: Here's another epic
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-2
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+                  - id: '999605892'
+                    reference_num: PRJ1-E-1
+                    name: Epic 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-1
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+                  epic:
+                  - id: '269219656'
+                    reference_num: PRJ3-E-3
+                    name: A different project epic
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ3-E-3
+                    resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+                  - id: '362457003'
+                    reference_num: PRJ1-E-3
+                    name: And a third
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-3
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+                  - id: '580753216'
+                    reference_num: PRJ1-E-2
+                    name: Here's another epic
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-2
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+                  - id: '999605892'
+                    reference_num: PRJ1-E-1
+                    name: Epic 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-1
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+                  releases:
+                  - id: '161456549'
+                    reference_num: PRJ1-R-2
+                    name: Release 2
+                    start_date: '2019-01-01'
+                    release_date: '2019-01-01'
+                    parking_lot: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    product_id: '131414752'
+                    integration_fields: []
+                    url: http://company.aha.io/releases/PRJ1-R-2
+                    resource: http://company.aha.io/api/v1/releases/PRJ1-R-2
+                    owner:
+                      id: '16338845'
+                      name: John Smith
+                      email: no-reply@aha.io
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                    project:
+                      id: '131414752'
+                      reference_prefix: PRJ1
+                      name: Project 1
+                      product_line: false
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      workspace_type: product_workspace
+                      url: http://company.aha.io/projects/PRJ1
+                  - id: '278327321'
+                    reference_num: PRJ1-R-1
+                    name: Release 1
+                    start_date: '2019-01-01'
+                    release_date: '2019-01-01'
+                    parking_lot: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    product_id: '131414752'
+                    integration_fields:
+                    - id: '68217473'
+                      name: id
+                      value: '777'
+                      integration_id: 204584239
+                      service_name: jira
+                      created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/releases/PRJ1-R-1
+                    resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
+                    owner:
+                      id: '16338845'
+                      name: John Smith
+                      email: no-reply@aha.io
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                    project:
+                      id: '131414752'
+                      reference_prefix: PRJ1
+                      name: Project 1
+                      product_line: false
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      workspace_type: product_workspace
+                      url: http://company.aha.io/projects/PRJ1
+                  integration_fields:
+                  - id: '546711007'
+                    name: id
+                    value: '9913333'
+                    integration_id: 186281709
+                    service_name: jira
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  - id: '966751335'
+                    name: key
+                    value: JRA-987222
+                    integration_id: 186281709
+                    service_name: jira
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  custom_fields:
+                  - id: 973371762
+                    key: initiative_custom_date
+                    name: Initiative custom date
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: '2019-01-01'
+                    type: date
+                  - id: 1073063442
+                    key: initiative_priority
+                    name: Initiative priority
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: P2
+                    type: string
+                  created_by_user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/products/{product_id}/initiatives:
+    post:
+      summary: Create an initiative
+      description: null
+      tags:
+      - Initiatives
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/InitiativesPostResponse'
+              example:
+                initiative:
+                  id: '6776881149487133341'
+                  name: Assigned Initiative
+                  reference_num: PRJ1-S-251
+                  status: not_started
+                  effort: 95
+                  value: 40
+                  presented: true
+                  color: '#397e82'
+                  start_date: null
+                  end_date: null
+                  position: 3
+                  score: 2
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '131414752'
+                  progress: 0
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  url: http://company.aha.io/initiatives/PRJ1-S-251
+                  resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-251
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+                  workflow_status:
+                    id: '53968949'
+                    name: Not Started
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '6776881149499189237'
+                    body: Initiative with assignee
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  attachments: []
+                  assigned_to_user:
+                    id: '1049303076'
+                    name: George Gently
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    default_assignee: false
+                  comments_count: 0
+                  goals: []
+                  key_results: []
+                  score_facts: []
+                  integration_fields: []
+                  workflow_status_times:
+                  - status_id: '53968949'
+                    status_name: Not Started
+                    started_at: '2019-01-01T00:00:00.000Z'
+                    ended_at: null
+                  created_by_user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InitiativesPostRequest'
+            example:
+              initiative:
+                name: Initiative 3
+                workflow_status:
+                  name: Not Started
+                description: Our first big initiative
+                time_frame:
+                  id: 813624702
+                effort: 15
+                value: 5
+                presented: true
+    get:
+      summary: List initiatives in a product
+      description: null
+      tags:
+      - Initiatives
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/InitiativesGetResponse'
+              example:
+                initiatives:
+                - id: '4125886'
+                  name: Initiative 2
+                  reference_num: PRJ1-S-2
+                  status: not_started
+                  effort: 40
+                  value: 30
+                  presented: true
+                  color: '#bada55'
+                  start_date: null
+                  end_date: null
+                  position: 2
+                  score: 0
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '131414752'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  url: http://company.aha.io/initiatives/PRJ1-S-2
+                  resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-2
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+                  workflow_status:
+                    id: '53968949'
+                    name: Not Started
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '824706757'
+                    body: Description of initiative 2
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  attachments: []
+                  assigned_to_user:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    default_assignee: false
+                  comments_count: 0
+                  goals: []
+                  key_results: []
+                  score_facts: []
+                  integration_fields: []
+                  created_by_user:
+                    id: '82352673'
+                    name: Bob Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                - id: '219956332'
+                  name: Initiative 3
+                  reference_num: PRJ1-S-3
+                  status: not_started
+                  effort: 40
+                  value: 30
+                  presented: true
+                  color: '#bada55'
+                  start_date: null
+                  end_date: null
+                  position: 2
+                  score: 0
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '131414752'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  url: http://company.aha.io/initiatives/PRJ1-S-3
+                  resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-3
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+                  workflow_status:
+                    id: '53968949'
+                    name: Not Started
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '338250583'
+                    body: Description of project1_initiative3_no_epoch
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  attachments: []
+                  assigned_to_user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    default_assignee: true
+                  comments_count: 0
+                  goals: []
+                  key_results: []
+                  score_facts: []
+                  integration_fields: []
+                - id: '259736534'
+                  name: Initiative 5
+                  reference_num: PRJ1-S-5
+                  status: not_started
+                  effort: 40
+                  value: 30
+                  presented: true
+                  color: '#bada55'
+                  start_date: null
+                  end_date: null
+                  position: 2
+                  score: 0
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '131414752'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  url: http://company.aha.io/initiatives/PRJ1-S-5
+                  resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-5
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+                  workflow_status:
+                    id: '53968949'
+                    name: Not Started
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '1040636124'
+                    body: Description of project1_initiative5_archived_epoch
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  attachments: []
+                  assigned_to_user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    default_assignee: true
+                  time_frame:
+                    id: 834757622
+                    name: '2018'
+                  comments_count: 0
+                  goals: []
+                  key_results: []
+                  score_facts: []
+                  integration_fields: []
+                - id: '330016191'
+                  name: Initiative 4
+                  reference_num: PRJ1-S-4
+                  status: not_started
+                  effort: 40
+                  value: 30
+                  presented: true
+                  color: '#bada55'
+                  start_date: null
+                  end_date: null
+                  position: 2
+                  score: 0
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '131414752'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  url: http://company.aha.io/initiatives/PRJ1-S-4
+                  resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-4
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+                  workflow_status:
+                    id: '53968949'
+                    name: Not Started
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '999437064'
+                    body: Description of project1_initiative4_active_epoch
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  attachments: []
+                  assigned_to_user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    default_assignee: true
+                  time_frame:
+                    id: 273422810
+                    name: '2017'
+                  comments_count: 0
+                  goals: []
+                  key_results: []
+                  score_facts: []
+                  integration_fields: []
+                - id: '423077122'
+                  name: Initiative 1
+                  reference_num: PRJ1-S-1
+                  status: not_started
+                  effort: 30
+                  value: 50
+                  presented: true
+                  color: '#bada55'
+                  start_date: null
+                  end_date: null
+                  position: 1
+                  score: 4
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '131414752'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  url: http://company.aha.io/initiatives/PRJ1-S-1
+                  resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+                  workflow_status:
+                    id: '53968949'
+                    name: Not Started
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '673273729'
+                    body: Description of initiative 1
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  attachments: []
+                  assigned_to_user:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    default_assignee: false
+                  comments_count: 1
+                  goals:
+                  - id: '602095703'
+                    name: Goal 1
+                    url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
+                    resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    description:
+                      id: '166463080'
+                      body: Description of goal 1
+                      editor_version: 1
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                      attachments: []
+                  key_results: []
+                  score_facts: []
+                  features:
+                  - id: '1007868956'
+                    reference_num: PRJ1-1
+                    name: Feature 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/features/PRJ1-1
+                    resource: http://company.aha.io/api/v1/features/PRJ1-1
+                    product_id: '131414752'
+                  master_features:
+                  - id: '269219656'
+                    reference_num: PRJ3-E-3
+                    name: A different project epic
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ3-E-3
+                    resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+                  - id: '362457003'
+                    reference_num: PRJ1-E-3
+                    name: And a third
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-3
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+                  - id: '580753216'
+                    reference_num: PRJ1-E-2
+                    name: Here's another epic
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-2
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+                  - id: '999605892'
+                    reference_num: PRJ1-E-1
+                    name: Epic 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-1
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+                  epic:
+                  - id: '269219656'
+                    reference_num: PRJ3-E-3
+                    name: A different project epic
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ3-E-3
+                    resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+                  - id: '362457003'
+                    reference_num: PRJ1-E-3
+                    name: And a third
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-3
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+                  - id: '580753216'
+                    reference_num: PRJ1-E-2
+                    name: Here's another epic
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-2
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+                  - id: '999605892'
+                    reference_num: PRJ1-E-1
+                    name: Epic 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-1
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+                  releases:
+                  - id: '161456549'
+                    reference_num: PRJ1-R-2
+                    name: Release 2
+                    start_date: '2019-01-01'
+                    release_date: '2019-01-01'
+                    parking_lot: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    product_id: '131414752'
+                    integration_fields: []
+                    url: http://company.aha.io/releases/PRJ1-R-2
+                    resource: http://company.aha.io/api/v1/releases/PRJ1-R-2
+                    owner:
+                      id: '16338845'
+                      name: John Smith
+                      email: no-reply@aha.io
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                    project:
+                      id: '131414752'
+                      reference_prefix: PRJ1
+                      name: Project 1
+                      product_line: false
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      workspace_type: product_workspace
+                      url: http://company.aha.io/projects/PRJ1
+                  - id: '278327321'
+                    reference_num: PRJ1-R-1
+                    name: Release 1
+                    start_date: '2019-01-01'
+                    release_date: '2019-01-01'
+                    parking_lot: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    product_id: '131414752'
+                    integration_fields:
+                    - id: '68217473'
+                      name: id
+                      value: '777'
+                      integration_id: 204584239
+                      service_name: jira
+                      created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/releases/PRJ1-R-1
+                    resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
+                    owner:
+                      id: '16338845'
+                      name: John Smith
+                      email: no-reply@aha.io
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                    project:
+                      id: '131414752'
+                      reference_prefix: PRJ1
+                      name: Project 1
+                      product_line: false
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      workspace_type: product_workspace
+                      url: http://company.aha.io/projects/PRJ1
+                  integration_fields:
+                  - id: '546711007'
+                    name: id
+                    value: '9913333'
+                    integration_id: 186281709
+                    service_name: jira
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  - id: '966751335'
+                    name: key
+                    value: JRA-987222
+                    integration_id: 186281709
+                    service_name: jira
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  custom_fields:
+                  - id: 973371762
+                    key: initiative_custom_date
+                    name: Initiative custom date
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: '2019-01-01'
+                    type: date
+                  - id: 1073063442
+                    key: initiative_priority
+                    name: Initiative priority
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: P2
+                    type: string
+                  created_by_user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                - id: '595848429'
+                  name: Initiative complete
+                  reference_num: PRJ1-S-11
+                  status: done
+                  effort: 10
+                  value: 70
+                  presented: true
+                  color: '#bada55'
+                  start_date: null
+                  end_date: null
+                  position: 1
+                  score: 0
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '131414752'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  url: http://company.aha.io/initiatives/PRJ1-S-11
+                  resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-11
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+                  workflow_status:
+                    id: '509459046'
+                    name: Done
+                    position: 4
+                    complete: true
+                    color: '#ecdd8f'
+                  description:
+                    id: '6776881149492436002'
+                    body: ''
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  attachments: []
+                  assigned_to_user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    default_assignee: true
+                  comments_count: 0
+                  goals: []
+                  key_results: []
+                  score_facts: []
+                  integration_fields: []
+                pagination:
+                  total_records: 6
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/initiatives:
+    get:
+      summary: List initiatives
+      description: null
+      tags:
+      - Initiatives
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/InitiativesGetResponse'
+              example:
+                initiatives:
+                - id: '4125886'
+                  name: Initiative 2
+                  reference_num: PRJ1-S-2
+                  status: not_started
+                  effort: 40
+                  value: 30
+                  presented: true
+                  color: '#bada55'
+                  start_date: null
+                  end_date: null
+                  position: 2
+                  score: 0
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '131414752'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  url: http://company.aha.io/initiatives/PRJ1-S-2
+                  resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-2
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+                  workflow_status:
+                    id: '53968949'
+                    name: Not Started
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '824706757'
+                    body: Description of initiative 2
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  attachments: []
+                  assigned_to_user:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    default_assignee: false
+                  comments_count: 0
+                  goals: []
+                  key_results: []
+                  score_facts: []
+                  integration_fields: []
+                  created_by_user:
+                    id: '82352673'
+                    name: Bob Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                - id: '219956332'
+                  name: Initiative 3
+                  reference_num: PRJ1-S-3
+                  status: not_started
+                  effort: 40
+                  value: 30
+                  presented: true
+                  color: '#bada55'
+                  start_date: null
+                  end_date: null
+                  position: 2
+                  score: 0
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '131414752'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  url: http://company.aha.io/initiatives/PRJ1-S-3
+                  resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-3
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+                  workflow_status:
+                    id: '53968949'
+                    name: Not Started
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '338250583'
+                    body: Description of project1_initiative3_no_epoch
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  attachments: []
+                  assigned_to_user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    default_assignee: true
+                  comments_count: 0
+                  goals: []
+                  key_results: []
+                  score_facts: []
+                  integration_fields: []
+                - id: '259736534'
+                  name: Initiative 5
+                  reference_num: PRJ1-S-5
+                  status: not_started
+                  effort: 40
+                  value: 30
+                  presented: true
+                  color: '#bada55'
+                  start_date: null
+                  end_date: null
+                  position: 2
+                  score: 0
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '131414752'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  url: http://company.aha.io/initiatives/PRJ1-S-5
+                  resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-5
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+                  workflow_status:
+                    id: '53968949'
+                    name: Not Started
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '1040636124'
+                    body: Description of project1_initiative5_archived_epoch
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  attachments: []
+                  assigned_to_user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    default_assignee: true
+                  time_frame:
+                    id: 834757622
+                    name: '2018'
+                  comments_count: 0
+                  goals: []
+                  key_results: []
+                  score_facts: []
+                  integration_fields: []
+                - id: '330016191'
+                  name: Initiative 4
+                  reference_num: PRJ1-S-4
+                  status: not_started
+                  effort: 40
+                  value: 30
+                  presented: true
+                  color: '#bada55'
+                  start_date: null
+                  end_date: null
+                  position: 2
+                  score: 0
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '131414752'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  url: http://company.aha.io/initiatives/PRJ1-S-4
+                  resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-4
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+                  workflow_status:
+                    id: '53968949'
+                    name: Not Started
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '999437064'
+                    body: Description of project1_initiative4_active_epoch
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  attachments: []
+                  assigned_to_user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    default_assignee: true
+                  time_frame:
+                    id: 273422810
+                    name: '2017'
+                  comments_count: 0
+                  goals: []
+                  key_results: []
+                  score_facts: []
+                  integration_fields: []
+                - id: '423077122'
+                  name: Initiative 1
+                  reference_num: PRJ1-S-1
+                  status: not_started
+                  effort: 30
+                  value: 50
+                  presented: true
+                  color: '#bada55'
+                  start_date: null
+                  end_date: null
+                  position: 1
+                  score: 4
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '131414752'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  url: http://company.aha.io/initiatives/PRJ1-S-1
+                  resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+                  workflow_status:
+                    id: '53968949'
+                    name: Not Started
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '673273729'
+                    body: Description of initiative 1
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  attachments: []
+                  assigned_to_user:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    default_assignee: false
+                  comments_count: 1
+                  goals:
+                  - id: '602095703'
+                    name: Goal 1
+                    url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
+                    resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    description:
+                      id: '166463080'
+                      body: Description of goal 1
+                      editor_version: 1
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                      attachments: []
+                  key_results: []
+                  score_facts: []
+                  features:
+                  - id: '1007868956'
+                    reference_num: PRJ1-1
+                    name: Feature 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/features/PRJ1-1
+                    resource: http://company.aha.io/api/v1/features/PRJ1-1
+                    product_id: '131414752'
+                  master_features:
+                  - id: '269219656'
+                    reference_num: PRJ3-E-3
+                    name: A different project epic
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ3-E-3
+                    resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+                  - id: '362457003'
+                    reference_num: PRJ1-E-3
+                    name: And a third
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-3
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+                  - id: '580753216'
+                    reference_num: PRJ1-E-2
+                    name: Here's another epic
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-2
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+                  - id: '999605892'
+                    reference_num: PRJ1-E-1
+                    name: Epic 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-1
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+                  epic:
+                  - id: '269219656'
+                    reference_num: PRJ3-E-3
+                    name: A different project epic
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ3-E-3
+                    resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+                  - id: '362457003'
+                    reference_num: PRJ1-E-3
+                    name: And a third
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-3
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+                  - id: '580753216'
+                    reference_num: PRJ1-E-2
+                    name: Here's another epic
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-2
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+                  - id: '999605892'
+                    reference_num: PRJ1-E-1
+                    name: Epic 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-1
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+                  releases:
+                  - id: '161456549'
+                    reference_num: PRJ1-R-2
+                    name: Release 2
+                    start_date: '2019-01-01'
+                    release_date: '2019-01-01'
+                    parking_lot: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    product_id: '131414752'
+                    integration_fields: []
+                    url: http://company.aha.io/releases/PRJ1-R-2
+                    resource: http://company.aha.io/api/v1/releases/PRJ1-R-2
+                    owner:
+                      id: '16338845'
+                      name: John Smith
+                      email: no-reply@aha.io
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                    project:
+                      id: '131414752'
+                      reference_prefix: PRJ1
+                      name: Project 1
+                      product_line: false
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      workspace_type: product_workspace
+                      url: http://company.aha.io/projects/PRJ1
+                  - id: '278327321'
+                    reference_num: PRJ1-R-1
+                    name: Release 1
+                    start_date: '2019-01-01'
+                    release_date: '2019-01-01'
+                    parking_lot: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    product_id: '131414752'
+                    integration_fields:
+                    - id: '68217473'
+                      name: id
+                      value: '777'
+                      integration_id: 204584239
+                      service_name: jira
+                      created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/releases/PRJ1-R-1
+                    resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
+                    owner:
+                      id: '16338845'
+                      name: John Smith
+                      email: no-reply@aha.io
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                    project:
+                      id: '131414752'
+                      reference_prefix: PRJ1
+                      name: Project 1
+                      product_line: false
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      workspace_type: product_workspace
+                      url: http://company.aha.io/projects/PRJ1
+                  integration_fields:
+                  - id: '546711007'
+                    name: id
+                    value: '9913333'
+                    integration_id: 186281709
+                    service_name: jira
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  - id: '966751335'
+                    name: key
+                    value: JRA-987222
+                    integration_id: 186281709
+                    service_name: jira
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  custom_fields:
+                  - id: 973371762
+                    key: initiative_custom_date
+                    name: Initiative custom date
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: '2019-01-01'
+                    type: date
+                  - id: 1073063442
+                    key: initiative_priority
+                    name: Initiative priority
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: P2
+                    type: string
+                  created_by_user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                - id: '595848429'
+                  name: Initiative complete
+                  reference_num: PRJ1-S-11
+                  status: done
+                  effort: 10
+                  value: 70
+                  presented: true
+                  color: '#bada55'
+                  start_date: null
+                  end_date: null
+                  position: 1
+                  score: 0
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '131414752'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  url: http://company.aha.io/initiatives/PRJ1-S-11
+                  resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-11
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+                  workflow_status:
+                    id: '509459046'
+                    name: Done
+                    position: 4
+                    complete: true
+                    color: '#ecdd8f'
+                  description:
+                    id: '6776881149496245106'
+                    body: ''
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  attachments: []
+                  assigned_to_user:
+                    id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    default_assignee: true
+                  comments_count: 0
+                  goals: []
+                  key_results: []
+                  score_facts: []
+                  integration_fields: []
+                - id: '1042392694'
+                  name: Workspace line initiative 1
+                  reference_num: PL1-S-1
+                  status: not_started
+                  effort: 40
+                  value: 30
+                  presented: true
+                  color: '#bada55'
+                  start_date: null
+                  end_date: null
+                  position: 1
+                  score: 0
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '610602692'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  url: http://company.aha.io/initiatives/PL1-S-1
+                  resource: http://company.aha.io/api/v1/initiatives/PL1-S-1
+                  project:
+                    id: '610602692'
+                    reference_prefix: PL1
+                    name: Product Line 1
+                    product_line: true
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PL1
+                  workflow_status:
+                    id: '53968949'
+                    name: Not Started
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '133079347'
+                    body: Description of product_line1_initiative1
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  attachments: []
+                  assigned_to_user: null
+                  comments_count: 0
+                  goals: []
+                  key_results: []
+                  score_facts: []
+                  integration_fields: []
+                pagination:
+                  total_records: 7
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/goals/{goal_id}/initiatives:
+    get:
+      summary: List initiatives associated with a goal
+      description: null
+      tags:
+      - Initiatives
+      parameters:
+      - name: goal_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: GoalId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/InitiativesGetResponse'
+              example:
+                initiatives:
+                - id: '423077122'
+                  name: Initiative 1
+                  reference_num: PRJ1-S-1
+                  status: not_started
+                  effort: 30
+                  value: 50
+                  presented: true
+                  color: '#bada55'
+                  start_date: null
+                  end_date: null
+                  position: 1
+                  score: 4
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '131414752'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  url: http://company.aha.io/initiatives/PRJ1-S-1
+                  resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+                  workflow_status:
+                    id: '53968949'
+                    name: Not Started
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '673273729'
+                    body: Description of initiative 1
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  attachments: []
+                  assigned_to_user:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    default_assignee: false
+                  comments_count: 1
+                  goals:
+                  - id: '602095703'
+                    name: Goal 1
+                    url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
+                    resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    description:
+                      id: '166463080'
+                      body: Description of goal 1
+                      editor_version: 1
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                      attachments: []
+                  key_results: []
+                  score_facts: []
+                  features:
+                  - id: '1007868956'
+                    reference_num: PRJ1-1
+                    name: Feature 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/features/PRJ1-1
+                    resource: http://company.aha.io/api/v1/features/PRJ1-1
+                    product_id: '131414752'
+                  master_features:
+                  - id: '269219656'
+                    reference_num: PRJ3-E-3
+                    name: A different project epic
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ3-E-3
+                    resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+                  - id: '362457003'
+                    reference_num: PRJ1-E-3
+                    name: And a third
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-3
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+                  - id: '580753216'
+                    reference_num: PRJ1-E-2
+                    name: Here's another epic
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-2
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+                  - id: '999605892'
+                    reference_num: PRJ1-E-1
+                    name: Epic 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-1
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+                  epic:
+                  - id: '269219656'
+                    reference_num: PRJ3-E-3
+                    name: A different project epic
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ3-E-3
+                    resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+                  - id: '362457003'
+                    reference_num: PRJ1-E-3
+                    name: And a third
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-3
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+                  - id: '580753216'
+                    reference_num: PRJ1-E-2
+                    name: Here's another epic
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-2
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+                  - id: '999605892'
+                    reference_num: PRJ1-E-1
+                    name: Epic 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-1
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+                  releases:
+                  - id: '161456549'
+                    reference_num: PRJ1-R-2
+                    name: Release 2
+                    start_date: '2019-01-01'
+                    release_date: '2019-01-01'
+                    parking_lot: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    product_id: '131414752'
+                    integration_fields: []
+                    url: http://company.aha.io/releases/PRJ1-R-2
+                    resource: http://company.aha.io/api/v1/releases/PRJ1-R-2
+                    owner:
+                      id: '16338845'
+                      name: John Smith
+                      email: no-reply@aha.io
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                    project:
+                      id: '131414752'
+                      reference_prefix: PRJ1
+                      name: Project 1
+                      product_line: false
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      workspace_type: product_workspace
+                      url: http://company.aha.io/projects/PRJ1
+                  - id: '278327321'
+                    reference_num: PRJ1-R-1
+                    name: Release 1
+                    start_date: '2019-01-01'
+                    release_date: '2019-01-01'
+                    parking_lot: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    product_id: '131414752'
+                    integration_fields:
+                    - id: '68217473'
+                      name: id
+                      value: '777'
+                      integration_id: 204584239
+                      service_name: jira
+                      created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/releases/PRJ1-R-1
+                    resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
+                    owner:
+                      id: '16338845'
+                      name: John Smith
+                      email: no-reply@aha.io
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                    project:
+                      id: '131414752'
+                      reference_prefix: PRJ1
+                      name: Project 1
+                      product_line: false
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      workspace_type: product_workspace
+                      url: http://company.aha.io/projects/PRJ1
+                  integration_fields:
+                  - id: '546711007'
+                    name: id
+                    value: '9913333'
+                    integration_id: 186281709
+                    service_name: jira
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  - id: '966751335'
+                    name: key
+                    value: JRA-987222
+                    integration_id: 186281709
+                    service_name: jira
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  custom_fields:
+                  - id: 973371762
+                    key: initiative_custom_date
+                    name: Initiative custom date
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: '2019-01-01'
+                    type: date
+                  - id: 1073063442
+                    key: initiative_priority
+                    name: Initiative priority
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: P2
+                    type: string
+                  created_by_user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+  /api/v1/products/{product_id}/initiatives/{id}:
+    put:
+      summary: Update an initiative
+      description: null
+      tags:
+      - Initiatives
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/InitiativesPutResponse'
+              example:
+                initiative:
+                  id: '423077122'
+                  name: Initiative 1
+                  reference_num: PRJ1-S-1
+                  status: not_started
+                  effort: 30
+                  value: 50
+                  presented: true
+                  color: '#bada55'
+                  start_date: null
+                  end_date: null
+                  position: 1
+                  score: 4
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '131414752'
+                  progress: 25
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  url: http://company.aha.io/initiatives/PRJ1-S-1
+                  resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+                  workflow_status:
+                    id: '53968949'
+                    name: Not Started
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                  description:
+                    id: '673273729'
+                    body: Description of initiative 1
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  attachments: []
+                  assigned_to_user:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    default_assignee: false
+                  comments_count: 1
+                  goals:
+                  - id: '602095703'
+                    name: Goal 1
+                    url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
+                    resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    description:
+                      id: '166463080'
+                      body: Description of goal 1
+                      editor_version: 1
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                      attachments: []
+                  key_results: []
+                  score_facts: []
+                  features:
+                  - id: '1007868956'
+                    reference_num: PRJ1-1
+                    name: Feature 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/features/PRJ1-1
+                    resource: http://company.aha.io/api/v1/features/PRJ1-1
+                    product_id: '131414752'
+                  master_features:
+                  - id: '269219656'
+                    reference_num: PRJ3-E-3
+                    name: A different project epic
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ3-E-3
+                    resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+                  - id: '362457003'
+                    reference_num: PRJ1-E-3
+                    name: And a third
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-3
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+                  - id: '580753216'
+                    reference_num: PRJ1-E-2
+                    name: Here's another epic
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-2
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+                  - id: '999605892'
+                    reference_num: PRJ1-E-1
+                    name: Epic 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-1
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+                  epic:
+                  - id: '269219656'
+                    reference_num: PRJ3-E-3
+                    name: A different project epic
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ3-E-3
+                    resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+                  - id: '362457003'
+                    reference_num: PRJ1-E-3
+                    name: And a third
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-3
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+                  - id: '580753216'
+                    reference_num: PRJ1-E-2
+                    name: Here's another epic
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-2
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+                  - id: '999605892'
+                    reference_num: PRJ1-E-1
+                    name: Epic 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/epics/PRJ1-E-1
+                    resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+                  releases:
+                  - id: '161456549'
+                    reference_num: PRJ1-R-2
+                    name: Release 2
+                    start_date: '2019-01-01'
+                    release_date: '2019-01-01'
+                    parking_lot: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    product_id: '131414752'
+                    integration_fields: []
+                    url: http://company.aha.io/releases/PRJ1-R-2
+                    resource: http://company.aha.io/api/v1/releases/PRJ1-R-2
+                    owner:
+                      id: '16338845'
+                      name: John Smith
+                      email: no-reply@aha.io
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                    project:
+                      id: '131414752'
+                      reference_prefix: PRJ1
+                      name: Project 1
+                      product_line: false
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      workspace_type: product_workspace
+                      url: http://company.aha.io/projects/PRJ1
+                  - id: '278327321'
+                    reference_num: PRJ1-R-1
+                    name: Release 1
+                    start_date: '2019-01-01'
+                    release_date: '2019-01-01'
+                    parking_lot: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    product_id: '131414752'
+                    integration_fields:
+                    - id: '68217473'
+                      name: id
+                      value: '777'
+                      integration_id: 204584239
+                      service_name: jira
+                      created_at: '2019-01-01T00:00:00.000Z'
+                    url: http://company.aha.io/releases/PRJ1-R-1
+                    resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
+                    owner:
+                      id: '16338845'
+                      name: John Smith
+                      email: no-reply@aha.io
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                    project:
+                      id: '131414752'
+                      reference_prefix: PRJ1
+                      name: Project 1
+                      product_line: false
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      workspace_type: product_workspace
+                      url: http://company.aha.io/projects/PRJ1
+                  integration_fields:
+                  - id: '546711007'
+                    name: id
+                    value: '9913333'
+                    integration_id: 186281709
+                    service_name: jira
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  - id: '966751335'
+                    name: key
+                    value: JRA-987222
+                    integration_id: 186281709
+                    service_name: jira
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  custom_fields:
+                  - id: 973371762
+                    key: initiative_custom_date
+                    name: Initiative custom date
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: '2019-01-01'
+                    type: date
+                  - id: 1073063442
+                    key: initiative_priority
+                    name: Initiative priority
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    value: P2
+                    type: string
+                  created_by_user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InitiativesPostRequest'
+            example:
+              initiative:
+                name: Smarter initiative
+    delete:
+      summary: Delete an initiative
+      description: null
+      tags:
+      - Initiatives
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+components:
+  schemas:
+    InitiativesPostRequest:
+      type: object
+      properties:
+        initiative:
+          type: object
+          properties:
+            name:
+              type: string
+              example: Smarter initiative
+          example:
+            name: Smarter initiative
+      example:
+        initiative:
+          name: Smarter initiative
+    InitiativesPostResponse:
+      type: object
+      properties:
+        initiative:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149487133341'
+            name:
+              type: string
+              example: Assigned Initiative
+            reference_num:
+              type: string
+              example: PRJ1-S-251
+            status:
+              type: string
+              example: not_started
+            effort:
+              type: integer
+              example: 95
+            value:
+              type: integer
+              example: 40
+            presented:
+              type: boolean
+              example: true
+            color:
+              type: string
+              example: '#397e82'
+            start_date:
+              type: 'null'
+            end_date:
+              type: 'null'
+            position:
+              type: integer
+              example: 3
+            score:
+              type: integer
+              example: 2
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            product_id:
+              type: string
+              example: '131414752'
+            progress:
+              type: integer
+              example: 0
+            progress_source:
+              type: string
+              example: progress_manual
+            duration_source:
+              type: string
+              example: duration_manual
+            url:
+              type: string
+              example: http://company.aha.io/initiatives/PRJ1-S-251
+            resource:
+              type: string
+              example: http://company.aha.io/api/v1/initiatives/PRJ1-S-251
+            project:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '131414752'
+                reference_prefix:
+                  type: string
+                  example: PRJ1
+                name:
+                  type: string
+                  example: Project 1
+                product_line:
+                  type: boolean
+                  example: false
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                workspace_type:
+                  type: string
+                  example: product_workspace
+                url:
+                  type: string
+                  example: http://company.aha.io/projects/PRJ1
+              example:
+                id: '131414752'
+                reference_prefix: PRJ1
+                name: Project 1
+                product_line: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                workspace_type: product_workspace
+                url: http://company.aha.io/projects/PRJ1
+            workflow_status:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '53968949'
+                name:
+                  type: string
+                  example: Not Started
+                position:
+                  type: integer
+                  example: 1
+                complete:
+                  type: boolean
+                  example: false
+                color:
+                  type: string
+                  example: '#dce7c6'
+              example:
+                id: '53968949'
+                name: Not Started
+                position: 1
+                complete: false
+                color: '#dce7c6'
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149499189237'
+                body:
+                  type: string
+                  example: Initiative with assignee
+                editor_version:
+                  type: integer
+                  example: 2
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: '6776881149499189237'
+                body: Initiative with assignee
+                editor_version: 2
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            attachments:
+              type: array
+              items: {}
+            assigned_to_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1049303076'
+                name:
+                  type: string
+                  example: George Gently
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                default_assignee:
+                  type: boolean
+                  example: false
+              example:
+                id: '1049303076'
+                name: George Gently
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                default_assignee: false
+            comments_count:
+              type: integer
+              example: 0
+            goals:
+              type: array
+              items: {}
+            key_results:
+              type: array
+              items: {}
+            score_facts:
+              type: array
+              items: {}
+            integration_fields:
+              type: array
+              items: {}
+            workflow_status_times:
+              type: array
+              items:
+                type: object
+                properties:
+                  status_id:
+                    type: string
+                  status_name:
+                    type: string
+                  started_at:
+                    type: string
+                  ended_at:
+                    type: 'null'
+                example:
+                  status_id: '53968949'
+                  status_name: Not Started
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: null
+              example:
+              - status_id: '53968949'
+                status_name: Not Started
+                started_at: '2019-01-01T00:00:00.000Z'
+                ended_at: null
+            created_by_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1020675218'
+                name:
+                  type: string
+                  example: Mary Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+          example:
+            id: '6776881149487133341'
+            name: Assigned Initiative
+            reference_num: PRJ1-S-251
+            status: not_started
+            effort: 95
+            value: 40
+            presented: true
+            color: '#397e82'
+            start_date: null
+            end_date: null
+            position: 3
+            score: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            product_id: '131414752'
+            progress: 0
+            progress_source: progress_manual
+            duration_source: duration_manual
+            url: http://company.aha.io/initiatives/PRJ1-S-251
+            resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-251
+            project:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              workspace_type: product_workspace
+              url: http://company.aha.io/projects/PRJ1
+            workflow_status:
+              id: '53968949'
+              name: Not Started
+              position: 1
+              complete: false
+              color: '#dce7c6'
+            description:
+              id: '6776881149499189237'
+              body: Initiative with assignee
+              editor_version: 2
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            attachments: []
+            assigned_to_user:
+              id: '1049303076'
+              name: George Gently
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              default_assignee: false
+            comments_count: 0
+            goals: []
+            key_results: []
+            score_facts: []
+            integration_fields: []
+            workflow_status_times:
+            - status_id: '53968949'
+              status_name: Not Started
+              started_at: '2019-01-01T00:00:00.000Z'
+              ended_at: null
+            created_by_user:
+              id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+      example:
+        initiative:
+          id: '6776881149487133341'
+          name: Assigned Initiative
+          reference_num: PRJ1-S-251
+          status: not_started
+          effort: 95
+          value: 40
+          presented: true
+          color: '#397e82'
+          start_date: null
+          end_date: null
+          position: 3
+          score: 2
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          product_id: '131414752'
+          progress: 0
+          progress_source: progress_manual
+          duration_source: duration_manual
+          url: http://company.aha.io/initiatives/PRJ1-S-251
+          resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-251
+          project:
+            id: '131414752'
+            reference_prefix: PRJ1
+            name: Project 1
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            workspace_type: product_workspace
+            url: http://company.aha.io/projects/PRJ1
+          workflow_status:
+            id: '53968949'
+            name: Not Started
+            position: 1
+            complete: false
+            color: '#dce7c6'
+          description:
+            id: '6776881149499189237'
+            body: Initiative with assignee
+            editor_version: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+          attachments: []
+          assigned_to_user:
+            id: '1049303076'
+            name: George Gently
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            default_assignee: false
+          comments_count: 0
+          goals: []
+          key_results: []
+          score_facts: []
+          integration_fields: []
+          workflow_status_times:
+          - status_id: '53968949'
+            status_name: Not Started
+            started_at: '2019-01-01T00:00:00.000Z'
+            ended_at: null
+          created_by_user:
+            id: '1020675218'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+    InitiativesPutResponse:
+      type: object
+      properties:
+        initiative:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '423077122'
+            name:
+              type: string
+              example: Initiative 1
+            reference_num:
+              type: string
+              example: PRJ1-S-1
+            status:
+              type: string
+              example: not_started
+            effort:
+              type: integer
+              example: 30
+            value:
+              type: integer
+              example: 50
+            presented:
+              type: boolean
+              example: true
+            color:
+              type: string
+              example: '#bada55'
+            start_date:
+              type: 'null'
+            end_date:
+              type: 'null'
+            position:
+              type: integer
+              example: 1
+            score:
+              type: integer
+              example: 4
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            product_id:
+              type: string
+              example: '131414752'
+            progress:
+              type: integer
+              example: 25
+            progress_source:
+              type: string
+              example: progress_manual
+            duration_source:
+              type: string
+              example: duration_manual
+            url:
+              type: string
+              example: http://company.aha.io/initiatives/PRJ1-S-1
+            resource:
+              type: string
+              example: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+            project:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '131414752'
+                reference_prefix:
+                  type: string
+                  example: PRJ1
+                name:
+                  type: string
+                  example: Project 1
+                product_line:
+                  type: boolean
+                  example: false
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                workspace_type:
+                  type: string
+                  example: product_workspace
+                url:
+                  type: string
+                  example: http://company.aha.io/projects/PRJ1
+              example:
+                id: '131414752'
+                reference_prefix: PRJ1
+                name: Project 1
+                product_line: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                workspace_type: product_workspace
+                url: http://company.aha.io/projects/PRJ1
+            workflow_status:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '53968949'
+                name:
+                  type: string
+                  example: Not Started
+                position:
+                  type: integer
+                  example: 1
+                complete:
+                  type: boolean
+                  example: false
+                color:
+                  type: string
+                  example: '#dce7c6'
+              example:
+                id: '53968949'
+                name: Not Started
+                position: 1
+                complete: false
+                color: '#dce7c6'
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '673273729'
+                body:
+                  type: string
+                  example: Description of initiative 1
+                editor_version:
+                  type: integer
+                  example: 1
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: '673273729'
+                body: Description of initiative 1
+                editor_version: 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            attachments:
+              type: array
+              items: {}
+            assigned_to_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '16338845'
+                name:
+                  type: string
+                  example: John Smith
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                default_assignee:
+                  type: boolean
+                  example: false
+              example:
+                id: '16338845'
+                name: John Smith
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                default_assignee: false
+            comments_count:
+              type: integer
+              example: 1
+            goals:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  url:
+                    type: string
+                  resource:
+                    type: string
+                  created_at:
+                    type: string
+                  description:
+                    type: string
+                example:
+                  id: '602095703'
+                  name: Goal 1
+                  url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
+                  resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  description:
+                    id: '166463080'
+                    body: Description of goal 1
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+              example:
+              - id: '602095703'
+                name: Goal 1
+                url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
+                resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+                created_at: '2019-01-01T00:00:00.000Z'
+                description:
+                  id: '166463080'
+                  body: Description of goal 1
+                  editor_version: 1
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+            key_results:
+              type: array
+              items: {}
+            score_facts:
+              type: array
+              items: {}
+            features:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  reference_num:
+                    type: string
+                  name:
+                    type: string
+                  created_at:
+                    type: string
+                  url:
+                    type: string
+                  resource:
+                    type: string
+                  product_id:
+                    type: string
+                example:
+                  id: '1007868956'
+                  reference_num: PRJ1-1
+                  name: Feature 1
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: http://company.aha.io/features/PRJ1-1
+                  resource: http://company.aha.io/api/v1/features/PRJ1-1
+                  product_id: '131414752'
+              example:
+              - id: '1007868956'
+                reference_num: PRJ1-1
+                name: Feature 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/features/PRJ1-1
+                resource: http://company.aha.io/api/v1/features/PRJ1-1
+                product_id: '131414752'
+            master_features:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  reference_num:
+                    type: string
+                  name:
+                    type: string
+                  created_at:
+                    type: string
+                  url:
+                    type: string
+                  resource:
+                    type: string
+                example:
+                  id: '269219656'
+                  reference_num: PRJ3-E-3
+                  name: A different project epic
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: http://company.aha.io/epics/PRJ3-E-3
+                  resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+              example:
+              - id: '269219656'
+                reference_num: PRJ3-E-3
+                name: A different project epic
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/epics/PRJ3-E-3
+                resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+              - id: '362457003'
+                reference_num: PRJ1-E-3
+                name: And a third
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/epics/PRJ1-E-3
+                resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+              - id: '580753216'
+                reference_num: PRJ1-E-2
+                name: Here's another epic
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/epics/PRJ1-E-2
+                resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+              - id: '999605892'
+                reference_num: PRJ1-E-1
+                name: Epic 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/epics/PRJ1-E-1
+                resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+            epic:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  reference_num:
+                    type: string
+                  name:
+                    type: string
+                  created_at:
+                    type: string
+                  url:
+                    type: string
+                  resource:
+                    type: string
+                example:
+                  id: '269219656'
+                  reference_num: PRJ3-E-3
+                  name: A different project epic
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: http://company.aha.io/epics/PRJ3-E-3
+                  resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+              example:
+              - id: '269219656'
+                reference_num: PRJ3-E-3
+                name: A different project epic
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/epics/PRJ3-E-3
+                resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+              - id: '362457003'
+                reference_num: PRJ1-E-3
+                name: And a third
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/epics/PRJ1-E-3
+                resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+              - id: '580753216'
+                reference_num: PRJ1-E-2
+                name: Here's another epic
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/epics/PRJ1-E-2
+                resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+              - id: '999605892'
+                reference_num: PRJ1-E-1
+                name: Epic 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/epics/PRJ1-E-1
+                resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+            releases:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  reference_num:
+                    type: string
+                  name:
+                    type: string
+                  start_date:
+                    type: string
+                  release_date:
+                    type: string
+                  parking_lot:
+                    type: string
+                  created_at:
+                    type: string
+                  product_id:
+                    type: string
+                  integration_fields:
+                    type: string
+                  url:
+                    type: string
+                  resource:
+                    type: string
+                  owner:
+                    type: string
+                  project:
+                    type: string
+                example:
+                  id: '161456549'
+                  reference_num: PRJ1-R-2
+                  name: Release 2
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '131414752'
+                  integration_fields: []
+                  url: http://company.aha.io/releases/PRJ1-R-2
+                  resource: http://company.aha.io/api/v1/releases/PRJ1-R-2
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+              example:
+              - id: '161456549'
+                reference_num: PRJ1-R-2
+                name: Release 2
+                start_date: '2019-01-01'
+                release_date: '2019-01-01'
+                parking_lot: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                product_id: '131414752'
+                integration_fields: []
+                url: http://company.aha.io/releases/PRJ1-R-2
+                resource: http://company.aha.io/api/v1/releases/PRJ1-R-2
+                owner:
+                  id: '16338845'
+                  name: John Smith
+                  email: no-reply@aha.io
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                project:
+                  id: '131414752'
+                  reference_prefix: PRJ1
+                  name: Project 1
+                  product_line: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  workspace_type: product_workspace
+                  url: http://company.aha.io/projects/PRJ1
+              - id: '278327321'
+                reference_num: PRJ1-R-1
+                name: Release 1
+                start_date: '2019-01-01'
+                release_date: '2019-01-01'
+                parking_lot: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                product_id: '131414752'
+                integration_fields:
+                - id: '68217473'
+                  name: id
+                  value: '777'
+                  integration_id: 204584239
+                  service_name: jira
+                  created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/releases/PRJ1-R-1
+                resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
+                owner:
+                  id: '16338845'
+                  name: John Smith
+                  email: no-reply@aha.io
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                project:
+                  id: '131414752'
+                  reference_prefix: PRJ1
+                  name: Project 1
+                  product_line: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  workspace_type: product_workspace
+                  url: http://company.aha.io/projects/PRJ1
+            integration_fields:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  value:
+                    type: string
+                  integration_id:
+                    type: string
+                  service_name:
+                    type: string
+                  created_at:
+                    type: string
+                example:
+                  id: '546711007'
+                  name: id
+                  value: '9913333'
+                  integration_id: 186281709
+                  service_name: jira
+                  created_at: '2019-01-01T00:00:00.000Z'
+              example:
+              - id: '546711007'
+                name: id
+                value: '9913333'
+                integration_id: 186281709
+                service_name: jira
+                created_at: '2019-01-01T00:00:00.000Z'
+              - id: '966751335'
+                name: key
+                value: JRA-987222
+                integration_id: 186281709
+                service_name: jira
+                created_at: '2019-01-01T00:00:00.000Z'
+            custom_fields:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  key:
+                    type: string
+                  name:
+                    type: string
+                  updatedAt:
+                    type: string
+                  value:
+                    type: string
+                  type:
+                    type: string
+                example:
+                  id: 973371762
+                  key: initiative_custom_date
+                  name: Initiative custom date
+                  updatedAt: '2019-01-01T00:00:00Z'
+                  value: '2019-01-01'
+                  type: date
+              example:
+              - id: 973371762
+                key: initiative_custom_date
+                name: Initiative custom date
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: '2019-01-01'
+                type: date
+              - id: 1073063442
+                key: initiative_priority
+                name: Initiative priority
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: P2
+                type: string
+            created_by_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1020675218'
+                name:
+                  type: string
+                  example: Mary Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+          example:
+            id: '423077122'
+            name: Initiative 1
+            reference_num: PRJ1-S-1
+            status: not_started
+            effort: 30
+            value: 50
+            presented: true
+            color: '#bada55'
+            start_date: null
+            end_date: null
+            position: 1
+            score: 4
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            product_id: '131414752'
+            progress: 25
+            progress_source: progress_manual
+            duration_source: duration_manual
+            url: http://company.aha.io/initiatives/PRJ1-S-1
+            resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+            project:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              workspace_type: product_workspace
+              url: http://company.aha.io/projects/PRJ1
+            workflow_status:
+              id: '53968949'
+              name: Not Started
+              position: 1
+              complete: false
+              color: '#dce7c6'
+            description:
+              id: '673273729'
+              body: Description of initiative 1
+              editor_version: 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            attachments: []
+            assigned_to_user:
+              id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              default_assignee: false
+            comments_count: 1
+            goals:
+            - id: '602095703'
+              name: Goal 1
+              url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
+              resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+              created_at: '2019-01-01T00:00:00.000Z'
+              description:
+                id: '166463080'
+                body: Description of goal 1
+                editor_version: 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            key_results: []
+            score_facts: []
+            features:
+            - id: '1007868956'
+              reference_num: PRJ1-1
+              name: Feature 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/features/PRJ1-1
+              resource: http://company.aha.io/api/v1/features/PRJ1-1
+              product_id: '131414752'
+            master_features:
+            - id: '269219656'
+              reference_num: PRJ3-E-3
+              name: A different project epic
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/epics/PRJ3-E-3
+              resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+            - id: '362457003'
+              reference_num: PRJ1-E-3
+              name: And a third
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/epics/PRJ1-E-3
+              resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+            - id: '580753216'
+              reference_num: PRJ1-E-2
+              name: Here's another epic
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/epics/PRJ1-E-2
+              resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+            - id: '999605892'
+              reference_num: PRJ1-E-1
+              name: Epic 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/epics/PRJ1-E-1
+              resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+            epic:
+            - id: '269219656'
+              reference_num: PRJ3-E-3
+              name: A different project epic
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/epics/PRJ3-E-3
+              resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+            - id: '362457003'
+              reference_num: PRJ1-E-3
+              name: And a third
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/epics/PRJ1-E-3
+              resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+            - id: '580753216'
+              reference_num: PRJ1-E-2
+              name: Here's another epic
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/epics/PRJ1-E-2
+              resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+            - id: '999605892'
+              reference_num: PRJ1-E-1
+              name: Epic 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/epics/PRJ1-E-1
+              resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+            releases:
+            - id: '161456549'
+              reference_num: PRJ1-R-2
+              name: Release 2
+              start_date: '2019-01-01'
+              release_date: '2019-01-01'
+              parking_lot: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              product_id: '131414752'
+              integration_fields: []
+              url: http://company.aha.io/releases/PRJ1-R-2
+              resource: http://company.aha.io/api/v1/releases/PRJ1-R-2
+              owner:
+                id: '16338845'
+                name: John Smith
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+              project:
+                id: '131414752'
+                reference_prefix: PRJ1
+                name: Project 1
+                product_line: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                workspace_type: product_workspace
+                url: http://company.aha.io/projects/PRJ1
+            - id: '278327321'
+              reference_num: PRJ1-R-1
+              name: Release 1
+              start_date: '2019-01-01'
+              release_date: '2019-01-01'
+              parking_lot: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              product_id: '131414752'
+              integration_fields:
+              - id: '68217473'
+                name: id
+                value: '777'
+                integration_id: 204584239
+                service_name: jira
+                created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/releases/PRJ1-R-1
+              resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
+              owner:
+                id: '16338845'
+                name: John Smith
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+              project:
+                id: '131414752'
+                reference_prefix: PRJ1
+                name: Project 1
+                product_line: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                workspace_type: product_workspace
+                url: http://company.aha.io/projects/PRJ1
+            integration_fields:
+            - id: '546711007'
+              name: id
+              value: '9913333'
+              integration_id: 186281709
+              service_name: jira
+              created_at: '2019-01-01T00:00:00.000Z'
+            - id: '966751335'
+              name: key
+              value: JRA-987222
+              integration_id: 186281709
+              service_name: jira
+              created_at: '2019-01-01T00:00:00.000Z'
+            custom_fields:
+            - id: 973371762
+              key: initiative_custom_date
+              name: Initiative custom date
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: '2019-01-01'
+              type: date
+            - id: 1073063442
+              key: initiative_priority
+              name: Initiative priority
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: P2
+              type: string
+            created_by_user:
+              id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+      example:
+        initiative:
+          id: '423077122'
+          name: Initiative 1
+          reference_num: PRJ1-S-1
+          status: not_started
+          effort: 30
+          value: 50
+          presented: true
+          color: '#bada55'
+          start_date: null
+          end_date: null
+          position: 1
+          score: 4
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          product_id: '131414752'
+          progress: 25
+          progress_source: progress_manual
+          duration_source: duration_manual
+          url: http://company.aha.io/initiatives/PRJ1-S-1
+          resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+          project:
+            id: '131414752'
+            reference_prefix: PRJ1
+            name: Project 1
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            workspace_type: product_workspace
+            url: http://company.aha.io/projects/PRJ1
+          workflow_status:
+            id: '53968949'
+            name: Not Started
+            position: 1
+            complete: false
+            color: '#dce7c6'
+          description:
+            id: '673273729'
+            body: Description of initiative 1
+            editor_version: 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+          attachments: []
+          assigned_to_user:
+            id: '16338845'
+            name: John Smith
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            default_assignee: false
+          comments_count: 1
+          goals:
+          - id: '602095703'
+            name: Goal 1
+            url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
+            resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+            created_at: '2019-01-01T00:00:00.000Z'
+            description:
+              id: '166463080'
+              body: Description of goal 1
+              editor_version: 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+          key_results: []
+          score_facts: []
+          features:
+          - id: '1007868956'
+            reference_num: PRJ1-1
+            name: Feature 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/features/PRJ1-1
+            resource: http://company.aha.io/api/v1/features/PRJ1-1
+            product_id: '131414752'
+          master_features:
+          - id: '269219656'
+            reference_num: PRJ3-E-3
+            name: A different project epic
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/epics/PRJ3-E-3
+            resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+          - id: '362457003'
+            reference_num: PRJ1-E-3
+            name: And a third
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/epics/PRJ1-E-3
+            resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+          - id: '580753216'
+            reference_num: PRJ1-E-2
+            name: Here's another epic
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/epics/PRJ1-E-2
+            resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+          - id: '999605892'
+            reference_num: PRJ1-E-1
+            name: Epic 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/epics/PRJ1-E-1
+            resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+          epic:
+          - id: '269219656'
+            reference_num: PRJ3-E-3
+            name: A different project epic
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/epics/PRJ3-E-3
+            resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+          - id: '362457003'
+            reference_num: PRJ1-E-3
+            name: And a third
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/epics/PRJ1-E-3
+            resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+          - id: '580753216'
+            reference_num: PRJ1-E-2
+            name: Here's another epic
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/epics/PRJ1-E-2
+            resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+          - id: '999605892'
+            reference_num: PRJ1-E-1
+            name: Epic 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/epics/PRJ1-E-1
+            resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+          releases:
+          - id: '161456549'
+            reference_num: PRJ1-R-2
+            name: Release 2
+            start_date: '2019-01-01'
+            release_date: '2019-01-01'
+            parking_lot: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            product_id: '131414752'
+            integration_fields: []
+            url: http://company.aha.io/releases/PRJ1-R-2
+            resource: http://company.aha.io/api/v1/releases/PRJ1-R-2
+            owner:
+              id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            project:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              workspace_type: product_workspace
+              url: http://company.aha.io/projects/PRJ1
+          - id: '278327321'
+            reference_num: PRJ1-R-1
+            name: Release 1
+            start_date: '2019-01-01'
+            release_date: '2019-01-01'
+            parking_lot: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            product_id: '131414752'
+            integration_fields:
+            - id: '68217473'
+              name: id
+              value: '777'
+              integration_id: 204584239
+              service_name: jira
+              created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/releases/PRJ1-R-1
+            resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
+            owner:
+              id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            project:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              workspace_type: product_workspace
+              url: http://company.aha.io/projects/PRJ1
+          integration_fields:
+          - id: '546711007'
+            name: id
+            value: '9913333'
+            integration_id: 186281709
+            service_name: jira
+            created_at: '2019-01-01T00:00:00.000Z'
+          - id: '966751335'
+            name: key
+            value: JRA-987222
+            integration_id: 186281709
+            service_name: jira
+            created_at: '2019-01-01T00:00:00.000Z'
+          custom_fields:
+          - id: 973371762
+            key: initiative_custom_date
+            name: Initiative custom date
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: '2019-01-01'
+            type: date
+          - id: 1073063442
+            key: initiative_priority
+            name: Initiative priority
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: P2
+            type: string
+          created_by_user:
+            id: '1020675218'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+    InitiativesGetResponse:
+      type: object
+      properties:
+        initiative:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '423077122'
+            name:
+              type: string
+              example: Initiative 1
+            reference_num:
+              type: string
+              example: PRJ1-S-1
+            status:
+              type: string
+              example: not_started
+            effort:
+              type: integer
+              example: 30
+            value:
+              type: integer
+              example: 50
+            presented:
+              type: boolean
+              example: true
+            color:
+              type: string
+              example: '#bada55'
+            start_date:
+              type: 'null'
+            end_date:
+              type: 'null'
+            position:
+              type: integer
+              example: 1
+            score:
+              type: integer
+              example: 4
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            product_id:
+              type: string
+              example: '131414752'
+            progress:
+              type: 'null'
+            progress_source:
+              type: string
+              example: progress_manual
+            duration_source:
+              type: string
+              example: duration_manual
+            url:
+              type: string
+              example: http://company.aha.io/initiatives/PRJ1-S-1
+            resource:
+              type: string
+              example: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+            project:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '131414752'
+                reference_prefix:
+                  type: string
+                  example: PRJ1
+                name:
+                  type: string
+                  example: Project 1
+                product_line:
+                  type: boolean
+                  example: false
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                workspace_type:
+                  type: string
+                  example: product_workspace
+                url:
+                  type: string
+                  example: http://company.aha.io/projects/PRJ1
+              example:
+                id: '131414752'
+                reference_prefix: PRJ1
+                name: Project 1
+                product_line: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                workspace_type: product_workspace
+                url: http://company.aha.io/projects/PRJ1
+            workflow_status:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '53968949'
+                name:
+                  type: string
+                  example: Not Started
+                position:
+                  type: integer
+                  example: 1
+                complete:
+                  type: boolean
+                  example: false
+                color:
+                  type: string
+                  example: '#dce7c6'
+              example:
+                id: '53968949'
+                name: Not Started
+                position: 1
+                complete: false
+                color: '#dce7c6'
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '673273729'
+                body:
+                  type: string
+                  example: Description of initiative 1
+                editor_version:
+                  type: integer
+                  example: 1
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: '673273729'
+                body: Description of initiative 1
+                editor_version: 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            attachments:
+              type: array
+              items: {}
+            assigned_to_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '16338845'
+                name:
+                  type: string
+                  example: John Smith
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                default_assignee:
+                  type: boolean
+                  example: false
+              example:
+                id: '16338845'
+                name: John Smith
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                default_assignee: false
+            comments_count:
+              type: integer
+              example: 1
+            goals:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  url:
+                    type: string
+                  resource:
+                    type: string
+                  created_at:
+                    type: string
+                  description:
+                    type: string
+                example:
+                  id: '602095703'
+                  name: Goal 1
+                  url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
+                  resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  description:
+                    id: '166463080'
+                    body: Description of goal 1
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+              example:
+              - id: '602095703'
+                name: Goal 1
+                url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
+                resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+                created_at: '2019-01-01T00:00:00.000Z'
+                description:
+                  id: '166463080'
+                  body: Description of goal 1
+                  editor_version: 1
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+            key_results:
+              type: array
+              items: {}
+            score_facts:
+              type: array
+              items: {}
+            features:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  reference_num:
+                    type: string
+                  name:
+                    type: string
+                  created_at:
+                    type: string
+                  url:
+                    type: string
+                  resource:
+                    type: string
+                  product_id:
+                    type: string
+                example:
+                  id: '1007868956'
+                  reference_num: PRJ1-1
+                  name: Feature 1
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: http://company.aha.io/features/PRJ1-1
+                  resource: http://company.aha.io/api/v1/features/PRJ1-1
+                  product_id: '131414752'
+              example:
+              - id: '1007868956'
+                reference_num: PRJ1-1
+                name: Feature 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/features/PRJ1-1
+                resource: http://company.aha.io/api/v1/features/PRJ1-1
+                product_id: '131414752'
+            master_features:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  reference_num:
+                    type: string
+                  name:
+                    type: string
+                  created_at:
+                    type: string
+                  url:
+                    type: string
+                  resource:
+                    type: string
+                example:
+                  id: '269219656'
+                  reference_num: PRJ3-E-3
+                  name: A different project epic
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: http://company.aha.io/epics/PRJ3-E-3
+                  resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+              example:
+              - id: '269219656'
+                reference_num: PRJ3-E-3
+                name: A different project epic
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/epics/PRJ3-E-3
+                resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+              - id: '362457003'
+                reference_num: PRJ1-E-3
+                name: And a third
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/epics/PRJ1-E-3
+                resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+              - id: '580753216'
+                reference_num: PRJ1-E-2
+                name: Here's another epic
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/epics/PRJ1-E-2
+                resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+              - id: '999605892'
+                reference_num: PRJ1-E-1
+                name: Epic 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/epics/PRJ1-E-1
+                resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+            epic:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  reference_num:
+                    type: string
+                  name:
+                    type: string
+                  created_at:
+                    type: string
+                  url:
+                    type: string
+                  resource:
+                    type: string
+                example:
+                  id: '269219656'
+                  reference_num: PRJ3-E-3
+                  name: A different project epic
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: http://company.aha.io/epics/PRJ3-E-3
+                  resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+              example:
+              - id: '269219656'
+                reference_num: PRJ3-E-3
+                name: A different project epic
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/epics/PRJ3-E-3
+                resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+              - id: '362457003'
+                reference_num: PRJ1-E-3
+                name: And a third
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/epics/PRJ1-E-3
+                resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+              - id: '580753216'
+                reference_num: PRJ1-E-2
+                name: Here's another epic
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/epics/PRJ1-E-2
+                resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+              - id: '999605892'
+                reference_num: PRJ1-E-1
+                name: Epic 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/epics/PRJ1-E-1
+                resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+            releases:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  reference_num:
+                    type: string
+                  name:
+                    type: string
+                  start_date:
+                    type: string
+                  release_date:
+                    type: string
+                  parking_lot:
+                    type: string
+                  created_at:
+                    type: string
+                  product_id:
+                    type: string
+                  integration_fields:
+                    type: string
+                  url:
+                    type: string
+                  resource:
+                    type: string
+                  owner:
+                    type: string
+                  project:
+                    type: string
+                example:
+                  id: '161456549'
+                  reference_num: PRJ1-R-2
+                  name: Release 2
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  product_id: '131414752'
+                  integration_fields: []
+                  url: http://company.aha.io/releases/PRJ1-R-2
+                  resource: http://company.aha.io/api/v1/releases/PRJ1-R-2
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    workspace_type: product_workspace
+                    url: http://company.aha.io/projects/PRJ1
+              example:
+              - id: '161456549'
+                reference_num: PRJ1-R-2
+                name: Release 2
+                start_date: '2019-01-01'
+                release_date: '2019-01-01'
+                parking_lot: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                product_id: '131414752'
+                integration_fields: []
+                url: http://company.aha.io/releases/PRJ1-R-2
+                resource: http://company.aha.io/api/v1/releases/PRJ1-R-2
+                owner:
+                  id: '16338845'
+                  name: John Smith
+                  email: no-reply@aha.io
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                project:
+                  id: '131414752'
+                  reference_prefix: PRJ1
+                  name: Project 1
+                  product_line: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  workspace_type: product_workspace
+                  url: http://company.aha.io/projects/PRJ1
+              - id: '278327321'
+                reference_num: PRJ1-R-1
+                name: Release 1
+                start_date: '2019-01-01'
+                release_date: '2019-01-01'
+                parking_lot: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                product_id: '131414752'
+                integration_fields:
+                - id: '68217473'
+                  name: id
+                  value: '777'
+                  integration_id: 204584239
+                  service_name: jira
+                  created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/releases/PRJ1-R-1
+                resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
+                owner:
+                  id: '16338845'
+                  name: John Smith
+                  email: no-reply@aha.io
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                project:
+                  id: '131414752'
+                  reference_prefix: PRJ1
+                  name: Project 1
+                  product_line: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  workspace_type: product_workspace
+                  url: http://company.aha.io/projects/PRJ1
+            integration_fields:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  value:
+                    type: string
+                  integration_id:
+                    type: string
+                  service_name:
+                    type: string
+                  created_at:
+                    type: string
+                example:
+                  id: '546711007'
+                  name: id
+                  value: '9913333'
+                  integration_id: 186281709
+                  service_name: jira
+                  created_at: '2019-01-01T00:00:00.000Z'
+              example:
+              - id: '546711007'
+                name: id
+                value: '9913333'
+                integration_id: 186281709
+                service_name: jira
+                created_at: '2019-01-01T00:00:00.000Z'
+              - id: '966751335'
+                name: key
+                value: JRA-987222
+                integration_id: 186281709
+                service_name: jira
+                created_at: '2019-01-01T00:00:00.000Z'
+            custom_fields:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  key:
+                    type: string
+                  name:
+                    type: string
+                  updatedAt:
+                    type: string
+                  value:
+                    type: string
+                  type:
+                    type: string
+                example:
+                  id: 973371762
+                  key: initiative_custom_date
+                  name: Initiative custom date
+                  updatedAt: '2019-01-01T00:00:00Z'
+                  value: '2019-01-01'
+                  type: date
+              example:
+              - id: 973371762
+                key: initiative_custom_date
+                name: Initiative custom date
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: '2019-01-01'
+                type: date
+              - id: 1073063442
+                key: initiative_priority
+                name: Initiative priority
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: P2
+                type: string
+            created_by_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1020675218'
+                name:
+                  type: string
+                  example: Mary Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+          example:
+            id: '423077122'
+            name: Initiative 1
+            reference_num: PRJ1-S-1
+            status: not_started
+            effort: 30
+            value: 50
+            presented: true
+            color: '#bada55'
+            start_date: null
+            end_date: null
+            position: 1
+            score: 4
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            product_id: '131414752'
+            progress: null
+            progress_source: progress_manual
+            duration_source: duration_manual
+            url: http://company.aha.io/initiatives/PRJ1-S-1
+            resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+            project:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              workspace_type: product_workspace
+              url: http://company.aha.io/projects/PRJ1
+            workflow_status:
+              id: '53968949'
+              name: Not Started
+              position: 1
+              complete: false
+              color: '#dce7c6'
+            description:
+              id: '673273729'
+              body: Description of initiative 1
+              editor_version: 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            attachments: []
+            assigned_to_user:
+              id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              default_assignee: false
+            comments_count: 1
+            goals:
+            - id: '602095703'
+              name: Goal 1
+              url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
+              resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+              created_at: '2019-01-01T00:00:00.000Z'
+              description:
+                id: '166463080'
+                body: Description of goal 1
+                editor_version: 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            key_results: []
+            score_facts: []
+            features:
+            - id: '1007868956'
+              reference_num: PRJ1-1
+              name: Feature 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/features/PRJ1-1
+              resource: http://company.aha.io/api/v1/features/PRJ1-1
+              product_id: '131414752'
+            master_features:
+            - id: '269219656'
+              reference_num: PRJ3-E-3
+              name: A different project epic
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/epics/PRJ3-E-3
+              resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+            - id: '362457003'
+              reference_num: PRJ1-E-3
+              name: And a third
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/epics/PRJ1-E-3
+              resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+            - id: '580753216'
+              reference_num: PRJ1-E-2
+              name: Here's another epic
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/epics/PRJ1-E-2
+              resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+            - id: '999605892'
+              reference_num: PRJ1-E-1
+              name: Epic 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/epics/PRJ1-E-1
+              resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+            epic:
+            - id: '269219656'
+              reference_num: PRJ3-E-3
+              name: A different project epic
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/epics/PRJ3-E-3
+              resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+            - id: '362457003'
+              reference_num: PRJ1-E-3
+              name: And a third
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/epics/PRJ1-E-3
+              resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+            - id: '580753216'
+              reference_num: PRJ1-E-2
+              name: Here's another epic
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/epics/PRJ1-E-2
+              resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+            - id: '999605892'
+              reference_num: PRJ1-E-1
+              name: Epic 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/epics/PRJ1-E-1
+              resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+            releases:
+            - id: '161456549'
+              reference_num: PRJ1-R-2
+              name: Release 2
+              start_date: '2019-01-01'
+              release_date: '2019-01-01'
+              parking_lot: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              product_id: '131414752'
+              integration_fields: []
+              url: http://company.aha.io/releases/PRJ1-R-2
+              resource: http://company.aha.io/api/v1/releases/PRJ1-R-2
+              owner:
+                id: '16338845'
+                name: John Smith
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+              project:
+                id: '131414752'
+                reference_prefix: PRJ1
+                name: Project 1
+                product_line: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                workspace_type: product_workspace
+                url: http://company.aha.io/projects/PRJ1
+            - id: '278327321'
+              reference_num: PRJ1-R-1
+              name: Release 1
+              start_date: '2019-01-01'
+              release_date: '2019-01-01'
+              parking_lot: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              product_id: '131414752'
+              integration_fields:
+              - id: '68217473'
+                name: id
+                value: '777'
+                integration_id: 204584239
+                service_name: jira
+                created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/releases/PRJ1-R-1
+              resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
+              owner:
+                id: '16338845'
+                name: John Smith
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+              project:
+                id: '131414752'
+                reference_prefix: PRJ1
+                name: Project 1
+                product_line: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                workspace_type: product_workspace
+                url: http://company.aha.io/projects/PRJ1
+            integration_fields:
+            - id: '546711007'
+              name: id
+              value: '9913333'
+              integration_id: 186281709
+              service_name: jira
+              created_at: '2019-01-01T00:00:00.000Z'
+            - id: '966751335'
+              name: key
+              value: JRA-987222
+              integration_id: 186281709
+              service_name: jira
+              created_at: '2019-01-01T00:00:00.000Z'
+            custom_fields:
+            - id: 973371762
+              key: initiative_custom_date
+              name: Initiative custom date
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: '2019-01-01'
+              type: date
+            - id: 1073063442
+              key: initiative_priority
+              name: Initiative priority
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: P2
+              type: string
+            created_by_user:
+              id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+      example:
+        initiative:
+          id: '423077122'
+          name: Initiative 1
+          reference_num: PRJ1-S-1
+          status: not_started
+          effort: 30
+          value: 50
+          presented: true
+          color: '#bada55'
+          start_date: null
+          end_date: null
+          position: 1
+          score: 4
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          product_id: '131414752'
+          progress: null
+          progress_source: progress_manual
+          duration_source: duration_manual
+          url: http://company.aha.io/initiatives/PRJ1-S-1
+          resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+          project:
+            id: '131414752'
+            reference_prefix: PRJ1
+            name: Project 1
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            workspace_type: product_workspace
+            url: http://company.aha.io/projects/PRJ1
+          workflow_status:
+            id: '53968949'
+            name: Not Started
+            position: 1
+            complete: false
+            color: '#dce7c6'
+          description:
+            id: '673273729'
+            body: Description of initiative 1
+            editor_version: 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+          attachments: []
+          assigned_to_user:
+            id: '16338845'
+            name: John Smith
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            default_assignee: false
+          comments_count: 1
+          goals:
+          - id: '602095703'
+            name: Goal 1
+            url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
+            resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+            created_at: '2019-01-01T00:00:00.000Z'
+            description:
+              id: '166463080'
+              body: Description of goal 1
+              editor_version: 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+          key_results: []
+          score_facts: []
+          features:
+          - id: '1007868956'
+            reference_num: PRJ1-1
+            name: Feature 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/features/PRJ1-1
+            resource: http://company.aha.io/api/v1/features/PRJ1-1
+            product_id: '131414752'
+          master_features:
+          - id: '269219656'
+            reference_num: PRJ3-E-3
+            name: A different project epic
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/epics/PRJ3-E-3
+            resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+          - id: '362457003'
+            reference_num: PRJ1-E-3
+            name: And a third
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/epics/PRJ1-E-3
+            resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+          - id: '580753216'
+            reference_num: PRJ1-E-2
+            name: Here's another epic
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/epics/PRJ1-E-2
+            resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+          - id: '999605892'
+            reference_num: PRJ1-E-1
+            name: Epic 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/epics/PRJ1-E-1
+            resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+          epic:
+          - id: '269219656'
+            reference_num: PRJ3-E-3
+            name: A different project epic
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/epics/PRJ3-E-3
+            resource: http://company.aha.io/api/v1/epics/PRJ3-E-3
+          - id: '362457003'
+            reference_num: PRJ1-E-3
+            name: And a third
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/epics/PRJ1-E-3
+            resource: http://company.aha.io/api/v1/epics/PRJ1-E-3
+          - id: '580753216'
+            reference_num: PRJ1-E-2
+            name: Here's another epic
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/epics/PRJ1-E-2
+            resource: http://company.aha.io/api/v1/epics/PRJ1-E-2
+          - id: '999605892'
+            reference_num: PRJ1-E-1
+            name: Epic 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/epics/PRJ1-E-1
+            resource: http://company.aha.io/api/v1/epics/PRJ1-E-1
+          releases:
+          - id: '161456549'
+            reference_num: PRJ1-R-2
+            name: Release 2
+            start_date: '2019-01-01'
+            release_date: '2019-01-01'
+            parking_lot: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            product_id: '131414752'
+            integration_fields: []
+            url: http://company.aha.io/releases/PRJ1-R-2
+            resource: http://company.aha.io/api/v1/releases/PRJ1-R-2
+            owner:
+              id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            project:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              workspace_type: product_workspace
+              url: http://company.aha.io/projects/PRJ1
+          - id: '278327321'
+            reference_num: PRJ1-R-1
+            name: Release 1
+            start_date: '2019-01-01'
+            release_date: '2019-01-01'
+            parking_lot: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            product_id: '131414752'
+            integration_fields:
+            - id: '68217473'
+              name: id
+              value: '777'
+              integration_id: 204584239
+              service_name: jira
+              created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/releases/PRJ1-R-1
+            resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
+            owner:
+              id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            project:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              workspace_type: product_workspace
+              url: http://company.aha.io/projects/PRJ1
+          integration_fields:
+          - id: '546711007'
+            name: id
+            value: '9913333'
+            integration_id: 186281709
+            service_name: jira
+            created_at: '2019-01-01T00:00:00.000Z'
+          - id: '966751335'
+            name: key
+            value: JRA-987222
+            integration_id: 186281709
+            service_name: jira
+            created_at: '2019-01-01T00:00:00.000Z'
+          custom_fields:
+          - id: 973371762
+            key: initiative_custom_date
+            name: Initiative custom date
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: '2019-01-01'
+            type: date
+          - id: 1073063442
+            key: initiative_priority
+            name: Initiative priority
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: P2
+            type: string
+          created_by_user:
+            id: '1020675218'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

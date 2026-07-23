@@ -1,0 +1,101 @@
+openapi: 3.1.0
+info:
+  title: Aha! Account backups Integration changes API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Integration changes
+paths:
+  /api/v1/integration_changes:
+    post:
+      summary: Send a record to an integration
+      description: This endpoint mimicks the "Send to integration" button on a record in the UI.
+      tags:
+      - Integration changes
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IntegrationchangesPostResponse'
+              example:
+                status: success
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IntegrationchangesPostRequest'
+            example:
+              integration_id: 204584239
+              model_class: Feature
+              model_id: 1007868956
+components:
+  schemas:
+    IntegrationchangesPostRequest:
+      type: object
+      properties:
+        integration_id:
+          type: integer
+          example: 204584239
+        model_class:
+          type: string
+          example: Feature
+        model_id:
+          type: integer
+          example: 1007868956
+      example:
+        integration_id: 204584239
+        model_class: Feature
+        model_id: 1007868956
+    IntegrationchangesPostResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+      example:
+        status: success
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration
