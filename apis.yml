@@ -10,7 +10,19 @@ description: >-
   ideas, and integrations with OAuth 2.0, API key, and Basic authentication
   options.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/aha.png
 tags:
   - Product Management
   - Roadmapping
@@ -24,29 +36,835 @@ created: '2026-05-11'
 modified: '2026-05-11'
 specificationVersion: '0.19'
 apis:
-  - aid: aha:rest-api
-    name: Aha.io REST API
-    description: >-
-      REST API for managing products, releases, features, ideas, goals,
-      initiatives, and integrations across Aha! Roadmaps, Ideas, and Develop.
-      Supports OAuth 2.0, API key Bearer tokens, and deprecated Basic auth,
-      with 300 requests per minute and 20 per second rate limits.
-    humanURL: https://www.aha.io/api
-    baseURL: https://{subdomain}.aha.io/api/v1
-    tags:
-      - Roadmaps
-      - Releases
-      - Features
-      - Ideas
-      - Integrations
-    properties:
-      - type: Documentation
-        url: https://www.aha.io/api
-      - type: ReDoc
-        url: https://www.aha.io/redoc-static.html
-      - type: OpenAPI
-        url: https://www.aha.io/openapi.json
-
+- aid: aha:aha-account-backups-api
+  name: Aha.io Account backups API
+  description: The Account backups API from Aha.io — 3 operation(s) for account backups.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Account backups
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-account-backups-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-attachments-api
+  name: Aha.io Attachments API
+  description: The Attachments API from Aha.io — 7 operation(s) for attachments.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Attachments
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-attachments-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-audits-api
+  name: Aha.io Audits API
+  description: The Audits API from Aha.io — 1 operation(s) for audits.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Audits
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-audits-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-capacity-estimate-values-api
+  name: Aha.io Capacity estimate values API
+  description: >-
+    The Capacity estimate values API from Aha.io — 2 operation(s) for capacity estimate values.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Capacity estimate values
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-capacity-estimate-values-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-capacity-investments-api
+  name: Aha.io Capacity investments API
+  description: The Capacity investments API from Aha.io — 5 operation(s) for capacity investments.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Capacity investments
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-capacity-investments-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-capacity-scenarios-api
+  name: Aha.io Capacity scenarios API
+  description: The Capacity scenarios API from Aha.io — 2 operation(s) for capacity scenarios.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Capacity scenarios
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-capacity-scenarios-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-comments-api
+  name: Aha.io Comments API
+  description: The Comments API from Aha.io — 12 operation(s) for comments.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Comments
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-comments-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-competitors-api
+  name: Aha.io Competitors API
+  description: The Competitors API from Aha.io — 3 operation(s) for competitors.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Competitors
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-competitors-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-creative-briefs-api
+  name: Aha.io Creative briefs API
+  description: The Creative briefs API from Aha.io — 3 operation(s) for creative briefs.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Creative briefs
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-creative-briefs-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-custom-field-options-api
+  name: Aha.io Custom field options API
+  description: The Custom field options API from Aha.io — 2 operation(s) for custom field options.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Custom field options
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-custom-field-options-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-custom-fields-api
+  name: Aha.io Custom fields API
+  description: The Custom fields API from Aha.io — 2 operation(s) for custom fields.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Custom fields
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-custom-fields-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-custom-layouts-api
+  name: Aha.io Custom Layouts API
+  description: The Custom Layouts API from Aha.io — 2 operation(s) for custom layouts.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Custom Layouts
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-custom-layouts-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-custom-pivots-api
+  name: Aha.io Custom pivots API
+  description: The Custom pivots API from Aha.io — 1 operation(s) for custom pivots.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Custom pivots
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-custom-pivots-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-custom-table-record-links-api
+  name: Aha.io Custom table record links API
+  description: >-
+    The Custom table record links API from Aha.io — 8 operation(s) for custom table record links.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Custom table record links
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-custom-table-record-links-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-custom-table-records-api
+  name: Aha.io Custom table records API
+  description: The Custom table records API from Aha.io — 2 operation(s) for custom table records.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Custom table records
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-custom-table-records-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-deletions-api
+  name: Aha.io Deletions API
+  description: The Deletions API from Aha.io — 2 operation(s) for deletions.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Deletions
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-deletions-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-epics-api
+  name: Aha.io Epics API
+  description: The Epics API from Aha.io — 6 operation(s) for epics.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Epics
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-epics-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-features-api
+  name: Aha.io Features API
+  description: The Features API from Aha.io — 8 operation(s) for features.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Features
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-features-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-goals-api
+  name: Aha.io Goals API
+  description: The Goals API from Aha.io — 5 operation(s) for goals.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Goals
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-goals-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-historical-audits-api
+  name: Aha.io Historical Audits API
+  description: The Historical Audits API from Aha.io — 1 operation(s) for historical audits.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Historical Audits
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-historical-audits-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-idea-categories-api
+  name: Aha.io Idea categories API
+  description: The Idea categories API from Aha.io — 1 operation(s) for idea categories.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Idea categories
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-idea-categories-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-idea-comments-api
+  name: Aha.io Idea comments API
+  description: The Idea comments API from Aha.io — 3 operation(s) for idea comments.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Idea comments
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-idea-comments-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-idea-organizations-api
+  name: Aha.io Idea organizations API
+  description: The Idea organizations API from Aha.io — 2 operation(s) for idea organizations.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Idea organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-idea-organizations-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-idea-portals-api
+  name: Aha.io Idea Portals API
+  description: The Idea Portals API from Aha.io — 2 operation(s) for idea portals.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Idea Portals
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-idea-portals-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-idea-subscriptions-api
+  name: Aha.io Idea subscriptions API
+  description: The Idea subscriptions API from Aha.io — 2 operation(s) for idea subscriptions.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Idea subscriptions
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-idea-subscriptions-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-idea-users-api
+  name: Aha.io Idea users API
+  description: The Idea users API from Aha.io — 2 operation(s) for idea users.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Idea users
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-idea-users-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-idea-votes-api
+  name: Aha.io Idea votes API
+  description: The Idea votes API from Aha.io — 6 operation(s) for idea votes.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Idea votes
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-idea-votes-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-ideas-api
+  name: Aha.io Ideas API
+  description: The Ideas API from Aha.io — 6 operation(s) for ideas.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Ideas
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-ideas-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-ideas-portal-user-subscriptions-api
+  name: Aha.io Ideas portal user subscriptions API
+  description: >-
+    The Ideas portal user subscriptions API from Aha.io — 2 operation(s) for ideas portal user subscriptions.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Ideas portal user subscriptions
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-ideas-portal-user-subscriptions-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-ideas-portal-users-api
+  name: Aha.io Ideas portal users API
+  description: The Ideas portal users API from Aha.io — 2 operation(s) for ideas portal users.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Ideas portal users
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-ideas-portal-users-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-identity-providers-api
+  name: Aha.io Identity providers API
+  description: The Identity providers API from Aha.io — 2 operation(s) for identity providers.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Identity providers
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-identity-providers-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-initiatives-api
+  name: Aha.io Initiatives API
+  description: The Initiatives API from Aha.io — 5 operation(s) for initiatives.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Initiatives
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-initiatives-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-integration-changes-api
+  name: Aha.io Integration changes API
+  description: The Integration changes API from Aha.io — 1 operation(s) for integration changes.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Integration changes
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-integration-changes-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-integration-fields-api
+  name: Aha.io Integration fields API
+  description: The Integration fields API from Aha.io — 15 operation(s) for integration fields.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Integration fields
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-integration-fields-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-integrations-api
+  name: Aha.io Integrations API
+  description: The Integrations API from Aha.io — 4 operation(s) for integrations.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Integrations
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-integrations-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-key-results-api
+  name: Aha.io Key results API
+  description: The Key results API from Aha.io — 2 operation(s) for key results.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Key results
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-key-results-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-me-api
+  name: Aha.io Me API
+  description: The Me API from Aha.io — 3 operation(s) for me.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Me
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-me-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-notes-api
+  name: Aha.io Notes API
+  description: The Notes API from Aha.io — 2 operation(s) for notes.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Notes
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-notes-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-paid-seat-groups-api
+  name: Aha.io Paid Seat Groups API
+  description: The Paid Seat Groups API from Aha.io — 3 operation(s) for paid seat groups.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Paid Seat Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-paid-seat-groups-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-personas-api
+  name: Aha.io Personas API
+  description: The Personas API from Aha.io — 3 operation(s) for personas.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Personas
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-personas-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-products-api
+  name: Aha.io Products API
+  description: The Products API from Aha.io — 2 operation(s) for products.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-products-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-record-links-api
+  name: Aha.io Record links API
+  description: The Record links API from Aha.io — 3 operation(s) for record links.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Record links
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-record-links-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-release-phases-api
+  name: Aha.io Release phases API
+  description: The Release phases API from Aha.io — 3 operation(s) for release phases.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Release phases
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-release-phases-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-releases-api
+  name: Aha.io Releases API
+  description: The Releases API from Aha.io — 8 operation(s) for releases.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Releases
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-releases-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-requirements-api
+  name: Aha.io Requirements API
+  description: The Requirements API from Aha.io — 3 operation(s) for requirements.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Requirements
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-requirements-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-roll-up-releases-api
+  name: Aha.io Roll up releases API
+  description: The Roll up releases API from Aha.io — 2 operation(s) for roll up releases.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Roll up releases
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-roll-up-releases-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-schedulable-changes-api
+  name: Aha.io Schedulable changes API
+  description: The Schedulable changes API from Aha.io — 3 operation(s) for schedulable changes.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Schedulable changes
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-schedulable-changes-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-schedules-api
+  name: Aha.io Schedules API
+  description: The Schedules API from Aha.io — 1 operation(s) for schedules.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Schedules
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-schedules-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-strategic-models-api
+  name: Aha.io Strategic models API
+  description: The Strategic models API from Aha.io — 2 operation(s) for strategic models.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Strategic models
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-strategic-models-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-strategic-positionings-api
+  name: Aha.io Strategic positionings API
+  description: The Strategic positionings API from Aha.io — 2 operation(s) for strategic positionings.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Strategic positionings
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-strategic-positionings-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-strategic-visions-api
+  name: Aha.io Strategic visions API
+  description: The Strategic visions API from Aha.io — 2 operation(s) for strategic visions.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Strategic visions
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-strategic-visions-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-team-members-api
+  name: Aha.io Team members API
+  description: The Team members API from Aha.io — 2 operation(s) for team members.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Team members
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-team-members-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-team-memberships-api
+  name: Aha.io Team memberships API
+  description: The Team memberships API from Aha.io — 2 operation(s) for team memberships.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Team memberships
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-team-memberships-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-teams-api
+  name: Aha.io Teams API
+  description: The Teams API from Aha.io — 3 operation(s) for teams.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Teams
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-teams-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-time-tracking-events-api
+  name: Aha.io Time tracking events API
+  description: The Time tracking events API from Aha.io — 4 operation(s) for time tracking events.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Time tracking events
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-time-tracking-events-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-to-dos-api
+  name: Aha.io To-dos API
+  description: The To-dos API from Aha.io — 9 operation(s) for to-dos.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - To-dos
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-to-dos-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-users-api
+  name: Aha.io Users API
+  description: The Users API from Aha.io — 7 operation(s) for users.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-users-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-webhooks-api
+  name: Aha.io Webhooks API
+  description: The Webhooks API from Aha.io — 1 operation(s) for webhooks.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-workflows-api
+  name: Aha.io Workflows API
+  description: The Workflows API from Aha.io — 2 operation(s) for workflows.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Workflows
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-workflows-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
 common:
   - type: AgenticAccess
     url: agentic-access/aha-agentic-access.yml
