@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aha! Account backups Idea Portals API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+      "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Idea Portals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List idea portals in a product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/products/:product_id/idea_portals",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "ProductId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List idea portals in a product"
+        },
+        {
+          "info": {
+            "name": "List all idea portals in an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/idea_portals",
+            "params": [
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "10",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List all idea portals in an account"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

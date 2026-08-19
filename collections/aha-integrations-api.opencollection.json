@@ -1,0 +1,252 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aha! Account backups Integrations API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+      "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Integrations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List integrations for an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/integrations",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List integrations for an account"
+        },
+        {
+          "info": {
+            "name": "Create an integration for an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/integrations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create an integration for an account"
+        },
+        {
+          "info": {
+            "name": "List integrations for a product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/products/:product_id/integrations",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "ProductId identifier"
+              },
+              {
+                "name": "{}",
+                "value": "null",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List integrations for a product"
+        },
+        {
+          "info": {
+            "name": "Create an integration for a product",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/products/:product_id/integrations",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "ProductId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create an integration for a product"
+        },
+        {
+          "info": {
+            "name": "Get a specific integration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/products/:product_id/integrations/:integration_id",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "ProductId identifier"
+              },
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "IntegrationId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get a specific integration"
+        },
+        {
+          "info": {
+            "name": "Enable integration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/products/:product_id/integrations/:integration_id",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "ProductId identifier"
+              },
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "IntegrationId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Enable integration"
+        },
+        {
+          "info": {
+            "name": "Get a specific integration by service name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/products/:product_id/integrations/:service_name",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "ProductId identifier"
+              },
+              {
+                "name": "service_name",
+                "value": "",
+                "type": "path",
+                "description": "ServiceName identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "DEPRECATED: provide :integration_id rather than :service_name to identify the integration."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

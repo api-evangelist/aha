@@ -1,0 +1,300 @@
+{
+  "item": [
+    {
+      "id": "d4f938c7-6a24-4659-86c1-46525b558c62",
+      "name": "Deletions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8a781aec-9364-47cd-b0a3-7a7f62eacc71",
+          "name": "List contents of recycle bin",
+          "request": {
+            "name": "List contents of recycle bin",
+            "description": {
+              "content": "The recycle bin contains recently deleted workspaces, teams, and records. It is possible to restore items up to 7 days after they have been deleted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "deletions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2ef8454e-117a-47b7-97cd-5a01f8789a9d",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "deletions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"deletions\": [],\n  \"pagination\": {\n    \"total_records\": 0,\n    \"total_pages\": 0,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d4e76be6-1f3c-4aad-a738-86bd4937ec35",
+          "name": "restore a specific record",
+          "request": {
+            "name": "restore a specific record",
+            "description": {
+              "content": "The recycle bin contains recently deleted workspaces, teams, and records. It is possible to restore items up to 7 days after they have been deleted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "deletions",
+                ":id",
+                "restore"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "37314ebb-b232-40ee-bc62-5aa6d7c3c4a0",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "deletions",
+                    ":id",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"deletion\": {\n    \"status\": \"restore_in_progress\",\n    \"record\": {\n      \"name\": \"Feature 1\",\n      \"type\": \"Feature\",\n      \"reference_num\": \"PRJ1-1\"\n    },\n    \"deleted_by\": {\n      \"id\": 1049303076,\n      \"name\": \"George Gently\",\n      \"email\": \"no-reply@aha.io\"\n    },\n    \"id\": \"6776881149497698683\",\n    \"deleted_at\": \"2019-01-01T00:00:00.000Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Aha! account domain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "company",
+      "key": "account-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account-domain}}.aha.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{account-domain}.aha.io/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://{account-domain}.aha.io/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "eb405e1a-d0ba-4e2a-bfce-62c439e4f394",
+    "name": "Aha! Account backups Deletions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Aha! generated from actual test responses\n\nContact Support:\n Name: Aha! Support",
+      "type": "text/plain"
+    }
+  }
+}

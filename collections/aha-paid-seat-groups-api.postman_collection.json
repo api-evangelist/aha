@@ -1,0 +1,461 @@
+{
+  "item": [
+    {
+      "id": "1b9d2c3a-bedd-4e29-9705-ec88445903fd",
+      "name": "Paid Seat Groups",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3becaca9-7fe7-4810-8cf2-f51aeb00dd8c",
+          "name": "List the administered paid seat groups",
+          "request": {
+            "name": "List the administered paid seat groups",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "paid_seat_groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "01fc256d-9837-41c2-b1b1-9902d0f12a03",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "paid_seat_groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"paid_seat_groups\": [\n    {\n      \"id\": \"354640896\",\n      \"name\": \"Group 3\",\n      \"administrators\": [],\n      \"capacity\": 2,\n      \"allocated_seats\": 0,\n      \"description\": {\n        \"id\": \"6776881149498351732\",\n        \"body\": \"\",\n        \"editor_version\": 2,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    {\n      \"id\": \"572805993\",\n      \"name\": \"Group 2\",\n      \"administrators\": [\n        {\n          \"id\": \"82352673\",\n          \"name\": \"Bob Smith\",\n          \"email\": \"no-reply@aha.io\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n        }\n      ],\n      \"capacity\": 20,\n      \"allocated_seats\": 2,\n      \"description\": {\n        \"id\": \"6776881149487500319\",\n        \"body\": \"\",\n        \"editor_version\": 2,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    {\n      \"id\": \"992805589\",\n      \"name\": \"Group 1\",\n      \"administrators\": [\n        {\n          \"id\": \"373433676\",\n          \"name\": \"Jim Jingles\",\n          \"email\": \"no-reply@aha.io\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n        }\n      ],\n      \"capacity\": 21,\n      \"allocated_seats\": 1,\n      \"description\": {\n        \"id\": \"6776881149492142258\",\n        \"body\": \"\",\n        \"editor_version\": 2,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32333aa5-b89e-40ad-949c-1568f4993be0",
+          "name": "Updates the paid seat group",
+          "request": {
+            "name": "Updates the paid seat group",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "paid_seat_groups",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"<integer>\",\n  \"remove\": \"<null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d97b18f8-2f09-43a6-a5a2-467ee1ddcd79",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "paid_seat_groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Group 2\",\n  \"capacity\": 3\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"id\": \"572805993\",\n  \"name\": \"Group 2\",\n  \"administrators\": [\n    {\n      \"id\": \"82352673\",\n      \"name\": \"Bob Smith\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    }\n  ],\n  \"capacity\": 3,\n  \"allocated_seats\": 2,\n  \"description\": {\n    \"id\": \"6776881149486533886\",\n    \"body\": \"\",\n    \"editor_version\": 2,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"attachments\": []\n  },\n  \"created_at\": \"2019-01-01T00:00:00.000Z\",\n  \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c25985f9-a997-47ad-bbb5-bc3ba7b490bc",
+          "name": "Adds the user to the paid seat group",
+          "request": {
+            "name": "Adds the user to the paid seat group",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "paid_seat_groups",
+                ":id",
+                "modify_user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"<integer>\",\n  \"remove\": \"<null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c38f4988-5148-418d-944e-a924ca72c359",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "paid_seat_groups",
+                    ":id",
+                    "modify_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_id\": 1049303076,\n  \"remove\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"id\": \"572805993\",\n  \"name\": \"Group 2\",\n  \"administrators\": [\n    {\n      \"id\": \"82352673\",\n      \"name\": \"Bob Smith\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    }\n  ],\n  \"capacity\": 20,\n  \"allocated_seats\": 2,\n  \"description\": {\n    \"id\": \"6776881149483785369\",\n    \"body\": \"\",\n    \"editor_version\": 2,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"attachments\": []\n  },\n  \"created_at\": \"2019-01-01T00:00:00.000Z\",\n  \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Aha! account domain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "company",
+      "key": "account-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account-domain}}.aha.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{account-domain}.aha.io/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://{account-domain}.aha.io/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "046b4cde-7b3b-4297-b562-728b96586da9",
+    "name": "Aha! Account backups Paid Seat Groups API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Aha! generated from actual test responses\n\nContact Support:\n Name: Aha! Support",
+      "type": "text/plain"
+    }
+  }
+}

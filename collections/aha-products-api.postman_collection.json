@@ -1,0 +1,442 @@
+{
+  "item": [
+    {
+      "id": "061aaa0b-1e6f-4391-9475-f5ea27a6b6d1",
+      "name": "Products",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6ef4b7d5-314b-4536-9d3d-c15a6f4b6405",
+          "name": "Get a specific product",
+          "request": {
+            "name": "Get a specific product",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "products",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "056237bd-9569-435a-ab72-d567800bdc03",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"product\": {\n    \"id\": \"131414752\",\n    \"reference_prefix\": \"PRJ1\",\n    \"name\": \"Project 1\",\n    \"product_line\": false,\n    \"product_line_type\": null,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"description\": {\n      \"id\": \"21164619\",\n      \"body\": \"\",\n      \"editor_version\": 1,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"attachments\": []\n    },\n    \"url\": \"http://company.aha.io/projects/PRJ1\",\n    \"resource\": \"http://company.aha.io/projects/PRJ1\",\n    \"children\": [],\n    \"custom_fields\": [\n      {\n        \"id\": 33687638,\n        \"key\": \"release_count\",\n        \"name\": \"Release count\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": {\n          \"values\": {\n            \"6809377296730243716\": {\n              \"value\": 6,\n              \"name\": \"Release count\",\n              \"display_value\": \"6.0\"\n            }\n          }\n        },\n        \"type\": \"equation_sheet\"\n      }\n    ],\n    \"screen_definition_ids\": {\n      \"Approval\": 475481209,\n      \"Competitor\": 826556567,\n      \"Epic\": 908690576,\n      \"Feature\": 19837977,\n      \"Ideas::Idea\": 405267877,\n      \"Ideas::IdeaPortal\": 790680888,\n      \"Initiative\": 838774462,\n      \"Page\": 26499634,\n      \"Project\": 524951996,\n      \"Release\": 647403809,\n      \"Requirement\": 687341318,\n      \"StrategicImperative\": 117022249\n    },\n    \"screen_definitions\": [\n      {\n        \"id\": 19837977,\n        \"screenable_type\": \"Feature\",\n        \"name\": \"Screen Definition 6\",\n        \"custom_field_definitions\": [\n          {\n            \"id\": 839883647,\n            \"key\": \"custom_scorecard_definition\",\n            \"position\": 3,\n            \"name\": \"Some custom scorecard definition\",\n            \"type\": \"CustomFieldDefinitions::ScorecardField\",\n            \"api_type\": \"scorecard\",\n            \"required\": false\n          },\n          {\n            \"id\": 182007396,\n            \"key\": \"custom_table\",\n            \"position\": 7,\n            \"name\": \"Custom Table\",\n            \"type\": \"CustomFieldDefinitions::LinkMasterDetail\",\n            \"api_type\": \"array\",\n            \"required\": false\n          },\n          {\n            \"id\": 20549131,\n            \"key\": \"customer\",\n            \"position\": 2,\n            \"name\": \"Customer\",\n            \"type\": \"CustomFieldDefinitions::SelectEditable\",\n            \"api_type\": \"string\",\n            \"configuration_display\": null,\n            \"required\": false,\n            \"options\": [\n              {\n                \"id\": 106870231,\n                \"label\": \"cust1\"\n              },\n              {\n                \"id\": 525853807,\n                \"label\": \"cust2\"\n              },\n              {\n                \"id\": 676386040,\n                \"label\": \"cust3\"\n              }\n            ]\n          },\n          {\n            \"id\": 141558949,\n            \"key\": \"customers_table\",\n            \"position\": 1,\n            \"name\": \"Customers for custom table\",\n            \"type\": \"CustomFieldDefinitions::LinkMany\",\n            \"api_type\": \"array\",\n            \"required\": false\n          },\n          {\n            \"id\": 384804762,\n            \"key\": \"product_managers\",\n            \"position\": 7,\n            \"name\": \"Product Managers\",\n            \"type\": \"CustomFieldDefinitions::Records::UsersField\",\n            \"api_type\": \"array\",\n            \"required\": false\n          }\n        ]\n      },\n      {\n        \"id\": 26499634,\n        \"screenable_type\": \"Page\",\n        \"name\": \"Screen Definition 7\",\n        \"custom_field_definitions\": [\n          {\n            \"id\": 529933329,\n            \"key\": \"review_date\",\n            \"position\": 1,\n            \"name\": \"Review date\",\n            \"type\": \"CustomFieldDefinitions::DateField\",\n            \"api_type\": \"date\",\n            \"required\": false\n          }\n        ]\n      },\n      {\n        \"id\": 117022249,\n        \"screenable_type\": \"StrategicImperative\",\n        \"name\": \"Screen Definition 13\",\n        \"custom_field_definitions\": []\n      },\n      {\n        \"id\": 405267877,\n        \"screenable_type\": \"Ideas::Idea\",\n        \"name\": \"Screen Definition 5\",\n        \"custom_field_definitions\": [\n          {\n            \"id\": 711072024,\n            \"key\": \"customers_table\",\n            \"position\": 1,\n            \"name\": \"Customers for custom table\",\n            \"type\": \"CustomFieldDefinitions::LinkMany\",\n            \"api_type\": \"array\",\n            \"required\": false\n          }\n        ]\n      },\n      {\n        \"id\": 475481209,\n        \"screenable_type\": \"Task\",\n        \"name\": \"Approvals custom layout\",\n        \"custom_field_definitions\": []\n      },\n      {\n        \"id\": 524951996,\n        \"screenable_type\": \"Project\",\n        \"name\": \"Screen Definition 1\",\n        \"custom_field_definitions\": [\n          {\n            \"id\": 807801664,\n            \"key\": \"name\",\n            \"position\": 1,\n            \"name\": \"Name\",\n            \"type\": \"CustomFieldDefinitions::TextField\",\n            \"api_type\": \"string\",\n            \"required\": false\n          },\n          {\n            \"id\": 221120583,\n            \"key\": \"website\",\n            \"position\": 2,\n            \"name\": \"Website\",\n            \"type\": \"CustomFieldDefinitions::UrlField\",\n            \"api_type\": \"url\",\n            \"required\": false\n          }\n        ]\n      },\n      {\n        \"id\": 647403809,\n        \"screenable_type\": \"Release\",\n        \"name\": \"Screen Definition 8\",\n        \"custom_field_definitions\": [\n          {\n            \"id\": 3228193,\n            \"key\": \"release_custom_date\",\n            \"position\": 1,\n            \"name\": \"Release custom date\",\n            \"type\": \"CustomFieldDefinitions::DateField\",\n            \"api_type\": \"date\",\n            \"required\": false\n          }\n        ]\n      },\n      {\n        \"id\": 687341318,\n        \"screenable_type\": \"Requirement\",\n        \"name\": \"Screen Definition 11\",\n        \"custom_field_definitions\": [\n          {\n            \"id\": 85990596,\n            \"key\": \"priority\",\n            \"position\": 3,\n            \"name\": \"Priority\",\n            \"type\": \"CustomFieldDefinitions::SelectConstant\",\n            \"api_type\": \"string\",\n            \"configuration_display\": null,\n            \"required\": false,\n            \"options\": [\n              {\n                \"id\": 135354995,\n                \"label\": \"P4\"\n              },\n              {\n                \"id\": 376819668,\n                \"label\": \"P3\"\n              },\n              {\n                \"id\": 561184585,\n                \"label\": \"P2\"\n              },\n              {\n                \"id\": 947629821,\n                \"label\": \"P1\"\n              },\n              {\n                \"id\": 1058433764,\n                \"label\": \"P5\"\n              }\n            ]\n          },\n          {\n            \"id\": 867049992,\n            \"key\": \"requested_by\",\n            \"position\": 2,\n            \"name\": \"Requested By\",\n            \"type\": \"CustomFieldDefinitions::TextField\",\n            \"api_type\": \"string\",\n            \"required\": false\n          }\n        ]\n      },\n      {\n        \"id\": 790680888,\n        \"screenable_type\": \"Ideas::IdeaPortal\",\n        \"name\": \"Screen Definition 4\",\n        \"custom_field_definitions\": [\n          {\n            \"id\": 807801664,\n            \"key\": \"name\",\n            \"position\": 1,\n            \"name\": \"Name\",\n            \"type\": \"CustomFieldDefinitions::TextField\",\n            \"api_type\": \"string\",\n            \"required\": false\n          }\n        ]\n      },\n      {\n        \"id\": 826556567,\n        \"screenable_type\": \"Competitor\",\n        \"name\": \"Screen Definition 3\",\n        \"custom_field_definitions\": []\n      },\n      {\n        \"id\": 838774462,\n        \"screenable_type\": \"Initiative\",\n        \"name\": \"Screen Definition 12\",\n        \"custom_field_definitions\": [\n          {\n            \"id\": 250383571,\n            \"key\": \"customers\",\n            \"position\": 1,\n            \"name\": \"Customers\",\n            \"type\": \"CustomFieldDefinitions::LinkMany\",\n            \"api_type\": \"array\",\n            \"required\": false\n          },\n          {\n            \"id\": 688549069,\n            \"key\": \"initiative_custom_date\",\n            \"position\": 3,\n            \"name\": \"Initiative custom date\",\n            \"type\": \"CustomFieldDefinitions::DateField\",\n            \"api_type\": \"date\",\n            \"required\": false\n          }\n        ]\n      },\n      {\n        \"id\": 908690576,\n        \"screenable_type\": \"Epic\",\n        \"name\": \"Screen Definition 7\",\n        \"custom_field_definitions\": [\n          {\n            \"id\": 919440521,\n            \"key\": \"epic_custom_date\",\n            \"position\": 1,\n            \"name\": \"Epic custom date\",\n            \"type\": \"CustomFieldDefinitions::DateField\",\n            \"api_type\": \"date\",\n            \"required\": false\n          }\n        ]\n      }\n    ],\n    \"has_ideas\": true,\n    \"has_master_features\": false,\n    \"has_epics\": false,\n    \"release_workflow\": {\n      \"id\": 717623509,\n      \"name\": \"Account product release workflow\",\n      \"statusable_type\": \"Release\",\n      \"workflow_type\": \"release\"\n    },\n    \"requirement_workflow\": {\n      \"id\": 499195972,\n      \"name\": \"Account product feature workflow\",\n      \"statusable_type\": \"Feature\",\n      \"workflow_type\": \"requirement\"\n    },\n    \"feature_workflow\": {\n      \"id\": 499195972,\n      \"name\": \"Account product feature workflow\",\n      \"statusable_type\": \"Feature\",\n      \"workflow_type\": \"feature\"\n    },\n    \"initiative_workflow\": {\n      \"id\": 61191651,\n      \"name\": \"Account initiative workflow\",\n      \"statusable_type\": \"Initiative\",\n      \"workflow_type\": \"initiative\"\n    },\n    \"epic_workflow\": {\n      \"id\": 499195972,\n      \"name\": \"Account product feature workflow\",\n      \"statusable_type\": \"Feature\",\n      \"workflow_type\": \"epic\"\n    },\n    \"idea_workflow\": {\n      \"id\": 80245244,\n      \"name\": \"Account product idea workflow\",\n      \"statusable_type\": \"Idea\",\n      \"workflow_type\": \"idea\"\n    },\n    \"strategic_imperative_workflow\": {\n      \"id\": 883066232,\n      \"name\": \"Account goal workflow\",\n      \"statusable_type\": \"StrategicImperative\",\n      \"workflow_type\": \"strategic_imperative\"\n    },\n    \"page_workflow\": {\n      \"id\": 934299270,\n      \"name\": \"Account document workflow\",\n      \"statusable_type\": \"Page\",\n      \"workflow_type\": \"page\"\n    },\n    \"key_result_workflow\": {\n      \"id\": 1024772447,\n      \"name\": \"Account product key result workflow\",\n      \"statusable_type\": \"KeyResult\",\n      \"workflow_type\": \"key_result\"\n    },\n    \"capacity_planning_enabled\": false,\n    \"default_capacity_units\": 10,\n    \"enhanced_capacity_planning_enabled\": false,\n    \"workspace_type\": \"product_workspace\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad899150-d0c0-4589-9527-6a1db950a2d4",
+          "name": "Create a product",
+          "request": {
+            "name": "Create a product",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"product\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"prefix\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "17865a87-9cde-4c37-a8d4-30cad4ff655a",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"product\": {\n    \"name\": \"New Product\",\n    \"description\": \"An amazing new product\",\n    \"prefix\": \"NEWPRODUCT\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"product\": {\n    \"id\": \"6776881149497073946\",\n    \"reference_prefix\": \"NEWPRODUCT\",\n    \"name\": \"New Product Line\",\n    \"product_line\": true,\n    \"product_line_type\": \"a new product line type\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"description\": {\n      \"id\": \"6776881149488051949\",\n      \"body\": \"An amazing new product line\",\n      \"editor_version\": 2,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"attachments\": []\n    },\n    \"url\": \"http://company.aha.io/projects/NEWPRODUCT\",\n    \"resource\": \"http://company.aha.io/projects/NEWPRODUCT\",\n    \"children\": [],\n    \"custom_fields\": [],\n    \"screen_definition_ids\": {},\n    \"screen_definitions\": [],\n    \"has_ideas\": false,\n    \"has_master_features\": true,\n    \"has_epics\": true,\n    \"release_workflow\": {\n      \"id\": 717623509,\n      \"name\": \"Account product release workflow\",\n      \"statusable_type\": \"Release\",\n      \"workflow_type\": \"release\"\n    },\n    \"requirement_workflow\": {\n      \"id\": 845522269,\n      \"name\": \"Example product feature workflow\",\n      \"statusable_type\": \"Feature\",\n      \"workflow_type\": \"requirement\"\n    },\n    \"feature_workflow\": {\n      \"id\": 845522269,\n      \"name\": \"Example product feature workflow\",\n      \"statusable_type\": \"Feature\",\n      \"workflow_type\": \"feature\"\n    },\n    \"initiative_workflow\": {\n      \"id\": 61191651,\n      \"name\": \"Account initiative workflow\",\n      \"statusable_type\": \"Initiative\",\n      \"workflow_type\": \"initiative\"\n    },\n    \"epic_workflow\": {\n      \"id\": 845522269,\n      \"name\": \"Example product feature workflow\",\n      \"statusable_type\": \"Feature\",\n      \"workflow_type\": \"epic\"\n    },\n    \"idea_workflow\": {\n      \"id\": 80245244,\n      \"name\": \"Account product idea workflow\",\n      \"statusable_type\": \"Idea\",\n      \"workflow_type\": \"idea\"\n    },\n    \"strategic_imperative_workflow\": {\n      \"id\": 883066232,\n      \"name\": \"Account goal workflow\",\n      \"statusable_type\": \"StrategicImperative\",\n      \"workflow_type\": \"strategic_imperative\"\n    },\n    \"page_workflow\": {\n      \"id\": 934299270,\n      \"name\": \"Account document workflow\",\n      \"statusable_type\": \"Page\",\n      \"workflow_type\": \"page\"\n    },\n    \"key_result_workflow\": {\n      \"id\": 883066232,\n      \"name\": \"Account goal workflow\",\n      \"statusable_type\": \"StrategicImperative\",\n      \"workflow_type\": \"key_result\"\n    },\n    \"capacity_planning_enabled\": false,\n    \"default_capacity_units\": 10,\n    \"enhanced_capacity_planning_enabled\": false,\n    \"workspace_type\": \"product_workspace\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94343034-5ed7-4afb-958b-13d877f31d8a",
+          "name": "List products in the account",
+          "request": {
+            "name": "List products in the account",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include_teams",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "with_idea_portals",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2fd665ab-bb83-4fd5-9847-9540de6ed0b2",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include_teams",
+                      "value": "true"
+                    },
+                    {
+                      "key": "with_idea_portals",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"products\": [\n    {\n      \"id\": \"131414752\",\n      \"reference_prefix\": \"PRJ1\",\n      \"name\": \"Project 1\",\n      \"product_line\": false,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workspace_type\": \"product_workspace\",\n      \"url\": \"http://company.aha.io/projects/PRJ1\"\n    },\n    {\n      \"id\": \"517761884\",\n      \"reference_prefix\": \"PRJ2\",\n      \"name\": \"Project 2\",\n      \"product_line\": false,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workspace_type\": \"product_workspace\",\n      \"url\": \"http://company.aha.io/projects/PRJ2\"\n    },\n    {\n      \"id\": \"702241743\",\n      \"reference_prefix\": \"PRJ3\",\n      \"name\": \"Project 3\",\n      \"product_line\": false,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workspace_type\": \"product_workspace\",\n      \"url\": \"http://company.aha.io/projects/PRJ3\"\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 3,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Aha! account domain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "company",
+      "key": "account-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account-domain}}.aha.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{account-domain}.aha.io/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://{account-domain}.aha.io/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7467ca93-bc16-4936-a353-520303cc5f93",
+    "name": "Aha! Account backups Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Aha! generated from actual test responses\n\nContact Support:\n Name: Aha! Support",
+      "type": "text/plain"
+    }
+  }
+}

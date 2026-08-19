@@ -1,0 +1,294 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aha! Account backups Custom table record links API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+      "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Custom table record links",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a custom table record link associated with a product",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/products/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Resources that can be linked to records from a custom table (called custom objects in the API) can be manipulated in a bulk ID-list format.\nTo use custom table record links you must first add a many-to-many custom field definition to the resource.\nWhen you pass the IDs of custom table records to link to the feature, the existing list of links will be replaced.\n\nExamples of linking custom objects to resources with a many-to-many `customer` field:\n\n- [Products](/api/resources/custom_table_record_l"
+        },
+        {
+          "info": {
+            "name": "Create a custom table record link associated with a release",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/releases/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "*[Custom Tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.*"
+        },
+        {
+          "info": {
+            "name": "Create a custom table record link associated with a feature",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/features/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Resources that can be linked to records from a custom table (called custom objects in the API) can be manipulated in a bulk ID-list format.\nTo use custom table record links you must first add a many-to-many custom field definition to the resource.\nWhen you pass the IDs of custom table records to link to the feature, the existing list of links will be replaced.\n\nExamples of linking custom objects to resources with a many-to-many `customer` field:\n\n- [Products](/api/resources/custom_table_record_l"
+        },
+        {
+          "info": {
+            "name": "Create a custom table record link associated with a requirement",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/requirements/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Resources that can be linked to records from a custom table (called custom objects in the API) can be manipulated in a bulk ID-list format.\nTo use custom table record links you must first add a many-to-many custom field definition to the resource.\nWhen you pass the IDs of custom table records to link to the feature, the existing list of links will be replaced.\n\nExamples of linking custom objects to resources with a many-to-many `customer` field:\n\n- [Products](/api/resources/custom_table_record_l"
+        },
+        {
+          "info": {
+            "name": "Create a custom table record link associated with an idea",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/ideas/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Resources that can be linked to records from a custom table (called custom objects in the API) can be manipulated in a bulk ID-list format.\nTo use custom table record links you must first add a many-to-many custom field definition to the resource.\nWhen you pass the IDs of custom table records to link to the feature, the existing list of links will be replaced.\n\nExamples of linking custom objects to resources with a many-to-many `customer` field:\n\n- [Products](/api/resources/custom_table_record_l"
+        },
+        {
+          "info": {
+            "name": "Create a custom table record link associated with an initiative",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/initiatives/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Resources that can be linked to records from a custom table (called custom objects in the API) can be manipulated in a bulk ID-list format.\nTo use custom table record links you must first add a many-to-many custom field definition to the resource.\nWhen you pass the IDs of custom table records to link to the feature, the existing list of links will be replaced.\n\nExamples of linking custom objects to resources with a many-to-many `customer` field:\n\n- [Products](/api/resources/custom_table_record_l"
+        },
+        {
+          "info": {
+            "name": "Create a custom table record link associated with a goal",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/goals/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Resources that can be linked to records from a custom table (called custom objects in the API) can be manipulated in a bulk ID-list format.\nTo use custom table record links you must first add a many-to-many custom field definition to the resource.\nWhen you pass the IDs of custom table records to link to the feature, the existing list of links will be replaced.\n\nExamples of linking custom objects to resources with a many-to-many `customer` field:\n\n- [Products](/api/resources/custom_table_record_l"
+        },
+        {
+          "info": {
+            "name": "Link custom table records to another custom table record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/custom_object_records/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Resources that can be linked to records from a custom table (called custom objects in the API) can be manipulated in a bulk ID-list format.\nTo use custom table record links you must first add a many-to-many custom field definition to the resource.\nWhen you pass the IDs of custom table records to link to the feature, the existing list of links will be replaced.\n\nExamples of linking custom objects to resources with a many-to-many `customer` field:\n\n- [Products](/api/resources/custom_table_record_l"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,292 @@
+{
+  "item": [
+    {
+      "id": "5c8759c0-8cd9-4287-90fb-1bbe31c352d4",
+      "name": "Strategic positionings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8d37db87-1933-4949-9973-6a2dd047bbf3",
+          "name": "List strategic positionings",
+          "request": {
+            "name": "List strategic positionings",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "strategy_positions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "87c94371-b1fa-4031-b1a2-7cee672cbad2",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "strategy_positions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"strategy_positions\": [\n    {\n      \"id\": \"51832287\",\n      \"name\": \"Aha! strategic positioning model canvas\",\n      \"kind\": \"Positioning\",\n      \"components\": [\n        {\n          \"id\": 260808894,\n          \"name\": \"Value Proposition\",\n          \"description\": \"\"\n        }\n      ],\n      \"url\": \"http://company.aha.io/business_models/51832287\",\n      \"resource\": \"http://company.aha.io/business_models/51832287\",\n      \"project\": {\n        \"id\": \"131414752\",\n        \"reference_prefix\": \"PRJ1\",\n        \"name\": \"Project 1\",\n        \"product_line\": false,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"workspace_type\": \"product_workspace\",\n        \"url\": \"http://company.aha.io/projects/PRJ1\"\n      }\n    },\n    {\n      \"id\": \"453528824\",\n      \"name\": \"Aha! strategic positioning model canvas\",\n      \"kind\": \"Positioning\",\n      \"components\": [\n        {\n          \"id\": 37485938,\n          \"name\": \"Growth opportunity\",\n          \"description\": \"\"\n        }\n      ],\n      \"url\": \"http://company.aha.io/business_models/453528824\",\n      \"resource\": \"http://company.aha.io/business_models/453528824\",\n      \"project\": {\n        \"id\": \"517761884\",\n        \"reference_prefix\": \"PRJ2\",\n        \"name\": \"Project 2\",\n        \"product_line\": false,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"workspace_type\": \"product_workspace\",\n        \"url\": \"http://company.aha.io/projects/PRJ2\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 2,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "22f3f989-3df2-4c34-b243-fec71b24fbe5",
+          "name": "Get a specific strategic positioning",
+          "request": {
+            "name": "Get a specific strategic positioning",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "strategy_positions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "21c7c4f7-923d-4f03-99c7-0329ec3e143d",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "strategy_positions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"strategy_positioning\": {\n    \"id\": \"453528824\",\n    \"name\": \"Aha! strategic positioning model canvas\",\n    \"kind\": \"Positioning\",\n    \"components\": [\n      {\n        \"id\": 37485938,\n        \"name\": \"Growth opportunity\",\n        \"description\": \"\"\n      }\n    ],\n    \"url\": \"http://company.aha.io/business_models/453528824\",\n    \"resource\": \"http://company.aha.io/business_models/453528824\",\n    \"project\": {\n      \"id\": \"517761884\",\n      \"reference_prefix\": \"PRJ2\",\n      \"name\": \"Project 2\",\n      \"product_line\": false,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workspace_type\": \"product_workspace\",\n      \"url\": \"http://company.aha.io/projects/PRJ2\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Aha! account domain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "company",
+      "key": "account-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account-domain}}.aha.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{account-domain}.aha.io/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://{account-domain}.aha.io/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6a3723f2-a0d3-4729-a6be-34fb9c4e55b7",
+    "name": "Aha! Account backups Strategic positionings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Aha! generated from actual test responses\n\nContact Support:\n Name: Aha! Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aha! Account backups Idea organizations API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+      "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Idea organizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List idea organizations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/idea_organizations",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List idea organizations"
+        },
+        {
+          "info": {
+            "name": "Create an idea organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/idea_organizations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create an idea organization"
+        },
+        {
+          "info": {
+            "name": "Get a specific organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/idea_organizations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get a specific organization"
+        },
+        {
+          "info": {
+            "name": "Update organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/idea_organizations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update organization"
+        },
+        {
+          "info": {
+            "name": "Delete organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/idea_organizations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Delete organization"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

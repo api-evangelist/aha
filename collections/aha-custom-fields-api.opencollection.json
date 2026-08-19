@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aha! Account backups Custom fields API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+      "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Custom fields",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all custom fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/custom_field_definitions",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Custom fields are defined by record type, and are shared\nacross all workspaces across the account. Fields must be\nadded to a layout before they will appear on a record.\n\nFor custom fields that include options, (e.g. tags, choice\nlists), you can also load the list of all available options."
+        },
+        {
+          "info": {
+            "name": "List options for a custom field",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/custom_field_definitions/:custom_field_definition_id/options",
+            "params": [
+              {
+                "name": "custom_field_definition_id",
+                "value": "",
+                "type": "path",
+                "description": "CustomFieldDefinitionId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Custom fields are defined by record type, and are shared\nacross all workspaces across the account. Fields must be\nadded to a layout before they will appear on a record.\n\nFor custom fields that include options, (e.g. tags, choice\nlists), you can also load the list of all available options."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

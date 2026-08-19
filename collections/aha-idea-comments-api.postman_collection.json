@@ -1,0 +1,624 @@
+{
+  "item": [
+    {
+      "id": "8a3f9695-61e4-45b2-99a9-c92fd2b29c66",
+      "name": "Idea comments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7de20a90-2a61-4be3-b6ff-b3241aaadbc7",
+          "name": "Create an idea comment for an idea",
+          "request": {
+            "name": "Create an idea comment for an idea",
+            "description": {
+              "content": "Idea comments can appear in ideas portals.\nTo reply to an idea_comment, specify the parent_idea_comment_id. Its visibility\nwill come from its parent idea comment and cannot be overridden.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "ideas",
+                ":idea_id",
+                "idea_comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "idea_id",
+                  "description": "(Required) IdeaId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idea_comment\": {\n    \"spam\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1230c6ad-cebe-4538-9828-5a383f599553",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "ideas",
+                    ":idea_id",
+                    "idea_comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "idea_id",
+                      "description": "(Required) IdeaId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idea_comment\": {\n    \"idea_id\": \"PRJ1-I-1\",\n    \"body\": \"<p>This is the comment body.</p>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"idea_comment\": {\n    \"id\": \"6776881149497092049\",\n    \"idea_id\": \"58056975\",\n    \"body\": \"<p>This is the comment body.</p>\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"visibility\": \"Visible to all ideas portal users\",\n    \"parent_idea_comment_id\": null,\n    \"idea_commenter_user\": {\n      \"id\": \"689956296\",\n      \"name\": \"Henry Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"idea\": {\n      \"id\": \"58056975\",\n      \"reference_num\": \"PRJ1-I-1\",\n      \"name\": \"Idea 1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"3259216\",\n        \"name\": \"New\",\n        \"position\": 1,\n        \"complete\": false,\n        \"color\": \"#dce7c6\"\n      },\n      \"description\": {\n        \"id\": \"103757394\",\n        \"body\": \"Description of idea 1\",\n        \"editor_version\": 1,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-1\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-1\"\n    },\n    \"attachments\": []\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a43bbd2-92fd-43e9-ac3e-aa1c280810d2",
+          "name": "List idea comments for an idea",
+          "request": {
+            "name": "List idea comments for an idea",
+            "description": {
+              "content": "Idea comments can appear in ideas portals.\nTo reply to an idea_comment, specify the parent_idea_comment_id. Its visibility\nwill come from its parent idea comment and cannot be overridden.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "ideas",
+                ":idea_id",
+                "idea_comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "idea_id",
+                  "description": "(Required) IdeaId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "dbd0a4af-e665-4667-b5aa-4f653a5e4dce",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "ideas",
+                    ":idea_id",
+                    "idea_comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "idea_id",
+                      "description": "(Required) IdeaId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"idea_comments\": [\n    {\n      \"id\": \"622085811\",\n      \"idea_id\": \"58056975\",\n      \"body\": \"This is a great idea! We'll get started right away.\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"visibility\": \"Visible to all ideas portal users\",\n      \"parent_idea_comment_id\": null,\n      \"idea_commenter_user\": {\n        \"id\": \"1020675218\",\n        \"name\": \"Mary Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"idea\": {\n        \"id\": \"58056975\",\n        \"reference_num\": \"PRJ1-I-1\",\n        \"name\": \"Idea 1\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"workflow_status\": {\n          \"id\": \"3259216\",\n          \"name\": \"New\",\n          \"position\": 1,\n          \"complete\": false,\n          \"color\": \"#dce7c6\"\n        },\n        \"description\": {\n          \"id\": \"103757394\",\n          \"body\": \"Description of idea 1\",\n          \"editor_version\": 1,\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"attachments\": []\n        },\n        \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-1\",\n        \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-1\"\n      },\n      \"attachments\": []\n    },\n    {\n      \"id\": \"6776881149487056351\",\n      \"idea_id\": \"58056975\",\n      \"body\": \"A reply to a comment\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"visibility\": \"Visible to all ideas portal users\",\n      \"parent_idea_comment_id\": 622085811,\n      \"idea_commenter_user\": {\n        \"id\": \"689956296\",\n        \"name\": \"Henry Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"idea\": {\n        \"id\": \"58056975\",\n        \"reference_num\": \"PRJ1-I-1\",\n        \"name\": \"Idea 1\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"workflow_status\": {\n          \"id\": \"3259216\",\n          \"name\": \"New\",\n          \"position\": 1,\n          \"complete\": false,\n          \"color\": \"#dce7c6\"\n        },\n        \"description\": {\n          \"id\": \"103757394\",\n          \"body\": \"Description of idea 1\",\n          \"editor_version\": 1,\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"attachments\": []\n        },\n        \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-1\",\n        \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-1\"\n      },\n      \"attachments\": []\n    },\n    {\n      \"id\": \"6776881149491301288\",\n      \"idea_id\": \"58056975\",\n      \"body\": \"Just us employees\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"visibility\": \"Visible to creator and employees\",\n      \"parent_idea_comment_id\": null,\n      \"idea_commenter_user\": {\n        \"id\": \"689956296\",\n        \"name\": \"Henry Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"idea\": {\n        \"id\": \"58056975\",\n        \"reference_num\": \"PRJ1-I-1\",\n        \"name\": \"Idea 1\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"workflow_status\": {\n          \"id\": \"3259216\",\n          \"name\": \"New\",\n          \"position\": 1,\n          \"complete\": false,\n          \"color\": \"#dce7c6\"\n        },\n        \"description\": {\n          \"id\": \"103757394\",\n          \"body\": \"Description of idea 1\",\n          \"editor_version\": 1,\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"attachments\": []\n        },\n        \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-1\",\n        \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-1\"\n      },\n      \"attachments\": []\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 3,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "645f2640-87ef-4ac0-aa7f-d9f0d7c47819",
+          "name": "Mark an idea comment as spam",
+          "request": {
+            "name": "Mark an idea comment as spam",
+            "description": {
+              "content": "Idea comments can appear in ideas portals.\nTo reply to an idea_comment, specify the parent_idea_comment_id. Its visibility\nwill come from its parent idea comment and cannot be overridden.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "idea_comments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idea_comment\": {\n    \"spam\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "03a46549-af81-4cff-b4c1-0128315ca711",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "idea_comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idea_comment\": {\n    \"spam\": \"true\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"idea_comment\": {\n    \"id\": \"622085811\",\n    \"idea_id\": \"58056975\",\n    \"body\": \"<p>Updated comment body.</p>\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"visibility\": \"Visible to all ideas portal users\",\n    \"parent_idea_comment_id\": null,\n    \"idea_commenter_user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"idea\": {\n      \"id\": \"58056975\",\n      \"reference_num\": \"PRJ1-I-1\",\n      \"name\": \"Idea 1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"3259216\",\n        \"name\": \"New\",\n        \"position\": 1,\n        \"complete\": false,\n        \"color\": \"#dce7c6\"\n      },\n      \"description\": {\n        \"id\": \"103757394\",\n        \"body\": \"Description of idea 1\",\n        \"editor_version\": 1,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-1\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-1\"\n    },\n    \"attachments\": []\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10149926-0ccc-477e-a293-8f45514f8e36",
+          "name": "Delete an idea comment",
+          "request": {
+            "name": "Delete an idea comment",
+            "description": {
+              "content": "Idea comments can appear in ideas portals.\nTo reply to an idea_comment, specify the parent_idea_comment_id. Its visibility\nwill come from its parent idea comment and cannot be overridden.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "ideas",
+                ":idea_id",
+                "idea_comments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "idea_id",
+                  "description": "(Required) IdeaId identifier"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1094c9b1-99b5-41c1-a80a-c6e3e1c8f1bf",
+              "name": "No content - operation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "ideas",
+                    ":idea_id",
+                    "idea_comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "idea_id",
+                      "description": "(Required) IdeaId identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Aha! account domain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "company",
+      "key": "account-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account-domain}}.aha.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{account-domain}.aha.io/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://{account-domain}.aha.io/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3a297e38-3381-489d-966a-7cf1099d3aee",
+    "name": "Aha! Account backups Idea comments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Aha! generated from actual test responses\n\nContact Support:\n Name: Aha! Support",
+      "type": "text/plain"
+    }
+  }
+}

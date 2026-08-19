@@ -1,0 +1,293 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aha! Account backups Attachments API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+      "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Attachments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an attachment on a comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/comments/:comment_id/attachments",
+            "params": [
+              {
+                "name": "comment_id",
+                "value": "",
+                "type": "path",
+                "description": "CommentId identifier"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "attachment[data]",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Uploads a file attachment to a comment using multipart/form-data"
+        },
+        {
+          "info": {
+            "name": "Create an attachment on an idea comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/idea_comments/:idea_comment_id/attachments",
+            "params": [
+              {
+                "name": "idea_comment_id",
+                "value": "",
+                "type": "path",
+                "description": "IdeaCommentId identifier"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "attachment[data]",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Files can be uploaded to Aha! as a sub-resource on any resource that supports them.\nThese resources support attachments:\n\n- [Record descriptions](/api/resources/attachments/create_an_attachment_on_a_record_description) (the description of a feature, requirement, etc.)\n- [Comments](/api/resources/attachments/create_an_attachment_on_a_comment)\n- [To-dos](/api/resources/attachments/create_an_attachment_on_a_to-do)\n- [Custom note fields](/api/resources/attachments/create_an_attachment_on_a_custom_no"
+        },
+        {
+          "info": {
+            "name": "Create an attachment on a to-do",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/tasks/:task_id/attachments",
+            "params": [
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path",
+                "description": "TaskId identifier"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "attachment[data]",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Files can be uploaded to Aha! as a sub-resource on any resource that supports them.\nThese resources support attachments:\n\n- [Record descriptions](/api/resources/attachments/create_an_attachment_on_a_record_description) (the description of a feature, requirement, etc.)\n- [Comments](/api/resources/attachments/create_an_attachment_on_a_comment)\n- [To-dos](/api/resources/attachments/create_an_attachment_on_a_to-do)\n- [Custom note fields](/api/resources/attachments/create_an_attachment_on_a_custom_no"
+        },
+        {
+          "info": {
+            "name": "Create an attachment on a custom note field",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/custom_fields/:custom_field_id/attachments",
+            "params": [
+              {
+                "name": "custom_field_id",
+                "value": "",
+                "type": "path",
+                "description": "CustomFieldId identifier"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "attachment[data]",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Files can be uploaded to Aha! as a sub-resource on any resource that supports them.\nThese resources support attachments:\n\n- [Record descriptions](/api/resources/attachments/create_an_attachment_on_a_record_description) (the description of a feature, requirement, etc.)\n- [Comments](/api/resources/attachments/create_an_attachment_on_a_comment)\n- [To-dos](/api/resources/attachments/create_an_attachment_on_a_to-do)\n- [Custom note fields](/api/resources/attachments/create_an_attachment_on_a_custom_no"
+        },
+        {
+          "info": {
+            "name": "Create an attachment on a custom attachment field",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/custom_field_values/:custom_field_value_id/attachments",
+            "params": [
+              {
+                "name": "custom_field_value_id",
+                "value": "",
+                "type": "path",
+                "description": "CustomFieldValueId identifier"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "attachment[data]",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Files can be uploaded to Aha! as a sub-resource on any resource that supports them.\nThese resources support attachments:\n\n- [Record descriptions](/api/resources/attachments/create_an_attachment_on_a_record_description) (the description of a feature, requirement, etc.)\n- [Comments](/api/resources/attachments/create_an_attachment_on_a_comment)\n- [To-dos](/api/resources/attachments/create_an_attachment_on_a_to-do)\n- [Custom note fields](/api/resources/attachments/create_an_attachment_on_a_custom_no"
+        },
+        {
+          "info": {
+            "name": "Create an attachment on a record description",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/notes/:note_id/attachments",
+            "params": [
+              {
+                "name": "note_id",
+                "value": "",
+                "type": "path",
+                "description": "NoteId identifier"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "attachment[data]",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Many records throughout Aha! have an associated description: features, requirements, ideas, etc. You can find the ID of a record's description within the `description` attribute returned by any record show endpoint. You can then use that description ID to create an attachment on the record by providing it as the `note_id` URL parameter for this endpoint."
+        },
+        {
+          "info": {
+            "name": "Delete an attachment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/attachments/:attachment_id",
+            "params": [
+              {
+                "name": "attachment_id",
+                "value": "",
+                "type": "path",
+                "description": "AttachmentId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Files can be uploaded to Aha! as a sub-resource on any resource that supports them.\nThese resources support attachments:\n\n- [Record descriptions](/api/resources/attachments/create_an_attachment_on_a_record_description) (the description of a feature, requirement, etc.)\n- [Comments](/api/resources/attachments/create_an_attachment_on_a_comment)\n- [To-dos](/api/resources/attachments/create_an_attachment_on_a_to-do)\n- [Custom note fields](/api/resources/attachments/create_an_attachment_on_a_custom_no"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

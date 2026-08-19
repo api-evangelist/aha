@@ -1,0 +1,324 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aha! Account backups Epics API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+      "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Epics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List epics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/epics",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Epics belong to releases. This means that if you want to create one then you must scope it to a release.\n\nYou can\n[list them all](/api/resources/epics/list_epics)\nat once, or filter by\n[release](/api/resources/epics/list_epics_in_a_release)\nor\n[product](/api/resources/epics/list_epics_in_a_product).\nAll these means of listing epics can be further filtered by specific critera like name, modification date, tag, or assignee.\n\nOnce you have the id of a specific epic, you can\n[inspect](/api/resources"
+        },
+        {
+          "info": {
+            "name": "List epics in a release",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/releases/:release_id/epics",
+            "params": [
+              {
+                "name": "release_id",
+                "value": "",
+                "type": "path",
+                "description": "ReleaseId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Epics belong to releases. This means that if you want to create one then you must scope it to a release.\n\nYou can\n[list them all](/api/resources/epics/list_epics)\nat once, or filter by\n[release](/api/resources/epics/list_epics_in_a_release)\nor\n[product](/api/resources/epics/list_epics_in_a_product).\nAll these means of listing epics can be further filtered by specific critera like name, modification date, tag, or assignee.\n\nOnce you have the id of a specific epic, you can\n[inspect](/api/resources"
+        },
+        {
+          "info": {
+            "name": "Create an epic",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/releases/:release_id/epics",
+            "params": [
+              {
+                "name": "release_id",
+                "value": "",
+                "type": "path",
+                "description": "ReleaseId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Epics belong to releases. This means that if you want to create one then you must scope it to a release.\n\nYou can\n[list them all](/api/resources/epics/list_epics)\nat once, or filter by\n[release](/api/resources/epics/list_epics_in_a_release)\nor\n[product](/api/resources/epics/list_epics_in_a_product).\nAll these means of listing epics can be further filtered by specific critera like name, modification date, tag, or assignee.\n\nOnce you have the id of a specific epic, you can\n[inspect](/api/resources"
+        },
+        {
+          "info": {
+            "name": "List epics in a product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/products/:product_id/epics",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "ProductId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Epics belong to releases. This means that if you want to create one then you must scope it to a release.\n\nYou can\n[list them all](/api/resources/epics/list_epics)\nat once, or filter by\n[release](/api/resources/epics/list_epics_in_a_release)\nor\n[product](/api/resources/epics/list_epics_in_a_product).\nAll these means of listing epics can be further filtered by specific critera like name, modification date, tag, or assignee.\n\nOnce you have the id of a specific epic, you can\n[inspect](/api/resources"
+        },
+        {
+          "info": {
+            "name": "Create an epic in the default release",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/products/:product_id/epics",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "ProductId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Epics belong to releases. This means that if you want to create one then you must scope it to a release.\n\nYou can\n[list them all](/api/resources/epics/list_epics)\nat once, or filter by\n[release](/api/resources/epics/list_epics_in_a_release)\nor\n[product](/api/resources/epics/list_epics_in_a_product).\nAll these means of listing epics can be further filtered by specific critera like name, modification date, tag, or assignee.\n\nOnce you have the id of a specific epic, you can\n[inspect](/api/resources"
+        },
+        {
+          "info": {
+            "name": "List epics associated with a goal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/goals/:goal_id/epics",
+            "params": [
+              {
+                "name": "goal_id",
+                "value": "",
+                "type": "path",
+                "description": "GoalId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Epics belong to releases. This means that if you want to create one then you must scope it to a release.\n\nYou can\n[list them all](/api/resources/epics/list_epics)\nat once, or filter by\n[release](/api/resources/epics/list_epics_in_a_release)\nor\n[product](/api/resources/epics/list_epics_in_a_product).\nAll these means of listing epics can be further filtered by specific critera like name, modification date, tag, or assignee.\n\nOnce you have the id of a specific epic, you can\n[inspect](/api/resources"
+        },
+        {
+          "info": {
+            "name": "List epics associated with an initiative",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/initiatives/:initiative_id/epics",
+            "params": [
+              {
+                "name": "initiative_id",
+                "value": "",
+                "type": "path",
+                "description": "InitiativeId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Epics belong to releases. This means that if you want to create one then you must scope it to a release.\n\nYou can\n[list them all](/api/resources/epics/list_epics)\nat once, or filter by\n[release](/api/resources/epics/list_epics_in_a_release)\nor\n[product](/api/resources/epics/list_epics_in_a_product).\nAll these means of listing epics can be further filtered by specific critera like name, modification date, tag, or assignee.\n\nOnce you have the id of a specific epic, you can\n[inspect](/api/resources"
+        },
+        {
+          "info": {
+            "name": "Get a specific epic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/epics/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Epics belong to releases. This means that if you want to create one then you must scope it to a release.\n\nYou can\n[list them all](/api/resources/epics/list_epics)\nat once, or filter by\n[release](/api/resources/epics/list_epics_in_a_release)\nor\n[product](/api/resources/epics/list_epics_in_a_product).\nAll these means of listing epics can be further filtered by specific critera like name, modification date, tag, or assignee.\n\nOnce you have the id of a specific epic, you can\n[inspect](/api/resources"
+        },
+        {
+          "info": {
+            "name": "Update an epic",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/epics/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Epics belong to releases. This means that if you want to create one then you must scope it to a release.\n\nYou can\n[list them all](/api/resources/epics/list_epics)\nat once, or filter by\n[release](/api/resources/epics/list_epics_in_a_release)\nor\n[product](/api/resources/epics/list_epics_in_a_product).\nAll these means of listing epics can be further filtered by specific critera like name, modification date, tag, or assignee.\n\nOnce you have the id of a specific epic, you can\n[inspect](/api/resources"
+        },
+        {
+          "info": {
+            "name": "Delete an epic",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/epics/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Epics belong to releases. This means that if you want to create one then you must scope it to a release.\n\nYou can\n[list them all](/api/resources/epics/list_epics)\nat once, or filter by\n[release](/api/resources/epics/list_epics_in_a_release)\nor\n[product](/api/resources/epics/list_epics_in_a_product).\nAll these means of listing epics can be further filtered by specific critera like name, modification date, tag, or assignee.\n\nOnce you have the id of a specific epic, you can\n[inspect](/api/resources"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

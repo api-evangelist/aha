@@ -1,0 +1,1250 @@
+{
+  "item": [
+    {
+      "id": "6e7baf71-dc23-4284-9cf4-d364066612ec",
+      "name": "Custom table record links",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5ce7d728-b15f-4dd1-bd59-3d2a894036d4",
+          "name": "Create a custom table record link associated with a product",
+          "request": {
+            "name": "Create a custom table record link associated with a product",
+            "description": {
+              "content": "Resources that can be linked to records from a custom table (called custom objects in the API) can be manipulated in a bulk ID-list format.\nTo use custom table record links you must first add a many-to-many custom field definition to the resource.\nWhen you pass the IDs of custom table records to link to the feature, the existing list of links will be replaced.\n\nExamples of linking custom objects to resources with a many-to-many `customer` field:\n\n- [Products](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_product)\n- [Releases](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_release)\n- [Features](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_feature)\n- [Ideas](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_idea)\n- [Initiatives](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_initiative)\n- [Goals](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_goal)\n\n**[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "products",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"custom_object_record\": {\n    \"custom_object_links\": {\n      \"custom_table_name_submitters\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "936ca219-fad1-4fd5-9f91-c2f3fd6f7e16",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"product\": {\n    \"custom_object_links\": {\n      \"customers\": [\n        \"640362830\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"product\": {\n    \"id\": \"131414752\",\n    \"reference_prefix\": \"PRJ1\",\n    \"name\": \"Two Products\",\n    \"product_line\": false,\n    \"product_line_type\": null,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"description\": {\n      \"id\": \"21164619\",\n      \"body\": \"\",\n      \"editor_version\": 1,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"attachments\": []\n    },\n    \"url\": \"http://company.aha.io/projects/PRJ1\",\n    \"resource\": \"http://company.aha.io/projects/PRJ1\",\n    \"children\": [],\n    \"custom_fields\": [\n      {\n        \"id\": 33687638,\n        \"key\": \"release_count\",\n        \"name\": \"Release count\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": {\n          \"values\": {\n            \"6809377296730243716\": {\n              \"value\": 6,\n              \"name\": \"Release count\",\n              \"display_value\": \"6.0\"\n            }\n          }\n        },\n        \"type\": \"equation_sheet\"\n      }\n    ],\n    \"screen_definition_ids\": {\n      \"Approval\": 475481209,\n      \"Competitor\": 826556567,\n      \"Epic\": 908690576,\n      \"Feature\": 19837977,\n      \"Ideas::Idea\": 405267877,\n      \"Ideas::IdeaPortal\": 790680888,\n      \"Initiative\": 838774462,\n      \"Page\": 26499634,\n      \"Project\": 524951996,\n      \"Release\": 647403809,\n      \"Requirement\": 687341318,\n      \"StrategicImperative\": 117022249\n    },\n    \"screen_definitions\": [\n      {\n        \"id\": 19837977,\n        \"screenable_type\": \"Feature\",\n        \"name\": \"Screen Definition 6\",\n        \"custom_field_definitions\": [\n          {\n            \"id\": 839883647,\n            \"key\": \"custom_scorecard_definition\",\n            \"position\": 3,\n            \"name\": \"Some custom scorecard definition\",\n            \"type\": \"CustomFieldDefinitions::ScorecardField\",\n            \"api_type\": \"scorecard\",\n            \"required\": false\n          },\n          {\n            \"id\": 182007396,\n            \"key\": \"custom_table\",\n            \"position\": 7,\n            \"name\": \"Custom Table\",\n            \"type\": \"CustomFieldDefinitions::LinkMasterDetail\",\n            \"api_type\": \"array\",\n            \"required\": false\n          },\n          {\n            \"id\": 20549131,\n            \"key\": \"customer\",\n            \"position\": 2,\n            \"name\": \"Customer\",\n            \"type\": \"CustomFieldDefinitions::SelectEditable\",\n            \"api_type\": \"string\",\n            \"configuration_display\": null,\n            \"required\": false,\n            \"options\": [\n              {\n                \"id\": 106870231,\n                \"label\": \"cust1\"\n              },\n              {\n                \"id\": 525853807,\n                \"label\": \"cust2\"\n              },\n              {\n                \"id\": 676386040,\n                \"label\": \"cust3\"\n              }\n            ]\n          },\n          {\n            \"id\": 141558949,\n            \"key\": \"customers_table\",\n            \"position\": 1,\n            \"name\": \"Customers for custom table\",\n            \"type\": \"CustomFieldDefinitions::LinkMany\",\n            \"api_type\": \"array\",\n            \"required\": false\n          },\n          {\n            \"id\": 384804762,\n            \"key\": \"product_managers\",\n            \"position\": 7,\n            \"name\": \"Product Managers\",\n            \"type\": \"CustomFieldDefinitions::Records::UsersField\",\n            \"api_type\": \"array\",\n            \"required\": false\n          }\n        ]\n      },\n      {\n        \"id\": 26499634,\n        \"screenable_type\": \"Page\",\n        \"name\": \"Screen Definition 7\",\n        \"custom_field_definitions\": [\n          {\n            \"id\": 529933329,\n            \"key\": \"review_date\",\n            \"position\": 1,\n            \"name\": \"Review date\",\n            \"type\": \"CustomFieldDefinitions::DateField\",\n            \"api_type\": \"date\",\n            \"required\": false\n          }\n        ]\n      },\n      {\n        \"id\": 117022249,\n        \"screenable_type\": \"StrategicImperative\",\n        \"name\": \"Screen Definition 13\",\n        \"custom_field_definitions\": []\n      },\n      {\n        \"id\": 405267877,\n        \"screenable_type\": \"Ideas::Idea\",\n        \"name\": \"Screen Definition 5\",\n        \"custom_field_definitions\": [\n          {\n            \"id\": 711072024,\n            \"key\": \"customers_table\",\n            \"position\": 1,\n            \"name\": \"Customers for custom table\",\n            \"type\": \"CustomFieldDefinitions::LinkMany\",\n            \"api_type\": \"array\",\n            \"required\": false\n          }\n        ]\n      },\n      {\n        \"id\": 475481209,\n        \"screenable_type\": \"Task\",\n        \"name\": \"Approvals custom layout\",\n        \"custom_field_definitions\": []\n      },\n      {\n        \"id\": 524951996,\n        \"screenable_type\": \"Project\",\n        \"name\": \"Screen Definition 1\",\n        \"custom_field_definitions\": [\n          {\n            \"id\": 807801664,\n            \"key\": \"name\",\n            \"position\": 1,\n            \"name\": \"Name\",\n            \"type\": \"CustomFieldDefinitions::TextField\",\n            \"api_type\": \"string\",\n            \"required\": false\n          },\n          {\n            \"id\": 221120583,\n            \"key\": \"website\",\n            \"position\": 2,\n            \"name\": \"Website\",\n            \"type\": \"CustomFieldDefinitions::UrlField\",\n            \"api_type\": \"url\",\n            \"required\": false\n          }\n        ]\n      },\n      {\n        \"id\": 647403809,\n        \"screenable_type\": \"Release\",\n        \"name\": \"Screen Definition 8\",\n        \"custom_field_definitions\": [\n          {\n            \"id\": 3228193,\n            \"key\": \"release_custom_date\",\n            \"position\": 1,\n            \"name\": \"Release custom date\",\n            \"type\": \"CustomFieldDefinitions::DateField\",\n            \"api_type\": \"date\",\n            \"required\": false\n          }\n        ]\n      },\n      {\n        \"id\": 687341318,\n        \"screenable_type\": \"Requirement\",\n        \"name\": \"Screen Definition 11\",\n        \"custom_field_definitions\": [\n          {\n            \"id\": 85990596,\n            \"key\": \"priority\",\n            \"position\": 3,\n            \"name\": \"Priority\",\n            \"type\": \"CustomFieldDefinitions::SelectConstant\",\n            \"api_type\": \"string\",\n            \"configuration_display\": null,\n            \"required\": false,\n            \"options\": [\n              {\n                \"id\": 135354995,\n                \"label\": \"P4\"\n              },\n              {\n                \"id\": 376819668,\n                \"label\": \"P3\"\n              },\n              {\n                \"id\": 561184585,\n                \"label\": \"P2\"\n              },\n              {\n                \"id\": 947629821,\n                \"label\": \"P1\"\n              },\n              {\n                \"id\": 1058433764,\n                \"label\": \"P5\"\n              }\n            ]\n          },\n          {\n            \"id\": 867049992,\n            \"key\": \"requested_by\",\n            \"position\": 2,\n            \"name\": \"Requested By\",\n            \"type\": \"CustomFieldDefinitions::TextField\",\n            \"api_type\": \"string\",\n            \"required\": false\n          }\n        ]\n      },\n      {\n        \"id\": 790680888,\n        \"screenable_type\": \"Ideas::IdeaPortal\",\n        \"name\": \"Screen Definition 4\",\n        \"custom_field_definitions\": [\n          {\n            \"id\": 807801664,\n            \"key\": \"name\",\n            \"position\": 1,\n            \"name\": \"Name\",\n            \"type\": \"CustomFieldDefinitions::TextField\",\n            \"api_type\": \"string\",\n            \"required\": false\n          }\n        ]\n      },\n      {\n        \"id\": 826556567,\n        \"screenable_type\": \"Competitor\",\n        \"name\": \"Screen Definition 3\",\n        \"custom_field_definitions\": []\n      },\n      {\n        \"id\": 838774462,\n        \"screenable_type\": \"Initiative\",\n        \"name\": \"Screen Definition 12\",\n        \"custom_field_definitions\": [\n          {\n            \"id\": 250383571,\n            \"key\": \"customers\",\n            \"position\": 1,\n            \"name\": \"Customers\",\n            \"type\": \"CustomFieldDefinitions::LinkMany\",\n            \"api_type\": \"array\",\n            \"required\": false\n          },\n          {\n            \"id\": 688549069,\n            \"key\": \"initiative_custom_date\",\n            \"position\": 3,\n            \"name\": \"Initiative custom date\",\n            \"type\": \"CustomFieldDefinitions::DateField\",\n            \"api_type\": \"date\",\n            \"required\": false\n          }\n        ]\n      },\n      {\n        \"id\": 908690576,\n        \"screenable_type\": \"Epic\",\n        \"name\": \"Screen Definition 7\",\n        \"custom_field_definitions\": [\n          {\n            \"id\": 919440521,\n            \"key\": \"epic_custom_date\",\n            \"position\": 1,\n            \"name\": \"Epic custom date\",\n            \"type\": \"CustomFieldDefinitions::DateField\",\n            \"api_type\": \"date\",\n            \"required\": false\n          }\n        ]\n      }\n    ],\n    \"has_ideas\": true,\n    \"has_master_features\": false,\n    \"has_epics\": false,\n    \"release_workflow\": {\n      \"id\": 717623509,\n      \"name\": \"Account product release workflow\",\n      \"statusable_type\": \"Release\",\n      \"workflow_type\": \"release\"\n    },\n    \"requirement_workflow\": {\n      \"id\": 499195972,\n      \"name\": \"Account product feature workflow\",\n      \"statusable_type\": \"Feature\",\n      \"workflow_type\": \"requirement\"\n    },\n    \"feature_workflow\": {\n      \"id\": 499195972,\n      \"name\": \"Account product feature workflow\",\n      \"statusable_type\": \"Feature\",\n      \"workflow_type\": \"feature\"\n    },\n    \"initiative_workflow\": {\n      \"id\": 61191651,\n      \"name\": \"Account initiative workflow\",\n      \"statusable_type\": \"Initiative\",\n      \"workflow_type\": \"initiative\"\n    },\n    \"epic_workflow\": {\n      \"id\": 499195972,\n      \"name\": \"Account product feature workflow\",\n      \"statusable_type\": \"Feature\",\n      \"workflow_type\": \"epic\"\n    },\n    \"idea_workflow\": {\n      \"id\": 80245244,\n      \"name\": \"Account product idea workflow\",\n      \"statusable_type\": \"Idea\",\n      \"workflow_type\": \"idea\"\n    },\n    \"strategic_imperative_workflow\": {\n      \"id\": 883066232,\n      \"name\": \"Account goal workflow\",\n      \"statusable_type\": \"StrategicImperative\",\n      \"workflow_type\": \"strategic_imperative\"\n    },\n    \"page_workflow\": {\n      \"id\": 934299270,\n      \"name\": \"Account document workflow\",\n      \"statusable_type\": \"Page\",\n      \"workflow_type\": \"page\"\n    },\n    \"key_result_workflow\": {\n      \"id\": 1024772447,\n      \"name\": \"Account product key result workflow\",\n      \"statusable_type\": \"KeyResult\",\n      \"workflow_type\": \"key_result\"\n    },\n    \"capacity_planning_enabled\": false,\n    \"default_capacity_units\": 10,\n    \"enhanced_capacity_planning_enabled\": false,\n    \"workspace_type\": \"product_workspace\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12afe0e4-a87c-4661-98a6-cefcd4a6620b",
+          "name": "Create a custom table record link associated with a release",
+          "request": {
+            "name": "Create a custom table record link associated with a release",
+            "description": {
+              "content": "*[Custom Tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.*",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "releases",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"custom_object_record\": {\n    \"custom_object_links\": {\n      \"custom_table_name_submitters\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "14b51a01-2fde-42be-9128-8a995b486a75",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "releases",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"release\": {\n    \"custom_object_links\": {\n      \"customers\": [\n        \"640362830\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"release\": {\n    \"id\": \"278327321\",\n    \"product_id\": \"131414752\",\n    \"reference_num\": \"PRJ1-R-1\",\n    \"name\": \"Release 1\",\n    \"start_date\": \"2019-01-01\",\n    \"end_date\": null,\n    \"development_started_on\": \"2019-01-01\",\n    \"release_date\": \"2019-01-01\",\n    \"external_release_date\": \"2019-01-01\",\n    \"external_release_date_description\": \"Sep 11, 2025\",\n    \"external_date_resolution\": \"exact\",\n    \"released\": false,\n    \"parking_lot\": false,\n    \"master_release\": false,\n    \"released_on\": null,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"position\": null,\n    \"progress\": null,\n    \"progress_source\": \"progress_manual\",\n    \"duration_source\": \"duration_manual\",\n    \"status_changed_on\": null,\n    \"theme\": {\n      \"id\": \"522610666\",\n      \"body\": \"Theme of the release\",\n      \"editor_version\": 1,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"attachments\": []\n    },\n    \"url\": \"http://company.aha.io/releases/PRJ1-R-1\",\n    \"resource\": \"http://company.aha.io/api/v1/releases/PRJ1-R-1\",\n    \"integration_fields\": [\n      {\n        \"id\": \"68217473\",\n        \"name\": \"id\",\n        \"value\": \"777\",\n        \"integration_id\": 204584239,\n        \"service_name\": \"jira\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    ],\n    \"custom_fields\": [\n      {\n        \"id\": \"432637490\",\n        \"key\": \"note\",\n        \"name\": \"Note\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"body\": \"<p>sample text</p>\",\n        \"editor_version\": 1,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": [],\n        \"value\": \"<p>sample text</p>\",\n        \"type\": \"note\"\n      },\n      {\n        \"id\": 424324947,\n        \"key\": \"text_field\",\n        \"name\": \"TextField\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"Acme Corp\",\n        \"type\": \"string\"\n      }\n    ],\n    \"custom_object_links\": [\n      {\n        \"key\": \"customers\",\n        \"name\": \"Customers\",\n        \"record_type\": \"CustomObjectRecord\",\n        \"record_ids\": [\n          640362830\n        ]\n      }\n    ],\n    \"comments_count\": 1,\n    \"workflow_status\": {\n      \"id\": \"738862546\",\n      \"name\": \"New\",\n      \"position\": 1,\n      \"complete\": false,\n      \"color\": \"#dce7c6\"\n    },\n    \"owner\": {\n      \"id\": \"16338845\",\n      \"name\": \"John Smith\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"goals\": [\n      {\n        \"id\": \"602095703\",\n        \"name\": \"Goal 1\",\n        \"url\": \"http://company.aha.io/strategic_imperatives/DEMOENT-G-1\",\n        \"resource\": \"http://company.aha.io/api/v1/goals/DEMOENT-G-1\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"description\": {\n          \"id\": \"166463080\",\n          \"body\": \"Description of goal 1\",\n          \"editor_version\": 1,\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"attachments\": []\n        }\n      }\n    ],\n    \"initiatives\": [\n      {\n        \"id\": \"423077122\",\n        \"reference_num\": \"PRJ1-S-1\",\n        \"name\": \"Initiative 1\",\n        \"url\": \"http://company.aha.io/initiatives/PRJ1-S-1\",\n        \"resource\": \"http://company.aha.io/api/v1/initiatives/PRJ1-S-1\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"description\": {\n          \"id\": \"673273729\",\n          \"body\": \"Description of initiative 1\",\n          \"editor_version\": 1,\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"attachments\": []\n        },\n        \"integration_fields\": [\n          {\n            \"id\": \"546711007\",\n            \"name\": \"id\",\n            \"value\": \"9913333\",\n            \"integration_id\": 186281709,\n            \"service_name\": \"jira\",\n            \"created_at\": \"2019-01-01T00:00:00.000Z\"\n          },\n          {\n            \"id\": \"966751335\",\n            \"name\": \"key\",\n            \"value\": \"JRA-987222\",\n            \"integration_id\": 186281709,\n            \"service_name\": \"jira\",\n            \"created_at\": \"2019-01-01T00:00:00.000Z\"\n          }\n        ]\n      }\n    ],\n    \"project\": {\n      \"id\": \"131414752\",\n      \"reference_prefix\": \"PRJ1\",\n      \"name\": \"Project 1\",\n      \"product_line\": false,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workspace_type\": \"product_workspace\",\n      \"url\": \"http://company.aha.io/projects/PRJ1\"\n    },\n    \"created_by_user\": {\n      \"id\": \"16338845\",\n      \"name\": \"John Smith\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65ddcad8-6e90-4a0f-b9f2-e0f107508ecc",
+          "name": "Create a custom table record link associated with a feature",
+          "request": {
+            "name": "Create a custom table record link associated with a feature",
+            "description": {
+              "content": "Resources that can be linked to records from a custom table (called custom objects in the API) can be manipulated in a bulk ID-list format.\nTo use custom table record links you must first add a many-to-many custom field definition to the resource.\nWhen you pass the IDs of custom table records to link to the feature, the existing list of links will be replaced.\n\nExamples of linking custom objects to resources with a many-to-many `customer` field:\n\n- [Products](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_product)\n- [Releases](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_release)\n- [Features](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_feature)\n- [Ideas](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_idea)\n- [Initiatives](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_initiative)\n- [Goals](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_goal)\n\n**[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "features",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"custom_object_record\": {\n    \"custom_object_links\": {\n      \"custom_table_name_submitters\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fd666dd5-278c-4cff-b03f-0b787c2d1439",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "features",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"feature\": {\n    \"custom_object_links\": {\n      \"customers\": [\n        \"640362830\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"feature\": {\n    \"id\": \"1007868956\",\n    \"name\": \"Feature 1\",\n    \"reference_num\": \"PRJ1-1\",\n    \"initiative_reference_num\": \"PRJ1-S-1\",\n    \"release_reference_num\": \"PRJ1-R-1\",\n    \"epic_reference_num\": \"PRJ1-E-1\",\n    \"position\": 1,\n    \"score\": 3,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"start_date\": \"2019-01-01\",\n    \"due_date\": \"2019-01-01\",\n    \"product_id\": \"131414752\",\n    \"progress\": 25,\n    \"progress_source\": \"progress_manual\",\n    \"status_changed_on\": null,\n    \"created_by_user\": {\n      \"id\": \"16338845\",\n      \"name\": \"John Smith\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"workflow_kind\": {\n      \"id\": \"98484309\",\n      \"name\": \"New\"\n    },\n    \"workflow_status\": {\n      \"id\": \"934242751\",\n      \"name\": \"New\",\n      \"position\": 1,\n      \"complete\": false,\n      \"color\": \"#dce7c6\"\n    },\n    \"project\": {\n      \"id\": \"131414752\",\n      \"reference_prefix\": \"PRJ1\",\n      \"name\": \"Project 1\",\n      \"product_line\": false,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workspace_type\": \"product_workspace\",\n      \"url\": \"http://company.aha.io/projects/PRJ1\"\n    },\n    \"description\": {\n      \"id\": \"793547626\",\n      \"body\": \"Body of note 1\",\n      \"editor_version\": 1,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"attachments\": [\n        {\n          \"id\": \"630489833\",\n          \"download_url\": \"https://company.aha.io/attachments/630489833/token/aaabbbccc7.download?size=original\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"original_file_size\": 123,\n          \"content_type\": \"application/excel\",\n          \"file_name\": \"spreadsheet_file.xlsx\",\n          \"file_size\": 123\n        },\n        {\n          \"id\": \"724655692\",\n          \"download_url\": \"https://company.aha.io/attachments/724655692/token/aaabbbccc7.download?size=original\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"original_file_size\": 123,\n          \"content_type\": \"text/plain\",\n          \"file_name\": \"uploaded_file_name.txt\",\n          \"file_size\": 123\n        }\n      ]\n    },\n    \"attachments\": [],\n    \"integration_fields\": [\n      {\n        \"id\": \"92040219\",\n        \"name\": \"url\",\n        \"value\": \"https://bigaha.atlassian.net/issues/JRA-123\",\n        \"integration_id\": 204584239,\n        \"service_name\": \"jira\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      {\n        \"id\": \"728894778\",\n        \"name\": \"key\",\n        \"value\": \"JRA-123\",\n        \"integration_id\": 204584239,\n        \"service_name\": \"jira\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      {\n        \"id\": \"846945422\",\n        \"name\": \"id\",\n        \"value\": \"435\",\n        \"integration_id\": 204584239,\n        \"service_name\": \"jira\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    ],\n    \"url\": \"http://company.aha.io/features/PRJ1-1\",\n    \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\",\n    \"release\": {\n      \"id\": \"278327321\",\n      \"reference_num\": \"PRJ1-R-1\",\n      \"name\": \"Release 1\",\n      \"start_date\": \"2019-01-01\",\n      \"release_date\": \"2019-01-01\",\n      \"parking_lot\": false,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"product_id\": \"131414752\",\n      \"integration_fields\": [\n        {\n          \"id\": \"68217473\",\n          \"name\": \"id\",\n          \"value\": \"777\",\n          \"integration_id\": 204584239,\n          \"service_name\": \"jira\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\"\n        }\n      ],\n      \"url\": \"http://company.aha.io/releases/PRJ1-R-1\",\n      \"resource\": \"http://company.aha.io/api/v1/releases/PRJ1-R-1\",\n      \"owner\": {\n        \"id\": \"16338845\",\n        \"name\": \"John Smith\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"project\": {\n        \"id\": \"131414752\",\n        \"reference_prefix\": \"PRJ1\",\n        \"name\": \"Project 1\",\n        \"product_line\": false,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"workspace_type\": \"product_workspace\",\n        \"url\": \"http://company.aha.io/projects/PRJ1\"\n      }\n    },\n    \"master_feature\": {\n      \"id\": \"999605892\",\n      \"reference_num\": \"PRJ1-E-1\",\n      \"name\": \"Epic 1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"url\": \"http://company.aha.io/epics/PRJ1-E-1\",\n      \"resource\": \"http://company.aha.io/api/v1/epics/PRJ1-E-1\"\n    },\n    \"belongs_to_release_phase\": {\n      \"id\": \"20526005\",\n      \"name\": \"Alpha\",\n      \"start_on\": \"2019-01-01\",\n      \"end_on\": \"2019-01-01\",\n      \"type\": \"phase\",\n      \"release_id\": 278327321,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"progress\": null,\n      \"progress_source\": \"progress_manual\",\n      \"duration_source\": \"duration_manual\",\n      \"description\": {\n        \"id\": \"243384959\",\n        \"body\": \"Description of release phase 1\",\n        \"editor_version\": 1,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      }\n    },\n    \"epic\": {\n      \"id\": \"999605892\",\n      \"reference_num\": \"PRJ1-E-1\",\n      \"name\": \"Epic 1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"url\": \"http://company.aha.io/epics/PRJ1-E-1\",\n      \"resource\": \"http://company.aha.io/api/v1/epics/PRJ1-E-1\"\n    },\n    \"assigned_to_user\": {\n      \"id\": \"16338845\",\n      \"name\": \"John Smith\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"default_assignee\": false\n    },\n    \"requirements\": [\n      {\n        \"id\": \"96915428\",\n        \"name\": \"Body of requirement 2\",\n        \"reference_num\": \"PRJ1-1-2\",\n        \"position\": 2,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"release_id\": 278327321,\n        \"created_by_user\": {\n          \"id\": \"1020675218\",\n          \"name\": \"Mary Humpty\",\n          \"email\": \"no-reply@aha.io\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n        },\n        \"workflow_status\": {\n          \"id\": \"1025247908\",\n          \"name\": \"Shipped\",\n          \"position\": 5,\n          \"complete\": true,\n          \"color\": \"#ecdd8f\"\n        },\n        \"url\": \"http://company.aha.io/requirements/PRJ1-1-2\",\n        \"resource\": \"http://company.aha.io/api/v1/requirements/PRJ1-1-2\",\n        \"description\": {\n          \"id\": \"6776881149484139005\",\n          \"body\": \"\",\n          \"editor_version\": 2,\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"attachments\": []\n        },\n        \"feature\": {\n          \"id\": \"1007868956\",\n          \"reference_num\": \"PRJ1-1\",\n          \"name\": \"Feature 1\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"url\": \"http://company.aha.io/features/PRJ1-1\",\n          \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\",\n          \"product_id\": \"131414752\"\n        },\n        \"assigned_to_user\": {\n          \"id\": \"16338845\",\n          \"name\": \"John Smith\",\n          \"email\": \"no-reply@aha.io\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"default_assignee\": false\n        },\n        \"attachments\": [],\n        \"tags\": [],\n        \"full_tags\": [],\n        \"custom_fields\": [],\n        \"integration_fields\": [],\n        \"comments_count\": 0\n      },\n      {\n        \"id\": \"483368544\",\n        \"name\": \"Body of requirement 1\",\n        \"reference_num\": \"PRJ1-1-1\",\n        \"position\": 1,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"release_id\": 278327321,\n        \"created_by_user\": {\n          \"id\": \"1020675218\",\n          \"name\": \"Mary Humpty\",\n          \"email\": \"no-reply@aha.io\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n        },\n        \"workflow_status\": {\n          \"id\": \"934242751\",\n          \"name\": \"New\",\n          \"position\": 1,\n          \"complete\": false,\n          \"color\": \"#dce7c6\"\n        },\n        \"url\": \"http://company.aha.io/requirements/PRJ1-1-1\",\n        \"resource\": \"http://company.aha.io/api/v1/requirements/PRJ1-1-1\",\n        \"description\": {\n          \"id\": \"910541534\",\n          \"body\": \"Body of requirement 1\",\n          \"editor_version\": 1,\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"attachments\": []\n        },\n        \"feature\": {\n          \"id\": \"1007868956\",\n          \"reference_num\": \"PRJ1-1\",\n          \"name\": \"Feature 1\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"url\": \"http://company.aha.io/features/PRJ1-1\",\n          \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\",\n          \"product_id\": \"131414752\"\n        },\n        \"assigned_to_user\": {\n          \"id\": \"16338845\",\n          \"name\": \"John Smith\",\n          \"email\": \"no-reply@aha.io\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"default_assignee\": false\n        },\n        \"attachments\": [],\n        \"tags\": [],\n        \"full_tags\": [],\n        \"custom_fields\": [\n          {\n            \"id\": 848810602,\n            \"key\": \"expected_completion_date\",\n            \"name\": \"Expected completion date\",\n            \"updatedAt\": \"2019-01-01T00:00:00Z\",\n            \"value\": \"2019-01-01\",\n            \"type\": \"date\"\n          },\n          {\n            \"id\": 731808726,\n            \"key\": \"requested_by\",\n            \"name\": \"Requested By\",\n            \"updatedAt\": \"2019-01-01T00:00:00Z\",\n            \"value\": \"TK\",\n            \"type\": \"string\"\n          }\n        ],\n        \"integration_fields\": [\n          {\n            \"id\": \"32487847\",\n            \"name\": \"key\",\n            \"value\": \"JRA-987\",\n            \"integration_id\": 342659513,\n            \"service_name\": \"jira\",\n            \"created_at\": \"2019-01-01T00:00:00.000Z\"\n          },\n          {\n            \"id\": \"417785887\",\n            \"name\": \"id\",\n            \"value\": \"991\",\n            \"integration_id\": 342659513,\n            \"service_name\": \"jira\",\n            \"created_at\": \"2019-01-01T00:00:00.000Z\"\n          },\n          {\n            \"id\": \"803330186\",\n            \"name\": \"aha::remote_entity\",\n            \"value\": \"issue_10100\",\n            \"integration_id\": 342659513,\n            \"service_name\": \"jira\",\n            \"created_at\": \"2019-01-01T00:00:00.000Z\"\n          }\n        ],\n        \"comments_count\": 1\n      },\n      {\n        \"id\": \"851574643\",\n        \"name\": \"Body of requirement 3\",\n        \"reference_num\": \"PRJ1-1-3\",\n        \"position\": 3,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"release_id\": 278327321,\n        \"created_by_user\": {\n          \"id\": \"1020675218\",\n          \"name\": \"Mary Humpty\",\n          \"email\": \"no-reply@aha.io\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n        },\n        \"workflow_status\": {\n          \"id\": \"922838743\",\n          \"name\": \"Not started\",\n          \"position\": 8,\n          \"complete\": false,\n          \"color\": \"#dce790\"\n        },\n        \"url\": \"http://company.aha.io/requirements/PRJ1-1-3\",\n        \"resource\": \"http://company.aha.io/api/v1/requirements/PRJ1-1-3\",\n        \"description\": {\n          \"id\": \"6776881149490636026\",\n          \"body\": \"\",\n          \"editor_version\": 2,\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"attachments\": []\n        },\n        \"feature\": {\n          \"id\": \"1007868956\",\n          \"reference_num\": \"PRJ1-1\",\n          \"name\": \"Feature 1\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"url\": \"http://company.aha.io/features/PRJ1-1\",\n          \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\",\n          \"product_id\": \"131414752\"\n        },\n        \"assigned_to_user\": {\n          \"id\": \"16338845\",\n          \"name\": \"John Smith\",\n          \"email\": \"no-reply@aha.io\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"default_assignee\": false\n        },\n        \"attachments\": [],\n        \"tags\": [],\n        \"full_tags\": [],\n        \"custom_fields\": [],\n        \"integration_fields\": [],\n        \"comments_count\": 0\n      }\n    ],\n    \"initiative\": {\n      \"id\": \"423077122\",\n      \"reference_num\": \"PRJ1-S-1\",\n      \"name\": \"Initiative 1\",\n      \"url\": \"http://company.aha.io/initiatives/PRJ1-S-1\",\n      \"resource\": \"http://company.aha.io/api/v1/initiatives/PRJ1-S-1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"description\": {\n        \"id\": \"673273729\",\n        \"body\": \"Description of initiative 1\",\n        \"editor_version\": 1,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"integration_fields\": [\n        {\n          \"id\": \"546711007\",\n          \"name\": \"id\",\n          \"value\": \"9913333\",\n          \"integration_id\": 186281709,\n          \"service_name\": \"jira\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\"\n        },\n        {\n          \"id\": \"966751335\",\n          \"name\": \"key\",\n          \"value\": \"JRA-987222\",\n          \"integration_id\": 186281709,\n          \"service_name\": \"jira\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\"\n        }\n      ]\n    },\n    \"goals\": [\n      {\n        \"id\": \"602095703\",\n        \"name\": \"Goal 1\",\n        \"url\": \"http://company.aha.io/strategic_imperatives/DEMOENT-G-1\",\n        \"resource\": \"http://company.aha.io/api/v1/goals/DEMOENT-G-1\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"description\": {\n          \"id\": \"166463080\",\n          \"body\": \"Description of goal 1\",\n          \"editor_version\": 1,\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"attachments\": []\n        }\n      }\n    ],\n    \"key_results\": [\n      {\n        \"id\": \"631791848\",\n        \"name\": \"KR 1\",\n        \"reference_num\": \"DEMOENT-G-1-KR-1\",\n        \"url\": \"http://company.aha.io/key_results/DEMOENT-G-1-KR-1\",\n        \"position\": 2,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"progress\": null,\n        \"target_metric\": \"100%\",\n        \"starting_metric\": \"5%\",\n        \"current_metric\": \"20%\"\n      }\n    ],\n    \"comments_count\": 1,\n    \"score_facts\": [\n      {\n        \"id\": \"728895917\",\n        \"value\": 1,\n        \"name\": \"Effort\"\n      },\n      {\n        \"id\": \"846938137\",\n        \"value\": 2,\n        \"name\": \"Benefit\"\n      }\n    ],\n    \"tags\": [\n      \"Engineering\",\n      \"Infrastructure\"\n    ],\n    \"full_tags\": [\n      {\n        \"id\": 3412727,\n        \"name\": \"Engineering\",\n        \"color\": \"#e09052\"\n      },\n      {\n        \"id\": 775582684,\n        \"name\": \"Infrastructure\",\n        \"color\": \"#7552e0\"\n      }\n    ],\n    \"custom_fields\": [\n      {\n        \"id\": 1051489895,\n        \"key\": \"equation_specs_field\",\n        \"name\": \"Equation specs field\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": {\n          \"values\": {\n            \"123\": {\n              \"value\": 10,\n              \"name\": \"a\",\n              \"display_value\": \"10.0\"\n            },\n            \"456\": {\n              \"value\": \"Foobar\",\n              \"name\": \"b\",\n              \"display_value\": \"Foobar\"\n            },\n            \"789\": {\n              \"value\": null,\n              \"name\": \"789\",\n              \"display_value\": null\n            }\n          }\n        },\n        \"type\": \"equation_sheet\"\n      },\n      {\n        \"id\": 621325984,\n        \"key\": \"expected_completion_date\",\n        \"name\": \"Expected completion date\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"2019-01-01\",\n        \"type\": \"date\"\n      },\n      {\n        \"id\": 694694494,\n        \"key\": \"negative_scorecard\",\n        \"name\": \"Negative custom scorecard\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": 31,\n        \"type\": \"scorecard\",\n        \"score_facts\": [\n          {\n            \"id\": \"462102328\",\n            \"value\": 6,\n            \"name\": \"Negative default value\"\n          }\n        ]\n      },\n      {\n        \"id\": 736691743,\n        \"key\": \"upload\",\n        \"name\": \"Upload\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"attachments\": [\n          {\n            \"id\": \"471688235\",\n            \"download_url\": \"https://company.aha.io/attachments/471688235/token/aaabbbccc7.download?size=original\",\n            \"created_at\": \"2019-01-01T00:00:00.000Z\",\n            \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n            \"original_file_size\": 123,\n            \"content_type\": \"text/plain\",\n            \"file_name\": \"uploaded_file_name.txt\",\n            \"file_size\": 123\n          }\n        ],\n        \"type\": \"attachment\"\n      }\n    ],\n    \"feature_links\": [\n      {\n        \"link_type\": \"Depends on\",\n        \"link_type_id\": 20,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"parent_record\": {\n          \"id\": \"1007868956\",\n          \"reference_num\": \"PRJ1-1\",\n          \"name\": \"Feature 1\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"url\": \"http://company.aha.io/features/PRJ1-1\",\n          \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\",\n          \"product_id\": \"131414752\"\n        },\n        \"child_record\": {\n          \"id\": \"622562724\",\n          \"reference_num\": \"PRJ1-2\",\n          \"name\": \"Another Feature\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"url\": \"http://company.aha.io/features/PRJ1-2\",\n          \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-2\",\n          \"product_id\": \"131414752\"\n        }\n      }\n    ],\n    \"feature_only_original_estimate\": null,\n    \"feature_only_remaining_estimate\": null,\n    \"feature_only_work_done\": null\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0db42d5-8c42-47de-b7eb-72917113659c",
+          "name": "Create a custom table record link associated with a requirement",
+          "request": {
+            "name": "Create a custom table record link associated with a requirement",
+            "description": {
+              "content": "Resources that can be linked to records from a custom table (called custom objects in the API) can be manipulated in a bulk ID-list format.\nTo use custom table record links you must first add a many-to-many custom field definition to the resource.\nWhen you pass the IDs of custom table records to link to the feature, the existing list of links will be replaced.\n\nExamples of linking custom objects to resources with a many-to-many `customer` field:\n\n- [Products](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_product)\n- [Releases](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_release)\n- [Features](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_feature)\n- [Ideas](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_idea)\n- [Initiatives](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_initiative)\n- [Goals](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_goal)\n\n**[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "requirements",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"custom_object_record\": {\n    \"custom_object_links\": {\n      \"custom_table_name_submitters\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "897b1ad0-39f2-429f-98fc-9b10949c15a4",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "requirements",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requirement\": {\n    \"custom_object_links\": {\n      \"customers\": [\n        \"640362830\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"requirement\": {\n    \"id\": \"483368544\",\n    \"name\": \"Body of requirement 1\",\n    \"reference_num\": \"PRJ1-1-1\",\n    \"position\": 1,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"release_id\": 278327321,\n    \"created_by_user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"workflow_status\": {\n      \"id\": \"934242751\",\n      \"name\": \"New\",\n      \"position\": 1,\n      \"complete\": false,\n      \"color\": \"#dce7c6\"\n    },\n    \"url\": \"http://company.aha.io/requirements/PRJ1-1-1\",\n    \"resource\": \"http://company.aha.io/api/v1/requirements/PRJ1-1-1\",\n    \"description\": {\n      \"id\": \"910541534\",\n      \"body\": \"Body of requirement 1\",\n      \"editor_version\": 1,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"attachments\": []\n    },\n    \"feature\": {\n      \"id\": \"1007868956\",\n      \"reference_num\": \"PRJ1-1\",\n      \"name\": \"Feature 1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"url\": \"http://company.aha.io/features/PRJ1-1\",\n      \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\",\n      \"product_id\": \"131414752\"\n    },\n    \"assigned_to_user\": {\n      \"id\": \"16338845\",\n      \"name\": \"John Smith\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"default_assignee\": false\n    },\n    \"attachments\": [],\n    \"tags\": [],\n    \"full_tags\": [],\n    \"custom_fields\": [\n      {\n        \"id\": 848810602,\n        \"key\": \"expected_completion_date\",\n        \"name\": \"Expected completion date\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"2019-01-01\",\n        \"type\": \"date\"\n      },\n      {\n        \"id\": \"6776881149484105050\",\n        \"key\": \"priority\",\n        \"name\": \"Priority\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"P3\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": 731808726,\n        \"key\": \"requested_by\",\n        \"name\": \"Requested By\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"TK\",\n        \"type\": \"string\"\n      }\n    ],\n    \"integration_fields\": [\n      {\n        \"id\": \"32487847\",\n        \"name\": \"key\",\n        \"value\": \"JRA-987\",\n        \"integration_id\": 342659513,\n        \"service_name\": \"jira\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      {\n        \"id\": \"417785887\",\n        \"name\": \"id\",\n        \"value\": \"991\",\n        \"integration_id\": 342659513,\n        \"service_name\": \"jira\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      {\n        \"id\": \"803330186\",\n        \"name\": \"aha::remote_entity\",\n        \"value\": \"issue_10100\",\n        \"integration_id\": 342659513,\n        \"service_name\": \"jira\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    ],\n    \"comments_count\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eee67f5c-a169-4590-9001-bc9f909566e8",
+          "name": "Create a custom table record link associated with an idea",
+          "request": {
+            "name": "Create a custom table record link associated with an idea",
+            "description": {
+              "content": "Resources that can be linked to records from a custom table (called custom objects in the API) can be manipulated in a bulk ID-list format.\nTo use custom table record links you must first add a many-to-many custom field definition to the resource.\nWhen you pass the IDs of custom table records to link to the feature, the existing list of links will be replaced.\n\nExamples of linking custom objects to resources with a many-to-many `customer` field:\n\n- [Products](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_product)\n- [Releases](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_release)\n- [Features](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_feature)\n- [Ideas](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_idea)\n- [Initiatives](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_initiative)\n- [Goals](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_goal)\n\n**[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "ideas",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"custom_object_record\": {\n    \"custom_object_links\": {\n      \"custom_table_name_submitters\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1c6cc6a4-1ae4-4246-bc80-1a5a57c43b55",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "ideas",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idea\": {\n    \"custom_object_links\": {\n      \"customers\": [\n        \"640362830\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"idea\": {\n    \"id\": \"849214356\",\n    \"name\": \"Idea 1 project 2\",\n    \"reference_num\": \"PRJ2-I-1\",\n    \"score\": 15,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"product_id\": \"131414752\",\n    \"votes\": 0,\n    \"initial_votes\": 0,\n    \"status_changed_at\": null,\n    \"workflow_status\": {\n      \"id\": \"3259216\",\n      \"name\": \"New\",\n      \"position\": 1,\n      \"complete\": false,\n      \"color\": \"#dce7c6\"\n    },\n    \"description\": {\n      \"id\": \"5445688\",\n      \"body\": \"Description of idea 1 project2\",\n      \"editor_version\": 1,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"attachments\": []\n    },\n    \"visibility\": \"Visible to all ideas portal users\",\n    \"url\": \"http://company.aha.io/ideas/ideas/PRJ2-I-1\",\n    \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ2-I-1\",\n    \"product\": {\n      \"id\": \"131414752\",\n      \"reference_prefix\": \"PRJ1\",\n      \"name\": \"Project 1\",\n      \"product_line\": false,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workspace_type\": \"product_workspace\",\n      \"url\": \"http://company.aha.io/projects/PRJ1\"\n    },\n    \"created_by_user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"assigned_to_user\": null,\n    \"endorsements_count\": 1,\n    \"comments_count\": 0,\n    \"score_facts\": [],\n    \"tags\": [],\n    \"full_tags\": [],\n    \"categories\": [],\n    \"custom_fields\": [\n      {\n        \"id\": 549257455,\n        \"key\": \"text_field1\",\n        \"name\": \"TextField1\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"Marrakech\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": 968118615,\n        \"key\": \"text_field2\",\n        \"name\": \"TextField2\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"Lyon\",\n        \"type\": \"string\"\n      }\n    ],\n    \"submitted_idea_portal_record_url\": \"https://ideas999999.example.com:8338/ideas/PRJ2-I-1\",\n    \"integration_fields\": []\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a928fa54-f487-49f9-8f14-f1ac78ed16cd",
+          "name": "Create a custom table record link associated with an initiative",
+          "request": {
+            "name": "Create a custom table record link associated with an initiative",
+            "description": {
+              "content": "Resources that can be linked to records from a custom table (called custom objects in the API) can be manipulated in a bulk ID-list format.\nTo use custom table record links you must first add a many-to-many custom field definition to the resource.\nWhen you pass the IDs of custom table records to link to the feature, the existing list of links will be replaced.\n\nExamples of linking custom objects to resources with a many-to-many `customer` field:\n\n- [Products](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_product)\n- [Releases](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_release)\n- [Features](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_feature)\n- [Ideas](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_idea)\n- [Initiatives](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_initiative)\n- [Goals](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_goal)\n\n**[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "initiatives",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"custom_object_record\": {\n    \"custom_object_links\": {\n      \"custom_table_name_submitters\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fb58027f-e0b0-4073-970e-7627bd0d853a",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "initiatives",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"initiative\": {\n    \"custom_object_links\": {\n      \"customers\": [\n        \"640362830\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"initiative\": {\n    \"id\": \"423077122\",\n    \"name\": \"Initiative 1\",\n    \"reference_num\": \"PRJ1-S-1\",\n    \"status\": \"not_started\",\n    \"effort\": 30,\n    \"value\": 50,\n    \"presented\": true,\n    \"color\": \"#bada55\",\n    \"start_date\": null,\n    \"end_date\": null,\n    \"position\": 1,\n    \"score\": 4,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"product_id\": \"131414752\",\n    \"progress\": null,\n    \"progress_source\": \"progress_manual\",\n    \"duration_source\": \"duration_manual\",\n    \"url\": \"http://company.aha.io/initiatives/PRJ1-S-1\",\n    \"resource\": \"http://company.aha.io/api/v1/initiatives/PRJ1-S-1\",\n    \"project\": {\n      \"id\": \"131414752\",\n      \"reference_prefix\": \"PRJ1\",\n      \"name\": \"Project 1\",\n      \"product_line\": false,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workspace_type\": \"product_workspace\",\n      \"url\": \"http://company.aha.io/projects/PRJ1\"\n    },\n    \"workflow_status\": {\n      \"id\": \"53968949\",\n      \"name\": \"Not Started\",\n      \"position\": 1,\n      \"complete\": false,\n      \"color\": \"#dce7c6\"\n    },\n    \"description\": {\n      \"id\": \"673273729\",\n      \"body\": \"Description of initiative 1\",\n      \"editor_version\": 1,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"attachments\": []\n    },\n    \"attachments\": [],\n    \"assigned_to_user\": {\n      \"id\": \"16338845\",\n      \"name\": \"John Smith\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"default_assignee\": false\n    },\n    \"comments_count\": 1,\n    \"goals\": [\n      {\n        \"id\": \"602095703\",\n        \"name\": \"Goal 1\",\n        \"url\": \"http://company.aha.io/strategic_imperatives/DEMOENT-G-1\",\n        \"resource\": \"http://company.aha.io/api/v1/goals/DEMOENT-G-1\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"description\": {\n          \"id\": \"166463080\",\n          \"body\": \"Description of goal 1\",\n          \"editor_version\": 1,\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"attachments\": []\n        }\n      }\n    ],\n    \"score_facts\": [],\n    \"features\": [\n      {\n        \"id\": \"1007868956\",\n        \"reference_num\": \"PRJ1-1\",\n        \"name\": \"Feature 1\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"url\": \"http://company.aha.io/features/PRJ1-1\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\",\n        \"product_id\": \"131414752\"\n      }\n    ],\n    \"master_features\": [\n      {\n        \"id\": \"269219656\",\n        \"reference_num\": \"PRJ3-E-3\",\n        \"name\": \"A different project epic\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"url\": \"http://company.aha.io/epics/PRJ3-E-3\",\n        \"resource\": \"http://company.aha.io/api/v1/epics/PRJ3-E-3\"\n      },\n      {\n        \"id\": \"362457003\",\n        \"reference_num\": \"PRJ1-E-3\",\n        \"name\": \"And a third\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"url\": \"http://company.aha.io/epics/PRJ1-E-3\",\n        \"resource\": \"http://company.aha.io/api/v1/epics/PRJ1-E-3\"\n      },\n      {\n        \"id\": \"580753216\",\n        \"reference_num\": \"PRJ1-E-2\",\n        \"name\": \"Here's another epic\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"url\": \"http://company.aha.io/epics/PRJ1-E-2\",\n        \"resource\": \"http://company.aha.io/api/v1/epics/PRJ1-E-2\"\n      },\n      {\n        \"id\": \"999605892\",\n        \"reference_num\": \"PRJ1-E-1\",\n        \"name\": \"Epic 1\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"url\": \"http://company.aha.io/epics/PRJ1-E-1\",\n        \"resource\": \"http://company.aha.io/api/v1/epics/PRJ1-E-1\"\n      }\n    ],\n    \"epic\": [\n      {\n        \"id\": \"269219656\",\n        \"reference_num\": \"PRJ3-E-3\",\n        \"name\": \"A different project epic\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"url\": \"http://company.aha.io/epics/PRJ3-E-3\",\n        \"resource\": \"http://company.aha.io/api/v1/epics/PRJ3-E-3\"\n      },\n      {\n        \"id\": \"362457003\",\n        \"reference_num\": \"PRJ1-E-3\",\n        \"name\": \"And a third\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"url\": \"http://company.aha.io/epics/PRJ1-E-3\",\n        \"resource\": \"http://company.aha.io/api/v1/epics/PRJ1-E-3\"\n      },\n      {\n        \"id\": \"580753216\",\n        \"reference_num\": \"PRJ1-E-2\",\n        \"name\": \"Here's another epic\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"url\": \"http://company.aha.io/epics/PRJ1-E-2\",\n        \"resource\": \"http://company.aha.io/api/v1/epics/PRJ1-E-2\"\n      },\n      {\n        \"id\": \"999605892\",\n        \"reference_num\": \"PRJ1-E-1\",\n        \"name\": \"Epic 1\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"url\": \"http://company.aha.io/epics/PRJ1-E-1\",\n        \"resource\": \"http://company.aha.io/api/v1/epics/PRJ1-E-1\"\n      }\n    ],\n    \"releases\": [\n      {\n        \"id\": \"161456549\",\n        \"reference_num\": \"PRJ1-R-2\",\n        \"name\": \"Release 2\",\n        \"start_date\": \"2019-01-01\",\n        \"release_date\": \"2019-01-01\",\n        \"parking_lot\": false,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"product_id\": \"131414752\",\n        \"integration_fields\": [],\n        \"url\": \"http://company.aha.io/releases/PRJ1-R-2\",\n        \"resource\": \"http://company.aha.io/api/v1/releases/PRJ1-R-2\",\n        \"owner\": {\n          \"id\": \"16338845\",\n          \"name\": \"John Smith\",\n          \"email\": \"no-reply@aha.io\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n        },\n        \"project\": {\n          \"id\": \"131414752\",\n          \"reference_prefix\": \"PRJ1\",\n          \"name\": \"Project 1\",\n          \"product_line\": false,\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"workspace_type\": \"product_workspace\",\n          \"url\": \"http://company.aha.io/projects/PRJ1\"\n        }\n      },\n      {\n        \"id\": \"278327321\",\n        \"reference_num\": \"PRJ1-R-1\",\n        \"name\": \"Release 1\",\n        \"start_date\": \"2019-01-01\",\n        \"release_date\": \"2019-01-01\",\n        \"parking_lot\": false,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"product_id\": \"131414752\",\n        \"integration_fields\": [\n          {\n            \"id\": \"68217473\",\n            \"name\": \"id\",\n            \"value\": \"777\",\n            \"integration_id\": 204584239,\n            \"service_name\": \"jira\",\n            \"created_at\": \"2019-01-01T00:00:00.000Z\"\n          }\n        ],\n        \"url\": \"http://company.aha.io/releases/PRJ1-R-1\",\n        \"resource\": \"http://company.aha.io/api/v1/releases/PRJ1-R-1\",\n        \"owner\": {\n          \"id\": \"16338845\",\n          \"name\": \"John Smith\",\n          \"email\": \"no-reply@aha.io\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n        },\n        \"project\": {\n          \"id\": \"131414752\",\n          \"reference_prefix\": \"PRJ1\",\n          \"name\": \"Project 1\",\n          \"product_line\": false,\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"workspace_type\": \"product_workspace\",\n          \"url\": \"http://company.aha.io/projects/PRJ1\"\n        }\n      }\n    ],\n    \"integration_fields\": [\n      {\n        \"id\": \"546711007\",\n        \"name\": \"id\",\n        \"value\": \"9913333\",\n        \"integration_id\": 186281709,\n        \"service_name\": \"jira\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      {\n        \"id\": \"966751335\",\n        \"name\": \"key\",\n        \"value\": \"JRA-987222\",\n        \"integration_id\": 186281709,\n        \"service_name\": \"jira\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    ],\n    \"custom_fields\": [\n      {\n        \"id\": 973371762,\n        \"key\": \"initiative_custom_date\",\n        \"name\": \"Initiative custom date\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"2019-01-01\",\n        \"type\": \"date\"\n      },\n      {\n        \"id\": 1073063442,\n        \"key\": \"initiative_priority\",\n        \"name\": \"Initiative priority\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"P2\",\n        \"type\": \"string\"\n      }\n    ],\n    \"custom_object_links\": [\n      {\n        \"key\": \"customers\",\n        \"name\": \"Customers\",\n        \"record_type\": \"CustomObjectRecord\",\n        \"record_ids\": [\n          640362830\n        ]\n      }\n    ],\n    \"created_by_user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de57545f-6e0f-40a9-a1b9-5bcdc868ed4c",
+          "name": "Create a custom table record link associated with a goal",
+          "request": {
+            "name": "Create a custom table record link associated with a goal",
+            "description": {
+              "content": "Resources that can be linked to records from a custom table (called custom objects in the API) can be manipulated in a bulk ID-list format.\nTo use custom table record links you must first add a many-to-many custom field definition to the resource.\nWhen you pass the IDs of custom table records to link to the feature, the existing list of links will be replaced.\n\nExamples of linking custom objects to resources with a many-to-many `customer` field:\n\n- [Products](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_product)\n- [Releases](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_release)\n- [Features](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_feature)\n- [Ideas](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_idea)\n- [Initiatives](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_initiative)\n- [Goals](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_goal)\n\n**[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "goals",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"custom_object_record\": {\n    \"custom_object_links\": {\n      \"custom_table_name_submitters\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "160ce41c-0039-4a18-aa53-3a96ca698a40",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "goals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"goal\": {\n    \"custom_object_links\": {\n      \"customers\": [\n        \"640362830\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"goal\": {\n    \"id\": \"602095703\",\n    \"name\": \"Goal 1\",\n    \"reference_num\": \"DEMOENT-G-1\",\n    \"effort\": 10,\n    \"value\": 70,\n    \"color\": \"#bada55\",\n    \"position\": 1,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"product_id\": \"131414752\",\n    \"progress\": null,\n    \"progress_source\": \"progress_manual\",\n    \"url\": \"http://company.aha.io/strategic_imperatives/DEMOENT-G-1\",\n    \"resource\": \"http://company.aha.io/strategic_imperatives/DEMOENT-G-1\",\n    \"description\": {\n      \"id\": \"166463080\",\n      \"body\": \"Description of goal 1\",\n      \"editor_version\": 1,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"attachments\": []\n    },\n    \"success_metric\": {\n      \"name\": \"Metric 1\",\n      \"description\": {\n        \"id\": \"546284368\",\n        \"body\": \"Description of goal 1\",\n        \"editor_version\": 1,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"workflow_status\": {\n        \"id\": \"396368932\",\n        \"name\": \"On Track\",\n        \"position\": 2,\n        \"complete\": false,\n        \"color\": \"#ecdd8f\"\n      }\n    },\n    \"project\": {\n      \"id\": \"131414752\",\n      \"reference_prefix\": \"PRJ1\",\n      \"name\": \"Project 1\",\n      \"product_line\": false,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workspace_type\": \"product_workspace\",\n      \"url\": \"http://company.aha.io/projects/PRJ1\"\n    },\n    \"initiatives\": [\n      {\n        \"id\": \"423077122\",\n        \"reference_num\": \"PRJ1-S-1\",\n        \"name\": \"Initiative 1\",\n        \"url\": \"http://company.aha.io/initiatives/PRJ1-S-1\",\n        \"resource\": \"http://company.aha.io/api/v1/initiatives/PRJ1-S-1\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"description\": {\n          \"id\": \"673273729\",\n          \"body\": \"Description of initiative 1\",\n          \"editor_version\": 1,\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"attachments\": []\n        },\n        \"integration_fields\": [\n          {\n            \"id\": \"546711007\",\n            \"name\": \"id\",\n            \"value\": \"9913333\",\n            \"integration_id\": 186281709,\n            \"service_name\": \"jira\",\n            \"created_at\": \"2019-01-01T00:00:00.000Z\"\n          },\n          {\n            \"id\": \"966751335\",\n            \"name\": \"key\",\n            \"value\": \"JRA-987222\",\n            \"integration_id\": 186281709,\n            \"service_name\": \"jira\",\n            \"created_at\": \"2019-01-01T00:00:00.000Z\"\n          }\n        ]\n      }\n    ],\n    \"comments_count\": 1,\n    \"features\": [\n      {\n        \"id\": \"1007868956\",\n        \"reference_num\": \"PRJ1-1\",\n        \"name\": \"Feature 1\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"url\": \"http://company.aha.io/features/PRJ1-1\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\",\n        \"product_id\": \"131414752\"\n      }\n    ],\n    \"releases\": [\n      {\n        \"id\": \"278327321\",\n        \"reference_num\": \"PRJ1-R-1\",\n        \"name\": \"Release 1\",\n        \"start_date\": \"2019-01-01\",\n        \"release_date\": \"2019-01-01\",\n        \"parking_lot\": false,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"product_id\": \"131414752\",\n        \"integration_fields\": [\n          {\n            \"id\": \"68217473\",\n            \"name\": \"id\",\n            \"value\": \"777\",\n            \"integration_id\": 204584239,\n            \"service_name\": \"jira\",\n            \"created_at\": \"2019-01-01T00:00:00.000Z\"\n          }\n        ],\n        \"url\": \"http://company.aha.io/releases/PRJ1-R-1\",\n        \"resource\": \"http://company.aha.io/api/v1/releases/PRJ1-R-1\",\n        \"owner\": {\n          \"id\": \"16338845\",\n          \"name\": \"John Smith\",\n          \"email\": \"no-reply@aha.io\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n        },\n        \"project\": {\n          \"id\": \"131414752\",\n          \"reference_prefix\": \"PRJ1\",\n          \"name\": \"Project 1\",\n          \"product_line\": false,\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"workspace_type\": \"product_workspace\",\n          \"url\": \"http://company.aha.io/projects/PRJ1\"\n        }\n      }\n    ],\n    \"custom_fields\": [],\n    \"custom_object_links\": [\n      {\n        \"key\": \"customers\",\n        \"name\": \"Customers\",\n        \"record_type\": \"CustomObjectRecord\",\n        \"record_ids\": [\n          640362830\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7041df9c-26e0-425a-86c5-f18f3f185311",
+          "name": "Link custom table records to another custom table record",
+          "request": {
+            "name": "Link custom table records to another custom table record",
+            "description": {
+              "content": "Resources that can be linked to records from a custom table (called custom objects in the API) can be manipulated in a bulk ID-list format.\nTo use custom table record links you must first add a many-to-many custom field definition to the resource.\nWhen you pass the IDs of custom table records to link to the feature, the existing list of links will be replaced.\n\nExamples of linking custom objects to resources with a many-to-many `customer` field:\n\n- [Products](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_product)\n- [Releases](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_release)\n- [Features](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_feature)\n- [Ideas](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_idea)\n- [Initiatives](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_initiative)\n- [Goals](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_goal)\n\n**[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "custom_object_records",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"custom_object_record\": {\n    \"custom_object_links\": {\n      \"custom_table_name_submitters\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "14011fee-38d0-4674-969d-0928c8437ecc",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "custom_object_records",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"custom_object_record\": {\n    \"custom_object_links\": {\n      \"custom_table_name_submitters\": [\n        136661093\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"custom_object_record\": {\n    \"id\": \"640362830\",\n    \"product_id\": \"131414752\",\n    \"key\": \"customers\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"custom_fields\": [\n      {\n        \"id\": 262515157,\n        \"key\": \"name\",\n        \"name\": \"Name\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"Acme parent corp\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": 883926222,\n        \"key\": \"website\",\n        \"name\": \"Website\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"www.acmeparent.com\",\n        \"type\": \"url\"\n      }\n    ],\n    \"custom_object_links\": [],\n    \"linked_records\": [\n      {\n        \"key\": \"customers\",\n        \"name\": \"Customers\",\n        \"record_type\": \"Ideas::Idea\",\n        \"record_id\": 162120796\n      },\n      {\n        \"key\": \"revenue\",\n        \"name\": \"Revenue\",\n        \"record_type\": \"Ideas::Idea\",\n        \"record_id\": 58056975\n      },\n      {\n        \"key\": \"submitters\",\n        \"name\": \"Submitters\",\n        \"record_type\": \"Ideas::Idea\",\n        \"record_id\": 58056975\n      }\n    ],\n    \"created_by_user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Aha! account domain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "company",
+      "key": "account-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account-domain}}.aha.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{account-domain}.aha.io/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://{account-domain}.aha.io/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1c8fd129-1284-4602-a014-0c1468224210",
+    "name": "Aha! Account backups Custom table record links API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Aha! generated from actual test responses\n\nContact Support:\n Name: Aha! Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,581 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aha! Account backups Integration fields API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+      "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Integration fields",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an integration field for a feature by integration ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/features/:feature_id/integrations/:integration_id/fields",
+            "params": [
+              {
+                "name": "feature_id",
+                "value": "",
+                "type": "path",
+                "description": "FeatureId identifier"
+              },
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "IntegrationId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create an integration field for a feature by integration ID"
+        },
+        {
+          "info": {
+            "name": "Create an integration field for a feature by service name",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/features/:feature_id/integrations/:service_name/fields",
+            "params": [
+              {
+                "name": "feature_id",
+                "value": "",
+                "type": "path",
+                "description": "FeatureId identifier"
+              },
+              {
+                "name": "service_name",
+                "value": "",
+                "type": "path",
+                "description": "ServiceName identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "DEPRECATED: provide :integration_id rather than :service_name to identify the integration."
+        },
+        {
+          "info": {
+            "name": "Create an integration field for a epic by integration ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/epics/:epic_id/integrations/:integration_id/fields",
+            "params": [
+              {
+                "name": "epic_id",
+                "value": "",
+                "type": "path",
+                "description": "EpicId identifier"
+              },
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "IntegrationId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create an integration field for a epic by integration ID"
+        },
+        {
+          "info": {
+            "name": "Create an integration field for an idea vote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/idea_endorsements/:idea_endorsement_id/integrations/:integration_id/fields",
+            "params": [
+              {
+                "name": "idea_endorsement_id",
+                "value": "",
+                "type": "path",
+                "description": "IdeaEndorsementId identifier"
+              },
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "IntegrationId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create an integration field for an idea vote"
+        },
+        {
+          "info": {
+            "name": "Create an integration field for an idea by integration ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/ideas/:idea_id/integrations/:integration_id/fields",
+            "params": [
+              {
+                "name": "idea_id",
+                "value": "",
+                "type": "path",
+                "description": "IdeaId identifier"
+              },
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "IntegrationId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create an integration field for an idea by integration ID"
+        },
+        {
+          "info": {
+            "name": "Get a specific integration field value",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/features/:feature_id/integrations/:integration_id/fields/:field_name",
+            "params": [
+              {
+                "name": "feature_id",
+                "value": "",
+                "type": "path",
+                "description": "FeatureId identifier"
+              },
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "IntegrationId identifier"
+              },
+              {
+                "name": "field_name",
+                "value": "",
+                "type": "path",
+                "description": "FieldName identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get a specific integration field value"
+        },
+        {
+          "info": {
+            "name": "List records with an associated integration field value",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/integrations/:integration_id/fields/:field_name/value/:field_value",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "IntegrationId identifier"
+              },
+              {
+                "name": "field_name",
+                "value": "",
+                "type": "path",
+                "description": "FieldName identifier"
+              },
+              {
+                "name": "field_value",
+                "value": "",
+                "type": "path",
+                "description": "FieldValue identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Possible records are releases, initiatives, features, epics, requirements, ideas or idea votes."
+        },
+        {
+          "info": {
+            "name": "List releases with an associated integration field value",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/releases/fields/:field_name/value/:field_value",
+            "params": [
+              {
+                "name": "field_name",
+                "value": "",
+                "type": "path",
+                "description": "FieldName identifier"
+              },
+              {
+                "name": "field_value",
+                "value": "",
+                "type": "path",
+                "description": "FieldValue identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List releases with an associated integration field value"
+        },
+        {
+          "info": {
+            "name": "List initiatives with an associated integration field value",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/initiatives/fields/:field_name/value/:field_value",
+            "params": [
+              {
+                "name": "field_name",
+                "value": "",
+                "type": "path",
+                "description": "FieldName identifier"
+              },
+              {
+                "name": "field_value",
+                "value": "",
+                "type": "path",
+                "description": "FieldValue identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List initiatives with an associated integration field value"
+        },
+        {
+          "info": {
+            "name": "List features with an associated integration field value",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/features/fields/:field_name/value/:field_value",
+            "params": [
+              {
+                "name": "field_name",
+                "value": "",
+                "type": "path",
+                "description": "FieldName identifier"
+              },
+              {
+                "name": "field_value",
+                "value": "",
+                "type": "path",
+                "description": "FieldValue identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List features with an associated integration field value"
+        },
+        {
+          "info": {
+            "name": "List epics with an associated integration field value",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/epics/fields/:field_name/value/:field_value",
+            "params": [
+              {
+                "name": "field_name",
+                "value": "",
+                "type": "path",
+                "description": "FieldName identifier"
+              },
+              {
+                "name": "field_value",
+                "value": "",
+                "type": "path",
+                "description": "FieldValue identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List epics with an associated integration field value"
+        },
+        {
+          "info": {
+            "name": "List requirements with an associated integration field value",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/requirements/fields/:field_name/value/:field_value",
+            "params": [
+              {
+                "name": "field_name",
+                "value": "",
+                "type": "path",
+                "description": "FieldName identifier"
+              },
+              {
+                "name": "field_value",
+                "value": "",
+                "type": "path",
+                "description": "FieldValue identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List requirements with an associated integration field value"
+        },
+        {
+          "info": {
+            "name": "List ideas with an associated integration field value",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/ideas/fields/:field_name/value/:field_value",
+            "params": [
+              {
+                "name": "field_name",
+                "value": "",
+                "type": "path",
+                "description": "FieldName identifier"
+              },
+              {
+                "name": "field_value",
+                "value": "",
+                "type": "path",
+                "description": "FieldValue identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List ideas with an associated integration field value"
+        },
+        {
+          "info": {
+            "name": "List idea votes with an associated integration field value",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/idea_endorsements/fields/:field_name/value/:field_value",
+            "params": [
+              {
+                "name": "field_name",
+                "value": "",
+                "type": "path",
+                "description": "FieldName identifier"
+              },
+              {
+                "name": "field_value",
+                "value": "",
+                "type": "path",
+                "description": "FieldValue identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List idea votes with an associated integration field value"
+        },
+        {
+          "info": {
+            "name": "Delete an integration field",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/integration_fields/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Delete an integration field"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

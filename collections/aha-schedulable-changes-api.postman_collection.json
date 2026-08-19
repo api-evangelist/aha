@@ -1,0 +1,743 @@
+{
+  "item": [
+    {
+      "id": "81f5cd8a-e3cf-4a35-a0f3-e122d8f8d48b",
+      "name": "Schedulable changes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3bbfa389-4c43-41cb-befe-3f07fb6471bc",
+          "name": "Create a schedulable change",
+          "request": {
+            "name": "Create a schedulable change",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "schedulable_changes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "203bf408-eb51-4b6e-89fb-4cda04817180",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schedulable_changes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"schedulable_change\": {\n    \"effective_start_date\": \"2019-01-01\",\n    \"schedule_id\": 54870801,\n    \"team_member_count\": 4,\n    \"hourly_rate\": 155\n  },\n  \"team_id\": 949295028\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"schedulable_change\": {\n    \"id\": \"6776881149488722242\",\n    \"effective_start_date\": \"2019-01-01\",\n    \"team_members_count\": 5,\n    \"hourly_rate\": \"155.0\",\n    \"color\": 6710886,\n    \"schedule\": {\n      \"id\": \"54870801\",\n      \"name\": \"Another schedule\",\n      \"hours_per_day\": \"10.0\",\n      \"story_points_per_day\": \"5.0\",\n      \"velocity\": \"10.0\"\n    },\n    \"team_memberships\": [\n      {\n        \"id\": \"202266373\",\n        \"name\": \"John Johnson\",\n        \"new_user\": false,\n        \"deleted\": null,\n        \"schedule\": {\n          \"id\": \"441193141\",\n          \"name\": \"Default schedule\",\n          \"hours_per_day\": \"8.2\",\n          \"story_points_per_day\": \"1.0\",\n          \"velocity\": \"10.5\",\n          \"monday\": true,\n          \"tuesday\": true,\n          \"wednesday\": true,\n          \"thursday\": true,\n          \"friday\": true,\n          \"saturday\": false,\n          \"sunday\": false\n        }\n      },\n      {\n        \"id\": \"646482528\",\n        \"name\": \"Mary Humpty\",\n        \"new_user\": false,\n        \"deleted\": null,\n        \"schedule\": {\n          \"id\": \"441193141\",\n          \"name\": \"Default schedule\",\n          \"hours_per_day\": \"8.2\",\n          \"story_points_per_day\": \"1.0\",\n          \"velocity\": \"10.5\",\n          \"monday\": true,\n          \"tuesday\": true,\n          \"wednesday\": true,\n          \"thursday\": true,\n          \"friday\": true,\n          \"saturday\": false,\n          \"sunday\": false\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aeee1d20-f133-428e-a1d8-d7feaaa2d0ad",
+          "name": "List schedulable changes",
+          "request": {
+            "name": "List schedulable changes",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "schedulable_changes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "{}",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9b2c510e-72f8-40ce-a447-7dfb452d0906",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schedulable_changes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "{}",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"schedulable_changes\": [],\n  \"pagination\": {\n    \"total_records\": 0,\n    \"total_pages\": 0,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ec28085-c0c4-4d46-a456-4dc7371f0887",
+          "name": "Update a schedulable change",
+          "request": {
+            "name": "Update a schedulable change",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "schedulable_changes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "abc40984-3483-423f-b771-af7da075459e",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schedulable_changes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"team_id\": 949295028,\n  \"schedulable_change\": {\n    \"effective_start_date\": \"2019-01-01\",\n    \"schedule_id\": 54870801,\n    \"team_members_count\": 4,\n    \"hourly_rate\": 155,\n    \"color\": \"#ff0000\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"schedulable_change\": {\n    \"id\": \"711001786\",\n    \"effective_start_date\": \"2019-01-01\",\n    \"team_members_count\": 4,\n    \"hourly_rate\": \"155.0\",\n    \"color\": 16711680,\n    \"schedule\": {\n      \"id\": \"54870801\",\n      \"name\": \"Another schedule\",\n      \"hours_per_day\": \"10.0\",\n      \"story_points_per_day\": \"5.0\",\n      \"velocity\": \"10.0\"\n    },\n    \"team_memberships\": [\n      {\n        \"id\": \"202266373\",\n        \"name\": \"John Johnson\",\n        \"new_user\": false,\n        \"deleted\": null,\n        \"schedule\": {\n          \"id\": \"441193141\",\n          \"name\": \"Default schedule\",\n          \"hours_per_day\": \"8.2\",\n          \"story_points_per_day\": \"1.0\",\n          \"velocity\": \"10.5\",\n          \"monday\": true,\n          \"tuesday\": true,\n          \"wednesday\": true,\n          \"thursday\": true,\n          \"friday\": true,\n          \"saturday\": false,\n          \"sunday\": false\n        }\n      },\n      {\n        \"id\": \"646482528\",\n        \"name\": \"Mary Humpty\",\n        \"new_user\": false,\n        \"deleted\": null,\n        \"schedule\": {\n          \"id\": \"441193141\",\n          \"name\": \"Default schedule\",\n          \"hours_per_day\": \"8.2\",\n          \"story_points_per_day\": \"1.0\",\n          \"velocity\": \"10.5\",\n          \"monday\": true,\n          \"tuesday\": true,\n          \"wednesday\": true,\n          \"thursday\": true,\n          \"friday\": true,\n          \"saturday\": false,\n          \"sunday\": false\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e78fee42-8aa7-46d3-90b2-9151d10f2fdb",
+          "name": "Delete a schedulable change",
+          "request": {
+            "name": "Delete a schedulable change",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "schedulable_changes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a1faa15a-2bee-4ecb-a5fc-dacbc4f712db",
+              "name": "No content - operation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schedulable_changes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19af1594-d1cc-495e-b1fa-c2f206eed8c7",
+          "name": "Update a scheduled change's team memberships",
+          "request": {
+            "name": "Update a scheduled change's team memberships",
+            "description": {
+              "content": "Adds, updates, or removes users via a scheduled change using the Team Membership relation. The schedulable change must be in the future",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "schedulable_changes",
+                ":schedulable_change_id",
+                "update_team_memberships"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "schedulable_change_id",
+                  "description": "(Required) SchedulableChangeId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ef60f82c-a570-491f-8b21-9b7b3d4dc692",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "schedulable_changes",
+                    ":schedulable_change_id",
+                    "update_team_memberships"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "schedulable_change_id",
+                      "description": "(Required) SchedulableChangeId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"team_membership_id\": 202266373,\n  \"team_membership\": {\n    \"schedule\": {\n      \"hours_per_day\": 5,\n      \"story_points_per_day\": 4,\n      \"monday\": false,\n      \"tuesday\": true,\n      \"wednesday\": true,\n      \"thursday\": true,\n      \"friday\": false,\n      \"saturday\": false,\n      \"sunday\": false\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"schedulable_change\": {\n    \"id\": \"711001786\",\n    \"effective_start_date\": \"2019-01-01\",\n    \"team_members_count\": 5,\n    \"hourly_rate\": \"100.0\",\n    \"color\": 6710886,\n    \"schedule\": {\n      \"id\": \"441193141\",\n      \"name\": \"Default schedule\",\n      \"hours_per_day\": \"8.2\",\n      \"story_points_per_day\": \"1.0\",\n      \"velocity\": \"10.5\"\n    },\n    \"team_memberships\": [\n      {\n        \"id\": \"202266373\",\n        \"name\": \"John Johnson\",\n        \"new_user\": false,\n        \"deleted\": null,\n        \"schedule\": {\n          \"id\": \"441193141\",\n          \"name\": \"Default schedule\",\n          \"hours_per_day\": \"8.2\",\n          \"story_points_per_day\": \"1.0\",\n          \"velocity\": \"10.5\",\n          \"monday\": true,\n          \"tuesday\": true,\n          \"wednesday\": true,\n          \"thursday\": true,\n          \"friday\": true,\n          \"saturday\": false,\n          \"sunday\": false\n        }\n      },\n      {\n        \"id\": \"646482528\",\n        \"name\": \"Mary Humpty\",\n        \"new_user\": false,\n        \"deleted\": null,\n        \"schedule\": {\n          \"id\": \"441193141\",\n          \"name\": \"Default schedule\",\n          \"hours_per_day\": \"8.2\",\n          \"story_points_per_day\": \"1.0\",\n          \"velocity\": \"10.5\",\n          \"monday\": true,\n          \"tuesday\": true,\n          \"wednesday\": true,\n          \"thursday\": true,\n          \"friday\": true,\n          \"saturday\": false,\n          \"sunday\": false\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Aha! account domain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "company",
+      "key": "account-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account-domain}}.aha.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{account-domain}.aha.io/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://{account-domain}.aha.io/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5fb83194-5884-4d56-886a-23dd72d127df",
+    "name": "Aha! Account backups Schedulable changes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Aha! generated from actual test responses\n\nContact Support:\n Name: Aha! Support",
+      "type": "text/plain"
+    }
+  }
+}

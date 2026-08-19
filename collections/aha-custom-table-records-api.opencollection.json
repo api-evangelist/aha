@@ -1,0 +1,162 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aha! Account backups Custom table records API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+      "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Custom table records",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a specific custom table record",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/custom_object_records/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Custom tables have a different set of records for each product.\nThis means that if you want to\n[create one](/api/resources/custom_table_records/create_a_custom_table_record)\nor\n[list them](/api/resources/custom_table_records/list_records_in_a_custom_table_for_a_product)\nyou must scope them to a product.\n\nOnce you have the ID of a specific custom table record, you can\n[get](/api/resources/custom_table_records/get_a_specific_custom_table_record),\n[modify](/api/resources/custom_table_records/update"
+        },
+        {
+          "info": {
+            "name": "Delete a custom table record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/custom_object_records/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Custom tables have a different set of records for each product.\nThis means that if you want to\n[create one](/api/resources/custom_table_records/create_a_custom_table_record)\nor\n[list them](/api/resources/custom_table_records/list_records_in_a_custom_table_for_a_product)\nyou must scope them to a product.\n\nOnce you have the ID of a specific custom table record, you can\n[get](/api/resources/custom_table_records/get_a_specific_custom_table_record),\n[modify](/api/resources/custom_table_records/update"
+        },
+        {
+          "info": {
+            "name": "List records in a custom table for a product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/products/:product_id/custom_objects/:key/records",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "ProductId identifier"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "Key identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Custom tables have a different set of records for each product.\nThis means that if you want to\n[create one](/api/resources/custom_table_records/create_a_custom_table_record)\nor\n[list them](/api/resources/custom_table_records/list_records_in_a_custom_table_for_a_product)\nyou must scope them to a product.\n\nOnce you have the ID of a specific custom table record, you can\n[get](/api/resources/custom_table_records/get_a_specific_custom_table_record),\n[modify](/api/resources/custom_table_records/update"
+        },
+        {
+          "info": {
+            "name": "Create a custom table record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/products/:product_id/custom_objects/:key/records",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "ProductId identifier"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "Key identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Custom tables have a different set of records for each product.\nThis means that if you want to\n[create one](/api/resources/custom_table_records/create_a_custom_table_record)\nor\n[list them](/api/resources/custom_table_records/list_records_in_a_custom_table_for_a_product)\nyou must scope them to a product.\n\nOnce you have the ID of a specific custom table record, you can\n[get](/api/resources/custom_table_records/get_a_specific_custom_table_record),\n[modify](/api/resources/custom_table_records/update"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

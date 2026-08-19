@@ -1,0 +1,3393 @@
+{
+  "item": [
+    {
+      "id": "aca03242-23a2-47dd-bf76-d6ba7237f297",
+      "name": "Comments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fe9e8e3b-afe8-4778-ad6f-02bd539dfc05",
+          "name": "Create a comment on a feature",
+          "request": {
+            "name": "Create a comment on a feature",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "features",
+                ":feature_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "feature_id",
+                  "description": "(Required) FeatureId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"comment\": {\n    \"body\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "baca1f1d-2944-4431-aae7-815a229db0b6",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "features",
+                    ":feature_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature_id",
+                      "description": "(Required) FeatureId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"comment\": {\n    \"body\": \"<p>This is the comment body for a feature.</p>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comment\": {\n    \"id\": \"6776881149488625529\",\n    \"body\": \"<p>This is the comment body for a feature.</p>\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"attachments\": [],\n    \"url\": \"http://company.aha.io/comments/6776881149488625529\",\n    \"resource\": \"http://company.aha.io/api/v1/comments/6776881149488625529\",\n    \"commentable\": {\n      \"type\": \"Feature\",\n      \"id\": \"1007868956\",\n      \"product_id\": \"131414752\",\n      \"url\": \"http://company.aha.io/features/PRJ1-1\",\n      \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3eae273c-0d01-4548-a1e9-eae139fff143",
+          "name": "List comments on a feature",
+          "request": {
+            "name": "List comments on a feature",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "features",
+                ":feature_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "feature_id",
+                  "description": "(Required) FeatureId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0f4d48d8-cfc0-42dc-b543-999866b14910",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "features",
+                    ":feature_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature_id",
+                      "description": "(Required) FeatureId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comments\": [\n    {\n      \"id\": \"781701978\",\n      \"body\": \"Comment on feature\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"1020675218\",\n        \"name\": \"Mary Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [\n        {\n          \"id\": \"180276963\",\n          \"download_url\": \"https://company.aha.io/attachments/180276963/token/aaabbbccc9.download?size=original\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"original_file_size\": 123,\n          \"content_type\": \"text/plain\",\n          \"file_name\": \"uploaded_file_name.txt\",\n          \"file_size\": 123\n        },\n        {\n          \"id\": \"822785180\",\n          \"download_url\": \"https://company.aha.io/attachments/822785180/token/aaabbbccc8.download?size=original\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"original_file_size\": 123,\n          \"content_type\": \"text/plain\",\n          \"file_name\": \"uploaded_file_name.txt\",\n          \"file_size\": 123\n        }\n      ],\n      \"url\": \"http://company.aha.io/comments/781701978\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/781701978\",\n      \"commentable\": {\n        \"type\": \"Feature\",\n        \"id\": \"1007868956\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/features/PRJ1-1\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 1,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b20ec9c-4106-4de7-b7f0-f73ac1fa1e33",
+          "name": "Create a comment on an epic",
+          "request": {
+            "name": "Create a comment on an epic",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "epics",
+                ":epic_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "epic_id",
+                  "description": "(Required) EpicId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"comment\": {\n    \"body\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a37b757f-8501-4ca0-b7ca-227a7e6b8a7d",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "epics",
+                    ":epic_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "epic_id",
+                      "description": "(Required) EpicId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"comment\": {\n    \"body\": \"<p>This is the comment body for an epic.</p>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comment\": {\n    \"id\": \"6776881149490456459\",\n    \"body\": \"<p>This is the comment body for an epic.</p>\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"attachments\": [],\n    \"url\": \"http://company.aha.io/comments/6776881149490456459\",\n    \"resource\": \"http://company.aha.io/api/v1/comments/6776881149490456459\",\n    \"commentable\": {\n      \"type\": \"Epic\",\n      \"id\": \"999605892\",\n      \"product_id\": \"131414752\",\n      \"url\": \"http://company.aha.io/epics/PRJ1-E-1\",\n      \"resource\": \"http://company.aha.io/api/v1/epics/PRJ1-E-1\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f4c0365e-555f-464c-8b31-467b6221dfa3",
+          "name": "List comments on an epic",
+          "request": {
+            "name": "List comments on an epic",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "epics",
+                ":epic_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "epic_id",
+                  "description": "(Required) EpicId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6055a4b2-62d3-47bf-b69e-e7c60e3e25e8",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "epics",
+                    ":epic_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "epic_id",
+                      "description": "(Required) EpicId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comments\": [\n    {\n      \"id\": \"465979716\",\n      \"body\": \"This is an epic comment\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"689956296\",\n        \"name\": \"Henry Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/465979716\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/465979716\",\n      \"commentable\": {\n        \"type\": \"Epic\",\n        \"id\": \"999605892\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/epics/PRJ1-E-1\",\n        \"resource\": \"http://company.aha.io/api/v1/epics/PRJ1-E-1\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 1,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7724594-d674-4900-9c18-6d3354f8ec43",
+          "name": "Create a comment on a requirement",
+          "request": {
+            "name": "Create a comment on a requirement",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "requirements",
+                ":requirement_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "requirement_id",
+                  "description": "(Required) RequirementId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"comment\": {\n    \"body\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7d7fafd0-bd2b-4999-824c-861275e0968e",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "requirements",
+                    ":requirement_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "requirement_id",
+                      "description": "(Required) RequirementId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"comment\": {\n    \"body\": \"<p>This is the comment body for a requirement.</p>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comment\": {\n    \"id\": \"6776881149487246030\",\n    \"body\": \"<p>This is the comment body for a requirement.</p>\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"attachments\": [],\n    \"url\": \"http://company.aha.io/comments/6776881149487246030\",\n    \"resource\": \"http://company.aha.io/api/v1/comments/6776881149487246030\",\n    \"commentable\": {\n      \"type\": \"Requirement\",\n      \"id\": \"483368544\",\n      \"product_id\": \"131414752\",\n      \"url\": \"http://company.aha.io/requirements/PRJ1-1-1\",\n      \"resource\": \"http://company.aha.io/api/v1/requirements/PRJ1-1-1\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "78c3f3d8-53e1-499b-82bb-2fe0c1f20d82",
+          "name": "List comments on a requirement",
+          "request": {
+            "name": "List comments on a requirement",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "requirements",
+                ":requirement_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "requirement_id",
+                  "description": "(Required) RequirementId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4b5934fc-d3e4-40d3-96dd-75505d6309a3",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "requirements",
+                    ":requirement_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "requirement_id",
+                      "description": "(Required) RequirementId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comments\": [\n    {\n      \"id\": \"971503243\",\n      \"body\": \"This is a requirement comment\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"1020675218\",\n        \"name\": \"Mary Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/971503243\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/971503243\",\n      \"commentable\": {\n        \"type\": \"Requirement\",\n        \"id\": \"483368544\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/requirements/PRJ1-1-1\",\n        \"resource\": \"http://company.aha.io/api/v1/requirements/PRJ1-1-1\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 1,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "99ce4220-bb3f-48dd-a334-5ee5556623b1",
+          "name": "Create a comment on a note",
+          "request": {
+            "name": "Create a comment on a note",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "pages",
+                ":page_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "page_id",
+                  "description": "(Required) PageId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"comment\": {\n    \"body\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a03433b5-df88-4c05-9c39-43b018c0d8ac",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "pages",
+                    ":page_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "page_id",
+                      "description": "(Required) PageId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"comment\": {\n    \"body\": \"<p>This is the comment body for a note.</p>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comment\": {\n    \"id\": \"6776881149494267635\",\n    \"body\": \"<p>This is the comment body for a note.</p>\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"attachments\": [],\n    \"url\": \"http://company.aha.io/comments/6776881149494267635\",\n    \"resource\": \"http://company.aha.io/api/v1/comments/6776881149494267635\",\n    \"commentable\": {\n      \"type\": \"Page\",\n      \"id\": \"1051981226\",\n      \"product_id\": \"131414752\",\n      \"url\": \"http://company.aha.io/pages/PRJ1-N-1\",\n      \"resource\": \"http://company.aha.io/api/v1/pages/PRJ1-N-1\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f0a8fe98-be38-43cc-b4b4-f677e8e64525",
+          "name": "List comments on a note",
+          "request": {
+            "name": "List comments on a note",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "pages",
+                ":page_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "page_id",
+                  "description": "(Required) PageId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ff2ab25e-90ff-4c74-9758-aaede11779e2",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "pages",
+                    ":page_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "page_id",
+                      "description": "(Required) PageId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comments\": [],\n  \"pagination\": {\n    \"total_records\": 0,\n    \"total_pages\": 0,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9ecdc9b6-8b3e-4657-8fe6-396b48e4d736",
+          "name": "Create an internal comment for an idea",
+          "request": {
+            "name": "Create an internal comment for an idea",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "ideas",
+                ":idea_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "idea_id",
+                  "description": "(Required) IdeaId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"comment\": {\n    \"body\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "984eaf6f-82db-41fe-b0e5-d4109d7c858b",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "ideas",
+                    ":idea_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "idea_id",
+                      "description": "(Required) IdeaId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"comment\": {\n    \"body\": \"<p>This is the comment body for an idea.</p>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comment\": {\n    \"id\": \"6776881149495437410\",\n    \"body\": \"<p>This is the comment body for an idea.</p>\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"attachments\": [],\n    \"url\": \"http://company.aha.io/comments/6776881149495437410\",\n    \"resource\": \"http://company.aha.io/api/v1/comments/6776881149495437410\",\n    \"commentable\": {\n      \"type\": \"Ideas::Idea\",\n      \"id\": \"58056975\",\n      \"product_id\": \"131414752\",\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-1\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/ideas/PRJ1-I-1\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56849655-94ff-46f5-b93d-18dfab696011",
+          "name": "List comments on an idea",
+          "request": {
+            "name": "List comments on an idea",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "ideas",
+                ":idea_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "idea_id",
+                  "description": "(Required) IdeaId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0279a361-f89b-412f-85a8-64ad1df2af8a",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "ideas",
+                    ":idea_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "idea_id",
+                      "description": "(Required) IdeaId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comments\": [],\n  \"pagination\": {\n    \"total_records\": 0,\n    \"total_pages\": 0,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "862b219b-f3e3-495b-a710-e1f4374fb0e8",
+          "name": "Create a comment on an initiative",
+          "request": {
+            "name": "Create a comment on an initiative",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "initiatives",
+                ":initiative_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "initiative_id",
+                  "description": "(Required) InitiativeId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"comment\": {\n    \"body\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5579913c-2854-4cef-bb6d-cc4569bb04e2",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "initiatives",
+                    ":initiative_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "initiative_id",
+                      "description": "(Required) InitiativeId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"comment\": {\n    \"body\": \"<p>This is the comment body for an initiative.</p>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comment\": {\n    \"id\": \"6776881149497068301\",\n    \"body\": \"<p>This is the comment body for an initiative.</p>\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"attachments\": [],\n    \"url\": \"http://company.aha.io/comments/6776881149497068301\",\n    \"resource\": \"http://company.aha.io/api/v1/comments/6776881149497068301\",\n    \"commentable\": {\n      \"type\": \"Initiative\",\n      \"id\": \"423077122\",\n      \"product_id\": \"131414752\",\n      \"url\": \"http://company.aha.io/initiatives/PRJ1-S-1\",\n      \"resource\": \"http://company.aha.io/api/v1/initiatives/PRJ1-S-1\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb3b216c-2185-4526-bc19-9a45ce4d16c2",
+          "name": "List comments on an initiative",
+          "request": {
+            "name": "List comments on an initiative",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "initiatives",
+                ":initiative_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "initiative_id",
+                  "description": "(Required) InitiativeId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fcc6289b-4c04-4d8b-ac66-85fd2373297f",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "initiatives",
+                    ":initiative_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "initiative_id",
+                      "description": "(Required) InitiativeId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comments\": [\n    {\n      \"id\": \"133461614\",\n      \"body\": \"Comment on initiative\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"601067208\",\n        \"name\": \"Jeremy Smith\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/133461614\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/133461614\",\n      \"commentable\": {\n        \"type\": \"Initiative\",\n        \"id\": \"423077122\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/initiatives/PRJ1-S-1\",\n        \"resource\": \"http://company.aha.io/api/v1/initiatives/PRJ1-S-1\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 1,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9178e77-e933-4a23-ac7c-67b00ca6e4da",
+          "name": "Create a comment on a goal",
+          "request": {
+            "name": "Create a comment on a goal",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "goals",
+                ":goal_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "goal_id",
+                  "description": "(Required) GoalId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"comment\": {\n    \"body\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ca602b7c-ded1-4a2b-bcc0-230cde1e7cf6",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "goals",
+                    ":goal_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "goal_id",
+                      "description": "(Required) GoalId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"comment\": {\n    \"body\": \"<p>This is the comment body for a goal.</p>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comment\": {\n    \"id\": \"6776881149486535140\",\n    \"body\": \"<p>This is the comment body for a goal.</p>\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"attachments\": [],\n    \"url\": \"http://company.aha.io/comments/6776881149486535140\",\n    \"resource\": \"http://company.aha.io/api/v1/comments/6776881149486535140\",\n    \"commentable\": {\n      \"type\": \"StrategicImperative\",\n      \"id\": \"602095703\",\n      \"product_id\": \"131414752\",\n      \"url\": \"http://company.aha.io/strategic_imperatives/DEMOENT-G-1\",\n      \"resource\": \"http://company.aha.io/api/v1/goals/DEMOENT-G-1\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "233b177f-b722-4869-b55f-9a6e9920d0ec",
+          "name": "List comments on a goal",
+          "request": {
+            "name": "List comments on a goal",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "goals",
+                ":goal_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "goal_id",
+                  "description": "(Required) GoalId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a3948a27-f014-4848-9c63-c580ec25f1fe",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "goals",
+                    ":goal_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "goal_id",
+                      "description": "(Required) GoalId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comments\": [\n    {\n      \"id\": \"821249787\",\n      \"body\": \"Comment on goal\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"601067208\",\n        \"name\": \"Jeremy Smith\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/821249787\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/821249787\",\n      \"commentable\": {\n        \"type\": \"StrategicImperative\",\n        \"id\": \"602095703\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/strategic_imperatives/DEMOENT-G-1\",\n        \"resource\": \"http://company.aha.io/api/v1/goals/DEMOENT-G-1\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 1,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "36a7d546-2def-4e68-a293-d3a4849074e1",
+          "name": "Create a comment on a release",
+          "request": {
+            "name": "Create a comment on a release",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "releases",
+                ":release_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "release_id",
+                  "description": "(Required) ReleaseId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"comment\": {\n    \"body\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "beb1571a-a3fa-4424-aba5-2b6003c14c40",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "releases",
+                    ":release_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "release_id",
+                      "description": "(Required) ReleaseId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"comment\": {\n    \"body\": \"<p>This is the comment body for a release.</p>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comment\": {\n    \"id\": \"6776881149487602359\",\n    \"body\": \"<p>This is the comment body for a release.</p>\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"attachments\": [],\n    \"url\": \"http://company.aha.io/comments/6776881149487602359\",\n    \"resource\": \"http://company.aha.io/api/v1/comments/6776881149487602359\",\n    \"commentable\": {\n      \"type\": \"Release\",\n      \"id\": \"278327321\",\n      \"product_id\": \"131414752\",\n      \"url\": \"http://company.aha.io/releases/PRJ1-R-1\",\n      \"resource\": \"http://company.aha.io/api/v1/releases/PRJ1-R-1\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ebc5c340-5d7d-4b84-a413-d11a9a4253eb",
+          "name": "List comments on a release",
+          "request": {
+            "name": "List comments on a release",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "releases",
+                ":release_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "release_id",
+                  "description": "(Required) ReleaseId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3cd8d053-9d04-48a3-adce-d763f855b5bb",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "releases",
+                    ":release_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "release_id",
+                      "description": "(Required) ReleaseId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comments\": [\n    {\n      \"id\": \"428925905\",\n      \"body\": \"Comment on release\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"601067208\",\n        \"name\": \"Jeremy Smith\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/428925905\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/428925905\",\n      \"commentable\": {\n        \"type\": \"Release\",\n        \"id\": \"278327321\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/releases/PRJ1-R-1\",\n        \"resource\": \"http://company.aha.io/api/v1/releases/PRJ1-R-1\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 1,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a59b949-c0ea-48ae-a76d-fc0290c655e0",
+          "name": "Create a comment on a release phase",
+          "request": {
+            "name": "Create a comment on a release phase",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "release_phases",
+                ":release_phase_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "release_phase_id",
+                  "description": "(Required) ReleasePhaseId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"comment\": {\n    \"body\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cfb23ebf-5575-4473-a1ec-26f520367718",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "release_phases",
+                    ":release_phase_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "release_phase_id",
+                      "description": "(Required) ReleasePhaseId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"comment\": {\n    \"body\": \"<p>This is the comment body for a release phase.</p>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comment\": {\n    \"id\": \"6776881149489627713\",\n    \"body\": \"<p>This is the comment body for a release phase.</p>\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"attachments\": [],\n    \"url\": \"http://company.aha.io/comments/6776881149489627713\",\n    \"resource\": \"http://company.aha.io/api/v1/comments/6776881149489627713\",\n    \"commentable\": {\n      \"type\": \"ReleasePhase\",\n      \"id\": \"20526005\",\n      \"url\": \"http://company.aha.io/release_phases/20526005\",\n      \"resource\": \"http://company.aha.io/api/v1/release_phases/20526005\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "505fbfb1-9f42-41b0-917a-d22bbfbdaf08",
+          "name": "List comments on a release phase",
+          "request": {
+            "name": "List comments on a release phase",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "release_phases",
+                ":release_phase_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "release_phase_id",
+                  "description": "(Required) ReleasePhaseId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ff6f25ed-6a5e-482f-9584-2ef11eafcc12",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "release_phases",
+                    ":release_phase_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "release_phase_id",
+                      "description": "(Required) ReleasePhaseId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comments\": [],\n  \"pagination\": {\n    \"total_records\": 0,\n    \"total_pages\": 0,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "abbea715-b1b5-4a59-a0d9-b42c22dfcd31",
+          "name": "Create a comment on a to-do",
+          "request": {
+            "name": "Create a comment on a to-do",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tasks",
+                ":task_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "task_id",
+                  "description": "(Required) TaskId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"comment\": {\n    \"body\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9913df51-ac0e-457e-ab74-f7c2dafca431",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tasks",
+                    ":task_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "task_id",
+                      "description": "(Required) TaskId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"comment\": {\n    \"body\": \"<p>This is the comment body for a to-do.</p>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comment\": {\n    \"id\": \"6776881149487788674\",\n    \"body\": \"<p>This is the comment body for a to-do.</p>\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"attachments\": [],\n    \"url\": \"http://company.aha.io/comments/6776881149487788674\",\n    \"resource\": \"http://company.aha.io/api/v1/comments/6776881149487788674\",\n    \"commentable\": {\n      \"type\": \"Task\",\n      \"id\": \"748715293\",\n      \"product_id\": \"131414752\",\n      \"url\": \"http://company.aha.io/tasks/748715293\",\n      \"resource\": \"http://company.aha.io/api/v1/tasks/748715293\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5a9e978-618f-405f-b704-7f90c9d8e832",
+          "name": "List comments on a to-do",
+          "request": {
+            "name": "List comments on a to-do",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tasks",
+                ":task_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "task_id",
+                  "description": "(Required) TaskId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ae3b5a6a-6719-4df3-a3b6-9af62fef4d84",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tasks",
+                    ":task_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "task_id",
+                      "description": "(Required) TaskId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comments\": [\n    {\n      \"id\": \"55160124\",\n      \"body\": \"Comment on project\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"1020675218\",\n        \"name\": \"Mary Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/55160124\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/55160124\",\n      \"commentable\": {\n        \"type\": \"Task\",\n        \"id\": \"748715293\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/tasks/748715293\",\n        \"resource\": \"http://company.aha.io/api/v1/tasks/748715293\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 1,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "740114bd-1a61-49bc-a64a-1b96babfc921",
+          "name": "Get a specific comment",
+          "request": {
+            "name": "Get a specific comment",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "comments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a1f80448-0e35-49c9-862a-c5cb8cf4532f",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comment\": {\n    \"id\": \"781701978\",\n    \"body\": \"Comment on feature\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"attachments\": [\n      {\n        \"id\": \"180276963\",\n        \"download_url\": \"https://company.aha.io/attachments/180276963/token/aaabbbccc9.download?size=original\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"original_file_size\": 123,\n        \"content_type\": \"text/plain\",\n        \"file_name\": \"uploaded_file_name.txt\",\n        \"file_size\": 123\n      },\n      {\n        \"id\": \"822785180\",\n        \"download_url\": \"https://company.aha.io/attachments/822785180/token/aaabbbccc8.download?size=original\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"original_file_size\": 123,\n        \"content_type\": \"text/plain\",\n        \"file_name\": \"uploaded_file_name.txt\",\n        \"file_size\": 123\n      }\n    ],\n    \"url\": \"http://company.aha.io/comments/781701978\",\n    \"resource\": \"http://company.aha.io/api/v1/comments/781701978\",\n    \"commentable\": {\n      \"type\": \"Feature\",\n      \"id\": \"1007868956\",\n      \"product_id\": \"131414752\",\n      \"url\": \"http://company.aha.io/features/PRJ1-1\",\n      \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65cc10e3-b0a7-462b-ad12-0417a3500b48",
+          "name": "Update a comment",
+          "request": {
+            "name": "Update a comment",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "comments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"comment\": {\n    \"body\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "aecfcd79-b6a9-40e3-87a9-b1b3f573c6c3",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"comment\": {\n    \"body\": \"<p>Updated comment body.</p>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comment\": {\n    \"id\": \"781701978\",\n    \"body\": \"<p>Updated comment body.</p>\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"attachments\": [\n      {\n        \"id\": \"180276963\",\n        \"download_url\": \"https://company.aha.io/attachments/180276963/token/aaabbbccc9.download?size=original\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"original_file_size\": 123,\n        \"content_type\": \"text/plain\",\n        \"file_name\": \"uploaded_file_name.txt\",\n        \"file_size\": 123\n      },\n      {\n        \"id\": \"822785180\",\n        \"download_url\": \"https://company.aha.io/attachments/822785180/token/aaabbbccc8.download?size=original\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"original_file_size\": 123,\n        \"content_type\": \"text/plain\",\n        \"file_name\": \"uploaded_file_name.txt\",\n        \"file_size\": 123\n      }\n    ],\n    \"url\": \"http://company.aha.io/comments/781701978\",\n    \"resource\": \"http://company.aha.io/api/v1/comments/781701978\",\n    \"commentable\": {\n      \"type\": \"Feature\",\n      \"id\": \"1007868956\",\n      \"product_id\": \"131414752\",\n      \"url\": \"http://company.aha.io/features/PRJ1-1\",\n      \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0fb6865b-393a-4993-b285-c677c74dd361",
+          "name": "Delete a comment",
+          "request": {
+            "name": "Delete a comment",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "comments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fd894e58-06b2-4c4a-a9a6-812e191dc5d7",
+              "name": "No content - operation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d4443981-e4e4-4439-b6d0-a670ead2e7f0",
+          "name": "List comments in a product",
+          "request": {
+            "name": "List comments in a product",
+            "description": {
+              "content": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_comments_on_a_goal)\n- [Releases](/api/resources/comments/list_comments_on_a_release)\n- [Release phases](/api/resources/comments/list_comments_on_a_release_phase)\n- [To-dos](/api/resources/comments/list_comments_on_a_to-do)\n\nThey can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),\nor retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "products",
+                ":project_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) ProjectId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fa0dbe82-1071-48bd-ab95-bb91c3cb28ae",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "products",
+                    ":project_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) ProjectId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"comments\": [\n    {\n      \"id\": \"428925905\",\n      \"body\": \"Comment on release\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"601067208\",\n        \"name\": \"Jeremy Smith\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/428925905\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/428925905\",\n      \"commentable\": {\n        \"type\": \"Release\",\n        \"id\": \"278327321\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/releases/PRJ1-R-1\",\n        \"resource\": \"http://company.aha.io/api/v1/releases/PRJ1-R-1\"\n      }\n    },\n    {\n      \"id\": \"133461614\",\n      \"body\": \"Comment on initiative\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"601067208\",\n        \"name\": \"Jeremy Smith\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/133461614\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/133461614\",\n      \"commentable\": {\n        \"type\": \"Initiative\",\n        \"id\": \"423077122\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/initiatives/PRJ1-S-1\",\n        \"resource\": \"http://company.aha.io/api/v1/initiatives/PRJ1-S-1\"\n      }\n    },\n    {\n      \"id\": \"821249787\",\n      \"body\": \"Comment on goal\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"601067208\",\n        \"name\": \"Jeremy Smith\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/821249787\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/821249787\",\n      \"commentable\": {\n        \"type\": \"StrategicImperative\",\n        \"id\": \"602095703\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/strategic_imperatives/DEMOENT-G-1\",\n        \"resource\": \"http://company.aha.io/api/v1/goals/DEMOENT-G-1\"\n      }\n    },\n    {\n      \"id\": \"102125331\",\n      \"body\": \"Comment 5\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"689956296\",\n        \"name\": \"Henry Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/102125331\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/102125331\",\n      \"commentable\": {\n        \"type\": \"Feature\",\n        \"id\": \"622562724\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/features/PRJ1-2\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-2\"\n      }\n    },\n    {\n      \"id\": \"522133163\",\n      \"body\": \"Comment 6\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"689956296\",\n        \"name\": \"Henry Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/522133163\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/522133163\",\n      \"commentable\": {\n        \"type\": \"Feature\",\n        \"id\": \"622562724\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/features/PRJ1-2\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-2\"\n      }\n    },\n    {\n      \"id\": \"672673340\",\n      \"body\": \"Comment 7\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"689956296\",\n        \"name\": \"Henry Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/672673340\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/672673340\",\n      \"commentable\": {\n        \"type\": \"Feature\",\n        \"id\": \"622562724\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/features/PRJ1-2\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-2\"\n      }\n    },\n    {\n      \"id\": \"950481839\",\n      \"body\": \"Comment 8\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"689956296\",\n        \"name\": \"Henry Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/950481839\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/950481839\",\n      \"commentable\": {\n        \"type\": \"Feature\",\n        \"id\": \"622562724\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/features/PRJ1-2\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-2\"\n      }\n    },\n    {\n      \"id\": \"262144830\",\n      \"body\": \"Comment 9\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"689956296\",\n        \"name\": \"Henry Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/262144830\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/262144830\",\n      \"commentable\": {\n        \"type\": \"Feature\",\n        \"id\": \"622562724\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/features/PRJ1-2\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-2\"\n      }\n    },\n    {\n      \"id\": \"231087120\",\n      \"body\": \"Comment 10\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"689956296\",\n        \"name\": \"Henry Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/231087120\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/231087120\",\n      \"commentable\": {\n        \"type\": \"Feature\",\n        \"id\": \"622562724\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/features/PRJ1-2\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-2\"\n      }\n    },\n    {\n      \"id\": \"985738395\",\n      \"body\": \"Comment 11\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"689956296\",\n        \"name\": \"Henry Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/985738395\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/985738395\",\n      \"commentable\": {\n        \"type\": \"Feature\",\n        \"id\": \"622562724\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/features/PRJ1-2\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-2\"\n      }\n    },\n    {\n      \"id\": \"600341795\",\n      \"body\": \"Comment 12\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"689956296\",\n        \"name\": \"Henry Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/600341795\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/600341795\",\n      \"commentable\": {\n        \"type\": \"Feature\",\n        \"id\": \"622562724\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/features/PRJ1-2\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-2\"\n      }\n    },\n    {\n      \"id\": \"349130164\",\n      \"body\": \"Comment 13\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"689956296\",\n        \"name\": \"Henry Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/349130164\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/349130164\",\n      \"commentable\": {\n        \"type\": \"Feature\",\n        \"id\": \"622562724\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/features/PRJ1-2\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-2\"\n      }\n    },\n    {\n      \"id\": \"179034137\",\n      \"body\": \"Comment 14\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"689956296\",\n        \"name\": \"Henry Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/179034137\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/179034137\",\n      \"commentable\": {\n        \"type\": \"Feature\",\n        \"id\": \"622562724\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/features/PRJ1-2\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-2\"\n      }\n    },\n    {\n      \"id\": \"1034741892\",\n      \"body\": \"Comment 15\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"689956296\",\n        \"name\": \"Henry Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/1034741892\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/1034741892\",\n      \"commentable\": {\n        \"type\": \"Feature\",\n        \"id\": \"622562724\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/features/PRJ1-2\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-2\"\n      }\n    },\n    {\n      \"id\": \"614840636\",\n      \"body\": \"Comment 16\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"689956296\",\n        \"name\": \"Henry Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/614840636\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/614840636\",\n      \"commentable\": {\n        \"type\": \"Feature\",\n        \"id\": \"622562724\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/features/PRJ1-2\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-2\"\n      }\n    },\n    {\n      \"id\": \"329419181\",\n      \"body\": \"Comment 17\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"689956296\",\n        \"name\": \"Henry Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/329419181\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/329419181\",\n      \"commentable\": {\n        \"type\": \"Feature\",\n        \"id\": \"622562724\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/features/PRJ1-2\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-2\"\n      }\n    },\n    {\n      \"id\": \"52270142\",\n      \"body\": \"Comment 18\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"689956296\",\n        \"name\": \"Henry Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/52270142\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/52270142\",\n      \"commentable\": {\n        \"type\": \"Feature\",\n        \"id\": \"622562724\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/features/PRJ1-2\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-2\"\n      }\n    },\n    {\n      \"id\": \"823230344\",\n      \"body\": \"Comment 4\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"689956296\",\n        \"name\": \"Henry Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/823230344\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/823230344\",\n      \"commentable\": {\n        \"type\": \"Feature\",\n        \"id\": \"622562724\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/features/PRJ1-2\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-2\"\n      }\n    },\n    {\n      \"id\": \"796256805\",\n      \"body\": \"Comment 3\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"689956296\",\n        \"name\": \"Henry Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/796256805\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/796256805\",\n      \"commentable\": {\n        \"type\": \"Feature\",\n        \"id\": \"622562724\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/features/PRJ1-2\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-2\"\n      }\n    },\n    {\n      \"id\": \"410180276\",\n      \"body\": \"Comment 2\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"689956296\",\n        \"name\": \"Henry Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/410180276\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/410180276\",\n      \"commentable\": {\n        \"type\": \"Feature\",\n        \"id\": \"622562724\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/features/PRJ1-2\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-2\"\n      }\n    },\n    {\n      \"id\": \"24873740\",\n      \"body\": \"Comment 1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"1020675218\",\n        \"name\": \"Mary Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/24873740\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/24873740\",\n      \"commentable\": {\n        \"type\": \"Feature\",\n        \"id\": \"622562724\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/features/PRJ1-2\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-2\"\n      }\n    },\n    {\n      \"id\": \"213086058\",\n      \"body\": \"An annotation comment\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"1020675218\",\n        \"name\": \"Mary Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/213086058\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/213086058\",\n      \"commentable\": {\n        \"type\": \"Annotation\",\n        \"id\": \"541632378\",\n        \"url\": \"http://company.aha.io/annotations/541632378\"\n      }\n    },\n    {\n      \"id\": \"971503243\",\n      \"body\": \"This is a requirement comment\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"1020675218\",\n        \"name\": \"Mary Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/971503243\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/971503243\",\n      \"commentable\": {\n        \"type\": \"Requirement\",\n        \"id\": \"483368544\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/requirements/PRJ1-1-1\",\n        \"resource\": \"http://company.aha.io/api/v1/requirements/PRJ1-1-1\"\n      }\n    },\n    {\n      \"id\": \"340318108\",\n      \"body\": \"This feature is integrated\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"1020675218\",\n        \"name\": \"Mary Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/340318108\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/340318108\",\n      \"commentable\": {\n        \"type\": \"Feature\",\n        \"id\": \"303873333\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/features/PRJ1-3\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-3\"\n      }\n    },\n    {\n      \"id\": \"110125740\",\n      \"body\": \"Comment on competitor 1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"1020675218\",\n        \"name\": \"Mary Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/110125740\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/110125740\",\n      \"commentable\": {\n        \"type\": \"Competitor\",\n        \"id\": \"892399625\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/competitors/PROD-C-1\",\n        \"resource\": \"http://company.aha.io/api/v1/competitors/PROD-C-1\"\n      }\n    },\n    {\n      \"id\": \"781701978\",\n      \"body\": \"Comment on feature\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"1020675218\",\n        \"name\": \"Mary Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [\n        {\n          \"id\": \"180276963\",\n          \"download_url\": \"https://company.aha.io/attachments/180276963/token/aaabbbccc9.download?size=original\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"original_file_size\": 123,\n          \"content_type\": \"text/plain\",\n          \"file_name\": \"uploaded_file_name.txt\",\n          \"file_size\": 123\n        },\n        {\n          \"id\": \"822785180\",\n          \"download_url\": \"https://company.aha.io/attachments/822785180/token/aaabbbccc8.download?size=original\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"original_file_size\": 123,\n          \"content_type\": \"text/plain\",\n          \"file_name\": \"uploaded_file_name.txt\",\n          \"file_size\": 123\n        }\n      ],\n      \"url\": \"http://company.aha.io/comments/781701978\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/781701978\",\n      \"commentable\": {\n        \"type\": \"Feature\",\n        \"id\": \"1007868956\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/features/PRJ1-1\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\"\n      }\n    },\n    {\n      \"id\": \"933135074\",\n      \"body\": \"Comment on project\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"1020675218\",\n        \"name\": \"Mary Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [\n        {\n          \"id\": \"109125418\",\n          \"download_url\": \"https://company.aha.io/attachments/109125418/token/aaabbbccc6.download?size=original\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"original_file_size\": 67794,\n          \"content_type\": \"application/pdf\",\n          \"file_name\": \"google_doc.pdf\",\n          \"file_size\": 67794\n        },\n        {\n          \"id\": \"221084308\",\n          \"download_url\": \"https://company.aha.io/attachments/221084308/token/aaabbbccc14.download?size=original\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"original_file_size\": 123,\n          \"content_type\": \"image/png\",\n          \"file_name\": \"Mockup.png\",\n          \"file_size\": 123\n        },\n        {\n          \"id\": \"229957526\",\n          \"download_url\": \"https://company.aha.io/attachments/229957526/token/aaabbbccc15.download?size=original\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"original_file_size\": 123,\n          \"content_type\": \"image/png\",\n          \"file_name\": \"not-a-mockup.png\",\n          \"file_size\": 123\n        },\n        {\n          \"id\": \"744925247\",\n          \"download_url\": \"https://company.aha.io/attachments/744925247/token/aaabbbccc1.download?size=original\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n          \"original_file_size\": 123,\n          \"content_type\": \"text/plain\",\n          \"file_name\": \"uploaded_file_name.txt\",\n          \"file_size\": 123\n        }\n      ],\n      \"url\": \"http://company.aha.io/comments/933135074\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/933135074\",\n      \"commentable\": {\n        \"type\": \"Project\",\n        \"id\": \"131414752\",\n        \"url\": \"http://company.aha.io/projects/PRJ1\",\n        \"resource\": \"http://company.aha.io/api/v1/products/PRJ1\"\n      }\n    },\n    {\n      \"id\": \"55160124\",\n      \"body\": \"Comment on project\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"1020675218\",\n        \"name\": \"Mary Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/55160124\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/55160124\",\n      \"commentable\": {\n        \"type\": \"Task\",\n        \"id\": \"748715293\",\n        \"product_id\": \"131414752\",\n        \"url\": \"http://company.aha.io/tasks/748715293\",\n        \"resource\": \"http://company.aha.io/api/v1/tasks/748715293\"\n      }\n    },\n    {\n      \"id\": \"779056158\",\n      \"body\": \"An annotation comment\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"1049303076\",\n        \"name\": \"George Gently\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/779056158\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/779056158\",\n      \"commentable\": {\n        \"type\": \"Annotation\",\n        \"id\": \"594874923\",\n        \"url\": \"http://company.aha.io/annotations/594874923\"\n      }\n    },\n    {\n      \"id\": \"714777635\",\n      \"body\": \"An annotation comment\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"user\": {\n        \"id\": \"1049303076\",\n        \"name\": \"George Gently\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"attachments\": [],\n      \"url\": \"http://company.aha.io/comments/714777635\",\n      \"resource\": \"http://company.aha.io/api/v1/comments/714777635\",\n      \"commentable\": {\n        \"type\": \"Annotation\",\n        \"id\": \"345680906\",\n        \"url\": \"http://company.aha.io/annotations/345680906\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 69,\n    \"total_pages\": 3,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Aha! account domain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "company",
+      "key": "account-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account-domain}}.aha.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{account-domain}.aha.io/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://{account-domain}.aha.io/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "442dd655-33f9-4ada-861a-625be86e2b73",
+    "name": "Aha! Account backups Comments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Aha! generated from actual test responses\n\nContact Support:\n Name: Aha! Support",
+      "type": "text/plain"
+    }
+  }
+}

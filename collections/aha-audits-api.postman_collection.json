@@ -1,0 +1,199 @@
+{
+  "item": [
+    {
+      "id": "3fa606bf-4db5-42e0-833b-da66a66234d9",
+      "name": "Audits",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "397dab84-d33b-4f23-a713-943997a6b928",
+          "name": "Retrieve the history of only the description of a record",
+          "request": {
+            "name": "Retrieve the history of only the description of a record",
+            "description": {
+              "content": "Audit records describe historical changes to records in Aha! and are created automatically when a record is created, updated, or deleted. Audits are immutable and cannot be modified or deleted.\n\nAudits are stored not only for first-class objects such as Features or Release, but also for secondary objects attached to those records such as custom field values, equation field values, descriptions, and record links.\n\nAudit records are only available for the last 12 calendar months. After that, they must be accessed using the [Historical Audits](/api/resources/historical_audits/create_an_audit_search/) endpoint.\n\nThe performance of the Audits API can be improved by judicious use of the `created_since` and `created_before` parameters. Since this is high-volume timeseries data, these parameters should be used when attempting to scan through record activity, and the `after_id` parameter should be used in lieu of pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "audits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "associated_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "associated_type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "auditable_type",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "98b255e5-1bcd-4861-8896-d7d6498f67be",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "audits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "associated_id",
+                      "value": "1007868956"
+                    },
+                    {
+                      "key": "associated_type",
+                      "value": "Feature"
+                    },
+                    {
+                      "key": "auditable_type",
+                      "value": "Note"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"audits\": [],\n  \"pagination\": {\n    \"total_records\": 0,\n    \"total_pages\": 0,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Aha! account domain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "company",
+      "key": "account-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account-domain}}.aha.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{account-domain}.aha.io/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://{account-domain}.aha.io/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c7ecae19-185f-461f-bc74-3d447ca7ffc6",
+    "name": "Aha! Account backups Audits API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Aha! generated from actual test responses\n\nContact Support:\n Name: Aha! Support",
+      "type": "text/plain"
+    }
+  }
+}

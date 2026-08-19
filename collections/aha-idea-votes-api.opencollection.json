@@ -1,0 +1,343 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aha! Account backups Idea votes API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+      "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Idea votes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List votes for an idea",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/ideas/:idea_id/endorsements",
+            "params": [
+              {
+                "name": "idea_id",
+                "value": "",
+                "type": "path",
+                "description": "IdeaId identifier"
+              },
+              {
+                "name": "fields",
+                "value": "*,associated_idea_organizations",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "\"Idea votes\" in the web interface are referenced as \"idea endorsements\" from API endpoints."
+        },
+        {
+          "info": {
+            "name": "Create an idea vote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/ideas/:idea_id/endorsements",
+            "params": [
+              {
+                "name": "idea_id",
+                "value": "",
+                "type": "path",
+                "description": "IdeaId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "\"Idea votes\" in the web interface are referenced as \"idea endorsements\" from API endpoints."
+        },
+        {
+          "info": {
+            "name": "Create additional idea votes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/ideas/:idea_id/endorsements?multiple_endorsements=true",
+            "params": [
+              {
+                "name": "idea_id",
+                "value": "",
+                "type": "path",
+                "description": "IdeaId identifier"
+              },
+              {
+                "name": "multiple_endorsements",
+                "value": "true",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create an additional vote for a user who has already voted on the idea. Only permitted for an ideas portal where users are allowed multiple votes on the same idea."
+        },
+        {
+          "info": {
+            "name": "Create an idea vote for a user, using the vote limits of an idea portal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/ideas/:idea_id/endorsements?idea_portal_id=:idea_portal_id",
+            "params": [
+              {
+                "name": "idea_id",
+                "value": "",
+                "type": "path",
+                "description": "IdeaId identifier"
+              },
+              {
+                "name": "idea_portal_id",
+                "value": "",
+                "type": "path",
+                "description": "IdeaPortalId identifier"
+              },
+              {
+                "name": "idea_portal_id",
+                "value": "747493361",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "\"Idea votes\" in the web interface are referenced as \"idea endorsements\" from API endpoints."
+        },
+        {
+          "info": {
+            "name": "List votes for an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/ideas/endorsements",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "\"Idea votes\" in the web interface are referenced as \"idea endorsements\" from API endpoints."
+        },
+        {
+          "info": {
+            "name": "List only proxy votes for an idea",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/ideas/:idea_id/endorsements?proxy=true",
+            "params": [
+              {
+                "name": "idea_id",
+                "value": "",
+                "type": "path",
+                "description": "IdeaId identifier"
+              },
+              {
+                "name": "proxy",
+                "value": "true",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Only returns votes that have an associated organization (proxy votes)."
+        },
+        {
+          "info": {
+            "name": "Get a specific vote for an idea",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/ideas/:idea_id/endorsements/:id",
+            "params": [
+              {
+                "name": "idea_id",
+                "value": "",
+                "type": "path",
+                "description": "IdeaId identifier"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "\"Idea votes\" in the web interface are referenced as \"idea endorsements\" from API endpoints."
+        },
+        {
+          "info": {
+            "name": "Update an idea vote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/ideas/:idea_id/endorsements/:id",
+            "params": [
+              {
+                "name": "idea_id",
+                "value": "",
+                "type": "path",
+                "description": "IdeaId identifier"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "\"Idea votes\" in the web interface are referenced as \"idea endorsements\" from API endpoints."
+        },
+        {
+          "info": {
+            "name": "Delete an idea vote",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/ideas/:idea_id/endorsements/:id",
+            "params": [
+              {
+                "name": "idea_id",
+                "value": "",
+                "type": "path",
+                "description": "IdeaId identifier"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "\"Idea votes\" in the web interface are referenced as \"idea endorsements\" from API endpoints."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

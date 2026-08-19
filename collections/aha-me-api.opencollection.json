@@ -1,0 +1,107 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aha! Account backups Me API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+      "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Me",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the current user profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/me",
+            "params": [
+              {
+                "name": "include",
+                "value": "#<RSpec::Matchers::BuiltIn::Include:0x0000000336976830>",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Retrieves current user information including account memberships and basic profile data"
+        },
+        {
+          "info": {
+            "name": "List records assigned to the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/me/assigned",
+            "params": [
+              {
+                "name": "record_type",
+                "value": "InvalidType",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "The Me API provides access to current user information, assigned records, and pending tasks.\nThis endpoint serves as the primary interface for user-specific data and personal workspace functionality.\n\n**Core Functionality**:\n- **User Profile** - Current user information including accounts and permissions\n- **Assigned Records** - All records assigned to the current user across different types\n- **Task Management** - Pending tasks assigned to the current user\n\n**User Context**:\n- All endpoints ret"
+        },
+        {
+          "info": {
+            "name": "List pending tasks assigned to the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/me/tasks",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "The Me API provides access to current user information, assigned records, and pending tasks.\nThis endpoint serves as the primary interface for user-specific data and personal workspace functionality.\n\n**Core Functionality**:\n- **User Profile** - Current user information including accounts and permissions\n- **Assigned Records** - All records assigned to the current user across different types\n- **Task Management** - Pending tasks assigned to the current user\n\n**User Context**:\n- All endpoints ret"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

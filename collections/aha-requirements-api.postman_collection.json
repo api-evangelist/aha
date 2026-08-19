@@ -1,0 +1,711 @@
+{
+  "item": [
+    {
+      "id": "8bf26212-116c-4245-913e-5344b58e6eaa",
+      "name": "Requirements",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4a4080a9-a17b-450b-ad13-9494d6e734b2",
+          "name": "Get a specific requirement",
+          "request": {
+            "name": "Get a specific requirement",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "requirements",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0ce02a38-54ad-4f3a-9ce4-2d343b7fed12",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "requirements",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"requirement\": {\n    \"id\": \"483368544\",\n    \"name\": \"Body of requirement 1\",\n    \"reference_num\": \"PRJ1-1-1\",\n    \"position\": 1,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"release_id\": 278327321,\n    \"created_by_user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"workflow_status\": {\n      \"id\": \"934242751\",\n      \"name\": \"New\",\n      \"position\": 1,\n      \"complete\": false,\n      \"color\": \"#dce7c6\"\n    },\n    \"url\": \"http://company.aha.io/requirements/PRJ1-1-1\",\n    \"resource\": \"http://company.aha.io/api/v1/requirements/PRJ1-1-1\",\n    \"description\": {\n      \"id\": \"910541534\",\n      \"body\": \"Body of requirement 1\",\n      \"editor_version\": 1,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"attachments\": []\n    },\n    \"feature\": {\n      \"id\": \"1007868956\",\n      \"reference_num\": \"PRJ1-1\",\n      \"name\": \"Feature 1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"url\": \"http://company.aha.io/features/PRJ1-1\",\n      \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\",\n      \"product_id\": \"131414752\"\n    },\n    \"assigned_to_user\": {\n      \"id\": \"16338845\",\n      \"name\": \"John Smith\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"default_assignee\": false\n    },\n    \"attachments\": [],\n    \"tags\": [],\n    \"full_tags\": [],\n    \"custom_fields\": [\n      {\n        \"id\": 848810602,\n        \"key\": \"expected_completion_date\",\n        \"name\": \"Expected completion date\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"2019-01-01\",\n        \"type\": \"date\"\n      },\n      {\n        \"id\": 731808726,\n        \"key\": \"requested_by\",\n        \"name\": \"Requested By\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"TK\",\n        \"type\": \"string\"\n      }\n    ],\n    \"integration_fields\": [\n      {\n        \"id\": \"32487847\",\n        \"name\": \"key\",\n        \"value\": \"JRA-987\",\n        \"integration_id\": 342659513,\n        \"service_name\": \"jira\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      {\n        \"id\": \"417785887\",\n        \"name\": \"id\",\n        \"value\": \"991\",\n        \"integration_id\": 342659513,\n        \"service_name\": \"jira\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      {\n        \"id\": \"803330186\",\n        \"name\": \"aha::remote_entity\",\n        \"value\": \"issue_10100\",\n        \"integration_id\": 342659513,\n        \"service_name\": \"jira\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    ],\n    \"comments_count\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2792dd4-cc95-4fb4-8ffd-bf5b70b444e0",
+          "name": "Delete a requirement",
+          "request": {
+            "name": "Delete a requirement",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "requirements",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b2c5690b-2ece-4aa3-b9f2-b087c48446c5",
+              "name": "No content - operation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "requirements",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c016bb15-7b87-4999-b07c-ee2369d39021",
+          "name": "List requirements for a feature",
+          "request": {
+            "name": "List requirements for a feature",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "features",
+                ":feature_id",
+                "requirements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "updated_since",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "feature_id",
+                  "description": "(Required) FeatureId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f821a973-a73d-43ee-bbe4-5cbe00d14e37",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "features",
+                    ":feature_id",
+                    "requirements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "updated_since",
+                      "value": "2019-01-01T00:00:00Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature_id",
+                      "description": "(Required) FeatureId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"requirements\": [\n    {\n      \"id\": \"96915428\",\n      \"name\": \"Body of requirement 2\",\n      \"reference_num\": \"PRJ1-1-2\",\n      \"position\": 2,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"release_id\": 278327321,\n      \"created_by_user\": {\n        \"id\": \"1020675218\",\n        \"name\": \"Mary Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"workflow_status\": {\n        \"id\": \"1025247908\",\n        \"name\": \"Shipped\",\n        \"position\": 5,\n        \"complete\": true,\n        \"color\": \"#ecdd8f\"\n      },\n      \"url\": \"http://company.aha.io/requirements/PRJ1-1-2\",\n      \"resource\": \"http://company.aha.io/api/v1/requirements/PRJ1-1-2\",\n      \"description\": {\n        \"id\": \"6776881149488866340\",\n        \"body\": \"\",\n        \"editor_version\": 2,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"feature\": {\n        \"id\": \"1007868956\",\n        \"reference_num\": \"PRJ1-1\",\n        \"name\": \"Feature 1\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"url\": \"http://company.aha.io/features/PRJ1-1\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\",\n        \"product_id\": \"131414752\"\n      },\n      \"assigned_to_user\": {\n        \"id\": \"16338845\",\n        \"name\": \"John Smith\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"default_assignee\": false\n      },\n      \"attachments\": [],\n      \"tags\": [],\n      \"full_tags\": [],\n      \"custom_fields\": [],\n      \"integration_fields\": [],\n      \"comments_count\": 0\n    },\n    {\n      \"id\": \"851574643\",\n      \"name\": \"Body of requirement 3\",\n      \"reference_num\": \"PRJ1-1-3\",\n      \"position\": 3,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"release_id\": 278327321,\n      \"created_by_user\": {\n        \"id\": \"1020675218\",\n        \"name\": \"Mary Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"workflow_status\": {\n        \"id\": \"922838743\",\n        \"name\": \"Not started\",\n        \"position\": 8,\n        \"complete\": false,\n        \"color\": \"#dce790\"\n      },\n      \"url\": \"http://company.aha.io/requirements/PRJ1-1-3\",\n      \"resource\": \"http://company.aha.io/api/v1/requirements/PRJ1-1-3\",\n      \"description\": {\n        \"id\": \"6776881149498326874\",\n        \"body\": \"\",\n        \"editor_version\": 2,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"feature\": {\n        \"id\": \"1007868956\",\n        \"reference_num\": \"PRJ1-1\",\n        \"name\": \"Feature 1\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"url\": \"http://company.aha.io/features/PRJ1-1\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\",\n        \"product_id\": \"131414752\"\n      },\n      \"assigned_to_user\": {\n        \"id\": \"16338845\",\n        \"name\": \"John Smith\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"default_assignee\": false\n      },\n      \"attachments\": [],\n      \"tags\": [],\n      \"full_tags\": [],\n      \"custom_fields\": [],\n      \"integration_fields\": [],\n      \"comments_count\": 0\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 2,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7095e46-d73a-48f3-b384-ebe014bb8173",
+          "name": "Create a requirement",
+          "request": {
+            "name": "Create a requirement",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "features",
+                ":feature_id",
+                "requirements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "feature_id",
+                  "description": "(Required) FeatureId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requirement\": {\n    \"name\": \"<string>\",\n    \"workflow_status\": {\n      \"name\": \"<string>\"\n    },\n    \"description\": \"<string>\",\n    \"assigned_to_user\": {\n      \"email\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "611ac971-d2a9-449f-84f6-66c56b04f8da",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "features",
+                    ":feature_id",
+                    "requirements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature_id",
+                      "description": "(Required) FeatureId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requirement\": {\n    \"name\": \"New name\",\n    \"workflow_status\": {\n      \"name\": \"Designed\"\n    },\n    \"description\": \"<p>This is the description</p>\",\n    \"assigned_to_user\": {\n      \"email\": \"no-reply@aha.io\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"requirement\": {\n    \"id\": \"6776881149495309190\",\n    \"name\": \"New name\",\n    \"reference_num\": \"PRJ1-1-4\",\n    \"position\": 4,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"release_id\": 278327321,\n    \"created_by_user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"workflow_status\": {\n      \"id\": \"962984386\",\n      \"name\": \"Designed\",\n      \"position\": 2,\n      \"complete\": false,\n      \"color\": \"#ecdd8f\"\n    },\n    \"url\": \"http://company.aha.io/requirements/PRJ1-1-4\",\n    \"resource\": \"http://company.aha.io/api/v1/requirements/PRJ1-1-4\",\n    \"description\": {\n      \"id\": \"6776881149498089069\",\n      \"body\": \"<p>This is the description</p>\",\n      \"editor_version\": 2,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"attachments\": []\n    },\n    \"feature\": {\n      \"id\": \"1007868956\",\n      \"reference_num\": \"PRJ1-1\",\n      \"name\": \"Feature 1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"url\": \"http://company.aha.io/features/PRJ1-1\",\n      \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\",\n      \"product_id\": \"131414752\"\n    },\n    \"assigned_to_user\": {\n      \"id\": \"689956296\",\n      \"name\": \"Henry Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"default_assignee\": false\n    },\n    \"attachments\": [],\n    \"tags\": [],\n    \"full_tags\": [],\n    \"custom_fields\": [],\n    \"integration_fields\": [],\n    \"comments_count\": 0,\n    \"workflow_status_times\": [\n      {\n        \"status_id\": \"962984386\",\n        \"status_name\": \"Designed\",\n        \"started_at\": \"2019-01-01T00:00:00.000Z\",\n        \"ended_at\": null\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7c7bcf5-3b52-4825-a4f7-f5c6723fa8cf",
+          "name": "Convert a requirement to a feature",
+          "request": {
+            "name": "Convert a requirement to a feature",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "requirements",
+                ":id",
+                "convert_to_feature"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bc4dc7f9-59e9-48ad-85f6-154f14c09552",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "requirements",
+                    ":id",
+                    "convert_to_feature"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"feature\": {\n    \"id\": \"6776881149487717549\",\n    \"name\": \"Body of requirement 1\",\n    \"reference_num\": \"PRJ1-251\",\n    \"initiative_reference_num\": null,\n    \"release_reference_num\": \"PRJ1-R-1\",\n    \"epic_reference_num\": null,\n    \"position\": 1,\n    \"score\": 2,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"start_date\": null,\n    \"due_date\": null,\n    \"product_id\": \"131414752\",\n    \"progress\": 0,\n    \"progress_source\": \"progress_manual\",\n    \"status_changed_on\": \"2019-01-01\",\n    \"created_by_user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"workflow_kind\": {\n      \"id\": \"98484309\",\n      \"name\": \"New\"\n    },\n    \"workflow_status\": {\n      \"id\": \"934242751\",\n      \"name\": \"New\",\n      \"position\": 1,\n      \"complete\": false,\n      \"color\": \"#dce7c6\"\n    },\n    \"project\": {\n      \"id\": \"131414752\",\n      \"reference_prefix\": \"PRJ1\",\n      \"name\": \"Project 1\",\n      \"product_line\": false,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workspace_type\": \"product_workspace\",\n      \"url\": \"http://company.aha.io/projects/PRJ1\"\n    },\n    \"description\": {\n      \"id\": \"910541534\",\n      \"body\": \"Body of requirement 1\",\n      \"editor_version\": 1,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"attachments\": []\n    },\n    \"attachments\": [],\n    \"integration_fields\": [],\n    \"url\": \"http://company.aha.io/features/PRJ1-251\",\n    \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-251\",\n    \"release\": {\n      \"id\": \"278327321\",\n      \"reference_num\": \"PRJ1-R-1\",\n      \"name\": \"Release 1\",\n      \"start_date\": \"2019-01-01\",\n      \"release_date\": \"2019-01-01\",\n      \"parking_lot\": false,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"product_id\": \"131414752\",\n      \"integration_fields\": [\n        {\n          \"id\": \"68217473\",\n          \"name\": \"id\",\n          \"value\": \"777\",\n          \"integration_id\": 204584239,\n          \"service_name\": \"jira\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\"\n        }\n      ],\n      \"url\": \"http://company.aha.io/releases/PRJ1-R-1\",\n      \"resource\": \"http://company.aha.io/api/v1/releases/PRJ1-R-1\",\n      \"owner\": {\n        \"id\": \"16338845\",\n        \"name\": \"John Smith\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      \"project\": {\n        \"id\": \"131414752\",\n        \"reference_prefix\": \"PRJ1\",\n        \"name\": \"Project 1\",\n        \"product_line\": false,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"workspace_type\": \"product_workspace\",\n        \"url\": \"http://company.aha.io/projects/PRJ1\"\n      }\n    },\n    \"assigned_to_user\": {\n      \"id\": \"16338845\",\n      \"name\": \"John Smith\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"default_assignee\": false\n    },\n    \"requirements\": [],\n    \"goals\": [],\n    \"comments_count\": 1,\n    \"score_facts\": [],\n    \"tags\": [],\n    \"full_tags\": [],\n    \"custom_fields\": [\n      {\n        \"id\": \"6776881149495350529\",\n        \"key\": \"expected_completion_date\",\n        \"name\": \"Expected completion date\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"2019-01-01\",\n        \"type\": \"date\"\n      }\n    ],\n    \"feature_links\": [\n      {\n        \"link_type\": \"Relates to\",\n        \"link_type_id\": 10,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"parent_record\": {\n          \"id\": \"1007868956\",\n          \"reference_num\": \"PRJ1-1\",\n          \"name\": \"Feature 1\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"url\": \"http://company.aha.io/features/PRJ1-1\",\n          \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\",\n          \"product_id\": \"131414752\"\n        },\n        \"child_record\": {\n          \"id\": \"6776881149487717549\",\n          \"reference_num\": \"PRJ1-251\",\n          \"name\": \"Body of requirement 1\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"url\": \"http://company.aha.io/features/PRJ1-251\",\n          \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-251\",\n          \"product_id\": \"131414752\"\n        }\n      }\n    ],\n    \"workflow_status_times\": [\n      {\n        \"status_id\": \"934242751\",\n        \"status_name\": \"New\",\n        \"started_at\": \"2019-01-01T00:00:00.000Z\",\n        \"ended_at\": null\n      }\n    ],\n    \"feature_only_original_estimate\": null,\n    \"feature_only_remaining_estimate\": null,\n    \"feature_only_work_done\": null\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Aha! account domain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "company",
+      "key": "account-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account-domain}}.aha.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{account-domain}.aha.io/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://{account-domain}.aha.io/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6eb3005d-3cfb-458d-9e3c-2e514df00ec4",
+    "name": "Aha! Account backups Requirements API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Aha! generated from actual test responses\n\nContact Support:\n Name: Aha! Support",
+      "type": "text/plain"
+    }
+  }
+}

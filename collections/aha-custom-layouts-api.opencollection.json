@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aha! Account backups Custom Layouts API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+      "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Custom Layouts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all custom layouts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/screen_definitions",
+            "params": [
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "50",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Custom layouts in Aha! Roadmaps help you define the information that you want your teammates to see at two important times: when they create a record and when they view a record's details. You must be a configuration administrator to view custom layouts on your account through the API.\n\nFor more information about custom layouts, consult our support documentation: https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-layouts"
+        },
+        {
+          "info": {
+            "name": "Get a custom layout by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/screen_definitions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Custom layouts in Aha! Roadmaps help you define the information that you want your teammates to see at two important times: when they create a record and when they view a record's details. You must be a configuration administrator to view custom layouts on your account through the API.\n\nFor more information about custom layouts, consult our support documentation: https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-layouts"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

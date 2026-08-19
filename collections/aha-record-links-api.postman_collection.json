@@ -1,0 +1,590 @@
+{
+  "item": [
+    {
+      "id": "d14d02ee-f472-4a12-8588-f242823d145a",
+      "name": "Record links",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "07e5b1a7-cd00-4a6c-b14d-23a3160dfa03",
+          "name": "List record links for a feature",
+          "request": {
+            "name": "List record links for a feature",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "features",
+                ":id",
+                "record_links"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "parent_and_child_links",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b4afb5c4-08be-4fc7-aa2c-c861c3b19167",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "features",
+                    ":id",
+                    "record_links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "parent_and_child_links",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"record_links\": [\n    {\n      \"id\": 170959948,\n      \"link_type\": \"Depends on\",\n      \"link_type_id\": 20,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"parent_record_type\": \"feature\",\n      \"parent_record_id\": 1007868956,\n      \"child_record_type\": \"feature\",\n      \"child_record_id\": 622562724,\n      \"parent\": true,\n      \"parent_record\": {\n        \"record_type\": \"feature\",\n        \"id\": \"1007868956\",\n        \"reference_num\": \"PRJ1-1\",\n        \"name\": \"Feature 1\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"url\": \"http://company.aha.io/features/PRJ1-1\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\",\n        \"product_id\": \"131414752\"\n      },\n      \"child_record\": {\n        \"record_type\": \"feature\",\n        \"id\": \"622562724\",\n        \"reference_num\": \"PRJ1-2\",\n        \"name\": \"Another Feature\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"url\": \"http://company.aha.io/features/PRJ1-2\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-2\",\n        \"product_id\": \"131414752\"\n      }\n    },\n    {\n      \"id\": \"6776881149496786945\",\n      \"link_type\": \"Depends on\",\n      \"link_type_id\": 20,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"parent_record_type\": \"master_feature\",\n      \"parent_record_id\": 999605892,\n      \"child_record_type\": \"feature\",\n      \"child_record_id\": 1007868956,\n      \"parent\": false,\n      \"parent_record\": {\n        \"record_type\": \"master_feature\",\n        \"id\": \"999605892\",\n        \"reference_num\": \"PRJ1-E-1\",\n        \"name\": \"Epic 1\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"url\": \"http://company.aha.io/epics/PRJ1-E-1\",\n        \"resource\": \"http://company.aha.io/api/v1/epics/PRJ1-E-1\"\n      },\n      \"child_record\": {\n        \"record_type\": \"feature\",\n        \"id\": \"1007868956\",\n        \"reference_num\": \"PRJ1-1\",\n        \"name\": \"Feature 1\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"url\": \"http://company.aha.io/features/PRJ1-1\",\n        \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\",\n        \"product_id\": \"131414752\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4755add9-3869-4d8d-910d-65a7a142ed52",
+          "name": "Get a specific record link",
+          "request": {
+            "name": "Get a specific record link",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "record_links",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3915b626-faa4-4cea-a59e-0c0b7ebfd52c",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "record_links",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"record_link\": {\n    \"id\": 170959948,\n    \"link_type\": \"Depends on\",\n    \"link_type_id\": 20,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"parent_record_type\": \"feature\",\n    \"parent_record_id\": 1007868956,\n    \"child_record_type\": \"feature\",\n    \"child_record_id\": 622562724,\n    \"parent\": true,\n    \"parent_record\": {\n      \"record_type\": \"feature\",\n      \"id\": \"1007868956\",\n      \"reference_num\": \"PRJ1-1\",\n      \"name\": \"Feature 1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"url\": \"http://company.aha.io/features/PRJ1-1\",\n      \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\",\n      \"product_id\": \"131414752\"\n    },\n    \"child_record\": {\n      \"record_type\": \"feature\",\n      \"id\": \"622562724\",\n      \"reference_num\": \"PRJ1-2\",\n      \"name\": \"Another Feature\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"url\": \"http://company.aha.io/features/PRJ1-2\",\n      \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-2\",\n      \"product_id\": \"131414752\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f381a58-09ce-4f18-8de5-668986fd1516",
+          "name": "Delete a record link",
+          "request": {
+            "name": "Delete a record link",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "record_links",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1b6e78d2-3957-4c1b-a986-9d49adfeca62",
+              "name": "No content - operation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "record_links",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e2b57344-d6e3-4930-ad5a-41c8bb7b2b34",
+          "name": "Create a record link for a feature",
+          "request": {
+            "name": "Create a record link for a feature",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                ":record_type",
+                ":id",
+                "record_links"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "record_type",
+                  "description": "(Required) RecordType identifier"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"record_link\": {\n    \"record_type\": \"<string>\",\n    \"record_id\": \"<integer>\",\n    \"link_type\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a3e22549-2cae-4a1a-a71d-595c6aa52fb7",
+              "name": "No content - operation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    ":record_type",
+                    ":id",
+                    "record_links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "record_type",
+                      "description": "(Required) RecordType identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"record_link\": {\n    \"record_type\": \"feature\",\n    \"record_id\": 303873333,\n    \"link_type\": 10\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Aha! account domain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "company",
+      "key": "account-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account-domain}}.aha.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{account-domain}.aha.io/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://{account-domain}.aha.io/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8daf14c9-d7ef-4320-93ff-20b78aedefcc",
+    "name": "Aha! Account backups Record links API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Aha! generated from actual test responses\n\nContact Support:\n Name: Aha! Support",
+      "type": "text/plain"
+    }
+  }
+}

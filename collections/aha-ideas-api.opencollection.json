@@ -1,0 +1,266 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aha! Account backups Ideas API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+      "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ideas",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a specific idea",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/ideas/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "When creating an idea where the creator is an idea user we strongly suggest\nto provide the `submitted_idea_portal_id` attribute to the idea\nto ensure that the idea is created in the correct ideas portal and the user\ngets access to the portal.\n\nIf you don't want the idea to be submitted to any portal, you can skip this\nby setting `skip_portal: true` in the request body."
+        },
+        {
+          "info": {
+            "name": "Delete an idea",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/ideas/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "When creating an idea where the creator is an idea user we strongly suggest\nto provide the `submitted_idea_portal_id` attribute to the idea\nto ensure that the idea is created in the correct ideas portal and the user\ngets access to the portal.\n\nIf you don't want the idea to be submitted to any portal, you can skip this\nby setting `skip_portal: true` in the request body."
+        },
+        {
+          "info": {
+            "name": "List ideas for a product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/products/:product_id/ideas",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "ProductId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "When creating an idea where the creator is an idea user we strongly suggest\nto provide the `submitted_idea_portal_id` attribute to the idea\nto ensure that the idea is created in the correct ideas portal and the user\ngets access to the portal.\n\nIf you don't want the idea to be submitted to any portal, you can skip this\nby setting `skip_portal: true` in the request body."
+        },
+        {
+          "info": {
+            "name": "Create an idea",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/products/:product_id/ideas",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "ProductId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Creates a new idea with basic details including initial vote count"
+        },
+        {
+          "info": {
+            "name": "List ideas",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/ideas",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "When creating an idea where the creator is an idea user we strongly suggest\nto provide the `submitted_idea_portal_id` attribute to the idea\nto ensure that the idea is created in the correct ideas portal and the user\ngets access to the portal.\n\nIf you don't want the idea to be submitted to any portal, you can skip this\nby setting `skip_portal: true` in the request body."
+        },
+        {
+          "info": {
+            "name": "Get a specific idea with plain text body",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/ideas/:id?fields=description,plain_text_body",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              },
+              {
+                "name": "fields",
+                "value": "description,plain_text_body",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "When creating an idea where the creator is an idea user we strongly suggest\nto provide the `submitted_idea_portal_id` attribute to the idea\nto ensure that the idea is created in the correct ideas portal and the user\ngets access to the portal.\n\nIf you don't want the idea to be submitted to any portal, you can skip this\nby setting `skip_portal: true` in the request body."
+        },
+        {
+          "info": {
+            "name": "List ideas related to a particular term",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/ideas/related",
+            "params": [
+              {
+                "name": "q",
+                "value": "ideas are a dime a dozen",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "When creating an idea where the creator is an idea user we strongly suggest\nto provide the `submitted_idea_portal_id` attribute to the idea\nto ensure that the idea is created in the correct ideas portal and the user\ngets access to the portal.\n\nIf you don't want the idea to be submitted to any portal, you can skip this\nby setting `skip_portal: true` in the request body."
+        },
+        {
+          "info": {
+            "name": "Promote an idea",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/ideas/:id/promote",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "When creating an idea where the creator is an idea user we strongly suggest\nto provide the `submitted_idea_portal_id` attribute to the idea\nto ensure that the idea is created in the correct ideas portal and the user\ngets access to the portal.\n\nIf you don't want the idea to be submitted to any portal, you can skip this\nby setting `skip_portal: true` in the request body."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,621 @@
+{
+  "item": [
+    {
+      "id": "ee8780a0-1a52-479d-bf9a-d913b981275a",
+      "name": "Custom table records",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "22679783-0129-4536-b86f-47621963e016",
+          "name": "Get a specific custom table record",
+          "request": {
+            "name": "Get a specific custom table record",
+            "description": {
+              "content": "Custom tables have a different set of records for each product.\nThis means that if you want to\n[create one](/api/resources/custom_table_records/create_a_custom_table_record)\nor\n[list them](/api/resources/custom_table_records/list_records_in_a_custom_table_for_a_product)\nyou must scope them to a product.\n\nOnce you have the ID of a specific custom table record, you can\n[get](/api/resources/custom_table_records/get_a_specific_custom_table_record),\n[modify](/api/resources/custom_table_records/update_a_custom_table_record),\nor\n[delete](/api/resources/custom_table_records/delete_a_custom_table_record)\nthem on the root custom table records resource.\n\n**[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "custom_object_records",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f659e622-ee6a-4991-b931-ec5e4efe23b1",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "custom_object_records",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"custom_object_record\": {\n    \"id\": \"640362830\",\n    \"product_id\": \"131414752\",\n    \"key\": \"customers\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"custom_fields\": [\n      {\n        \"id\": 262515157,\n        \"key\": \"name\",\n        \"name\": \"Name\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"Acme Corp\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": 883926222,\n        \"key\": \"website\",\n        \"name\": \"Website\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"www.acme.com\",\n        \"type\": \"url\"\n      }\n    ],\n    \"custom_object_links\": [\n      {\n        \"key\": \"custom_table_name_link_many\",\n        \"name\": \"Custom Table Linked Records\",\n        \"record_type\": \"CustomObjectRecord\",\n        \"record_ids\": [\n          1059223798\n        ]\n      },\n      {\n        \"key\": \"custom_table_name_link_many_to_one\",\n        \"name\": \"Custom Table Many to One Field\",\n        \"record_type\": \"CustomObjectRecord\",\n        \"record_ids\": []\n      },\n      {\n        \"key\": \"custom_table_name_submitters\",\n        \"name\": \"Custom Table Linked Submitters\",\n        \"record_type\": \"CustomObjectRecord\",\n        \"record_ids\": []\n      }\n    ],\n    \"linked_records\": [\n      {\n        \"key\": \"customers\",\n        \"name\": \"Customers\",\n        \"record_type\": \"Ideas::Idea\",\n        \"record_id\": 162120796\n      },\n      {\n        \"key\": \"revenue\",\n        \"name\": \"Revenue\",\n        \"record_type\": \"Ideas::Idea\",\n        \"record_id\": 58056975\n      },\n      {\n        \"key\": \"submitters\",\n        \"name\": \"Submitters\",\n        \"record_type\": \"Ideas::Idea\",\n        \"record_id\": 58056975\n      }\n    ],\n    \"created_by_user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c459228c-d344-40de-add3-b0918327d495",
+          "name": "Delete a custom table record",
+          "request": {
+            "name": "Delete a custom table record",
+            "description": {
+              "content": "Custom tables have a different set of records for each product.\nThis means that if you want to\n[create one](/api/resources/custom_table_records/create_a_custom_table_record)\nor\n[list them](/api/resources/custom_table_records/list_records_in_a_custom_table_for_a_product)\nyou must scope them to a product.\n\nOnce you have the ID of a specific custom table record, you can\n[get](/api/resources/custom_table_records/get_a_specific_custom_table_record),\n[modify](/api/resources/custom_table_records/update_a_custom_table_record),\nor\n[delete](/api/resources/custom_table_records/delete_a_custom_table_record)\nthem on the root custom table records resource.\n\n**[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "custom_object_records",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4fca6e97-8a7f-4ce7-be65-adef5b0c1458",
+              "name": "No content - operation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "custom_object_records",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b40b5696-1357-4981-85ea-4024cbb0e350",
+          "name": "Create a custom table record",
+          "request": {
+            "name": "Create a custom table record",
+            "description": {
+              "content": "Custom tables have a different set of records for each product.\nThis means that if you want to\n[create one](/api/resources/custom_table_records/create_a_custom_table_record)\nor\n[list them](/api/resources/custom_table_records/list_records_in_a_custom_table_for_a_product)\nyou must scope them to a product.\n\nOnce you have the ID of a specific custom table record, you can\n[get](/api/resources/custom_table_records/get_a_specific_custom_table_record),\n[modify](/api/resources/custom_table_records/update_a_custom_table_record),\nor\n[delete](/api/resources/custom_table_records/delete_a_custom_table_record)\nthem on the root custom table records resource.\n\n**[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "products",
+                ":product_id",
+                "custom_objects",
+                ":key",
+                "records"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_id",
+                  "description": "(Required) ProductId identifier"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) Key identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"custom_object_record\": {\n    \"custom_fields\": {\n      \"name\": \"<string>\",\n      \"website\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "50e1c83e-4704-41ce-9e63-b696b5d55ad6",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "products",
+                    ":product_id",
+                    "custom_objects",
+                    ":key",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_id",
+                      "description": "(Required) ProductId identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) Key identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"custom_object_record\": {\n    \"custom_fields\": {\n      \"name\": \"Major conglomerate\",\n      \"website\": \"www.conglom.com\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"custom_object_record\": {\n    \"id\": \"6776881149486714349\",\n    \"product_id\": \"131414752\",\n    \"key\": \"customers\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"custom_fields\": [\n      {\n        \"id\": \"6776881149493312138\",\n        \"key\": \"name\",\n        \"name\": \"Name\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"Major conglomerate\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"6776881149489312610\",\n        \"key\": \"website\",\n        \"name\": \"Website\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"www.conglom.com\",\n        \"type\": \"url\"\n      }\n    ],\n    \"custom_object_links\": [],\n    \"linked_records\": [],\n    \"created_by_user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b3944ca5-6422-447d-98e8-0529a262558b",
+          "name": "List records in a custom table for a product",
+          "request": {
+            "name": "List records in a custom table for a product",
+            "description": {
+              "content": "Custom tables have a different set of records for each product.\nThis means that if you want to\n[create one](/api/resources/custom_table_records/create_a_custom_table_record)\nor\n[list them](/api/resources/custom_table_records/list_records_in_a_custom_table_for_a_product)\nyou must scope them to a product.\n\nOnce you have the ID of a specific custom table record, you can\n[get](/api/resources/custom_table_records/get_a_specific_custom_table_record),\n[modify](/api/resources/custom_table_records/update_a_custom_table_record),\nor\n[delete](/api/resources/custom_table_records/delete_a_custom_table_record)\nthem on the root custom table records resource.\n\n**[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "products",
+                ":product_id",
+                "custom_objects",
+                ":key",
+                "records"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_id",
+                  "description": "(Required) ProductId identifier"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) Key identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "dcea8a88-7ad1-4c3c-b12f-53e02f462853",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "products",
+                    ":product_id",
+                    "custom_objects",
+                    ":key",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_id",
+                      "description": "(Required) ProductId identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) Key identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"custom_object_records\": [\n    {\n      \"id\": \"8397122\",\n      \"product_id\": \"131414752\",\n      \"key\": \"customers\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"custom_fields\": [\n        {\n          \"id\": 564906240,\n          \"key\": \"name\",\n          \"name\": \"Name\",\n          \"updatedAt\": \"2019-01-01T00:00:00Z\",\n          \"value\": \"Zane Corp\",\n          \"type\": \"string\"\n        }\n      ],\n      \"custom_object_links\": [\n        {\n          \"key\": \"custom_table_name_link_many\",\n          \"name\": \"Custom Table Linked Records\",\n          \"record_type\": \"CustomObjectRecord\",\n          \"record_ids\": []\n        },\n        {\n          \"key\": \"custom_table_name_link_many_to_one\",\n          \"name\": \"Custom Table Many to One Field\",\n          \"record_type\": \"CustomObjectRecord\",\n          \"record_ids\": []\n        },\n        {\n          \"key\": \"custom_table_name_submitters\",\n          \"name\": \"Custom Table Linked Submitters\",\n          \"record_type\": \"CustomObjectRecord\",\n          \"record_ids\": []\n        }\n      ],\n      \"linked_records\": [],\n      \"created_by_user\": {\n        \"id\": \"1020675218\",\n        \"name\": \"Mary Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    },\n    {\n      \"id\": \"640362830\",\n      \"product_id\": \"131414752\",\n      \"key\": \"customers\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"custom_fields\": [\n        {\n          \"id\": 262515157,\n          \"key\": \"name\",\n          \"name\": \"Name\",\n          \"updatedAt\": \"2019-01-01T00:00:00Z\",\n          \"value\": \"Acme Corp\",\n          \"type\": \"string\"\n        },\n        {\n          \"id\": 883926222,\n          \"key\": \"website\",\n          \"name\": \"Website\",\n          \"updatedAt\": \"2019-01-01T00:00:00Z\",\n          \"value\": \"www.acme.com\",\n          \"type\": \"url\"\n        }\n      ],\n      \"custom_object_links\": [\n        {\n          \"key\": \"custom_table_name_link_many\",\n          \"name\": \"Custom Table Linked Records\",\n          \"record_type\": \"CustomObjectRecord\",\n          \"record_ids\": [\n            1059223798\n          ]\n        },\n        {\n          \"key\": \"custom_table_name_link_many_to_one\",\n          \"name\": \"Custom Table Many to One Field\",\n          \"record_type\": \"CustomObjectRecord\",\n          \"record_ids\": []\n        },\n        {\n          \"key\": \"custom_table_name_submitters\",\n          \"name\": \"Custom Table Linked Submitters\",\n          \"record_type\": \"CustomObjectRecord\",\n          \"record_ids\": []\n        }\n      ],\n      \"linked_records\": [\n        {\n          \"key\": \"customers\",\n          \"name\": \"Customers\",\n          \"record_type\": \"Ideas::Idea\",\n          \"record_id\": 162120796\n        },\n        {\n          \"key\": \"revenue\",\n          \"name\": \"Revenue\",\n          \"record_type\": \"Ideas::Idea\",\n          \"record_id\": 58056975\n        },\n        {\n          \"key\": \"submitters\",\n          \"name\": \"Submitters\",\n          \"record_type\": \"Ideas::Idea\",\n          \"record_id\": 58056975\n        }\n      ],\n      \"created_by_user\": {\n        \"id\": \"1020675218\",\n        \"name\": \"Mary Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 2,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Aha! account domain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "company",
+      "key": "account-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account-domain}}.aha.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{account-domain}.aha.io/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://{account-domain}.aha.io/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "abff1925-f667-4ba3-9b49-8287e6792c96",
+    "name": "Aha! Account backups Custom table records API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Aha! generated from actual test responses\n\nContact Support:\n Name: Aha! Support",
+      "type": "text/plain"
+    }
+  }
+}

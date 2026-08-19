@@ -1,0 +1,316 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aha! Account backups Features API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+      "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Features",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a specific feature",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/features/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Features belong to releases.\nThis means that if you want to\n[create one](/api/resources/features/create_a_feature) then\nyou must scope it to a release.\n\nYou can return a result set which is unfiltered, or filter by\n[release](/api/resources/features/list_features_in_a_release)\n, [product](/api/resources/features/list_features_in_a_product)\n, or [epic](/api/resources/features/list_features_in_an_epic).\nAll these means of listing features can be further filtered by specific criteria like name, modi"
+        },
+        {
+          "info": {
+            "name": "Delete a feature",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/features/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Features belong to releases.\nThis means that if you want to\n[create one](/api/resources/features/create_a_feature) then\nyou must scope it to a release.\n\nYou can return a result set which is unfiltered, or filter by\n[release](/api/resources/features/list_features_in_a_release)\n, [product](/api/resources/features/list_features_in_a_product)\n, or [epic](/api/resources/features/list_features_in_an_epic).\nAll these means of listing features can be further filtered by specific criteria like name, modi"
+        },
+        {
+          "info": {
+            "name": "List features in a release",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/releases/:release_id/features",
+            "params": [
+              {
+                "name": "release_id",
+                "value": "",
+                "type": "path",
+                "description": "ReleaseId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Features belong to releases.\nThis means that if you want to\n[create one](/api/resources/features/create_a_feature) then\nyou must scope it to a release.\n\nYou can return a result set which is unfiltered, or filter by\n[release](/api/resources/features/list_features_in_a_release)\n, [product](/api/resources/features/list_features_in_a_product)\n, or [epic](/api/resources/features/list_features_in_an_epic).\nAll these means of listing features can be further filtered by specific criteria like name, modi"
+        },
+        {
+          "info": {
+            "name": "Create a feature",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/releases/:release_id/features",
+            "params": [
+              {
+                "name": "release_id",
+                "value": "",
+                "type": "path",
+                "description": "ReleaseId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Creates a new feature in a release with full details including assignee and description"
+        },
+        {
+          "info": {
+            "name": "List features",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/features",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Retrieves a paginated list of all features across the account with optional filtering and field selection"
+        },
+        {
+          "info": {
+            "name": "List features in an epic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/epics/:epic_id/features",
+            "params": [
+              {
+                "name": "epic_id",
+                "value": "",
+                "type": "path",
+                "description": "EpicId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Features belong to releases.\nThis means that if you want to\n[create one](/api/resources/features/create_a_feature) then\nyou must scope it to a release.\n\nYou can return a result set which is unfiltered, or filter by\n[release](/api/resources/features/list_features_in_a_release)\n, [product](/api/resources/features/list_features_in_a_product)\n, or [epic](/api/resources/features/list_features_in_an_epic).\nAll these means of listing features can be further filtered by specific criteria like name, modi"
+        },
+        {
+          "info": {
+            "name": "List features in a product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/products/:product_id/features",
+            "params": [
+              {
+                "name": "product_id",
+                "value": "",
+                "type": "path",
+                "description": "ProductId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Features belong to releases.\nThis means that if you want to\n[create one](/api/resources/features/create_a_feature) then\nyou must scope it to a release.\n\nYou can return a result set which is unfiltered, or filter by\n[release](/api/resources/features/list_features_in_a_release)\n, [product](/api/resources/features/list_features_in_a_product)\n, or [epic](/api/resources/features/list_features_in_an_epic).\nAll these means of listing features can be further filtered by specific criteria like name, modi"
+        },
+        {
+          "info": {
+            "name": "List features associated with a goal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/goals/:goal_id/features",
+            "params": [
+              {
+                "name": "goal_id",
+                "value": "",
+                "type": "path",
+                "description": "GoalId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Features belong to releases.\nThis means that if you want to\n[create one](/api/resources/features/create_a_feature) then\nyou must scope it to a release.\n\nYou can return a result set which is unfiltered, or filter by\n[release](/api/resources/features/list_features_in_a_release)\n, [product](/api/resources/features/list_features_in_a_product)\n, or [epic](/api/resources/features/list_features_in_an_epic).\nAll these means of listing features can be further filtered by specific criteria like name, modi"
+        },
+        {
+          "info": {
+            "name": "List features associated with an initiative",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/initiatives/:initiative_id/features",
+            "params": [
+              {
+                "name": "initiative_id",
+                "value": "",
+                "type": "path",
+                "description": "InitiativeId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Features belong to releases.\nThis means that if you want to\n[create one](/api/resources/features/create_a_feature) then\nyou must scope it to a release.\n\nYou can return a result set which is unfiltered, or filter by\n[release](/api/resources/features/list_features_in_a_release)\n, [product](/api/resources/features/list_features_in_a_product)\n, or [epic](/api/resources/features/list_features_in_an_epic).\nAll these means of listing features can be further filtered by specific criteria like name, modi"
+        },
+        {
+          "info": {
+            "name": "Convert a feature to an epic",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/features/:id/convert_to_epic",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Converts an existing feature into an epic, maintaining all relationships and data"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

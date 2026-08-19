@@ -1,0 +1,199 @@
+{
+  "item": [
+    {
+      "id": "77c3296c-dbfb-473b-85d2-8e91bb6bdfb0",
+      "name": "Custom pivots",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0ca7896d-f646-48a2-a440-3a9fd0baf9b3",
+          "name": "Get the list view of a saved report",
+          "request": {
+            "name": "Get the list view of a saved report",
+            "description": {
+              "content": "The list view responds with a JSON object with three attributes: pagination, columns, and rows.\n\nThe columns attribute is an array of objects that give detailed information\nabout the columns of the list. The objects include the name of the table, the field, and\na human readable title attribute.\n\nThe rows attribute is an of array of arrays. Each object within the inner array contains the value\nof that for a specific column. Each object contains attributes for various representations of the\ndata. The fields are:\n\n  - `id`: The unique id of the object\n  - `plain_value`: A string representation of the object\n  - `html_value`: An HTML representation of the object. This is the same HTML that\n  is used in Aha! to represent the value in our reports.\n  - `rich_value`: If the object is a reference to another object (such as a tag),\n  the, this will be the object representation. For instance, a tag would be\n  representated as:\n  ```\n  {\n    id: \"6013053275679792248\",\n    name: \"API\"\n  }\n  ```\n\nThe third attribute is pagination. This works like everywhere else in the Aha! API and is documented [here](/api#pagination).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "bookmarks",
+                "custom_pivots",
+                ":report_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "report_id",
+                  "description": "(Required) ReportId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "599a8288-1c87-4fcd-8ca8-b241ba564ee1",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "bookmarks",
+                    "custom_pivots",
+                    ":report_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "list"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "report_id",
+                      "description": "(Required) ReportId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"top_level_columns\": [\n    1,\n    2,\n    3\n  ],\n  \"columns\": {\n    \"1\": {\n      \"ref\": 1,\n      \"parent_ref\": null,\n      \"child_refs\": [],\n      \"id\": 131414752,\n      \"plain_value\": \"Project 1\",\n      \"html_value\": \"<a data-drawer-url=\\\"/projects/PRJ1\\\" href=\\\"/projects/PRJ1\\\"><span class=\\\"project-name\\\"><span><i class=\\\"fa-regular fa-browser\\\" style=\\\"display: table-cell; vertical-align: middle; padding-right: 5px; \\\" data-title=\\\"Project 1\\\"></i></span><span>Project 1</span></span></a>\",\n      \"rich_value\": \"<span class=\\\"project-name\\\"><span><i class=\\\"fa-regular fa-browser\\\" style=\\\"display: table-cell; vertical-align: middle; padding-right: 5px; \\\" data-title=\\\"Project 1\\\"></i></span><span>Project 1</span></span>\",\n      \"field_definition_ref\": 7\n    },\n    \"2\": {\n      \"ref\": 2,\n      \"parent_ref\": null,\n      \"child_refs\": [],\n      \"id\": 517761884,\n      \"plain_value\": \"Project 2\",\n      \"html_value\": \"<a data-drawer-url=\\\"/projects/PRJ2\\\" href=\\\"/projects/PRJ2\\\"><span class=\\\"project-name\\\"><span><i class=\\\"fa-regular fa-browser\\\" style=\\\"display: table-cell; vertical-align: middle; padding-right: 5px; \\\" data-title=\\\"Project 2\\\"></i></span><span>Project 2</span></span></a>\",\n      \"rich_value\": \"<span class=\\\"project-name\\\"><span><i class=\\\"fa-regular fa-browser\\\" style=\\\"display: table-cell; vertical-align: middle; padding-right: 5px; \\\" data-title=\\\"Project 2\\\"></i></span><span>Project 2</span></span>\",\n      \"field_definition_ref\": 7\n    },\n    \"3\": {\n      \"ref\": 3,\n      \"parent_ref\": null,\n      \"child_refs\": [],\n      \"id\": 702241743,\n      \"plain_value\": \"Project 3\",\n      \"html_value\": \"<a data-drawer-url=\\\"/projects/PRJ3\\\" href=\\\"/projects/PRJ3\\\"><span class=\\\"project-name\\\"><span><i class=\\\"fa-regular fa-browser\\\" style=\\\"display: table-cell; vertical-align: middle; padding-right: 5px; \\\" data-title=\\\"Project 3\\\"></i></span><span>Project 3</span></span></a>\",\n      \"rich_value\": \"<span class=\\\"project-name\\\"><span><i class=\\\"fa-regular fa-browser\\\" style=\\\"display: table-cell; vertical-align: middle; padding-right: 5px; \\\" data-title=\\\"Project 3\\\"></i></span><span>Project 3</span></span>\",\n      \"field_definition_ref\": 7\n    }\n  },\n  \"top_level_rows\": [\n    4,\n    5,\n    6\n  ],\n  \"rows\": {\n    \"4\": {\n      \"ref\": 4,\n      \"parent_ref\": null,\n      \"child_refs\": [],\n      \"id\": 278327321,\n      \"plain_value\": \"Release 1\",\n      \"html_value\": \"<a data-drawer-url=\\\"/releases/PRJ1-R-1\\\" href=\\\"/releases/PRJ1-R-1\\\">Release 1</a>\",\n      \"rich_value\": \"Release 1\",\n      \"field_definition_ref\": 8\n    },\n    \"5\": {\n      \"ref\": 5,\n      \"parent_ref\": null,\n      \"child_refs\": [],\n      \"id\": 1000426269,\n      \"plain_value\": \"Release 2\",\n      \"html_value\": \"<a data-drawer-url=\\\"/releases/PRJ2-R-1\\\" href=\\\"/releases/PRJ2-R-1\\\">Release 2</a>\",\n      \"rich_value\": \"Release 2\",\n      \"field_definition_ref\": 8\n    },\n    \"6\": {\n      \"ref\": 6,\n      \"parent_ref\": null,\n      \"child_refs\": [],\n      \"id\": 342040612,\n      \"plain_value\": \"Release 3 Project 3\",\n      \"html_value\": \"<a data-drawer-url=\\\"/releases/PRJ3-R-1\\\" href=\\\"/releases/PRJ3-R-1\\\">Release 3 Project 3</a>\",\n      \"rich_value\": \"Release 3 Project 3\",\n      \"field_definition_ref\": 8\n    }\n  },\n  \"cells\": [\n    [\n      [\n        [\n          {\n            \"id\": 1007868956,\n            \"plain_value\": \"PRJ1-1\",\n            \"html_value\": \"<a data-drawer-url=\\\"/features/PRJ1-1\\\" href=\\\"/features/PRJ1-1\\\"><aha-record-reference record-type=\\\"Feature\\\" size=\\\"small\\\" icon-override=\\\"fa-solid fa-grid-2\\\">PRJ1-1</aha-record-reference></a>\",\n            \"rich_value\": \"<aha-record-reference record-type=\\\"Feature\\\" size=\\\"small\\\" icon-override=\\\"fa-solid fa-grid-2\\\">PRJ1-1</aha-record-reference>\",\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 9\n          },\n          {\n            \"id\": 1007868956,\n            \"plain_value\": \"Feature 1\",\n            \"html_value\": \"<a data-drawer-url=\\\"/features/PRJ1-1\\\" href=\\\"/features/PRJ1-1\\\">Feature 1</a>\",\n            \"rich_value\": \"Feature 1\",\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 10\n          },\n          {\n            \"id\": 1007868956,\n            \"plain_value\": \"New\",\n            \"html_value\": \"<span class=\\\"status-pill\\\" title=\\\"New\\\" style=\\\"color: var(--theme-primary-text); border: none; background-color: #F1F5E8\\\">New</span>\",\n            \"rich_value\": {\n              \"id\": 934242751,\n              \"name\": \"New\",\n              \"color\": \"dce7c6\"\n            },\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 11\n          },\n          {\n            \"id\": 1055237874,\n            \"plain_value\": \"John Long (john@long.com)\",\n            \"html_value\": \"<a data-drawer-url=\\\"/ideas/idea_users/1056507375\\\" href=\\\"/ideas/idea_users/1056507375\\\">John Long (john@long.com)</a>\",\n            \"rich_value\": {\n              \"id\": 1056507375,\n              \"name\": \"John Long (john@long.com)\"\n            },\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 12\n          }\n        ],\n        [\n          {\n            \"id\": 1007868956,\n            \"plain_value\": \"PRJ1-1\",\n            \"html_value\": \"<a data-drawer-url=\\\"/features/PRJ1-1\\\" href=\\\"/features/PRJ1-1\\\"><aha-record-reference record-type=\\\"Feature\\\" size=\\\"small\\\" icon-override=\\\"fa-solid fa-grid-2\\\">PRJ1-1</aha-record-reference></a>\",\n            \"rich_value\": \"<aha-record-reference record-type=\\\"Feature\\\" size=\\\"small\\\" icon-override=\\\"fa-solid fa-grid-2\\\">PRJ1-1</aha-record-reference>\",\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 9\n          },\n          {\n            \"id\": 1007868956,\n            \"plain_value\": \"Feature 1\",\n            \"html_value\": \"<a data-drawer-url=\\\"/features/PRJ1-1\\\" href=\\\"/features/PRJ1-1\\\">Feature 1</a>\",\n            \"rich_value\": \"Feature 1\",\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 10\n          },\n          {\n            \"id\": 1007868956,\n            \"plain_value\": \"New\",\n            \"html_value\": \"<span class=\\\"status-pill\\\" title=\\\"New\\\" style=\\\"color: var(--theme-primary-text); border: none; background-color: #F1F5E8\\\">New</span>\",\n            \"rich_value\": {\n              \"id\": 934242751,\n              \"name\": \"New\",\n              \"color\": \"dce7c6\"\n            },\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 11\n          },\n          {\n            \"id\": 444379319,\n            \"plain_value\": \"John Long (john@long.com)\",\n            \"html_value\": \"<a data-drawer-url=\\\"/ideas/idea_users/1056507375\\\" href=\\\"/ideas/idea_users/1056507375\\\">John Long (john@long.com)</a>\",\n            \"rich_value\": {\n              \"id\": 1056507375,\n              \"name\": \"John Long (john@long.com)\"\n            },\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 12\n          }\n        ],\n        [\n          {\n            \"id\": 622562724,\n            \"plain_value\": \"PRJ1-2\",\n            \"html_value\": \"<a data-drawer-url=\\\"/features/PRJ1-2\\\" href=\\\"/features/PRJ1-2\\\"><aha-record-reference record-type=\\\"Feature\\\" size=\\\"small\\\" icon-override=\\\"fa-solid fa-grid-2\\\">PRJ1-2</aha-record-reference></a>\",\n            \"rich_value\": \"<aha-record-reference record-type=\\\"Feature\\\" size=\\\"small\\\" icon-override=\\\"fa-solid fa-grid-2\\\">PRJ1-2</aha-record-reference>\",\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 9\n          },\n          {\n            \"id\": 622562724,\n            \"plain_value\": \"Another Feature\",\n            \"html_value\": \"<a data-drawer-url=\\\"/features/PRJ1-2\\\" href=\\\"/features/PRJ1-2\\\">Another Feature</a>\",\n            \"rich_value\": \"Another Feature\",\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 10\n          },\n          {\n            \"id\": 622562724,\n            \"plain_value\": \"Designed\",\n            \"html_value\": \"<span class=\\\"status-pill\\\" title=\\\"Designed\\\" style=\\\"color: var(--theme-primary-text); border: none; background-color: #F7F1D2\\\">Designed</span>\",\n            \"rich_value\": {\n              \"id\": 962984386,\n              \"name\": \"Designed\",\n              \"color\": \"ecdd8f\"\n            },\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 11\n          },\n          {\n            \"id\": null,\n            \"plain_value\": null,\n            \"html_value\": null,\n            \"rich_value\": null,\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 12\n          }\n        ],\n        [\n          {\n            \"id\": 303873333,\n            \"plain_value\": \"PRJ1-3\",\n            \"html_value\": \"<a data-drawer-url=\\\"/features/PRJ1-3\\\" href=\\\"/features/PRJ1-3\\\"><aha-record-reference record-type=\\\"Feature\\\" size=\\\"small\\\" icon-override=\\\"fa-solid fa-grid-2\\\">PRJ1-3</aha-record-reference></a>\",\n            \"rich_value\": \"<aha-record-reference record-type=\\\"Feature\\\" size=\\\"small\\\" icon-override=\\\"fa-solid fa-grid-2\\\">PRJ1-3</aha-record-reference>\",\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 9\n          },\n          {\n            \"id\": 303873333,\n            \"plain_value\": \"Another Third Feature\",\n            \"html_value\": \"<a data-drawer-url=\\\"/features/PRJ1-3\\\" href=\\\"/features/PRJ1-3\\\">Another Third Feature</a>\",\n            \"rich_value\": \"Another Third Feature\",\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 10\n          },\n          {\n            \"id\": 303873333,\n            \"plain_value\": \"Designed\",\n            \"html_value\": \"<span class=\\\"status-pill\\\" title=\\\"Designed\\\" style=\\\"color: var(--theme-primary-text); border: none; background-color: #F7F1D2\\\">Designed</span>\",\n            \"rich_value\": {\n              \"id\": 962984386,\n              \"name\": \"Designed\",\n              \"color\": \"ecdd8f\"\n            },\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 11\n          },\n          {\n            \"id\": null,\n            \"plain_value\": null,\n            \"html_value\": null,\n            \"rich_value\": null,\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 12\n          }\n        ],\n        [\n          {\n            \"id\": 209201304,\n            \"plain_value\": \"PRJ1-4\",\n            \"html_value\": \"<a data-drawer-url=\\\"/features/PRJ1-4\\\" href=\\\"/features/PRJ1-4\\\"><aha-record-reference record-type=\\\"Feature\\\" size=\\\"small\\\" icon-override=\\\"fa-solid fa-grid-2\\\">PRJ1-4</aha-record-reference></a>\",\n            \"rich_value\": \"<aha-record-reference record-type=\\\"Feature\\\" size=\\\"small\\\" icon-override=\\\"fa-solid fa-grid-2\\\">PRJ1-4</aha-record-reference>\",\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 9\n          },\n          {\n            \"id\": 209201304,\n            \"plain_value\": \"Another Fourth Feature\",\n            \"html_value\": \"<a data-drawer-url=\\\"/features/PRJ1-4\\\" href=\\\"/features/PRJ1-4\\\">Another Fourth Feature</a>\",\n            \"rich_value\": \"Another Fourth Feature\",\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 10\n          },\n          {\n            \"id\": 209201304,\n            \"plain_value\": \"Designed\",\n            \"html_value\": \"<span class=\\\"status-pill\\\" title=\\\"Designed\\\" style=\\\"color: var(--theme-primary-text); border: none; background-color: #F7F1D2\\\">Designed</span>\",\n            \"rich_value\": {\n              \"id\": 962984386,\n              \"name\": \"Designed\",\n              \"color\": \"ecdd8f\"\n            },\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 11\n          },\n          {\n            \"id\": null,\n            \"plain_value\": null,\n            \"html_value\": null,\n            \"rich_value\": null,\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 12\n          }\n        ],\n        [\n          {\n            \"id\": 998184963,\n            \"plain_value\": \"PRJ1-5\",\n            \"html_value\": \"<a data-drawer-url=\\\"/features/PRJ1-5\\\" href=\\\"/features/PRJ1-5\\\"><aha-record-reference record-type=\\\"Feature\\\" size=\\\"small\\\" icon-override=\\\"fa-solid fa-grid-2\\\">PRJ1-5</aha-record-reference></a>\",\n            \"rich_value\": \"<aha-record-reference record-type=\\\"Feature\\\" size=\\\"small\\\" icon-override=\\\"fa-solid fa-grid-2\\\">PRJ1-5</aha-record-reference>\",\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 9\n          },\n          {\n            \"id\": 998184963,\n            \"plain_value\": \"Another Fifth Feature\",\n            \"html_value\": \"<a data-drawer-url=\\\"/features/PRJ1-5\\\" href=\\\"/features/PRJ1-5\\\">Another Fifth Feature</a>\",\n            \"rich_value\": \"Another Fifth Feature\",\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 10\n          },\n          {\n            \"id\": 998184963,\n            \"plain_value\": \"Designed\",\n            \"html_value\": \"<span class=\\\"status-pill\\\" title=\\\"Designed\\\" style=\\\"color: var(--theme-primary-text); border: none; background-color: #F7F1D2\\\">Designed</span>\",\n            \"rich_value\": {\n              \"id\": 962984386,\n              \"name\": \"Designed\",\n              \"color\": \"ecdd8f\"\n            },\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 11\n          },\n          {\n            \"id\": null,\n            \"plain_value\": null,\n            \"html_value\": null,\n            \"rich_value\": null,\n            \"row_ref\": 4,\n            \"column_ref\": 1,\n            \"field_definition_ref\": 12\n          }\n        ]\n      ],\n      [],\n      []\n    ],\n    [\n      [],\n      [\n        [\n          {\n            \"id\": 101074039,\n            \"plain_value\": \"PRJ2-1\",\n            \"html_value\": \"<a data-drawer-url=\\\"/features/PRJ2-1\\\" href=\\\"/features/PRJ2-1\\\"><aha-record-reference record-type=\\\"Feature\\\" size=\\\"small\\\" icon-override=\\\"fa-solid fa-grid-2\\\">PRJ2-1</aha-record-reference></a>\",\n            \"rich_value\": \"<aha-record-reference record-type=\\\"Feature\\\" size=\\\"small\\\" icon-override=\\\"fa-solid fa-grid-2\\\">PRJ2-1</aha-record-reference>\",\n            \"row_ref\": 5,\n            \"column_ref\": 2,\n            \"field_definition_ref\": 9\n          },\n          {\n            \"id\": 101074039,\n            \"plain_value\": \"A feature in project 2\",\n            \"html_value\": \"<a data-drawer-url=\\\"/features/PRJ2-1\\\" href=\\\"/features/PRJ2-1\\\">A feature in project 2</a>\",\n            \"rich_value\": \"A feature in project 2\",\n            \"row_ref\": 5,\n            \"column_ref\": 2,\n            \"field_definition_ref\": 10\n          },\n          {\n            \"id\": 101074039,\n            \"plain_value\": \"Designed\",\n            \"html_value\": \"<span class=\\\"status-pill\\\" title=\\\"Designed\\\" style=\\\"color: var(--theme-primary-text); border: none; background-color: #F7F1D2\\\">Designed</span>\",\n            \"rich_value\": {\n              \"id\": 962984386,\n              \"name\": \"Designed\",\n              \"color\": \"ecdd8f\"\n            },\n            \"row_ref\": 5,\n            \"column_ref\": 2,\n            \"field_definition_ref\": 11\n          },\n          {\n            \"id\": null,\n            \"plain_value\": null,\n            \"html_value\": null,\n            \"rich_value\": null,\n            \"row_ref\": 5,\n            \"column_ref\": 2,\n            \"field_definition_ref\": 12\n          }\n        ]\n      ],\n      []\n    ],\n    [\n      [],\n      [],\n      [\n        [\n          {\n            \"id\": 229579240,\n            \"plain_value\": \"PRJ3-1\",\n            \"html_value\": \"<a data-drawer-url=\\\"/features/PRJ3-1\\\" href=\\\"/features/PRJ3-1\\\"><aha-record-reference record-type=\\\"Feature\\\" size=\\\"small\\\" icon-override=\\\"fa-solid fa-grid-2\\\">PRJ3-1</aha-record-reference></a>\",\n            \"rich_value\": \"<aha-record-reference record-type=\\\"Feature\\\" size=\\\"small\\\" icon-override=\\\"fa-solid fa-grid-2\\\">PRJ3-1</aha-record-reference>\",\n            \"row_ref\": 6,\n            \"column_ref\": 3,\n            \"field_definition_ref\": 9\n          },\n          {\n            \"id\": 229579240,\n            \"plain_value\": \"Feature without Requirements\",\n            \"html_value\": \"<a data-drawer-url=\\\"/features/PRJ3-1\\\" href=\\\"/features/PRJ3-1\\\">Feature without Requirements</a>\",\n            \"rich_value\": \"Feature without Requirements\",\n            \"row_ref\": 6,\n            \"column_ref\": 3,\n            \"field_definition_ref\": 10\n          },\n          {\n            \"id\": 229579240,\n            \"plain_value\": \"New\",\n            \"html_value\": \"<span class=\\\"status-pill\\\" title=\\\"New\\\" style=\\\"color: var(--theme-primary-text); border: none; background-color: #F1F5E8\\\">New</span>\",\n            \"rich_value\": {\n              \"id\": 934242751,\n              \"name\": \"New\",\n              \"color\": \"dce7c6\"\n            },\n            \"row_ref\": 6,\n            \"column_ref\": 3,\n            \"field_definition_ref\": 11\n          },\n          {\n            \"id\": null,\n            \"plain_value\": null,\n            \"html_value\": null,\n            \"rich_value\": null,\n            \"row_ref\": 6,\n            \"column_ref\": 3,\n            \"field_definition_ref\": 12\n          }\n        ],\n        [\n          {\n            \"id\": 959120953,\n            \"plain_value\": \"PRJ3-2\",\n            \"html_value\": \"<a data-drawer-url=\\\"/features/PRJ3-2\\\" href=\\\"/features/PRJ3-2\\\"><aha-record-reference record-type=\\\"Feature\\\" size=\\\"small\\\" icon-override=\\\"fa-solid fa-grid-2\\\">PRJ3-2</aha-record-reference></a>\",\n            \"rich_value\": \"<aha-record-reference record-type=\\\"Feature\\\" size=\\\"small\\\" icon-override=\\\"fa-solid fa-grid-2\\\">PRJ3-2</aha-record-reference>\",\n            \"row_ref\": 6,\n            \"column_ref\": 3,\n            \"field_definition_ref\": 9\n          },\n          {\n            \"id\": 959120953,\n            \"plain_value\": \"A third Feature\",\n            \"html_value\": \"<a data-drawer-url=\\\"/features/PRJ3-2\\\" href=\\\"/features/PRJ3-2\\\">A third Feature</a>\",\n            \"rich_value\": \"A third Feature\",\n            \"row_ref\": 6,\n            \"column_ref\": 3,\n            \"field_definition_ref\": 10\n          },\n          {\n            \"id\": 959120953,\n            \"plain_value\": \"Designed\",\n            \"html_value\": \"<span class=\\\"status-pill\\\" title=\\\"Designed\\\" style=\\\"color: var(--theme-primary-text); border: none; background-color: #F7F1D2\\\">Designed</span>\",\n            \"rich_value\": {\n              \"id\": 962984386,\n              \"name\": \"Designed\",\n              \"color\": \"ecdd8f\"\n            },\n            \"row_ref\": 6,\n            \"column_ref\": 3,\n            \"field_definition_ref\": 11\n          },\n          {\n            \"id\": null,\n            \"plain_value\": null,\n            \"html_value\": null,\n            \"rich_value\": null,\n            \"row_ref\": 6,\n            \"column_ref\": 3,\n            \"field_definition_ref\": 12\n          }\n        ]\n      ]\n    ]\n  ],\n  \"field_definitions\": {\n    \"7\": {\n      \"ref\": 7,\n      \"table\": \"projects\",\n      \"field\": \"name\",\n      \"title\": \"Workspace name\"\n    },\n    \"8\": {\n      \"ref\": 8,\n      \"table\": \"releases\",\n      \"field\": \"name\",\n      \"title\": \"Release name\"\n    },\n    \"9\": {\n      \"ref\": 9,\n      \"table\": \"features\",\n      \"field\": \"reference_num\",\n      \"title\": \"Feature reference #\"\n    },\n    \"10\": {\n      \"ref\": 10,\n      \"table\": \"features\",\n      \"field\": \"name\",\n      \"title\": \"Feature name\"\n    },\n    \"11\": {\n      \"ref\": 11,\n      \"table\": \"features\",\n      \"field\": \"status\",\n      \"title\": \"Feature status\"\n    },\n    \"12\": {\n      \"ref\": 12,\n      \"table\": \"ideas\",\n      \"field\": \"created_by_user_id\",\n      \"title\": \"Idea created by\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Aha! account domain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "company",
+      "key": "account-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account-domain}}.aha.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{account-domain}.aha.io/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://{account-domain}.aha.io/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5bb59fcf-95f4-42b0-af10-eecce6ae22e5",
+    "name": "Aha! Account backups Custom pivots API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Aha! generated from actual test responses\n\nContact Support:\n Name: Aha! Support",
+      "type": "text/plain"
+    }
+  }
+}

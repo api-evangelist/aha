@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aha! Account backups Audits API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+      "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Audits",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve the history of only the description of a record",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/audits",
+            "params": [
+              {
+                "name": "associated_id",
+                "value": "1007868956",
+                "type": "query"
+              },
+              {
+                "name": "associated_type",
+                "value": "Feature",
+                "type": "query"
+              },
+              {
+                "name": "auditable_type",
+                "value": "Note",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Audit records describe historical changes to records in Aha! and are created automatically when a record is created, updated, or deleted. Audits are immutable and cannot be modified or deleted.\n\nAudits are stored not only for first-class objects such as Features or Release, but also for secondary objects attached to those records such as custom field values, equation field values, descriptions, and record links.\n\nAudit records are only available for the last 12 calendar months. After that, they "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

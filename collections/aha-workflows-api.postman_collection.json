@@ -1,0 +1,310 @@
+{
+  "item": [
+    {
+      "id": "10520e3c-be75-4929-8eee-360689e3911d",
+      "name": "Workflows",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e7f427c1-58ae-4d2f-a1d1-8bbef6f2c92d",
+          "name": "List workflows",
+          "request": {
+            "name": "List workflows",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "products",
+                ":product_id",
+                "workflows"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_id",
+                  "description": "(Required) ProductId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8a7dd056-dc78-4d3f-8334-ceca56b803d8",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "products",
+                    ":product_id",
+                    "workflows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_id",
+                      "description": "(Required) ProductId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"workflows\": [\n    {\n      \"id\": 61191651,\n      \"name\": \"Account initiative workflow\",\n      \"statusable_type\": \"Initiative\",\n      \"transitions_only\": false,\n      \"workflow_statuses\": [\n        {\n          \"id\": \"53968949\",\n          \"name\": \"Not Started\",\n          \"position\": 1,\n          \"complete\": false,\n          \"color\": \"#dce7c6\"\n        },\n        {\n          \"id\": \"851912549\",\n          \"name\": \"On Track\",\n          \"position\": 2,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"398063383401136128\",\n          \"name\": \"Sample 15\",\n          \"position\": 17,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"398063383401136148\",\n          \"name\": \"Sample 3\",\n          \"position\": 5,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"398063383401136158\",\n          \"name\": \"Sample 1\",\n          \"position\": 3,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"398063383401136168\",\n          \"name\": \"Sample 2\",\n          \"position\": 4,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"398063383401136178\",\n          \"name\": \"Sample 14\",\n          \"position\": 16,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"420001850772881408\",\n          \"name\": \"Sample 12\",\n          \"position\": 14,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"420001850772881428\",\n          \"name\": \"Sample 7\",\n          \"position\": 9,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"420001850772881438\",\n          \"name\": \"Sample 5\",\n          \"position\": 7,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"420001850772881448\",\n          \"name\": \"Sample 4\",\n          \"position\": 6,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"6001166979456424024\",\n          \"name\": \"Sample 19\",\n          \"position\": 21,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"6001166979457568121\",\n          \"name\": \"Sample 16\",\n          \"position\": 18,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"6001166983749861123\",\n          \"name\": \"Sample 18\",\n          \"position\": 20,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"6001166983750348036\",\n          \"name\": \"Sample 20\",\n          \"position\": 22,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"6001166983752519805\",\n          \"name\": \"Sample 17\",\n          \"position\": 19,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"6001166983754160302\",\n          \"name\": \"Sample 21\",\n          \"position\": 23,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"6013053275675082840\",\n          \"name\": \"Sample 13\",\n          \"position\": 15,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"6013053275678580297\",\n          \"name\": \"Sample 11\",\n          \"position\": 13,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"6013053275679470036\",\n          \"name\": \"Sample 10\",\n          \"position\": 12,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"6013053275679792248\",\n          \"name\": \"Sample 9\",\n          \"position\": 11,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"6013053284264084983\",\n          \"name\": \"Sample 8\",\n          \"position\": 10,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"6013053284269398016\",\n          \"name\": \"Sample 6\",\n          \"position\": 8,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        }\n      ],\n      \"workflow_kinds\": [\n        {\n          \"id\": \"196299900\",\n          \"name\": \"Improvement\"\n        },\n        {\n          \"id\": \"654498607\",\n          \"name\": \"New\"\n        }\n      ]\n    },\n    {\n      \"id\": 80245244,\n      \"name\": \"Account product idea workflow\",\n      \"statusable_type\": \"Idea\",\n      \"transitions_only\": false,\n      \"workflow_statuses\": [\n        {\n          \"id\": \"3259216\",\n          \"name\": \"New\",\n          \"position\": 1,\n          \"complete\": false,\n          \"color\": \"#dce7c6\"\n        },\n        {\n          \"id\": \"349486678\",\n          \"name\": \"Shipped\",\n          \"position\": 4,\n          \"complete\": true,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"509459046\",\n          \"name\": \"Done\",\n          \"position\": 4,\n          \"complete\": true,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"1009437757\",\n          \"name\": \"In progress\",\n          \"position\": 2,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        }\n      ],\n      \"workflow_kinds\": [\n        {\n          \"id\": \"1809278\",\n          \"name\": \"Improvement\"\n        },\n        {\n          \"id\": \"787053401\",\n          \"name\": \"New\"\n        }\n      ]\n    },\n    {\n      \"id\": 499195972,\n      \"name\": \"Account product feature workflow\",\n      \"statusable_type\": \"Feature\",\n      \"transitions_only\": false,\n      \"workflow_statuses\": [\n        {\n          \"id\": \"118531893\",\n          \"name\": \"Already Exists\",\n          \"position\": 7,\n          \"complete\": true,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"327385593\",\n          \"name\": \"In progress\",\n          \"position\": 3,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"348961883\",\n          \"name\": \"Won't Do\",\n          \"position\": 6,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"597153450\",\n          \"name\": \"Done\",\n          \"position\": 4,\n          \"complete\": true,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"922838743\",\n          \"name\": \"Not started\",\n          \"position\": 8,\n          \"complete\": false,\n          \"color\": \"#dce790\"\n        },\n        {\n          \"id\": \"934242751\",\n          \"name\": \"New\",\n          \"position\": 1,\n          \"complete\": false,\n          \"color\": \"#dce7c6\"\n        },\n        {\n          \"id\": \"962984386\",\n          \"name\": \"Designed\",\n          \"position\": 2,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"1025247908\",\n          \"name\": \"Shipped\",\n          \"position\": 5,\n          \"complete\": true,\n          \"color\": \"#ecdd8f\"\n        }\n      ],\n      \"workflow_kinds\": [\n        {\n          \"id\": \"98484309\",\n          \"name\": \"New\"\n        },\n        {\n          \"id\": \"714950177\",\n          \"name\": \"Improvement\"\n        }\n      ]\n    },\n    {\n      \"id\": 717623509,\n      \"name\": \"Account product release workflow\",\n      \"statusable_type\": \"Release\",\n      \"transitions_only\": false,\n      \"workflow_statuses\": [\n        {\n          \"id\": \"738862546\",\n          \"name\": \"New\",\n          \"position\": 1,\n          \"complete\": false,\n          \"color\": \"#dce7c6\"\n        },\n        {\n          \"id\": \"920959666\",\n          \"name\": \"In progress\",\n          \"position\": 2,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"1040256814\",\n          \"name\": \"Shipped\",\n          \"position\": 3,\n          \"complete\": true,\n          \"color\": \"#ecdd8f\"\n        }\n      ],\n      \"workflow_kinds\": [\n        {\n          \"id\": \"97513727\",\n          \"name\": \"Improvement\"\n        },\n        {\n          \"id\": \"706521964\",\n          \"name\": \"New\"\n        },\n        {\n          \"id\": \"6053108729101086872\",\n          \"name\": \"Sample 1\"\n        }\n      ]\n    },\n    {\n      \"id\": 883066232,\n      \"name\": \"Account goal workflow\",\n      \"statusable_type\": \"StrategicImperative\",\n      \"transitions_only\": false,\n      \"workflow_statuses\": [\n        {\n          \"id\": \"396368932\",\n          \"name\": \"On Track\",\n          \"position\": 2,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"412273758\",\n          \"name\": \"Not Started\",\n          \"position\": 1,\n          \"complete\": false,\n          \"color\": \"#dce7c6\"\n        }\n      ],\n      \"workflow_kinds\": [\n        {\n          \"id\": \"146845716\",\n          \"name\": \"New\"\n        },\n        {\n          \"id\": \"618789532\",\n          \"name\": \"Improvement\"\n        }\n      ]\n    },\n    {\n      \"id\": 934299270,\n      \"name\": \"Account document workflow\",\n      \"statusable_type\": \"Page\",\n      \"transitions_only\": false,\n      \"workflow_statuses\": [\n        {\n          \"id\": \"353277314\",\n          \"name\": \"On Track\",\n          \"position\": 2,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"369936966\",\n          \"name\": \"Not Started\",\n          \"position\": 1,\n          \"complete\": false,\n          \"color\": \"#dce7c6\"\n        },\n        {\n          \"id\": \"783316433\",\n          \"name\": \"In Review\",\n          \"position\": 3,\n          \"complete\": false,\n          \"color\": \"#ecdcb8\"\n        }\n      ],\n      \"workflow_kinds\": []\n    },\n    {\n      \"id\": 1024772447,\n      \"name\": \"Account product key result workflow\",\n      \"statusable_type\": \"KeyResult\",\n      \"transitions_only\": false,\n      \"workflow_statuses\": [\n        {\n          \"id\": \"76947914\",\n          \"name\": \"On Track\",\n          \"position\": 2,\n          \"complete\": false,\n          \"color\": \"#ecdd8f\"\n        },\n        {\n          \"id\": \"496533981\",\n          \"name\": \"Not Started\",\n          \"position\": 1,\n          \"complete\": false,\n          \"color\": \"#dce7c6\"\n        }\n      ],\n      \"workflow_kinds\": [\n        {\n          \"id\": \"318525598\",\n          \"name\": \"New\"\n        },\n        {\n          \"id\": \"941130642\",\n          \"name\": \"Improvement\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "687ea901-c0d2-41e2-a300-7ff27fca9be9",
+          "name": "Get a specific workflow",
+          "request": {
+            "name": "Get a specific workflow",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workflows",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6652634b-2168-4954-a7f9-858cab461644",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workflows",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"workflow\": {\n    \"id\": 80245244,\n    \"name\": \"Account product idea workflow\",\n    \"statusable_type\": \"Idea\",\n    \"transitions_only\": false,\n    \"workflow_statuses\": [\n      {\n        \"id\": \"3259216\",\n        \"name\": \"New\",\n        \"position\": 1,\n        \"complete\": false,\n        \"color\": \"#dce7c6\"\n      },\n      {\n        \"id\": \"349486678\",\n        \"name\": \"Shipped\",\n        \"position\": 4,\n        \"complete\": true,\n        \"color\": \"#ecdd8f\"\n      },\n      {\n        \"id\": \"509459046\",\n        \"name\": \"Done\",\n        \"position\": 4,\n        \"complete\": true,\n        \"color\": \"#ecdd8f\"\n      },\n      {\n        \"id\": \"1009437757\",\n        \"name\": \"In progress\",\n        \"position\": 2,\n        \"complete\": false,\n        \"color\": \"#ecdd8f\"\n      }\n    ],\n    \"workflow_kinds\": [\n      {\n        \"id\": \"1809278\",\n        \"name\": \"Improvement\"\n      },\n      {\n        \"id\": \"787053401\",\n        \"name\": \"New\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Aha! account domain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "company",
+      "key": "account-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account-domain}}.aha.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{account-domain}.aha.io/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://{account-domain}.aha.io/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "18315fc4-228f-481c-8dca-603285df77e0",
+    "name": "Aha! Account backups Workflows API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Aha! generated from actual test responses\n\nContact Support:\n Name: Aha! Support",
+      "type": "text/plain"
+    }
+  }
+}

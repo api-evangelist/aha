@@ -1,0 +1,645 @@
+{
+  "item": [
+    {
+      "id": "701cc3b4-d8c0-4ec7-87c8-6b2b892d50a4",
+      "name": "Capacity estimate values",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e1dd970c-282d-4d35-b477-6c5ef6fbf5e8",
+          "name": "Create estimate values for a capacity investment",
+          "request": {
+            "name": "Create estimate values for a capacity investment",
+            "description": {
+              "content": "Estimate value objects should include the following keys: `team_id`, `period_start`, and `total`. This endpoint uses an \"upsert\" flow, updating existing records, or creating new ones if they do not exist. Returns all updated and destroyed estimate values, including computed sums and ignored values.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "capacity_investments",
+                ":id",
+                "estimate_values"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "17afa31a-4bb4-4758-87d0-a1752a705815",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "capacity_investments",
+                    ":id",
+                    "estimate_values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"estimate_values\": [\n    {\n      \"team_id\": 949295028,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 5\n    },\n    {\n      \"team_id\": 949295028,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 10\n    },\n    {\n      \"team_id\": 563889676,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 15\n    },\n    {\n      \"team_id\": 563889676,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 20\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"updated\": [\n    {\n      \"id\": \"6776881149487632203\",\n      \"team_id\": 563889676,\n      \"team_membership_id\": null,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 15,\n      \"computed\": false,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149489311818\",\n      \"team_id\": 563889676,\n      \"team_membership_id\": null,\n      \"period_start\": null,\n      \"total\": 35,\n      \"computed\": true,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149490125878\",\n      \"team_id\": null,\n      \"team_membership_id\": null,\n      \"period_start\": null,\n      \"total\": 50,\n      \"computed\": true,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149490529746\",\n      \"team_id\": null,\n      \"team_membership_id\": null,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 25,\n      \"computed\": true,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149490943142\",\n      \"team_id\": 949295028,\n      \"team_membership_id\": null,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 5,\n      \"computed\": false,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149492175407\",\n      \"team_id\": null,\n      \"team_membership_id\": null,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 5,\n      \"computed\": true,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149493726512\",\n      \"team_id\": 563889676,\n      \"team_membership_id\": null,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 20,\n      \"computed\": false,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149494705557\",\n      \"team_id\": 949295028,\n      \"team_membership_id\": null,\n      \"period_start\": null,\n      \"total\": 15,\n      \"computed\": true,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149498133135\",\n      \"team_id\": 949295028,\n      \"team_membership_id\": null,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 10,\n      \"computed\": false,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149499236800\",\n      \"team_id\": null,\n      \"team_membership_id\": null,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 20,\n      \"computed\": true,\n      \"ignored\": false\n    }\n  ],\n  \"destroyed\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7c0895d-b1da-4110-97e3-d674c0497271",
+          "name": "List estimate values for a capacity investment",
+          "request": {
+            "name": "List estimate values for a capacity investment",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "capacity_investments",
+                ":id",
+                "estimate_values"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "{}",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "65a751fd-d1b2-4a4d-858c-644d31afdb8c",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "capacity_investments",
+                    ":id",
+                    "estimate_values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "{}",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"estimate_values\": [\n    {\n      \"id\": \"6776881149483568838\",\n      \"team_id\": null,\n      \"team_membership_id\": null,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 5,\n      \"computed\": true,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149485225809\",\n      \"team_id\": 563889676,\n      \"team_membership_id\": null,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 20,\n      \"computed\": false,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149487362068\",\n      \"team_id\": 949295028,\n      \"team_membership_id\": null,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 10,\n      \"computed\": false,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149487778568\",\n      \"team_id\": 563889676,\n      \"team_membership_id\": null,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 15,\n      \"computed\": false,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149494637954\",\n      \"team_id\": null,\n      \"team_membership_id\": null,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 20,\n      \"computed\": true,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149497124166\",\n      \"team_id\": 949295028,\n      \"team_membership_id\": null,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 5,\n      \"computed\": false,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149497859029\",\n      \"team_id\": 563889676,\n      \"team_membership_id\": null,\n      \"period_start\": null,\n      \"total\": 35,\n      \"computed\": true,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149498218684\",\n      \"team_id\": null,\n      \"team_membership_id\": null,\n      \"period_start\": null,\n      \"total\": 50,\n      \"computed\": true,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149498683658\",\n      \"team_id\": null,\n      \"team_membership_id\": null,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 25,\n      \"computed\": true,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149498909376\",\n      \"team_id\": 949295028,\n      \"team_membership_id\": null,\n      \"period_start\": null,\n      \"total\": 15,\n      \"computed\": true,\n      \"ignored\": false\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 10,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7b7b1e1c-d0c9-4bc2-b2a8-dfee48a7fe33",
+          "name": "Update an estimate value",
+          "request": {
+            "name": "Update an estimate value",
+            "description": {
+              "content": "Returns all updated estimate values, including computed sums and ignored values.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "estimate_values",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7ef838ab-2355-4577-a306-251f0cd4e227",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "estimate_values",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"estimate_value\": {\n    \"total\": 20\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"updated\": [\n    {\n      \"id\": \"6776881149487468817\",\n      \"team_id\": 949295028,\n      \"team_membership_id\": null,\n      \"period_start\": null,\n      \"total\": 25,\n      \"computed\": true,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149490802007\",\n      \"team_id\": null,\n      \"team_membership_id\": null,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 35,\n      \"computed\": true,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149491123830\",\n      \"team_id\": 949295028,\n      \"team_membership_id\": null,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 20,\n      \"computed\": false,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149492562019\",\n      \"team_id\": null,\n      \"team_membership_id\": null,\n      \"period_start\": null,\n      \"total\": 60,\n      \"computed\": true,\n      \"ignored\": false\n    }\n  ],\n  \"destroyed\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ee3f629-2564-44ea-88d4-f47d19ba98bf",
+          "name": "Delete an estimate value",
+          "request": {
+            "name": "Delete an estimate value",
+            "description": {
+              "content": "Returns all updated and destroyed estimate values, including computed sums and ignored values.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "estimate_values",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "57cfd1a5-a05f-4b70-9b0f-ae12bd8c2c20",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "estimate_values",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"updated\": [\n    {\n      \"id\": \"6776881149491741642\",\n      \"team_id\": null,\n      \"team_membership_id\": null,\n      \"period_start\": null,\n      \"total\": 40,\n      \"computed\": true,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149493435663\",\n      \"team_id\": null,\n      \"team_membership_id\": null,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 15,\n      \"computed\": true,\n      \"ignored\": false\n    },\n    {\n      \"id\": \"6776881149496255620\",\n      \"team_id\": 949295028,\n      \"team_membership_id\": null,\n      \"period_start\": null,\n      \"total\": 5,\n      \"computed\": true,\n      \"ignored\": false\n    }\n  ],\n  \"destroyed\": [\n    {\n      \"id\": \"6776881149486253923\",\n      \"team_id\": 949295028,\n      \"team_membership_id\": null,\n      \"period_start\": \"2019-01-01\",\n      \"total\": 10,\n      \"computed\": false,\n      \"ignored\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Aha! account domain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "company",
+      "key": "account-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account-domain}}.aha.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{account-domain}.aha.io/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://{account-domain}.aha.io/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "da25ad2a-6087-4bf1-b32e-23f90818caba",
+    "name": "Aha! Account backups Capacity estimate values API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Aha! generated from actual test responses\n\nContact Support:\n Name: Aha! Support",
+      "type": "text/plain"
+    }
+  }
+}

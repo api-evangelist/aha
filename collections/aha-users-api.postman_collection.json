@@ -1,0 +1,1532 @@
+{
+  "item": [
+    {
+      "id": "be102e15-51f7-410d-ab3e-489371ece7e4",
+      "name": "Users",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "69908a76-1d16-42a5-9564-4fb5bac06137",
+          "name": "Create a user",
+          "request": {
+            "name": "Create a user",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "products",
+                ":product_id",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_id",
+                  "description": "(Required) ProductId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_role\": {\n    \"custom_role_id\": \"<integer>\",\n    \"product_id\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2a6a5b07-523e-46e6-bc72-c3cee0a0e032",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "products",
+                    ":product_id",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_id",
+                      "description": "(Required) ProductId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": {\n    \"email\": \"sam.doe@example.com\",\n    \"first_name\": \"sam\",\n    \"last_name\": \"doe\",\n    \"role\": \"product_owner\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"role\": 20,\n  \"role_description\": \"Owner\",\n  \"user\": {\n    \"id\": \"6776881149496250378\",\n    \"name\": \"sam doe\",\n    \"email\": \"sam.doe@example.com\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9de69f25-30ab-49fa-a33b-56b55fa5e51e",
+          "name": "List users associated with a product",
+          "request": {
+            "name": "List users associated with a product",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "products",
+                ":product_id",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_id",
+                  "description": "(Required) ProductId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f434d904-a316-4b77-9c9f-fd6f6dee86df",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "products",
+                    ":product_id",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_id",
+                      "description": "(Required) ProductId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"project_users\": [\n    {\n      \"role\": 50,\n      \"role_description\": \"Viewer\",\n      \"user\": {\n        \"id\": \"16338845\",\n        \"name\": \"John Smith\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    },\n    {\n      \"role\": 20,\n      \"role_description\": \"Owner\",\n      \"user\": {\n        \"id\": \"82352673\",\n        \"name\": \"Bob Smith\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    },\n    {\n      \"role\": 30,\n      \"role_description\": \"Contributor\",\n      \"user\": {\n        \"id\": \"289520357\",\n        \"name\": \"John Doe\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    },\n    {\n      \"role\": 30,\n      \"role_description\": \"Contributor\",\n      \"user\": {\n        \"id\": \"349538572\",\n        \"name\": \"Sally Sane\",\n        \"email\": \"sally.sane@account2.com\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    },\n    {\n      \"role\": 35,\n      \"role_description\": \"Developer\",\n      \"user\": {\n        \"id\": \"375285024\",\n        \"name\": \"Gregory McSmith\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    },\n    {\n      \"role\": 50,\n      \"role_description\": \"Viewer\",\n      \"user\": {\n        \"id\": \"435166761\",\n        \"name\": \"Jane Smith\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    },\n    {\n      \"role\": 40,\n      \"role_description\": \"Reviewer\",\n      \"user\": {\n        \"id\": \"601067208\",\n        \"name\": \"Jeremy Smith\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    },\n    {\n      \"role\": 30,\n      \"role_description\": \"Contributor\",\n      \"user\": {\n        \"id\": \"689956296\",\n        \"name\": \"Henry Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    },\n    {\n      \"role\": 20,\n      \"role_description\": \"Owner\",\n      \"user\": {\n        \"id\": \"871344824\",\n        \"name\": \"Joan Smith\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    },\n    {\n      \"role\": 20,\n      \"role_description\": \"Owner\",\n      \"user\": {\n        \"id\": \"1020675218\",\n        \"name\": \"Mary Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    },\n    {\n      \"role\": 20,\n      \"role_description\": \"Owner\",\n      \"user\": {\n        \"id\": \"1049303076\",\n        \"name\": \"George Gently\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 11,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81a6c125-7e28-4a70-9637-32ded5600dc8",
+          "name": "List users",
+          "request": {
+            "name": "List users",
+            "description": {
+              "content": "**[Custom roles](https://www.aha.io/support/roadmaps/account/billing-and-users/custom-user-permission-roles) are an Enterprise+ exclusive feature.**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "20cbedf1-fc12-42a0-8cdf-ce2c63d95305",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"users\": [\n    {\n      \"id\": \"16338845\",\n      \"name\": \"John Smith\",\n      \"email\": \"no-reply@aha.io\",\n      \"timezone\": \"Pacific/Auckland\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"accessed_at\": null,\n      \"product_roles\": [\n        {\n          \"role\": 50,\n          \"role_description\": \"Viewer\",\n          \"product_id\": \"131414752\",\n          \"product_name\": \"Project 1\"\n        }\n      ],\n      \"user_roles\": [],\n      \"enabled\": true,\n      \"paid_seat\": true,\n      \"roadmaps_seat\": true,\n      \"develop_seat\": false,\n      \"teamwork_seat\": false,\n      \"administrator\": false,\n      \"administrator_roles\": {\n        \"administer_account\": false,\n        \"administer_billing\": false,\n        \"administer_configuration\": false\n      },\n      \"identity_provider\": {\n        \"type\": \"password\"\n      }\n    },\n    {\n      \"id\": \"37063167\",\n      \"name\": \"No Projects\",\n      \"email\": \"no-reply@aha.io\",\n      \"timezone\": \"America/Mexico_City\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"accessed_at\": null,\n      \"product_roles\": [],\n      \"user_roles\": [],\n      \"enabled\": true,\n      \"paid_seat\": true,\n      \"roadmaps_seat\": true,\n      \"develop_seat\": false,\n      \"teamwork_seat\": false,\n      \"administrator\": true,\n      \"administrator_roles\": {\n        \"administer_account\": true,\n        \"administer_billing\": true,\n        \"administer_configuration\": true\n      },\n      \"identity_provider\": {\n        \"type\": \"password\"\n      }\n    },\n    {\n      \"id\": \"82352673\",\n      \"name\": \"Bob Smith\",\n      \"email\": \"no-reply@aha.io\",\n      \"timezone\": \"Asia/Istanbul\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"accessed_at\": null,\n      \"product_roles\": [\n        {\n          \"role\": 20,\n          \"role_description\": \"Owner\",\n          \"product_id\": \"131414752\",\n          \"product_name\": \"Project 1\"\n        },\n        {\n          \"role\": 20,\n          \"role_description\": \"Owner\",\n          \"product_id\": \"517761884\",\n          \"product_name\": null\n        },\n        {\n          \"role\": 20,\n          \"role_description\": \"Owner\",\n          \"product_id\": \"610602692\",\n          \"product_name\": null\n        },\n        {\n          \"role\": 20,\n          \"role_description\": \"Owner\",\n          \"product_id\": \"787060436\",\n          \"product_name\": null\n        },\n        {\n          \"role\": 20,\n          \"role_description\": \"Owner\",\n          \"product_id\": \"682804944\",\n          \"product_name\": null\n        },\n        {\n          \"role\": 20,\n          \"role_description\": \"Owner\",\n          \"product_id\": \"774939364\",\n          \"product_name\": null\n        }\n      ],\n      \"user_roles\": [],\n      \"enabled\": true,\n      \"paid_seat\": true,\n      \"roadmaps_seat\": true,\n      \"develop_seat\": false,\n      \"teamwork_seat\": false,\n      \"administrator\": true,\n      \"administrator_roles\": {\n        \"administer_account\": true,\n        \"administer_billing\": false,\n        \"administer_configuration\": true\n      },\n      \"paid_seat_group\": {\n        \"id\": 572805993,\n        \"name\": \"Group 2\"\n      },\n      \"identity_provider\": {\n        \"type\": \"password\"\n      }\n    },\n    {\n      \"id\": \"126225962\",\n      \"name\": \"Multi Account\",\n      \"email\": \"mulit-account@trial-account.com\",\n      \"timezone\": \"Asia/Kolkata\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"accessed_at\": null,\n      \"product_roles\": [],\n      \"user_roles\": [],\n      \"enabled\": true,\n      \"paid_seat\": true,\n      \"roadmaps_seat\": true,\n      \"develop_seat\": false,\n      \"teamwork_seat\": false,\n      \"administrator\": true,\n      \"administrator_roles\": {\n        \"administer_account\": true,\n        \"administer_billing\": true,\n        \"administer_configuration\": true\n      },\n      \"identity_provider\": {\n        \"type\": \"password\"\n      }\n    },\n    {\n      \"id\": \"267654265\",\n      \"name\": \"John's First (\\\"name\\\") 私 Smith\",\n      \"email\": \"no-reply@aha.io\",\n      \"timezone\": \"America/Indiana/Knox\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"accessed_at\": null,\n      \"product_roles\": [],\n      \"user_roles\": [],\n      \"enabled\": true,\n      \"paid_seat\": true,\n      \"roadmaps_seat\": true,\n      \"develop_seat\": false,\n      \"teamwork_seat\": false,\n      \"administrator\": false,\n      \"administrator_roles\": {\n        \"administer_account\": false,\n        \"administer_billing\": false,\n        \"administer_configuration\": false\n      },\n      \"identity_provider\": {\n        \"type\": \"password\"\n      }\n    },\n    {\n      \"id\": \"268195287\",\n      \"name\": \"Super Admin\",\n      \"email\": \"admin@aha.io\",\n      \"timezone\": \"America/New_York\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"accessed_at\": null,\n      \"product_roles\": [],\n      \"user_roles\": [],\n      \"enabled\": true,\n      \"paid_seat\": true,\n      \"roadmaps_seat\": true,\n      \"develop_seat\": false,\n      \"teamwork_seat\": false,\n      \"administrator\": false,\n      \"administrator_roles\": {\n        \"administer_account\": false,\n        \"administer_billing\": false,\n        \"administer_configuration\": false\n      },\n      \"identity_provider\": {\n        \"type\": \"password\"\n      }\n    },\n    {\n      \"id\": \"289520357\",\n      \"name\": \"John Doe\",\n      \"email\": \"no-reply@aha.io\",\n      \"timezone\": \"America/Mexico_City\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"accessed_at\": null,\n      \"product_roles\": [\n        {\n          \"role\": 30,\n          \"role_description\": \"Contributor\",\n          \"product_id\": \"131414752\",\n          \"product_name\": \"Project 1\"\n        },\n        {\n          \"role\": 50,\n          \"role_description\": \"Viewer\",\n          \"product_id\": \"517761884\",\n          \"product_name\": null\n        }\n      ],\n      \"user_roles\": [],\n      \"enabled\": true,\n      \"paid_seat\": true,\n      \"roadmaps_seat\": true,\n      \"develop_seat\": false,\n      \"teamwork_seat\": false,\n      \"administrator\": false,\n      \"administrator_roles\": {\n        \"administer_account\": false,\n        \"administer_billing\": false,\n        \"administer_configuration\": false\n      },\n      \"identity_provider\": {\n        \"type\": \"password\"\n      }\n    },\n    {\n      \"id\": \"349538572\",\n      \"name\": \"Sally Sane\",\n      \"email\": \"sally.sane@account2.com\",\n      \"timezone\": \"Europe/London\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"accessed_at\": null,\n      \"product_roles\": [\n        {\n          \"role\": 30,\n          \"role_description\": \"Contributor\",\n          \"product_id\": \"131414752\",\n          \"product_name\": \"Project 1\"\n        }\n      ],\n      \"user_roles\": [],\n      \"enabled\": true,\n      \"paid_seat\": true,\n      \"roadmaps_seat\": true,\n      \"develop_seat\": false,\n      \"teamwork_seat\": false,\n      \"administrator\": false,\n      \"administrator_roles\": {\n        \"administer_account\": false,\n        \"administer_billing\": false,\n        \"administer_configuration\": false\n      },\n      \"identity_provider\": {\n        \"type\": \"password\"\n      }\n    },\n    {\n      \"id\": \"373433676\",\n      \"name\": \"Jim Jingles\",\n      \"email\": \"no-reply@aha.io\",\n      \"timezone\": \"Pacific Time (US & Canada)\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"accessed_at\": null,\n      \"product_roles\": [],\n      \"user_roles\": [],\n      \"enabled\": true,\n      \"paid_seat\": true,\n      \"roadmaps_seat\": true,\n      \"develop_seat\": false,\n      \"teamwork_seat\": false,\n      \"administrator\": true,\n      \"administrator_roles\": {\n        \"administer_account\": true,\n        \"administer_billing\": true,\n        \"administer_configuration\": true\n      },\n      \"paid_seat_group\": {\n        \"id\": 992805589,\n        \"name\": \"Group 1\"\n      },\n      \"identity_provider\": {\n        \"type\": \"password\"\n      }\n    },\n    {\n      \"id\": \"375285024\",\n      \"name\": \"Gregory McSmith\",\n      \"email\": \"no-reply@aha.io\",\n      \"timezone\": \"America/Los_Angeles\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"accessed_at\": null,\n      \"product_roles\": [\n        {\n          \"role\": 35,\n          \"role_description\": \"Developer\",\n          \"product_id\": \"131414752\",\n          \"product_name\": \"Project 1\"\n        }\n      ],\n      \"user_roles\": [],\n      \"enabled\": true,\n      \"paid_seat\": true,\n      \"roadmaps_seat\": true,\n      \"develop_seat\": false,\n      \"teamwork_seat\": false,\n      \"administrator\": false,\n      \"administrator_roles\": {\n        \"administer_account\": false,\n        \"administer_billing\": false,\n        \"administer_configuration\": false\n      },\n      \"identity_provider\": {\n        \"type\": \"password\"\n      }\n    },\n    {\n      \"id\": \"435166761\",\n      \"name\": \"Jane Smith\",\n      \"email\": \"no-reply@aha.io\",\n      \"timezone\": \"Antarctica/McMurdo\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"accessed_at\": null,\n      \"product_roles\": [\n        {\n          \"role\": 50,\n          \"role_description\": \"Viewer\",\n          \"product_id\": \"131414752\",\n          \"product_name\": \"Project 1\"\n        }\n      ],\n      \"user_roles\": [],\n      \"enabled\": true,\n      \"paid_seat\": true,\n      \"roadmaps_seat\": true,\n      \"develop_seat\": false,\n      \"teamwork_seat\": false,\n      \"administrator\": false,\n      \"administrator_roles\": {\n        \"administer_account\": false,\n        \"administer_billing\": false,\n        \"administer_configuration\": false\n      },\n      \"identity_provider\": {\n        \"type\": \"password\"\n      }\n    },\n    {\n      \"id\": \"501775768\",\n      \"name\": \"Frank Sane\",\n      \"email\": \"frank.sane@account2.com\",\n      \"timezone\": \"Europe/Lisbon\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"accessed_at\": null,\n      \"product_roles\": [],\n      \"user_roles\": [],\n      \"enabled\": true,\n      \"paid_seat\": true,\n      \"roadmaps_seat\": true,\n      \"develop_seat\": false,\n      \"teamwork_seat\": false,\n      \"administrator\": false,\n      \"administrator_roles\": {\n        \"administer_account\": false,\n        \"administer_billing\": false,\n        \"administer_configuration\": false\n      },\n      \"identity_provider\": {\n        \"type\": \"password\"\n      }\n    },\n    {\n      \"id\": \"530313708\",\n      \"name\": \"Bill Billings\",\n      \"email\": \"no-reply@aha.io\",\n      \"timezone\": \"Pacific Time (US & Canada)\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"accessed_at\": null,\n      \"product_roles\": [],\n      \"user_roles\": [],\n      \"enabled\": true,\n      \"paid_seat\": true,\n      \"roadmaps_seat\": true,\n      \"develop_seat\": false,\n      \"teamwork_seat\": false,\n      \"administrator\": true,\n      \"administrator_roles\": {\n        \"administer_account\": false,\n        \"administer_billing\": true,\n        \"administer_configuration\": false\n      },\n      \"identity_provider\": {\n        \"type\": \"password\"\n      }\n    },\n    {\n      \"id\": \"601067208\",\n      \"name\": \"Jeremy Smith\",\n      \"email\": \"no-reply@aha.io\",\n      \"timezone\": \"America/Indiana/Indianapolis\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"accessed_at\": null,\n      \"product_roles\": [\n        {\n          \"role\": 40,\n          \"role_description\": \"Reviewer\",\n          \"product_id\": \"131414752\",\n          \"product_name\": \"Project 1\"\n        }\n      ],\n      \"user_roles\": [],\n      \"enabled\": true,\n      \"paid_seat\": true,\n      \"roadmaps_seat\": true,\n      \"develop_seat\": false,\n      \"teamwork_seat\": false,\n      \"administrator\": false,\n      \"administrator_roles\": {\n        \"administer_account\": false,\n        \"administer_billing\": false,\n        \"administer_configuration\": false\n      },\n      \"identity_provider\": {\n        \"type\": \"password\"\n      }\n    },\n    {\n      \"id\": \"689956296\",\n      \"name\": \"Henry Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"timezone\": \"Asia/Tokyo\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"accessed_at\": \"2019-01-01T00:00:00.000Z\",\n      \"product_roles\": [\n        {\n          \"role\": 30,\n          \"role_description\": \"Contributor\",\n          \"product_id\": \"131414752\",\n          \"product_name\": \"Project 1\"\n        }\n      ],\n      \"user_roles\": [],\n      \"enabled\": true,\n      \"paid_seat\": true,\n      \"roadmaps_seat\": true,\n      \"develop_seat\": false,\n      \"teamwork_seat\": false,\n      \"administrator\": false,\n      \"administrator_roles\": {\n        \"administer_account\": false,\n        \"administer_billing\": false,\n        \"administer_configuration\": false\n      },\n      \"identity_provider\": {\n        \"type\": \"password\"\n      }\n    },\n    {\n      \"id\": \"733218216\",\n      \"name\": \"Everso Gently\",\n      \"email\": \"no-reply@aha.io\",\n      \"timezone\": \"Asia/Kathmandu\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"accessed_at\": null,\n      \"product_roles\": [],\n      \"user_roles\": [],\n      \"enabled\": true,\n      \"paid_seat\": true,\n      \"roadmaps_seat\": true,\n      \"develop_seat\": false,\n      \"teamwork_seat\": false,\n      \"administrator\": true,\n      \"administrator_roles\": {\n        \"administer_account\": true,\n        \"administer_billing\": true,\n        \"administer_configuration\": true\n      },\n      \"identity_provider\": {\n        \"type\": \"password\"\n      }\n    },\n    {\n      \"id\": \"787951284\",\n      \"name\": \"Jeremy Thompson\",\n      \"email\": \"no-reply@aha.io\",\n      \"timezone\": \"America/Regina\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"accessed_at\": null,\n      \"product_roles\": [\n        {\n          \"role\": 50,\n          \"role_description\": \"Viewer\",\n          \"product_id\": \"1040810565\",\n          \"product_name\": null\n        }\n      ],\n      \"user_roles\": [],\n      \"enabled\": true,\n      \"paid_seat\": true,\n      \"roadmaps_seat\": true,\n      \"develop_seat\": false,\n      \"teamwork_seat\": false,\n      \"administrator\": false,\n      \"administrator_roles\": {\n        \"administer_account\": false,\n        \"administer_billing\": false,\n        \"administer_configuration\": false\n      },\n      \"identity_provider\": {\n        \"type\": \"password\"\n      }\n    },\n    {\n      \"id\": \"869174989\",\n      \"name\": \"Dirk Gently\",\n      \"email\": \"no-reply@aha.io\",\n      \"timezone\": \"America/Havana\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"accessed_at\": null,\n      \"product_roles\": [],\n      \"user_roles\": [],\n      \"enabled\": true,\n      \"paid_seat\": true,\n      \"roadmaps_seat\": true,\n      \"develop_seat\": false,\n      \"teamwork_seat\": false,\n      \"administrator\": true,\n      \"administrator_roles\": {\n        \"administer_account\": true,\n        \"administer_billing\": true,\n        \"administer_configuration\": true\n      },\n      \"identity_provider\": {\n        \"type\": \"password\"\n      }\n    },\n    {\n      \"id\": \"871344824\",\n      \"name\": \"Joan Smith\",\n      \"email\": \"no-reply@aha.io\",\n      \"timezone\": \"Asia/Istanbul\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"accessed_at\": null,\n      \"product_roles\": [\n        {\n          \"role\": 20,\n          \"role_description\": \"Owner\",\n          \"product_id\": \"131414752\",\n          \"product_name\": \"Project 1\"\n        }\n      ],\n      \"user_roles\": [],\n      \"enabled\": true,\n      \"paid_seat\": true,\n      \"roadmaps_seat\": true,\n      \"develop_seat\": false,\n      \"teamwork_seat\": false,\n      \"administrator\": true,\n      \"administrator_roles\": {\n        \"administer_account\": true,\n        \"administer_billing\": false,\n        \"administer_configuration\": true\n      },\n      \"paid_seat_group\": {\n        \"id\": 572805993,\n        \"name\": \"Group 2\"\n      },\n      \"identity_provider\": {\n        \"type\": \"password\"\n      }\n    },\n    {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"timezone\": \"America/Los_Angeles\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"accessed_at\": \"2019-01-01T00:00:00.000Z\",\n      \"product_roles\": [\n        {\n          \"role\": 20,\n          \"role_description\": \"Owner\",\n          \"product_id\": \"131414752\",\n          \"product_name\": \"Project 1\"\n        },\n        {\n          \"role\": 20,\n          \"role_description\": \"Owner\",\n          \"product_id\": \"517761884\",\n          \"product_name\": null\n        },\n        {\n          \"role\": 20,\n          \"role_description\": \"Owner\",\n          \"product_id\": \"610602692\",\n          \"product_name\": null\n        }\n      ],\n      \"user_roles\": [],\n      \"enabled\": true,\n      \"paid_seat\": true,\n      \"roadmaps_seat\": true,\n      \"develop_seat\": false,\n      \"teamwork_seat\": false,\n      \"administrator\": false,\n      \"administrator_roles\": {\n        \"administer_account\": false,\n        \"administer_billing\": false,\n        \"administer_configuration\": false\n      },\n      \"identity_provider\": {\n        \"type\": \"password\"\n      }\n    },\n    {\n      \"id\": \"1049303076\",\n      \"name\": \"George Gently\",\n      \"email\": \"no-reply@aha.io\",\n      \"timezone\": \"America/Los_Angeles\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"accessed_at\": null,\n      \"product_roles\": [\n        {\n          \"role\": 20,\n          \"role_description\": \"Owner\",\n          \"product_id\": \"131414752\",\n          \"product_name\": \"Project 1\"\n        }\n      ],\n      \"user_roles\": [\n        {\n          \"role_id\": 409541421,\n          \"name\": \"Project scoped role 1\",\n          \"scope\": {\n            \"type\": \"project\",\n            \"name\": \"Account 1\",\n            \"id\": 303742481\n          }\n        }\n      ],\n      \"enabled\": true,\n      \"paid_seat\": true,\n      \"roadmaps_seat\": true,\n      \"develop_seat\": false,\n      \"teamwork_seat\": false,\n      \"administrator\": true,\n      \"administrator_roles\": {\n        \"administer_account\": true,\n        \"administer_billing\": true,\n        \"administer_configuration\": true\n      },\n      \"identity_provider\": {\n        \"type\": \"password\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 21,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d98f675-59b8-49d6-8c96-2717dfb59f47",
+          "name": "Get a specific user",
+          "request": {
+            "name": "Get a specific user",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "76b9c3dc-f662-499a-82a9-22e14534bfe7",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"user\": {\n    \"id\": \"1049303076\",\n    \"name\": \"George Gently\",\n    \"email\": \"no-reply@aha.io\",\n    \"timezone\": \"America/Los_Angeles\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"accessed_at\": null,\n    \"product_roles\": [\n      {\n        \"role\": 20,\n        \"role_description\": \"Owner\",\n        \"product_id\": \"131414752\",\n        \"product_name\": \"Project 1\"\n      }\n    ],\n    \"enabled\": true,\n    \"paid_seat\": true,\n    \"roadmaps_seat\": true,\n    \"develop_seat\": false,\n    \"teamwork_seat\": false,\n    \"administrator\": true,\n    \"administrator_roles\": {\n      \"administer_account\": true,\n      \"administer_billing\": true,\n      \"administer_configuration\": true\n    },\n    \"identity_provider\": {\n      \"type\": \"password\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a35962f3-3417-412d-859e-332e489790d3",
+          "name": "Update a user",
+          "request": {
+            "name": "Update a user",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_role\": {\n    \"custom_role_id\": \"<integer>\",\n    \"product_id\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a5bfe750-6bd2-4e35-b596-5d7d7c0387da",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": {\n    \"first_name\": \"Sarah\",\n    \"enabled\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"id\": \"1020675218\",\n  \"name\": \"Sarah Humpty\",\n  \"email\": \"no-reply@aha.io\",\n  \"timezone\": \"America/Los_Angeles\",\n  \"created_at\": \"2019-01-01T00:00:00.000Z\",\n  \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n  \"accessed_at\": \"2019-01-01T00:00:00.000Z\",\n  \"product_roles\": [\n    {\n      \"role\": 20,\n      \"role_description\": \"Owner\",\n      \"product_id\": \"131414752\",\n      \"product_name\": \"Project 1\"\n    },\n    {\n      \"role\": 20,\n      \"role_description\": \"Owner\",\n      \"product_id\": \"517761884\",\n      \"product_name\": null\n    },\n    {\n      \"role\": 20,\n      \"role_description\": \"Owner\",\n      \"product_id\": \"610602692\",\n      \"product_name\": null\n    }\n  ],\n  \"enabled\": false,\n  \"paid_seat\": true,\n  \"roadmaps_seat\": true,\n  \"develop_seat\": false,\n  \"teamwork_seat\": false,\n  \"administrator\": false,\n  \"administrator_roles\": {\n    \"administer_account\": false,\n    \"administer_billing\": false,\n    \"administer_configuration\": false\n  },\n  \"identity_provider\": {\n    \"type\": \"password\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3657b891-be5a-4059-9679-dc29cb60df43",
+          "name": "List a user's product roles",
+          "request": {
+            "name": "List a user's product roles",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "users",
+                ":id",
+                "product_roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fe0ec09c-0e3b-4a85-8a9d-ec29deb61bf3",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "users",
+                    ":id",
+                    "product_roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"product_roles\": [\n    {\n      \"role\": 20,\n      \"role_description\": \"Owner\",\n      \"product_id\": \"131414752\",\n      \"product_name\": \"Project 1\"\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 1,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08be5bc4-cca2-47a7-88a5-1896180bf88f",
+          "name": "Update a user's product roles",
+          "request": {
+            "name": "Update a user's product roles",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "users",
+                ":id",
+                "product_roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_role\": {\n    \"custom_role_id\": \"<integer>\",\n    \"product_id\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "37460517-0aeb-4441-96ac-534aa7260b76",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "users",
+                    ":id",
+                    "product_roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"product_role\": {\n    \"role\": \"product_owner\",\n    \"product_id\": \"PRJ3\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"role\": 20,\n  \"role_description\": \"Owner\",\n  \"product_id\": \"702241743\",\n  \"product_name\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12202117-0b5c-4123-ac19-f737c37949ae",
+          "name": "Delete a user's product role",
+          "request": {
+            "name": "Delete a user's product role",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "users",
+                ":id",
+                "product_roles",
+                ":product_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_id",
+                  "description": "(Required) ProductId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "dc8dbceb-07dd-45a1-9530-b341bee637a3",
+              "name": "No content - operation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "users",
+                    ":id",
+                    "product_roles",
+                    ":product_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_id",
+                      "description": "(Required) ProductId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "073b27cf-920a-4c2a-b8d9-137b80597995",
+          "name": "List a user's custom roles",
+          "request": {
+            "name": "List a user's custom roles",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "users",
+                ":id",
+                "user_roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6b02d01c-1022-4c66-8e38-0c6b2cb07f04",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "users",
+                    ":id",
+                    "user_roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"user_roles\": [\n    {\n      \"role_id\": 409541421,\n      \"name\": \"Project scoped role 1\",\n      \"scope\": {\n        \"type\": \"project\",\n        \"name\": \"Project 1\",\n        \"id\": 131414752\n      }\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 1,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00450de1-7de2-479b-b267-d0af27e1451e",
+          "name": "Update a user's custom roles",
+          "request": {
+            "name": "Update a user's custom roles",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "users",
+                ":id",
+                "user_roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_role\": {\n    \"custom_role_id\": \"<integer>\",\n    \"product_id\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6315ec45-0ff7-477f-ae88-fdf3df72afc6",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "users",
+                    ":id",
+                    "user_roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_role\": {\n    \"custom_role_id\": 409541421,\n    \"product_id\": 131414752\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"role_id\": 409541421,\n  \"name\": \"Project scoped role 1\",\n  \"scope\": {\n    \"type\": \"project\",\n    \"name\": \"Project 1\",\n    \"id\": 131414752\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e83707b-5e0c-44f4-ab80-c6c10be7f39b",
+          "name": "Delete a user's custom role",
+          "request": {
+            "name": "Delete a user's custom role",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "users",
+                ":id",
+                "user_roles",
+                ":product_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_id",
+                  "description": "(Required) ProductId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "660377af-89ea-4746-880a-022f86d7f0bd",
+              "name": "No content - operation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "users",
+                    ":id",
+                    "user_roles",
+                    ":product_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_id",
+                      "description": "(Required) ProductId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Aha! account domain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "company",
+      "key": "account-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account-domain}}.aha.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{account-domain}.aha.io/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://{account-domain}.aha.io/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e4ece9ea-e8e6-43ca-843d-99d9b49cbb79",
+    "name": "Aha! Account backups Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Aha! generated from actual test responses\n\nContact Support:\n Name: Aha! Support",
+      "type": "text/plain"
+    }
+  }
+}

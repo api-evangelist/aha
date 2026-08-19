@@ -1,0 +1,770 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aha! Account backups Comments API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+      "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Comments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List comments on a feature",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/features/:feature_id/comments",
+            "params": [
+              {
+                "name": "feature_id",
+                "value": "",
+                "type": "path",
+                "description": "FeatureId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "Create a comment on a feature",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/features/:feature_id/comments",
+            "params": [
+              {
+                "name": "feature_id",
+                "value": "",
+                "type": "path",
+                "description": "FeatureId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "List comments on an epic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/epics/:epic_id/comments",
+            "params": [
+              {
+                "name": "epic_id",
+                "value": "",
+                "type": "path",
+                "description": "EpicId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "Create a comment on an epic",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/epics/:epic_id/comments",
+            "params": [
+              {
+                "name": "epic_id",
+                "value": "",
+                "type": "path",
+                "description": "EpicId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "List comments on a requirement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/requirements/:requirement_id/comments",
+            "params": [
+              {
+                "name": "requirement_id",
+                "value": "",
+                "type": "path",
+                "description": "RequirementId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "Create a comment on a requirement",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/requirements/:requirement_id/comments",
+            "params": [
+              {
+                "name": "requirement_id",
+                "value": "",
+                "type": "path",
+                "description": "RequirementId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "List comments on a note",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/pages/:page_id/comments",
+            "params": [
+              {
+                "name": "page_id",
+                "value": "",
+                "type": "path",
+                "description": "PageId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "Create a comment on a note",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/pages/:page_id/comments",
+            "params": [
+              {
+                "name": "page_id",
+                "value": "",
+                "type": "path",
+                "description": "PageId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "List comments on an idea",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/ideas/:idea_id/comments",
+            "params": [
+              {
+                "name": "idea_id",
+                "value": "",
+                "type": "path",
+                "description": "IdeaId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "Create an internal comment for an idea",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/ideas/:idea_id/comments",
+            "params": [
+              {
+                "name": "idea_id",
+                "value": "",
+                "type": "path",
+                "description": "IdeaId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "List comments on an initiative",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/initiatives/:initiative_id/comments",
+            "params": [
+              {
+                "name": "initiative_id",
+                "value": "",
+                "type": "path",
+                "description": "InitiativeId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "Create a comment on an initiative",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/initiatives/:initiative_id/comments",
+            "params": [
+              {
+                "name": "initiative_id",
+                "value": "",
+                "type": "path",
+                "description": "InitiativeId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "List comments on a goal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/goals/:goal_id/comments",
+            "params": [
+              {
+                "name": "goal_id",
+                "value": "",
+                "type": "path",
+                "description": "GoalId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "Create a comment on a goal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/goals/:goal_id/comments",
+            "params": [
+              {
+                "name": "goal_id",
+                "value": "",
+                "type": "path",
+                "description": "GoalId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "List comments on a release",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/releases/:release_id/comments",
+            "params": [
+              {
+                "name": "release_id",
+                "value": "",
+                "type": "path",
+                "description": "ReleaseId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "Create a comment on a release",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/releases/:release_id/comments",
+            "params": [
+              {
+                "name": "release_id",
+                "value": "",
+                "type": "path",
+                "description": "ReleaseId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "List comments on a release phase",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/release_phases/:release_phase_id/comments",
+            "params": [
+              {
+                "name": "release_phase_id",
+                "value": "",
+                "type": "path",
+                "description": "ReleasePhaseId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "Create a comment on a release phase",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/release_phases/:release_phase_id/comments",
+            "params": [
+              {
+                "name": "release_phase_id",
+                "value": "",
+                "type": "path",
+                "description": "ReleasePhaseId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "List comments on a to-do",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/tasks/:task_id/comments",
+            "params": [
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path",
+                "description": "TaskId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "Create a comment on a to-do",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/tasks/:task_id/comments",
+            "params": [
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path",
+                "description": "TaskId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "Get a specific comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/comments/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "Update a comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/comments/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "Delete a comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/comments/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        },
+        {
+          "info": {
+            "name": "List comments in a product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/products/:project_id/comments",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ProjectId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Comments can be added to and listed as a sub-resource on any resource that supports them.\nThese resources support comments:\n\n- [Features](/api/resources/comments/list_comments_on_a_feature)\n- [Epics](/api/resources/comments/list_comments_on_an_epic)\n- [Requirements](/api/resources/comments/list_comments_on_a_requirement)\n- [Ideas](/api/resources/comments/list_comments_on_an_idea)\n- [Initiatives](/api/resources/comments/list_comments_on_an_initiative)\n- [Goals](/api/resources/comments/list_commen"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

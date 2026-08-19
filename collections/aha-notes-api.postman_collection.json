@@ -1,0 +1,734 @@
+{
+  "item": [
+    {
+      "id": "be97fbcc-c579-467e-a217-07df3f77db8a",
+      "name": "Notes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2943a95c-be95-4e66-a3ca-e93f2e6ef53a",
+          "name": "Create a note",
+          "request": {
+            "name": "Create a note",
+            "description": {
+              "content": "\"Notes\" in the web interface are referenced as \"pages\" from API endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "products",
+                ":product_id",
+                "pages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_id",
+                  "description": "(Required) ProductId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"page\": {\n    \"name\": \"<string>\",\n    \"description_attributes\": {\n      \"body\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fc2887e9-dec4-428f-a778-df4f0754d39a",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "products",
+                    ":product_id",
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_id",
+                      "description": "(Required) ProductId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"page\": {\n    \"name\": \"Note 3\",\n    \"description_attributes\": {\n      \"body\": \"<p>An awesome new note</p>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"page\": {\n    \"id\": \"6776881149490967959\",\n    \"name\": null,\n    \"title\": \"PRJ1-N-11 Untitled\",\n    \"document_title\": \"Untitled | Aha!\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"reference_num\": \"PRJ1-N-11\",\n    \"emoji_value\": null,\n    \"document_type\": 80,\n    \"document_type_name\": \"internal_link\",\n    \"editor_width\": null,\n    \"type_name\": \"internal link\",\n    \"position\": null,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"location\": null,\n    \"edit_locked\": false,\n    \"linked_record_id\": 1007868956,\n    \"linked_record_type\": \"Feature\",\n    \"url\": \"http://company.aha.io/pages/PRJ1-N-11\",\n    \"resource\": \"http://company.aha.io/api/v1/pages/PRJ1-N-11\",\n    \"product_id\": \"131414752\",\n    \"description\": {\n      \"id\": \"6776881149488431496\",\n      \"body\": \"\",\n      \"editor_version\": 2,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"attachments\": []\n    },\n    \"parent_id\": null,\n    \"tags\": [],\n    \"full_tags\": [],\n    \"comments_count\": 0,\n    \"custom_fields\": []\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "604bb455-80ea-4fc7-8525-9585e110415d",
+          "name": "List notes for a product",
+          "request": {
+            "name": "List notes for a product",
+            "description": {
+              "content": "\"Notes\" in the web interface are referenced as \"pages\" from API endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "products",
+                ":product_id",
+                "pages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_id",
+                  "description": "(Required) ProductId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "beb499b4-ba40-4bd9-a530-ddfe60559822",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "products",
+                    ":product_id",
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_id",
+                      "description": "(Required) ProductId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"pages\": [\n    {\n      \"id\": \"123524136\",\n      \"name\": \"Title of the meeting note\",\n      \"title\": \"PRJ1-N-9 Title of the meeting note\",\n      \"reference_num\": \"PRJ1-N-9\",\n      \"url\": \"http://company.aha.io/pages/PRJ1-N-9\",\n      \"resource\": \"http://company.aha.io/api/v1/pages/PRJ1-N-9\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"parent_id\": null\n    },\n    {\n      \"id\": \"199011658\",\n      \"name\": \"Title of the child note\",\n      \"title\": \"PRJ1-N-4 Title of the child note\",\n      \"reference_num\": \"PRJ1-N-4\",\n      \"url\": \"http://company.aha.io/pages/PRJ1-N-4\",\n      \"resource\": \"http://company.aha.io/api/v1/pages/PRJ1-N-4\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"parent_id\": 702939369\n    },\n    {\n      \"id\": \"249102634\",\n      \"name\": null,\n      \"title\": \"PRJ1-N-7 Untitled\",\n      \"reference_num\": \"PRJ1-N-7\",\n      \"url\": \"http://company.aha.io/pages/PRJ1-N-7\",\n      \"resource\": \"http://company.aha.io/api/v1/pages/PRJ1-N-7\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"parent_id\": null\n    },\n    {\n      \"id\": \"256116692\",\n      \"name\": \"Shared page title\",\n      \"title\": \"PRJ1-N-10 Shared page title\",\n      \"reference_num\": \"PRJ1-N-10\",\n      \"url\": \"http://company.aha.io/pages/PRJ1-N-10\",\n      \"resource\": \"http://company.aha.io/api/v1/pages/PRJ1-N-10\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"parent_id\": null\n    },\n    {\n      \"id\": \"280859787\",\n      \"name\": \"External link\",\n      \"title\": \"PRJ1-N-6 External link\",\n      \"reference_num\": \"PRJ1-N-6\",\n      \"url\": \"http://company.aha.io/pages/PRJ1-N-6\",\n      \"resource\": \"http://company.aha.io/api/v1/pages/PRJ1-N-6\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"parent_id\": null\n    },\n    {\n      \"id\": \"549832152\",\n      \"name\": \"Title of the second whiteboard\",\n      \"title\": \"PRJ1-N-6 Title of the second whiteboard\",\n      \"reference_num\": \"PRJ1-N-6\",\n      \"url\": \"http://company.aha.io/pages/PRJ1-N-6\",\n      \"resource\": \"http://company.aha.io/api/v1/pages/PRJ1-N-6\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"parent_id\": null\n    },\n    {\n      \"id\": \"666543134\",\n      \"name\": \"Title of the second note\",\n      \"title\": \"PRJ1-N-2 Title of the second note\",\n      \"reference_num\": \"PRJ1-N-2\",\n      \"url\": \"http://company.aha.io/pages/PRJ1-N-2\",\n      \"resource\": \"http://company.aha.io/api/v1/pages/PRJ1-N-2\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"parent_id\": null\n    },\n    {\n      \"id\": \"702939369\",\n      \"name\": \"Title of the parent note\",\n      \"title\": \"PRJ1-N-3 Title of the parent note\",\n      \"reference_num\": \"PRJ1-N-3\",\n      \"url\": \"http://company.aha.io/pages/PRJ1-N-3\",\n      \"resource\": \"http://company.aha.io/api/v1/pages/PRJ1-N-3\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"parent_id\": null\n    },\n    {\n      \"id\": \"969708644\",\n      \"name\": \"Title of the first whiteboard\",\n      \"title\": \"PRJ1-N-5 Title of the first whiteboard\",\n      \"reference_num\": \"PRJ1-N-5\",\n      \"url\": \"http://company.aha.io/pages/PRJ1-N-5\",\n      \"resource\": \"http://company.aha.io/api/v1/pages/PRJ1-N-5\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"parent_id\": null\n    },\n    {\n      \"id\": \"970863041\",\n      \"name\": null,\n      \"title\": \"PRJ1-N-8 Untitled\",\n      \"reference_num\": \"PRJ1-N-8\",\n      \"url\": \"http://company.aha.io/pages/PRJ1-N-8\",\n      \"resource\": \"http://company.aha.io/api/v1/pages/PRJ1-N-8\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"parent_id\": null\n    },\n    {\n      \"id\": \"1051981226\",\n      \"name\": \"Title of the first note\",\n      \"title\": \"PRJ1-N-1 Title of the first note\",\n      \"reference_num\": \"PRJ1-N-1\",\n      \"url\": \"http://company.aha.io/pages/PRJ1-N-1\",\n      \"resource\": \"http://company.aha.io/api/v1/pages/PRJ1-N-1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"parent_id\": null\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 11,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e1435c5f-d183-42ba-b07c-ab6d698a422f",
+          "name": "Get a specific note",
+          "request": {
+            "name": "Get a specific note",
+            "description": {
+              "content": "\"Notes\" in the web interface are referenced as \"pages\" from API endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "pages",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "04491fce-6859-4c3b-b22f-fe88708191a0",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "pages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"page\": {\n    \"id\": \"1051981226\",\n    \"name\": \"Title of the first note\",\n    \"title\": \"PRJ1-N-1 Title of the first note\",\n    \"document_title\": \"Title of the first note | Aha!\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"reference_num\": \"PRJ1-N-1\",\n    \"emoji_value\": null,\n    \"document_type\": 10,\n    \"document_type_name\": \"note\",\n    \"editor_width\": \"FULL\",\n    \"type_name\": \"note\",\n    \"position\": 100000,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"location\": null,\n    \"edit_locked\": false,\n    \"url\": \"http://company.aha.io/pages/PRJ1-N-1\",\n    \"resource\": \"http://company.aha.io/api/v1/pages/PRJ1-N-1\",\n    \"product_id\": \"131414752\",\n    \"description\": {\n      \"id\": \"669149001\",\n      \"body\": \"Description of note 1\",\n      \"editor_version\": 1,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"attachments\": []\n    },\n    \"parent_id\": null,\n    \"tags\": [\n      \"Infrastructure\",\n      \"Sales\"\n    ],\n    \"full_tags\": [\n      {\n        \"id\": 775582684,\n        \"name\": \"Infrastructure\",\n        \"color\": \"#7552e0\"\n      },\n      {\n        \"id\": 926098016,\n        \"name\": \"Sales\",\n        \"color\": \"#e0da52\"\n      }\n    ],\n    \"comments_count\": 0,\n    \"custom_fields\": [\n      {\n        \"id\": 416524155,\n        \"key\": \"review_date\",\n        \"name\": \"Review date\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"2019-01-01\",\n        \"type\": \"date\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "547f2626-377d-418a-9ec0-6c60125d9a3f",
+          "name": "Update a note",
+          "request": {
+            "name": "Update a note",
+            "description": {
+              "content": "\"Notes\" in the web interface are referenced as \"pages\" from API endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "pages",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"page\": {\n    \"name\": \"<string>\",\n    \"description_attributes\": {\n      \"body\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "42947445-134c-4beb-9359-8b051b624135",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "pages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"page\": {\n    \"name\": \"New name for the note\",\n    \"description_attributes\": {\n      \"body\": \"<p>An awesome new note</p>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"page\": {\n    \"id\": \"280859787\",\n    \"name\": \"Build products customers love\",\n    \"title\": \"PRJ1-N-6 Build products customers love\",\n    \"document_title\": \"Build products customers love | Aha!\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"reference_num\": \"PRJ1-N-6\",\n    \"emoji_value\": null,\n    \"document_type\": 70,\n    \"document_type_name\": \"external_link\",\n    \"editor_width\": null,\n    \"type_name\": \"external link\",\n    \"position\": 500000,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"location\": null,\n    \"edit_locked\": false,\n    \"external_url\": \"https://www.aha.io/solutions/product\",\n    \"url\": \"http://company.aha.io/pages/PRJ1-N-6\",\n    \"resource\": \"http://company.aha.io/api/v1/pages/PRJ1-N-6\",\n    \"product_id\": \"131414752\",\n    \"description\": {\n      \"id\": \"\",\n      \"body\": \"#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>\",\n      \"editor_version\": 2,\n      \"created_at\": null,\n      \"updated_at\": null,\n      \"attachments\": []\n    },\n    \"parent_id\": null,\n    \"tags\": [],\n    \"full_tags\": [],\n    \"comments_count\": 0,\n    \"custom_fields\": []\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a031c22-6ecb-4eaa-8ca9-ccd610d7b1b3",
+          "name": "Delete a note",
+          "request": {
+            "name": "Delete a note",
+            "description": {
+              "content": "\"Notes\" in the web interface are referenced as \"pages\" from API endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "pages",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0a73229b-825c-43bf-9ab7-3349f977d435",
+              "name": "No content - operation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "pages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Aha! account domain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "company",
+      "key": "account-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account-domain}}.aha.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{account-domain}.aha.io/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://{account-domain}.aha.io/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f1eac49f-0960-4185-93f8-71667dcf0e2c",
+    "name": "Aha! Account backups Notes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Aha! generated from actual test responses\n\nContact Support:\n Name: Aha! Support",
+      "type": "text/plain"
+    }
+  }
+}

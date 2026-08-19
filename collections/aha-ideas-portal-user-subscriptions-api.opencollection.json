@@ -1,0 +1,139 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aha! Account backups Ideas portal user subscriptions API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+      "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ideas portal user subscriptions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List a portal user's preferences for the portal summary email",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/idea_portals/:idea_portal_id/portal_users/:portal_user_id/portal_user_subscriptions",
+            "params": [
+              {
+                "name": "idea_portal_id",
+                "value": "",
+                "type": "path",
+                "description": "IdeaPortalId identifier"
+              },
+              {
+                "name": "portal_user_id",
+                "value": "",
+                "type": "path",
+                "description": "PortalUserId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List a portal user's preferences for the portal summary email"
+        },
+        {
+          "info": {
+            "name": "Set a portal user's preferences to specific project and category updates",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/idea_portals/:idea_portal_id/portal_users/:portal_user_id/portal_user_subscriptions",
+            "params": [
+              {
+                "name": "idea_portal_id",
+                "value": "",
+                "type": "path",
+                "description": "IdeaPortalId identifier"
+              },
+              {
+                "name": "portal_user_id",
+                "value": "",
+                "type": "path",
+                "description": "PortalUserId identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Set a portal user's preferences to specific project and category updates"
+        },
+        {
+          "info": {
+            "name": "Subscribe a portal user to updates from all projects and categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/idea_portals/:idea_portal_id/portal_users/:portal_user_id/portal_user_subscriptions/subscribe_to_all",
+            "params": [
+              {
+                "name": "idea_portal_id",
+                "value": "",
+                "type": "path",
+                "description": "IdeaPortalId identifier"
+              },
+              {
+                "name": "portal_user_id",
+                "value": "",
+                "type": "path",
+                "description": "PortalUserId identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Subscribe a portal user to updates from all projects and categories"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

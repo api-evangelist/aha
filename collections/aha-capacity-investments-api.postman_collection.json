@@ -1,0 +1,1336 @@
+{
+  "item": [
+    {
+      "id": "baca1d22-6206-4da8-a5a1-8087bd3c43ba",
+      "name": "Capacity investments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "957ecc94-37b6-4b28-a621-be30ff268670",
+          "name": "Create a capacity investment on an initiative",
+          "request": {
+            "name": "Create a capacity investment on an initiative",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "initiatives",
+                ":initiative_id",
+                "capacity_investments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "initiative_id",
+                  "description": "(Required) InitiativeId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"capacity_investment\": {\n    \"start_date\": \"<string>\",\n    \"end_date\": \"<string>\",\n    \"date_source\": \"<string>\",\n    \"custom_fields\": {\n      \"priority\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d4aefb43-8540-4ecd-b9f2-7fa6413cc185",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "initiatives",
+                    ":initiative_id",
+                    "capacity_investments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "initiative_id",
+                      "description": "(Required) InitiativeId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"capacity_investment\": {\n    \"start_date\": \"2019-01-01\",\n    \"end_date\": \"2019-01-01\",\n    \"date_source\": \"manual_dates\",\n    \"estimate_source\": \"epics\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"capacity_investment\": {\n    \"id\": \"6776881149484188557\",\n    \"capacity_scenario_id\": \"997808419\",\n    \"total\": 0,\n    \"estimate_source\": \"epics\",\n    \"date_source\": \"manual_dates\",\n    \"start_date\": \"2019-01-01\",\n    \"end_date\": \"2019-01-01\",\n    \"initiative\": {\n      \"id\": \"1042392694\",\n      \"reference_num\": \"PL1-S-1\",\n      \"name\": \"Workspace line initiative 1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"url\": \"http://company.aha.io/initiatives/PL1-S-1\",\n      \"resource\": \"http://company.aha.io/api/v1/initiatives/PL1-S-1\"\n    },\n    \"estimate_values\": [\n      {\n        \"id\": \"6776881149486881903\",\n        \"team_id\": null,\n        \"team_membership_id\": null,\n        \"period_start\": null,\n        \"total\": 0,\n        \"computed\": true,\n        \"ignored\": false\n      }\n    ],\n    \"custom_fields\": []\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3fa584d-ec01-482e-9d5c-c24768c228aa",
+          "name": "List capacity investments for an initiative",
+          "request": {
+            "name": "List capacity investments for an initiative",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "initiatives",
+                ":initiative_id",
+                "capacity_investments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "{}",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "initiative_id",
+                  "description": "(Required) InitiativeId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f176bb43-c440-4121-b66e-2588bac2b4b0",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "initiatives",
+                    ":initiative_id",
+                    "capacity_investments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "{}",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "initiative_id",
+                      "description": "(Required) InitiativeId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"capacity_investments\": [\n    {\n      \"id\": \"756888381\",\n      \"capacity_scenario_id\": \"997808419\",\n      \"total\": null\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 1,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5cc50c74-8537-4e25-9c41-1d13eedf29f4",
+          "name": "Create a capacity investment on an epic",
+          "request": {
+            "name": "Create a capacity investment on an epic",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "epics",
+                ":epic_id",
+                "capacity_investments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "epic_id",
+                  "description": "(Required) EpicId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"capacity_investment\": {\n    \"start_date\": \"<string>\",\n    \"end_date\": \"<string>\",\n    \"date_source\": \"<string>\",\n    \"custom_fields\": {\n      \"priority\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "61e76907-d429-441b-acae-35c6788fe301",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "epics",
+                    ":epic_id",
+                    "capacity_investments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "epic_id",
+                      "description": "(Required) EpicId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"capacity_investment\": {\n    \"start_date\": \"2019-01-01\",\n    \"end_date\": \"2019-01-01\",\n    \"date_source\": \"manual_dates\",\n    \"estimate_source\": \"features\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"capacity_investment\": {\n    \"id\": \"6776881149493463903\",\n    \"capacity_scenario_id\": \"997808419\",\n    \"total\": 0,\n    \"estimate_source\": \"features\",\n    \"date_source\": \"manual_dates\",\n    \"start_date\": \"2019-01-01\",\n    \"end_date\": \"2019-01-01\",\n    \"master_feature\": {\n      \"id\": \"999605892\",\n      \"reference_num\": \"PRJ1-E-1\",\n      \"name\": \"Epic 1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"url\": \"http://company.aha.io/epics/PRJ1-E-1\",\n      \"resource\": \"http://company.aha.io/api/v1/epics/PRJ1-E-1\"\n    },\n    \"epic\": {\n      \"id\": \"999605892\",\n      \"reference_num\": \"PRJ1-E-1\",\n      \"name\": \"Epic 1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"url\": \"http://company.aha.io/epics/PRJ1-E-1\",\n      \"resource\": \"http://company.aha.io/api/v1/epics/PRJ1-E-1\"\n    },\n    \"estimate_values\": [\n      {\n        \"id\": \"6776881149496741502\",\n        \"team_id\": null,\n        \"team_membership_id\": null,\n        \"period_start\": null,\n        \"total\": 0,\n        \"computed\": true,\n        \"ignored\": false\n      }\n    ],\n    \"custom_fields\": []\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89f2c029-0e72-4de8-b1b5-5a2191def962",
+          "name": "List capacity investments for an epic",
+          "request": {
+            "name": "List capacity investments for an epic",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "epics",
+                ":epic_id",
+                "capacity_investments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "{}",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "epic_id",
+                  "description": "(Required) EpicId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b20fcb43-08ba-4cd2-a4b8-10a3620ded98",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "epics",
+                    ":epic_id",
+                    "capacity_investments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "{}",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "epic_id",
+                      "description": "(Required) EpicId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"capacity_investments\": [\n    {\n      \"id\": \"6776881149495109598\",\n      \"capacity_scenario_id\": \"997808419\",\n      \"total\": null\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 1,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "03f1a3f2-5870-4a28-9ace-f19bdd7dd6ad",
+          "name": "Create a Capacity Investment with custom fields",
+          "request": {
+            "name": "Create a Capacity Investment with custom fields",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "features",
+                ":feature_id",
+                "capacity_investments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "feature_id",
+                  "description": "(Required) FeatureId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"capacity_investment\": {\n    \"start_date\": \"<string>\",\n    \"end_date\": \"<string>\",\n    \"date_source\": \"<string>\",\n    \"custom_fields\": {\n      \"priority\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "58fb7b22-34bd-4e8d-9a16-d74269ba01f8",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "features",
+                    ":feature_id",
+                    "capacity_investments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature_id",
+                      "description": "(Required) FeatureId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"capacity_investment\": {\n    \"start_date\": \"2019-01-01\",\n    \"end_date\": \"2019-01-01\",\n    \"date_source\": \"manual_dates\",\n    \"custom_fields\": {\n      \"priority\": \"P3\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"capacity_investment\": {\n    \"id\": \"6776881149497074336\",\n    \"capacity_scenario_id\": \"997808419\",\n    \"total\": null,\n    \"estimate_source\": \"manual_estimate\",\n    \"date_source\": \"manual_dates\",\n    \"start_date\": \"2019-01-01\",\n    \"end_date\": \"2019-01-01\",\n    \"feature\": {\n      \"id\": \"1007868956\",\n      \"reference_num\": \"PRJ1-1\",\n      \"name\": \"Feature 1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"url\": \"http://company.aha.io/features/PRJ1-1\",\n      \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\",\n      \"product_id\": \"131414752\"\n    },\n    \"estimate_values\": [],\n    \"custom_fields\": []\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "827787e6-308b-4504-adf7-067f0cb6bec9",
+          "name": "List capacity investments for a feature",
+          "request": {
+            "name": "List capacity investments for a feature",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "features",
+                ":feature_id",
+                "capacity_investments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "{}",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "feature_id",
+                  "description": "(Required) FeatureId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c4f69ec1-8f8d-4c12-956d-35b1d1d9cafd",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "features",
+                    ":feature_id",
+                    "capacity_investments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "{}",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature_id",
+                      "description": "(Required) FeatureId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"capacity_investments\": [\n    {\n      \"id\": \"6776881149498957294\",\n      \"capacity_scenario_id\": \"997808419\",\n      \"total\": null\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 1,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b281cc86-c570-4460-9dec-a7dd9db77d28",
+          "name": "List capacity investments for a product",
+          "request": {
+            "name": "List capacity investments for a product",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "products",
+                ":product_id",
+                "capacity_investments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "{}",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_id",
+                  "description": "(Required) ProductId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "feb9bd46-008d-4d62-93be-5e565aba9e37",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "products",
+                    ":product_id",
+                    "capacity_investments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "{}",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_id",
+                      "description": "(Required) ProductId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"capacity_investments\": [\n    {\n      \"id\": \"756888381\",\n      \"capacity_scenario_id\": \"997808419\",\n      \"total\": null\n    },\n    {\n      \"id\": \"873751177\",\n      \"capacity_scenario_id\": \"997808419\",\n      \"total\": 100\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 2,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8c9983f-1983-469f-9f77-81c292e3a72f",
+          "name": "Get a capacity investment",
+          "request": {
+            "name": "Get a capacity investment",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "capacity_investments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "{}",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c097d9a6-45a6-4cd8-9ae7-6e52797cb092",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "capacity_investments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "{}",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"capacity_investment\": {\n    \"id\": \"6776881149492244248\",\n    \"capacity_scenario_id\": \"997808419\",\n    \"total\": 50,\n    \"estimate_source\": \"manual_estimate\",\n    \"date_source\": \"capacity_plannable\",\n    \"start_date\": \"2019-01-01\",\n    \"end_date\": \"2019-01-01\",\n    \"feature\": {\n      \"id\": \"1007868956\",\n      \"reference_num\": \"PRJ1-1\",\n      \"name\": \"Feature 1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"url\": \"http://company.aha.io/features/PRJ1-1\",\n      \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\",\n      \"product_id\": \"131414752\"\n    },\n    \"estimate_values\": [\n      {\n        \"id\": \"6776881149484177228\",\n        \"team_id\": null,\n        \"team_membership_id\": null,\n        \"period_start\": \"2019-01-01\",\n        \"total\": 20,\n        \"computed\": true,\n        \"ignored\": false\n      },\n      {\n        \"id\": \"6776881149485556219\",\n        \"team_id\": null,\n        \"team_membership_id\": null,\n        \"period_start\": \"2019-01-01\",\n        \"total\": 5,\n        \"computed\": true,\n        \"ignored\": false\n      },\n      {\n        \"id\": \"6776881149487389839\",\n        \"team_id\": null,\n        \"team_membership_id\": null,\n        \"period_start\": \"2019-01-01\",\n        \"total\": 25,\n        \"computed\": true,\n        \"ignored\": false\n      },\n      {\n        \"id\": \"6776881149489538211\",\n        \"team_id\": 949295028,\n        \"team_membership_id\": null,\n        \"period_start\": \"2019-01-01\",\n        \"total\": 5,\n        \"computed\": false,\n        \"ignored\": false\n      },\n      {\n        \"id\": \"6776881149491485839\",\n        \"team_id\": 563889676,\n        \"team_membership_id\": null,\n        \"period_start\": null,\n        \"total\": 35,\n        \"computed\": true,\n        \"ignored\": false\n      },\n      {\n        \"id\": \"6776881149492682136\",\n        \"team_id\": 949295028,\n        \"team_membership_id\": null,\n        \"period_start\": null,\n        \"total\": 15,\n        \"computed\": true,\n        \"ignored\": false\n      },\n      {\n        \"id\": \"6776881149493180575\",\n        \"team_id\": 949295028,\n        \"team_membership_id\": null,\n        \"period_start\": \"2019-01-01\",\n        \"total\": 10,\n        \"computed\": false,\n        \"ignored\": false\n      },\n      {\n        \"id\": \"6776881149496397024\",\n        \"team_id\": null,\n        \"team_membership_id\": null,\n        \"period_start\": null,\n        \"total\": 50,\n        \"computed\": true,\n        \"ignored\": false\n      },\n      {\n        \"id\": \"6776881149497562730\",\n        \"team_id\": 563889676,\n        \"team_membership_id\": null,\n        \"period_start\": \"2019-01-01\",\n        \"total\": 20,\n        \"computed\": false,\n        \"ignored\": false\n      },\n      {\n        \"id\": \"6776881149499233465\",\n        \"team_id\": 563889676,\n        \"team_membership_id\": null,\n        \"period_start\": \"2019-01-01\",\n        \"total\": 15,\n        \"computed\": false,\n        \"ignored\": false\n      }\n    ],\n    \"custom_fields\": [\n      {\n        \"id\": 424324947,\n        \"key\": \"text_field\",\n        \"name\": \"TextField\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"Acme Corp\",\n        \"type\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c15843ed-6cd4-4e66-b047-67b1a89d4bbe",
+          "name": "Update a capacity investment's custom fields",
+          "request": {
+            "name": "Update a capacity investment's custom fields",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "capacity_investments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"capacity_investment\": {\n    \"start_date\": \"<string>\",\n    \"end_date\": \"<string>\",\n    \"date_source\": \"<string>\",\n    \"custom_fields\": {\n      \"priority\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0b3771f4-887d-46f7-94c5-f75c6ac83b6f",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "capacity_investments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"capacity_investment\": {\n    \"start_date\": \"2019-01-01\",\n    \"end_date\": \"2019-01-01\",\n    \"date_source\": \"manual_dates\",\n    \"custom_fields\": {\n      \"priority\": \"P3\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"capacity_investment\": {\n    \"id\": \"756888381\",\n    \"capacity_scenario_id\": \"997808419\",\n    \"total\": null,\n    \"estimate_source\": \"manual_estimate\",\n    \"date_source\": \"manual_dates\",\n    \"start_date\": \"2019-01-01\",\n    \"end_date\": \"2019-01-01\",\n    \"initiative\": {\n      \"id\": \"423077122\",\n      \"reference_num\": \"PRJ1-S-1\",\n      \"name\": \"Initiative 1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"url\": \"http://company.aha.io/initiatives/PRJ1-S-1\",\n      \"resource\": \"http://company.aha.io/api/v1/initiatives/PRJ1-S-1\"\n    },\n    \"estimate_values\": [],\n    \"custom_fields\": []\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Aha! account domain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "company",
+      "key": "account-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account-domain}}.aha.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{account-domain}.aha.io/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://{account-domain}.aha.io/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e5b51b1f-7cca-4344-b4db-7ef2b9127873",
+    "name": "Aha! Account backups Capacity investments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Aha! generated from actual test responses\n\nContact Support:\n Name: Aha! Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aha! Account backups API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+      "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account backups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List account backups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/account_backups",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Account backups let you create a complete off-site backup of your Aha! account.\nThey can be [created](/api/resources/account_backups/create_an_account_backup),\n[listed](/api/resources/account_backups/list_account_backups), and [downloaded](/api/resources/account_backups/download_an_account_backup) via the API.\n\nAn account backup may only be created once every 24 hours.\n\nThe backup file contains a representation of all of the data in the Aha! account, including all relationships. \nIt does not con"
+        },
+        {
+          "info": {
+            "name": "Create an account backup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/account_backups",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "The backup may take some time to generate (as long as ten minutes in a \nlarge account). You should poll the GET endpoint to see when the backup \nis complete. You should not poll more frequently than once every twenty \nseconds. Returns an HTTP status of 429 if a backup was already created\nwithin the last 24 hours."
+        },
+        {
+          "info": {
+            "name": "Get a specific account backup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/account_backups/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "The status field indicates whether the backup is ready. The possible\nvalues are: 0 (queued), 1 (in progress), 2 (completed), 3 (error)."
+        },
+        {
+          "info": {
+            "name": "Download an account backup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/account_backups/:id.tgz",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id identifier"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Account backups let you create a complete off-site backup of your Aha! account.\nThey can be [created](/api/resources/account_backups/create_an_account_backup),\n[listed](/api/resources/account_backups/list_account_backups), and [downloaded](/api/resources/account_backups/download_an_account_backup) via the API.\n\nAn account backup may only be created once every 24 hours.\n\nThe backup file contains a representation of all of the data in the Aha! account, including all relationships. \nIt does not con"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

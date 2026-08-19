@@ -1,0 +1,1112 @@
+{
+  "item": [
+    {
+      "id": "c1593c12-e251-4446-b76b-0cbe70254329",
+      "name": "Ideas",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f5933c30-c2c6-4560-80e1-8199e87d7ade",
+          "name": "Get a specific idea",
+          "request": {
+            "name": "Get a specific idea",
+            "description": {
+              "content": "When creating an idea where the creator is an idea user we strongly suggest\nto provide the `submitted_idea_portal_id` attribute to the idea\nto ensure that the idea is created in the correct ideas portal and the user\ngets access to the portal.\n\nIf you don't want the idea to be submitted to any portal, you can skip this\nby setting `skip_portal: true` in the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "ideas",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "558d98f7-8d55-4774-abba-3ed6a8d0460c",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "ideas",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"idea\": {\n    \"id\": \"1055237874\",\n    \"name\": \"Idea 3 Merged\",\n    \"reference_num\": \"PRJ1-I-3\",\n    \"score\": 0,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"product_id\": \"131414752\",\n    \"votes\": 2,\n    \"initial_votes\": 2,\n    \"status_changed_at\": null,\n    \"workflow_status\": {\n      \"id\": \"1009437757\",\n      \"name\": \"In progress\",\n      \"position\": 2,\n      \"complete\": false,\n      \"color\": \"#ecdd8f\"\n    },\n    \"description\": {\n      \"id\": \"506957205\",\n      \"body\": \"Description of idea 3\",\n      \"editor_version\": 1,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"attachments\": []\n    },\n    \"visibility\": \"Visible to all ideas portal users\",\n    \"duplicate_of\": {\n      \"id\": \"444379319\",\n      \"reference_num\": \"PRJ1-I-2\",\n      \"name\": \"Idea 2\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"1009437757\",\n        \"name\": \"In progress\",\n        \"position\": 2,\n        \"complete\": false,\n        \"color\": \"#ecdd8f\"\n      },\n      \"description\": {\n        \"id\": \"378547141\",\n        \"body\": \"Description of idea 2\",\n        \"editor_version\": 1,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-2\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-2\"\n    },\n    \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-3\",\n    \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-3\",\n    \"product\": {\n      \"id\": \"131414752\",\n      \"reference_prefix\": \"PRJ1\",\n      \"name\": \"Project 1\",\n      \"product_line\": false,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workspace_type\": \"product_workspace\",\n      \"url\": \"http://company.aha.io/projects/PRJ1\"\n    },\n    \"created_by_portal_user\": {\n      \"id\": \"646391926\",\n      \"name\": \"John Long\",\n      \"email\": \"john@long.com\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"created_by_idea_user\": {\n      \"id\": \"1056507375\",\n      \"name\": \"John Long\",\n      \"email\": \"john@long.com\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"title\": null\n    },\n    \"assigned_to_user\": null,\n    \"feature\": {\n      \"id\": \"1007868956\",\n      \"reference_num\": \"PRJ1-1\",\n      \"name\": \"Feature 1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"url\": \"http://company.aha.io/features/PRJ1-1\",\n      \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-1\",\n      \"product_id\": \"131414752\"\n    },\n    \"endorsements_count\": 0,\n    \"comments_count\": 0,\n    \"score_facts\": [],\n    \"tags\": [],\n    \"full_tags\": [],\n    \"categories\": [],\n    \"custom_fields\": [],\n    \"submitted_idea_portal_record_url\": \"https://ideas.example.com:8338/ideas/PRJ1-I-3\",\n    \"integration_fields\": []\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20f9492e-fb3a-401f-8618-1bfbd29a0897",
+          "name": "Delete an idea",
+          "request": {
+            "name": "Delete an idea",
+            "description": {
+              "content": "When creating an idea where the creator is an idea user we strongly suggest\nto provide the `submitted_idea_portal_id` attribute to the idea\nto ensure that the idea is created in the correct ideas portal and the user\ngets access to the portal.\n\nIf you don't want the idea to be submitted to any portal, you can skip this\nby setting `skip_portal: true` in the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "ideas",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c890a062-0539-4a8a-971c-78808ff59f4a",
+              "name": "No content - operation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "ideas",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40276c9c-669c-4b96-a119-5a50020d0e0b",
+          "name": "Create an idea",
+          "request": {
+            "name": "Create an idea",
+            "description": {
+              "content": "Creates a new idea with basic details including initial vote count",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "products",
+                ":product_id",
+                "ideas"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_id",
+                  "description": "(Required) ProductId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"promotable_type\": \"<string>\",\n  \"release_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b31dbd7f-85fc-4ea6-870a-eb8e82e67585",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "products",
+                    ":product_id",
+                    "ideas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_id",
+                      "description": "(Required) ProductId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idea\": {\n    \"name\": \"New idea\",\n    \"description\": \"<p>This is the description</p>\",\n    \"initial_votes\": 3\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"idea\": {\n    \"id\": \"6776881149487483845\",\n    \"name\": \"Comprehensive Feature Request\",\n    \"reference_num\": \"PRJ1-I-10\",\n    \"score\": 2,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"product_id\": \"131414752\",\n    \"votes\": 15,\n    \"initial_votes\": 15,\n    \"status_changed_at\": \"2019-01-01T00:00:00.000Z\",\n    \"workflow_status\": {\n      \"id\": \"3259216\",\n      \"name\": \"New\",\n      \"position\": 1,\n      \"complete\": false,\n      \"color\": \"#dce7c6\"\n    },\n    \"description\": {\n      \"id\": \"6776881149489364397\",\n      \"body\": \"<h1>Problem Statement</h1><p>Users need better mobile experience</p><h2>Proposed Solution</h2><p>Native mobile app with offline capabilities</p>\",\n      \"editor_version\": 2,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"attachments\": []\n    },\n    \"visibility\": \"Visible to all ideas portal users\",\n    \"admin_response\": {\n      \"id\": \"6776881149492320383\",\n      \"body\": \"Great idea! This aligns with our mobile strategy roadmap. We'll evaluate this for Q3 implementation.\",\n      \"editor_version\": 2,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"attachments\": [],\n      \"responded_by_user\": {\n        \"id\": \"1020675218\",\n        \"name\": \"Mary Humpty\",\n        \"email\": \"no-reply@aha.io\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    },\n    \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-10\",\n    \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-10\",\n    \"product\": {\n      \"id\": \"131414752\",\n      \"reference_prefix\": \"PRJ1\",\n      \"name\": \"Project 1\",\n      \"product_line\": false,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workspace_type\": \"product_workspace\",\n      \"url\": \"http://company.aha.io/projects/PRJ1\"\n    },\n    \"created_by_portal_user\": {\n      \"id\": \"384687358\",\n      \"name\": \"Sammy Smith\",\n      \"email\": \"sammy@smith.com\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"created_by_idea_user\": {\n      \"id\": \"244576613\",\n      \"name\": \"Sammy Smith\",\n      \"email\": \"sammy@smith.com\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"title\": null\n    },\n    \"assigned_to_user\": null,\n    \"endorsements_count\": 0,\n    \"comments_count\": 0,\n    \"score_facts\": [],\n    \"tags\": [\n      \"mobile\",\n      \"offline\",\n      \"performance\",\n      \"UX\"\n    ],\n    \"full_tags\": [\n      {\n        \"id\": \"6776881149483567678\",\n        \"name\": \"performance\",\n        \"color\": \"#e05298\"\n      },\n      {\n        \"id\": \"6776881149486951248\",\n        \"name\": \"UX\",\n        \"color\": \"#a952e0\"\n      },\n      {\n        \"id\": \"6776881149488941674\",\n        \"name\": \"mobile\",\n        \"color\": \"#bae052\"\n      },\n      {\n        \"id\": \"6776881149490298781\",\n        \"name\": \"offline\",\n        \"color\": \"#9ae052\"\n      }\n    ],\n    \"categories\": [\n      {\n        \"id\": \"552935478\",\n        \"name\": \"Storage\",\n        \"parent_id\": null,\n        \"project_id\": 131414752,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    ],\n    \"custom_fields\": [],\n    \"workflow_status_times\": [\n      {\n        \"status_id\": \"3259216\",\n        \"status_name\": \"New\",\n        \"started_at\": \"2019-01-01T00:00:00.000Z\",\n        \"ended_at\": null\n      }\n    ],\n    \"submitted_idea_portal_record_url\": \"https://testideaportal1.ideas.aha.io:8338/ideas/PRJ1-I-10\",\n    \"integration_fields\": []\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc90d45a-51e4-4678-929c-70dc73275826",
+          "name": "List ideas for a product",
+          "request": {
+            "name": "List ideas for a product",
+            "description": {
+              "content": "When creating an idea where the creator is an idea user we strongly suggest\nto provide the `submitted_idea_portal_id` attribute to the idea\nto ensure that the idea is created in the correct ideas portal and the user\ngets access to the portal.\n\nIf you don't want the idea to be submitted to any portal, you can skip this\nby setting `skip_portal: true` in the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "products",
+                ":product_id",
+                "ideas"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product_id",
+                  "description": "(Required) ProductId identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8abca094-460c-4797-af92-0cf969931003",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "products",
+                    ":product_id",
+                    "ideas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product_id",
+                      "description": "(Required) ProductId identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"ideas\": [\n    {\n      \"id\": \"58056975\",\n      \"reference_num\": \"PRJ1-I-1\",\n      \"name\": \"Idea 1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"3259216\",\n        \"name\": \"New\",\n        \"position\": 1,\n        \"complete\": false,\n        \"color\": \"#dce7c6\"\n      },\n      \"description\": {\n        \"id\": \"103757394\",\n        \"body\": \"Description of idea 1\",\n        \"editor_version\": 1,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-1\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-1\"\n    },\n    {\n      \"id\": \"68691224\",\n      \"reference_num\": \"PRJ1-I-12\",\n      \"name\": \"Idea 5\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"3259216\",\n        \"name\": \"New\",\n        \"position\": 1,\n        \"complete\": false,\n        \"color\": \"#dce7c6\"\n      },\n      \"description\": {\n        \"id\": \"6776881149495843340\",\n        \"body\": \"\",\n        \"editor_version\": 2,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-12\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-12\"\n    },\n    {\n      \"id\": \"162120796\",\n      \"reference_num\": \"PRJ1-I-5\",\n      \"name\": \"Idea 4\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"3259216\",\n        \"name\": \"New\",\n        \"position\": 1,\n        \"complete\": false,\n        \"color\": \"#dce7c6\"\n      },\n      \"description\": {\n        \"id\": \"478357480\",\n        \"body\": \"Description of idea custom tables\",\n        \"editor_version\": 1,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-5\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-5\"\n    },\n    {\n      \"id\": \"444379319\",\n      \"reference_num\": \"PRJ1-I-2\",\n      \"name\": \"Idea 2\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"1009437757\",\n        \"name\": \"In progress\",\n        \"position\": 2,\n        \"complete\": false,\n        \"color\": \"#ecdd8f\"\n      },\n      \"description\": {\n        \"id\": \"378547141\",\n        \"body\": \"Description of idea 2\",\n        \"editor_version\": 1,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-2\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-2\"\n    },\n    {\n      \"id\": \"857675141\",\n      \"reference_num\": \"PRJ1-I-11\",\n      \"name\": \"Idea 004\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"3259216\",\n        \"name\": \"New\",\n        \"position\": 1,\n        \"complete\": false,\n        \"color\": \"#dce7c6\"\n      },\n      \"description\": {\n        \"id\": \"6776881149485861297\",\n        \"body\": \"\",\n        \"editor_version\": 2,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-11\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-11\"\n    },\n    {\n      \"id\": \"1055237874\",\n      \"reference_num\": \"PRJ1-I-3\",\n      \"name\": \"Idea 3 Merged\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"1009437757\",\n        \"name\": \"In progress\",\n        \"position\": 2,\n        \"complete\": false,\n        \"color\": \"#ecdd8f\"\n      },\n      \"description\": {\n        \"id\": \"506957205\",\n        \"body\": \"Description of idea 3\",\n        \"editor_version\": 1,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-3\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-3\"\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 6,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16b79d8f-3c9d-4299-9850-ad5d61d483a0",
+          "name": "List ideas",
+          "request": {
+            "name": "List ideas",
+            "description": {
+              "content": "When creating an idea where the creator is an idea user we strongly suggest\nto provide the `submitted_idea_portal_id` attribute to the idea\nto ensure that the idea is created in the correct ideas portal and the user\ngets access to the portal.\n\nIf you don't want the idea to be submitted to any portal, you can skip this\nby setting `skip_portal: true` in the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "ideas"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "59f9f39e-b9c2-4cf7-bcf6-511da67eae55",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "ideas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"ideas\": [\n    {\n      \"id\": \"58056975\",\n      \"reference_num\": \"PRJ1-I-1\",\n      \"name\": \"Idea 1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"3259216\",\n        \"name\": \"New\",\n        \"position\": 1,\n        \"complete\": false,\n        \"color\": \"#dce7c6\"\n      },\n      \"description\": {\n        \"id\": \"103757394\",\n        \"body\": \"Description of idea 1\",\n        \"editor_version\": 1,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-1\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-1\"\n    },\n    {\n      \"id\": \"68691224\",\n      \"reference_num\": \"PRJ1-I-12\",\n      \"name\": \"Idea 5\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"3259216\",\n        \"name\": \"New\",\n        \"position\": 1,\n        \"complete\": false,\n        \"color\": \"#dce7c6\"\n      },\n      \"description\": {\n        \"id\": \"6776881149484500966\",\n        \"body\": \"\",\n        \"editor_version\": 2,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-12\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-12\"\n    },\n    {\n      \"id\": \"140490859\",\n      \"reference_num\": \"PRJ1-I-8\",\n      \"name\": \"Some idea name 3\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"3259216\",\n        \"name\": \"New\",\n        \"position\": 1,\n        \"complete\": false,\n        \"color\": \"#dce7c6\"\n      },\n      \"description\": {\n        \"id\": \"6776881149490665511\",\n        \"body\": \"\",\n        \"editor_version\": 2,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-8\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-8\"\n    },\n    {\n      \"id\": \"162120796\",\n      \"reference_num\": \"PRJ1-I-5\",\n      \"name\": \"Idea 4\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"3259216\",\n        \"name\": \"New\",\n        \"position\": 1,\n        \"complete\": false,\n        \"color\": \"#dce7c6\"\n      },\n      \"description\": {\n        \"id\": \"478357480\",\n        \"body\": \"Description of idea custom tables\",\n        \"editor_version\": 1,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-5\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-5\"\n    },\n    {\n      \"id\": \"245519441\",\n      \"reference_num\": \"PRJ1-I-7\",\n      \"name\": \"Some idea name 2\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"3259216\",\n        \"name\": \"New\",\n        \"position\": 1,\n        \"complete\": false,\n        \"color\": \"#dce7c6\"\n      },\n      \"description\": {\n        \"id\": \"716451363\",\n        \"body\": \"Description of idea endorsement 2\",\n        \"editor_version\": 1,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-7\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-7\"\n    },\n    {\n      \"id\": \"290908627\",\n      \"reference_num\": \"PRJ1-I-9\",\n      \"name\": \"Some idea name 4\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"3259216\",\n        \"name\": \"New\",\n        \"position\": 1,\n        \"complete\": false,\n        \"color\": \"#dce7c6\"\n      },\n      \"description\": {\n        \"id\": \"6776881149497367311\",\n        \"body\": \"\",\n        \"editor_version\": 2,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-9\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-9\"\n    },\n    {\n      \"id\": \"397084149\",\n      \"reference_num\": \"PRJ1-I-6\",\n      \"name\": \"Some idea name 1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"3259216\",\n        \"name\": \"New\",\n        \"position\": 1,\n        \"complete\": false,\n        \"color\": \"#dce7c6\"\n      },\n      \"description\": {\n        \"id\": \"868056987\",\n        \"body\": \"Description of idea endorsement 1\",\n        \"editor_version\": 1,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-6\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-6\"\n    },\n    {\n      \"id\": \"444379319\",\n      \"reference_num\": \"PRJ1-I-2\",\n      \"name\": \"Idea 2\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"1009437757\",\n        \"name\": \"In progress\",\n        \"position\": 2,\n        \"complete\": false,\n        \"color\": \"#ecdd8f\"\n      },\n      \"description\": {\n        \"id\": \"378547141\",\n        \"body\": \"Description of idea 2\",\n        \"editor_version\": 1,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-2\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-2\"\n    },\n    {\n      \"id\": \"731163180\",\n      \"reference_num\": \"PRJ2-I-2\",\n      \"name\": \"Idea 2 project 2\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"3259216\",\n        \"name\": \"New\",\n        \"position\": 1,\n        \"complete\": false,\n        \"color\": \"#dce7c6\"\n      },\n      \"description\": {\n        \"id\": \"928262307\",\n        \"body\": \"Description of idea 2 project2\",\n        \"editor_version\": 1,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ2-I-2\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ2-I-2\"\n    },\n    {\n      \"id\": \"849214356\",\n      \"reference_num\": \"PRJ2-I-1\",\n      \"name\": \"Idea 1 project 2\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"3259216\",\n        \"name\": \"New\",\n        \"position\": 1,\n        \"complete\": false,\n        \"color\": \"#dce7c6\"\n      },\n      \"description\": {\n        \"id\": \"5445688\",\n        \"body\": \"Description of idea 1 project2\",\n        \"editor_version\": 1,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ2-I-1\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ2-I-1\"\n    },\n    {\n      \"id\": \"857675141\",\n      \"reference_num\": \"PRJ1-I-11\",\n      \"name\": \"Idea 004\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"3259216\",\n        \"name\": \"New\",\n        \"position\": 1,\n        \"complete\": false,\n        \"color\": \"#dce7c6\"\n      },\n      \"description\": {\n        \"id\": \"6776881149494084357\",\n        \"body\": \"\",\n        \"editor_version\": 2,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-11\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-11\"\n    },\n    {\n      \"id\": \"926598431\",\n      \"reference_num\": \"PRJ5-I-1\",\n      \"name\": \"Idea 1 Project 5\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"1009437757\",\n        \"name\": \"In progress\",\n        \"position\": 2,\n        \"complete\": false,\n        \"color\": \"#ecdd8f\"\n      },\n      \"description\": {\n        \"id\": \"6776881149487190134\",\n        \"body\": \"\",\n        \"editor_version\": 2,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ5-I-1\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ5-I-1\"\n    },\n    {\n      \"id\": \"1055237874\",\n      \"reference_num\": \"PRJ1-I-3\",\n      \"name\": \"Idea 3 Merged\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workflow_status\": {\n        \"id\": \"1009437757\",\n        \"name\": \"In progress\",\n        \"position\": 2,\n        \"complete\": false,\n        \"color\": \"#ecdd8f\"\n      },\n      \"description\": {\n        \"id\": \"506957205\",\n        \"body\": \"Description of idea 3\",\n        \"editor_version\": 1,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n        \"attachments\": []\n      },\n      \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-3\",\n      \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-3\"\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 13,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "96dc98ca-11dd-400d-846f-5a7fe60f3d80",
+          "name": "Get a specific idea with plain text body",
+          "request": {
+            "name": "Get a specific idea with plain text body",
+            "description": {
+              "content": "When creating an idea where the creator is an idea user we strongly suggest\nto provide the `submitted_idea_portal_id` attribute to the idea\nto ensure that the idea is created in the correct ideas portal and the user\ngets access to the portal.\n\nIf you don't want the idea to be submitted to any portal, you can skip this\nby setting `skip_portal: true` in the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "ideas",
+                "{{id}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "fields",
+                  "value": "description,plain_text_body"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "639bfe67-7d62-4eb6-8a67-06bfaf2098b4",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "ideas",
+                    "{{id}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "description,plain_text_body"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"idea\": {\n    \"id\": \"58056975\",\n    \"product_id\": \"131414752\",\n    \"description\": {\n      \"id\": \"103757394\",\n      \"body\": \"<p>Description of idea 1</p>\",\n      \"plain_text_body\": \"Description of idea 1\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46ba848a-915f-4e72-aebe-0b6615fc1fdd",
+          "name": "List ideas related to a particular term",
+          "request": {
+            "name": "List ideas related to a particular term",
+            "description": {
+              "content": "When creating an idea where the creator is an idea user we strongly suggest\nto provide the `submitted_idea_portal_id` attribute to the idea\nto ensure that the idea is created in the correct ideas portal and the user\ngets access to the portal.\n\nIf you don't want the idea to be submitted to any portal, you can skip this\nby setting `skip_portal: true` in the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "ideas",
+                "related"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "572591c4-a94d-403a-a5c6-95795adfbc7a",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "ideas",
+                    "related"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "ideas are a dime a dozen"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"ideas\": [],\n  \"pagination\": {\n    \"total_records\": 0,\n    \"total_pages\": 0,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de07be97-e749-476d-a17e-9fd47eb82cbe",
+          "name": "Promote an idea",
+          "request": {
+            "name": "Promote an idea",
+            "description": {
+              "content": "When creating an idea where the creator is an idea user we strongly suggest\nto provide the `submitted_idea_portal_id` attribute to the idea\nto ensure that the idea is created in the correct ideas portal and the user\ngets access to the portal.\n\nIf you don't want the idea to be submitted to any portal, you can skip this\nby setting `skip_portal: true` in the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "ideas",
+                ":id",
+                "promote"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"promotable_type\": \"<string>\",\n  \"release_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "778ac052-6aea-4d0a-93d9-a8ec110180f1",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "ideas",
+                    ":id",
+                    "promote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"promotable_type\": \"feature\",\n  \"release_id\": 278327321\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"idea\": {\n    \"id\": \"58056975\",\n    \"name\": \"Idea 1\",\n    \"reference_num\": \"PRJ1-I-1\",\n    \"score\": 15,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n    \"product_id\": \"131414752\",\n    \"votes\": 1,\n    \"initial_votes\": 0,\n    \"status_changed_at\": \"2019-01-01T00:00:00.000Z\",\n    \"workflow_status\": {\n      \"id\": \"1009437757\",\n      \"name\": \"In progress\",\n      \"position\": 2,\n      \"complete\": false,\n      \"color\": \"#ecdd8f\"\n    },\n    \"description\": {\n      \"id\": \"103757394\",\n      \"body\": \"Description of idea 1\",\n      \"editor_version\": 1,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"attachments\": []\n    },\n    \"visibility\": \"Visible to all ideas portal users\",\n    \"url\": \"http://company.aha.io/ideas/ideas/PRJ1-I-1\",\n    \"resource\": \"http://company.aha.io/api/v1/ideas/PRJ1-I-1\",\n    \"product\": {\n      \"id\": \"131414752\",\n      \"reference_prefix\": \"PRJ1\",\n      \"name\": \"Project 1\",\n      \"product_line\": false,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"workspace_type\": \"product_workspace\",\n      \"url\": \"http://company.aha.io/projects/PRJ1\"\n    },\n    \"created_by_user\": {\n      \"id\": \"1020675218\",\n      \"name\": \"Mary Humpty\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n    },\n    \"assigned_to_user\": null,\n    \"feature\": {\n      \"id\": \"6776881149492554846\",\n      \"reference_num\": \"PRJ1-251\",\n      \"name\": \"Idea 1\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"url\": \"http://company.aha.io/features/PRJ1-251\",\n      \"resource\": \"http://company.aha.io/api/v1/features/PRJ1-251\",\n      \"product_id\": \"131414752\"\n    },\n    \"endorsements_count\": 1,\n    \"comments_count\": 0,\n    \"score_facts\": [\n      {\n        \"id\": \"244026645\",\n        \"value\": 10,\n        \"name\": \"Effort\"\n      },\n      {\n        \"id\": \"394452137\",\n        \"value\": 5,\n        \"name\": \"Benefit\"\n      }\n    ],\n    \"tags\": [\n      \"Infrastructure\"\n    ],\n    \"full_tags\": [\n      {\n        \"id\": 775582684,\n        \"name\": \"Infrastructure\",\n        \"color\": \"#7552e0\"\n      }\n    ],\n    \"categories\": [\n      {\n        \"id\": \"972845454\",\n        \"name\": \"Hard disk drive\",\n        \"parent_id\": 552935478,\n        \"project_id\": 131414752,\n        \"created_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    ],\n    \"custom_fields\": [\n      {\n        \"id\": 585340588,\n        \"key\": \"component\",\n        \"name\": \"Component\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": [\n          \"web\"\n        ],\n        \"type\": \"array\"\n      },\n      {\n        \"id\": 267687015,\n        \"key\": \"custom_scorecard_definition\",\n        \"name\": \"Some custom scorecard definition\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": 11,\n        \"type\": \"scorecard\",\n        \"score_facts\": []\n      },\n      {\n        \"id\": 193641455,\n        \"key\": \"text_field1\",\n        \"name\": \"TextField1\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"Cairo\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": 310635095,\n        \"key\": \"text_field2\",\n        \"name\": \"TextField2\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"Rennes\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": 800380718,\n        \"key\": \"upload\",\n        \"name\": \"Upload\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"attachments\": [],\n        \"type\": \"attachment\"\n      }\n    ],\n    \"custom_object_links\": [\n      {\n        \"key\": \"revenue\",\n        \"name\": \"Revenue\",\n        \"record_type\": \"CustomObjectRecord\",\n        \"record_ids\": [\n          640362830\n        ]\n      },\n      {\n        \"key\": \"submitters\",\n        \"name\": \"Submitters\",\n        \"record_type\": \"CustomObjectRecord\",\n        \"record_ids\": [\n          640362830\n        ]\n      }\n    ],\n    \"workflow_status_times\": [\n      {\n        \"status_id\": \"1009437757\",\n        \"status_name\": \"In progress\",\n        \"started_at\": \"2019-01-01T00:00:00.000Z\",\n        \"ended_at\": null\n      }\n    ],\n    \"submitted_idea_portal_record_url\": \"https://ideas.example.com:8338/ideas/PRJ1-I-1\",\n    \"integration_fields\": []\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Aha! account domain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "company",
+      "key": "account-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account-domain}}.aha.io/api/v1",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Id identifier",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "id"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{account-domain}.aha.io/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://{account-domain}.aha.io/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bf8502a0-efc0-4251-9fce-369c9029b6a7",
+    "name": "Aha! Account backups Ideas API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Aha! generated from actual test responses\n\nContact Support:\n Name: Aha! Support",
+      "type": "text/plain"
+    }
+  }
+}

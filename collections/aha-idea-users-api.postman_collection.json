@@ -1,0 +1,683 @@
+{
+  "item": [
+    {
+      "id": "17ce9df6-16fa-44b8-a1d2-fe06932e8bbc",
+      "name": "Idea users",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b0fffcad-40ed-4c0e-9107-78ff522fea3e",
+          "name": "Create a idea user",
+          "request": {
+            "name": "Create a idea user",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "idea_users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idea_user\": {\n    \"first_name\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e8c65f75-f8da-4117-b652-6f7fceb0900a",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "idea_users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idea_user\": {\n    \"email\": \"sam.doe@example.com\",\n    \"first_name\": \"sam\",\n    \"last_name\": \"doe\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"idea_user\": {\n    \"id\": \"6776881149489958901\",\n    \"name\": \"sam doe\",\n    \"email\": \"sam.doe@example.com\",\n    \"discovery_interview_count\": 0,\n    \"discovery_last_invite\": null,\n    \"discovery_last_interview\": null,\n    \"discovery_next_interview\": null,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"idea_organizations\": [],\n    \"custom_fields\": [],\n    \"integration_fields\": []\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4243e313-ef9d-4070-8737-ddbd71d0ab0f",
+          "name": "List idea users for an account",
+          "request": {
+            "name": "List idea users for an account",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "idea_users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "01983444-20b9-42b9-a7cc-20d5c04ab552",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "idea_users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"idea_users\": [\n    {\n      \"id\": \"55650758\",\n      \"name\": \"Sir Mixalot\",\n      \"email\": \"spins@example.com\",\n      \"discovery_interview_count\": 0,\n      \"discovery_last_invite\": null,\n      \"discovery_last_interview\": null,\n      \"discovery_next_interview\": null,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"idea_organizations\": [\n        {\n          \"id\": \"138732915\",\n          \"name\": \"Acme\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"url\": \"http://company.aha.io/ideas/idea_organizations/138732915\",\n          \"resource\": \"http://company.aha.io/api/v1/idea_organizations/138732915\"\n        }\n      ],\n      \"custom_fields\": [],\n      \"integration_fields\": []\n    },\n    {\n      \"id\": \"244576613\",\n      \"name\": \"Sammy Smith\",\n      \"email\": \"sammy@smith.com\",\n      \"discovery_interview_count\": 0,\n      \"discovery_last_invite\": null,\n      \"discovery_last_interview\": null,\n      \"discovery_next_interview\": null,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"idea_organizations\": [],\n      \"custom_fields\": [],\n      \"integration_fields\": []\n    },\n    {\n      \"id\": \"284648642\",\n      \"name\": \"Joe Shmo\",\n      \"email\": \"joe@shmo.com\",\n      \"discovery_interview_count\": 0,\n      \"discovery_last_invite\": null,\n      \"discovery_last_interview\": null,\n      \"discovery_next_interview\": null,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"idea_organizations\": [],\n      \"custom_fields\": [],\n      \"integration_fields\": []\n    },\n    {\n      \"id\": \"446386906\",\n      \"name\": \"Timmy Smith\",\n      \"email\": \"timmy@smith.com\",\n      \"discovery_interview_count\": 0,\n      \"discovery_last_invite\": null,\n      \"discovery_last_interview\": null,\n      \"discovery_next_interview\": null,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"idea_organizations\": [],\n      \"custom_fields\": [],\n      \"integration_fields\": []\n    },\n    {\n      \"id\": \"670061655\",\n      \"name\": \"Tim Smith\",\n      \"email\": \"tim@smith.com\",\n      \"discovery_interview_count\": 0,\n      \"discovery_last_invite\": null,\n      \"discovery_last_interview\": null,\n      \"discovery_next_interview\": null,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"idea_organizations\": [],\n      \"custom_fields\": [],\n      \"integration_fields\": []\n    },\n    {\n      \"id\": \"761219305\",\n      \"name\": \"Mr Scrooge\",\n      \"email\": \"lot@example.com\",\n      \"discovery_interview_count\": 0,\n      \"discovery_last_invite\": null,\n      \"discovery_last_interview\": null,\n      \"discovery_next_interview\": null,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"idea_organizations\": [\n        {\n          \"id\": \"138732915\",\n          \"name\": \"Acme\",\n          \"created_at\": \"2019-01-01T00:00:00.000Z\",\n          \"url\": \"http://company.aha.io/ideas/idea_organizations/138732915\",\n          \"resource\": \"http://company.aha.io/api/v1/idea_organizations/138732915\"\n        }\n      ],\n      \"custom_fields\": [],\n      \"integration_fields\": []\n    },\n    {\n      \"id\": \"870840916\",\n      \"name\": \"Bill Billings\",\n      \"email\": \"no-reply@aha.io\",\n      \"discovery_interview_count\": 0,\n      \"discovery_last_invite\": null,\n      \"discovery_last_interview\": null,\n      \"discovery_next_interview\": null,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"idea_organizations\": [],\n      \"custom_fields\": [],\n      \"integration_fields\": []\n    },\n    {\n      \"id\": \"966050294\",\n      \"name\": \"John Long\",\n      \"email\": \"johnvery@long.com\",\n      \"discovery_interview_count\": 0,\n      \"discovery_last_invite\": null,\n      \"discovery_last_interview\": null,\n      \"discovery_next_interview\": null,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"idea_organizations\": [],\n      \"custom_fields\": [],\n      \"integration_fields\": []\n    },\n    {\n      \"id\": \"1056507375\",\n      \"name\": \"John Long\",\n      \"email\": \"john@long.com\",\n      \"discovery_interview_count\": 0,\n      \"discovery_last_invite\": null,\n      \"discovery_last_interview\": null,\n      \"discovery_next_interview\": null,\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"idea_organizations\": [],\n      \"custom_fields\": [],\n      \"integration_fields\": []\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 9,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac8a4f8e-8654-45c8-a175-e5b97a928a87",
+          "name": "Get a specific idea user",
+          "request": {
+            "name": "Get a specific idea user",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "idea_users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e416c2e5-05db-4a8d-ad82-c16dedbb11d7",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "idea_users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"idea_user\": {\n    \"id\": \"1056507375\",\n    \"name\": \"John Long\",\n    \"email\": \"john@long.com\",\n    \"discovery_interview_count\": 0,\n    \"discovery_last_invite\": null,\n    \"discovery_last_interview\": null,\n    \"discovery_next_interview\": null,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"idea_organizations\": [],\n    \"custom_fields\": [\n      {\n        \"id\": \"6776881149490597073\",\n        \"key\": \"text_field\",\n        \"name\": \"TextField\",\n        \"updatedAt\": \"2019-01-01T00:00:00Z\",\n        \"value\": \"the value for the field\",\n        \"type\": \"string\"\n      }\n    ],\n    \"integration_fields\": []\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da30a87d-bf3f-4ef7-99db-9595945de6d6",
+          "name": "Update an idea user",
+          "request": {
+            "name": "Update an idea user",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "idea_users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idea_user\": {\n    \"first_name\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c84b624b-0437-4bbd-8765-8002c79a498d",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "idea_users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idea_user\": {\n    \"first_name\": \"Sarah\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"idea_user\": {\n    \"id\": \"1056507375\",\n    \"name\": \"John Long\",\n    \"email\": \"john@long.com\",\n    \"discovery_interview_count\": 0,\n    \"discovery_last_invite\": null,\n    \"discovery_last_interview\": null,\n    \"discovery_next_interview\": null,\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"idea_organizations\": [],\n    \"custom_fields\": [],\n    \"integration_fields\": []\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc060c26-24e3-4b94-ba26-445a23c862ca",
+          "name": "Delete an idea user",
+          "request": {
+            "name": "Delete an idea user",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "idea_users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id identifier"
+                },
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "95510178-760b-4cfa-85a2-6c191e4e80f7",
+              "name": "No content - operation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "idea_users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id identifier"
+                    },
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Aha! account domain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "company",
+      "key": "account-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account-domain}}.aha.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{account-domain}.aha.io/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://{account-domain}.aha.io/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5cff3ed7-c7d3-46c1-862b-96a371a13569",
+    "name": "Aha! Account backups Idea users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Aha! generated from actual test responses\n\nContact Support:\n Name: Aha! Support",
+      "type": "text/plain"
+    }
+  }
+}

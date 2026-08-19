@@ -1,0 +1,341 @@
+{
+  "item": [
+    {
+      "id": "9f4bcb9c-672c-4c88-b840-7bdccca2e0ca",
+      "name": "Historical Audits",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "54f2a5ed-59c7-4c88-8e45-b2848659a670",
+          "name": "Read the contents of the historical index",
+          "request": {
+            "name": "Read the contents of the historical index",
+            "description": {
+              "content": "The historical audits endpoint is similar to the the Audits endpoint, but searches for audit records generated more than 12 calendar months ago. For searches of more recent data, the much more performant [Audits API](/api/resources/audits) should be used.\n\nThe [historical index](/api/resources/historical_audits/read_the_contents_of_the_historical_index) should first be used to identify time-periods of interest, and then a search can be conducted to fetch the full details of the audit records from that period.\n\nThere are three important caveats to using this API:\n\n1. Searching through historical audits is an asynchronous operation. A search must first be [created](/api/resources/historical_audits/create_an_audit_search), and then the data may be [consumed later](/api/resources/historical_audits/read_the_results_of_an_audit_search)\n2. Searching through historical audits imposes a stricter rate-limit than the general rate limit of the API. This API also enforces rate-limiting through a _token-based system._\n   1. Each Audits search consumes a specific number of tokens. The token cost of a search will be presented to the user through the [read results operation.](/api/resources/historical_audits/read_the_results_of_an_audit_search)\n   2. The token cost of a request is only known after the search completes, and corresponds to the amount of data which was required to be scanned to fulfill the request. Specifying additional filters, such as `user_id`, `auditable_type`, and `audit_action` will decrease the token cost.\n   3. Upon making a request, the maximum token cost for a query will be charged to your account. The difference between the actual token cost and the maximum token cost will be refunded when the search completes and you read the search data.\n   4. Tokens are continually replenished. You can see the current number of tokens available in the `X-Historical-Tokens-Available` header, present on every response to these resources.\n   5. Reading from the [historical index](/api/resources/historical_audits/read_the_contents_of_the_historical_index) does not consume any tokens.\n3. Only administrators are able to perform historical audit searches.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "historical_audits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "created_since",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "created_before",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "auditable_type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "user_id",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7d0f8a84-c293-40f9-977c-8dd4c5e260f6",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "historical_audits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "created_since",
+                      "value": "2019-01-01T00:00:00Z"
+                    },
+                    {
+                      "key": "created_before",
+                      "value": "2019-01-01T00:00:00Z"
+                    },
+                    {
+                      "key": "auditable_type",
+                      "value": "Feature"
+                    },
+                    {
+                      "key": "user_id",
+                      "value": "1049303076"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"historical_audits\": [\n    {\n      \"auditable_id\": 1007868956,\n      \"auditable_type\": \"Feature\",\n      \"id\": \"1049303076\",\n      \"name\": \"George Gently\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"dates_active\": [\n        \"2019-01-01\",\n        \"2019-01-01\",\n        \"2019-01-01\",\n        \"2019-01-01\"\n      ]\n    },\n    {\n      \"auditable_id\": 1007868956,\n      \"auditable_type\": \"Feature\",\n      \"id\": \"1049303076\",\n      \"name\": \"George Gently\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"dates_active\": [\n        \"2019-01-01\",\n        \"2019-01-01\",\n        \"2019-01-01\",\n        \"2019-01-01\"\n      ]\n    },\n    {\n      \"auditable_id\": 1007868956,\n      \"auditable_type\": \"Feature\",\n      \"id\": \"1049303076\",\n      \"name\": \"George Gently\",\n      \"email\": \"no-reply@aha.io\",\n      \"created_at\": \"2019-01-01T00:00:00.000Z\",\n      \"updated_at\": \"2019-01-01T00:00:00.000Z\",\n      \"dates_active\": [\n        \"2019-01-01\",\n        \"2019-01-01\",\n        \"2019-01-01\",\n        \"2019-01-01\"\n      ]\n    }\n  ],\n  \"pagination\": {\n    \"total_records\": 3,\n    \"total_pages\": 1,\n    \"current_page\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da485d0c-a997-400e-9da5-3fba5b448e69",
+          "name": "Create an audit search",
+          "request": {
+            "name": "Create an audit search",
+            "description": {
+              "content": "The historical audits endpoint is similar to the the Audits endpoint, but searches for audit records generated more than 12 calendar months ago. For searches of more recent data, the much more performant [Audits API](/api/resources/audits) should be used.\n\nThe [historical index](/api/resources/historical_audits/read_the_contents_of_the_historical_index) should first be used to identify time-periods of interest, and then a search can be conducted to fetch the full details of the audit records from that period.\n\nThere are three important caveats to using this API:\n\n1. Searching through historical audits is an asynchronous operation. A search must first be [created](/api/resources/historical_audits/create_an_audit_search), and then the data may be [consumed later](/api/resources/historical_audits/read_the_results_of_an_audit_search)\n2. Searching through historical audits imposes a stricter rate-limit than the general rate limit of the API. This API also enforces rate-limiting through a _token-based system._\n   1. Each Audits search consumes a specific number of tokens. The token cost of a search will be presented to the user through the [read results operation.](/api/resources/historical_audits/read_the_results_of_an_audit_search)\n   2. The token cost of a request is only known after the search completes, and corresponds to the amount of data which was required to be scanned to fulfill the request. Specifying additional filters, such as `user_id`, `auditable_type`, and `audit_action` will decrease the token cost.\n   3. Upon making a request, the maximum token cost for a query will be charged to your account. The difference between the actual token cost and the maximum token cost will be refunded when the search completes and you read the search data.\n   4. Tokens are continually replenished. You can see the current number of tokens available in the `X-Historical-Tokens-Available` header, present on every response to these resources.\n   5. Reading from the [historical index](/api/resources/historical_audits/read_the_contents_of_the_historical_index) does not consume any tokens.\n3. Only administrators are able to perform historical audit searches.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "historical_audits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Aha! account domain",
+                  "type": "any",
+                  "value": "{{account-domain}}",
+                  "key": "account-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://{account-domain}.aha.io/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"search\": {\n    \"created_since\": \"<string>\",\n    \"created_before\": \"<string>\",\n    \"auditable_type\": \"<string>\",\n    \"auditable_id\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b2b5c9b3-e39f-468d-a370-656c3f7c2032",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "historical_audits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Aha! account domain",
+                      "type": "any",
+                      "value": "{{account-domain}}",
+                      "key": "account-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"search\": {\n    \"created_since\": \"2019-01-01T00:00:00Z\",\n    \"created_before\": \"2019-01-01T00:00:00Z\",\n    \"auditable_type\": \"Feature\",\n    \"auditable_id\": 1007868956\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"search_id\": \"6776881149486782892\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Aha! account domain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "company",
+      "key": "account-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account-domain}}.aha.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{account-domain}.aha.io/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://{account-domain}.aha.io/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f88a1115-1ead-45d9-acb3-a9ae88cb6003",
+    "name": "Aha! Account backups Historical Audits API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Aha! generated from actual test responses\n\nContact Support:\n Name: Aha! Support",
+      "type": "text/plain"
+    }
+  }
+}

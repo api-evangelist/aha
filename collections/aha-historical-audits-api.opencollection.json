@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aha! Account backups Historical Audits API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+      "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Historical Audits",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Read the contents of the historical index",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/historical_audits",
+            "params": [
+              {
+                "name": "created_since",
+                "value": "2019-01-01T00:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "created_before",
+                "value": "2019-01-01T00:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "auditable_type",
+                "value": "Feature",
+                "type": "query"
+              },
+              {
+                "name": "user_id",
+                "value": "1049303076",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "The historical audits endpoint is similar to the the Audits endpoint, but searches for audit records generated more than 12 calendar months ago. For searches of more recent data, the much more performant [Audits API](/api/resources/audits) should be used.\n\nThe [historical index](/api/resources/historical_audits/read_the_contents_of_the_historical_index) should first be used to identify time-periods of interest, and then a search can be conducted to fetch the full details of the audit records fro"
+        },
+        {
+          "info": {
+            "name": "Create an audit search",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/historical_audits",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "The historical audits endpoint is similar to the the Audits endpoint, but searches for audit records generated more than 12 calendar months ago. For searches of more recent data, the much more performant [Audits API](/api/resources/audits) should be used.\n\nThe [historical index](/api/resources/historical_audits/read_the_contents_of_the_historical_index) should first be used to identify time-periods of interest, and then a search can be conducted to fetch the full details of the audit records fro"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

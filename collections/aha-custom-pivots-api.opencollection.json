@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Aha! Account backups Custom pivots API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+      "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Custom pivots",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list view of a saved report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account-domain}.aha.io/api/v1/api/v1/bookmarks/custom_pivots/:report_id",
+            "params": [
+              {
+                "name": "report_id",
+                "value": "",
+                "type": "path",
+                "description": "ReportId identifier"
+              },
+              {
+                "name": "view",
+                "value": "list",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://{account-domain}.aha.io/oauth/authorize",
+              "accessTokenUrl": "https://{account-domain}.aha.io/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "The list view responds with a JSON object with three attributes: pagination, columns, and rows.\n\nThe columns attribute is an array of objects that give detailed information\nabout the columns of the list. The objects include the name of the table, the field, and\na human readable title attribute.\n\nThe rows attribute is an of array of arrays. Each object within the inner array contains the value\nof that for a specific column. Each object contains attributes for various representations of the\ndata. "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
