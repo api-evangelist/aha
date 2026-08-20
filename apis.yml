@@ -183,6 +183,8 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
+  - Custom Fields
+  tags_raw:
   - Custom fields
   properties:
   - type: OpenAPI
@@ -465,6 +467,8 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
+  - Identity Providers
+  tags_raw:
   - Identity providers
   properties:
   - type: OpenAPI
@@ -521,6 +525,8 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
+  - Integration
+  tags_raw:
   - Integrations
   properties:
   - type: OpenAPI
@@ -535,6 +541,8 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
+  - Key Results
+  tags_raw:
   - Key results
   properties:
   - type: OpenAPI
@@ -605,6 +613,8 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
@@ -759,6 +769,8 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
+  - Team Members
+  tags_raw:
   - Team members
   properties:
   - type: OpenAPI
@@ -773,6 +785,8 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
+  - Team Memberships
+  tags_raw:
   - Team memberships
   properties:
   - type: OpenAPI
@@ -787,6 +801,8 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
+  - Team
+  tags_raw:
   - Teams
   properties:
   - type: OpenAPI
@@ -815,6 +831,8 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
+  - To-Dos
+  tags_raw:
   - To-dos
   properties:
   - type: OpenAPI
@@ -829,6 +847,8 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -843,6 +863,8 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
