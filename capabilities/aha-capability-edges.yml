@@ -1,0 +1,107 @@
+slug: aha
+provider: Aha.io
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 9
+edges:
+- tag: Competitors
+  spec_file: aha-competitors-api-openapi.yml
+  capability_id: BC-400.30
+  capability_id_l1: BC-400
+  capability_name: Market Intelligence Management
+  confidence: 0.8
+  evidence: GET /api/v1/products/{product_id}/competitors — "List competitors in a product"; POST "Create
+    a competitor"
+  reason: CRUD over competitor records maintained per product is competitive intelligence, a sub-capability
+    of Market Intelligence Management. Some chance the vendor intends it purely as a product-strategy
+    artefact, so 0.8 rather than 0.95.
+- tag: Ideas
+  spec_file: aha-ideas-api-openapi.yml
+  capability_id: BC-4200.10
+  capability_id_l1: BC-4200
+  capability_name: Product Discovery & Backlog Management
+  confidence: 0.8
+  evidence: POST /api/v1/products/{product_id}/ideas  Create an idea; PUT /api/v1/ideas/{id}/promote  Promote
+    an idea
+  reason: Full lifecycle of product ideas including promotion into roadmap work items — directly opportunity/ideation
+    capture and backlog translation for a software product suite.
+- tag: Key results
+  spec_file: aha-key-results-api-openapi.yml
+  capability_id: BC-100.20
+  capability_id_l1: BC-100
+  capability_name: Strategy Execution Management
+  confidence: 0.78
+  evidence: List key results for a goal / Create a key result
+  reason: Key results nested under goals is the OKR construct, which the candidate for Strategy Execution
+    Management explicitly names ('objectives, OKRs, balanced scorecards'). Slight ambiguity because these
+    OKRs are scoped to product goals.
+- tag: Epics
+  spec_file: aha-epics-api-openapi.yml
+  capability_id: BC-4200.10
+  capability_id_l1: BC-4200
+  capability_name: Product Discovery & Backlog Management
+  confidence: 0.7
+  evidence: POST /api/v1/releases/{release_id}/epics  Create an epic; GET /api/v1/goals/{goal_id}/epics  List
+    epics associated with a goal
+  reason: Epics are product backlog work items in Aha!'s roadmapping suite, created against releases/products
+    and linked to goals and initiatives. This is product backlog stewardship in a software product development
+    tool, not generic project management.
+- tag: Features
+  spec_file: aha-features-api-openapi.yml
+  capability_id: BC-4200.10
+  capability_id_l1: BC-4200
+  capability_name: Product Discovery & Backlog Management
+  confidence: 0.7
+  evidence: GET /api/v1/epics/{epic_id}/features  List features in an epic; POST /api/v1/features/{id}/convert_to_epic  Convert
+    a feature to an epic
+  reason: Features are backlog items nested under epics/releases in a product roadmapping tool; CRUD plus
+    promotion to epic is backlog stewardship for software product engineering.
+- tag: Releases
+  spec_file: aha-releases-api-openapi.yml
+  capability_id: BC-820.50
+  capability_id_l1: BC-820
+  capability_name: Product Release & Launch Management
+  confidence: 0.7
+  evidence: '"POST /api/v1/products/{product_id}/releases    Create a release", "List releases associated
+    with a goal"'
+  reason: Releases planned per product and linked to goals/initiatives are roadmap release planning artefacts
+    — Product Release & Launch Management rather than deployment engineering.
+- tag: Requirements
+  spec_file: aha-requirements-api-openapi.yml
+  capability_id: BC-4200.20
+  capability_id_l1: BC-4200
+  capability_name: Product Specification Management
+  confidence: 0.7
+  evidence: '"GET /api/v1/features/{feature_id}/requirements    List requirements for a feature", "POST
+    /api/v1/requirements/{id}/convert_to_feature"'
+  reason: Requirements captured under features in a software product development suite = specification
+    of intended behaviour for engineering; vendor explicitly offers "requirements specification".
+- tag: Strategic visions
+  spec_file: aha-strategic-visions-api-openapi.yml
+  capability_id: BC-100.10
+  capability_id_l1: BC-100
+  capability_name: Strategic Planning
+  confidence: 0.7
+  evidence: '"GET /api/v1/strategy_visions    List strategic visions"'
+  reason: Vision artefacts are explicitly the subject of Strategic Planning ("Vision, mission, strategic
+    objectives").
+- tag: Users
+  spec_file: aha-users-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: POST /api/v1/users/{id}/product_roles    Update a user's product roles; DELETE /api/v1/users/{id}/user_roles/{product_id}    Delete
+    a user's custom role
+  reason: Beyond user CRUD, the surface explicitly manages product roles and custom roles per user, which
+    is role-based access administration. Mapped to Identity & Access Management with moderate confidence
+    since it is application-level user administration rather than enterprise IAM.
