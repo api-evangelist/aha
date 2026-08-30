@@ -181,6 +181,8 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
+  - Custom Field Options
+  tags_raw:
   - Custom field options
   properties:
   - type: OpenAPI
@@ -479,7 +481,7 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
-  - Identity Providers
+  - Identity providers
   tags_raw:
   - Identity providers
   properties:
@@ -781,7 +783,7 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
-  - Team Members
+  - Team members
   tags_raw:
   - Team members
   properties:
@@ -797,7 +799,7 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
-  - Team Memberships
+  - Team memberships
   tags_raw:
   - Team memberships
   properties:
@@ -843,7 +845,7 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
-  - To-Dos
+  - To-dos
   tags_raw:
   - To-dos
   properties:
