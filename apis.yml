@@ -481,7 +481,7 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
-  - Identity providers
+  - Identity Providers
   tags_raw:
   - Identity providers
   properties:
@@ -783,7 +783,7 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
-  - Team members
+  - Team Members
   tags_raw:
   - Team members
   properties:
@@ -799,7 +799,7 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
-  - Team memberships
+  - Team Memberships
   tags_raw:
   - Team memberships
   properties:
@@ -845,7 +845,7 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
-  - To-dos
+  - To-Dos
   tags_raw:
   - To-dos
   properties:
