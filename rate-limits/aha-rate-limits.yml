@@ -1,0 +1,34 @@
+# Rate limits transcribed from the provider's own documentation — see provenance. Quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://www.aha.io/api
+sources:
+- https://www.aha.io/api
+provenance:
+  tool: planning/api-economics/harvest_ratelimits.py
+  run: 20260920T133210
+  grounding: every limit_text was found verbatim in the fetched page text
+published: true
+note: Rate limiting section states per-minute and per-second limits applied per account; 429 returned
+  when exceeded. Pagination per_page max of 200 also included.
+limit_count: 3
+limits:
+- name: Per-minute API rate limit
+  limit_text: Up to 300 requests are allowed per minute
+  limit: 300
+  window: minute
+  scope: account
+- name: Per-second API rate limit
+  limit_text: up to 20 requests per second
+  limit: 20
+  window: second
+  scope: account
+- name: Pagination maximum page size
+  limit_text: up to a maximum of 200
+  limit: 200
+  scope: endpoint
+headers:
+- X-Ratelimit-Limit
+- X-Ratelimit-Remaining
+- X-Ratelimit-Reset
+exceeded_status: 429

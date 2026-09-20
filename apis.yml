@@ -908,6 +908,8 @@ apis:
   - type: ReDoc
     url: https://www.aha.io/redoc-static.html
 common:
+  - type: RateLimits
+    url: rate-limits/aha-rate-limits.yml
   - type: Plans
     url: plans/aha-plans-pricing.yml
   - type: CapabilityMap
