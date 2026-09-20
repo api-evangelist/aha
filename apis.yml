@@ -908,6 +908,8 @@ apis:
   - type: ReDoc
     url: https://www.aha.io/redoc-static.html
 common:
+  - type: Plans
+    url: plans/aha-plans-pricing.yml
   - type: CapabilityMap
     url: capabilities/aha-capability-edges.yml
     name: Aha.io Business Capability Map

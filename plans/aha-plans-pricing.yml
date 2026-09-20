@@ -1,0 +1,84 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://www.aha.io/pricing
+sources:
+- https://www.aha.io/pricing
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T120546
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: per-seat
+published: true
+note: Product suite pricing page; per-user monthly starting prices. Notes 3% annual price increase and
+  AI credit pool for paid users. API mentioned only in footer/export FAQ, not priced.
+plan_count: 10
+currency: USD
+plans:
+- name: Aha! Roadmaps
+  price_text: Starts at $ 59 user / month
+  price: 59
+  currency: USD
+  period: month
+  unit: user
+  included_quota: Includes Aha! Ideas Essentials, Aha! Whiteboards Essentials, and Aha! Knowledge Essentials
+- name: Aha! Discovery
+  price_text: Starts at $ 39 user / month
+  price: 39
+  currency: USD
+  period: month
+  unit: user
+  included_quota: Unlimited studies and interviews
+- name: Aha! Ideas
+  price_text: Starts at $ 39 user / month
+  price: 39
+  currency: USD
+  period: month
+  unit: user
+  included_quota: Includes Aha! Whiteboards Essentials and Aha! Knowledge Essentials
+- name: Aha! Whiteboards
+  price_text: Starts at $ 9 user / month
+  price: 9
+  currency: USD
+  period: month
+  unit: user
+- name: Aha! Builder
+  price_text: Starts at $ 59 user / month
+  price: 59
+  currency: USD
+  period: month
+  unit: user
+- name: Aha! Develop
+  price_text: Starts at $ 9 user / month
+  price: 9
+  currency: USD
+  period: month
+  unit: user
+- name: Aha! Teamwork
+  price_text: Starts at $ 9 user / month
+  price: 9
+  currency: USD
+  period: month
+  unit: user
+- name: Aha! Knowledge
+  price_text: Starts at $ 18 user / month
+  price: 18
+  currency: USD
+  period: month
+  unit: user
+  included_quota: Includes Aha! Whiteboards Essentials
+- name: Aha! Ideas Advanced add-on (annual)
+  price_text: $20 per user per month
+  price: 20
+  currency: USD
+  period: month
+  unit: user
+  included_quota: Add-on to any annual plan
+- name: Aha! Ideas Advanced add-on (monthly)
+  price_text: $25 per user per month
+  price: 25
+  currency: USD
+  period: month
+  unit: user
+  included_quota: Add-on to any monthly plan
