@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Ideas portal users API
+  title: Aha! Ideas portal users API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -74,6 +74,8 @@ paths:
                 email: sam.doe@example.com
                 first_name: sam
                 last_name: doe
+      operationId: postApiV1IdeaPortalsByIdeaPortalIdPortalUsers
+      x-operation-id-source: derived
     get:
       summary: List portal users for an ideas portal
       description: null
@@ -156,6 +158,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1IdeaPortalsByIdeaPortalIdPortalUsers
+      x-operation-id-source: derived
   /api/v1/idea_portals/{idea_portal_id}/portal_users/{id}:
     get:
       summary: Get a specific portal user
@@ -205,6 +209,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1IdeaPortalsByIdeaPortalIdPortalUsersById
+      x-operation-id-source: derived
     put:
       summary: Update a portal user
       description: null
@@ -262,6 +268,8 @@ paths:
             example:
               portal_user:
                 first_name: Sarah
+      operationId: putApiV1IdeaPortalsByIdeaPortalIdPortalUsersById
+      x-operation-id-source: derived
     delete:
       summary: Delete a portal user
       description: null
@@ -287,6 +295,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: deleteApiV1IdeaPortalsByIdeaPortalIdPortalUsersById
+      x-operation-id-source: derived
 components:
   schemas:
     IdeasportalusersGetResponse:

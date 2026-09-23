@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Aha! Account backups API
   version: 1.0.0
@@ -23,7 +23,22 @@ paths:
   /api/v1/account_backups:
     get:
       summary: List account backups
-      description: "Account backups let you create a complete off-site backup of your Aha! account.\nThey can be [created](/api/resources/account_backups/create_an_account_backup),\n[listed](/api/resources/account_backups/list_account_backups), and [downloaded](/api/resources/account_backups/download_an_account_backup) via the API.\n\nAn account backup may only be created once every 24 hours.\n\nThe backup file contains a representation of all of the data in the Aha! account, including all relationships. \nIt does not contain user authentication data or integration secrets. The backup does not include any uploaded files.\n\n**[Account backups](https://www.aha.io/support/roadmaps/account/security-and-system-requirements/export-backup-aha-data) are an Enterprise+ exclusive feature.**"
+      description: 'Account backups let you create a complete off-site backup of your Aha! account.
+
+        They can be created,
+
+        listed, and downloaded via the API.
+
+
+        An account backup may only be created once every 24 hours.
+
+
+        The backup file contains a representation of all of the data in the Aha! account, including all relationships.
+
+        It does not contain user authentication data or integration secrets. The backup does not include any uploaded files.
+
+
+        **Account backups are an Enterprise+ exclusive feature.**'
       tags:
       - Account backups
       parameters: []
@@ -57,9 +72,19 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1AccountBackups
+      x-operation-id-source: derived
     post:
       summary: Create an account backup
-      description: "The backup may take some time to generate (as long as ten minutes in a \nlarge account). You should poll the GET endpoint to see when the backup \nis complete. You should not poll more frequently than once every twenty \nseconds. Returns an HTTP status of 429 if a backup was already created\nwithin the last 24 hours."
+      description: 'The backup may take some time to generate (as long as ten minutes in a
+
+        large account). You should poll the GET endpoint to see when the backup
+
+        is complete. You should not poll more frequently than once every twenty
+
+        seconds. Returns an HTTP status of 429 if a backup was already created
+
+        within the last 24 hours.'
       tags:
       - Account backups
       parameters: []
@@ -85,6 +110,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: postApiV1AccountBackups
+      x-operation-id-source: derived
   /api/v1/account_backups/{id}:
     get:
       summary: Get a specific account backup
@@ -122,10 +149,27 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1AccountBackupsById
+      x-operation-id-source: derived
   /api/v1/account_backups/{id}.tgz:
     get:
       summary: Download an account backup
-      description: "Account backups let you create a complete off-site backup of your Aha! account.\nThey can be [created](/api/resources/account_backups/create_an_account_backup),\n[listed](/api/resources/account_backups/list_account_backups), and [downloaded](/api/resources/account_backups/download_an_account_backup) via the API.\n\nAn account backup may only be created once every 24 hours.\n\nThe backup file contains a representation of all of the data in the Aha! account, including all relationships. \nIt does not contain user authentication data or integration secrets. The backup does not include any uploaded files.\n\n**[Account backups](https://www.aha.io/support/roadmaps/account/security-and-system-requirements/export-backup-aha-data) are an Enterprise+ exclusive feature.**"
+      description: 'Account backups let you create a complete off-site backup of your Aha! account.
+
+        They can be created,
+
+        listed, and downloaded via the API.
+
+
+        An account backup may only be created once every 24 hours.
+
+
+        The backup file contains a representation of all of the data in the Aha! account, including all relationships.
+
+        It does not contain user authentication data or integration secrets. The backup does not include any uploaded files.
+
+
+        **Account backups are an Enterprise+ exclusive feature.**'
       tags:
       - Account backups
       parameters:
@@ -147,37 +191,10 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1AccountBackups{id}Tgz
+      x-operation-id-source: derived
 components:
   schemas:
-    AccountbackupsGetResponse:
-      type: object
-      properties:
-        account_backup:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149499462668'
-            status_code:
-              type: integer
-              example: 3
-            status_description:
-              type: string
-              example: Error
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-          example:
-            id: '6776881149499462668'
-            status_code: 3
-            status_description: Error
-            created_at: '2019-01-01T00:00:00.000Z'
-      example:
-        account_backup:
-          id: '6776881149499462668'
-          status_code: 3
-          status_description: Error
-          created_at: '2019-01-01T00:00:00.000Z'
     AccountbackupsPostResponse:
       type: object
       properties:
@@ -206,6 +223,35 @@ components:
           id: '6776881149498172525'
           status_code: 0
           status_description: In Queue
+          created_at: '2019-01-01T00:00:00.000Z'
+    AccountbackupsGetResponse:
+      type: object
+      properties:
+        account_backup:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149499462668'
+            status_code:
+              type: integer
+              example: 3
+            status_description:
+              type: string
+              example: Error
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+          example:
+            id: '6776881149499462668'
+            status_code: 3
+            status_description: Error
+            created_at: '2019-01-01T00:00:00.000Z'
+      example:
+        account_backup:
+          id: '6776881149499462668'
+          status_code: 3
+          status_description: Error
           created_at: '2019-01-01T00:00:00.000Z'
   securitySchemes:
     OAuth2:

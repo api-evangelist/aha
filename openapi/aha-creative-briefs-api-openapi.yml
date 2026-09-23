@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Creative briefs API
+  title: Aha! Creative briefs API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -69,6 +69,8 @@ paths:
             example:
               creative_brief:
                 name: April launch
+      operationId: postApiV1ProductsByProductIdCreativeBriefs
+      x-operation-id-source: derived
     get:
       summary: List creative briefs in a product
       description: null
@@ -112,6 +114,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1ProductsByProductIdCreativeBriefs
+      x-operation-id-source: derived
   /api/v1/creative_briefs/{id}:
     get:
       summary: Get a specific creative_brief
@@ -152,6 +156,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1CreativeBriefsById
+      x-operation-id-source: derived
   /api/v1/products/{product_id}/creative_briefs/{id}:
     put:
       summary: Update a creative brief
@@ -207,6 +213,8 @@ paths:
             example:
               creative_brief:
                 name: December launch
+      operationId: putApiV1ProductsByProductIdCreativeBriefsById
+      x-operation-id-source: derived
     delete:
       summary: Delete a creative brief
       description: null
@@ -232,6 +240,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: deleteApiV1ProductsByProductIdCreativeBriefsById
+      x-operation-id-source: derived
 components:
   schemas:
     CreativebriefsGetResponse:
@@ -288,20 +298,6 @@ components:
           resource: http://company.aha.io/creative_briefs/476477971
           custom_fields: []
           comments_count: 0
-    CreativebriefsPostRequest:
-      type: object
-      properties:
-        creative_brief:
-          type: object
-          properties:
-            name:
-              type: string
-              example: December launch
-          example:
-            name: December launch
-      example:
-        creative_brief:
-          name: December launch
     CreativebriefsPutResponse:
       type: object
       properties:
@@ -356,6 +352,20 @@ components:
           resource: http://company.aha.io/creative_briefs/476477971
           custom_fields: []
           comments_count: 0
+    CreativebriefsPostRequest:
+      type: object
+      properties:
+        creative_brief:
+          type: object
+          properties:
+            name:
+              type: string
+              example: December launch
+          example:
+            name: December launch
+      example:
+        creative_brief:
+          name: December launch
     CreativebriefsPostResponse:
       type: object
       properties:

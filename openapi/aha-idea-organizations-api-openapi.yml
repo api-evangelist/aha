@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Idea organizations API
+  title: Aha! Idea organizations API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -59,6 +59,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1IdeaOrganizations
+      x-operation-id-source: derived
     post:
       summary: Create an idea organization
       description: null
@@ -117,6 +119,8 @@ paths:
                 name: My organization
                 email_domains: example.com, example.org
                 revenue: '55000'
+      operationId: postApiV1IdeaOrganizations
+      x-operation-id-source: derived
   /api/v1/idea_organizations/{id}:
     get:
       summary: Get a specific organization
@@ -176,6 +180,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1IdeaOrganizationsById
+      x-operation-id-source: derived
     put:
       summary: Update organization
       description: null
@@ -249,6 +255,8 @@ paths:
             example:
               idea_organization:
                 name: A new name
+      operationId: putApiV1IdeaOrganizationsById
+      x-operation-id-source: derived
     delete:
       summary: Delete organization
       description: null
@@ -268,6 +276,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: deleteApiV1IdeaOrganizationsById
+      x-operation-id-source: derived
 components:
   schemas:
     IdeaorganizationsPostResponse:
@@ -567,30 +577,6 @@ components:
                   display_value: '10.0'
             type: equation_sheet
           integration_fields: []
-    IdeaorganizationsPostRequest:
-      type: object
-      properties:
-        idea_organization:
-          type: object
-          properties:
-            name:
-              type: string
-              example: My organization
-            email_domains:
-              type: string
-              example: example.com, example.org
-            revenue:
-              type: string
-              example: '55000'
-          example:
-            name: My organization
-            email_domains: example.com, example.org
-            revenue: '55000'
-      example:
-        idea_organization:
-          name: My organization
-          email_domains: example.com, example.org
-          revenue: '55000'
     IdeaorganizationsPutResponse:
       type: object
       properties:
@@ -762,6 +748,30 @@ components:
                   display_value: '10.0'
             type: equation_sheet
           integration_fields: []
+    IdeaorganizationsPostRequest:
+      type: object
+      properties:
+        idea_organization:
+          type: object
+          properties:
+            name:
+              type: string
+              example: My organization
+            email_domains:
+              type: string
+              example: example.com, example.org
+            revenue:
+              type: string
+              example: '55000'
+          example:
+            name: My organization
+            email_domains: example.com, example.org
+            revenue: '55000'
+      example:
+        idea_organization:
+          name: My organization
+          email_domains: example.com, example.org
+          revenue: '55000'
   securitySchemes:
     OAuth2:
       type: oauth2

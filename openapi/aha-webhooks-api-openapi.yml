@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Webhooks API
+  title: Aha! Webhooks API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -54,9 +54,15 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: postApiV1WebhooksByToken
+      x-operation-id-source: derived
     get:
       summary: Validate webhook endpoint
-      description: "This endpoint allows integration services to validate that the webhook URL \nis accessible and properly configured without triggering actual webhook processing.\nUseful for testing webhook connectivity during integration setup."
+      description: 'This endpoint allows integration services to validate that the webhook URL
+
+        is accessible and properly configured without triggering actual webhook processing.
+
+        Useful for testing webhook connectivity during integration setup.'
       tags:
       - Webhooks
       parameters:
@@ -78,6 +84,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1WebhooksByToken
+      x-operation-id-source: derived
 components:
   securitySchemes:
     OAuth2:

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Identity providers API
+  title: Aha! Identity providers API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -18,14 +18,14 @@ security:
 - ApiKeyAuth: []
 - CookieAuth: []
 tags:
-- name: Identity providers
+- name: Identity Providers
 paths:
   /api/v1/identity_providers:
     get:
       summary: List active identity providers that can be used for SSO
       description: null
       tags:
-      - Identity providers
+      - Identity Providers
       parameters: []
       responses:
         '200':
@@ -51,12 +51,14 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1IdentityProviders
+      x-operation-id-source: derived
   /api/v1/identity_providers/{id}:
     get:
       summary: Get a specific identity provider
       description: null
       tags:
-      - Identity providers
+      - Identity Providers
       parameters:
       - name: id
         in: path
@@ -88,6 +90,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1IdentityProvidersById
+      x-operation-id-source: derived
 components:
   schemas:
     IdentityprovidersGetResponse:

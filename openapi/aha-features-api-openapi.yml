@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Features API
+  title: Aha! Features API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -27,31 +27,31 @@ paths:
 
         This means that if you want to
 
-        [create one](/api/resources/features/create_a_feature) then
+        create one then
 
         you must scope it to a release.
 
 
         You can return a result set which is unfiltered, or filter by
 
-        [release](/api/resources/features/list_features_in_a_release)
+        release
 
-        , [product](/api/resources/features/list_features_in_a_product)
+        , product
 
-        , or [epic](/api/resources/features/list_features_in_an_epic).
+        , or epic.
 
         All these means of listing features can be further filtered by specific criteria like name, modification date, tag, or assignee.
 
 
         Once you have the id of a specific feature, you can
 
-        [inspect](/api/resources/features/get_a_specific_feature),
+        inspect,
 
-        [modify](/api/resources/features/update_a_feature),
+        modify,
 
         or
 
-        [delete](/api/resources/features/delete_a_feature)
+        delete
 
         them on the root features resource.'
       tags:
@@ -558,37 +558,39 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1FeaturesById
+      x-operation-id-source: derived
     delete:
       summary: Delete a feature
       description: 'Features belong to releases.
 
         This means that if you want to
 
-        [create one](/api/resources/features/create_a_feature) then
+        create one then
 
         you must scope it to a release.
 
 
         You can return a result set which is unfiltered, or filter by
 
-        [release](/api/resources/features/list_features_in_a_release)
+        release
 
-        , [product](/api/resources/features/list_features_in_a_product)
+        , product
 
-        , or [epic](/api/resources/features/list_features_in_an_epic).
+        , or epic.
 
         All these means of listing features can be further filtered by specific criteria like name, modification date, tag, or assignee.
 
 
         Once you have the id of a specific feature, you can
 
-        [inspect](/api/resources/features/get_a_specific_feature),
+        inspect,
 
-        [modify](/api/resources/features/update_a_feature),
+        modify,
 
         or
 
-        [delete](/api/resources/features/delete_a_feature)
+        delete
 
         them on the root features resource.'
       tags:
@@ -607,6 +609,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: deleteApiV1FeaturesById
+      x-operation-id-source: derived
   /api/v1/releases/{release_id}/features:
     post:
       summary: Create a feature
@@ -765,37 +769,39 @@ paths:
                 description: <p>This is the description</p>
                 assigned_to_user:
                   email: no-reply@aha.io
+      operationId: postApiV1ReleasesByReleaseIdFeatures
+      x-operation-id-source: derived
     get:
       summary: List features in a release
       description: 'Features belong to releases.
 
         This means that if you want to
 
-        [create one](/api/resources/features/create_a_feature) then
+        create one then
 
         you must scope it to a release.
 
 
         You can return a result set which is unfiltered, or filter by
 
-        [release](/api/resources/features/list_features_in_a_release)
+        release
 
-        , [product](/api/resources/features/list_features_in_a_product)
+        , product
 
-        , or [epic](/api/resources/features/list_features_in_an_epic).
+        , or epic.
 
         All these means of listing features can be further filtered by specific criteria like name, modification date, tag, or assignee.
 
 
         Once you have the id of a specific feature, you can
 
-        [inspect](/api/resources/features/get_a_specific_feature),
+        inspect,
 
-        [modify](/api/resources/features/update_a_feature),
+        modify,
 
         or
 
-        [delete](/api/resources/features/delete_a_feature)
+        delete
 
         them on the root features resource.'
       tags:
@@ -864,6 +870,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1ReleasesByReleaseIdFeatures
+      x-operation-id-source: derived
   /api/v1/features:
     get:
       summary: List features
@@ -949,6 +957,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1Features
+      x-operation-id-source: derived
   /api/v1/epics/{epic_id}/features:
     get:
       summary: List features in an epic
@@ -956,31 +966,31 @@ paths:
 
         This means that if you want to
 
-        [create one](/api/resources/features/create_a_feature) then
+        create one then
 
         you must scope it to a release.
 
 
         You can return a result set which is unfiltered, or filter by
 
-        [release](/api/resources/features/list_features_in_a_release)
+        release
 
-        , [product](/api/resources/features/list_features_in_a_product)
+        , product
 
-        , or [epic](/api/resources/features/list_features_in_an_epic).
+        , or epic.
 
         All these means of listing features can be further filtered by specific criteria like name, modification date, tag, or assignee.
 
 
         Once you have the id of a specific feature, you can
 
-        [inspect](/api/resources/features/get_a_specific_feature),
+        inspect,
 
-        [modify](/api/resources/features/update_a_feature),
+        modify,
 
         or
 
-        [delete](/api/resources/features/delete_a_feature)
+        delete
 
         them on the root features resource.'
       tags:
@@ -1021,6 +1031,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1EpicsByEpicIdFeatures
+      x-operation-id-source: derived
   /api/v1/products/{product_id}/features:
     get:
       summary: List features in a product
@@ -1028,31 +1040,31 @@ paths:
 
         This means that if you want to
 
-        [create one](/api/resources/features/create_a_feature) then
+        create one then
 
         you must scope it to a release.
 
 
         You can return a result set which is unfiltered, or filter by
 
-        [release](/api/resources/features/list_features_in_a_release)
+        release
 
-        , [product](/api/resources/features/list_features_in_a_product)
+        , product
 
-        , or [epic](/api/resources/features/list_features_in_an_epic).
+        , or epic.
 
         All these means of listing features can be further filtered by specific criteria like name, modification date, tag, or assignee.
 
 
         Once you have the id of a specific feature, you can
 
-        [inspect](/api/resources/features/get_a_specific_feature),
+        inspect,
 
-        [modify](/api/resources/features/update_a_feature),
+        modify,
 
         or
 
-        [delete](/api/resources/features/delete_a_feature)
+        delete
 
         them on the root features resource.'
       tags:
@@ -1121,6 +1133,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1ProductsByProductIdFeatures
+      x-operation-id-source: derived
   /api/v1/goals/{goal_id}/features:
     get:
       summary: List features associated with a goal
@@ -1128,31 +1142,31 @@ paths:
 
         This means that if you want to
 
-        [create one](/api/resources/features/create_a_feature) then
+        create one then
 
         you must scope it to a release.
 
 
         You can return a result set which is unfiltered, or filter by
 
-        [release](/api/resources/features/list_features_in_a_release)
+        release
 
-        , [product](/api/resources/features/list_features_in_a_product)
+        , product
 
-        , or [epic](/api/resources/features/list_features_in_an_epic).
+        , or epic.
 
         All these means of listing features can be further filtered by specific criteria like name, modification date, tag, or assignee.
 
 
         Once you have the id of a specific feature, you can
 
-        [inspect](/api/resources/features/get_a_specific_feature),
+        inspect,
 
-        [modify](/api/resources/features/update_a_feature),
+        modify,
 
         or
 
-        [delete](/api/resources/features/delete_a_feature)
+        delete
 
         them on the root features resource.'
       tags:
@@ -1193,6 +1207,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1GoalsByGoalIdFeatures
+      x-operation-id-source: derived
   /api/v1/initiatives/{initiative_id}/features:
     get:
       summary: List features associated with an initiative
@@ -1200,31 +1216,31 @@ paths:
 
         This means that if you want to
 
-        [create one](/api/resources/features/create_a_feature) then
+        create one then
 
         you must scope it to a release.
 
 
         You can return a result set which is unfiltered, or filter by
 
-        [release](/api/resources/features/list_features_in_a_release)
+        release
 
-        , [product](/api/resources/features/list_features_in_a_product)
+        , product
 
-        , or [epic](/api/resources/features/list_features_in_an_epic).
+        , or epic.
 
         All these means of listing features can be further filtered by specific criteria like name, modification date, tag, or assignee.
 
 
         Once you have the id of a specific feature, you can
 
-        [inspect](/api/resources/features/get_a_specific_feature),
+        inspect,
 
-        [modify](/api/resources/features/update_a_feature),
+        modify,
 
         or
 
-        [delete](/api/resources/features/delete_a_feature)
+        delete
 
         them on the root features resource.'
       tags:
@@ -1265,6 +1281,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1InitiativesByInitiativeIdFeatures
+      x-operation-id-source: derived
   /api/v1/features/{id}/convert_to_epic:
     post:
       summary: Convert a feature to an epic
@@ -1395,6 +1413,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: postApiV1FeaturesByIdConvertToEpic
+      x-operation-id-source: derived
 components:
   schemas:
     FeaturesGetResponse:
@@ -3549,6 +3569,54 @@ components:
           feature_only_original_estimate: null
           feature_only_remaining_estimate: null
           feature_only_work_done: null
+    FeaturesPostRequest:
+      type: object
+      properties:
+        feature:
+          type: object
+          properties:
+            name:
+              type: string
+              example: New name
+            workflow_kind:
+              type: string
+              example: new
+            workflow_status:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Designed
+              example:
+                name: Designed
+            description:
+              type: string
+              example: <p>This is the description</p>
+            assigned_to_user:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: no-reply@aha.io
+              example:
+                email: no-reply@aha.io
+          example:
+            name: New name
+            workflow_kind: new
+            workflow_status:
+              name: Designed
+            description: <p>This is the description</p>
+            assigned_to_user:
+              email: no-reply@aha.io
+      example:
+        feature:
+          name: New name
+          workflow_kind: new
+          workflow_status:
+            name: Designed
+          description: <p>This is the description</p>
+          assigned_to_user:
+            email: no-reply@aha.io
     FeaturesPostResponse:
       type: object
       properties:
@@ -4114,54 +4182,6 @@ components:
           epic_only_original_estimate: null
           epic_only_remaining_estimate: null
           epic_only_work_done: null
-    FeaturesPostRequest:
-      type: object
-      properties:
-        feature:
-          type: object
-          properties:
-            name:
-              type: string
-              example: New name
-            workflow_kind:
-              type: string
-              example: new
-            workflow_status:
-              type: object
-              properties:
-                name:
-                  type: string
-                  example: Designed
-              example:
-                name: Designed
-            description:
-              type: string
-              example: <p>This is the description</p>
-            assigned_to_user:
-              type: object
-              properties:
-                email:
-                  type: string
-                  example: no-reply@aha.io
-              example:
-                email: no-reply@aha.io
-          example:
-            name: New name
-            workflow_kind: new
-            workflow_status:
-              name: Designed
-            description: <p>This is the description</p>
-            assigned_to_user:
-              email: no-reply@aha.io
-      example:
-        feature:
-          name: New name
-          workflow_kind: new
-          workflow_status:
-            name: Designed
-          description: <p>This is the description</p>
-          assigned_to_user:
-            email: no-reply@aha.io
   securitySchemes:
     OAuth2:
       type: oauth2

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Custom pivots API
+  title: Aha! Custom pivots API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -23,7 +23,51 @@ paths:
   /api/v1/bookmarks/custom_pivots/{report_id}:
     get:
       summary: Get the list view of a saved report
-      description: "The list view responds with a JSON object with three attributes: pagination, columns, and rows.\n\nThe columns attribute is an array of objects that give detailed information\nabout the columns of the list. The objects include the name of the table, the field, and\na human readable title attribute.\n\nThe rows attribute is an of array of arrays. Each object within the inner array contains the value\nof that for a specific column. Each object contains attributes for various representations of the\ndata. The fields are:\n\n  - `id`: The unique id of the object\n  - `plain_value`: A string representation of the object\n  - `html_value`: An HTML representation of the object. This is the same HTML that\n  is used in Aha! to represent the value in our reports.\n  - `rich_value`: If the object is a reference to another object (such as a tag),\n  the, this will be the object representation. For instance, a tag would be\n  representated as:\n  ```\n  {\n    id: \"6013053275679792248\",\n    name: \"API\"\n  }\n  ```\n\nThe third attribute is pagination. This works like everywhere else in the Aha! API and is documented [here](/api#pagination)."
+      description: 'The list view responds with a JSON object with three attributes: pagination, columns, and rows.
+
+
+        The columns attribute is an array of objects that give detailed information
+
+        about the columns of the list. The objects include the name of the table, the field, and
+
+        a human readable title attribute.
+
+
+        The rows attribute is an of array of arrays. Each object within the inner array contains the value
+
+        of that for a specific column. Each object contains attributes for various representations of the
+
+        data. The fields are:
+
+
+        - `id`: The unique id of the object
+
+        - `plain_value`: A string representation of the object
+
+        - `html_value`: An HTML representation of the object. This is the same HTML that
+
+        is used in Aha! to represent the value in our reports.
+
+        - `rich_value`: If the object is a reference to another object (such as a tag),
+
+        the, this will be the object representation. For instance, a tag would be
+
+        representated as:
+
+        ```
+
+        {
+
+        id: "6013053275679792248",
+
+        name: "API"
+
+        }
+
+        ```
+
+
+        The third attribute is pagination. This works like everywhere else in the Aha! API and is documented here.'
       tags:
       - Custom pivots
       parameters:
@@ -441,6 +485,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1BookmarksCustomPivotsByReportId
+      x-operation-id-source: derived
 components:
   schemas:
     CustompivotsGetResponse:

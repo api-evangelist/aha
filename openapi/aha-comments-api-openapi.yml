@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Comments API
+  title: Aha! Comments API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -28,28 +28,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -105,6 +105,8 @@ paths:
             example:
               comment:
                 body: <p>This is the comment body for a feature.</p>
+      operationId: postApiV1FeaturesByFeatureIdComments
+      x-operation-id-source: derived
     get:
       summary: List comments on a feature
       description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
@@ -112,28 +114,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -200,6 +202,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1FeaturesByFeatureIdComments
+      x-operation-id-source: derived
   /api/v1/epics/{epic_id}/comments:
     post:
       summary: Create a comment on an epic
@@ -208,28 +212,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -285,6 +289,8 @@ paths:
             example:
               comment:
                 body: <p>This is the comment body for an epic.</p>
+      operationId: postApiV1EpicsByEpicIdComments
+      x-operation-id-source: derived
     get:
       summary: List comments on an epic
       description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
@@ -292,28 +298,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -364,6 +370,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1EpicsByEpicIdComments
+      x-operation-id-source: derived
   /api/v1/requirements/{requirement_id}/comments:
     post:
       summary: Create a comment on a requirement
@@ -372,28 +380,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -449,6 +457,8 @@ paths:
             example:
               comment:
                 body: <p>This is the comment body for a requirement.</p>
+      operationId: postApiV1RequirementsByRequirementIdComments
+      x-operation-id-source: derived
     get:
       summary: List comments on a requirement
       description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
@@ -456,28 +466,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -528,6 +538,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1RequirementsByRequirementIdComments
+      x-operation-id-source: derived
   /api/v1/pages/{page_id}/comments:
     post:
       summary: Create a comment on a note
@@ -536,28 +548,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -613,6 +625,8 @@ paths:
             example:
               comment:
                 body: <p>This is the comment body for a note.</p>
+      operationId: postApiV1PagesByPageIdComments
+      x-operation-id-source: derived
     get:
       summary: List comments on a note
       description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
@@ -620,28 +634,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -673,6 +687,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1PagesByPageIdComments
+      x-operation-id-source: derived
   /api/v1/ideas/{idea_id}/comments:
     post:
       summary: Create an internal comment for an idea
@@ -681,28 +697,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -758,6 +774,8 @@ paths:
             example:
               comment:
                 body: <p>This is the comment body for an idea.</p>
+      operationId: postApiV1IdeasByIdeaIdComments
+      x-operation-id-source: derived
     get:
       summary: List comments on an idea
       description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
@@ -765,28 +783,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -818,6 +836,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1IdeasByIdeaIdComments
+      x-operation-id-source: derived
   /api/v1/initiatives/{initiative_id}/comments:
     post:
       summary: Create a comment on an initiative
@@ -826,28 +846,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -903,6 +923,8 @@ paths:
             example:
               comment:
                 body: <p>This is the comment body for an initiative.</p>
+      operationId: postApiV1InitiativesByInitiativeIdComments
+      x-operation-id-source: derived
     get:
       summary: List comments on an initiative
       description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
@@ -910,28 +932,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -982,6 +1004,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1InitiativesByInitiativeIdComments
+      x-operation-id-source: derived
   /api/v1/goals/{goal_id}/comments:
     post:
       summary: Create a comment on a goal
@@ -990,28 +1014,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -1067,6 +1091,8 @@ paths:
             example:
               comment:
                 body: <p>This is the comment body for a goal.</p>
+      operationId: postApiV1GoalsByGoalIdComments
+      x-operation-id-source: derived
     get:
       summary: List comments on a goal
       description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
@@ -1074,28 +1100,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -1146,6 +1172,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1GoalsByGoalIdComments
+      x-operation-id-source: derived
   /api/v1/releases/{release_id}/comments:
     post:
       summary: Create a comment on a release
@@ -1154,28 +1182,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -1231,6 +1259,8 @@ paths:
             example:
               comment:
                 body: <p>This is the comment body for a release.</p>
+      operationId: postApiV1ReleasesByReleaseIdComments
+      x-operation-id-source: derived
     get:
       summary: List comments on a release
       description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
@@ -1238,28 +1268,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -1310,6 +1340,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1ReleasesByReleaseIdComments
+      x-operation-id-source: derived
   /api/v1/release_phases/{release_phase_id}/comments:
     post:
       summary: Create a comment on a release phase
@@ -1318,28 +1350,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -1394,6 +1426,8 @@ paths:
             example:
               comment:
                 body: <p>This is the comment body for a release phase.</p>
+      operationId: postApiV1ReleasePhasesByReleasePhaseIdComments
+      x-operation-id-source: derived
     get:
       summary: List comments on a release phase
       description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
@@ -1401,28 +1435,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -1454,6 +1488,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1ReleasePhasesByReleasePhaseIdComments
+      x-operation-id-source: derived
   /api/v1/tasks/{task_id}/comments:
     post:
       summary: Create a comment on a to-do
@@ -1462,28 +1498,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -1539,6 +1575,8 @@ paths:
             example:
               comment:
                 body: <p>This is the comment body for a to-do.</p>
+      operationId: postApiV1TasksByTaskIdComments
+      x-operation-id-source: derived
     get:
       summary: List comments on a to-do
       description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
@@ -1546,28 +1584,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -1618,6 +1656,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1TasksByTaskIdComments
+      x-operation-id-source: derived
   /api/v1/comments/{id}:
     get:
       summary: Get a specific comment
@@ -1626,28 +1666,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -1710,6 +1750,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1CommentsById
+      x-operation-id-source: derived
     put:
       summary: Update a comment
       description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
@@ -1717,28 +1759,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -1810,6 +1852,8 @@ paths:
             example:
               comment:
                 body: <p>Updated comment body.</p>
+      operationId: putApiV1CommentsById
+      x-operation-id-source: derived
     delete:
       summary: Delete a comment
       description: 'Comments can be added to and listed as a sub-resource on any resource that supports them.
@@ -1817,28 +1861,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -1855,6 +1899,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: deleteApiV1CommentsById
+      x-operation-id-source: derived
   /api/v1/products/{project_id}/comments:
     get:
       summary: List comments in a product
@@ -1863,28 +1909,28 @@ paths:
         These resources support comments:
 
 
-        - [Features](/api/resources/comments/list_comments_on_a_feature)
+        - Features
 
-        - [Epics](/api/resources/comments/list_comments_on_an_epic)
+        - Epics
 
-        - [Requirements](/api/resources/comments/list_comments_on_a_requirement)
+        - Requirements
 
-        - [Ideas](/api/resources/comments/list_comments_on_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/comments/list_comments_on_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/comments/list_comments_on_a_goal)
+        - Goals
 
-        - [Releases](/api/resources/comments/list_comments_on_a_release)
+        - Releases
 
-        - [Release phases](/api/resources/comments/list_comments_on_a_release_phase)
+        - Release phases
 
-        - [To-dos](/api/resources/comments/list_comments_on_a_to-do)
+        - To-dos
 
 
-        They can be listed [product-wide](/api/resources/comments/list_comments_in_a_product),
+        They can be listed product-wide,
 
-        or retrieved from anywhere in the system using the root [comments resource](/api/resources/comments/get_a_specific_comment).'
+        or retrieved from anywhere in the system using the root comments resource.'
       tags:
       - Comments
       parameters:
@@ -2527,6 +2573,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1ProductsByProjectIdComments
+      x-operation-id-source: derived
 components:
   schemas:
     CommentsPutResponse:
@@ -2721,20 +2769,6 @@ components:
             product_id: '131414752'
             url: http://company.aha.io/features/PRJ1-1
             resource: http://company.aha.io/api/v1/features/PRJ1-1
-    CommentsPostRequest:
-      type: object
-      properties:
-        comment:
-          type: object
-          properties:
-            body:
-              type: string
-              example: <p>Updated comment body.</p>
-          example:
-            body: <p>Updated comment body.</p>
-      example:
-        comment:
-          body: <p>Updated comment body.</p>
     CommentsGetResponse:
       type: object
       properties:
@@ -2763,6 +2797,20 @@ components:
           total_records: 0
           total_pages: 0
           current_page: 1
+    CommentsPostRequest:
+      type: object
+      properties:
+        comment:
+          type: object
+          properties:
+            body:
+              type: string
+              example: <p>Updated comment body.</p>
+          example:
+            body: <p>Updated comment body.</p>
+      example:
+        comment:
+          body: <p>Updated comment body.</p>
     CommentsPostResponse:
       type: object
       properties:

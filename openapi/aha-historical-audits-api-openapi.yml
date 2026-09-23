@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Historical Audits API
+  title: Aha! Historical Audits API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -23,7 +23,30 @@ paths:
   /api/v1/historical_audits:
     get:
       summary: Read the contents of the historical index
-      description: "The historical audits endpoint is similar to the the Audits endpoint, but searches for audit records generated more than 12 calendar months ago. For searches of more recent data, the much more performant [Audits API](/api/resources/audits) should be used.\n\nThe [historical index](/api/resources/historical_audits/read_the_contents_of_the_historical_index) should first be used to identify time-periods of interest, and then a search can be conducted to fetch the full details of the audit records from that period.\n\nThere are three important caveats to using this API:\n\n1. Searching through historical audits is an asynchronous operation. A search must first be [created](/api/resources/historical_audits/create_an_audit_search), and then the data may be [consumed later](/api/resources/historical_audits/read_the_results_of_an_audit_search)\n2. Searching through historical audits imposes a stricter rate-limit than the general rate limit of the API. This API also enforces rate-limiting through a _token-based system._\n   1. Each Audits search consumes a specific number of tokens. The token cost of a search will be presented to the user through the [read results operation.](/api/resources/historical_audits/read_the_results_of_an_audit_search)\n   2. The token cost of a request is only known after the search completes, and corresponds to the amount of data which was required to be scanned to fulfill the request. Specifying additional filters, such as `user_id`, `auditable_type`, and `audit_action` will decrease the token cost.\n   3. Upon making a request, the maximum token cost for a query will be charged to your account. The difference between the actual token cost and the maximum token cost will be refunded when the search completes and you read the search data.\n   4. Tokens are continually replenished. You can see the current number of tokens available in the `X-Historical-Tokens-Available` header, present on every response to these resources.\n   5. Reading from the [historical index](/api/resources/historical_audits/read_the_contents_of_the_historical_index) does not consume any tokens.\n3. Only administrators are able to perform historical audit searches."
+      description: 'The historical audits endpoint is similar to the the Audits endpoint, but searches for audit records generated more than 12 calendar months ago. For searches of more recent data, the much more performant Audits API should be used.
+
+
+        The historical index should first be used to identify time-periods of interest, and then a search can be conducted to fetch the full details of the audit records from that period.
+
+
+        There are three important caveats to using this API:
+
+
+        1. Searching through historical audits is an asynchronous operation. A search must first be created, and then the data may be consumed later
+
+        2. Searching through historical audits imposes a stricter rate-limit than the general rate limit of the API. This API also enforces rate-limiting through a _token-based system._
+
+        1. Each Audits search consumes a specific number of tokens. The token cost of a search will be presented to the user through the read results operation.
+
+        2. The token cost of a request is only known after the search completes, and corresponds to the amount of data which was required to be scanned to fulfill the request. Specifying additional filters, such as `user_id`, `auditable_type`, and `audit_action` will decrease the token cost.
+
+        3. Upon making a request, the maximum token cost for a query will be charged to your account. The difference between the actual token cost and the maximum token cost will be refunded when the search completes and you read the search data.
+
+        4. Tokens are continually replenished. You can see the current number of tokens available in the `X-Historical-Tokens-Available` header, present on every response to these resources.
+
+        5. Reading from the historical index does not consume any tokens.
+
+        3. Only administrators are able to perform historical audit searches.'
       tags:
       - Historical Audits
       parameters:
@@ -109,9 +132,34 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1HistoricalAudits
+      x-operation-id-source: derived
     post:
       summary: Create an audit search
-      description: "The historical audits endpoint is similar to the the Audits endpoint, but searches for audit records generated more than 12 calendar months ago. For searches of more recent data, the much more performant [Audits API](/api/resources/audits) should be used.\n\nThe [historical index](/api/resources/historical_audits/read_the_contents_of_the_historical_index) should first be used to identify time-periods of interest, and then a search can be conducted to fetch the full details of the audit records from that period.\n\nThere are three important caveats to using this API:\n\n1. Searching through historical audits is an asynchronous operation. A search must first be [created](/api/resources/historical_audits/create_an_audit_search), and then the data may be [consumed later](/api/resources/historical_audits/read_the_results_of_an_audit_search)\n2. Searching through historical audits imposes a stricter rate-limit than the general rate limit of the API. This API also enforces rate-limiting through a _token-based system._\n   1. Each Audits search consumes a specific number of tokens. The token cost of a search will be presented to the user through the [read results operation.](/api/resources/historical_audits/read_the_results_of_an_audit_search)\n   2. The token cost of a request is only known after the search completes, and corresponds to the amount of data which was required to be scanned to fulfill the request. Specifying additional filters, such as `user_id`, `auditable_type`, and `audit_action` will decrease the token cost.\n   3. Upon making a request, the maximum token cost for a query will be charged to your account. The difference between the actual token cost and the maximum token cost will be refunded when the search completes and you read the search data.\n   4. Tokens are continually replenished. You can see the current number of tokens available in the `X-Historical-Tokens-Available` header, present on every response to these resources.\n   5. Reading from the [historical index](/api/resources/historical_audits/read_the_contents_of_the_historical_index) does not consume any tokens.\n3. Only administrators are able to perform historical audit searches."
+      description: 'The historical audits endpoint is similar to the the Audits endpoint, but searches for audit records generated more than 12 calendar months ago. For searches of more recent data, the much more performant Audits API should be used.
+
+
+        The historical index should first be used to identify time-periods of interest, and then a search can be conducted to fetch the full details of the audit records from that period.
+
+
+        There are three important caveats to using this API:
+
+
+        1. Searching through historical audits is an asynchronous operation. A search must first be created, and then the data may be consumed later
+
+        2. Searching through historical audits imposes a stricter rate-limit than the general rate limit of the API. This API also enforces rate-limiting through a _token-based system._
+
+        1. Each Audits search consumes a specific number of tokens. The token cost of a search will be presented to the user through the read results operation.
+
+        2. The token cost of a request is only known after the search completes, and corresponds to the amount of data which was required to be scanned to fulfill the request. Specifying additional filters, such as `user_id`, `auditable_type`, and `audit_action` will decrease the token cost.
+
+        3. Upon making a request, the maximum token cost for a query will be charged to your account. The difference between the actual token cost and the maximum token cost will be refunded when the search completes and you read the search data.
+
+        4. Tokens are continually replenished. You can see the current number of tokens available in the `X-Historical-Tokens-Available` header, present on every response to these resources.
+
+        5. Reading from the historical index does not consume any tokens.
+
+        3. Only administrators are able to perform historical audit searches.'
       tags:
       - Historical Audits
       parameters: []
@@ -145,16 +193,10 @@ paths:
                 created_before: '2019-01-01T00:00:00Z'
                 auditable_type: Feature
                 auditable_id: 1007868956
+      operationId: postApiV1HistoricalAudits
+      x-operation-id-source: derived
 components:
   schemas:
-    HistoricalAuditsPostResponse:
-      type: object
-      properties:
-        search_id:
-          type: string
-          example: '6776881149486782892'
-      example:
-        search_id: '6776881149486782892'
     HistoricalAuditsPostRequest:
       type: object
       properties:
@@ -330,6 +372,14 @@ components:
           total_records: 3
           total_pages: 1
           current_page: 1
+    HistoricalAuditsPostResponse:
+      type: object
+      properties:
+        search_id:
+          type: string
+          example: '6776881149486782892'
+      example:
+        search_id: '6776881149486782892'
   securitySchemes:
     OAuth2:
       type: oauth2

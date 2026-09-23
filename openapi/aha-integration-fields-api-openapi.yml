@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Integration fields API
+  title: Aha! Integration fields API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -68,6 +68,8 @@ paths:
               integration_field:
                 name: key
                 value: JRA-34
+      operationId: postApiV1FeaturesByFeatureIdIntegrationsByIntegrationIdFields
+      x-operation-id-source: derived
   /api/v1/features/{feature_id}/integrations/{service_name}/fields:
     post:
       summary: Create an integration field for a feature by service name
@@ -116,6 +118,8 @@ paths:
               integration_field:
                 name: key
                 value: JRA-34
+      operationId: postApiV1FeaturesByFeatureIdIntegrationsByServiceNameFields
+      x-operation-id-source: derived
   /api/v1/epics/{epic_id}/integrations/{integration_id}/fields:
     post:
       summary: Create an integration field for a epic by integration ID
@@ -164,6 +168,8 @@ paths:
               integration_field:
                 name: key
                 value: JRA-34
+      operationId: postApiV1EpicsByEpicIdIntegrationsByIntegrationIdFields
+      x-operation-id-source: derived
   /api/v1/idea_endorsements/{idea_endorsement_id}/integrations/{integration_id}/fields:
     post:
       summary: Create an integration field for an idea vote
@@ -220,6 +226,8 @@ paths:
               integration_field:
                 name: key
                 value: JRA-34
+      operationId: postApiV1IdeaEndorsementsByIdeaEndorsementIdIntegrationsByIntegrationIdFields
+      x-operation-id-source: derived
   /api/v1/ideas/{idea_id}/integrations/{integration_id}/fields:
     post:
       summary: Create an integration field for an idea by integration ID
@@ -268,6 +276,8 @@ paths:
               integration_field:
                 name: key
                 value: JRA-34
+      operationId: postApiV1IdeasByIdeaIdIntegrationsByIntegrationIdFields
+      x-operation-id-source: derived
   /api/v1/features/{feature_id}/integrations/{integration_id}/fields/{field_name}:
     get:
       summary: Get a specific integration field value
@@ -320,6 +330,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1FeaturesByFeatureIdIntegrationsByIntegrationIdFieldsByFieldName
+      x-operation-id-source: derived
   /api/v1/integrations/{integration_id}/fields/{field_name}/value/{field_value}:
     get:
       summary: List records with an associated integration field value
@@ -898,6 +910,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1IntegrationsByIntegrationIdFieldsByFieldNameValueByFieldValue
+      x-operation-id-source: derived
   /api/v1/releases/fields/{field_name}/value/{field_value}:
     get:
       summary: List releases with an associated integration field value
@@ -939,6 +953,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1ReleasesFieldsByFieldNameValueByFieldValue
+      x-operation-id-source: derived
   /api/v1/initiatives/fields/{field_name}/value/{field_value}:
     get:
       summary: List initiatives with an associated integration field value
@@ -980,6 +996,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1InitiativesFieldsByFieldNameValueByFieldValue
+      x-operation-id-source: derived
   /api/v1/features/fields/{field_name}/value/{field_value}:
     get:
       summary: List features with an associated integration field value
@@ -1489,6 +1507,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1FeaturesFieldsByFieldNameValueByFieldValue
+      x-operation-id-source: derived
   /api/v1/epics/fields/{field_name}/value/{field_value}:
     get:
       summary: List epics with an associated integration field value
@@ -1530,6 +1550,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1EpicsFieldsByFieldNameValueByFieldValue
+      x-operation-id-source: derived
   /api/v1/requirements/fields/{field_name}/value/{field_value}:
     get:
       summary: List requirements with an associated integration field value
@@ -1571,6 +1593,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1RequirementsFieldsByFieldNameValueByFieldValue
+      x-operation-id-source: derived
   /api/v1/ideas/fields/{field_name}/value/{field_value}:
     get:
       summary: List ideas with an associated integration field value
@@ -1612,6 +1636,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1IdeasFieldsByFieldNameValueByFieldValue
+      x-operation-id-source: derived
   /api/v1/idea_endorsements/fields/{field_name}/value/{field_value}:
     get:
       summary: List idea votes with an associated integration field value
@@ -1716,6 +1742,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1IdeaEndorsementsFieldsByFieldNameValueByFieldValue
+      x-operation-id-source: derived
   /api/v1/integration_fields/{id}:
     delete:
       summary: Delete an integration field
@@ -1736,16 +1764,86 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: deleteApiV1IntegrationFieldsById
+      x-operation-id-source: derived
 components:
   schemas:
-    IntegrationfieldsPostResponseArrayString:
-      type: array
-      items:
-        type: string
-        example: '6776881149484343025'
+    IntegrationfieldsPostRequest:
+      type: object
+      properties:
+        integration_field:
+          type: object
+          properties:
+            name:
+              type: string
+              example: key
+            value:
+              type: string
+              example: JRA-34
+          example:
+            name: key
+            value: JRA-34
       example:
-      - '6776881149484343025'
-      - '6776881149496067156'
+        integration_field:
+          name: key
+          value: JRA-34
+    IntegrationfieldsPostResponse:
+      type: object
+      properties:
+        integration_field:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149495233147'
+            name:
+              type: string
+              example: key
+            value:
+              type: string
+              example: JRA-34
+            integration_id:
+              type: integer
+              example: 204584239
+            service_name:
+              type: string
+              example: jira
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            integratable:
+              type: object
+              properties:
+                url:
+                  type: string
+                  example: http://company.aha.io/ideas/ideas/PRJ1-I-1
+                resource:
+                  type: string
+                  example: http://company.aha.io/api/v1/ideas/api%2Fv1%2FPRJ1-I-1
+              example:
+                url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+                resource: http://company.aha.io/api/v1/ideas/api%2Fv1%2FPRJ1-I-1
+          example:
+            id: '6776881149495233147'
+            name: key
+            value: JRA-34
+            integration_id: 204584239
+            service_name: jira
+            created_at: '2019-01-01T00:00:00.000Z'
+            integratable:
+              url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+              resource: http://company.aha.io/api/v1/ideas/api%2Fv1%2FPRJ1-I-1
+      example:
+        integration_field:
+          id: '6776881149495233147'
+          name: key
+          value: JRA-34
+          integration_id: 204584239
+          service_name: jira
+          created_at: '2019-01-01T00:00:00.000Z'
+          integratable:
+            url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+            resource: http://company.aha.io/api/v1/ideas/api%2Fv1%2FPRJ1-I-1
     IntegrationfieldsGetResponse:
       type: object
       properties:
@@ -2065,63 +2163,14 @@ components:
           total_records: 1
           total_pages: 1
           current_page: 1
-    IntegrationfieldsPostResponse:
-      type: object
-      properties:
-        integration_field:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149495233147'
-            name:
-              type: string
-              example: key
-            value:
-              type: string
-              example: JRA-34
-            integration_id:
-              type: integer
-              example: 204584239
-            service_name:
-              type: string
-              example: jira
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            integratable:
-              type: object
-              properties:
-                url:
-                  type: string
-                  example: http://company.aha.io/ideas/ideas/PRJ1-I-1
-                resource:
-                  type: string
-                  example: http://company.aha.io/api/v1/ideas/api%2Fv1%2FPRJ1-I-1
-              example:
-                url: http://company.aha.io/ideas/ideas/PRJ1-I-1
-                resource: http://company.aha.io/api/v1/ideas/api%2Fv1%2FPRJ1-I-1
-          example:
-            id: '6776881149495233147'
-            name: key
-            value: JRA-34
-            integration_id: 204584239
-            service_name: jira
-            created_at: '2019-01-01T00:00:00.000Z'
-            integratable:
-              url: http://company.aha.io/ideas/ideas/PRJ1-I-1
-              resource: http://company.aha.io/api/v1/ideas/api%2Fv1%2FPRJ1-I-1
+    IntegrationfieldsPostResponseArrayString:
+      type: array
+      items:
+        type: string
+        example: '6776881149484343025'
       example:
-        integration_field:
-          id: '6776881149495233147'
-          name: key
-          value: JRA-34
-          integration_id: 204584239
-          service_name: jira
-          created_at: '2019-01-01T00:00:00.000Z'
-          integratable:
-            url: http://company.aha.io/ideas/ideas/PRJ1-I-1
-            resource: http://company.aha.io/api/v1/ideas/api%2Fv1%2FPRJ1-I-1
+      - '6776881149484343025'
+      - '6776881149496067156'
     IntegrationfieldsPostResponseArrayInteger:
       type: array
       items:
@@ -2130,25 +2179,6 @@ components:
       example:
       - 907392375
       - 790422735
-    IntegrationfieldsPostRequest:
-      type: object
-      properties:
-        integration_field:
-          type: object
-          properties:
-            name:
-              type: string
-              example: key
-            value:
-              type: string
-              example: JRA-34
-          example:
-            name: key
-            value: JRA-34
-      example:
-        integration_field:
-          name: key
-          value: JRA-34
   securitySchemes:
     OAuth2:
       type: oauth2

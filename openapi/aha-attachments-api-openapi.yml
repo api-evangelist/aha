@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Attachments API
+  title: Aha! Attachments API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -70,10 +70,47 @@ paths:
                   type: string
                   format: binary
                   description: File to upload
+      operationId: postApiV1CommentsByCommentIdAttachments
+      x-operation-id-source: derived
   /api/v1/idea_comments/{idea_comment_id}/attachments:
     post:
       summary: Create an attachment on an idea comment
-      description: "Files can be uploaded to Aha! as a sub-resource on any resource that supports them.\nThese resources support attachments:\n\n- [Record descriptions](/api/resources/attachments/create_an_attachment_on_a_record_description) (the description of a feature, requirement, etc.)\n- [Comments](/api/resources/attachments/create_an_attachment_on_a_comment)\n- [To-dos](/api/resources/attachments/create_an_attachment_on_a_to-do)\n- [Custom note fields](/api/resources/attachments/create_an_attachment_on_a_custom_note_field)\n\nThe format of an attachment is either a `multipart/form-data` upload with\nthe input name `attachment[data]` or a JSON payload pointing to an URL link:\n\n```json\n{\n  \"attachment\": {\n    \"file_url\": \"http://www.aha.io/\",\n    \"content_type\": \"text/html\",\n    \"file_name\": \"home_page.html\"\n  }\n}\n```"
+      description: 'Files can be uploaded to Aha! as a sub-resource on any resource that supports them.
+
+        These resources support attachments:
+
+
+        - Record descriptions (the description of a feature, requirement, etc.)
+
+        - Comments
+
+        - To-dos
+
+        - Custom note fields
+
+
+        The format of an attachment is either a `multipart/form-data` upload with
+
+        the input name `attachment[data]` or a JSON payload pointing to an URL link:
+
+
+        ```json
+
+        {
+
+        "attachment": {
+
+        "file_url": "http://www.aha.io/",
+
+        "content_type": "text/html",
+
+        "file_name": "home_page.html"
+
+        }
+
+        }
+
+        ```'
       tags:
       - Attachments
       parameters:
@@ -120,10 +157,47 @@ paths:
                   type: string
                   format: binary
                   description: File to upload
+      operationId: postApiV1IdeaCommentsByIdeaCommentIdAttachments
+      x-operation-id-source: derived
   /api/v1/tasks/{task_id}/attachments:
     post:
       summary: Create an attachment on a to-do
-      description: "Files can be uploaded to Aha! as a sub-resource on any resource that supports them.\nThese resources support attachments:\n\n- [Record descriptions](/api/resources/attachments/create_an_attachment_on_a_record_description) (the description of a feature, requirement, etc.)\n- [Comments](/api/resources/attachments/create_an_attachment_on_a_comment)\n- [To-dos](/api/resources/attachments/create_an_attachment_on_a_to-do)\n- [Custom note fields](/api/resources/attachments/create_an_attachment_on_a_custom_note_field)\n\nThe format of an attachment is either a `multipart/form-data` upload with\nthe input name `attachment[data]` or a JSON payload pointing to an URL link:\n\n```json\n{\n  \"attachment\": {\n    \"file_url\": \"http://www.aha.io/\",\n    \"content_type\": \"text/html\",\n    \"file_name\": \"home_page.html\"\n  }\n}\n```"
+      description: 'Files can be uploaded to Aha! as a sub-resource on any resource that supports them.
+
+        These resources support attachments:
+
+
+        - Record descriptions (the description of a feature, requirement, etc.)
+
+        - Comments
+
+        - To-dos
+
+        - Custom note fields
+
+
+        The format of an attachment is either a `multipart/form-data` upload with
+
+        the input name `attachment[data]` or a JSON payload pointing to an URL link:
+
+
+        ```json
+
+        {
+
+        "attachment": {
+
+        "file_url": "http://www.aha.io/",
+
+        "content_type": "text/html",
+
+        "file_name": "home_page.html"
+
+        }
+
+        }
+
+        ```'
       tags:
       - Attachments
       parameters:
@@ -170,10 +244,47 @@ paths:
                   type: string
                   format: binary
                   description: File to upload
+      operationId: postApiV1TasksByTaskIdAttachments
+      x-operation-id-source: derived
   /api/v1/custom_fields/{custom_field_id}/attachments:
     post:
       summary: Create an attachment on a custom note field
-      description: "Files can be uploaded to Aha! as a sub-resource on any resource that supports them.\nThese resources support attachments:\n\n- [Record descriptions](/api/resources/attachments/create_an_attachment_on_a_record_description) (the description of a feature, requirement, etc.)\n- [Comments](/api/resources/attachments/create_an_attachment_on_a_comment)\n- [To-dos](/api/resources/attachments/create_an_attachment_on_a_to-do)\n- [Custom note fields](/api/resources/attachments/create_an_attachment_on_a_custom_note_field)\n\nThe format of an attachment is either a `multipart/form-data` upload with\nthe input name `attachment[data]` or a JSON payload pointing to an URL link:\n\n```json\n{\n  \"attachment\": {\n    \"file_url\": \"http://www.aha.io/\",\n    \"content_type\": \"text/html\",\n    \"file_name\": \"home_page.html\"\n  }\n}\n```"
+      description: 'Files can be uploaded to Aha! as a sub-resource on any resource that supports them.
+
+        These resources support attachments:
+
+
+        - Record descriptions (the description of a feature, requirement, etc.)
+
+        - Comments
+
+        - To-dos
+
+        - Custom note fields
+
+
+        The format of an attachment is either a `multipart/form-data` upload with
+
+        the input name `attachment[data]` or a JSON payload pointing to an URL link:
+
+
+        ```json
+
+        {
+
+        "attachment": {
+
+        "file_url": "http://www.aha.io/",
+
+        "content_type": "text/html",
+
+        "file_name": "home_page.html"
+
+        }
+
+        }
+
+        ```'
       tags:
       - Attachments
       parameters:
@@ -220,10 +331,47 @@ paths:
                   type: string
                   format: binary
                   description: File to upload
+      operationId: postApiV1CustomFieldsByCustomFieldIdAttachments
+      x-operation-id-source: derived
   /api/v1/custom_field_values/{custom_field_value_id}/attachments:
     post:
       summary: Create an attachment on a custom attachment field
-      description: "Files can be uploaded to Aha! as a sub-resource on any resource that supports them.\nThese resources support attachments:\n\n- [Record descriptions](/api/resources/attachments/create_an_attachment_on_a_record_description) (the description of a feature, requirement, etc.)\n- [Comments](/api/resources/attachments/create_an_attachment_on_a_comment)\n- [To-dos](/api/resources/attachments/create_an_attachment_on_a_to-do)\n- [Custom note fields](/api/resources/attachments/create_an_attachment_on_a_custom_note_field)\n\nThe format of an attachment is either a `multipart/form-data` upload with\nthe input name `attachment[data]` or a JSON payload pointing to an URL link:\n\n```json\n{\n  \"attachment\": {\n    \"file_url\": \"http://www.aha.io/\",\n    \"content_type\": \"text/html\",\n    \"file_name\": \"home_page.html\"\n  }\n}\n```"
+      description: 'Files can be uploaded to Aha! as a sub-resource on any resource that supports them.
+
+        These resources support attachments:
+
+
+        - Record descriptions (the description of a feature, requirement, etc.)
+
+        - Comments
+
+        - To-dos
+
+        - Custom note fields
+
+
+        The format of an attachment is either a `multipart/form-data` upload with
+
+        the input name `attachment[data]` or a JSON payload pointing to an URL link:
+
+
+        ```json
+
+        {
+
+        "attachment": {
+
+        "file_url": "http://www.aha.io/",
+
+        "content_type": "text/html",
+
+        "file_name": "home_page.html"
+
+        }
+
+        }
+
+        ```'
       tags:
       - Attachments
       parameters:
@@ -270,6 +418,8 @@ paths:
                   type: string
                   format: binary
                   description: File to upload
+      operationId: postApiV1CustomFieldValuesByCustomFieldValueIdAttachments
+      x-operation-id-source: derived
   /api/v1/notes/{note_id}/attachments:
     post:
       summary: Create an attachment on a record description
@@ -336,10 +486,47 @@ paths:
                   type: string
                   format: binary
                   description: File to upload
+      operationId: postApiV1NotesByNoteIdAttachments
+      x-operation-id-source: derived
   /api/v1/attachments/{attachment_id}:
     delete:
       summary: Delete an attachment
-      description: "Files can be uploaded to Aha! as a sub-resource on any resource that supports them.\nThese resources support attachments:\n\n- [Record descriptions](/api/resources/attachments/create_an_attachment_on_a_record_description) (the description of a feature, requirement, etc.)\n- [Comments](/api/resources/attachments/create_an_attachment_on_a_comment)\n- [To-dos](/api/resources/attachments/create_an_attachment_on_a_to-do)\n- [Custom note fields](/api/resources/attachments/create_an_attachment_on_a_custom_note_field)\n\nThe format of an attachment is either a `multipart/form-data` upload with\nthe input name `attachment[data]` or a JSON payload pointing to an URL link:\n\n```json\n{\n  \"attachment\": {\n    \"file_url\": \"http://www.aha.io/\",\n    \"content_type\": \"text/html\",\n    \"file_name\": \"home_page.html\"\n  }\n}\n```"
+      description: 'Files can be uploaded to Aha! as a sub-resource on any resource that supports them.
+
+        These resources support attachments:
+
+
+        - Record descriptions (the description of a feature, requirement, etc.)
+
+        - Comments
+
+        - To-dos
+
+        - Custom note fields
+
+
+        The format of an attachment is either a `multipart/form-data` upload with
+
+        the input name `attachment[data]` or a JSON payload pointing to an URL link:
+
+
+        ```json
+
+        {
+
+        "attachment": {
+
+        "file_url": "http://www.aha.io/",
+
+        "content_type": "text/html",
+
+        "file_name": "home_page.html"
+
+        }
+
+        }
+
+        ```'
       tags:
       - Attachments
       parameters:
@@ -356,6 +543,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: deleteApiV1AttachmentsByAttachmentId
+      x-operation-id-source: derived
 components:
   schemas:
     AttachmentsPostResponse:

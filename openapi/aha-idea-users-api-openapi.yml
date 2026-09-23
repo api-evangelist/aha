@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Idea users API
+  title: Aha! Idea users API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -67,6 +67,8 @@ paths:
                 email: sam.doe@example.com
                 first_name: sam
                 last_name: doe
+      operationId: postApiV1IdeaUsers
+      x-operation-id-source: derived
     get:
       summary: List idea users for an account
       description: null
@@ -204,6 +206,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1IdeaUsers
+      x-operation-id-source: derived
   /api/v1/idea_users/{id}:
     get:
       summary: Get a specific idea user
@@ -252,6 +256,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1IdeaUsersById
+      x-operation-id-source: derived
     put:
       summary: Update an idea user
       description: null
@@ -302,6 +308,8 @@ paths:
             example:
               idea_user:
                 first_name: Sarah
+      operationId: putApiV1IdeaUsersById
+      x-operation-id-source: derived
     delete:
       summary: Delete an idea user
       description: null
@@ -321,6 +329,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: deleteApiV1IdeaUsersById
+      x-operation-id-source: derived
 components:
   schemas:
     IdeausersPostRequest:

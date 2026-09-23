@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Capacity scenarios API
+  title: Aha! Capacity scenarios API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -79,6 +79,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1CapacityScenarios
+      x-operation-id-source: derived
   /api/v1/capacity_scenarios/{id}:
     get:
       summary: Get a capacity scenario
@@ -124,6 +126,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1CapacityScenariosById
+      x-operation-id-source: derived
 components:
   schemas:
     CapacityscenariosGetResponse:

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Idea subscriptions API
+  title: Aha! Idea subscriptions API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -89,6 +89,8 @@ paths:
             example:
               idea_subscription:
                 email: username@example.com
+      operationId: postApiV1IdeasByIdeaIdSubscriptions
+      x-operation-id-source: derived
     get:
       summary: List subscriptions for an idea
       description: null
@@ -131,6 +133,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1IdeasByIdeaIdSubscriptions
+      x-operation-id-source: derived
   /api/v1/ideas/{idea_id}/subscriptions/{id}:
     get:
       summary: Get a specific subscription for an idea
@@ -197,6 +201,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1IdeasByIdeaIdSubscriptionsById
+      x-operation-id-source: derived
     delete:
       summary: Delete an idea subscription
       description: null
@@ -222,6 +228,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: deleteApiV1IdeasByIdeaIdSubscriptionsById
+      x-operation-id-source: derived
 components:
   schemas:
     IdeasubscriptionsGetResponse:

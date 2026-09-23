@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Audits API
+  title: Aha! Audits API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -29,7 +29,7 @@ paths:
         Audits are stored not only for first-class objects such as Features or Release, but also for secondary objects attached to those records such as custom field values, equation field values, descriptions, and record links.
 
 
-        Audit records are only available for the last 12 calendar months. After that, they must be accessed using the [Historical Audits](/api/resources/historical_audits/create_an_audit_search/) endpoint.
+        Audit records are only available for the last 12 calendar months. After that, they must be accessed using the Historical Audits endpoint.
 
 
         The performance of the Audits API can be improved by judicious use of the `created_since` and `created_before` parameters. Since this is high-volume timeseries data, these parameters should be used when attempting to scan through record activity, and the `after_id` parameter should be used in lieu of pagination.'
@@ -76,6 +76,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1Audits
+      x-operation-id-source: derived
 components:
   schemas:
     AuditsGetResponse:

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Idea comments API
+  title: Aha! Idea comments API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -99,6 +99,8 @@ paths:
               idea_comment:
                 idea_id: PRJ1-I-1
                 body: <p>This is the comment body.</p>
+      operationId: postApiV1IdeasByIdeaIdIdeaComments
+      x-operation-id-source: derived
     get:
       summary: List idea comments for an idea
       description: 'Idea comments can appear in ideas portals.
@@ -239,6 +241,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1IdeasByIdeaIdIdeaComments
+      x-operation-id-source: derived
   /api/v1/idea_comments/{id}:
     put:
       summary: Mark an idea comment as spam
@@ -317,6 +321,8 @@ paths:
             example:
               idea_comment:
                 spam: 'true'
+      operationId: putApiV1IdeaCommentsById
+      x-operation-id-source: derived
   /api/v1/ideas/{idea_id}/idea_comments/{id}:
     delete:
       summary: Delete an idea comment
@@ -347,8 +353,217 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: deleteApiV1IdeasByIdeaIdIdeaCommentsById
+      x-operation-id-source: derived
 components:
   schemas:
+    IdeacommentsPutResponse:
+      type: object
+      properties:
+        idea_comment:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '622085811'
+            idea_id:
+              type: string
+              example: '58056975'
+            body:
+              type: string
+              example: <p>Updated comment body.</p>
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            visibility:
+              type: string
+              example: Visible to all ideas portal users
+            parent_idea_comment_id:
+              type: 'null'
+            idea_commenter_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1020675218'
+                name:
+                  type: string
+                  example: Mary Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+            idea:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '58056975'
+                reference_num:
+                  type: string
+                  example: PRJ1-I-1
+                name:
+                  type: string
+                  example: Idea 1
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                workflow_status:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    position:
+                      type: string
+                    complete:
+                      type: string
+                    color:
+                      type: string
+                  example:
+                    id: '3259216'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                description:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    body:
+                      type: string
+                    editor_version:
+                      type: string
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
+                    attachments:
+                      type: string
+                  example:
+                    id: '103757394'
+                    body: Description of idea 1
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                url:
+                  type: string
+                  example: http://company.aha.io/ideas/ideas/PRJ1-I-1
+                resource:
+                  type: string
+                  example: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+              example:
+                id: '58056975'
+                reference_num: PRJ1-I-1
+                name: Idea 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                workflow_status:
+                  id: '3259216'
+                  name: New
+                  position: 1
+                  complete: false
+                  color: '#dce7c6'
+                description:
+                  id: '103757394'
+                  body: Description of idea 1
+                  editor_version: 1
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+                resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+            attachments:
+              type: array
+              items: {}
+          example:
+            id: '622085811'
+            idea_id: '58056975'
+            body: <p>Updated comment body.</p>
+            created_at: '2019-01-01T00:00:00.000Z'
+            visibility: Visible to all ideas portal users
+            parent_idea_comment_id: null
+            idea_commenter_user:
+              id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            idea:
+              id: '58056975'
+              reference_num: PRJ1-I-1
+              name: Idea 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              workflow_status:
+                id: '3259216'
+                name: New
+                position: 1
+                complete: false
+                color: '#dce7c6'
+              description:
+                id: '103757394'
+                body: Description of idea 1
+                editor_version: 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+              url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+              resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+            attachments: []
+      example:
+        idea_comment:
+          id: '622085811'
+          idea_id: '58056975'
+          body: <p>Updated comment body.</p>
+          created_at: '2019-01-01T00:00:00.000Z'
+          visibility: Visible to all ideas portal users
+          parent_idea_comment_id: null
+          idea_commenter_user:
+            id: '1020675218'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          idea:
+            id: '58056975'
+            reference_num: PRJ1-I-1
+            name: Idea 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            workflow_status:
+              id: '3259216'
+              name: New
+              position: 1
+              complete: false
+              color: '#dce7c6'
+            description:
+              id: '103757394'
+              body: Description of idea 1
+              editor_version: 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+            resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+          attachments: []
     IdeacommentsPostRequest:
       type: object
       properties:
@@ -714,213 +929,6 @@ components:
           total_records: 3
           total_pages: 1
           current_page: 1
-    IdeacommentsPutResponse:
-      type: object
-      properties:
-        idea_comment:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '622085811'
-            idea_id:
-              type: string
-              example: '58056975'
-            body:
-              type: string
-              example: <p>Updated comment body.</p>
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            visibility:
-              type: string
-              example: Visible to all ideas portal users
-            parent_idea_comment_id:
-              type: 'null'
-            idea_commenter_user:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '1020675218'
-                name:
-                  type: string
-                  example: Mary Humpty
-                email:
-                  type: string
-                  example: no-reply@aha.io
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-              example:
-                id: '1020675218'
-                name: Mary Humpty
-                email: no-reply@aha.io
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-            idea:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '58056975'
-                reference_num:
-                  type: string
-                  example: PRJ1-I-1
-                name:
-                  type: string
-                  example: Idea 1
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                workflow_status:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    name:
-                      type: string
-                    position:
-                      type: string
-                    complete:
-                      type: string
-                    color:
-                      type: string
-                  example:
-                    id: '3259216'
-                    name: New
-                    position: 1
-                    complete: false
-                    color: '#dce7c6'
-                description:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    body:
-                      type: string
-                    editor_version:
-                      type: string
-                    created_at:
-                      type: string
-                    updated_at:
-                      type: string
-                    attachments:
-                      type: string
-                  example:
-                    id: '103757394'
-                    body: Description of idea 1
-                    editor_version: 1
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    attachments: []
-                url:
-                  type: string
-                  example: http://company.aha.io/ideas/ideas/PRJ1-I-1
-                resource:
-                  type: string
-                  example: http://company.aha.io/api/v1/ideas/PRJ1-I-1
-              example:
-                id: '58056975'
-                reference_num: PRJ1-I-1
-                name: Idea 1
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                workflow_status:
-                  id: '3259216'
-                  name: New
-                  position: 1
-                  complete: false
-                  color: '#dce7c6'
-                description:
-                  id: '103757394'
-                  body: Description of idea 1
-                  editor_version: 1
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  attachments: []
-                url: http://company.aha.io/ideas/ideas/PRJ1-I-1
-                resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
-            attachments:
-              type: array
-              items: {}
-          example:
-            id: '622085811'
-            idea_id: '58056975'
-            body: <p>Updated comment body.</p>
-            created_at: '2019-01-01T00:00:00.000Z'
-            visibility: Visible to all ideas portal users
-            parent_idea_comment_id: null
-            idea_commenter_user:
-              id: '1020675218'
-              name: Mary Humpty
-              email: no-reply@aha.io
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-            idea:
-              id: '58056975'
-              reference_num: PRJ1-I-1
-              name: Idea 1
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              workflow_status:
-                id: '3259216'
-                name: New
-                position: 1
-                complete: false
-                color: '#dce7c6'
-              description:
-                id: '103757394'
-                body: Description of idea 1
-                editor_version: 1
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-              url: http://company.aha.io/ideas/ideas/PRJ1-I-1
-              resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
-            attachments: []
-      example:
-        idea_comment:
-          id: '622085811'
-          idea_id: '58056975'
-          body: <p>Updated comment body.</p>
-          created_at: '2019-01-01T00:00:00.000Z'
-          visibility: Visible to all ideas portal users
-          parent_idea_comment_id: null
-          idea_commenter_user:
-            id: '1020675218'
-            name: Mary Humpty
-            email: no-reply@aha.io
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-          idea:
-            id: '58056975'
-            reference_num: PRJ1-I-1
-            name: Idea 1
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            workflow_status:
-              id: '3259216'
-              name: New
-              position: 1
-              complete: false
-              color: '#dce7c6'
-            description:
-              id: '103757394'
-              body: Description of idea 1
-              editor_version: 1
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-            url: http://company.aha.io/ideas/ideas/PRJ1-I-1
-            resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
-          attachments: []
     IdeacommentsPostResponse:
       type: object
       properties:

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Custom fields API
+  title: Aha! Custom fields API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -18,7 +18,7 @@ security:
 - ApiKeyAuth: []
 - CookieAuth: []
 tags:
-- name: Custom fields
+- name: Custom Fields
 paths:
   /api/v1/custom_field_definitions:
     get:
@@ -34,7 +34,7 @@ paths:
 
         lists), you can also load the list of all available options.'
       tags:
-      - Custom fields
+      - Custom Fields
       parameters: []
       responses:
         '200':
@@ -60,6 +60,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1CustomFieldDefinitions
+      x-operation-id-source: derived
   /api/v1/custom_field_definitions/{custom_field_definition_id}/options:
     get:
       summary: List options for a custom field
@@ -74,7 +76,7 @@ paths:
 
         lists), you can also load the list of all available options.'
       tags:
-      - Custom fields
+      - Custom Fields
       parameters:
       - name: custom_field_definition_id
         in: path
@@ -120,6 +122,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1CustomFieldDefinitionsByCustomFieldDefinitionIdOptions
+      x-operation-id-source: derived
 components:
   schemas:
     CustomfieldsGetResponse:

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Idea Portals API
+  title: Aha! Idea Portals API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -73,6 +73,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1ProductsByProductIdIdeaPortals
+      x-operation-id-source: derived
   /api/v1/idea_portals:
     get:
       summary: List all idea portals in an account
@@ -144,6 +146,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1IdeaPortals
+      x-operation-id-source: derived
 components:
   schemas:
     IdeaPortalsGetResponse:

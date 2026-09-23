@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Strategic positionings API
+  title: Aha! Strategic positionings API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -83,6 +83,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1StrategyPositions
+      x-operation-id-source: derived
   /api/v1/strategy_positions/{id}:
     get:
       summary: Get a specific strategic positioning
@@ -131,6 +133,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1StrategyPositionsById
+      x-operation-id-source: derived
 components:
   schemas:
     StrategicpositioningsGetResponse:

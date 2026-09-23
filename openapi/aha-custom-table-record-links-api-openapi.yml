@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Custom table record links API
+  title: Aha! Custom table record links API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -33,20 +33,20 @@ paths:
         Examples of linking custom objects to resources with a many-to-many `customer` field:
 
 
-        - [Products](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_product)
+        - Products
 
-        - [Releases](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_release)
+        - Releases
 
-        - [Features](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_feature)
+        - Features
 
-        - [Ideas](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_goal)
+        - Goals
 
 
-        **[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**'
+        **Custom tables are an Enterprise+ exclusive feature.**'
       tags:
       - Custom table record links
       parameters:
@@ -360,10 +360,12 @@ paths:
                 custom_object_links:
                   customers:
                   - '640362830'
+      operationId: putApiV1ProductsById
+      x-operation-id-source: derived
   /api/v1/releases/{id}:
     put:
       summary: Create a custom table record link associated with a release
-      description: '*[Custom Tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.*'
+      description: '*Custom Tables are an Enterprise+ exclusive feature.*'
       tags:
       - Custom table record links
       parameters:
@@ -531,6 +533,8 @@ paths:
                 custom_object_links:
                   customers:
                   - '640362830'
+      operationId: putApiV1ReleasesById
+      x-operation-id-source: derived
   /api/v1/features/{id}:
     put:
       summary: Create a custom table record link associated with a feature
@@ -544,20 +548,20 @@ paths:
         Examples of linking custom objects to resources with a many-to-many `customer` field:
 
 
-        - [Products](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_product)
+        - Products
 
-        - [Releases](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_release)
+        - Releases
 
-        - [Features](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_feature)
+        - Features
 
-        - [Ideas](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_goal)
+        - Goals
 
 
-        **[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**'
+        **Custom tables are an Enterprise+ exclusive feature.**'
       tags:
       - Custom table record links
       parameters:
@@ -1073,6 +1077,8 @@ paths:
                 custom_object_links:
                   customers:
                   - '640362830'
+      operationId: putApiV1FeaturesById
+      x-operation-id-source: derived
   /api/v1/requirements/{id}:
     put:
       summary: Create a custom table record link associated with a requirement
@@ -1086,20 +1092,20 @@ paths:
         Examples of linking custom objects to resources with a many-to-many `customer` field:
 
 
-        - [Products](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_product)
+        - Products
 
-        - [Releases](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_release)
+        - Releases
 
-        - [Features](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_feature)
+        - Features
 
-        - [Ideas](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_goal)
+        - Goals
 
 
-        **[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**'
+        **Custom tables are an Enterprise+ exclusive feature.**'
       tags:
       - Custom table record links
       parameters:
@@ -1223,6 +1229,8 @@ paths:
                 custom_object_links:
                   customers:
                   - '640362830'
+      operationId: putApiV1RequirementsById
+      x-operation-id-source: derived
   /api/v1/ideas/{id}:
     put:
       summary: Create a custom table record link associated with an idea
@@ -1236,20 +1244,20 @@ paths:
         Examples of linking custom objects to resources with a many-to-many `customer` field:
 
 
-        - [Products](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_product)
+        - Products
 
-        - [Releases](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_release)
+        - Releases
 
-        - [Features](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_feature)
+        - Features
 
-        - [Ideas](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_goal)
+        - Goals
 
 
-        **[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**'
+        **Custom tables are an Enterprise+ exclusive feature.**'
       tags:
       - Custom table record links
       parameters:
@@ -1350,6 +1358,8 @@ paths:
                 custom_object_links:
                   customers:
                   - '640362830'
+      operationId: putApiV1IdeasById
+      x-operation-id-source: derived
   /api/v1/initiatives/{id}:
     put:
       summary: Create a custom table record link associated with an initiative
@@ -1363,20 +1373,20 @@ paths:
         Examples of linking custom objects to resources with a many-to-many `customer` field:
 
 
-        - [Products](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_product)
+        - Products
 
-        - [Releases](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_release)
+        - Releases
 
-        - [Features](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_feature)
+        - Features
 
-        - [Ideas](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_goal)
+        - Goals
 
 
-        **[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**'
+        **Custom tables are an Enterprise+ exclusive feature.**'
       tags:
       - Custom table record links
       parameters:
@@ -1632,6 +1642,8 @@ paths:
                 custom_object_links:
                   customers:
                   - '640362830'
+      operationId: putApiV1InitiativesById
+      x-operation-id-source: derived
   /api/v1/goals/{id}:
     put:
       summary: Create a custom table record link associated with a goal
@@ -1645,20 +1657,20 @@ paths:
         Examples of linking custom objects to resources with a many-to-many `customer` field:
 
 
-        - [Products](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_product)
+        - Products
 
-        - [Releases](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_release)
+        - Releases
 
-        - [Features](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_feature)
+        - Features
 
-        - [Ideas](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_goal)
+        - Goals
 
 
-        **[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**'
+        **Custom tables are an Enterprise+ exclusive feature.**'
       tags:
       - Custom table record links
       parameters:
@@ -1816,6 +1828,8 @@ paths:
                 custom_object_links:
                   customers:
                   - '640362830'
+      operationId: putApiV1GoalsById
+      x-operation-id-source: derived
   /api/v1/custom_object_records/{id}:
     put:
       summary: Link custom table records to another custom table record
@@ -1829,20 +1843,20 @@ paths:
         Examples of linking custom objects to resources with a many-to-many `customer` field:
 
 
-        - [Products](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_product)
+        - Products
 
-        - [Releases](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_release)
+        - Releases
 
-        - [Features](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_feature)
+        - Features
 
-        - [Ideas](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_idea)
+        - Ideas
 
-        - [Initiatives](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_an_initiative)
+        - Initiatives
 
-        - [Goals](/api/resources/custom_table_record_links/create_a_custom_table_record_link_associated_with_a_goal)
+        - Goals
 
 
-        **[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**'
+        **Custom tables are an Enterprise+ exclusive feature.**'
       tags:
       - Custom table record links
       parameters:
@@ -1919,36 +1933,10 @@ paths:
                 custom_object_links:
                   custom_table_name_submitters:
                   - 136661093
+      operationId: putApiV1CustomObjectRecordsById
+      x-operation-id-source: derived
 components:
   schemas:
-    CustomtablerecordlinksPostRequest:
-      type: object
-      properties:
-        custom_object_record:
-          type: object
-          properties:
-            custom_object_links:
-              type: object
-              properties:
-                custom_table_name_submitters:
-                  type: array
-                  items:
-                    type: integer
-                    example: 136661093
-                  example:
-                  - 136661093
-              example:
-                custom_table_name_submitters:
-                - 136661093
-          example:
-            custom_object_links:
-              custom_table_name_submitters:
-              - 136661093
-      example:
-        custom_object_record:
-          custom_object_links:
-            custom_table_name_submitters:
-            - 136661093
     CustomtablerecordsPutResponse:
       type: object
       properties:
@@ -2144,1788 +2132,6 @@ components:
             email: no-reply@aha.io
             created_at: '2019-01-01T00:00:00.000Z'
             updated_at: '2019-01-01T00:00:00.000Z'
-    IdeasPutResponse:
-      type: object
-      properties:
-        idea:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '58056975'
-            name:
-              type: string
-              example: Idea 1
-            reference_num:
-              type: string
-              example: PRJ1-I-1
-            score:
-              type: integer
-              example: 15
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            product_id:
-              type: string
-              example: '131414752'
-            votes:
-              type: integer
-              example: 1
-            initial_votes:
-              type: integer
-              example: 0
-            status_changed_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            workflow_status:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '1009437757'
-                name:
-                  type: string
-                  example: In progress
-                position:
-                  type: integer
-                  example: 2
-                complete:
-                  type: boolean
-                  example: false
-                color:
-                  type: string
-                  example: '#ecdd8f'
-              example:
-                id: '1009437757'
-                name: In progress
-                position: 2
-                complete: false
-                color: '#ecdd8f'
-            description:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '103757394'
-                body:
-                  type: string
-                  example: Description of idea 1
-                editor_version:
-                  type: integer
-                  example: 1
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                attachments:
-                  type: array
-                  items: {}
-              example:
-                id: '103757394'
-                body: Description of idea 1
-                editor_version: 1
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-            visibility:
-              type: string
-              example: Visible to all ideas portal users
-            url:
-              type: string
-              example: http://company.aha.io/ideas/ideas/PRJ1-I-1
-            resource:
-              type: string
-              example: http://company.aha.io/api/v1/ideas/PRJ1-I-1
-            product:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '131414752'
-                reference_prefix:
-                  type: string
-                  example: PRJ1
-                name:
-                  type: string
-                  example: Project 1
-                product_line:
-                  type: boolean
-                  example: false
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                workspace_type:
-                  type: string
-                  example: product_workspace
-                url:
-                  type: string
-                  example: http://company.aha.io/projects/PRJ1
-              example:
-                id: '131414752'
-                reference_prefix: PRJ1
-                name: Project 1
-                product_line: false
-                created_at: '2019-01-01T00:00:00.000Z'
-                workspace_type: product_workspace
-                url: http://company.aha.io/projects/PRJ1
-            created_by_user:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '1020675218'
-                name:
-                  type: string
-                  example: Mary Humpty
-                email:
-                  type: string
-                  example: no-reply@aha.io
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-              example:
-                id: '1020675218'
-                name: Mary Humpty
-                email: no-reply@aha.io
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-            assigned_to_user:
-              type: 'null'
-            feature:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '6776881149492554846'
-                reference_num:
-                  type: string
-                  example: PRJ1-251
-                name:
-                  type: string
-                  example: Idea 1
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                url:
-                  type: string
-                  example: http://company.aha.io/features/PRJ1-251
-                resource:
-                  type: string
-                  example: http://company.aha.io/api/v1/features/PRJ1-251
-                product_id:
-                  type: string
-                  example: '131414752'
-              example:
-                id: '6776881149492554846'
-                reference_num: PRJ1-251
-                name: Idea 1
-                created_at: '2019-01-01T00:00:00.000Z'
-                url: http://company.aha.io/features/PRJ1-251
-                resource: http://company.aha.io/api/v1/features/PRJ1-251
-                product_id: '131414752'
-            endorsements_count:
-              type: integer
-              example: 1
-            comments_count:
-              type: integer
-              example: 0
-            score_facts:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  value:
-                    type: string
-                  name:
-                    type: string
-                example:
-                  id: '244026645'
-                  value: 10
-                  name: Effort
-              example:
-              - id: '244026645'
-                value: 10
-                name: Effort
-              - id: '394452137'
-                value: 5
-                name: Benefit
-            tags:
-              type: array
-              items:
-                type: string
-                example: Infrastructure
-              example:
-              - Infrastructure
-            full_tags:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  name:
-                    type: string
-                  color:
-                    type: string
-                example:
-                  id: 775582684
-                  name: Infrastructure
-                  color: '#7552e0'
-              example:
-              - id: 775582684
-                name: Infrastructure
-                color: '#7552e0'
-            categories:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  name:
-                    type: string
-                  parent_id:
-                    type: string
-                  project_id:
-                    type: string
-                  created_at:
-                    type: string
-                example:
-                  id: '972845454'
-                  name: Hard disk drive
-                  parent_id: 552935478
-                  project_id: 131414752
-                  created_at: '2019-01-01T00:00:00.000Z'
-              example:
-              - id: '972845454'
-                name: Hard disk drive
-                parent_id: 552935478
-                project_id: 131414752
-                created_at: '2019-01-01T00:00:00.000Z'
-            custom_fields:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  key:
-                    type: string
-                  name:
-                    type: string
-                  updatedAt:
-                    type: string
-                  value:
-                    type: string
-                  type:
-                    type: string
-                example:
-                  id: 585340588
-                  key: component
-                  name: Component
-                  updatedAt: '2019-01-01T00:00:00Z'
-                  value:
-                  - web
-                  type: array
-              example:
-              - id: 585340588
-                key: component
-                name: Component
-                updatedAt: '2019-01-01T00:00:00Z'
-                value:
-                - web
-                type: array
-              - id: 267687015
-                key: custom_scorecard_definition
-                name: Some custom scorecard definition
-                updatedAt: '2019-01-01T00:00:00Z'
-                value: 11
-                type: scorecard
-                score_facts: []
-              - id: 193641455
-                key: text_field1
-                name: TextField1
-                updatedAt: '2019-01-01T00:00:00Z'
-                value: Cairo
-                type: string
-              - id: 310635095
-                key: text_field2
-                name: TextField2
-                updatedAt: '2019-01-01T00:00:00Z'
-                value: Rennes
-                type: string
-              - id: 800380718
-                key: upload
-                name: Upload
-                updatedAt: '2019-01-01T00:00:00Z'
-                attachments: []
-                type: attachment
-            custom_object_links:
-              type: array
-              items:
-                type: object
-                properties:
-                  key:
-                    type: string
-                  name:
-                    type: string
-                  record_type:
-                    type: string
-                  record_ids:
-                    type: string
-                example:
-                  key: revenue
-                  name: Revenue
-                  record_type: CustomObjectRecord
-                  record_ids:
-                  - 640362830
-              example:
-              - key: revenue
-                name: Revenue
-                record_type: CustomObjectRecord
-                record_ids:
-                - 640362830
-              - key: submitters
-                name: Submitters
-                record_type: CustomObjectRecord
-                record_ids:
-                - 640362830
-            workflow_status_times:
-              type: array
-              items:
-                type: object
-                properties:
-                  status_id:
-                    type: string
-                  status_name:
-                    type: string
-                  started_at:
-                    type: string
-                  ended_at:
-                    type: 'null'
-                example:
-                  status_id: '1009437757'
-                  status_name: In progress
-                  started_at: '2019-01-01T00:00:00.000Z'
-                  ended_at: null
-              example:
-              - status_id: '1009437757'
-                status_name: In progress
-                started_at: '2019-01-01T00:00:00.000Z'
-                ended_at: null
-            submitted_idea_portal_record_url:
-              type: string
-              example: https://ideas.example.com:8338/ideas/PRJ1-I-1
-            integration_fields:
-              type: array
-              items: {}
-          example:
-            id: '58056975'
-            name: Idea 1
-            reference_num: PRJ1-I-1
-            score: 15
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            product_id: '131414752'
-            votes: 1
-            initial_votes: 0
-            status_changed_at: '2019-01-01T00:00:00.000Z'
-            workflow_status:
-              id: '1009437757'
-              name: In progress
-              position: 2
-              complete: false
-              color: '#ecdd8f'
-            description:
-              id: '103757394'
-              body: Description of idea 1
-              editor_version: 1
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-            visibility: Visible to all ideas portal users
-            url: http://company.aha.io/ideas/ideas/PRJ1-I-1
-            resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
-            product:
-              id: '131414752'
-              reference_prefix: PRJ1
-              name: Project 1
-              product_line: false
-              created_at: '2019-01-01T00:00:00.000Z'
-              workspace_type: product_workspace
-              url: http://company.aha.io/projects/PRJ1
-            created_by_user:
-              id: '1020675218'
-              name: Mary Humpty
-              email: no-reply@aha.io
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-            assigned_to_user: null
-            feature:
-              id: '6776881149492554846'
-              reference_num: PRJ1-251
-              name: Idea 1
-              created_at: '2019-01-01T00:00:00.000Z'
-              url: http://company.aha.io/features/PRJ1-251
-              resource: http://company.aha.io/api/v1/features/PRJ1-251
-              product_id: '131414752'
-            endorsements_count: 1
-            comments_count: 0
-            score_facts:
-            - id: '244026645'
-              value: 10
-              name: Effort
-            - id: '394452137'
-              value: 5
-              name: Benefit
-            tags:
-            - Infrastructure
-            full_tags:
-            - id: 775582684
-              name: Infrastructure
-              color: '#7552e0'
-            categories:
-            - id: '972845454'
-              name: Hard disk drive
-              parent_id: 552935478
-              project_id: 131414752
-              created_at: '2019-01-01T00:00:00.000Z'
-            custom_fields:
-            - id: 585340588
-              key: component
-              name: Component
-              updatedAt: '2019-01-01T00:00:00Z'
-              value:
-              - web
-              type: array
-            - id: 267687015
-              key: custom_scorecard_definition
-              name: Some custom scorecard definition
-              updatedAt: '2019-01-01T00:00:00Z'
-              value: 11
-              type: scorecard
-              score_facts: []
-            - id: 193641455
-              key: text_field1
-              name: TextField1
-              updatedAt: '2019-01-01T00:00:00Z'
-              value: Cairo
-              type: string
-            - id: 310635095
-              key: text_field2
-              name: TextField2
-              updatedAt: '2019-01-01T00:00:00Z'
-              value: Rennes
-              type: string
-            - id: 800380718
-              key: upload
-              name: Upload
-              updatedAt: '2019-01-01T00:00:00Z'
-              attachments: []
-              type: attachment
-            custom_object_links:
-            - key: revenue
-              name: Revenue
-              record_type: CustomObjectRecord
-              record_ids:
-              - 640362830
-            - key: submitters
-              name: Submitters
-              record_type: CustomObjectRecord
-              record_ids:
-              - 640362830
-            workflow_status_times:
-            - status_id: '1009437757'
-              status_name: In progress
-              started_at: '2019-01-01T00:00:00.000Z'
-              ended_at: null
-            submitted_idea_portal_record_url: https://ideas.example.com:8338/ideas/PRJ1-I-1
-            integration_fields: []
-      example:
-        idea:
-          id: '58056975'
-          name: Idea 1
-          reference_num: PRJ1-I-1
-          score: 15
-          created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          product_id: '131414752'
-          votes: 1
-          initial_votes: 0
-          status_changed_at: '2019-01-01T00:00:00.000Z'
-          workflow_status:
-            id: '1009437757'
-            name: In progress
-            position: 2
-            complete: false
-            color: '#ecdd8f'
-          description:
-            id: '103757394'
-            body: Description of idea 1
-            editor_version: 1
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            attachments: []
-          visibility: Visible to all ideas portal users
-          url: http://company.aha.io/ideas/ideas/PRJ1-I-1
-          resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
-          product:
-            id: '131414752'
-            reference_prefix: PRJ1
-            name: Project 1
-            product_line: false
-            created_at: '2019-01-01T00:00:00.000Z'
-            workspace_type: product_workspace
-            url: http://company.aha.io/projects/PRJ1
-          created_by_user:
-            id: '1020675218'
-            name: Mary Humpty
-            email: no-reply@aha.io
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-          assigned_to_user: null
-          feature:
-            id: '6776881149492554846'
-            reference_num: PRJ1-251
-            name: Idea 1
-            created_at: '2019-01-01T00:00:00.000Z'
-            url: http://company.aha.io/features/PRJ1-251
-            resource: http://company.aha.io/api/v1/features/PRJ1-251
-            product_id: '131414752'
-          endorsements_count: 1
-          comments_count: 0
-          score_facts:
-          - id: '244026645'
-            value: 10
-            name: Effort
-          - id: '394452137'
-            value: 5
-            name: Benefit
-          tags:
-          - Infrastructure
-          full_tags:
-          - id: 775582684
-            name: Infrastructure
-            color: '#7552e0'
-          categories:
-          - id: '972845454'
-            name: Hard disk drive
-            parent_id: 552935478
-            project_id: 131414752
-            created_at: '2019-01-01T00:00:00.000Z'
-          custom_fields:
-          - id: 585340588
-            key: component
-            name: Component
-            updatedAt: '2019-01-01T00:00:00Z'
-            value:
-            - web
-            type: array
-          - id: 267687015
-            key: custom_scorecard_definition
-            name: Some custom scorecard definition
-            updatedAt: '2019-01-01T00:00:00Z'
-            value: 11
-            type: scorecard
-            score_facts: []
-          - id: 193641455
-            key: text_field1
-            name: TextField1
-            updatedAt: '2019-01-01T00:00:00Z'
-            value: Cairo
-            type: string
-          - id: 310635095
-            key: text_field2
-            name: TextField2
-            updatedAt: '2019-01-01T00:00:00Z'
-            value: Rennes
-            type: string
-          - id: 800380718
-            key: upload
-            name: Upload
-            updatedAt: '2019-01-01T00:00:00Z'
-            attachments: []
-            type: attachment
-          custom_object_links:
-          - key: revenue
-            name: Revenue
-            record_type: CustomObjectRecord
-            record_ids:
-            - 640362830
-          - key: submitters
-            name: Submitters
-            record_type: CustomObjectRecord
-            record_ids:
-            - 640362830
-          workflow_status_times:
-          - status_id: '1009437757'
-            status_name: In progress
-            started_at: '2019-01-01T00:00:00.000Z'
-            ended_at: null
-          submitted_idea_portal_record_url: https://ideas.example.com:8338/ideas/PRJ1-I-1
-          integration_fields: []
-    ProductsPutResponse:
-      type: object
-      properties:
-        product:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '131414752'
-            reference_prefix:
-              type: string
-              example: PRJ1
-            name:
-              type: string
-              example: Two Products
-            product_line:
-              type: boolean
-              example: false
-            product_line_type:
-              type: 'null'
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            description:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '21164619'
-                body:
-                  type: string
-                  example: ''
-                editor_version:
-                  type: integer
-                  example: 1
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                attachments:
-                  type: array
-                  items: {}
-              example:
-                id: '21164619'
-                body: ''
-                editor_version: 1
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-            url:
-              type: string
-              example: http://company.aha.io/projects/PRJ1
-            resource:
-              type: string
-              example: http://company.aha.io/projects/PRJ1
-            children:
-              type: array
-              items: {}
-            custom_fields:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  key:
-                    type: string
-                  name:
-                    type: string
-                  updatedAt:
-                    type: string
-                  value:
-                    type: string
-                  type:
-                    type: string
-                example:
-                  id: 33687638
-                  key: release_count
-                  name: Release count
-                  updatedAt: '2019-01-01T00:00:00Z'
-                  value:
-                    values:
-                      '6809377296730243716':
-                        value: 6.0
-                        name: Release count
-                        display_value: '6.0'
-                  type: equation_sheet
-              example:
-              - id: 33687638
-                key: release_count
-                name: Release count
-                updatedAt: '2019-01-01T00:00:00Z'
-                value:
-                  values:
-                    '6809377296730243716':
-                      value: 6.0
-                      name: Release count
-                      display_value: '6.0'
-                type: equation_sheet
-            screen_definition_ids:
-              type: object
-              properties:
-                Approval:
-                  type: integer
-                  example: 475481209
-                Competitor:
-                  type: integer
-                  example: 826556567
-                Epic:
-                  type: integer
-                  example: 908690576
-                Feature:
-                  type: integer
-                  example: 19837977
-                Ideas::Idea:
-                  type: integer
-                  example: 405267877
-                Ideas::IdeaPortal:
-                  type: integer
-                  example: 790680888
-                Initiative:
-                  type: integer
-                  example: 838774462
-                Page:
-                  type: integer
-                  example: 26499634
-                Project:
-                  type: integer
-                  example: 524951996
-                Release:
-                  type: integer
-                  example: 647403809
-                Requirement:
-                  type: integer
-                  example: 687341318
-                StrategicImperative:
-                  type: integer
-                  example: 117022249
-              example:
-                Approval: 475481209
-                Competitor: 826556567
-                Epic: 908690576
-                Feature: 19837977
-                Ideas::Idea: 405267877
-                Ideas::IdeaPortal: 790680888
-                Initiative: 838774462
-                Page: 26499634
-                Project: 524951996
-                Release: 647403809
-                Requirement: 687341318
-                StrategicImperative: 117022249
-            screen_definitions:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  screenable_type:
-                    type: string
-                  name:
-                    type: string
-                  custom_field_definitions:
-                    type: string
-                example:
-                  id: 19837977
-                  screenable_type: Feature
-                  name: Screen Definition 6
-                  custom_field_definitions:
-                  - id: 839883647
-                    key: custom_scorecard_definition
-                    position: 3
-                    name: Some custom scorecard definition
-                    type: CustomFieldDefinitions::ScorecardField
-                    api_type: scorecard
-                    required: false
-                  - id: 182007396
-                    key: custom_table
-                    position: 7
-                    name: Custom Table
-                    type: CustomFieldDefinitions::LinkMasterDetail
-                    api_type: array
-                    required: false
-                  - id: 20549131
-                    key: customer
-                    position: 2
-                    name: Customer
-                    type: CustomFieldDefinitions::SelectEditable
-                    api_type: string
-                    configuration_display: null
-                    required: false
-                    options:
-                    - id: 106870231
-                      label: cust1
-                    - id: 525853807
-                      label: cust2
-                    - id: 676386040
-                      label: cust3
-                  - id: 141558949
-                    key: customers_table
-                    position: 1
-                    name: Customers for custom table
-                    type: CustomFieldDefinitions::LinkMany
-                    api_type: array
-                    required: false
-                  - id: 384804762
-                    key: product_managers
-                    position: 7
-                    name: Product Managers
-                    type: CustomFieldDefinitions::Records::UsersField
-                    api_type: array
-                    required: false
-              example:
-              - id: 19837977
-                screenable_type: Feature
-                name: Screen Definition 6
-                custom_field_definitions:
-                - id: 839883647
-                  key: custom_scorecard_definition
-                  position: 3
-                  name: Some custom scorecard definition
-                  type: CustomFieldDefinitions::ScorecardField
-                  api_type: scorecard
-                  required: false
-                - id: 182007396
-                  key: custom_table
-                  position: 7
-                  name: Custom Table
-                  type: CustomFieldDefinitions::LinkMasterDetail
-                  api_type: array
-                  required: false
-                - id: 20549131
-                  key: customer
-                  position: 2
-                  name: Customer
-                  type: CustomFieldDefinitions::SelectEditable
-                  api_type: string
-                  configuration_display: null
-                  required: false
-                  options:
-                  - id: 106870231
-                    label: cust1
-                  - id: 525853807
-                    label: cust2
-                  - id: 676386040
-                    label: cust3
-                - id: 141558949
-                  key: customers_table
-                  position: 1
-                  name: Customers for custom table
-                  type: CustomFieldDefinitions::LinkMany
-                  api_type: array
-                  required: false
-                - id: 384804762
-                  key: product_managers
-                  position: 7
-                  name: Product Managers
-                  type: CustomFieldDefinitions::Records::UsersField
-                  api_type: array
-                  required: false
-              - id: 26499634
-                screenable_type: Page
-                name: Screen Definition 7
-                custom_field_definitions:
-                - id: 529933329
-                  key: review_date
-                  position: 1
-                  name: Review date
-                  type: CustomFieldDefinitions::DateField
-                  api_type: date
-                  required: false
-              - id: 117022249
-                screenable_type: StrategicImperative
-                name: Screen Definition 13
-                custom_field_definitions: []
-              - id: 405267877
-                screenable_type: Ideas::Idea
-                name: Screen Definition 5
-                custom_field_definitions:
-                - id: 711072024
-                  key: customers_table
-                  position: 1
-                  name: Customers for custom table
-                  type: CustomFieldDefinitions::LinkMany
-                  api_type: array
-                  required: false
-              - id: 475481209
-                screenable_type: Task
-                name: Approvals custom layout
-                custom_field_definitions: []
-              - id: 524951996
-                screenable_type: Project
-                name: Screen Definition 1
-                custom_field_definitions:
-                - id: 807801664
-                  key: name
-                  position: 1
-                  name: Name
-                  type: CustomFieldDefinitions::TextField
-                  api_type: string
-                  required: false
-                - id: 221120583
-                  key: website
-                  position: 2
-                  name: Website
-                  type: CustomFieldDefinitions::UrlField
-                  api_type: url
-                  required: false
-              - id: 647403809
-                screenable_type: Release
-                name: Screen Definition 8
-                custom_field_definitions:
-                - id: 3228193
-                  key: release_custom_date
-                  position: 1
-                  name: Release custom date
-                  type: CustomFieldDefinitions::DateField
-                  api_type: date
-                  required: false
-              - id: 687341318
-                screenable_type: Requirement
-                name: Screen Definition 11
-                custom_field_definitions:
-                - id: 85990596
-                  key: priority
-                  position: 3
-                  name: Priority
-                  type: CustomFieldDefinitions::SelectConstant
-                  api_type: string
-                  configuration_display: null
-                  required: false
-                  options:
-                  - id: 135354995
-                    label: P4
-                  - id: 376819668
-                    label: P3
-                  - id: 561184585
-                    label: P2
-                  - id: 947629821
-                    label: P1
-                  - id: 1058433764
-                    label: P5
-                - id: 867049992
-                  key: requested_by
-                  position: 2
-                  name: Requested By
-                  type: CustomFieldDefinitions::TextField
-                  api_type: string
-                  required: false
-              - id: 790680888
-                screenable_type: Ideas::IdeaPortal
-                name: Screen Definition 4
-                custom_field_definitions:
-                - id: 807801664
-                  key: name
-                  position: 1
-                  name: Name
-                  type: CustomFieldDefinitions::TextField
-                  api_type: string
-                  required: false
-              - id: 826556567
-                screenable_type: Competitor
-                name: Screen Definition 3
-                custom_field_definitions: []
-              - id: 838774462
-                screenable_type: Initiative
-                name: Screen Definition 12
-                custom_field_definitions:
-                - id: 250383571
-                  key: customers
-                  position: 1
-                  name: Customers
-                  type: CustomFieldDefinitions::LinkMany
-                  api_type: array
-                  required: false
-                - id: 688549069
-                  key: initiative_custom_date
-                  position: 3
-                  name: Initiative custom date
-                  type: CustomFieldDefinitions::DateField
-                  api_type: date
-                  required: false
-              - id: 908690576
-                screenable_type: Epic
-                name: Screen Definition 7
-                custom_field_definitions:
-                - id: 919440521
-                  key: epic_custom_date
-                  position: 1
-                  name: Epic custom date
-                  type: CustomFieldDefinitions::DateField
-                  api_type: date
-                  required: false
-            has_ideas:
-              type: boolean
-              example: true
-            has_master_features:
-              type: boolean
-              example: false
-            has_epics:
-              type: boolean
-              example: false
-            release_workflow:
-              type: object
-              properties:
-                id:
-                  type: integer
-                  example: 717623509
-                name:
-                  type: string
-                  example: Account product release workflow
-                statusable_type:
-                  type: string
-                  example: Release
-                workflow_type:
-                  type: string
-                  example: release
-              example:
-                id: 717623509
-                name: Account product release workflow
-                statusable_type: Release
-                workflow_type: release
-            requirement_workflow:
-              type: object
-              properties:
-                id:
-                  type: integer
-                  example: 499195972
-                name:
-                  type: string
-                  example: Account product feature workflow
-                statusable_type:
-                  type: string
-                  example: Feature
-                workflow_type:
-                  type: string
-                  example: requirement
-              example:
-                id: 499195972
-                name: Account product feature workflow
-                statusable_type: Feature
-                workflow_type: requirement
-            feature_workflow:
-              type: object
-              properties:
-                id:
-                  type: integer
-                  example: 499195972
-                name:
-                  type: string
-                  example: Account product feature workflow
-                statusable_type:
-                  type: string
-                  example: Feature
-                workflow_type:
-                  type: string
-                  example: feature
-              example:
-                id: 499195972
-                name: Account product feature workflow
-                statusable_type: Feature
-                workflow_type: feature
-            initiative_workflow:
-              type: object
-              properties:
-                id:
-                  type: integer
-                  example: 61191651
-                name:
-                  type: string
-                  example: Account initiative workflow
-                statusable_type:
-                  type: string
-                  example: Initiative
-                workflow_type:
-                  type: string
-                  example: initiative
-              example:
-                id: 61191651
-                name: Account initiative workflow
-                statusable_type: Initiative
-                workflow_type: initiative
-            epic_workflow:
-              type: object
-              properties:
-                id:
-                  type: integer
-                  example: 499195972
-                name:
-                  type: string
-                  example: Account product feature workflow
-                statusable_type:
-                  type: string
-                  example: Feature
-                workflow_type:
-                  type: string
-                  example: epic
-              example:
-                id: 499195972
-                name: Account product feature workflow
-                statusable_type: Feature
-                workflow_type: epic
-            idea_workflow:
-              type: object
-              properties:
-                id:
-                  type: integer
-                  example: 80245244
-                name:
-                  type: string
-                  example: Account product idea workflow
-                statusable_type:
-                  type: string
-                  example: Idea
-                workflow_type:
-                  type: string
-                  example: idea
-              example:
-                id: 80245244
-                name: Account product idea workflow
-                statusable_type: Idea
-                workflow_type: idea
-            strategic_imperative_workflow:
-              type: object
-              properties:
-                id:
-                  type: integer
-                  example: 883066232
-                name:
-                  type: string
-                  example: Account goal workflow
-                statusable_type:
-                  type: string
-                  example: StrategicImperative
-                workflow_type:
-                  type: string
-                  example: strategic_imperative
-              example:
-                id: 883066232
-                name: Account goal workflow
-                statusable_type: StrategicImperative
-                workflow_type: strategic_imperative
-            page_workflow:
-              type: object
-              properties:
-                id:
-                  type: integer
-                  example: 934299270
-                name:
-                  type: string
-                  example: Account document workflow
-                statusable_type:
-                  type: string
-                  example: Page
-                workflow_type:
-                  type: string
-                  example: page
-              example:
-                id: 934299270
-                name: Account document workflow
-                statusable_type: Page
-                workflow_type: page
-            key_result_workflow:
-              type: object
-              properties:
-                id:
-                  type: integer
-                  example: 1024772447
-                name:
-                  type: string
-                  example: Account product key result workflow
-                statusable_type:
-                  type: string
-                  example: KeyResult
-                workflow_type:
-                  type: string
-                  example: key_result
-              example:
-                id: 1024772447
-                name: Account product key result workflow
-                statusable_type: KeyResult
-                workflow_type: key_result
-            capacity_planning_enabled:
-              type: boolean
-              example: false
-            default_capacity_units:
-              type: integer
-              example: 10
-            enhanced_capacity_planning_enabled:
-              type: boolean
-              example: false
-            workspace_type:
-              type: string
-              example: product_workspace
-          example:
-            id: '131414752'
-            reference_prefix: PRJ1
-            name: Two Products
-            product_line: false
-            product_line_type: null
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            description:
-              id: '21164619'
-              body: ''
-              editor_version: 1
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-            url: http://company.aha.io/projects/PRJ1
-            resource: http://company.aha.io/projects/PRJ1
-            children: []
-            custom_fields:
-            - id: 33687638
-              key: release_count
-              name: Release count
-              updatedAt: '2019-01-01T00:00:00Z'
-              value:
-                values:
-                  '6809377296730243716':
-                    value: 6.0
-                    name: Release count
-                    display_value: '6.0'
-              type: equation_sheet
-            screen_definition_ids:
-              Approval: 475481209
-              Competitor: 826556567
-              Epic: 908690576
-              Feature: 19837977
-              Ideas::Idea: 405267877
-              Ideas::IdeaPortal: 790680888
-              Initiative: 838774462
-              Page: 26499634
-              Project: 524951996
-              Release: 647403809
-              Requirement: 687341318
-              StrategicImperative: 117022249
-            screen_definitions:
-            - id: 19837977
-              screenable_type: Feature
-              name: Screen Definition 6
-              custom_field_definitions:
-              - id: 839883647
-                key: custom_scorecard_definition
-                position: 3
-                name: Some custom scorecard definition
-                type: CustomFieldDefinitions::ScorecardField
-                api_type: scorecard
-                required: false
-              - id: 182007396
-                key: custom_table
-                position: 7
-                name: Custom Table
-                type: CustomFieldDefinitions::LinkMasterDetail
-                api_type: array
-                required: false
-              - id: 20549131
-                key: customer
-                position: 2
-                name: Customer
-                type: CustomFieldDefinitions::SelectEditable
-                api_type: string
-                configuration_display: null
-                required: false
-                options:
-                - id: 106870231
-                  label: cust1
-                - id: 525853807
-                  label: cust2
-                - id: 676386040
-                  label: cust3
-              - id: 141558949
-                key: customers_table
-                position: 1
-                name: Customers for custom table
-                type: CustomFieldDefinitions::LinkMany
-                api_type: array
-                required: false
-              - id: 384804762
-                key: product_managers
-                position: 7
-                name: Product Managers
-                type: CustomFieldDefinitions::Records::UsersField
-                api_type: array
-                required: false
-            - id: 26499634
-              screenable_type: Page
-              name: Screen Definition 7
-              custom_field_definitions:
-              - id: 529933329
-                key: review_date
-                position: 1
-                name: Review date
-                type: CustomFieldDefinitions::DateField
-                api_type: date
-                required: false
-            - id: 117022249
-              screenable_type: StrategicImperative
-              name: Screen Definition 13
-              custom_field_definitions: []
-            - id: 405267877
-              screenable_type: Ideas::Idea
-              name: Screen Definition 5
-              custom_field_definitions:
-              - id: 711072024
-                key: customers_table
-                position: 1
-                name: Customers for custom table
-                type: CustomFieldDefinitions::LinkMany
-                api_type: array
-                required: false
-            - id: 475481209
-              screenable_type: Task
-              name: Approvals custom layout
-              custom_field_definitions: []
-            - id: 524951996
-              screenable_type: Project
-              name: Screen Definition 1
-              custom_field_definitions:
-              - id: 807801664
-                key: name
-                position: 1
-                name: Name
-                type: CustomFieldDefinitions::TextField
-                api_type: string
-                required: false
-              - id: 221120583
-                key: website
-                position: 2
-                name: Website
-                type: CustomFieldDefinitions::UrlField
-                api_type: url
-                required: false
-            - id: 647403809
-              screenable_type: Release
-              name: Screen Definition 8
-              custom_field_definitions:
-              - id: 3228193
-                key: release_custom_date
-                position: 1
-                name: Release custom date
-                type: CustomFieldDefinitions::DateField
-                api_type: date
-                required: false
-            - id: 687341318
-              screenable_type: Requirement
-              name: Screen Definition 11
-              custom_field_definitions:
-              - id: 85990596
-                key: priority
-                position: 3
-                name: Priority
-                type: CustomFieldDefinitions::SelectConstant
-                api_type: string
-                configuration_display: null
-                required: false
-                options:
-                - id: 135354995
-                  label: P4
-                - id: 376819668
-                  label: P3
-                - id: 561184585
-                  label: P2
-                - id: 947629821
-                  label: P1
-                - id: 1058433764
-                  label: P5
-              - id: 867049992
-                key: requested_by
-                position: 2
-                name: Requested By
-                type: CustomFieldDefinitions::TextField
-                api_type: string
-                required: false
-            - id: 790680888
-              screenable_type: Ideas::IdeaPortal
-              name: Screen Definition 4
-              custom_field_definitions:
-              - id: 807801664
-                key: name
-                position: 1
-                name: Name
-                type: CustomFieldDefinitions::TextField
-                api_type: string
-                required: false
-            - id: 826556567
-              screenable_type: Competitor
-              name: Screen Definition 3
-              custom_field_definitions: []
-            - id: 838774462
-              screenable_type: Initiative
-              name: Screen Definition 12
-              custom_field_definitions:
-              - id: 250383571
-                key: customers
-                position: 1
-                name: Customers
-                type: CustomFieldDefinitions::LinkMany
-                api_type: array
-                required: false
-              - id: 688549069
-                key: initiative_custom_date
-                position: 3
-                name: Initiative custom date
-                type: CustomFieldDefinitions::DateField
-                api_type: date
-                required: false
-            - id: 908690576
-              screenable_type: Epic
-              name: Screen Definition 7
-              custom_field_definitions:
-              - id: 919440521
-                key: epic_custom_date
-                position: 1
-                name: Epic custom date
-                type: CustomFieldDefinitions::DateField
-                api_type: date
-                required: false
-            has_ideas: true
-            has_master_features: false
-            has_epics: false
-            release_workflow:
-              id: 717623509
-              name: Account product release workflow
-              statusable_type: Release
-              workflow_type: release
-            requirement_workflow:
-              id: 499195972
-              name: Account product feature workflow
-              statusable_type: Feature
-              workflow_type: requirement
-            feature_workflow:
-              id: 499195972
-              name: Account product feature workflow
-              statusable_type: Feature
-              workflow_type: feature
-            initiative_workflow:
-              id: 61191651
-              name: Account initiative workflow
-              statusable_type: Initiative
-              workflow_type: initiative
-            epic_workflow:
-              id: 499195972
-              name: Account product feature workflow
-              statusable_type: Feature
-              workflow_type: epic
-            idea_workflow:
-              id: 80245244
-              name: Account product idea workflow
-              statusable_type: Idea
-              workflow_type: idea
-            strategic_imperative_workflow:
-              id: 883066232
-              name: Account goal workflow
-              statusable_type: StrategicImperative
-              workflow_type: strategic_imperative
-            page_workflow:
-              id: 934299270
-              name: Account document workflow
-              statusable_type: Page
-              workflow_type: page
-            key_result_workflow:
-              id: 1024772447
-              name: Account product key result workflow
-              statusable_type: KeyResult
-              workflow_type: key_result
-            capacity_planning_enabled: false
-            default_capacity_units: 10
-            enhanced_capacity_planning_enabled: false
-            workspace_type: product_workspace
-      example:
-        product:
-          id: '131414752'
-          reference_prefix: PRJ1
-          name: Two Products
-          product_line: false
-          product_line_type: null
-          created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          description:
-            id: '21164619'
-            body: ''
-            editor_version: 1
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            attachments: []
-          url: http://company.aha.io/projects/PRJ1
-          resource: http://company.aha.io/projects/PRJ1
-          children: []
-          custom_fields:
-          - id: 33687638
-            key: release_count
-            name: Release count
-            updatedAt: '2019-01-01T00:00:00Z'
-            value:
-              values:
-                '6809377296730243716':
-                  value: 6.0
-                  name: Release count
-                  display_value: '6.0'
-            type: equation_sheet
-          screen_definition_ids:
-            Approval: 475481209
-            Competitor: 826556567
-            Epic: 908690576
-            Feature: 19837977
-            Ideas::Idea: 405267877
-            Ideas::IdeaPortal: 790680888
-            Initiative: 838774462
-            Page: 26499634
-            Project: 524951996
-            Release: 647403809
-            Requirement: 687341318
-            StrategicImperative: 117022249
-          screen_definitions:
-          - id: 19837977
-            screenable_type: Feature
-            name: Screen Definition 6
-            custom_field_definitions:
-            - id: 839883647
-              key: custom_scorecard_definition
-              position: 3
-              name: Some custom scorecard definition
-              type: CustomFieldDefinitions::ScorecardField
-              api_type: scorecard
-              required: false
-            - id: 182007396
-              key: custom_table
-              position: 7
-              name: Custom Table
-              type: CustomFieldDefinitions::LinkMasterDetail
-              api_type: array
-              required: false
-            - id: 20549131
-              key: customer
-              position: 2
-              name: Customer
-              type: CustomFieldDefinitions::SelectEditable
-              api_type: string
-              configuration_display: null
-              required: false
-              options:
-              - id: 106870231
-                label: cust1
-              - id: 525853807
-                label: cust2
-              - id: 676386040
-                label: cust3
-            - id: 141558949
-              key: customers_table
-              position: 1
-              name: Customers for custom table
-              type: CustomFieldDefinitions::LinkMany
-              api_type: array
-              required: false
-            - id: 384804762
-              key: product_managers
-              position: 7
-              name: Product Managers
-              type: CustomFieldDefinitions::Records::UsersField
-              api_type: array
-              required: false
-          - id: 26499634
-            screenable_type: Page
-            name: Screen Definition 7
-            custom_field_definitions:
-            - id: 529933329
-              key: review_date
-              position: 1
-              name: Review date
-              type: CustomFieldDefinitions::DateField
-              api_type: date
-              required: false
-          - id: 117022249
-            screenable_type: StrategicImperative
-            name: Screen Definition 13
-            custom_field_definitions: []
-          - id: 405267877
-            screenable_type: Ideas::Idea
-            name: Screen Definition 5
-            custom_field_definitions:
-            - id: 711072024
-              key: customers_table
-              position: 1
-              name: Customers for custom table
-              type: CustomFieldDefinitions::LinkMany
-              api_type: array
-              required: false
-          - id: 475481209
-            screenable_type: Task
-            name: Approvals custom layout
-            custom_field_definitions: []
-          - id: 524951996
-            screenable_type: Project
-            name: Screen Definition 1
-            custom_field_definitions:
-            - id: 807801664
-              key: name
-              position: 1
-              name: Name
-              type: CustomFieldDefinitions::TextField
-              api_type: string
-              required: false
-            - id: 221120583
-              key: website
-              position: 2
-              name: Website
-              type: CustomFieldDefinitions::UrlField
-              api_type: url
-              required: false
-          - id: 647403809
-            screenable_type: Release
-            name: Screen Definition 8
-            custom_field_definitions:
-            - id: 3228193
-              key: release_custom_date
-              position: 1
-              name: Release custom date
-              type: CustomFieldDefinitions::DateField
-              api_type: date
-              required: false
-          - id: 687341318
-            screenable_type: Requirement
-            name: Screen Definition 11
-            custom_field_definitions:
-            - id: 85990596
-              key: priority
-              position: 3
-              name: Priority
-              type: CustomFieldDefinitions::SelectConstant
-              api_type: string
-              configuration_display: null
-              required: false
-              options:
-              - id: 135354995
-                label: P4
-              - id: 376819668
-                label: P3
-              - id: 561184585
-                label: P2
-              - id: 947629821
-                label: P1
-              - id: 1058433764
-                label: P5
-            - id: 867049992
-              key: requested_by
-              position: 2
-              name: Requested By
-              type: CustomFieldDefinitions::TextField
-              api_type: string
-              required: false
-          - id: 790680888
-            screenable_type: Ideas::IdeaPortal
-            name: Screen Definition 4
-            custom_field_definitions:
-            - id: 807801664
-              key: name
-              position: 1
-              name: Name
-              type: CustomFieldDefinitions::TextField
-              api_type: string
-              required: false
-          - id: 826556567
-            screenable_type: Competitor
-            name: Screen Definition 3
-            custom_field_definitions: []
-          - id: 838774462
-            screenable_type: Initiative
-            name: Screen Definition 12
-            custom_field_definitions:
-            - id: 250383571
-              key: customers
-              position: 1
-              name: Customers
-              type: CustomFieldDefinitions::LinkMany
-              api_type: array
-              required: false
-            - id: 688549069
-              key: initiative_custom_date
-              position: 3
-              name: Initiative custom date
-              type: CustomFieldDefinitions::DateField
-              api_type: date
-              required: false
-          - id: 908690576
-            screenable_type: Epic
-            name: Screen Definition 7
-            custom_field_definitions:
-            - id: 919440521
-              key: epic_custom_date
-              position: 1
-              name: Epic custom date
-              type: CustomFieldDefinitions::DateField
-              api_type: date
-              required: false
-          has_ideas: true
-          has_master_features: false
-          has_epics: false
-          release_workflow:
-            id: 717623509
-            name: Account product release workflow
-            statusable_type: Release
-            workflow_type: release
-          requirement_workflow:
-            id: 499195972
-            name: Account product feature workflow
-            statusable_type: Feature
-            workflow_type: requirement
-          feature_workflow:
-            id: 499195972
-            name: Account product feature workflow
-            statusable_type: Feature
-            workflow_type: feature
-          initiative_workflow:
-            id: 61191651
-            name: Account initiative workflow
-            statusable_type: Initiative
-            workflow_type: initiative
-          epic_workflow:
-            id: 499195972
-            name: Account product feature workflow
-            statusable_type: Feature
-            workflow_type: epic
-          idea_workflow:
-            id: 80245244
-            name: Account product idea workflow
-            statusable_type: Idea
-            workflow_type: idea
-          strategic_imperative_workflow:
-            id: 883066232
-            name: Account goal workflow
-            statusable_type: StrategicImperative
-            workflow_type: strategic_imperative
-          page_workflow:
-            id: 934299270
-            name: Account document workflow
-            statusable_type: Page
-            workflow_type: page
-          key_result_workflow:
-            id: 1024772447
-            name: Account product key result workflow
-            statusable_type: KeyResult
-            workflow_type: key_result
-          capacity_planning_enabled: false
-          default_capacity_units: 10
-          enhanced_capacity_planning_enabled: false
-          workspace_type: product_workspace
     FeaturesPutResponse:
       type: object
       properties:
@@ -6333,6 +4539,1816 @@ components:
             email: no-reply@aha.io
             created_at: '2019-01-01T00:00:00.000Z'
             updated_at: '2019-01-01T00:00:00.000Z'
+    IdeasPutResponse:
+      type: object
+      properties:
+        idea:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '58056975'
+            name:
+              type: string
+              example: Idea 1
+            reference_num:
+              type: string
+              example: PRJ1-I-1
+            score:
+              type: integer
+              example: 15
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            product_id:
+              type: string
+              example: '131414752'
+            votes:
+              type: integer
+              example: 1
+            initial_votes:
+              type: integer
+              example: 0
+            status_changed_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            workflow_status:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1009437757'
+                name:
+                  type: string
+                  example: In progress
+                position:
+                  type: integer
+                  example: 2
+                complete:
+                  type: boolean
+                  example: false
+                color:
+                  type: string
+                  example: '#ecdd8f'
+              example:
+                id: '1009437757'
+                name: In progress
+                position: 2
+                complete: false
+                color: '#ecdd8f'
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '103757394'
+                body:
+                  type: string
+                  example: Description of idea 1
+                editor_version:
+                  type: integer
+                  example: 1
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: '103757394'
+                body: Description of idea 1
+                editor_version: 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            visibility:
+              type: string
+              example: Visible to all ideas portal users
+            url:
+              type: string
+              example: http://company.aha.io/ideas/ideas/PRJ1-I-1
+            resource:
+              type: string
+              example: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+            product:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '131414752'
+                reference_prefix:
+                  type: string
+                  example: PRJ1
+                name:
+                  type: string
+                  example: Project 1
+                product_line:
+                  type: boolean
+                  example: false
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                workspace_type:
+                  type: string
+                  example: product_workspace
+                url:
+                  type: string
+                  example: http://company.aha.io/projects/PRJ1
+              example:
+                id: '131414752'
+                reference_prefix: PRJ1
+                name: Project 1
+                product_line: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                workspace_type: product_workspace
+                url: http://company.aha.io/projects/PRJ1
+            created_by_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1020675218'
+                name:
+                  type: string
+                  example: Mary Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+            assigned_to_user:
+              type: 'null'
+            feature:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149492554846'
+                reference_num:
+                  type: string
+                  example: PRJ1-251
+                name:
+                  type: string
+                  example: Idea 1
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                url:
+                  type: string
+                  example: http://company.aha.io/features/PRJ1-251
+                resource:
+                  type: string
+                  example: http://company.aha.io/api/v1/features/PRJ1-251
+                product_id:
+                  type: string
+                  example: '131414752'
+              example:
+                id: '6776881149492554846'
+                reference_num: PRJ1-251
+                name: Idea 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/features/PRJ1-251
+                resource: http://company.aha.io/api/v1/features/PRJ1-251
+                product_id: '131414752'
+            endorsements_count:
+              type: integer
+              example: 1
+            comments_count:
+              type: integer
+              example: 0
+            score_facts:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  value:
+                    type: string
+                  name:
+                    type: string
+                example:
+                  id: '244026645'
+                  value: 10
+                  name: Effort
+              example:
+              - id: '244026645'
+                value: 10
+                name: Effort
+              - id: '394452137'
+                value: 5
+                name: Benefit
+            tags:
+              type: array
+              items:
+                type: string
+                example: Infrastructure
+              example:
+              - Infrastructure
+            full_tags:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  color:
+                    type: string
+                example:
+                  id: 775582684
+                  name: Infrastructure
+                  color: '#7552e0'
+              example:
+              - id: 775582684
+                name: Infrastructure
+                color: '#7552e0'
+            categories:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  parent_id:
+                    type: string
+                  project_id:
+                    type: string
+                  created_at:
+                    type: string
+                example:
+                  id: '972845454'
+                  name: Hard disk drive
+                  parent_id: 552935478
+                  project_id: 131414752
+                  created_at: '2019-01-01T00:00:00.000Z'
+              example:
+              - id: '972845454'
+                name: Hard disk drive
+                parent_id: 552935478
+                project_id: 131414752
+                created_at: '2019-01-01T00:00:00.000Z'
+            custom_fields:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  key:
+                    type: string
+                  name:
+                    type: string
+                  updatedAt:
+                    type: string
+                  value:
+                    type: string
+                  type:
+                    type: string
+                example:
+                  id: 585340588
+                  key: component
+                  name: Component
+                  updatedAt: '2019-01-01T00:00:00Z'
+                  value:
+                  - web
+                  type: array
+              example:
+              - id: 585340588
+                key: component
+                name: Component
+                updatedAt: '2019-01-01T00:00:00Z'
+                value:
+                - web
+                type: array
+              - id: 267687015
+                key: custom_scorecard_definition
+                name: Some custom scorecard definition
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: 11
+                type: scorecard
+                score_facts: []
+              - id: 193641455
+                key: text_field1
+                name: TextField1
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: Cairo
+                type: string
+              - id: 310635095
+                key: text_field2
+                name: TextField2
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: Rennes
+                type: string
+              - id: 800380718
+                key: upload
+                name: Upload
+                updatedAt: '2019-01-01T00:00:00Z'
+                attachments: []
+                type: attachment
+            custom_object_links:
+              type: array
+              items:
+                type: object
+                properties:
+                  key:
+                    type: string
+                  name:
+                    type: string
+                  record_type:
+                    type: string
+                  record_ids:
+                    type: string
+                example:
+                  key: revenue
+                  name: Revenue
+                  record_type: CustomObjectRecord
+                  record_ids:
+                  - 640362830
+              example:
+              - key: revenue
+                name: Revenue
+                record_type: CustomObjectRecord
+                record_ids:
+                - 640362830
+              - key: submitters
+                name: Submitters
+                record_type: CustomObjectRecord
+                record_ids:
+                - 640362830
+            workflow_status_times:
+              type: array
+              items:
+                type: object
+                properties:
+                  status_id:
+                    type: string
+                  status_name:
+                    type: string
+                  started_at:
+                    type: string
+                  ended_at:
+                    type: 'null'
+                example:
+                  status_id: '1009437757'
+                  status_name: In progress
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: null
+              example:
+              - status_id: '1009437757'
+                status_name: In progress
+                started_at: '2019-01-01T00:00:00.000Z'
+                ended_at: null
+            submitted_idea_portal_record_url:
+              type: string
+              example: https://ideas.example.com:8338/ideas/PRJ1-I-1
+            integration_fields:
+              type: array
+              items: {}
+          example:
+            id: '58056975'
+            name: Idea 1
+            reference_num: PRJ1-I-1
+            score: 15
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            product_id: '131414752'
+            votes: 1
+            initial_votes: 0
+            status_changed_at: '2019-01-01T00:00:00.000Z'
+            workflow_status:
+              id: '1009437757'
+              name: In progress
+              position: 2
+              complete: false
+              color: '#ecdd8f'
+            description:
+              id: '103757394'
+              body: Description of idea 1
+              editor_version: 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            visibility: Visible to all ideas portal users
+            url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+            resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+            product:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              workspace_type: product_workspace
+              url: http://company.aha.io/projects/PRJ1
+            created_by_user:
+              id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            assigned_to_user: null
+            feature:
+              id: '6776881149492554846'
+              reference_num: PRJ1-251
+              name: Idea 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/features/PRJ1-251
+              resource: http://company.aha.io/api/v1/features/PRJ1-251
+              product_id: '131414752'
+            endorsements_count: 1
+            comments_count: 0
+            score_facts:
+            - id: '244026645'
+              value: 10
+              name: Effort
+            - id: '394452137'
+              value: 5
+              name: Benefit
+            tags:
+            - Infrastructure
+            full_tags:
+            - id: 775582684
+              name: Infrastructure
+              color: '#7552e0'
+            categories:
+            - id: '972845454'
+              name: Hard disk drive
+              parent_id: 552935478
+              project_id: 131414752
+              created_at: '2019-01-01T00:00:00.000Z'
+            custom_fields:
+            - id: 585340588
+              key: component
+              name: Component
+              updatedAt: '2019-01-01T00:00:00Z'
+              value:
+              - web
+              type: array
+            - id: 267687015
+              key: custom_scorecard_definition
+              name: Some custom scorecard definition
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: 11
+              type: scorecard
+              score_facts: []
+            - id: 193641455
+              key: text_field1
+              name: TextField1
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: Cairo
+              type: string
+            - id: 310635095
+              key: text_field2
+              name: TextField2
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: Rennes
+              type: string
+            - id: 800380718
+              key: upload
+              name: Upload
+              updatedAt: '2019-01-01T00:00:00Z'
+              attachments: []
+              type: attachment
+            custom_object_links:
+            - key: revenue
+              name: Revenue
+              record_type: CustomObjectRecord
+              record_ids:
+              - 640362830
+            - key: submitters
+              name: Submitters
+              record_type: CustomObjectRecord
+              record_ids:
+              - 640362830
+            workflow_status_times:
+            - status_id: '1009437757'
+              status_name: In progress
+              started_at: '2019-01-01T00:00:00.000Z'
+              ended_at: null
+            submitted_idea_portal_record_url: https://ideas.example.com:8338/ideas/PRJ1-I-1
+            integration_fields: []
+      example:
+        idea:
+          id: '58056975'
+          name: Idea 1
+          reference_num: PRJ1-I-1
+          score: 15
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          product_id: '131414752'
+          votes: 1
+          initial_votes: 0
+          status_changed_at: '2019-01-01T00:00:00.000Z'
+          workflow_status:
+            id: '1009437757'
+            name: In progress
+            position: 2
+            complete: false
+            color: '#ecdd8f'
+          description:
+            id: '103757394'
+            body: Description of idea 1
+            editor_version: 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+          visibility: Visible to all ideas portal users
+          url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+          resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+          product:
+            id: '131414752'
+            reference_prefix: PRJ1
+            name: Project 1
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            workspace_type: product_workspace
+            url: http://company.aha.io/projects/PRJ1
+          created_by_user:
+            id: '1020675218'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          assigned_to_user: null
+          feature:
+            id: '6776881149492554846'
+            reference_num: PRJ1-251
+            name: Idea 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/features/PRJ1-251
+            resource: http://company.aha.io/api/v1/features/PRJ1-251
+            product_id: '131414752'
+          endorsements_count: 1
+          comments_count: 0
+          score_facts:
+          - id: '244026645'
+            value: 10
+            name: Effort
+          - id: '394452137'
+            value: 5
+            name: Benefit
+          tags:
+          - Infrastructure
+          full_tags:
+          - id: 775582684
+            name: Infrastructure
+            color: '#7552e0'
+          categories:
+          - id: '972845454'
+            name: Hard disk drive
+            parent_id: 552935478
+            project_id: 131414752
+            created_at: '2019-01-01T00:00:00.000Z'
+          custom_fields:
+          - id: 585340588
+            key: component
+            name: Component
+            updatedAt: '2019-01-01T00:00:00Z'
+            value:
+            - web
+            type: array
+          - id: 267687015
+            key: custom_scorecard_definition
+            name: Some custom scorecard definition
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: 11
+            type: scorecard
+            score_facts: []
+          - id: 193641455
+            key: text_field1
+            name: TextField1
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: Cairo
+            type: string
+          - id: 310635095
+            key: text_field2
+            name: TextField2
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: Rennes
+            type: string
+          - id: 800380718
+            key: upload
+            name: Upload
+            updatedAt: '2019-01-01T00:00:00Z'
+            attachments: []
+            type: attachment
+          custom_object_links:
+          - key: revenue
+            name: Revenue
+            record_type: CustomObjectRecord
+            record_ids:
+            - 640362830
+          - key: submitters
+            name: Submitters
+            record_type: CustomObjectRecord
+            record_ids:
+            - 640362830
+          workflow_status_times:
+          - status_id: '1009437757'
+            status_name: In progress
+            started_at: '2019-01-01T00:00:00.000Z'
+            ended_at: null
+          submitted_idea_portal_record_url: https://ideas.example.com:8338/ideas/PRJ1-I-1
+          integration_fields: []
+    ProductsPutResponse:
+      type: object
+      properties:
+        product:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '131414752'
+            reference_prefix:
+              type: string
+              example: PRJ1
+            name:
+              type: string
+              example: Two Products
+            product_line:
+              type: boolean
+              example: false
+            product_line_type:
+              type: 'null'
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '21164619'
+                body:
+                  type: string
+                  example: ''
+                editor_version:
+                  type: integer
+                  example: 1
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: '21164619'
+                body: ''
+                editor_version: 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            url:
+              type: string
+              example: http://company.aha.io/projects/PRJ1
+            resource:
+              type: string
+              example: http://company.aha.io/projects/PRJ1
+            children:
+              type: array
+              items: {}
+            custom_fields:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  key:
+                    type: string
+                  name:
+                    type: string
+                  updatedAt:
+                    type: string
+                  value:
+                    type: string
+                  type:
+                    type: string
+                example:
+                  id: 33687638
+                  key: release_count
+                  name: Release count
+                  updatedAt: '2019-01-01T00:00:00Z'
+                  value:
+                    values:
+                      '6809377296730243716':
+                        value: 6.0
+                        name: Release count
+                        display_value: '6.0'
+                  type: equation_sheet
+              example:
+              - id: 33687638
+                key: release_count
+                name: Release count
+                updatedAt: '2019-01-01T00:00:00Z'
+                value:
+                  values:
+                    '6809377296730243716':
+                      value: 6.0
+                      name: Release count
+                      display_value: '6.0'
+                type: equation_sheet
+            screen_definition_ids:
+              type: object
+              properties:
+                Approval:
+                  type: integer
+                  example: 475481209
+                Competitor:
+                  type: integer
+                  example: 826556567
+                Epic:
+                  type: integer
+                  example: 908690576
+                Feature:
+                  type: integer
+                  example: 19837977
+                Ideas::Idea:
+                  type: integer
+                  example: 405267877
+                Ideas::IdeaPortal:
+                  type: integer
+                  example: 790680888
+                Initiative:
+                  type: integer
+                  example: 838774462
+                Page:
+                  type: integer
+                  example: 26499634
+                Project:
+                  type: integer
+                  example: 524951996
+                Release:
+                  type: integer
+                  example: 647403809
+                Requirement:
+                  type: integer
+                  example: 687341318
+                StrategicImperative:
+                  type: integer
+                  example: 117022249
+              example:
+                Approval: 475481209
+                Competitor: 826556567
+                Epic: 908690576
+                Feature: 19837977
+                Ideas::Idea: 405267877
+                Ideas::IdeaPortal: 790680888
+                Initiative: 838774462
+                Page: 26499634
+                Project: 524951996
+                Release: 647403809
+                Requirement: 687341318
+                StrategicImperative: 117022249
+            screen_definitions:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  screenable_type:
+                    type: string
+                  name:
+                    type: string
+                  custom_field_definitions:
+                    type: string
+                example:
+                  id: 19837977
+                  screenable_type: Feature
+                  name: Screen Definition 6
+                  custom_field_definitions:
+                  - id: 839883647
+                    key: custom_scorecard_definition
+                    position: 3
+                    name: Some custom scorecard definition
+                    type: CustomFieldDefinitions::ScorecardField
+                    api_type: scorecard
+                    required: false
+                  - id: 182007396
+                    key: custom_table
+                    position: 7
+                    name: Custom Table
+                    type: CustomFieldDefinitions::LinkMasterDetail
+                    api_type: array
+                    required: false
+                  - id: 20549131
+                    key: customer
+                    position: 2
+                    name: Customer
+                    type: CustomFieldDefinitions::SelectEditable
+                    api_type: string
+                    configuration_display: null
+                    required: false
+                    options:
+                    - id: 106870231
+                      label: cust1
+                    - id: 525853807
+                      label: cust2
+                    - id: 676386040
+                      label: cust3
+                  - id: 141558949
+                    key: customers_table
+                    position: 1
+                    name: Customers for custom table
+                    type: CustomFieldDefinitions::LinkMany
+                    api_type: array
+                    required: false
+                  - id: 384804762
+                    key: product_managers
+                    position: 7
+                    name: Product Managers
+                    type: CustomFieldDefinitions::Records::UsersField
+                    api_type: array
+                    required: false
+              example:
+              - id: 19837977
+                screenable_type: Feature
+                name: Screen Definition 6
+                custom_field_definitions:
+                - id: 839883647
+                  key: custom_scorecard_definition
+                  position: 3
+                  name: Some custom scorecard definition
+                  type: CustomFieldDefinitions::ScorecardField
+                  api_type: scorecard
+                  required: false
+                - id: 182007396
+                  key: custom_table
+                  position: 7
+                  name: Custom Table
+                  type: CustomFieldDefinitions::LinkMasterDetail
+                  api_type: array
+                  required: false
+                - id: 20549131
+                  key: customer
+                  position: 2
+                  name: Customer
+                  type: CustomFieldDefinitions::SelectEditable
+                  api_type: string
+                  configuration_display: null
+                  required: false
+                  options:
+                  - id: 106870231
+                    label: cust1
+                  - id: 525853807
+                    label: cust2
+                  - id: 676386040
+                    label: cust3
+                - id: 141558949
+                  key: customers_table
+                  position: 1
+                  name: Customers for custom table
+                  type: CustomFieldDefinitions::LinkMany
+                  api_type: array
+                  required: false
+                - id: 384804762
+                  key: product_managers
+                  position: 7
+                  name: Product Managers
+                  type: CustomFieldDefinitions::Records::UsersField
+                  api_type: array
+                  required: false
+              - id: 26499634
+                screenable_type: Page
+                name: Screen Definition 7
+                custom_field_definitions:
+                - id: 529933329
+                  key: review_date
+                  position: 1
+                  name: Review date
+                  type: CustomFieldDefinitions::DateField
+                  api_type: date
+                  required: false
+              - id: 117022249
+                screenable_type: StrategicImperative
+                name: Screen Definition 13
+                custom_field_definitions: []
+              - id: 405267877
+                screenable_type: Ideas::Idea
+                name: Screen Definition 5
+                custom_field_definitions:
+                - id: 711072024
+                  key: customers_table
+                  position: 1
+                  name: Customers for custom table
+                  type: CustomFieldDefinitions::LinkMany
+                  api_type: array
+                  required: false
+              - id: 475481209
+                screenable_type: Task
+                name: Approvals custom layout
+                custom_field_definitions: []
+              - id: 524951996
+                screenable_type: Project
+                name: Screen Definition 1
+                custom_field_definitions:
+                - id: 807801664
+                  key: name
+                  position: 1
+                  name: Name
+                  type: CustomFieldDefinitions::TextField
+                  api_type: string
+                  required: false
+                - id: 221120583
+                  key: website
+                  position: 2
+                  name: Website
+                  type: CustomFieldDefinitions::UrlField
+                  api_type: url
+                  required: false
+              - id: 647403809
+                screenable_type: Release
+                name: Screen Definition 8
+                custom_field_definitions:
+                - id: 3228193
+                  key: release_custom_date
+                  position: 1
+                  name: Release custom date
+                  type: CustomFieldDefinitions::DateField
+                  api_type: date
+                  required: false
+              - id: 687341318
+                screenable_type: Requirement
+                name: Screen Definition 11
+                custom_field_definitions:
+                - id: 85990596
+                  key: priority
+                  position: 3
+                  name: Priority
+                  type: CustomFieldDefinitions::SelectConstant
+                  api_type: string
+                  configuration_display: null
+                  required: false
+                  options:
+                  - id: 135354995
+                    label: P4
+                  - id: 376819668
+                    label: P3
+                  - id: 561184585
+                    label: P2
+                  - id: 947629821
+                    label: P1
+                  - id: 1058433764
+                    label: P5
+                - id: 867049992
+                  key: requested_by
+                  position: 2
+                  name: Requested By
+                  type: CustomFieldDefinitions::TextField
+                  api_type: string
+                  required: false
+              - id: 790680888
+                screenable_type: Ideas::IdeaPortal
+                name: Screen Definition 4
+                custom_field_definitions:
+                - id: 807801664
+                  key: name
+                  position: 1
+                  name: Name
+                  type: CustomFieldDefinitions::TextField
+                  api_type: string
+                  required: false
+              - id: 826556567
+                screenable_type: Competitor
+                name: Screen Definition 3
+                custom_field_definitions: []
+              - id: 838774462
+                screenable_type: Initiative
+                name: Screen Definition 12
+                custom_field_definitions:
+                - id: 250383571
+                  key: customers
+                  position: 1
+                  name: Customers
+                  type: CustomFieldDefinitions::LinkMany
+                  api_type: array
+                  required: false
+                - id: 688549069
+                  key: initiative_custom_date
+                  position: 3
+                  name: Initiative custom date
+                  type: CustomFieldDefinitions::DateField
+                  api_type: date
+                  required: false
+              - id: 908690576
+                screenable_type: Epic
+                name: Screen Definition 7
+                custom_field_definitions:
+                - id: 919440521
+                  key: epic_custom_date
+                  position: 1
+                  name: Epic custom date
+                  type: CustomFieldDefinitions::DateField
+                  api_type: date
+                  required: false
+            has_ideas:
+              type: boolean
+              example: true
+            has_master_features:
+              type: boolean
+              example: false
+            has_epics:
+              type: boolean
+              example: false
+            release_workflow:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 717623509
+                name:
+                  type: string
+                  example: Account product release workflow
+                statusable_type:
+                  type: string
+                  example: Release
+                workflow_type:
+                  type: string
+                  example: release
+              example:
+                id: 717623509
+                name: Account product release workflow
+                statusable_type: Release
+                workflow_type: release
+            requirement_workflow:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 499195972
+                name:
+                  type: string
+                  example: Account product feature workflow
+                statusable_type:
+                  type: string
+                  example: Feature
+                workflow_type:
+                  type: string
+                  example: requirement
+              example:
+                id: 499195972
+                name: Account product feature workflow
+                statusable_type: Feature
+                workflow_type: requirement
+            feature_workflow:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 499195972
+                name:
+                  type: string
+                  example: Account product feature workflow
+                statusable_type:
+                  type: string
+                  example: Feature
+                workflow_type:
+                  type: string
+                  example: feature
+              example:
+                id: 499195972
+                name: Account product feature workflow
+                statusable_type: Feature
+                workflow_type: feature
+            initiative_workflow:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 61191651
+                name:
+                  type: string
+                  example: Account initiative workflow
+                statusable_type:
+                  type: string
+                  example: Initiative
+                workflow_type:
+                  type: string
+                  example: initiative
+              example:
+                id: 61191651
+                name: Account initiative workflow
+                statusable_type: Initiative
+                workflow_type: initiative
+            epic_workflow:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 499195972
+                name:
+                  type: string
+                  example: Account product feature workflow
+                statusable_type:
+                  type: string
+                  example: Feature
+                workflow_type:
+                  type: string
+                  example: epic
+              example:
+                id: 499195972
+                name: Account product feature workflow
+                statusable_type: Feature
+                workflow_type: epic
+            idea_workflow:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 80245244
+                name:
+                  type: string
+                  example: Account product idea workflow
+                statusable_type:
+                  type: string
+                  example: Idea
+                workflow_type:
+                  type: string
+                  example: idea
+              example:
+                id: 80245244
+                name: Account product idea workflow
+                statusable_type: Idea
+                workflow_type: idea
+            strategic_imperative_workflow:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 883066232
+                name:
+                  type: string
+                  example: Account goal workflow
+                statusable_type:
+                  type: string
+                  example: StrategicImperative
+                workflow_type:
+                  type: string
+                  example: strategic_imperative
+              example:
+                id: 883066232
+                name: Account goal workflow
+                statusable_type: StrategicImperative
+                workflow_type: strategic_imperative
+            page_workflow:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 934299270
+                name:
+                  type: string
+                  example: Account document workflow
+                statusable_type:
+                  type: string
+                  example: Page
+                workflow_type:
+                  type: string
+                  example: page
+              example:
+                id: 934299270
+                name: Account document workflow
+                statusable_type: Page
+                workflow_type: page
+            key_result_workflow:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 1024772447
+                name:
+                  type: string
+                  example: Account product key result workflow
+                statusable_type:
+                  type: string
+                  example: KeyResult
+                workflow_type:
+                  type: string
+                  example: key_result
+              example:
+                id: 1024772447
+                name: Account product key result workflow
+                statusable_type: KeyResult
+                workflow_type: key_result
+            capacity_planning_enabled:
+              type: boolean
+              example: false
+            default_capacity_units:
+              type: integer
+              example: 10
+            enhanced_capacity_planning_enabled:
+              type: boolean
+              example: false
+            workspace_type:
+              type: string
+              example: product_workspace
+          example:
+            id: '131414752'
+            reference_prefix: PRJ1
+            name: Two Products
+            product_line: false
+            product_line_type: null
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            description:
+              id: '21164619'
+              body: ''
+              editor_version: 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            url: http://company.aha.io/projects/PRJ1
+            resource: http://company.aha.io/projects/PRJ1
+            children: []
+            custom_fields:
+            - id: 33687638
+              key: release_count
+              name: Release count
+              updatedAt: '2019-01-01T00:00:00Z'
+              value:
+                values:
+                  '6809377296730243716':
+                    value: 6.0
+                    name: Release count
+                    display_value: '6.0'
+              type: equation_sheet
+            screen_definition_ids:
+              Approval: 475481209
+              Competitor: 826556567
+              Epic: 908690576
+              Feature: 19837977
+              Ideas::Idea: 405267877
+              Ideas::IdeaPortal: 790680888
+              Initiative: 838774462
+              Page: 26499634
+              Project: 524951996
+              Release: 647403809
+              Requirement: 687341318
+              StrategicImperative: 117022249
+            screen_definitions:
+            - id: 19837977
+              screenable_type: Feature
+              name: Screen Definition 6
+              custom_field_definitions:
+              - id: 839883647
+                key: custom_scorecard_definition
+                position: 3
+                name: Some custom scorecard definition
+                type: CustomFieldDefinitions::ScorecardField
+                api_type: scorecard
+                required: false
+              - id: 182007396
+                key: custom_table
+                position: 7
+                name: Custom Table
+                type: CustomFieldDefinitions::LinkMasterDetail
+                api_type: array
+                required: false
+              - id: 20549131
+                key: customer
+                position: 2
+                name: Customer
+                type: CustomFieldDefinitions::SelectEditable
+                api_type: string
+                configuration_display: null
+                required: false
+                options:
+                - id: 106870231
+                  label: cust1
+                - id: 525853807
+                  label: cust2
+                - id: 676386040
+                  label: cust3
+              - id: 141558949
+                key: customers_table
+                position: 1
+                name: Customers for custom table
+                type: CustomFieldDefinitions::LinkMany
+                api_type: array
+                required: false
+              - id: 384804762
+                key: product_managers
+                position: 7
+                name: Product Managers
+                type: CustomFieldDefinitions::Records::UsersField
+                api_type: array
+                required: false
+            - id: 26499634
+              screenable_type: Page
+              name: Screen Definition 7
+              custom_field_definitions:
+              - id: 529933329
+                key: review_date
+                position: 1
+                name: Review date
+                type: CustomFieldDefinitions::DateField
+                api_type: date
+                required: false
+            - id: 117022249
+              screenable_type: StrategicImperative
+              name: Screen Definition 13
+              custom_field_definitions: []
+            - id: 405267877
+              screenable_type: Ideas::Idea
+              name: Screen Definition 5
+              custom_field_definitions:
+              - id: 711072024
+                key: customers_table
+                position: 1
+                name: Customers for custom table
+                type: CustomFieldDefinitions::LinkMany
+                api_type: array
+                required: false
+            - id: 475481209
+              screenable_type: Task
+              name: Approvals custom layout
+              custom_field_definitions: []
+            - id: 524951996
+              screenable_type: Project
+              name: Screen Definition 1
+              custom_field_definitions:
+              - id: 807801664
+                key: name
+                position: 1
+                name: Name
+                type: CustomFieldDefinitions::TextField
+                api_type: string
+                required: false
+              - id: 221120583
+                key: website
+                position: 2
+                name: Website
+                type: CustomFieldDefinitions::UrlField
+                api_type: url
+                required: false
+            - id: 647403809
+              screenable_type: Release
+              name: Screen Definition 8
+              custom_field_definitions:
+              - id: 3228193
+                key: release_custom_date
+                position: 1
+                name: Release custom date
+                type: CustomFieldDefinitions::DateField
+                api_type: date
+                required: false
+            - id: 687341318
+              screenable_type: Requirement
+              name: Screen Definition 11
+              custom_field_definitions:
+              - id: 85990596
+                key: priority
+                position: 3
+                name: Priority
+                type: CustomFieldDefinitions::SelectConstant
+                api_type: string
+                configuration_display: null
+                required: false
+                options:
+                - id: 135354995
+                  label: P4
+                - id: 376819668
+                  label: P3
+                - id: 561184585
+                  label: P2
+                - id: 947629821
+                  label: P1
+                - id: 1058433764
+                  label: P5
+              - id: 867049992
+                key: requested_by
+                position: 2
+                name: Requested By
+                type: CustomFieldDefinitions::TextField
+                api_type: string
+                required: false
+            - id: 790680888
+              screenable_type: Ideas::IdeaPortal
+              name: Screen Definition 4
+              custom_field_definitions:
+              - id: 807801664
+                key: name
+                position: 1
+                name: Name
+                type: CustomFieldDefinitions::TextField
+                api_type: string
+                required: false
+            - id: 826556567
+              screenable_type: Competitor
+              name: Screen Definition 3
+              custom_field_definitions: []
+            - id: 838774462
+              screenable_type: Initiative
+              name: Screen Definition 12
+              custom_field_definitions:
+              - id: 250383571
+                key: customers
+                position: 1
+                name: Customers
+                type: CustomFieldDefinitions::LinkMany
+                api_type: array
+                required: false
+              - id: 688549069
+                key: initiative_custom_date
+                position: 3
+                name: Initiative custom date
+                type: CustomFieldDefinitions::DateField
+                api_type: date
+                required: false
+            - id: 908690576
+              screenable_type: Epic
+              name: Screen Definition 7
+              custom_field_definitions:
+              - id: 919440521
+                key: epic_custom_date
+                position: 1
+                name: Epic custom date
+                type: CustomFieldDefinitions::DateField
+                api_type: date
+                required: false
+            has_ideas: true
+            has_master_features: false
+            has_epics: false
+            release_workflow:
+              id: 717623509
+              name: Account product release workflow
+              statusable_type: Release
+              workflow_type: release
+            requirement_workflow:
+              id: 499195972
+              name: Account product feature workflow
+              statusable_type: Feature
+              workflow_type: requirement
+            feature_workflow:
+              id: 499195972
+              name: Account product feature workflow
+              statusable_type: Feature
+              workflow_type: feature
+            initiative_workflow:
+              id: 61191651
+              name: Account initiative workflow
+              statusable_type: Initiative
+              workflow_type: initiative
+            epic_workflow:
+              id: 499195972
+              name: Account product feature workflow
+              statusable_type: Feature
+              workflow_type: epic
+            idea_workflow:
+              id: 80245244
+              name: Account product idea workflow
+              statusable_type: Idea
+              workflow_type: idea
+            strategic_imperative_workflow:
+              id: 883066232
+              name: Account goal workflow
+              statusable_type: StrategicImperative
+              workflow_type: strategic_imperative
+            page_workflow:
+              id: 934299270
+              name: Account document workflow
+              statusable_type: Page
+              workflow_type: page
+            key_result_workflow:
+              id: 1024772447
+              name: Account product key result workflow
+              statusable_type: KeyResult
+              workflow_type: key_result
+            capacity_planning_enabled: false
+            default_capacity_units: 10
+            enhanced_capacity_planning_enabled: false
+            workspace_type: product_workspace
+      example:
+        product:
+          id: '131414752'
+          reference_prefix: PRJ1
+          name: Two Products
+          product_line: false
+          product_line_type: null
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          description:
+            id: '21164619'
+            body: ''
+            editor_version: 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+          url: http://company.aha.io/projects/PRJ1
+          resource: http://company.aha.io/projects/PRJ1
+          children: []
+          custom_fields:
+          - id: 33687638
+            key: release_count
+            name: Release count
+            updatedAt: '2019-01-01T00:00:00Z'
+            value:
+              values:
+                '6809377296730243716':
+                  value: 6.0
+                  name: Release count
+                  display_value: '6.0'
+            type: equation_sheet
+          screen_definition_ids:
+            Approval: 475481209
+            Competitor: 826556567
+            Epic: 908690576
+            Feature: 19837977
+            Ideas::Idea: 405267877
+            Ideas::IdeaPortal: 790680888
+            Initiative: 838774462
+            Page: 26499634
+            Project: 524951996
+            Release: 647403809
+            Requirement: 687341318
+            StrategicImperative: 117022249
+          screen_definitions:
+          - id: 19837977
+            screenable_type: Feature
+            name: Screen Definition 6
+            custom_field_definitions:
+            - id: 839883647
+              key: custom_scorecard_definition
+              position: 3
+              name: Some custom scorecard definition
+              type: CustomFieldDefinitions::ScorecardField
+              api_type: scorecard
+              required: false
+            - id: 182007396
+              key: custom_table
+              position: 7
+              name: Custom Table
+              type: CustomFieldDefinitions::LinkMasterDetail
+              api_type: array
+              required: false
+            - id: 20549131
+              key: customer
+              position: 2
+              name: Customer
+              type: CustomFieldDefinitions::SelectEditable
+              api_type: string
+              configuration_display: null
+              required: false
+              options:
+              - id: 106870231
+                label: cust1
+              - id: 525853807
+                label: cust2
+              - id: 676386040
+                label: cust3
+            - id: 141558949
+              key: customers_table
+              position: 1
+              name: Customers for custom table
+              type: CustomFieldDefinitions::LinkMany
+              api_type: array
+              required: false
+            - id: 384804762
+              key: product_managers
+              position: 7
+              name: Product Managers
+              type: CustomFieldDefinitions::Records::UsersField
+              api_type: array
+              required: false
+          - id: 26499634
+            screenable_type: Page
+            name: Screen Definition 7
+            custom_field_definitions:
+            - id: 529933329
+              key: review_date
+              position: 1
+              name: Review date
+              type: CustomFieldDefinitions::DateField
+              api_type: date
+              required: false
+          - id: 117022249
+            screenable_type: StrategicImperative
+            name: Screen Definition 13
+            custom_field_definitions: []
+          - id: 405267877
+            screenable_type: Ideas::Idea
+            name: Screen Definition 5
+            custom_field_definitions:
+            - id: 711072024
+              key: customers_table
+              position: 1
+              name: Customers for custom table
+              type: CustomFieldDefinitions::LinkMany
+              api_type: array
+              required: false
+          - id: 475481209
+            screenable_type: Task
+            name: Approvals custom layout
+            custom_field_definitions: []
+          - id: 524951996
+            screenable_type: Project
+            name: Screen Definition 1
+            custom_field_definitions:
+            - id: 807801664
+              key: name
+              position: 1
+              name: Name
+              type: CustomFieldDefinitions::TextField
+              api_type: string
+              required: false
+            - id: 221120583
+              key: website
+              position: 2
+              name: Website
+              type: CustomFieldDefinitions::UrlField
+              api_type: url
+              required: false
+          - id: 647403809
+            screenable_type: Release
+            name: Screen Definition 8
+            custom_field_definitions:
+            - id: 3228193
+              key: release_custom_date
+              position: 1
+              name: Release custom date
+              type: CustomFieldDefinitions::DateField
+              api_type: date
+              required: false
+          - id: 687341318
+            screenable_type: Requirement
+            name: Screen Definition 11
+            custom_field_definitions:
+            - id: 85990596
+              key: priority
+              position: 3
+              name: Priority
+              type: CustomFieldDefinitions::SelectConstant
+              api_type: string
+              configuration_display: null
+              required: false
+              options:
+              - id: 135354995
+                label: P4
+              - id: 376819668
+                label: P3
+              - id: 561184585
+                label: P2
+              - id: 947629821
+                label: P1
+              - id: 1058433764
+                label: P5
+            - id: 867049992
+              key: requested_by
+              position: 2
+              name: Requested By
+              type: CustomFieldDefinitions::TextField
+              api_type: string
+              required: false
+          - id: 790680888
+            screenable_type: Ideas::IdeaPortal
+            name: Screen Definition 4
+            custom_field_definitions:
+            - id: 807801664
+              key: name
+              position: 1
+              name: Name
+              type: CustomFieldDefinitions::TextField
+              api_type: string
+              required: false
+          - id: 826556567
+            screenable_type: Competitor
+            name: Screen Definition 3
+            custom_field_definitions: []
+          - id: 838774462
+            screenable_type: Initiative
+            name: Screen Definition 12
+            custom_field_definitions:
+            - id: 250383571
+              key: customers
+              position: 1
+              name: Customers
+              type: CustomFieldDefinitions::LinkMany
+              api_type: array
+              required: false
+            - id: 688549069
+              key: initiative_custom_date
+              position: 3
+              name: Initiative custom date
+              type: CustomFieldDefinitions::DateField
+              api_type: date
+              required: false
+          - id: 908690576
+            screenable_type: Epic
+            name: Screen Definition 7
+            custom_field_definitions:
+            - id: 919440521
+              key: epic_custom_date
+              position: 1
+              name: Epic custom date
+              type: CustomFieldDefinitions::DateField
+              api_type: date
+              required: false
+          has_ideas: true
+          has_master_features: false
+          has_epics: false
+          release_workflow:
+            id: 717623509
+            name: Account product release workflow
+            statusable_type: Release
+            workflow_type: release
+          requirement_workflow:
+            id: 499195972
+            name: Account product feature workflow
+            statusable_type: Feature
+            workflow_type: requirement
+          feature_workflow:
+            id: 499195972
+            name: Account product feature workflow
+            statusable_type: Feature
+            workflow_type: feature
+          initiative_workflow:
+            id: 61191651
+            name: Account initiative workflow
+            statusable_type: Initiative
+            workflow_type: initiative
+          epic_workflow:
+            id: 499195972
+            name: Account product feature workflow
+            statusable_type: Feature
+            workflow_type: epic
+          idea_workflow:
+            id: 80245244
+            name: Account product idea workflow
+            statusable_type: Idea
+            workflow_type: idea
+          strategic_imperative_workflow:
+            id: 883066232
+            name: Account goal workflow
+            statusable_type: StrategicImperative
+            workflow_type: strategic_imperative
+          page_workflow:
+            id: 934299270
+            name: Account document workflow
+            statusable_type: Page
+            workflow_type: page
+          key_result_workflow:
+            id: 1024772447
+            name: Account product key result workflow
+            statusable_type: KeyResult
+            workflow_type: key_result
+          capacity_planning_enabled: false
+          default_capacity_units: 10
+          enhanced_capacity_planning_enabled: false
+          workspace_type: product_workspace
+    CustomtablerecordlinksPostRequest:
+      type: object
+      properties:
+        custom_object_record:
+          type: object
+          properties:
+            custom_object_links:
+              type: object
+              properties:
+                custom_table_name_submitters:
+                  type: array
+                  items:
+                    type: integer
+                    example: 136661093
+                  example:
+                  - 136661093
+              example:
+                custom_table_name_submitters:
+                - 136661093
+          example:
+            custom_object_links:
+              custom_table_name_submitters:
+              - 136661093
+      example:
+        custom_object_record:
+          custom_object_links:
+            custom_table_name_submitters:
+            - 136661093
     RequirementsPutResponse:
       type: object
       properties:

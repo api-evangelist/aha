@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Team memberships API
+  title: Aha! Team memberships API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -18,14 +18,14 @@ security:
 - ApiKeyAuth: []
 - CookieAuth: []
 tags:
-- name: Team memberships
+- name: Team Memberships
 paths:
   /api/v1/teams/{team_id}/team_memberships:
     post:
       summary: Add user to a team
       description: Team memberships for capacity planning teams. Users can be either Aha! users or virtual users
       tags:
-      - Team memberships
+      - Team Memberships
       parameters:
       - name: team_id
         in: path
@@ -49,11 +49,13 @@ paths:
             example:
               team_membership:
                 user_id: 689956296
+      operationId: postApiV1TeamsByTeamIdTeamMemberships
+      x-operation-id-source: derived
     get:
       summary: List team memberships for a team
       description: Team memberships for capacity planning teams. Users can be either Aha! users or virtual users
       tags:
-      - Team memberships
+      - Team Memberships
       parameters:
       - name: team_id
         in: path
@@ -111,12 +113,14 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1TeamsByTeamIdTeamMemberships
+      x-operation-id-source: derived
   /api/v1/teams/{team_id}/team_memberships/{id}:
     delete:
       summary: Remove a user from a team
       description: Team memberships for capacity planning teams. Users can be either Aha! users or virtual users
       tags:
-      - Team memberships
+      - Team Memberships
       parameters:
       - name: team_id
         in: path
@@ -144,6 +148,8 @@ paths:
             schema:
               $ref: '#/components/schemas/TeammembershipsPostRequest'
             example: {}
+      operationId: deleteApiV1TeamsByTeamIdTeamMembershipsById
+      x-operation-id-source: derived
 components:
   schemas:
     TeammembershipsGetResponse:

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Custom table records API
+  title: Aha! Custom table records API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -27,29 +27,29 @@ paths:
 
         This means that if you want to
 
-        [create one](/api/resources/custom_table_records/create_a_custom_table_record)
+        create one
 
         or
 
-        [list them](/api/resources/custom_table_records/list_records_in_a_custom_table_for_a_product)
+        list them
 
         you must scope them to a product.
 
 
         Once you have the ID of a specific custom table record, you can
 
-        [get](/api/resources/custom_table_records/get_a_specific_custom_table_record),
+        get,
 
-        [modify](/api/resources/custom_table_records/update_a_custom_table_record),
+        modify,
 
         or
 
-        [delete](/api/resources/custom_table_records/delete_a_custom_table_record)
+        delete
 
         them on the root custom table records resource.
 
 
-        **[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**'
+        **Custom tables are an Enterprise+ exclusive feature.**'
       tags:
       - Custom table records
       parameters:
@@ -128,35 +128,37 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1CustomObjectRecordsById
+      x-operation-id-source: derived
     delete:
       summary: Delete a custom table record
       description: 'Custom tables have a different set of records for each product.
 
         This means that if you want to
 
-        [create one](/api/resources/custom_table_records/create_a_custom_table_record)
+        create one
 
         or
 
-        [list them](/api/resources/custom_table_records/list_records_in_a_custom_table_for_a_product)
+        list them
 
         you must scope them to a product.
 
 
         Once you have the ID of a specific custom table record, you can
 
-        [get](/api/resources/custom_table_records/get_a_specific_custom_table_record),
+        get,
 
-        [modify](/api/resources/custom_table_records/update_a_custom_table_record),
+        modify,
 
         or
 
-        [delete](/api/resources/custom_table_records/delete_a_custom_table_record)
+        delete
 
         them on the root custom table records resource.
 
 
-        **[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**'
+        **Custom tables are an Enterprise+ exclusive feature.**'
       tags:
       - Custom table records
       parameters:
@@ -173,6 +175,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: deleteApiV1CustomObjectRecordsById
+      x-operation-id-source: derived
   /api/v1/products/{product_id}/custom_objects/{key}/records:
     post:
       summary: Create a custom table record
@@ -180,29 +184,29 @@ paths:
 
         This means that if you want to
 
-        [create one](/api/resources/custom_table_records/create_a_custom_table_record)
+        create one
 
         or
 
-        [list them](/api/resources/custom_table_records/list_records_in_a_custom_table_for_a_product)
+        list them
 
         you must scope them to a product.
 
 
         Once you have the ID of a specific custom table record, you can
 
-        [get](/api/resources/custom_table_records/get_a_specific_custom_table_record),
+        get,
 
-        [modify](/api/resources/custom_table_records/update_a_custom_table_record),
+        modify,
 
         or
 
-        [delete](/api/resources/custom_table_records/delete_a_custom_table_record)
+        delete
 
         them on the root custom table records resource.
 
 
-        **[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**'
+        **Custom tables are an Enterprise+ exclusive feature.**'
       tags:
       - Custom table records
       parameters:
@@ -273,35 +277,37 @@ paths:
                 custom_fields:
                   name: Major conglomerate
                   website: www.conglom.com
+      operationId: postApiV1ProductsByProductIdCustomObjectsByKeyRecords
+      x-operation-id-source: derived
     get:
       summary: List records in a custom table for a product
       description: 'Custom tables have a different set of records for each product.
 
         This means that if you want to
 
-        [create one](/api/resources/custom_table_records/create_a_custom_table_record)
+        create one
 
         or
 
-        [list them](/api/resources/custom_table_records/list_records_in_a_custom_table_for_a_product)
+        list them
 
         you must scope them to a product.
 
 
         Once you have the ID of a specific custom table record, you can
 
-        [get](/api/resources/custom_table_records/get_a_specific_custom_table_record),
+        get,
 
-        [modify](/api/resources/custom_table_records/update_a_custom_table_record),
+        modify,
 
         or
 
-        [delete](/api/resources/custom_table_records/delete_a_custom_table_record)
+        delete
 
         them on the root custom table records resource.
 
 
-        **[Custom tables](https://www.aha.io/support/roadmaps/strategic-roadmaps/customizations/custom-tables) are an Enterprise+ exclusive feature.**'
+        **Custom tables are an Enterprise+ exclusive feature.**'
       tags:
       - Custom table records
       parameters:
@@ -422,6 +428,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1ProductsByProductIdCustomObjectsByKeyRecords
+      x-operation-id-source: derived
 components:
   schemas:
     CustomtablerecordsPostRequest:
@@ -451,149 +459,6 @@ components:
           custom_fields:
             name: Major conglomerate
             website: www.conglom.com
-    CustomtablerecordsPostResponse:
-      type: object
-      properties:
-        custom_object_record:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149486714349'
-            product_id:
-              type: string
-              example: '131414752'
-            key:
-              type: string
-              example: customers
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            custom_fields:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  key:
-                    type: string
-                  name:
-                    type: string
-                  updatedAt:
-                    type: string
-                  value:
-                    type: string
-                  type:
-                    type: string
-                example:
-                  id: '6776881149493312138'
-                  key: name
-                  name: Name
-                  updatedAt: '2019-01-01T00:00:00Z'
-                  value: Major conglomerate
-                  type: string
-              example:
-              - id: '6776881149493312138'
-                key: name
-                name: Name
-                updatedAt: '2019-01-01T00:00:00Z'
-                value: Major conglomerate
-                type: string
-              - id: '6776881149489312610'
-                key: website
-                name: Website
-                updatedAt: '2019-01-01T00:00:00Z'
-                value: www.conglom.com
-                type: url
-            custom_object_links:
-              type: array
-              items: {}
-            linked_records:
-              type: array
-              items: {}
-            created_by_user:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '1020675218'
-                name:
-                  type: string
-                  example: Mary Humpty
-                email:
-                  type: string
-                  example: no-reply@aha.io
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-              example:
-                id: '1020675218'
-                name: Mary Humpty
-                email: no-reply@aha.io
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-          example:
-            id: '6776881149486714349'
-            product_id: '131414752'
-            key: customers
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            custom_fields:
-            - id: '6776881149493312138'
-              key: name
-              name: Name
-              updatedAt: '2019-01-01T00:00:00Z'
-              value: Major conglomerate
-              type: string
-            - id: '6776881149489312610'
-              key: website
-              name: Website
-              updatedAt: '2019-01-01T00:00:00Z'
-              value: www.conglom.com
-              type: url
-            custom_object_links: []
-            linked_records: []
-            created_by_user:
-              id: '1020675218'
-              name: Mary Humpty
-              email: no-reply@aha.io
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-      example:
-        custom_object_record:
-          id: '6776881149486714349'
-          product_id: '131414752'
-          key: customers
-          created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          custom_fields:
-          - id: '6776881149493312138'
-            key: name
-            name: Name
-            updatedAt: '2019-01-01T00:00:00Z'
-            value: Major conglomerate
-            type: string
-          - id: '6776881149489312610'
-            key: website
-            name: Website
-            updatedAt: '2019-01-01T00:00:00Z'
-            value: www.conglom.com
-            type: url
-          custom_object_links: []
-          linked_records: []
-          created_by_user:
-            id: '1020675218'
-            name: Mary Humpty
-            email: no-reply@aha.io
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
     CustomtablerecordsGetResponse:
       type: object
       properties:
@@ -839,6 +704,149 @@ components:
             name: Submitters
             record_type: Ideas::Idea
             record_id: 58056975
+          created_by_user:
+            id: '1020675218'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+    CustomtablerecordsPostResponse:
+      type: object
+      properties:
+        custom_object_record:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149486714349'
+            product_id:
+              type: string
+              example: '131414752'
+            key:
+              type: string
+              example: customers
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            custom_fields:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  key:
+                    type: string
+                  name:
+                    type: string
+                  updatedAt:
+                    type: string
+                  value:
+                    type: string
+                  type:
+                    type: string
+                example:
+                  id: '6776881149493312138'
+                  key: name
+                  name: Name
+                  updatedAt: '2019-01-01T00:00:00Z'
+                  value: Major conglomerate
+                  type: string
+              example:
+              - id: '6776881149493312138'
+                key: name
+                name: Name
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: Major conglomerate
+                type: string
+              - id: '6776881149489312610'
+                key: website
+                name: Website
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: www.conglom.com
+                type: url
+            custom_object_links:
+              type: array
+              items: {}
+            linked_records:
+              type: array
+              items: {}
+            created_by_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1020675218'
+                name:
+                  type: string
+                  example: Mary Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+          example:
+            id: '6776881149486714349'
+            product_id: '131414752'
+            key: customers
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            custom_fields:
+            - id: '6776881149493312138'
+              key: name
+              name: Name
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: Major conglomerate
+              type: string
+            - id: '6776881149489312610'
+              key: website
+              name: Website
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: www.conglom.com
+              type: url
+            custom_object_links: []
+            linked_records: []
+            created_by_user:
+              id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+      example:
+        custom_object_record:
+          id: '6776881149486714349'
+          product_id: '131414752'
+          key: customers
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          custom_fields:
+          - id: '6776881149493312138'
+            key: name
+            name: Name
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: Major conglomerate
+            type: string
+          - id: '6776881149489312610'
+            key: website
+            name: Website
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: www.conglom.com
+            type: url
+          custom_object_links: []
+          linked_records: []
           created_by_user:
             id: '1020675218'
             name: Mary Humpty

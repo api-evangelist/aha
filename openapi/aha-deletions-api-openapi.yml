@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Deletions API
+  title: Aha! Deletions API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -49,6 +49,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1Deletions
+      x-operation-id-source: derived
   /api/v1/deletions/{id}/restore:
     post:
       summary: restore a specific record
@@ -91,36 +93,10 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: postApiV1DeletionsByIdRestore
+      x-operation-id-source: derived
 components:
   schemas:
-    DeletionsGetResponse:
-      type: object
-      properties:
-        deletions:
-          type: array
-          items: {}
-        pagination:
-          type: object
-          properties:
-            total_records:
-              type: integer
-              example: 0
-            total_pages:
-              type: integer
-              example: 0
-            current_page:
-              type: integer
-              example: 1
-          example:
-            total_records: 0
-            total_pages: 0
-            current_page: 1
-      example:
-        deletions: []
-        pagination:
-          total_records: 0
-          total_pages: 0
-          current_page: 1
     DeletionsPostResponse:
       type: object
       properties:
@@ -193,6 +169,34 @@ components:
             email: no-reply@aha.io
           id: '6776881149497698683'
           deleted_at: '2019-01-01T00:00:00.000Z'
+    DeletionsGetResponse:
+      type: object
+      properties:
+        deletions:
+          type: array
+          items: {}
+        pagination:
+          type: object
+          properties:
+            total_records:
+              type: integer
+              example: 0
+            total_pages:
+              type: integer
+              example: 0
+            current_page:
+              type: integer
+              example: 1
+          example:
+            total_records: 0
+            total_pages: 0
+            current_page: 1
+      example:
+        deletions: []
+        pagination:
+          total_records: 0
+          total_pages: 0
+          current_page: 1
   securitySchemes:
     OAuth2:
       type: oauth2

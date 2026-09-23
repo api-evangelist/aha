@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Ideas API
+  title: Aha! Ideas API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -146,6 +146,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1IdeasById
+      x-operation-id-source: derived
     delete:
       summary: Delete an idea
       description: 'When creating an idea where the creator is an idea user we strongly suggest
@@ -176,6 +178,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: deleteApiV1IdeasById
+      x-operation-id-source: derived
   /api/v1/products/{product_id}/ideas:
     post:
       summary: Create an idea
@@ -312,6 +316,8 @@ paths:
                 name: New idea
                 description: <p>This is the description</p>
                 initial_votes: 3
+      operationId: postApiV1ProductsByProductIdIdeas
+      x-operation-id-source: derived
     get:
       summary: List ideas for a product
       description: 'When creating an idea where the creator is an idea user we strongly suggest
@@ -477,6 +483,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1ProductsByProductIdIdeas
+      x-operation-id-source: derived
   /api/v1/ideas:
     get:
       summary: List ideas
@@ -777,6 +785,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1Ideas
+      x-operation-id-source: derived
   /api/v1/ideas/{id}?fields=description,plain_text_body:
     get:
       summary: Get a specific idea with plain text body
@@ -831,6 +841,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1Ideas{id}?fields=description,plainTextBody
+      x-operation-id-source: derived
   /api/v1/ideas/related:
     get:
       summary: List ideas related to a particular term
@@ -877,6 +889,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1IdeasRelated
+      x-operation-id-source: derived
   /api/v1/ideas/{id}/promote:
     put:
       summary: Promote an idea
@@ -1049,20 +1063,10 @@ paths:
             example:
               promotable_type: feature
               release_id: 278327321
+      operationId: putApiV1IdeasByIdPromote
+      x-operation-id-source: derived
 components:
   schemas:
-    IdeasPostRequest:
-      type: object
-      properties:
-        promotable_type:
-          type: string
-          example: feature
-        release_id:
-          type: integer
-          example: 278327321
-      example:
-        promotable_type: feature
-        release_id: 278327321
     IdeasPutResponse:
       type: object
       properties:
@@ -1693,6 +1697,18 @@ components:
             ended_at: null
           submitted_idea_portal_record_url: https://ideas.example.com:8338/ideas/PRJ1-I-1
           integration_fields: []
+    IdeasPostRequest:
+      type: object
+      properties:
+        promotable_type:
+          type: string
+          example: feature
+        release_id:
+          type: integer
+          example: 278327321
+      example:
+        promotable_type: feature
+        release_id: 278327321
     IdeasPostResponse:
       type: object
       properties:

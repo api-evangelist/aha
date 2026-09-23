@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Record links API
+  title: Aha! Record links API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -110,6 +110,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1FeaturesByIdRecordLinks
+      x-operation-id-source: derived
   /api/v1/record_links/{id}:
     get:
       summary: Get a specific record link
@@ -168,6 +170,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1RecordLinksById
+      x-operation-id-source: derived
     delete:
       summary: Delete a record link
       description: null
@@ -187,6 +191,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: deleteApiV1RecordLinksById
+      x-operation-id-source: derived
   /api/v1/{record_type}/{id}/record_links:
     post:
       summary: Create a record link for a feature
@@ -224,6 +230,8 @@ paths:
                 record_type: feature
                 record_id: 303873333
                 link_type: 10
+      operationId: postApiV1ByRecordTypeByIdRecordLinks
+      x-operation-id-source: derived
 components:
   schemas:
     RecordlinksGetResponse:

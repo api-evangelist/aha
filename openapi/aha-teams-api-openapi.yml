@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Aha! Account backups Teams API
+  title: Aha! Teams API
   version: 1.0.0
   description: Complete API documentation for Aha! generated from actual test responses
   contact:
@@ -71,6 +71,8 @@ paths:
             example:
               team:
                 name: Account team
+      operationId: postApiV1Teams
+      x-operation-id-source: derived
     get:
       summary: List teams
       description: null
@@ -179,6 +181,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1Teams
+      x-operation-id-source: derived
   /api/v1/products/{product_id}/teams:
     post:
       summary: Create a team associated with a product
@@ -244,6 +248,8 @@ paths:
               team:
                 product_id: PRJ1
                 name: Product team
+      operationId: postApiV1ProductsByProductIdTeams
+      x-operation-id-source: derived
     get:
       summary: List teams in a product
       description: null
@@ -284,6 +290,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1ProductsByProductIdTeams
+      x-operation-id-source: derived
   /api/v1/teams/{id}:
     get:
       summary: Get a specific team
@@ -344,6 +352,8 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
+      operationId: getApiV1TeamsById
+      x-operation-id-source: derived
     put:
       summary: Update a team's product
       description: null
@@ -414,6 +424,8 @@ paths:
               team:
                 name: Product 2 team
                 product_id: PRJ2
+      operationId: putApiV1TeamsById
+      x-operation-id-source: derived
     delete:
       summary: Delete a team
       description: null
@@ -440,12 +452,10 @@ paths:
             schema:
               $ref: '#/components/schemas/TeamsPostRequest'
             example: {}
+      operationId: deleteApiV1TeamsById
+      x-operation-id-source: derived
 components:
   schemas:
-    TeamsPostRequest:
-      type: object
-      properties: {}
-      example: {}
     TeamsPutResponse:
       type: object
       properties:
@@ -623,6 +633,10 @@ components:
             email: null
             user_id: null
             virtual: true
+    TeamsPostRequest:
+      type: object
+      properties: {}
+      example: {}
     TeamsGetResponse:
       type: object
       properties:
