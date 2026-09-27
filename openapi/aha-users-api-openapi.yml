@@ -1127,6 +1127,126 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    UsersPostRequest:
+      type: object
+      properties:
+        user_role:
+          type: object
+          properties:
+            custom_role_id:
+              type: integer
+              example: 409541421
+            product_id:
+              type: integer
+              example: 131414752
+          example:
+            custom_role_id: 409541421
+            product_id: 131414752
+      example:
+        user_role:
+          custom_role_id: 409541421
+          product_id: 131414752
+    UsersGetResponse:
+      type: object
+      properties:
+        user_roles:
+          type: array
+          items:
+            type: object
+            properties:
+              role_id:
+                type: integer
+                example: 409541421
+              name:
+                type: string
+                example: Project scoped role 1
+              scope:
+                type: object
+                properties:
+                  type:
+                    type: string
+                  name:
+                    type: string
+                  id:
+                    type: string
+                example:
+                  type: project
+                  name: Project 1
+                  id: 131414752
+            example:
+              role_id: 409541421
+              name: Project scoped role 1
+              scope:
+                type: project
+                name: Project 1
+                id: 131414752
+          example:
+          - role_id: 409541421
+            name: Project scoped role 1
+            scope:
+              type: project
+              name: Project 1
+              id: 131414752
+        pagination:
+          type: object
+          properties:
+            total_records:
+              type: integer
+              example: 1
+            total_pages:
+              type: integer
+              example: 1
+            current_page:
+              type: integer
+              example: 1
+          example:
+            total_records: 1
+            total_pages: 1
+            current_page: 1
+      example:
+        user_roles:
+        - role_id: 409541421
+          name: Project scoped role 1
+          scope:
+            type: project
+            name: Project 1
+            id: 131414752
+        pagination:
+          total_records: 1
+          total_pages: 1
+          current_page: 1
+    UsersPostResponse:
+      type: object
+      properties:
+        role_id:
+          type: integer
+          example: 409541421
+        name:
+          type: string
+          example: Project scoped role 1
+        scope:
+          type: object
+          properties:
+            type:
+              type: string
+              example: project
+            name:
+              type: string
+              example: Project 1
+            id:
+              type: integer
+              example: 131414752
+          example:
+            type: project
+            name: Project 1
+            id: 131414752
+      example:
+        role_id: 409541421
+        name: Project scoped role 1
+        scope:
+          type: project
+          name: Project 1
+          id: 131414752
     UsersPutResponse:
       type: object
       properties:
@@ -1261,126 +1381,6 @@ components:
           administer_configuration: false
         identity_provider:
           type: password
-    UsersPostResponse:
-      type: object
-      properties:
-        role_id:
-          type: integer
-          example: 409541421
-        name:
-          type: string
-          example: Project scoped role 1
-        scope:
-          type: object
-          properties:
-            type:
-              type: string
-              example: project
-            name:
-              type: string
-              example: Project 1
-            id:
-              type: integer
-              example: 131414752
-          example:
-            type: project
-            name: Project 1
-            id: 131414752
-      example:
-        role_id: 409541421
-        name: Project scoped role 1
-        scope:
-          type: project
-          name: Project 1
-          id: 131414752
-    UsersGetResponse:
-      type: object
-      properties:
-        user_roles:
-          type: array
-          items:
-            type: object
-            properties:
-              role_id:
-                type: integer
-                example: 409541421
-              name:
-                type: string
-                example: Project scoped role 1
-              scope:
-                type: object
-                properties:
-                  type:
-                    type: string
-                  name:
-                    type: string
-                  id:
-                    type: string
-                example:
-                  type: project
-                  name: Project 1
-                  id: 131414752
-            example:
-              role_id: 409541421
-              name: Project scoped role 1
-              scope:
-                type: project
-                name: Project 1
-                id: 131414752
-          example:
-          - role_id: 409541421
-            name: Project scoped role 1
-            scope:
-              type: project
-              name: Project 1
-              id: 131414752
-        pagination:
-          type: object
-          properties:
-            total_records:
-              type: integer
-              example: 1
-            total_pages:
-              type: integer
-              example: 1
-            current_page:
-              type: integer
-              example: 1
-          example:
-            total_records: 1
-            total_pages: 1
-            current_page: 1
-      example:
-        user_roles:
-        - role_id: 409541421
-          name: Project scoped role 1
-          scope:
-            type: project
-            name: Project 1
-            id: 131414752
-        pagination:
-          total_records: 1
-          total_pages: 1
-          current_page: 1
-    UsersPostRequest:
-      type: object
-      properties:
-        user_role:
-          type: object
-          properties:
-            custom_role_id:
-              type: integer
-              example: 409541421
-            product_id:
-              type: integer
-              example: 131414752
-          example:
-            custom_role_id: 409541421
-            product_id: 131414752
-      example:
-        user_role:
-          custom_role_id: 409541421
-          product_id: 131414752
   securitySchemes:
     OAuth2:
       type: oauth2

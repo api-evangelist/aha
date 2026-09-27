@@ -449,6 +449,112 @@ components:
           name: Another name
           description: <p>new description</p>
           phase_type: milestone
+    ReleasephasesPostResponse:
+      type: object
+      properties:
+        release_phase:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149493480488'
+            name:
+              type: string
+              example: New release milestone
+            start_on:
+              type: string
+              example: '2019-01-01'
+            end_on:
+              type: string
+              example: '2019-01-01'
+            type:
+              type: string
+              example: milestone
+            release_id:
+              type: integer
+              example: 278327321
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            progress:
+              type: integer
+              example: 0
+            progress_source:
+              type: string
+              example: progress_manual
+            duration_source:
+              type: string
+              example: duration_manual
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149492778822'
+                body:
+                  type: string
+                  example: <p>This is the description</p>
+                editor_version:
+                  type: integer
+                  example: 2
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: '6776881149492778822'
+                body: <p>This is the description</p>
+                editor_version: 2
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+          example:
+            id: '6776881149493480488'
+            name: New release milestone
+            start_on: '2019-01-01'
+            end_on: '2019-01-01'
+            type: milestone
+            release_id: 278327321
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            progress: 0
+            progress_source: progress_manual
+            duration_source: duration_manual
+            description:
+              id: '6776881149492778822'
+              body: <p>This is the description</p>
+              editor_version: 2
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+      example:
+        release_phase:
+          id: '6776881149493480488'
+          name: New release milestone
+          start_on: '2019-01-01'
+          end_on: '2019-01-01'
+          type: milestone
+          release_id: 278327321
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          progress: 0
+          progress_source: progress_manual
+          duration_source: duration_manual
+          description:
+            id: '6776881149492778822'
+            body: <p>This is the description</p>
+            editor_version: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
     ReleasephasesPutResponse:
       type: object
       properties:
@@ -803,112 +909,6 @@ components:
           total_records: 4
           total_pages: 1
           current_page: 1
-    ReleasephasesPostResponse:
-      type: object
-      properties:
-        release_phase:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149493480488'
-            name:
-              type: string
-              example: New release milestone
-            start_on:
-              type: string
-              example: '2019-01-01'
-            end_on:
-              type: string
-              example: '2019-01-01'
-            type:
-              type: string
-              example: milestone
-            release_id:
-              type: integer
-              example: 278327321
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            progress:
-              type: integer
-              example: 0
-            progress_source:
-              type: string
-              example: progress_manual
-            duration_source:
-              type: string
-              example: duration_manual
-            description:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '6776881149492778822'
-                body:
-                  type: string
-                  example: <p>This is the description</p>
-                editor_version:
-                  type: integer
-                  example: 2
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                attachments:
-                  type: array
-                  items: {}
-              example:
-                id: '6776881149492778822'
-                body: <p>This is the description</p>
-                editor_version: 2
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-          example:
-            id: '6776881149493480488'
-            name: New release milestone
-            start_on: '2019-01-01'
-            end_on: '2019-01-01'
-            type: milestone
-            release_id: 278327321
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            progress: 0
-            progress_source: progress_manual
-            duration_source: duration_manual
-            description:
-              id: '6776881149492778822'
-              body: <p>This is the description</p>
-              editor_version: 2
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-      example:
-        release_phase:
-          id: '6776881149493480488'
-          name: New release milestone
-          start_on: '2019-01-01'
-          end_on: '2019-01-01'
-          type: milestone
-          release_id: 278327321
-          created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          progress: 0
-          progress_source: progress_manual
-          duration_source: duration_manual
-          description:
-            id: '6776881149492778822'
-            body: <p>This is the description</p>
-            editor_version: 2
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            attachments: []
   securitySchemes:
     OAuth2:
       type: oauth2

@@ -547,6 +547,26 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    AttachmentsPost412Response:
+      type: object
+      properties:
+        status:
+          type: string
+          example: duplicate
+        success:
+          type: boolean
+          example: false
+        attachmentId:
+          type: string
+          example: '6776881149490765072'
+        attachmentUrl:
+          type: string
+          example: https://company.aha.io/attachments/6776881149490765072/token/5e0c518000ac2936?size=original
+      example:
+        status: duplicate
+        success: false
+        attachmentId: '6776881149490765072'
+        attachmentUrl: https://company.aha.io/attachments/6776881149490765072/token/5e0c518000ac2936?size=original
     AttachmentsPostResponse:
       type: object
       properties:
@@ -596,26 +616,6 @@ components:
           content_type: text/html
           file_name: home_page.html
           file_size: 0
-    AttachmentsPost412Response:
-      type: object
-      properties:
-        status:
-          type: string
-          example: duplicate
-        success:
-          type: boolean
-          example: false
-        attachmentId:
-          type: string
-          example: '6776881149490765072'
-        attachmentUrl:
-          type: string
-          example: https://company.aha.io/attachments/6776881149490765072/token/5e0c518000ac2936?size=original
-      example:
-        status: duplicate
-        success: false
-        attachmentId: '6776881149490765072'
-        attachmentUrl: https://company.aha.io/attachments/6776881149490765072/token/5e0c518000ac2936?size=original
   securitySchemes:
     OAuth2:
       type: oauth2

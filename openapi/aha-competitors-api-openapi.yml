@@ -358,6 +358,20 @@ components:
             value: '300.0'
             type: number
           comments_count: 1
+    CompetitorsPostRequest:
+      type: object
+      properties:
+        competitor:
+          type: object
+          properties:
+            name:
+              type: string
+              example: Plan-a-lot
+          example:
+            name: Plan-a-lot
+      example:
+        competitor:
+          name: Plan-a-lot
     CompetitorsGetResponse:
       type: object
       properties:
@@ -456,20 +470,6 @@ components:
             value: '300.0'
             type: number
           comments_count: 1
-    CompetitorsPostRequest:
-      type: object
-      properties:
-        competitor:
-          type: object
-          properties:
-            name:
-              type: string
-              example: Plan-a-lot
-          example:
-            name: Plan-a-lot
-      example:
-        competitor:
-          name: Plan-a-lot
     CompetitorsPostResponse:
       type: object
       properties:

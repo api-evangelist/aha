@@ -218,10 +218,26 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    CustomfieldoptionsPostRequest:
+    CustomfieldoptionsPostResponse:
       type: object
-      properties: {}
-      example: {}
+      properties:
+        id:
+          type: string
+          example: '6776881149485179355'
+        value:
+          type: string
+          example: New option
+        color:
+          type: integer
+          example: 6710886
+        hidden:
+          type: boolean
+          example: false
+      example:
+        id: '6776881149485179355'
+        value: New option
+        color: 6710886
+        hidden: false
     CustomfieldoptionsGetResponse:
       type: object
       properties:
@@ -290,26 +306,6 @@ components:
           value: P3
           color: 6710886
           hidden: false
-    CustomfieldoptionsDeleteResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          example: '486420793'
-        value:
-          type: string
-          example: P1
-        color:
-          type: integer
-          example: 6710886
-        hidden:
-          type: boolean
-          example: false
-      example:
-        id: '486420793'
-        value: P1
-        color: 6710886
-        hidden: false
     CustomfieldoptionsPutResponse:
       type: object
       properties:
@@ -330,15 +326,15 @@ components:
         value: New option2
         color: 6710886
         hidden: false
-    CustomfieldoptionsPostResponse:
+    CustomfieldoptionsDeleteResponse:
       type: object
       properties:
         id:
           type: string
-          example: '6776881149485179355'
+          example: '486420793'
         value:
           type: string
-          example: New option
+          example: P1
         color:
           type: integer
           example: 6710886
@@ -346,10 +342,14 @@ components:
           type: boolean
           example: false
       example:
-        id: '6776881149485179355'
-        value: New option
+        id: '486420793'
+        value: P1
         color: 6710886
         hidden: false
+    CustomfieldoptionsPostRequest:
+      type: object
+      properties: {}
+      example: {}
   securitySchemes:
     OAuth2:
       type: oauth2

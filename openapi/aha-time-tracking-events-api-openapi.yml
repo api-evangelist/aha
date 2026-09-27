@@ -204,25 +204,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    TimetrackingeventsPostRequest:
-      type: object
-      properties:
-        time_tracking_event:
-          type: object
-          properties:
-            user_id:
-              type: integer
-              example: 689956296
-            work_done_text:
-              type: string
-              example: 2h
-          example:
-            user_id: 689956296
-            work_done_text: 2h
-      example:
-        time_tracking_event:
-          user_id: 689956296
-          work_done_text: 2h
     TimetrackingeventsPostResponse:
       type: object
       properties:
@@ -288,6 +269,25 @@ components:
           occurred_on: '2019-01-01'
           work_done: 120.0
           work_units: 10
+    TimetrackingeventsPostRequest:
+      type: object
+      properties:
+        time_tracking_event:
+          type: object
+          properties:
+            user_id:
+              type: integer
+              example: 689956296
+            work_done_text:
+              type: string
+              example: 2h
+          example:
+            user_id: 689956296
+            work_done_text: 2h
+      example:
+        time_tracking_event:
+          user_id: 689956296
+          work_done_text: 2h
   securitySchemes:
     OAuth2:
       type: oauth2

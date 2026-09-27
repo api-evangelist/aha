@@ -432,33 +432,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    CustomtablerecordsPostRequest:
-      type: object
-      properties:
-        custom_object_record:
-          type: object
-          properties:
-            custom_fields:
-              type: object
-              properties:
-                name:
-                  type: string
-                  example: Major conglomerate
-                website:
-                  type: string
-                  example: www.conglom.com
-              example:
-                name: Major conglomerate
-                website: www.conglom.com
-          example:
-            custom_fields:
-              name: Major conglomerate
-              website: www.conglom.com
-      example:
-        custom_object_record:
-          custom_fields:
-            name: Major conglomerate
-            website: www.conglom.com
     CustomtablerecordsGetResponse:
       type: object
       properties:
@@ -710,6 +683,33 @@ components:
             email: no-reply@aha.io
             created_at: '2019-01-01T00:00:00.000Z'
             updated_at: '2019-01-01T00:00:00.000Z'
+    CustomtablerecordsPostRequest:
+      type: object
+      properties:
+        custom_object_record:
+          type: object
+          properties:
+            custom_fields:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Major conglomerate
+                website:
+                  type: string
+                  example: www.conglom.com
+              example:
+                name: Major conglomerate
+                website: www.conglom.com
+          example:
+            custom_fields:
+              name: Major conglomerate
+              website: www.conglom.com
+      example:
+        custom_object_record:
+          custom_fields:
+            name: Major conglomerate
+            website: www.conglom.com
     CustomtablerecordsPostResponse:
       type: object
       properties:

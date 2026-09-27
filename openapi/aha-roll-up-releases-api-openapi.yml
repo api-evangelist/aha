@@ -312,6 +312,20 @@ components:
           total_records: 2
           total_pages: 1
           current_page: 1
+    RollupreleasesPostRequest:
+      type: object
+      properties:
+        roll_up_release:
+          type: object
+          properties:
+            name:
+              type: string
+              example: Different release
+          example:
+            name: Different release
+      example:
+        roll_up_release:
+          name: Different release
     RollupreleasesPostResponse:
       type: object
       properties:
@@ -410,20 +424,6 @@ components:
           created_at: '2019-01-01T00:00:00.000Z'
           url: http://company.aha.io/master_releases/PRJ1-MR-1
           resource: http://company.aha.io/api/v1/releases/PRJ1-MR-1
-    RollupreleasesPostRequest:
-      type: object
-      properties:
-        roll_up_release:
-          type: object
-          properties:
-            name:
-              type: string
-              example: Different release
-          example:
-            name: Different release
-      example:
-        roll_up_release:
-          name: Different release
   securitySchemes:
     OAuth2:
       type: oauth2

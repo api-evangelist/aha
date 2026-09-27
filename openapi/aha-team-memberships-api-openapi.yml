@@ -152,6 +152,10 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    TeammembershipsPostRequest:
+      type: object
+      properties: {}
+      example: {}
     TeammembershipsGetResponse:
       type: object
       properties:
@@ -274,10 +278,6 @@ components:
           total_records: 2
           total_pages: 1
           current_page: 1
-    TeammembershipsPostRequest:
-      type: object
-      properties: {}
-      example: {}
   securitySchemes:
     OAuth2:
       type: oauth2

@@ -1067,6 +1067,570 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    IdeasGetResponse:
+      type: object
+      properties:
+        ideas:
+          type: array
+          items: {}
+        pagination:
+          type: object
+          properties:
+            total_records:
+              type: integer
+              example: 0
+            total_pages:
+              type: integer
+              example: 0
+            current_page:
+              type: integer
+              example: 1
+          example:
+            total_records: 0
+            total_pages: 0
+            current_page: 1
+      example:
+        ideas: []
+        pagination:
+          total_records: 0
+          total_pages: 0
+          current_page: 1
+    IdeasPostResponse:
+      type: object
+      properties:
+        idea:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149487483845'
+            name:
+              type: string
+              example: Comprehensive Feature Request
+            reference_num:
+              type: string
+              example: PRJ1-I-10
+            score:
+              type: integer
+              example: 2
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            product_id:
+              type: string
+              example: '131414752'
+            votes:
+              type: integer
+              example: 15
+            initial_votes:
+              type: integer
+              example: 15
+            status_changed_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            workflow_status:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '3259216'
+                name:
+                  type: string
+                  example: New
+                position:
+                  type: integer
+                  example: 1
+                complete:
+                  type: boolean
+                  example: false
+                color:
+                  type: string
+                  example: '#dce7c6'
+              example:
+                id: '3259216'
+                name: New
+                position: 1
+                complete: false
+                color: '#dce7c6'
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149489364397'
+                body:
+                  type: string
+                  example: <h1>Problem Statement</h1><p>Users need better mobile experience</p><h2>Proposed Solution</h2><p>Native mobile app with offline capabilities</p>
+                editor_version:
+                  type: integer
+                  example: 2
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: '6776881149489364397'
+                body: <h1>Problem Statement</h1><p>Users need better mobile experience</p><h2>Proposed Solution</h2><p>Native mobile app with offline capabilities</p>
+                editor_version: 2
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            visibility:
+              type: string
+              example: Visible to all ideas portal users
+            admin_response:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149492320383'
+                body:
+                  type: string
+                  example: Great idea! This aligns with our mobile strategy roadmap. We'll evaluate this for Q3 implementation.
+                editor_version:
+                  type: integer
+                  example: 2
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+                responded_by_user:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    email:
+                      type: string
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
+                  example:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '6776881149492320383'
+                body: Great idea! This aligns with our mobile strategy roadmap. We'll evaluate this for Q3 implementation.
+                editor_version: 2
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+                responded_by_user:
+                  id: '1020675218'
+                  name: Mary Humpty
+                  email: no-reply@aha.io
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+            url:
+              type: string
+              example: http://company.aha.io/ideas/ideas/PRJ1-I-10
+            resource:
+              type: string
+              example: http://company.aha.io/api/v1/ideas/PRJ1-I-10
+            product:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '131414752'
+                reference_prefix:
+                  type: string
+                  example: PRJ1
+                name:
+                  type: string
+                  example: Project 1
+                product_line:
+                  type: boolean
+                  example: false
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                workspace_type:
+                  type: string
+                  example: product_workspace
+                url:
+                  type: string
+                  example: http://company.aha.io/projects/PRJ1
+              example:
+                id: '131414752'
+                reference_prefix: PRJ1
+                name: Project 1
+                product_line: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                workspace_type: product_workspace
+                url: http://company.aha.io/projects/PRJ1
+            created_by_portal_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '384687358'
+                name:
+                  type: string
+                  example: Sammy Smith
+                email:
+                  type: string
+                  example: sammy@smith.com
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '384687358'
+                name: Sammy Smith
+                email: sammy@smith.com
+                created_at: '2019-01-01T00:00:00.000Z'
+            created_by_idea_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '244576613'
+                name:
+                  type: string
+                  example: Sammy Smith
+                email:
+                  type: string
+                  example: sammy@smith.com
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                title:
+                  type: 'null'
+              example:
+                id: '244576613'
+                name: Sammy Smith
+                email: sammy@smith.com
+                created_at: '2019-01-01T00:00:00.000Z'
+                title: null
+            assigned_to_user:
+              type: 'null'
+            endorsements_count:
+              type: integer
+              example: 0
+            comments_count:
+              type: integer
+              example: 0
+            score_facts:
+              type: array
+              items: {}
+            tags:
+              type: array
+              items:
+                type: string
+                example: mobile
+              example:
+              - mobile
+              - offline
+              - performance
+              - UX
+            full_tags:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  color:
+                    type: string
+                example:
+                  id: '6776881149483567678'
+                  name: performance
+                  color: '#e05298'
+              example:
+              - id: '6776881149483567678'
+                name: performance
+                color: '#e05298'
+              - id: '6776881149486951248'
+                name: UX
+                color: '#a952e0'
+              - id: '6776881149488941674'
+                name: mobile
+                color: '#bae052'
+              - id: '6776881149490298781'
+                name: offline
+                color: '#9ae052'
+            categories:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  parent_id:
+                    type: 'null'
+                  project_id:
+                    type: string
+                  created_at:
+                    type: string
+                example:
+                  id: '552935478'
+                  name: Storage
+                  parent_id: null
+                  project_id: 131414752
+                  created_at: '2019-01-01T00:00:00.000Z'
+              example:
+              - id: '552935478'
+                name: Storage
+                parent_id: null
+                project_id: 131414752
+                created_at: '2019-01-01T00:00:00.000Z'
+            custom_fields:
+              type: array
+              items: {}
+            workflow_status_times:
+              type: array
+              items:
+                type: object
+                properties:
+                  status_id:
+                    type: string
+                  status_name:
+                    type: string
+                  started_at:
+                    type: string
+                  ended_at:
+                    type: 'null'
+                example:
+                  status_id: '3259216'
+                  status_name: New
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: null
+              example:
+              - status_id: '3259216'
+                status_name: New
+                started_at: '2019-01-01T00:00:00.000Z'
+                ended_at: null
+            submitted_idea_portal_record_url:
+              type: string
+              example: https://testideaportal1.ideas.aha.io:8338/ideas/PRJ1-I-10
+            integration_fields:
+              type: array
+              items: {}
+          example:
+            id: '6776881149487483845'
+            name: Comprehensive Feature Request
+            reference_num: PRJ1-I-10
+            score: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            product_id: '131414752'
+            votes: 15
+            initial_votes: 15
+            status_changed_at: '2019-01-01T00:00:00.000Z'
+            workflow_status:
+              id: '3259216'
+              name: New
+              position: 1
+              complete: false
+              color: '#dce7c6'
+            description:
+              id: '6776881149489364397'
+              body: <h1>Problem Statement</h1><p>Users need better mobile experience</p><h2>Proposed Solution</h2><p>Native mobile app with offline capabilities</p>
+              editor_version: 2
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            visibility: Visible to all ideas portal users
+            admin_response:
+              id: '6776881149492320383'
+              body: Great idea! This aligns with our mobile strategy roadmap. We'll evaluate this for Q3 implementation.
+              editor_version: 2
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+              responded_by_user:
+                id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/ideas/ideas/PRJ1-I-10
+            resource: http://company.aha.io/api/v1/ideas/PRJ1-I-10
+            product:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              workspace_type: product_workspace
+              url: http://company.aha.io/projects/PRJ1
+            created_by_portal_user:
+              id: '384687358'
+              name: Sammy Smith
+              email: sammy@smith.com
+              created_at: '2019-01-01T00:00:00.000Z'
+            created_by_idea_user:
+              id: '244576613'
+              name: Sammy Smith
+              email: sammy@smith.com
+              created_at: '2019-01-01T00:00:00.000Z'
+              title: null
+            assigned_to_user: null
+            endorsements_count: 0
+            comments_count: 0
+            score_facts: []
+            tags:
+            - mobile
+            - offline
+            - performance
+            - UX
+            full_tags:
+            - id: '6776881149483567678'
+              name: performance
+              color: '#e05298'
+            - id: '6776881149486951248'
+              name: UX
+              color: '#a952e0'
+            - id: '6776881149488941674'
+              name: mobile
+              color: '#bae052'
+            - id: '6776881149490298781'
+              name: offline
+              color: '#9ae052'
+            categories:
+            - id: '552935478'
+              name: Storage
+              parent_id: null
+              project_id: 131414752
+              created_at: '2019-01-01T00:00:00.000Z'
+            custom_fields: []
+            workflow_status_times:
+            - status_id: '3259216'
+              status_name: New
+              started_at: '2019-01-01T00:00:00.000Z'
+              ended_at: null
+            submitted_idea_portal_record_url: https://testideaportal1.ideas.aha.io:8338/ideas/PRJ1-I-10
+            integration_fields: []
+      example:
+        idea:
+          id: '6776881149487483845'
+          name: Comprehensive Feature Request
+          reference_num: PRJ1-I-10
+          score: 2
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          product_id: '131414752'
+          votes: 15
+          initial_votes: 15
+          status_changed_at: '2019-01-01T00:00:00.000Z'
+          workflow_status:
+            id: '3259216'
+            name: New
+            position: 1
+            complete: false
+            color: '#dce7c6'
+          description:
+            id: '6776881149489364397'
+            body: <h1>Problem Statement</h1><p>Users need better mobile experience</p><h2>Proposed Solution</h2><p>Native mobile app with offline capabilities</p>
+            editor_version: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+          visibility: Visible to all ideas portal users
+          admin_response:
+            id: '6776881149492320383'
+            body: Great idea! This aligns with our mobile strategy roadmap. We'll evaluate this for Q3 implementation.
+            editor_version: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+            responded_by_user:
+              id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+          url: http://company.aha.io/ideas/ideas/PRJ1-I-10
+          resource: http://company.aha.io/api/v1/ideas/PRJ1-I-10
+          product:
+            id: '131414752'
+            reference_prefix: PRJ1
+            name: Project 1
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            workspace_type: product_workspace
+            url: http://company.aha.io/projects/PRJ1
+          created_by_portal_user:
+            id: '384687358'
+            name: Sammy Smith
+            email: sammy@smith.com
+            created_at: '2019-01-01T00:00:00.000Z'
+          created_by_idea_user:
+            id: '244576613'
+            name: Sammy Smith
+            email: sammy@smith.com
+            created_at: '2019-01-01T00:00:00.000Z'
+            title: null
+          assigned_to_user: null
+          endorsements_count: 0
+          comments_count: 0
+          score_facts: []
+          tags:
+          - mobile
+          - offline
+          - performance
+          - UX
+          full_tags:
+          - id: '6776881149483567678'
+            name: performance
+            color: '#e05298'
+          - id: '6776881149486951248'
+            name: UX
+            color: '#a952e0'
+          - id: '6776881149488941674'
+            name: mobile
+            color: '#bae052'
+          - id: '6776881149490298781'
+            name: offline
+            color: '#9ae052'
+          categories:
+          - id: '552935478'
+            name: Storage
+            parent_id: null
+            project_id: 131414752
+            created_at: '2019-01-01T00:00:00.000Z'
+          custom_fields: []
+          workflow_status_times:
+          - status_id: '3259216'
+            status_name: New
+            started_at: '2019-01-01T00:00:00.000Z'
+            ended_at: null
+          submitted_idea_portal_record_url: https://testideaportal1.ideas.aha.io:8338/ideas/PRJ1-I-10
+          integration_fields: []
+    IdeasPostRequest:
+      type: object
+      properties:
+        promotable_type:
+          type: string
+          example: feature
+        release_id:
+          type: integer
+          example: 278327321
+      example:
+        promotable_type: feature
+        release_id: 278327321
     IdeasPutResponse:
       type: object
       properties:
@@ -1697,570 +2261,6 @@ components:
             ended_at: null
           submitted_idea_portal_record_url: https://ideas.example.com:8338/ideas/PRJ1-I-1
           integration_fields: []
-    IdeasPostRequest:
-      type: object
-      properties:
-        promotable_type:
-          type: string
-          example: feature
-        release_id:
-          type: integer
-          example: 278327321
-      example:
-        promotable_type: feature
-        release_id: 278327321
-    IdeasPostResponse:
-      type: object
-      properties:
-        idea:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149487483845'
-            name:
-              type: string
-              example: Comprehensive Feature Request
-            reference_num:
-              type: string
-              example: PRJ1-I-10
-            score:
-              type: integer
-              example: 2
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            product_id:
-              type: string
-              example: '131414752'
-            votes:
-              type: integer
-              example: 15
-            initial_votes:
-              type: integer
-              example: 15
-            status_changed_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            workflow_status:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '3259216'
-                name:
-                  type: string
-                  example: New
-                position:
-                  type: integer
-                  example: 1
-                complete:
-                  type: boolean
-                  example: false
-                color:
-                  type: string
-                  example: '#dce7c6'
-              example:
-                id: '3259216'
-                name: New
-                position: 1
-                complete: false
-                color: '#dce7c6'
-            description:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '6776881149489364397'
-                body:
-                  type: string
-                  example: <h1>Problem Statement</h1><p>Users need better mobile experience</p><h2>Proposed Solution</h2><p>Native mobile app with offline capabilities</p>
-                editor_version:
-                  type: integer
-                  example: 2
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                attachments:
-                  type: array
-                  items: {}
-              example:
-                id: '6776881149489364397'
-                body: <h1>Problem Statement</h1><p>Users need better mobile experience</p><h2>Proposed Solution</h2><p>Native mobile app with offline capabilities</p>
-                editor_version: 2
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-            visibility:
-              type: string
-              example: Visible to all ideas portal users
-            admin_response:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '6776881149492320383'
-                body:
-                  type: string
-                  example: Great idea! This aligns with our mobile strategy roadmap. We'll evaluate this for Q3 implementation.
-                editor_version:
-                  type: integer
-                  example: 2
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                attachments:
-                  type: array
-                  items: {}
-                responded_by_user:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    name:
-                      type: string
-                    email:
-                      type: string
-                    created_at:
-                      type: string
-                    updated_at:
-                      type: string
-                  example:
-                    id: '1020675218'
-                    name: Mary Humpty
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-              example:
-                id: '6776881149492320383'
-                body: Great idea! This aligns with our mobile strategy roadmap. We'll evaluate this for Q3 implementation.
-                editor_version: 2
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-                responded_by_user:
-                  id: '1020675218'
-                  name: Mary Humpty
-                  email: no-reply@aha.io
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-            url:
-              type: string
-              example: http://company.aha.io/ideas/ideas/PRJ1-I-10
-            resource:
-              type: string
-              example: http://company.aha.io/api/v1/ideas/PRJ1-I-10
-            product:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '131414752'
-                reference_prefix:
-                  type: string
-                  example: PRJ1
-                name:
-                  type: string
-                  example: Project 1
-                product_line:
-                  type: boolean
-                  example: false
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                workspace_type:
-                  type: string
-                  example: product_workspace
-                url:
-                  type: string
-                  example: http://company.aha.io/projects/PRJ1
-              example:
-                id: '131414752'
-                reference_prefix: PRJ1
-                name: Project 1
-                product_line: false
-                created_at: '2019-01-01T00:00:00.000Z'
-                workspace_type: product_workspace
-                url: http://company.aha.io/projects/PRJ1
-            created_by_portal_user:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '384687358'
-                name:
-                  type: string
-                  example: Sammy Smith
-                email:
-                  type: string
-                  example: sammy@smith.com
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-              example:
-                id: '384687358'
-                name: Sammy Smith
-                email: sammy@smith.com
-                created_at: '2019-01-01T00:00:00.000Z'
-            created_by_idea_user:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '244576613'
-                name:
-                  type: string
-                  example: Sammy Smith
-                email:
-                  type: string
-                  example: sammy@smith.com
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                title:
-                  type: 'null'
-              example:
-                id: '244576613'
-                name: Sammy Smith
-                email: sammy@smith.com
-                created_at: '2019-01-01T00:00:00.000Z'
-                title: null
-            assigned_to_user:
-              type: 'null'
-            endorsements_count:
-              type: integer
-              example: 0
-            comments_count:
-              type: integer
-              example: 0
-            score_facts:
-              type: array
-              items: {}
-            tags:
-              type: array
-              items:
-                type: string
-                example: mobile
-              example:
-              - mobile
-              - offline
-              - performance
-              - UX
-            full_tags:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  name:
-                    type: string
-                  color:
-                    type: string
-                example:
-                  id: '6776881149483567678'
-                  name: performance
-                  color: '#e05298'
-              example:
-              - id: '6776881149483567678'
-                name: performance
-                color: '#e05298'
-              - id: '6776881149486951248'
-                name: UX
-                color: '#a952e0'
-              - id: '6776881149488941674'
-                name: mobile
-                color: '#bae052'
-              - id: '6776881149490298781'
-                name: offline
-                color: '#9ae052'
-            categories:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  name:
-                    type: string
-                  parent_id:
-                    type: 'null'
-                  project_id:
-                    type: string
-                  created_at:
-                    type: string
-                example:
-                  id: '552935478'
-                  name: Storage
-                  parent_id: null
-                  project_id: 131414752
-                  created_at: '2019-01-01T00:00:00.000Z'
-              example:
-              - id: '552935478'
-                name: Storage
-                parent_id: null
-                project_id: 131414752
-                created_at: '2019-01-01T00:00:00.000Z'
-            custom_fields:
-              type: array
-              items: {}
-            workflow_status_times:
-              type: array
-              items:
-                type: object
-                properties:
-                  status_id:
-                    type: string
-                  status_name:
-                    type: string
-                  started_at:
-                    type: string
-                  ended_at:
-                    type: 'null'
-                example:
-                  status_id: '3259216'
-                  status_name: New
-                  started_at: '2019-01-01T00:00:00.000Z'
-                  ended_at: null
-              example:
-              - status_id: '3259216'
-                status_name: New
-                started_at: '2019-01-01T00:00:00.000Z'
-                ended_at: null
-            submitted_idea_portal_record_url:
-              type: string
-              example: https://testideaportal1.ideas.aha.io:8338/ideas/PRJ1-I-10
-            integration_fields:
-              type: array
-              items: {}
-          example:
-            id: '6776881149487483845'
-            name: Comprehensive Feature Request
-            reference_num: PRJ1-I-10
-            score: 2
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            product_id: '131414752'
-            votes: 15
-            initial_votes: 15
-            status_changed_at: '2019-01-01T00:00:00.000Z'
-            workflow_status:
-              id: '3259216'
-              name: New
-              position: 1
-              complete: false
-              color: '#dce7c6'
-            description:
-              id: '6776881149489364397'
-              body: <h1>Problem Statement</h1><p>Users need better mobile experience</p><h2>Proposed Solution</h2><p>Native mobile app with offline capabilities</p>
-              editor_version: 2
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-            visibility: Visible to all ideas portal users
-            admin_response:
-              id: '6776881149492320383'
-              body: Great idea! This aligns with our mobile strategy roadmap. We'll evaluate this for Q3 implementation.
-              editor_version: 2
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-              responded_by_user:
-                id: '1020675218'
-                name: Mary Humpty
-                email: no-reply@aha.io
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-            url: http://company.aha.io/ideas/ideas/PRJ1-I-10
-            resource: http://company.aha.io/api/v1/ideas/PRJ1-I-10
-            product:
-              id: '131414752'
-              reference_prefix: PRJ1
-              name: Project 1
-              product_line: false
-              created_at: '2019-01-01T00:00:00.000Z'
-              workspace_type: product_workspace
-              url: http://company.aha.io/projects/PRJ1
-            created_by_portal_user:
-              id: '384687358'
-              name: Sammy Smith
-              email: sammy@smith.com
-              created_at: '2019-01-01T00:00:00.000Z'
-            created_by_idea_user:
-              id: '244576613'
-              name: Sammy Smith
-              email: sammy@smith.com
-              created_at: '2019-01-01T00:00:00.000Z'
-              title: null
-            assigned_to_user: null
-            endorsements_count: 0
-            comments_count: 0
-            score_facts: []
-            tags:
-            - mobile
-            - offline
-            - performance
-            - UX
-            full_tags:
-            - id: '6776881149483567678'
-              name: performance
-              color: '#e05298'
-            - id: '6776881149486951248'
-              name: UX
-              color: '#a952e0'
-            - id: '6776881149488941674'
-              name: mobile
-              color: '#bae052'
-            - id: '6776881149490298781'
-              name: offline
-              color: '#9ae052'
-            categories:
-            - id: '552935478'
-              name: Storage
-              parent_id: null
-              project_id: 131414752
-              created_at: '2019-01-01T00:00:00.000Z'
-            custom_fields: []
-            workflow_status_times:
-            - status_id: '3259216'
-              status_name: New
-              started_at: '2019-01-01T00:00:00.000Z'
-              ended_at: null
-            submitted_idea_portal_record_url: https://testideaportal1.ideas.aha.io:8338/ideas/PRJ1-I-10
-            integration_fields: []
-      example:
-        idea:
-          id: '6776881149487483845'
-          name: Comprehensive Feature Request
-          reference_num: PRJ1-I-10
-          score: 2
-          created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          product_id: '131414752'
-          votes: 15
-          initial_votes: 15
-          status_changed_at: '2019-01-01T00:00:00.000Z'
-          workflow_status:
-            id: '3259216'
-            name: New
-            position: 1
-            complete: false
-            color: '#dce7c6'
-          description:
-            id: '6776881149489364397'
-            body: <h1>Problem Statement</h1><p>Users need better mobile experience</p><h2>Proposed Solution</h2><p>Native mobile app with offline capabilities</p>
-            editor_version: 2
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            attachments: []
-          visibility: Visible to all ideas portal users
-          admin_response:
-            id: '6776881149492320383'
-            body: Great idea! This aligns with our mobile strategy roadmap. We'll evaluate this for Q3 implementation.
-            editor_version: 2
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            attachments: []
-            responded_by_user:
-              id: '1020675218'
-              name: Mary Humpty
-              email: no-reply@aha.io
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-          url: http://company.aha.io/ideas/ideas/PRJ1-I-10
-          resource: http://company.aha.io/api/v1/ideas/PRJ1-I-10
-          product:
-            id: '131414752'
-            reference_prefix: PRJ1
-            name: Project 1
-            product_line: false
-            created_at: '2019-01-01T00:00:00.000Z'
-            workspace_type: product_workspace
-            url: http://company.aha.io/projects/PRJ1
-          created_by_portal_user:
-            id: '384687358'
-            name: Sammy Smith
-            email: sammy@smith.com
-            created_at: '2019-01-01T00:00:00.000Z'
-          created_by_idea_user:
-            id: '244576613'
-            name: Sammy Smith
-            email: sammy@smith.com
-            created_at: '2019-01-01T00:00:00.000Z'
-            title: null
-          assigned_to_user: null
-          endorsements_count: 0
-          comments_count: 0
-          score_facts: []
-          tags:
-          - mobile
-          - offline
-          - performance
-          - UX
-          full_tags:
-          - id: '6776881149483567678'
-            name: performance
-            color: '#e05298'
-          - id: '6776881149486951248'
-            name: UX
-            color: '#a952e0'
-          - id: '6776881149488941674'
-            name: mobile
-            color: '#bae052'
-          - id: '6776881149490298781'
-            name: offline
-            color: '#9ae052'
-          categories:
-          - id: '552935478'
-            name: Storage
-            parent_id: null
-            project_id: 131414752
-            created_at: '2019-01-01T00:00:00.000Z'
-          custom_fields: []
-          workflow_status_times:
-          - status_id: '3259216'
-            status_name: New
-            started_at: '2019-01-01T00:00:00.000Z'
-            ended_at: null
-          submitted_idea_portal_record_url: https://testideaportal1.ideas.aha.io:8338/ideas/PRJ1-I-10
-          integration_fields: []
-    IdeasGetResponse:
-      type: object
-      properties:
-        ideas:
-          type: array
-          items: {}
-        pagination:
-          type: object
-          properties:
-            total_records:
-              type: integer
-              example: 0
-            total_pages:
-              type: integer
-              example: 0
-            current_page:
-              type: integer
-              example: 1
-          example:
-            total_records: 0
-            total_pages: 0
-            current_page: 1
-      example:
-        ideas: []
-        pagination:
-          total_records: 0
-          total_pages: 0
-          current_page: 1
   securitySchemes:
     OAuth2:
       type: oauth2

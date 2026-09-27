@@ -59,6 +59,14 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    IntegrationchangesPostResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+      example:
+        status: success
     IntegrationchangesPostRequest:
       type: object
       properties:
@@ -75,14 +83,6 @@ components:
         integration_id: 204584239
         model_class: Feature
         model_id: 1007868956
-    IntegrationchangesPostResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: success
-      example:
-        status: success
   securitySchemes:
     OAuth2:
       type: oauth2

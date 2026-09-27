@@ -312,20 +312,6 @@ components:
           resource: http://company.aha.io/personas/PROD-P-1
           custom_fields: []
           comments_count: 0
-    PersonasPostRequest:
-      type: object
-      properties:
-        persona:
-          type: object
-          properties:
-            name:
-              type: string
-              example: Julie
-          example:
-            name: Julie
-      example:
-        persona:
-          name: Julie
     PersonasPostResponse:
       type: object
       properties:
@@ -450,6 +436,20 @@ components:
           resource: http://company.aha.io/personas/PROD-P-1
           custom_fields: []
           comments_count: 0
+    PersonasPostRequest:
+      type: object
+      properties:
+        persona:
+          type: object
+          properties:
+            name:
+              type: string
+              example: Julie
+          example:
+            name: Julie
+      example:
+        persona:
+          name: Julie
   securitySchemes:
     OAuth2:
       type: oauth2

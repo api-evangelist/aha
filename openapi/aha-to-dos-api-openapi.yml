@@ -630,6 +630,20 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    To-dosPostRequest:
+      type: object
+      properties:
+        task:
+          type: object
+          properties:
+            body:
+              type: string
+              example: <p>Can you please review this press release</p>
+          example:
+            body: <p>Can you please review this press release</p>
+      example:
+        task:
+          body: <p>Can you please review this press release</p>
     To-dosPutResponse:
       type: object
       properties:
@@ -835,185 +849,6 @@ components:
             name: A third Feature
             url: http://company.aha.io/features/PRJ3-2
             resource: http://company.aha.io/api/v1/features/PRJ3-2
-    To-dosPostResponse:
-      type: object
-      properties:
-        task:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149495424765'
-            name:
-              type: string
-              example: Review press release
-            body:
-              type: string
-              example: <p>Can you please review the press release</p>
-            due_date:
-              type: 'null'
-            status:
-              type: string
-              example: pending
-            position:
-              type: 'null'
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            product_id:
-              type: string
-              example: ''
-            assigned_to_users:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  status:
-                    type: string
-                  user:
-                    type: string
-                example:
-                  id: '6776881149484955852'
-                  status: pending
-                  user:
-                    id: '349538572'
-                    name: Sally Sane
-                    email: sally.sane@account2.com
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-              example:
-              - id: '6776881149484955852'
-                status: pending
-                user:
-                  id: '349538572'
-                  name: Sally Sane
-                  email: sally.sane@account2.com
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-              - id: '6776881149486559736'
-                status: pending
-                user:
-                  id: '689956296'
-                  name: Henry Humpty
-                  email: no-reply@aha.io
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-            created_by_user:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '1020675218'
-                name:
-                  type: string
-                  example: Mary Humpty
-                email:
-                  type: string
-                  example: no-reply@aha.io
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-              example:
-                id: '1020675218'
-                name: Mary Humpty
-                email: no-reply@aha.io
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-            attachments:
-              type: array
-              items: {}
-            url:
-              type: string
-              example: http://company.aha.io/tasks/6776881149495424765
-            resource:
-              type: string
-              example: http://company.aha.io/api/v1/tasks/6776881149495424765
-            comments_count:
-              type: integer
-              example: 0
-          example:
-            id: '6776881149495424765'
-            name: Review press release
-            body: <p>Can you please review the press release</p>
-            due_date: null
-            status: pending
-            position: null
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            product_id: ''
-            assigned_to_users:
-            - id: '6776881149484955852'
-              status: pending
-              user:
-                id: '349538572'
-                name: Sally Sane
-                email: sally.sane@account2.com
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-            - id: '6776881149486559736'
-              status: pending
-              user:
-                id: '689956296'
-                name: Henry Humpty
-                email: no-reply@aha.io
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-            created_by_user:
-              id: '1020675218'
-              name: Mary Humpty
-              email: no-reply@aha.io
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-            attachments: []
-            url: http://company.aha.io/tasks/6776881149495424765
-            resource: http://company.aha.io/api/v1/tasks/6776881149495424765
-            comments_count: 0
-      example:
-        task:
-          id: '6776881149495424765'
-          name: Review press release
-          body: <p>Can you please review the press release</p>
-          due_date: null
-          status: pending
-          position: null
-          created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          product_id: ''
-          assigned_to_users:
-          - id: '6776881149484955852'
-            status: pending
-            user:
-              id: '349538572'
-              name: Sally Sane
-              email: sally.sane@account2.com
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-          - id: '6776881149486559736'
-            status: pending
-            user:
-              id: '689956296'
-              name: Henry Humpty
-              email: no-reply@aha.io
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-          created_by_user:
-            id: '1020675218'
-            name: Mary Humpty
-            email: no-reply@aha.io
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-          attachments: []
-          url: http://company.aha.io/tasks/6776881149495424765
-          resource: http://company.aha.io/api/v1/tasks/6776881149495424765
-          comments_count: 0
     To-dosGetResponse:
       type: object
       properties:
@@ -1195,20 +1030,185 @@ components:
           url: http://company.aha.io/tasks/1041191038
           resource: http://company.aha.io/api/v1/tasks/1041191038
           comments_count: 0
-    To-dosPostRequest:
+    To-dosPostResponse:
       type: object
       properties:
         task:
           type: object
           properties:
+            id:
+              type: string
+              example: '6776881149495424765'
+            name:
+              type: string
+              example: Review press release
             body:
               type: string
-              example: <p>Can you please review this press release</p>
+              example: <p>Can you please review the press release</p>
+            due_date:
+              type: 'null'
+            status:
+              type: string
+              example: pending
+            position:
+              type: 'null'
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            product_id:
+              type: string
+              example: ''
+            assigned_to_users:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  status:
+                    type: string
+                  user:
+                    type: string
+                example:
+                  id: '6776881149484955852'
+                  status: pending
+                  user:
+                    id: '349538572'
+                    name: Sally Sane
+                    email: sally.sane@account2.com
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+              example:
+              - id: '6776881149484955852'
+                status: pending
+                user:
+                  id: '349538572'
+                  name: Sally Sane
+                  email: sally.sane@account2.com
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+              - id: '6776881149486559736'
+                status: pending
+                user:
+                  id: '689956296'
+                  name: Henry Humpty
+                  email: no-reply@aha.io
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+            created_by_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1020675218'
+                name:
+                  type: string
+                  example: Mary Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+            attachments:
+              type: array
+              items: {}
+            url:
+              type: string
+              example: http://company.aha.io/tasks/6776881149495424765
+            resource:
+              type: string
+              example: http://company.aha.io/api/v1/tasks/6776881149495424765
+            comments_count:
+              type: integer
+              example: 0
           example:
-            body: <p>Can you please review this press release</p>
+            id: '6776881149495424765'
+            name: Review press release
+            body: <p>Can you please review the press release</p>
+            due_date: null
+            status: pending
+            position: null
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            product_id: ''
+            assigned_to_users:
+            - id: '6776881149484955852'
+              status: pending
+              user:
+                id: '349538572'
+                name: Sally Sane
+                email: sally.sane@account2.com
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+            - id: '6776881149486559736'
+              status: pending
+              user:
+                id: '689956296'
+                name: Henry Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+            created_by_user:
+              id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+            url: http://company.aha.io/tasks/6776881149495424765
+            resource: http://company.aha.io/api/v1/tasks/6776881149495424765
+            comments_count: 0
       example:
         task:
-          body: <p>Can you please review this press release</p>
+          id: '6776881149495424765'
+          name: Review press release
+          body: <p>Can you please review the press release</p>
+          due_date: null
+          status: pending
+          position: null
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          product_id: ''
+          assigned_to_users:
+          - id: '6776881149484955852'
+            status: pending
+            user:
+              id: '349538572'
+              name: Sally Sane
+              email: sally.sane@account2.com
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+          - id: '6776881149486559736'
+            status: pending
+            user:
+              id: '689956296'
+              name: Henry Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+          created_by_user:
+            id: '1020675218'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          attachments: []
+          url: http://company.aha.io/tasks/6776881149495424765
+          resource: http://company.aha.io/api/v1/tasks/6776881149495424765
+          comments_count: 0
   securitySchemes:
     OAuth2:
       type: oauth2

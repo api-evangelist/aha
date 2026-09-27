@@ -414,6 +414,20 @@ components:
               attachments: []
             url: http://company.aha.io/ideas/ideas/PRJ1-I-1
             resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+    IdeasubscriptionsPostRequest:
+      type: object
+      properties:
+        idea_subscription:
+          type: object
+          properties:
+            email:
+              type: string
+              example: username@example.com
+          example:
+            email: username@example.com
+      example:
+        idea_subscription:
+          email: username@example.com
     IdeasubscriptionsPostResponse:
       type: object
       properties:
@@ -596,20 +610,6 @@ components:
               attachments: []
             url: http://company.aha.io/ideas/ideas/PRJ1-I-1
             resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
-    IdeasubscriptionsPostRequest:
-      type: object
-      properties:
-        idea_subscription:
-          type: object
-          properties:
-            email:
-              type: string
-              example: username@example.com
-          example:
-            email: username@example.com
-      example:
-        idea_subscription:
-          email: username@example.com
   securitySchemes:
     OAuth2:
       type: oauth2

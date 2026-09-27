@@ -234,6 +234,30 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    RecordlinksPostRequest:
+      type: object
+      properties:
+        record_link:
+          type: object
+          properties:
+            record_type:
+              type: string
+              example: feature
+            record_id:
+              type: integer
+              example: 303873333
+            link_type:
+              type: integer
+              example: 10
+          example:
+            record_type: feature
+            record_id: 303873333
+            link_type: 10
+      example:
+        record_link:
+          record_type: feature
+          record_id: 303873333
+          link_type: 10
     RecordlinksGetResponse:
       type: object
       properties:
@@ -396,30 +420,6 @@ components:
             url: http://company.aha.io/features/PRJ1-2
             resource: http://company.aha.io/api/v1/features/PRJ1-2
             product_id: '131414752'
-    RecordlinksPostRequest:
-      type: object
-      properties:
-        record_link:
-          type: object
-          properties:
-            record_type:
-              type: string
-              example: feature
-            record_id:
-              type: integer
-              example: 303873333
-            link_type:
-              type: integer
-              example: 10
-          example:
-            record_type: feature
-            record_id: 303873333
-            link_type: 10
-      example:
-        record_link:
-          record_type: feature
-          record_id: 303873333
-          link_type: 10
   securitySchemes:
     OAuth2:
       type: oauth2

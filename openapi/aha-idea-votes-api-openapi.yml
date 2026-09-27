@@ -917,6 +917,291 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    IdeavotesPostResponse:
+      type: object
+      properties:
+        idea_endorsement:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149496332684'
+            idea_id:
+              type: string
+              example: '140490859'
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            value:
+              type: 'null'
+            link:
+              type: 'null'
+            weight:
+              type: integer
+              example: 1
+            endorsed_by_portal_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149488700322'
+                name:
+                  type: string
+                  example: no-reply@aha.io
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '6776881149488700322'
+                name: no-reply@aha.io
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+            endorsed_by_idea_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149490328278'
+                name:
+                  type: string
+                  example: no-reply@aha.io
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                title:
+                  type: 'null'
+              example:
+                id: '6776881149490328278'
+                name: no-reply@aha.io
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                title: null
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: ''
+                body:
+                  type: string
+                  example: ''
+                editor_version:
+                  type: integer
+                  example: 2
+                created_at:
+                  type: 'null'
+                updated_at:
+                  type: 'null'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: ''
+                body: ''
+                editor_version: 2
+                created_at: null
+                updated_at: null
+                attachments: []
+            integration_fields:
+              type: array
+              items: {}
+            custom_fields:
+              type: array
+              items: {}
+            idea:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '140490859'
+                reference_num:
+                  type: string
+                  example: PRJ1-I-8
+                name:
+                  type: string
+                  example: Some idea name 3
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                workflow_status:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    position:
+                      type: string
+                    complete:
+                      type: string
+                    color:
+                      type: string
+                  example:
+                    id: '3259216'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                description:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    body:
+                      type: string
+                    editor_version:
+                      type: string
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
+                    attachments:
+                      type: string
+                  example:
+                    id: '6776881149487885666'
+                    body: ''
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                url:
+                  type: string
+                  example: http://company.aha.io/ideas/ideas/PRJ1-I-8
+                resource:
+                  type: string
+                  example: http://company.aha.io/api/v1/ideas/PRJ1-I-8
+              example:
+                id: '140490859'
+                reference_num: PRJ1-I-8
+                name: Some idea name 3
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                workflow_status:
+                  id: '3259216'
+                  name: New
+                  position: 1
+                  complete: false
+                  color: '#dce7c6'
+                description:
+                  id: '6776881149487885666'
+                  body: ''
+                  editor_version: 2
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                url: http://company.aha.io/ideas/ideas/PRJ1-I-8
+                resource: http://company.aha.io/api/v1/ideas/PRJ1-I-8
+          example:
+            id: '6776881149496332684'
+            idea_id: '140490859'
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            value: null
+            link: null
+            weight: 1
+            endorsed_by_portal_user:
+              id: '6776881149488700322'
+              name: no-reply@aha.io
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+            endorsed_by_idea_user:
+              id: '6776881149490328278'
+              name: no-reply@aha.io
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              title: null
+            description:
+              id: ''
+              body: ''
+              editor_version: 2
+              created_at: null
+              updated_at: null
+              attachments: []
+            integration_fields: []
+            custom_fields: []
+            idea:
+              id: '140490859'
+              reference_num: PRJ1-I-8
+              name: Some idea name 3
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              workflow_status:
+                id: '3259216'
+                name: New
+                position: 1
+                complete: false
+                color: '#dce7c6'
+              description:
+                id: '6776881149487885666'
+                body: ''
+                editor_version: 2
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+              url: http://company.aha.io/ideas/ideas/PRJ1-I-8
+              resource: http://company.aha.io/api/v1/ideas/PRJ1-I-8
+      example:
+        idea_endorsement:
+          id: '6776881149496332684'
+          idea_id: '140490859'
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          value: null
+          link: null
+          weight: 1
+          endorsed_by_portal_user:
+            id: '6776881149488700322'
+            name: no-reply@aha.io
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+          endorsed_by_idea_user:
+            id: '6776881149490328278'
+            name: no-reply@aha.io
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            title: null
+          description:
+            id: ''
+            body: ''
+            editor_version: 2
+            created_at: null
+            updated_at: null
+            attachments: []
+          integration_fields: []
+          custom_fields: []
+          idea:
+            id: '140490859'
+            reference_num: PRJ1-I-8
+            name: Some idea name 3
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            workflow_status:
+              id: '3259216'
+              name: New
+              position: 1
+              complete: false
+              color: '#dce7c6'
+            description:
+              id: '6776881149487885666'
+              body: ''
+              editor_version: 2
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            url: http://company.aha.io/ideas/ideas/PRJ1-I-8
+            resource: http://company.aha.io/api/v1/ideas/PRJ1-I-8
     IdeavotesGetResponse:
       type: object
       properties:
@@ -1740,291 +2025,6 @@ components:
       example:
         idea_endorsement:
           value: 123.45
-    IdeavotesPostResponse:
-      type: object
-      properties:
-        idea_endorsement:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149496332684'
-            idea_id:
-              type: string
-              example: '140490859'
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            value:
-              type: 'null'
-            link:
-              type: 'null'
-            weight:
-              type: integer
-              example: 1
-            endorsed_by_portal_user:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '6776881149488700322'
-                name:
-                  type: string
-                  example: no-reply@aha.io
-                email:
-                  type: string
-                  example: no-reply@aha.io
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-              example:
-                id: '6776881149488700322'
-                name: no-reply@aha.io
-                email: no-reply@aha.io
-                created_at: '2019-01-01T00:00:00.000Z'
-            endorsed_by_idea_user:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '6776881149490328278'
-                name:
-                  type: string
-                  example: no-reply@aha.io
-                email:
-                  type: string
-                  example: no-reply@aha.io
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                title:
-                  type: 'null'
-              example:
-                id: '6776881149490328278'
-                name: no-reply@aha.io
-                email: no-reply@aha.io
-                created_at: '2019-01-01T00:00:00.000Z'
-                title: null
-            description:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: ''
-                body:
-                  type: string
-                  example: ''
-                editor_version:
-                  type: integer
-                  example: 2
-                created_at:
-                  type: 'null'
-                updated_at:
-                  type: 'null'
-                attachments:
-                  type: array
-                  items: {}
-              example:
-                id: ''
-                body: ''
-                editor_version: 2
-                created_at: null
-                updated_at: null
-                attachments: []
-            integration_fields:
-              type: array
-              items: {}
-            custom_fields:
-              type: array
-              items: {}
-            idea:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '140490859'
-                reference_num:
-                  type: string
-                  example: PRJ1-I-8
-                name:
-                  type: string
-                  example: Some idea name 3
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                workflow_status:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    name:
-                      type: string
-                    position:
-                      type: string
-                    complete:
-                      type: string
-                    color:
-                      type: string
-                  example:
-                    id: '3259216'
-                    name: New
-                    position: 1
-                    complete: false
-                    color: '#dce7c6'
-                description:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    body:
-                      type: string
-                    editor_version:
-                      type: string
-                    created_at:
-                      type: string
-                    updated_at:
-                      type: string
-                    attachments:
-                      type: string
-                  example:
-                    id: '6776881149487885666'
-                    body: ''
-                    editor_version: 2
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    attachments: []
-                url:
-                  type: string
-                  example: http://company.aha.io/ideas/ideas/PRJ1-I-8
-                resource:
-                  type: string
-                  example: http://company.aha.io/api/v1/ideas/PRJ1-I-8
-              example:
-                id: '140490859'
-                reference_num: PRJ1-I-8
-                name: Some idea name 3
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                workflow_status:
-                  id: '3259216'
-                  name: New
-                  position: 1
-                  complete: false
-                  color: '#dce7c6'
-                description:
-                  id: '6776881149487885666'
-                  body: ''
-                  editor_version: 2
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  attachments: []
-                url: http://company.aha.io/ideas/ideas/PRJ1-I-8
-                resource: http://company.aha.io/api/v1/ideas/PRJ1-I-8
-          example:
-            id: '6776881149496332684'
-            idea_id: '140490859'
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            value: null
-            link: null
-            weight: 1
-            endorsed_by_portal_user:
-              id: '6776881149488700322'
-              name: no-reply@aha.io
-              email: no-reply@aha.io
-              created_at: '2019-01-01T00:00:00.000Z'
-            endorsed_by_idea_user:
-              id: '6776881149490328278'
-              name: no-reply@aha.io
-              email: no-reply@aha.io
-              created_at: '2019-01-01T00:00:00.000Z'
-              title: null
-            description:
-              id: ''
-              body: ''
-              editor_version: 2
-              created_at: null
-              updated_at: null
-              attachments: []
-            integration_fields: []
-            custom_fields: []
-            idea:
-              id: '140490859'
-              reference_num: PRJ1-I-8
-              name: Some idea name 3
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              workflow_status:
-                id: '3259216'
-                name: New
-                position: 1
-                complete: false
-                color: '#dce7c6'
-              description:
-                id: '6776881149487885666'
-                body: ''
-                editor_version: 2
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-              url: http://company.aha.io/ideas/ideas/PRJ1-I-8
-              resource: http://company.aha.io/api/v1/ideas/PRJ1-I-8
-      example:
-        idea_endorsement:
-          id: '6776881149496332684'
-          idea_id: '140490859'
-          created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          value: null
-          link: null
-          weight: 1
-          endorsed_by_portal_user:
-            id: '6776881149488700322'
-            name: no-reply@aha.io
-            email: no-reply@aha.io
-            created_at: '2019-01-01T00:00:00.000Z'
-          endorsed_by_idea_user:
-            id: '6776881149490328278'
-            name: no-reply@aha.io
-            email: no-reply@aha.io
-            created_at: '2019-01-01T00:00:00.000Z'
-            title: null
-          description:
-            id: ''
-            body: ''
-            editor_version: 2
-            created_at: null
-            updated_at: null
-            attachments: []
-          integration_fields: []
-          custom_fields: []
-          idea:
-            id: '140490859'
-            reference_num: PRJ1-I-8
-            name: Some idea name 3
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            workflow_status:
-              id: '3259216'
-              name: New
-              position: 1
-              complete: false
-              color: '#dce7c6'
-            description:
-              id: '6776881149487885666'
-              body: ''
-              editor_version: 2
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-            url: http://company.aha.io/ideas/ideas/PRJ1-I-8
-            resource: http://company.aha.io/api/v1/ideas/PRJ1-I-8
   securitySchemes:
     OAuth2:
       type: oauth2

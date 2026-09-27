@@ -394,7 +394,33 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    NotesPutResponse:
+    NotesPostRequest:
+      type: object
+      properties:
+        page:
+          type: object
+          properties:
+            name:
+              type: string
+              example: New name for the note
+            description_attributes:
+              type: object
+              properties:
+                body:
+                  type: string
+                  example: <p>An awesome new note</p>
+              example:
+                body: <p>An awesome new note</p>
+          example:
+            name: New name for the note
+            description_attributes:
+              body: <p>An awesome new note</p>
+      example:
+        page:
+          name: New name for the note
+          description_attributes:
+            body: <p>An awesome new note</p>
+    NotesPostResponse:
       type: object
       properties:
         page:
@@ -402,38 +428,36 @@ components:
           properties:
             id:
               type: string
-              example: '280859787'
+              example: '6776881149490967959'
             name:
-              type: string
-              example: Build products customers love
+              type: 'null'
             title:
               type: string
-              example: PRJ1-N-6 Build products customers love
+              example: PRJ1-N-11 Untitled
             document_title:
               type: string
-              example: Build products customers love | Aha!
+              example: Untitled | Aha!
             updated_at:
               type: string
               example: '2019-01-01T00:00:00.000Z'
             reference_num:
               type: string
-              example: PRJ1-N-6
+              example: PRJ1-N-11
             emoji_value:
               type: 'null'
             document_type:
               type: integer
-              example: 70
+              example: 80
             document_type_name:
               type: string
-              example: external_link
+              example: internal_link
             editor_width:
               type: 'null'
             type_name:
               type: string
-              example: external link
+              example: internal link
             position:
-              type: integer
-              example: 500000
+              type: 'null'
             created_at:
               type: string
               example: '2019-01-01T00:00:00.000Z'
@@ -442,15 +466,18 @@ components:
             edit_locked:
               type: boolean
               example: false
-            external_url:
+            linked_record_id:
+              type: integer
+              example: 1007868956
+            linked_record_type:
               type: string
-              example: https://www.aha.io/solutions/product
+              example: Feature
             url:
               type: string
-              example: http://company.aha.io/pages/PRJ1-N-6
+              example: http://company.aha.io/pages/PRJ1-N-11
             resource:
               type: string
-              example: http://company.aha.io/api/v1/pages/PRJ1-N-6
+              example: http://company.aha.io/api/v1/pages/PRJ1-N-11
             product_id:
               type: string
               example: '131414752'
@@ -459,26 +486,28 @@ components:
               properties:
                 id:
                   type: string
-                  example: ''
+                  example: '6776881149488431496'
                 body:
                   type: string
-                  example: '#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>'
+                  example: ''
                 editor_version:
                   type: integer
                   example: 2
                 created_at:
-                  type: 'null'
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
                 updated_at:
-                  type: 'null'
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
                 attachments:
                   type: array
                   items: {}
               example:
-                id: ''
-                body: '#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>'
+                id: '6776881149488431496'
+                body: ''
                 editor_version: 2
-                created_at: null
-                updated_at: null
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
                 attachments: []
             parent_id:
               type: 'null'
@@ -495,31 +524,32 @@ components:
               type: array
               items: {}
           example:
-            id: '280859787'
-            name: Build products customers love
-            title: PRJ1-N-6 Build products customers love
-            document_title: Build products customers love | Aha!
+            id: '6776881149490967959'
+            name: null
+            title: PRJ1-N-11 Untitled
+            document_title: Untitled | Aha!
             updated_at: '2019-01-01T00:00:00.000Z'
-            reference_num: PRJ1-N-6
+            reference_num: PRJ1-N-11
             emoji_value: null
-            document_type: 70
-            document_type_name: external_link
+            document_type: 80
+            document_type_name: internal_link
             editor_width: null
-            type_name: external link
-            position: 500000
+            type_name: internal link
+            position: null
             created_at: '2019-01-01T00:00:00.000Z'
             location: null
             edit_locked: false
-            external_url: https://www.aha.io/solutions/product
-            url: http://company.aha.io/pages/PRJ1-N-6
-            resource: http://company.aha.io/api/v1/pages/PRJ1-N-6
+            linked_record_id: 1007868956
+            linked_record_type: Feature
+            url: http://company.aha.io/pages/PRJ1-N-11
+            resource: http://company.aha.io/api/v1/pages/PRJ1-N-11
             product_id: '131414752'
             description:
-              id: ''
-              body: '#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>'
+              id: '6776881149488431496'
+              body: ''
               editor_version: 2
-              created_at: null
-              updated_at: null
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
               attachments: []
             parent_id: null
             tags: []
@@ -528,31 +558,32 @@ components:
             custom_fields: []
       example:
         page:
-          id: '280859787'
-          name: Build products customers love
-          title: PRJ1-N-6 Build products customers love
-          document_title: Build products customers love | Aha!
+          id: '6776881149490967959'
+          name: null
+          title: PRJ1-N-11 Untitled
+          document_title: Untitled | Aha!
           updated_at: '2019-01-01T00:00:00.000Z'
-          reference_num: PRJ1-N-6
+          reference_num: PRJ1-N-11
           emoji_value: null
-          document_type: 70
-          document_type_name: external_link
+          document_type: 80
+          document_type_name: internal_link
           editor_width: null
-          type_name: external link
-          position: 500000
+          type_name: internal link
+          position: null
           created_at: '2019-01-01T00:00:00.000Z'
           location: null
           edit_locked: false
-          external_url: https://www.aha.io/solutions/product
-          url: http://company.aha.io/pages/PRJ1-N-6
-          resource: http://company.aha.io/api/v1/pages/PRJ1-N-6
+          linked_record_id: 1007868956
+          linked_record_type: Feature
+          url: http://company.aha.io/pages/PRJ1-N-11
+          resource: http://company.aha.io/api/v1/pages/PRJ1-N-11
           product_id: '131414752'
           description:
-            id: ''
-            body: '#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>'
+            id: '6776881149488431496'
+            body: ''
             editor_version: 2
-            created_at: null
-            updated_at: null
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
             attachments: []
           parent_id: null
           tags: []
@@ -802,7 +833,7 @@ components:
             updatedAt: '2019-01-01T00:00:00Z'
             value: '2019-01-01'
             type: date
-    NotesPostResponse:
+    NotesPutResponse:
       type: object
       properties:
         page:
@@ -810,36 +841,38 @@ components:
           properties:
             id:
               type: string
-              example: '6776881149490967959'
+              example: '280859787'
             name:
-              type: 'null'
+              type: string
+              example: Build products customers love
             title:
               type: string
-              example: PRJ1-N-11 Untitled
+              example: PRJ1-N-6 Build products customers love
             document_title:
               type: string
-              example: Untitled | Aha!
+              example: Build products customers love | Aha!
             updated_at:
               type: string
               example: '2019-01-01T00:00:00.000Z'
             reference_num:
               type: string
-              example: PRJ1-N-11
+              example: PRJ1-N-6
             emoji_value:
               type: 'null'
             document_type:
               type: integer
-              example: 80
+              example: 70
             document_type_name:
               type: string
-              example: internal_link
+              example: external_link
             editor_width:
               type: 'null'
             type_name:
               type: string
-              example: internal link
+              example: external link
             position:
-              type: 'null'
+              type: integer
+              example: 500000
             created_at:
               type: string
               example: '2019-01-01T00:00:00.000Z'
@@ -848,18 +881,15 @@ components:
             edit_locked:
               type: boolean
               example: false
-            linked_record_id:
-              type: integer
-              example: 1007868956
-            linked_record_type:
+            external_url:
               type: string
-              example: Feature
+              example: https://www.aha.io/solutions/product
             url:
               type: string
-              example: http://company.aha.io/pages/PRJ1-N-11
+              example: http://company.aha.io/pages/PRJ1-N-6
             resource:
               type: string
-              example: http://company.aha.io/api/v1/pages/PRJ1-N-11
+              example: http://company.aha.io/api/v1/pages/PRJ1-N-6
             product_id:
               type: string
               example: '131414752'
@@ -868,28 +898,26 @@ components:
               properties:
                 id:
                   type: string
-                  example: '6776881149488431496'
+                  example: ''
                 body:
                   type: string
-                  example: ''
+                  example: '#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>'
                 editor_version:
                   type: integer
                   example: 2
                 created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
+                  type: 'null'
                 updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
+                  type: 'null'
                 attachments:
                   type: array
                   items: {}
               example:
-                id: '6776881149488431496'
-                body: ''
+                id: ''
+                body: '#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>'
                 editor_version: 2
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
+                created_at: null
+                updated_at: null
                 attachments: []
             parent_id:
               type: 'null'
@@ -906,32 +934,31 @@ components:
               type: array
               items: {}
           example:
-            id: '6776881149490967959'
-            name: null
-            title: PRJ1-N-11 Untitled
-            document_title: Untitled | Aha!
+            id: '280859787'
+            name: Build products customers love
+            title: PRJ1-N-6 Build products customers love
+            document_title: Build products customers love | Aha!
             updated_at: '2019-01-01T00:00:00.000Z'
-            reference_num: PRJ1-N-11
+            reference_num: PRJ1-N-6
             emoji_value: null
-            document_type: 80
-            document_type_name: internal_link
+            document_type: 70
+            document_type_name: external_link
             editor_width: null
-            type_name: internal link
-            position: null
+            type_name: external link
+            position: 500000
             created_at: '2019-01-01T00:00:00.000Z'
             location: null
             edit_locked: false
-            linked_record_id: 1007868956
-            linked_record_type: Feature
-            url: http://company.aha.io/pages/PRJ1-N-11
-            resource: http://company.aha.io/api/v1/pages/PRJ1-N-11
+            external_url: https://www.aha.io/solutions/product
+            url: http://company.aha.io/pages/PRJ1-N-6
+            resource: http://company.aha.io/api/v1/pages/PRJ1-N-6
             product_id: '131414752'
             description:
-              id: '6776881149488431496'
-              body: ''
+              id: ''
+              body: '#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>'
               editor_version: 2
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
+              created_at: null
+              updated_at: null
               attachments: []
             parent_id: null
             tags: []
@@ -940,64 +967,37 @@ components:
             custom_fields: []
       example:
         page:
-          id: '6776881149490967959'
-          name: null
-          title: PRJ1-N-11 Untitled
-          document_title: Untitled | Aha!
+          id: '280859787'
+          name: Build products customers love
+          title: PRJ1-N-6 Build products customers love
+          document_title: Build products customers love | Aha!
           updated_at: '2019-01-01T00:00:00.000Z'
-          reference_num: PRJ1-N-11
+          reference_num: PRJ1-N-6
           emoji_value: null
-          document_type: 80
-          document_type_name: internal_link
+          document_type: 70
+          document_type_name: external_link
           editor_width: null
-          type_name: internal link
-          position: null
+          type_name: external link
+          position: 500000
           created_at: '2019-01-01T00:00:00.000Z'
           location: null
           edit_locked: false
-          linked_record_id: 1007868956
-          linked_record_type: Feature
-          url: http://company.aha.io/pages/PRJ1-N-11
-          resource: http://company.aha.io/api/v1/pages/PRJ1-N-11
+          external_url: https://www.aha.io/solutions/product
+          url: http://company.aha.io/pages/PRJ1-N-6
+          resource: http://company.aha.io/api/v1/pages/PRJ1-N-6
           product_id: '131414752'
           description:
-            id: '6776881149488431496'
-            body: ''
+            id: ''
+            body: '#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>'
             editor_version: 2
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
+            created_at: null
+            updated_at: null
             attachments: []
           parent_id: null
           tags: []
           full_tags: []
           comments_count: 0
           custom_fields: []
-    NotesPostRequest:
-      type: object
-      properties:
-        page:
-          type: object
-          properties:
-            name:
-              type: string
-              example: New name for the note
-            description_attributes:
-              type: object
-              properties:
-                body:
-                  type: string
-                  example: <p>An awesome new note</p>
-              example:
-                body: <p>An awesome new note</p>
-          example:
-            name: New name for the note
-            description_attributes:
-              body: <p>An awesome new note</p>
-      example:
-        page:
-          name: New name for the note
-          description_attributes:
-            body: <p>An awesome new note</p>
   securitySchemes:
     OAuth2:
       type: oauth2

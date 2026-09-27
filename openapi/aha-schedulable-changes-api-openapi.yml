@@ -363,246 +363,10 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    SchedulablechangesPutResponse:
-      type: object
-      properties:
-        schedulable_change:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '711001786'
-            effective_start_date:
-              type: string
-              example: '2019-01-01'
-            team_members_count:
-              type: integer
-              example: 5
-            hourly_rate:
-              type: string
-              example: '100.0'
-            color:
-              type: integer
-              example: 6710886
-            schedule:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '441193141'
-                name:
-                  type: string
-                  example: Default schedule
-                hours_per_day:
-                  type: string
-                  example: '8.2'
-                story_points_per_day:
-                  type: string
-                  example: '1.0'
-                velocity:
-                  type: string
-                  example: '10.5'
-              example:
-                id: '441193141'
-                name: Default schedule
-                hours_per_day: '8.2'
-                story_points_per_day: '1.0'
-                velocity: '10.5'
-            team_memberships:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  name:
-                    type: string
-                  new_user:
-                    type: string
-                  deleted:
-                    type: 'null'
-                  schedule:
-                    type: string
-                example:
-                  id: '202266373'
-                  name: John Johnson
-                  new_user: false
-                  deleted: null
-                  schedule:
-                    id: '441193141'
-                    name: Default schedule
-                    hours_per_day: '8.2'
-                    story_points_per_day: '1.0'
-                    velocity: '10.5'
-                    monday: true
-                    tuesday: true
-                    wednesday: true
-                    thursday: true
-                    friday: true
-                    saturday: false
-                    sunday: false
-              example:
-              - id: '202266373'
-                name: John Johnson
-                new_user: false
-                deleted: null
-                schedule:
-                  id: '441193141'
-                  name: Default schedule
-                  hours_per_day: '8.2'
-                  story_points_per_day: '1.0'
-                  velocity: '10.5'
-                  monday: true
-                  tuesday: true
-                  wednesday: true
-                  thursday: true
-                  friday: true
-                  saturday: false
-                  sunday: false
-              - id: '646482528'
-                name: Mary Humpty
-                new_user: false
-                deleted: null
-                schedule:
-                  id: '441193141'
-                  name: Default schedule
-                  hours_per_day: '8.2'
-                  story_points_per_day: '1.0'
-                  velocity: '10.5'
-                  monday: true
-                  tuesday: true
-                  wednesday: true
-                  thursday: true
-                  friday: true
-                  saturday: false
-                  sunday: false
-          example:
-            id: '711001786'
-            effective_start_date: '2019-01-01'
-            team_members_count: 5
-            hourly_rate: '100.0'
-            color: 6710886
-            schedule:
-              id: '441193141'
-              name: Default schedule
-              hours_per_day: '8.2'
-              story_points_per_day: '1.0'
-              velocity: '10.5'
-            team_memberships:
-            - id: '202266373'
-              name: John Johnson
-              new_user: false
-              deleted: null
-              schedule:
-                id: '441193141'
-                name: Default schedule
-                hours_per_day: '8.2'
-                story_points_per_day: '1.0'
-                velocity: '10.5'
-                monday: true
-                tuesday: true
-                wednesday: true
-                thursday: true
-                friday: true
-                saturday: false
-                sunday: false
-            - id: '646482528'
-              name: Mary Humpty
-              new_user: false
-              deleted: null
-              schedule:
-                id: '441193141'
-                name: Default schedule
-                hours_per_day: '8.2'
-                story_points_per_day: '1.0'
-                velocity: '10.5'
-                monday: true
-                tuesday: true
-                wednesday: true
-                thursday: true
-                friday: true
-                saturday: false
-                sunday: false
-      example:
-        schedulable_change:
-          id: '711001786'
-          effective_start_date: '2019-01-01'
-          team_members_count: 5
-          hourly_rate: '100.0'
-          color: 6710886
-          schedule:
-            id: '441193141'
-            name: Default schedule
-            hours_per_day: '8.2'
-            story_points_per_day: '1.0'
-            velocity: '10.5'
-          team_memberships:
-          - id: '202266373'
-            name: John Johnson
-            new_user: false
-            deleted: null
-            schedule:
-              id: '441193141'
-              name: Default schedule
-              hours_per_day: '8.2'
-              story_points_per_day: '1.0'
-              velocity: '10.5'
-              monday: true
-              tuesday: true
-              wednesday: true
-              thursday: true
-              friday: true
-              saturday: false
-              sunday: false
-          - id: '646482528'
-            name: Mary Humpty
-            new_user: false
-            deleted: null
-            schedule:
-              id: '441193141'
-              name: Default schedule
-              hours_per_day: '8.2'
-              story_points_per_day: '1.0'
-              velocity: '10.5'
-              monday: true
-              tuesday: true
-              wednesday: true
-              thursday: true
-              friday: true
-              saturday: false
-              sunday: false
     SchedulablechangesPostRequest:
       type: object
       properties: {}
       example: {}
-    SchedulablechangesGetResponse:
-      type: object
-      properties:
-        schedulable_changes:
-          type: array
-          items: {}
-        pagination:
-          type: object
-          properties:
-            total_records:
-              type: integer
-              example: 0
-            total_pages:
-              type: integer
-              example: 0
-            current_page:
-              type: integer
-              example: 1
-          example:
-            total_records: 0
-            total_pages: 0
-            current_page: 1
-      example:
-        schedulable_changes: []
-        pagination:
-          total_records: 0
-          total_pages: 0
-          current_page: 1
     SchedulablechangesPostResponse:
       type: object
       properties:
@@ -811,6 +575,242 @@ components:
               friday: true
               saturday: false
               sunday: false
+    SchedulablechangesPutResponse:
+      type: object
+      properties:
+        schedulable_change:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '711001786'
+            effective_start_date:
+              type: string
+              example: '2019-01-01'
+            team_members_count:
+              type: integer
+              example: 5
+            hourly_rate:
+              type: string
+              example: '100.0'
+            color:
+              type: integer
+              example: 6710886
+            schedule:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '441193141'
+                name:
+                  type: string
+                  example: Default schedule
+                hours_per_day:
+                  type: string
+                  example: '8.2'
+                story_points_per_day:
+                  type: string
+                  example: '1.0'
+                velocity:
+                  type: string
+                  example: '10.5'
+              example:
+                id: '441193141'
+                name: Default schedule
+                hours_per_day: '8.2'
+                story_points_per_day: '1.0'
+                velocity: '10.5'
+            team_memberships:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  new_user:
+                    type: string
+                  deleted:
+                    type: 'null'
+                  schedule:
+                    type: string
+                example:
+                  id: '202266373'
+                  name: John Johnson
+                  new_user: false
+                  deleted: null
+                  schedule:
+                    id: '441193141'
+                    name: Default schedule
+                    hours_per_day: '8.2'
+                    story_points_per_day: '1.0'
+                    velocity: '10.5'
+                    monday: true
+                    tuesday: true
+                    wednesday: true
+                    thursday: true
+                    friday: true
+                    saturday: false
+                    sunday: false
+              example:
+              - id: '202266373'
+                name: John Johnson
+                new_user: false
+                deleted: null
+                schedule:
+                  id: '441193141'
+                  name: Default schedule
+                  hours_per_day: '8.2'
+                  story_points_per_day: '1.0'
+                  velocity: '10.5'
+                  monday: true
+                  tuesday: true
+                  wednesday: true
+                  thursday: true
+                  friday: true
+                  saturday: false
+                  sunday: false
+              - id: '646482528'
+                name: Mary Humpty
+                new_user: false
+                deleted: null
+                schedule:
+                  id: '441193141'
+                  name: Default schedule
+                  hours_per_day: '8.2'
+                  story_points_per_day: '1.0'
+                  velocity: '10.5'
+                  monday: true
+                  tuesday: true
+                  wednesday: true
+                  thursday: true
+                  friday: true
+                  saturday: false
+                  sunday: false
+          example:
+            id: '711001786'
+            effective_start_date: '2019-01-01'
+            team_members_count: 5
+            hourly_rate: '100.0'
+            color: 6710886
+            schedule:
+              id: '441193141'
+              name: Default schedule
+              hours_per_day: '8.2'
+              story_points_per_day: '1.0'
+              velocity: '10.5'
+            team_memberships:
+            - id: '202266373'
+              name: John Johnson
+              new_user: false
+              deleted: null
+              schedule:
+                id: '441193141'
+                name: Default schedule
+                hours_per_day: '8.2'
+                story_points_per_day: '1.0'
+                velocity: '10.5'
+                monday: true
+                tuesday: true
+                wednesday: true
+                thursday: true
+                friday: true
+                saturday: false
+                sunday: false
+            - id: '646482528'
+              name: Mary Humpty
+              new_user: false
+              deleted: null
+              schedule:
+                id: '441193141'
+                name: Default schedule
+                hours_per_day: '8.2'
+                story_points_per_day: '1.0'
+                velocity: '10.5'
+                monday: true
+                tuesday: true
+                wednesday: true
+                thursday: true
+                friday: true
+                saturday: false
+                sunday: false
+      example:
+        schedulable_change:
+          id: '711001786'
+          effective_start_date: '2019-01-01'
+          team_members_count: 5
+          hourly_rate: '100.0'
+          color: 6710886
+          schedule:
+            id: '441193141'
+            name: Default schedule
+            hours_per_day: '8.2'
+            story_points_per_day: '1.0'
+            velocity: '10.5'
+          team_memberships:
+          - id: '202266373'
+            name: John Johnson
+            new_user: false
+            deleted: null
+            schedule:
+              id: '441193141'
+              name: Default schedule
+              hours_per_day: '8.2'
+              story_points_per_day: '1.0'
+              velocity: '10.5'
+              monday: true
+              tuesday: true
+              wednesday: true
+              thursday: true
+              friday: true
+              saturday: false
+              sunday: false
+          - id: '646482528'
+            name: Mary Humpty
+            new_user: false
+            deleted: null
+            schedule:
+              id: '441193141'
+              name: Default schedule
+              hours_per_day: '8.2'
+              story_points_per_day: '1.0'
+              velocity: '10.5'
+              monday: true
+              tuesday: true
+              wednesday: true
+              thursday: true
+              friday: true
+              saturday: false
+              sunday: false
+    SchedulablechangesGetResponse:
+      type: object
+      properties:
+        schedulable_changes:
+          type: array
+          items: {}
+        pagination:
+          type: object
+          properties:
+            total_records:
+              type: integer
+              example: 0
+            total_pages:
+              type: integer
+              example: 0
+            current_page:
+              type: integer
+              example: 1
+          example:
+            total_records: 0
+            total_pages: 0
+            current_page: 1
+      example:
+        schedulable_changes: []
+        pagination:
+          total_records: 0
+          total_pages: 0
+          current_page: 1
   securitySchemes:
     OAuth2:
       type: oauth2

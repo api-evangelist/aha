@@ -343,6 +343,49 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    KeyresultsPostRequest:
+      type: object
+      properties:
+        key_result:
+          type: object
+          properties:
+            name:
+              type: string
+              example: New name
+            workflow_status:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: On track
+              example:
+                name: On track
+            description:
+              type: string
+              example: <p>This is the description</p>
+            assigned_to_user:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: no-reply@aha.io
+              example:
+                email: no-reply@aha.io
+          example:
+            name: New name
+            workflow_status:
+              name: On track
+            description: <p>This is the description</p>
+            assigned_to_user:
+              email: no-reply@aha.io
+      example:
+        key_result:
+          name: New name
+          workflow_status:
+            name: On track
+          description: <p>This is the description</p>
+          assigned_to_user:
+            email: no-reply@aha.io
     KeyresultsPostResponse:
       type: object
       properties:
@@ -852,49 +895,6 @@ components:
             updatedAt: '2019-01-01T00:00:00Z'
             value: my metric
             type: string
-    KeyresultsPostRequest:
-      type: object
-      properties:
-        key_result:
-          type: object
-          properties:
-            name:
-              type: string
-              example: New name
-            workflow_status:
-              type: object
-              properties:
-                name:
-                  type: string
-                  example: On track
-              example:
-                name: On track
-            description:
-              type: string
-              example: <p>This is the description</p>
-            assigned_to_user:
-              type: object
-              properties:
-                email:
-                  type: string
-                  example: no-reply@aha.io
-              example:
-                email: no-reply@aha.io
-          example:
-            name: New name
-            workflow_status:
-              name: On track
-            description: <p>This is the description</p>
-            assigned_to_user:
-              email: no-reply@aha.io
-      example:
-        key_result:
-          name: New name
-          workflow_status:
-            name: On track
-          description: <p>This is the description</p>
-          assigned_to_user:
-            email: no-reply@aha.io
   securitySchemes:
     OAuth2:
       type: oauth2

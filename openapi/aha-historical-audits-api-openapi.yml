@@ -197,6 +197,14 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    HistoricalAuditsPostResponse:
+      type: object
+      properties:
+        search_id:
+          type: string
+          example: '6776881149486782892'
+      example:
+        search_id: '6776881149486782892'
     HistoricalAuditsPostRequest:
       type: object
       properties:
@@ -372,14 +380,6 @@ components:
           total_records: 3
           total_pages: 1
           current_page: 1
-    HistoricalAuditsPostResponse:
-      type: object
-      properties:
-        search_id:
-          type: string
-          example: '6776881149486782892'
-      example:
-        search_id: '6776881149486782892'
   securitySchemes:
     OAuth2:
       type: oauth2
