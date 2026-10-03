@@ -244,7 +244,7 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    CreativebriefsPostResponse:
+    CreativebriefsPutResponse:
       type: object
       properties:
         creative_brief:
@@ -252,10 +252,10 @@ components:
           properties:
             id:
               type: string
-              example: '6776881149490547091'
+              example: '476477971'
             name:
               type: string
-              example: April launch
+              example: December launch
             color:
               type: integer
               example: 13421772
@@ -267,10 +267,10 @@ components:
               example: '2019-01-01T00:00:00.000Z'
             url:
               type: string
-              example: http://company.aha.io/creative_briefs/6776881149490547091
+              example: http://company.aha.io/creative_briefs/476477971
             resource:
               type: string
-              example: http://company.aha.io/creative_briefs/6776881149490547091
+              example: http://company.aha.io/creative_briefs/476477971
             custom_fields:
               type: array
               items: {}
@@ -278,24 +278,24 @@ components:
               type: integer
               example: 0
           example:
-            id: '6776881149490547091'
-            name: April launch
+            id: '476477971'
+            name: December launch
             color: 13421772
             created_at: '2019-01-01T00:00:00.000Z'
             updated_at: '2019-01-01T00:00:00.000Z'
-            url: http://company.aha.io/creative_briefs/6776881149490547091
-            resource: http://company.aha.io/creative_briefs/6776881149490547091
+            url: http://company.aha.io/creative_briefs/476477971
+            resource: http://company.aha.io/creative_briefs/476477971
             custom_fields: []
             comments_count: 0
       example:
         creative_brief:
-          id: '6776881149490547091'
-          name: April launch
+          id: '476477971'
+          name: December launch
           color: 13421772
           created_at: '2019-01-01T00:00:00.000Z'
           updated_at: '2019-01-01T00:00:00.000Z'
-          url: http://company.aha.io/creative_briefs/6776881149490547091
-          resource: http://company.aha.io/creative_briefs/6776881149490547091
+          url: http://company.aha.io/creative_briefs/476477971
+          resource: http://company.aha.io/creative_briefs/476477971
           custom_fields: []
           comments_count: 0
     CreativebriefsPostRequest:
@@ -366,7 +366,7 @@ components:
           resource: http://company.aha.io/creative_briefs/476477971
           custom_fields: []
           comments_count: 0
-    CreativebriefsPutResponse:
+    CreativebriefsPostResponse:
       type: object
       properties:
         creative_brief:
@@ -374,10 +374,10 @@ components:
           properties:
             id:
               type: string
-              example: '476477971'
+              example: '6776881149490547091'
             name:
               type: string
-              example: December launch
+              example: April launch
             color:
               type: integer
               example: 13421772
@@ -389,10 +389,10 @@ components:
               example: '2019-01-01T00:00:00.000Z'
             url:
               type: string
-              example: http://company.aha.io/creative_briefs/476477971
+              example: http://company.aha.io/creative_briefs/6776881149490547091
             resource:
               type: string
-              example: http://company.aha.io/creative_briefs/476477971
+              example: http://company.aha.io/creative_briefs/6776881149490547091
             custom_fields:
               type: array
               items: {}
@@ -400,24 +400,24 @@ components:
               type: integer
               example: 0
           example:
-            id: '476477971'
-            name: December launch
+            id: '6776881149490547091'
+            name: April launch
             color: 13421772
             created_at: '2019-01-01T00:00:00.000Z'
             updated_at: '2019-01-01T00:00:00.000Z'
-            url: http://company.aha.io/creative_briefs/476477971
-            resource: http://company.aha.io/creative_briefs/476477971
+            url: http://company.aha.io/creative_briefs/6776881149490547091
+            resource: http://company.aha.io/creative_briefs/6776881149490547091
             custom_fields: []
             comments_count: 0
       example:
         creative_brief:
-          id: '476477971'
-          name: December launch
+          id: '6776881149490547091'
+          name: April launch
           color: 13421772
           created_at: '2019-01-01T00:00:00.000Z'
           updated_at: '2019-01-01T00:00:00.000Z'
-          url: http://company.aha.io/creative_briefs/476477971
-          resource: http://company.aha.io/creative_briefs/476477971
+          url: http://company.aha.io/creative_briefs/6776881149490547091
+          resource: http://company.aha.io/creative_briefs/6776881149490547091
           custom_fields: []
           comments_count: 0
   securitySchemes:

@@ -150,44 +150,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    IdeasportalusersubscriptionsPostRequest:
-      type: object
-      properties:
-        portal_user_subscriptions:
-          type: object
-          properties:
-            preferences:
-              type: array
-              items:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: project
-                  id:
-                    type: integer
-                    example: 131414752
-                example:
-                  type: project
-                  id: 131414752
-              example:
-              - type: project
-                id: 131414752
-              - type: category
-                id: 251347229
-          example:
-            preferences:
-            - type: project
-              id: 131414752
-            - type: category
-              id: 251347229
-      example:
-        portal_user_subscriptions:
-          preferences:
-          - type: project
-            id: 131414752
-          - type: category
-            id: 251347229
     IdeasportalusersubscriptionsGetResponse:
       type: object
       properties:
@@ -260,6 +222,44 @@ components:
             id: 251347229
           - type: category
             id: 552935478
+    IdeasportalusersubscriptionsPostRequest:
+      type: object
+      properties:
+        portal_user_subscriptions:
+          type: object
+          properties:
+            preferences:
+              type: array
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: project
+                  id:
+                    type: integer
+                    example: 131414752
+                example:
+                  type: project
+                  id: 131414752
+              example:
+              - type: project
+                id: 131414752
+              - type: category
+                id: 251347229
+          example:
+            preferences:
+            - type: project
+              id: 131414752
+            - type: category
+              id: 251347229
+      example:
+        portal_user_subscriptions:
+          preferences:
+          - type: project
+            id: 131414752
+          - type: category
+            id: 251347229
   securitySchemes:
     OAuth2:
       type: oauth2

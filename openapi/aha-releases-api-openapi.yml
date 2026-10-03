@@ -1392,44 +1392,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ReleasesPostResponse:
-      type: object
-      properties:
-        release:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149492110971'
-            name:
-              type: string
-              example: '[Copy] Release 1'
-          example:
-            id: '6776881149492110971'
-            name: '[Copy] Release 1'
-      example:
-        release:
-          id: '6776881149492110971'
-          name: '[Copy] Release 1'
-    ReleasesPostRequest:
-      type: object
-      properties:
-        release:
-          type: object
-          properties:
-            initiatives:
-              type: array
-              items: {}
-            name:
-              type: string
-              example: Smarter release
-          example:
-            initiatives: []
-            name: Smarter release
-      example:
-        release:
-          initiatives: []
-          name: Smarter release
     ReleasesGetResponse:
       type: object
       properties:
@@ -2692,6 +2654,44 @@ components:
             email: no-reply@aha.io
             created_at: '2019-01-01T00:00:00.000Z'
             updated_at: '2019-01-01T00:00:00.000Z'
+    ReleasesPostRequest:
+      type: object
+      properties:
+        release:
+          type: object
+          properties:
+            initiatives:
+              type: array
+              items: {}
+            name:
+              type: string
+              example: Smarter release
+          example:
+            initiatives: []
+            name: Smarter release
+      example:
+        release:
+          initiatives: []
+          name: Smarter release
+    ReleasesPostResponse:
+      type: object
+      properties:
+        release:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149492110971'
+            name:
+              type: string
+              example: '[Copy] Release 1'
+          example:
+            id: '6776881149492110971'
+            name: '[Copy] Release 1'
+      example:
+        release:
+          id: '6776881149492110971'
+          name: '[Copy] Release 1'
   securitySchemes:
     OAuth2:
       type: oauth2

@@ -299,20 +299,73 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    IdeasportalusersPostRequest:
+    IdeasportalusersGetResponse:
       type: object
       properties:
         portal_user:
           type: object
           properties:
+            id:
+              type: string
+              example: '646391926'
+            email:
+              type: string
+              example: john@long.com
             first_name:
               type: string
-              example: Sarah
+              example: John
+            last_name:
+              type: string
+              example: Long
+            enabled:
+              type: boolean
+              example: true
+            verified:
+              type: boolean
+              example: false
+            employee:
+              type: boolean
+              example: false
+            max_endorsements_override:
+              type: 'null'
+            idea_user_id:
+              type: string
+              example: '1056507375'
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            unsubscribed:
+              type: boolean
+              example: false
+            unsubscribed_from_weekly_emails:
+              type: 'null'
           example:
-            first_name: Sarah
+            id: '646391926'
+            email: john@long.com
+            first_name: John
+            last_name: Long
+            enabled: true
+            verified: false
+            employee: false
+            max_endorsements_override: null
+            idea_user_id: '1056507375'
+            created_at: '2019-01-01T00:00:00.000Z'
+            unsubscribed: false
+            unsubscribed_from_weekly_emails: null
       example:
         portal_user:
-          first_name: Sarah
+          id: '646391926'
+          email: john@long.com
+          first_name: John
+          last_name: Long
+          enabled: true
+          verified: false
+          employee: false
+          max_endorsements_override: null
+          idea_user_id: '1056507375'
+          created_at: '2019-01-01T00:00:00.000Z'
+          unsubscribed: false
+          unsubscribed_from_weekly_emails: null
     IdeasportalusersPutResponse:
       type: object
       properties:
@@ -448,73 +501,20 @@ components:
           created_at: '2019-01-01T00:00:00.000Z'
           unsubscribed: false
           unsubscribed_from_weekly_emails: null
-    IdeasportalusersGetResponse:
+    IdeasportalusersPostRequest:
       type: object
       properties:
         portal_user:
           type: object
           properties:
-            id:
-              type: string
-              example: '646391926'
-            email:
-              type: string
-              example: john@long.com
             first_name:
               type: string
-              example: John
-            last_name:
-              type: string
-              example: Long
-            enabled:
-              type: boolean
-              example: true
-            verified:
-              type: boolean
-              example: false
-            employee:
-              type: boolean
-              example: false
-            max_endorsements_override:
-              type: 'null'
-            idea_user_id:
-              type: string
-              example: '1056507375'
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            unsubscribed:
-              type: boolean
-              example: false
-            unsubscribed_from_weekly_emails:
-              type: 'null'
+              example: Sarah
           example:
-            id: '646391926'
-            email: john@long.com
-            first_name: John
-            last_name: Long
-            enabled: true
-            verified: false
-            employee: false
-            max_endorsements_override: null
-            idea_user_id: '1056507375'
-            created_at: '2019-01-01T00:00:00.000Z'
-            unsubscribed: false
-            unsubscribed_from_weekly_emails: null
+            first_name: Sarah
       example:
         portal_user:
-          id: '646391926'
-          email: john@long.com
-          first_name: John
-          last_name: Long
-          enabled: true
-          verified: false
-          employee: false
-          max_endorsements_override: null
-          idea_user_id: '1056507375'
-          created_at: '2019-01-01T00:00:00.000Z'
-          unsubscribed: false
-          unsubscribed_from_weekly_emails: null
+          first_name: Sarah
   securitySchemes:
     OAuth2:
       type: oauth2

@@ -1067,34 +1067,18 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    IdeasGetResponse:
+    IdeasPostRequest:
       type: object
       properties:
-        ideas:
-          type: array
-          items: {}
-        pagination:
-          type: object
-          properties:
-            total_records:
-              type: integer
-              example: 0
-            total_pages:
-              type: integer
-              example: 0
-            current_page:
-              type: integer
-              example: 1
-          example:
-            total_records: 0
-            total_pages: 0
-            current_page: 1
+        promotable_type:
+          type: string
+          example: feature
+        release_id:
+          type: integer
+          example: 278327321
       example:
-        ideas: []
-        pagination:
-          total_records: 0
-          total_pages: 0
-          current_page: 1
+        promotable_type: feature
+        release_id: 278327321
     IdeasPostResponse:
       type: object
       properties:
@@ -1619,18 +1603,34 @@ components:
             ended_at: null
           submitted_idea_portal_record_url: https://testideaportal1.ideas.aha.io:8338/ideas/PRJ1-I-10
           integration_fields: []
-    IdeasPostRequest:
+    IdeasGetResponse:
       type: object
       properties:
-        promotable_type:
-          type: string
-          example: feature
-        release_id:
-          type: integer
-          example: 278327321
+        ideas:
+          type: array
+          items: {}
+        pagination:
+          type: object
+          properties:
+            total_records:
+              type: integer
+              example: 0
+            total_pages:
+              type: integer
+              example: 0
+            current_page:
+              type: integer
+              example: 1
+          example:
+            total_records: 0
+            total_pages: 0
+            current_page: 1
       example:
-        promotable_type: feature
-        release_id: 278327321
+        ideas: []
+        pagination:
+          total_records: 0
+          total_pages: 0
+          current_page: 1
     IdeasPutResponse:
       type: object
       properties:

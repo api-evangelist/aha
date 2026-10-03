@@ -432,6 +432,176 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    CustomtablerecordsPostRequest:
+      type: object
+      properties:
+        custom_object_record:
+          type: object
+          properties:
+            custom_fields:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Major conglomerate
+                website:
+                  type: string
+                  example: www.conglom.com
+              example:
+                name: Major conglomerate
+                website: www.conglom.com
+          example:
+            custom_fields:
+              name: Major conglomerate
+              website: www.conglom.com
+      example:
+        custom_object_record:
+          custom_fields:
+            name: Major conglomerate
+            website: www.conglom.com
+    CustomtablerecordsPostResponse:
+      type: object
+      properties:
+        custom_object_record:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149486714349'
+            product_id:
+              type: string
+              example: '131414752'
+            key:
+              type: string
+              example: customers
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            custom_fields:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  key:
+                    type: string
+                  name:
+                    type: string
+                  updatedAt:
+                    type: string
+                  value:
+                    type: string
+                  type:
+                    type: string
+                example:
+                  id: '6776881149493312138'
+                  key: name
+                  name: Name
+                  updatedAt: '2019-01-01T00:00:00Z'
+                  value: Major conglomerate
+                  type: string
+              example:
+              - id: '6776881149493312138'
+                key: name
+                name: Name
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: Major conglomerate
+                type: string
+              - id: '6776881149489312610'
+                key: website
+                name: Website
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: www.conglom.com
+                type: url
+            custom_object_links:
+              type: array
+              items: {}
+            linked_records:
+              type: array
+              items: {}
+            created_by_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1020675218'
+                name:
+                  type: string
+                  example: Mary Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+          example:
+            id: '6776881149486714349'
+            product_id: '131414752'
+            key: customers
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            custom_fields:
+            - id: '6776881149493312138'
+              key: name
+              name: Name
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: Major conglomerate
+              type: string
+            - id: '6776881149489312610'
+              key: website
+              name: Website
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: www.conglom.com
+              type: url
+            custom_object_links: []
+            linked_records: []
+            created_by_user:
+              id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+      example:
+        custom_object_record:
+          id: '6776881149486714349'
+          product_id: '131414752'
+          key: customers
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          custom_fields:
+          - id: '6776881149493312138'
+            key: name
+            name: Name
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: Major conglomerate
+            type: string
+          - id: '6776881149489312610'
+            key: website
+            name: Website
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: www.conglom.com
+            type: url
+          custom_object_links: []
+          linked_records: []
+          created_by_user:
+            id: '1020675218'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
     CustomtablerecordsGetResponse:
       type: object
       properties:
@@ -677,176 +847,6 @@ components:
             name: Submitters
             record_type: Ideas::Idea
             record_id: 58056975
-          created_by_user:
-            id: '1020675218'
-            name: Mary Humpty
-            email: no-reply@aha.io
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-    CustomtablerecordsPostRequest:
-      type: object
-      properties:
-        custom_object_record:
-          type: object
-          properties:
-            custom_fields:
-              type: object
-              properties:
-                name:
-                  type: string
-                  example: Major conglomerate
-                website:
-                  type: string
-                  example: www.conglom.com
-              example:
-                name: Major conglomerate
-                website: www.conglom.com
-          example:
-            custom_fields:
-              name: Major conglomerate
-              website: www.conglom.com
-      example:
-        custom_object_record:
-          custom_fields:
-            name: Major conglomerate
-            website: www.conglom.com
-    CustomtablerecordsPostResponse:
-      type: object
-      properties:
-        custom_object_record:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149486714349'
-            product_id:
-              type: string
-              example: '131414752'
-            key:
-              type: string
-              example: customers
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            custom_fields:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  key:
-                    type: string
-                  name:
-                    type: string
-                  updatedAt:
-                    type: string
-                  value:
-                    type: string
-                  type:
-                    type: string
-                example:
-                  id: '6776881149493312138'
-                  key: name
-                  name: Name
-                  updatedAt: '2019-01-01T00:00:00Z'
-                  value: Major conglomerate
-                  type: string
-              example:
-              - id: '6776881149493312138'
-                key: name
-                name: Name
-                updatedAt: '2019-01-01T00:00:00Z'
-                value: Major conglomerate
-                type: string
-              - id: '6776881149489312610'
-                key: website
-                name: Website
-                updatedAt: '2019-01-01T00:00:00Z'
-                value: www.conglom.com
-                type: url
-            custom_object_links:
-              type: array
-              items: {}
-            linked_records:
-              type: array
-              items: {}
-            created_by_user:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '1020675218'
-                name:
-                  type: string
-                  example: Mary Humpty
-                email:
-                  type: string
-                  example: no-reply@aha.io
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-              example:
-                id: '1020675218'
-                name: Mary Humpty
-                email: no-reply@aha.io
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-          example:
-            id: '6776881149486714349'
-            product_id: '131414752'
-            key: customers
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            custom_fields:
-            - id: '6776881149493312138'
-              key: name
-              name: Name
-              updatedAt: '2019-01-01T00:00:00Z'
-              value: Major conglomerate
-              type: string
-            - id: '6776881149489312610'
-              key: website
-              name: Website
-              updatedAt: '2019-01-01T00:00:00Z'
-              value: www.conglom.com
-              type: url
-            custom_object_links: []
-            linked_records: []
-            created_by_user:
-              id: '1020675218'
-              name: Mary Humpty
-              email: no-reply@aha.io
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-      example:
-        custom_object_record:
-          id: '6776881149486714349'
-          product_id: '131414752'
-          key: customers
-          created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          custom_fields:
-          - id: '6776881149493312138'
-            key: name
-            name: Name
-            updatedAt: '2019-01-01T00:00:00Z'
-            value: Major conglomerate
-            type: string
-          - id: '6776881149489312610'
-            key: website
-            name: Website
-            updatedAt: '2019-01-01T00:00:00Z'
-            value: www.conglom.com
-            type: url
-          custom_object_links: []
-          linked_records: []
           created_by_user:
             id: '1020675218'
             name: Mary Humpty

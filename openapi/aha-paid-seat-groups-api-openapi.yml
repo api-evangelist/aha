@@ -221,6 +221,118 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    PaidSeatGroupsPostRequest:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          example: 1049303076
+        remove:
+          type: 'null'
+      example:
+        user_id: 1049303076
+        remove: null
+    PaidSeatGroupsPostResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: '572805993'
+        name:
+          type: string
+          example: Group 2
+        administrators:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: '82352673'
+              name:
+                type: string
+                example: Bob Smith
+              email:
+                type: string
+                example: no-reply@aha.io
+              created_at:
+                type: string
+                example: '2019-01-01T00:00:00.000Z'
+              updated_at:
+                type: string
+                example: '2019-01-01T00:00:00.000Z'
+            example:
+              id: '82352673'
+              name: Bob Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+          example:
+          - id: '82352673'
+            name: Bob Smith
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+        capacity:
+          type: integer
+          example: 20
+        allocated_seats:
+          type: integer
+          example: 2
+        description:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149483785369'
+            body:
+              type: string
+              example: ''
+            editor_version:
+              type: integer
+              example: 2
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            attachments:
+              type: array
+              items: {}
+          example:
+            id: '6776881149483785369'
+            body: ''
+            editor_version: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+        created_at:
+          type: string
+          example: '2019-01-01T00:00:00.000Z'
+        updated_at:
+          type: string
+          example: '2019-01-01T00:00:00.000Z'
+      example:
+        id: '572805993'
+        name: Group 2
+        administrators:
+        - id: '82352673'
+          name: Bob Smith
+          email: no-reply@aha.io
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+        capacity: 20
+        allocated_seats: 2
+        description:
+          id: '6776881149483785369'
+          body: ''
+          editor_version: 2
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          attachments: []
+        created_at: '2019-01-01T00:00:00.000Z'
+        updated_at: '2019-01-01T00:00:00.000Z'
     PaidSeatGroupsGetResponse:
       type: object
       properties:
@@ -488,118 +600,6 @@ components:
         allocated_seats: 2
         description:
           id: '6776881149486533886'
-          body: ''
-          editor_version: 2
-          created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          attachments: []
-        created_at: '2019-01-01T00:00:00.000Z'
-        updated_at: '2019-01-01T00:00:00.000Z'
-    PaidSeatGroupsPostRequest:
-      type: object
-      properties:
-        user_id:
-          type: integer
-          example: 1049303076
-        remove:
-          type: 'null'
-      example:
-        user_id: 1049303076
-        remove: null
-    PaidSeatGroupsPostResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          example: '572805993'
-        name:
-          type: string
-          example: Group 2
-        administrators:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-                example: '82352673'
-              name:
-                type: string
-                example: Bob Smith
-              email:
-                type: string
-                example: no-reply@aha.io
-              created_at:
-                type: string
-                example: '2019-01-01T00:00:00.000Z'
-              updated_at:
-                type: string
-                example: '2019-01-01T00:00:00.000Z'
-            example:
-              id: '82352673'
-              name: Bob Smith
-              email: no-reply@aha.io
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-          example:
-          - id: '82352673'
-            name: Bob Smith
-            email: no-reply@aha.io
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-        capacity:
-          type: integer
-          example: 20
-        allocated_seats:
-          type: integer
-          example: 2
-        description:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149483785369'
-            body:
-              type: string
-              example: ''
-            editor_version:
-              type: integer
-              example: 2
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            attachments:
-              type: array
-              items: {}
-          example:
-            id: '6776881149483785369'
-            body: ''
-            editor_version: 2
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            attachments: []
-        created_at:
-          type: string
-          example: '2019-01-01T00:00:00.000Z'
-        updated_at:
-          type: string
-          example: '2019-01-01T00:00:00.000Z'
-      example:
-        id: '572805993'
-        name: Group 2
-        administrators:
-        - id: '82352673'
-          name: Bob Smith
-          email: no-reply@aha.io
-          created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-        capacity: 20
-        allocated_seats: 2
-        description:
-          id: '6776881149483785369'
           body: ''
           editor_version: 2
           created_at: '2019-01-01T00:00:00.000Z'

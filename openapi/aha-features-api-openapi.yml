@@ -1417,6 +1417,54 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    FeaturesPostRequest:
+      type: object
+      properties:
+        feature:
+          type: object
+          properties:
+            name:
+              type: string
+              example: New name
+            workflow_kind:
+              type: string
+              example: new
+            workflow_status:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Designed
+              example:
+                name: Designed
+            description:
+              type: string
+              example: <p>This is the description</p>
+            assigned_to_user:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: no-reply@aha.io
+              example:
+                email: no-reply@aha.io
+          example:
+            name: New name
+            workflow_kind: new
+            workflow_status:
+              name: Designed
+            description: <p>This is the description</p>
+            assigned_to_user:
+              email: no-reply@aha.io
+      example:
+        feature:
+          name: New name
+          workflow_kind: new
+          workflow_status:
+            name: Designed
+          description: <p>This is the description</p>
+          assigned_to_user:
+            email: no-reply@aha.io
     FeaturesPostResponse:
       type: object
       properties:
@@ -1982,54 +2030,6 @@ components:
           epic_only_original_estimate: null
           epic_only_remaining_estimate: null
           epic_only_work_done: null
-    FeaturesPostRequest:
-      type: object
-      properties:
-        feature:
-          type: object
-          properties:
-            name:
-              type: string
-              example: New name
-            workflow_kind:
-              type: string
-              example: new
-            workflow_status:
-              type: object
-              properties:
-                name:
-                  type: string
-                  example: Designed
-              example:
-                name: Designed
-            description:
-              type: string
-              example: <p>This is the description</p>
-            assigned_to_user:
-              type: object
-              properties:
-                email:
-                  type: string
-                  example: no-reply@aha.io
-              example:
-                email: no-reply@aha.io
-          example:
-            name: New name
-            workflow_kind: new
-            workflow_status:
-              name: Designed
-            description: <p>This is the description</p>
-            assigned_to_user:
-              email: no-reply@aha.io
-      example:
-        feature:
-          name: New name
-          workflow_kind: new
-          workflow_status:
-            name: Designed
-          description: <p>This is the description</p>
-          assigned_to_user:
-            email: no-reply@aha.io
     FeaturesGetResponse:
       type: object
       properties:

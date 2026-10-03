@@ -605,6 +605,238 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    CapacityinvestmentsPostResponse:
+      type: object
+      properties:
+        capacity_investment:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149497074336'
+            capacity_scenario_id:
+              type: string
+              example: '997808419'
+            total:
+              type: 'null'
+            estimate_source:
+              type: string
+              example: manual_estimate
+            date_source:
+              type: string
+              example: manual_dates
+            start_date:
+              type: string
+              example: '2019-01-01'
+            end_date:
+              type: string
+              example: '2019-01-01'
+            feature:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1007868956'
+                reference_num:
+                  type: string
+                  example: PRJ1-1
+                name:
+                  type: string
+                  example: Feature 1
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                url:
+                  type: string
+                  example: http://company.aha.io/features/PRJ1-1
+                resource:
+                  type: string
+                  example: http://company.aha.io/api/v1/features/PRJ1-1
+                product_id:
+                  type: string
+                  example: '131414752'
+              example:
+                id: '1007868956'
+                reference_num: PRJ1-1
+                name: Feature 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/features/PRJ1-1
+                resource: http://company.aha.io/api/v1/features/PRJ1-1
+                product_id: '131414752'
+            estimate_values:
+              type: array
+              items: {}
+            custom_fields:
+              type: array
+              items: {}
+          example:
+            id: '6776881149497074336'
+            capacity_scenario_id: '997808419'
+            total: null
+            estimate_source: manual_estimate
+            date_source: manual_dates
+            start_date: '2019-01-01'
+            end_date: '2019-01-01'
+            feature:
+              id: '1007868956'
+              reference_num: PRJ1-1
+              name: Feature 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/features/PRJ1-1
+              resource: http://company.aha.io/api/v1/features/PRJ1-1
+              product_id: '131414752'
+            estimate_values: []
+            custom_fields: []
+      example:
+        capacity_investment:
+          id: '6776881149497074336'
+          capacity_scenario_id: '997808419'
+          total: null
+          estimate_source: manual_estimate
+          date_source: manual_dates
+          start_date: '2019-01-01'
+          end_date: '2019-01-01'
+          feature:
+            id: '1007868956'
+            reference_num: PRJ1-1
+            name: Feature 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/features/PRJ1-1
+            resource: http://company.aha.io/api/v1/features/PRJ1-1
+            product_id: '131414752'
+          estimate_values: []
+          custom_fields: []
+    CapacityinvestmentsPostRequest:
+      type: object
+      properties:
+        capacity_investment:
+          type: object
+          properties:
+            start_date:
+              type: string
+              example: '2019-01-01'
+            end_date:
+              type: string
+              example: '2019-01-01'
+            date_source:
+              type: string
+              example: manual_dates
+            custom_fields:
+              type: object
+              properties:
+                priority:
+                  type: string
+                  example: P3
+              example:
+                priority: P3
+          example:
+            start_date: '2019-01-01'
+            end_date: '2019-01-01'
+            date_source: manual_dates
+            custom_fields:
+              priority: P3
+      example:
+        capacity_investment:
+          start_date: '2019-01-01'
+          end_date: '2019-01-01'
+          date_source: manual_dates
+          custom_fields:
+            priority: P3
+    CapacityinvestmentsPutResponse:
+      type: object
+      properties:
+        capacity_investment:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '756888381'
+            capacity_scenario_id:
+              type: string
+              example: '997808419'
+            total:
+              type: 'null'
+            estimate_source:
+              type: string
+              example: manual_estimate
+            date_source:
+              type: string
+              example: manual_dates
+            start_date:
+              type: string
+              example: '2019-01-01'
+            end_date:
+              type: string
+              example: '2019-01-01'
+            initiative:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '423077122'
+                reference_num:
+                  type: string
+                  example: PRJ1-S-1
+                name:
+                  type: string
+                  example: Initiative 1
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                url:
+                  type: string
+                  example: http://company.aha.io/initiatives/PRJ1-S-1
+                resource:
+                  type: string
+                  example: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+              example:
+                id: '423077122'
+                reference_num: PRJ1-S-1
+                name: Initiative 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/initiatives/PRJ1-S-1
+                resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+            estimate_values:
+              type: array
+              items: {}
+            custom_fields:
+              type: array
+              items: {}
+          example:
+            id: '756888381'
+            capacity_scenario_id: '997808419'
+            total: null
+            estimate_source: manual_estimate
+            date_source: manual_dates
+            start_date: '2019-01-01'
+            end_date: '2019-01-01'
+            initiative:
+              id: '423077122'
+              reference_num: PRJ1-S-1
+              name: Initiative 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/initiatives/PRJ1-S-1
+              resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+            estimate_values: []
+            custom_fields: []
+      example:
+        capacity_investment:
+          id: '756888381'
+          capacity_scenario_id: '997808419'
+          total: null
+          estimate_source: manual_estimate
+          date_source: manual_dates
+          start_date: '2019-01-01'
+          end_date: '2019-01-01'
+          initiative:
+            id: '423077122'
+            reference_num: PRJ1-S-1
+            name: Initiative 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/initiatives/PRJ1-S-1
+            resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+          estimate_values: []
+          custom_fields: []
     CapacityinvestmentsGetResponse:
       type: object
       properties:
@@ -982,238 +1214,6 @@ components:
             updatedAt: '2019-01-01T00:00:00Z'
             value: Acme Corp
             type: string
-    CapacityinvestmentsPostRequest:
-      type: object
-      properties:
-        capacity_investment:
-          type: object
-          properties:
-            start_date:
-              type: string
-              example: '2019-01-01'
-            end_date:
-              type: string
-              example: '2019-01-01'
-            date_source:
-              type: string
-              example: manual_dates
-            custom_fields:
-              type: object
-              properties:
-                priority:
-                  type: string
-                  example: P3
-              example:
-                priority: P3
-          example:
-            start_date: '2019-01-01'
-            end_date: '2019-01-01'
-            date_source: manual_dates
-            custom_fields:
-              priority: P3
-      example:
-        capacity_investment:
-          start_date: '2019-01-01'
-          end_date: '2019-01-01'
-          date_source: manual_dates
-          custom_fields:
-            priority: P3
-    CapacityinvestmentsPutResponse:
-      type: object
-      properties:
-        capacity_investment:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '756888381'
-            capacity_scenario_id:
-              type: string
-              example: '997808419'
-            total:
-              type: 'null'
-            estimate_source:
-              type: string
-              example: manual_estimate
-            date_source:
-              type: string
-              example: manual_dates
-            start_date:
-              type: string
-              example: '2019-01-01'
-            end_date:
-              type: string
-              example: '2019-01-01'
-            initiative:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '423077122'
-                reference_num:
-                  type: string
-                  example: PRJ1-S-1
-                name:
-                  type: string
-                  example: Initiative 1
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                url:
-                  type: string
-                  example: http://company.aha.io/initiatives/PRJ1-S-1
-                resource:
-                  type: string
-                  example: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
-              example:
-                id: '423077122'
-                reference_num: PRJ1-S-1
-                name: Initiative 1
-                created_at: '2019-01-01T00:00:00.000Z'
-                url: http://company.aha.io/initiatives/PRJ1-S-1
-                resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
-            estimate_values:
-              type: array
-              items: {}
-            custom_fields:
-              type: array
-              items: {}
-          example:
-            id: '756888381'
-            capacity_scenario_id: '997808419'
-            total: null
-            estimate_source: manual_estimate
-            date_source: manual_dates
-            start_date: '2019-01-01'
-            end_date: '2019-01-01'
-            initiative:
-              id: '423077122'
-              reference_num: PRJ1-S-1
-              name: Initiative 1
-              created_at: '2019-01-01T00:00:00.000Z'
-              url: http://company.aha.io/initiatives/PRJ1-S-1
-              resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
-            estimate_values: []
-            custom_fields: []
-      example:
-        capacity_investment:
-          id: '756888381'
-          capacity_scenario_id: '997808419'
-          total: null
-          estimate_source: manual_estimate
-          date_source: manual_dates
-          start_date: '2019-01-01'
-          end_date: '2019-01-01'
-          initiative:
-            id: '423077122'
-            reference_num: PRJ1-S-1
-            name: Initiative 1
-            created_at: '2019-01-01T00:00:00.000Z'
-            url: http://company.aha.io/initiatives/PRJ1-S-1
-            resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
-          estimate_values: []
-          custom_fields: []
-    CapacityinvestmentsPostResponse:
-      type: object
-      properties:
-        capacity_investment:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149497074336'
-            capacity_scenario_id:
-              type: string
-              example: '997808419'
-            total:
-              type: 'null'
-            estimate_source:
-              type: string
-              example: manual_estimate
-            date_source:
-              type: string
-              example: manual_dates
-            start_date:
-              type: string
-              example: '2019-01-01'
-            end_date:
-              type: string
-              example: '2019-01-01'
-            feature:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '1007868956'
-                reference_num:
-                  type: string
-                  example: PRJ1-1
-                name:
-                  type: string
-                  example: Feature 1
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                url:
-                  type: string
-                  example: http://company.aha.io/features/PRJ1-1
-                resource:
-                  type: string
-                  example: http://company.aha.io/api/v1/features/PRJ1-1
-                product_id:
-                  type: string
-                  example: '131414752'
-              example:
-                id: '1007868956'
-                reference_num: PRJ1-1
-                name: Feature 1
-                created_at: '2019-01-01T00:00:00.000Z'
-                url: http://company.aha.io/features/PRJ1-1
-                resource: http://company.aha.io/api/v1/features/PRJ1-1
-                product_id: '131414752'
-            estimate_values:
-              type: array
-              items: {}
-            custom_fields:
-              type: array
-              items: {}
-          example:
-            id: '6776881149497074336'
-            capacity_scenario_id: '997808419'
-            total: null
-            estimate_source: manual_estimate
-            date_source: manual_dates
-            start_date: '2019-01-01'
-            end_date: '2019-01-01'
-            feature:
-              id: '1007868956'
-              reference_num: PRJ1-1
-              name: Feature 1
-              created_at: '2019-01-01T00:00:00.000Z'
-              url: http://company.aha.io/features/PRJ1-1
-              resource: http://company.aha.io/api/v1/features/PRJ1-1
-              product_id: '131414752'
-            estimate_values: []
-            custom_fields: []
-      example:
-        capacity_investment:
-          id: '6776881149497074336'
-          capacity_scenario_id: '997808419'
-          total: null
-          estimate_source: manual_estimate
-          date_source: manual_dates
-          start_date: '2019-01-01'
-          end_date: '2019-01-01'
-          feature:
-            id: '1007868956'
-            reference_num: PRJ1-1
-            name: Feature 1
-            created_at: '2019-01-01T00:00:00.000Z'
-            url: http://company.aha.io/features/PRJ1-1
-            resource: http://company.aha.io/api/v1/features/PRJ1-1
-            product_id: '131414752'
-          estimate_values: []
-          custom_fields: []
   securitySchemes:
     OAuth2:
       type: oauth2

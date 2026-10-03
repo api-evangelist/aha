@@ -1744,6 +1744,390 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    GoalsPostResponse:
+      type: object
+      properties:
+        goal:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149493942444'
+            name:
+              type: string
+              example: Goal 3
+            reference_num:
+              type: string
+              example: PRJ1-G-1
+            effort:
+              type: integer
+              example: 95
+            value:
+              type: integer
+              example: 54
+            color:
+              type: string
+              example: '#397e82'
+            position:
+              type: integer
+              example: 6
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            product_id:
+              type: string
+              example: '131414752'
+            progress:
+              type: integer
+              example: 0
+            progress_source:
+              type: string
+              example: progress_manual
+            url:
+              type: string
+              example: http://company.aha.io/strategic_imperatives/PRJ1-G-1
+            resource:
+              type: string
+              example: http://company.aha.io/strategic_imperatives/PRJ1-G-1
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149500114967'
+                body:
+                  type: string
+                  example: ''
+                editor_version:
+                  type: integer
+                  example: 2
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: '6776881149500114967'
+                body: ''
+                editor_version: 2
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            success_metric:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: FooBar
+                description:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    body:
+                      type: string
+                    editor_version:
+                      type: string
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
+                    attachments:
+                      type: string
+                  example:
+                    id: '6776881149483601587'
+                    body: Foo Bar
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                workflow_status:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    position:
+                      type: string
+                    complete:
+                      type: string
+                    color:
+                      type: string
+                  example:
+                    id: '412273758'
+                    name: Not Started
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                workflow_status_times:
+                  type: array
+                  items:
+                    type: string
+                  example:
+                  - status_id: '412273758'
+                    status_name: Not Started
+                    started_at: '2019-01-01T00:00:00.000Z'
+                    ended_at: null
+              example:
+                name: FooBar
+                description:
+                  id: '6776881149483601587'
+                  body: Foo Bar
+                  editor_version: 2
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                workflow_status:
+                  id: '412273758'
+                  name: Not Started
+                  position: 1
+                  complete: false
+                  color: '#dce7c6'
+                workflow_status_times:
+                - status_id: '412273758'
+                  status_name: Not Started
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: null
+            project:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '131414752'
+                reference_prefix:
+                  type: string
+                  example: PRJ1
+                name:
+                  type: string
+                  example: Project 1
+                product_line:
+                  type: boolean
+                  example: false
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                workspace_type:
+                  type: string
+                  example: product_workspace
+                url:
+                  type: string
+                  example: http://company.aha.io/projects/PRJ1
+              example:
+                id: '131414752'
+                reference_prefix: PRJ1
+                name: Project 1
+                product_line: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                workspace_type: product_workspace
+                url: http://company.aha.io/projects/PRJ1
+            initiatives:
+              type: array
+              items: {}
+            key_results:
+              type: array
+              items: {}
+            comments_count:
+              type: integer
+              example: 0
+            features:
+              type: array
+              items: {}
+            releases:
+              type: array
+              items: {}
+            custom_fields:
+              type: array
+              items: {}
+            watchers:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  email:
+                    type: string
+                  created_at:
+                    type: string
+                  updated_at:
+                    type: string
+                example:
+                  id: '16338845'
+                  name: John Smith
+                  email: no-reply@aha.io
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+              example:
+              - id: '16338845'
+                name: John Smith
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+              - id: '689956296'
+                name: Henry Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+              - id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+          example:
+            id: '6776881149493942444'
+            name: Goal 3
+            reference_num: PRJ1-G-1
+            effort: 95
+            value: 54
+            color: '#397e82'
+            position: 6
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            product_id: '131414752'
+            progress: 0
+            progress_source: progress_manual
+            url: http://company.aha.io/strategic_imperatives/PRJ1-G-1
+            resource: http://company.aha.io/strategic_imperatives/PRJ1-G-1
+            description:
+              id: '6776881149500114967'
+              body: ''
+              editor_version: 2
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            success_metric:
+              name: FooBar
+              description:
+                id: '6776881149483601587'
+                body: Foo Bar
+                editor_version: 2
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+              workflow_status:
+                id: '412273758'
+                name: Not Started
+                position: 1
+                complete: false
+                color: '#dce7c6'
+              workflow_status_times:
+              - status_id: '412273758'
+                status_name: Not Started
+                started_at: '2019-01-01T00:00:00.000Z'
+                ended_at: null
+            project:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              workspace_type: product_workspace
+              url: http://company.aha.io/projects/PRJ1
+            initiatives: []
+            key_results: []
+            comments_count: 0
+            features: []
+            releases: []
+            custom_fields: []
+            watchers:
+            - id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            - id: '689956296'
+              name: Henry Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            - id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+      example:
+        goal:
+          id: '6776881149493942444'
+          name: Goal 3
+          reference_num: PRJ1-G-1
+          effort: 95
+          value: 54
+          color: '#397e82'
+          position: 6
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          product_id: '131414752'
+          progress: 0
+          progress_source: progress_manual
+          url: http://company.aha.io/strategic_imperatives/PRJ1-G-1
+          resource: http://company.aha.io/strategic_imperatives/PRJ1-G-1
+          description:
+            id: '6776881149500114967'
+            body: ''
+            editor_version: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+          success_metric:
+            name: FooBar
+            description:
+              id: '6776881149483601587'
+              body: Foo Bar
+              editor_version: 2
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            workflow_status:
+              id: '412273758'
+              name: Not Started
+              position: 1
+              complete: false
+              color: '#dce7c6'
+            workflow_status_times:
+            - status_id: '412273758'
+              status_name: Not Started
+              started_at: '2019-01-01T00:00:00.000Z'
+              ended_at: null
+          project:
+            id: '131414752'
+            reference_prefix: PRJ1
+            name: Project 1
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            workspace_type: product_workspace
+            url: http://company.aha.io/projects/PRJ1
+          initiatives: []
+          key_results: []
+          comments_count: 0
+          features: []
+          releases: []
+          custom_fields: []
+          watchers:
+          - id: '16338845'
+            name: John Smith
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          - id: '689956296'
+            name: Henry Humpty
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          - id: '1020675218'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
     GoalsPutResponse:
       type: object
       properties:
@@ -2481,390 +2865,6 @@ components:
         goal:
           description: An even smarter goal.
           workflow_status: On Track
-    GoalsPostResponse:
-      type: object
-      properties:
-        goal:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149493942444'
-            name:
-              type: string
-              example: Goal 3
-            reference_num:
-              type: string
-              example: PRJ1-G-1
-            effort:
-              type: integer
-              example: 95
-            value:
-              type: integer
-              example: 54
-            color:
-              type: string
-              example: '#397e82'
-            position:
-              type: integer
-              example: 6
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            product_id:
-              type: string
-              example: '131414752'
-            progress:
-              type: integer
-              example: 0
-            progress_source:
-              type: string
-              example: progress_manual
-            url:
-              type: string
-              example: http://company.aha.io/strategic_imperatives/PRJ1-G-1
-            resource:
-              type: string
-              example: http://company.aha.io/strategic_imperatives/PRJ1-G-1
-            description:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '6776881149500114967'
-                body:
-                  type: string
-                  example: ''
-                editor_version:
-                  type: integer
-                  example: 2
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                attachments:
-                  type: array
-                  items: {}
-              example:
-                id: '6776881149500114967'
-                body: ''
-                editor_version: 2
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-            success_metric:
-              type: object
-              properties:
-                name:
-                  type: string
-                  example: FooBar
-                description:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    body:
-                      type: string
-                    editor_version:
-                      type: string
-                    created_at:
-                      type: string
-                    updated_at:
-                      type: string
-                    attachments:
-                      type: string
-                  example:
-                    id: '6776881149483601587'
-                    body: Foo Bar
-                    editor_version: 2
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    attachments: []
-                workflow_status:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    name:
-                      type: string
-                    position:
-                      type: string
-                    complete:
-                      type: string
-                    color:
-                      type: string
-                  example:
-                    id: '412273758'
-                    name: Not Started
-                    position: 1
-                    complete: false
-                    color: '#dce7c6'
-                workflow_status_times:
-                  type: array
-                  items:
-                    type: string
-                  example:
-                  - status_id: '412273758'
-                    status_name: Not Started
-                    started_at: '2019-01-01T00:00:00.000Z'
-                    ended_at: null
-              example:
-                name: FooBar
-                description:
-                  id: '6776881149483601587'
-                  body: Foo Bar
-                  editor_version: 2
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  attachments: []
-                workflow_status:
-                  id: '412273758'
-                  name: Not Started
-                  position: 1
-                  complete: false
-                  color: '#dce7c6'
-                workflow_status_times:
-                - status_id: '412273758'
-                  status_name: Not Started
-                  started_at: '2019-01-01T00:00:00.000Z'
-                  ended_at: null
-            project:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '131414752'
-                reference_prefix:
-                  type: string
-                  example: PRJ1
-                name:
-                  type: string
-                  example: Project 1
-                product_line:
-                  type: boolean
-                  example: false
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                workspace_type:
-                  type: string
-                  example: product_workspace
-                url:
-                  type: string
-                  example: http://company.aha.io/projects/PRJ1
-              example:
-                id: '131414752'
-                reference_prefix: PRJ1
-                name: Project 1
-                product_line: false
-                created_at: '2019-01-01T00:00:00.000Z'
-                workspace_type: product_workspace
-                url: http://company.aha.io/projects/PRJ1
-            initiatives:
-              type: array
-              items: {}
-            key_results:
-              type: array
-              items: {}
-            comments_count:
-              type: integer
-              example: 0
-            features:
-              type: array
-              items: {}
-            releases:
-              type: array
-              items: {}
-            custom_fields:
-              type: array
-              items: {}
-            watchers:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  name:
-                    type: string
-                  email:
-                    type: string
-                  created_at:
-                    type: string
-                  updated_at:
-                    type: string
-                example:
-                  id: '16338845'
-                  name: John Smith
-                  email: no-reply@aha.io
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-              example:
-              - id: '16338845'
-                name: John Smith
-                email: no-reply@aha.io
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-              - id: '689956296'
-                name: Henry Humpty
-                email: no-reply@aha.io
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-              - id: '1020675218'
-                name: Mary Humpty
-                email: no-reply@aha.io
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-          example:
-            id: '6776881149493942444'
-            name: Goal 3
-            reference_num: PRJ1-G-1
-            effort: 95
-            value: 54
-            color: '#397e82'
-            position: 6
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            product_id: '131414752'
-            progress: 0
-            progress_source: progress_manual
-            url: http://company.aha.io/strategic_imperatives/PRJ1-G-1
-            resource: http://company.aha.io/strategic_imperatives/PRJ1-G-1
-            description:
-              id: '6776881149500114967'
-              body: ''
-              editor_version: 2
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-            success_metric:
-              name: FooBar
-              description:
-                id: '6776881149483601587'
-                body: Foo Bar
-                editor_version: 2
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-              workflow_status:
-                id: '412273758'
-                name: Not Started
-                position: 1
-                complete: false
-                color: '#dce7c6'
-              workflow_status_times:
-              - status_id: '412273758'
-                status_name: Not Started
-                started_at: '2019-01-01T00:00:00.000Z'
-                ended_at: null
-            project:
-              id: '131414752'
-              reference_prefix: PRJ1
-              name: Project 1
-              product_line: false
-              created_at: '2019-01-01T00:00:00.000Z'
-              workspace_type: product_workspace
-              url: http://company.aha.io/projects/PRJ1
-            initiatives: []
-            key_results: []
-            comments_count: 0
-            features: []
-            releases: []
-            custom_fields: []
-            watchers:
-            - id: '16338845'
-              name: John Smith
-              email: no-reply@aha.io
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-            - id: '689956296'
-              name: Henry Humpty
-              email: no-reply@aha.io
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-            - id: '1020675218'
-              name: Mary Humpty
-              email: no-reply@aha.io
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-      example:
-        goal:
-          id: '6776881149493942444'
-          name: Goal 3
-          reference_num: PRJ1-G-1
-          effort: 95
-          value: 54
-          color: '#397e82'
-          position: 6
-          created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          product_id: '131414752'
-          progress: 0
-          progress_source: progress_manual
-          url: http://company.aha.io/strategic_imperatives/PRJ1-G-1
-          resource: http://company.aha.io/strategic_imperatives/PRJ1-G-1
-          description:
-            id: '6776881149500114967'
-            body: ''
-            editor_version: 2
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            attachments: []
-          success_metric:
-            name: FooBar
-            description:
-              id: '6776881149483601587'
-              body: Foo Bar
-              editor_version: 2
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-            workflow_status:
-              id: '412273758'
-              name: Not Started
-              position: 1
-              complete: false
-              color: '#dce7c6'
-            workflow_status_times:
-            - status_id: '412273758'
-              status_name: Not Started
-              started_at: '2019-01-01T00:00:00.000Z'
-              ended_at: null
-          project:
-            id: '131414752'
-            reference_prefix: PRJ1
-            name: Project 1
-            product_line: false
-            created_at: '2019-01-01T00:00:00.000Z'
-            workspace_type: product_workspace
-            url: http://company.aha.io/projects/PRJ1
-          initiatives: []
-          key_results: []
-          comments_count: 0
-          features: []
-          releases: []
-          custom_fields: []
-          watchers:
-          - id: '16338845'
-            name: John Smith
-            email: no-reply@aha.io
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-          - id: '689956296'
-            name: Henry Humpty
-            email: no-reply@aha.io
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-          - id: '1020675218'
-            name: Mary Humpty
-            email: no-reply@aha.io
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
     GoalsGetResponse:
       type: object
       properties:

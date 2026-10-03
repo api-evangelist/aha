@@ -358,20 +358,6 @@ components:
             value: '300.0'
             type: number
           comments_count: 1
-    CompetitorsPostRequest:
-      type: object
-      properties:
-        competitor:
-          type: object
-          properties:
-            name:
-              type: string
-              example: Plan-a-lot
-          example:
-            name: Plan-a-lot
-      example:
-        competitor:
-          name: Plan-a-lot
     CompetitorsGetResponse:
       type: object
       properties:
@@ -528,6 +514,20 @@ components:
           resource: http://company.aha.io/competitors/PRJ1-C-1
           custom_fields: []
           comments_count: 0
+    CompetitorsPostRequest:
+      type: object
+      properties:
+        competitor:
+          type: object
+          properties:
+            name:
+              type: string
+              example: Plan-a-lot
+          example:
+            name: Plan-a-lot
+      example:
+        competitor:
+          name: Plan-a-lot
   securitySchemes:
     OAuth2:
       type: oauth2

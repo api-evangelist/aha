@@ -140,10 +140,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    TeammembersPostRequest:
-      type: object
-      properties: {}
-      example: {}
     TeammembersGetResponse:
       type: object
       properties:
@@ -215,6 +211,10 @@ components:
           total_records: 2
           total_pages: 1
           current_page: 1
+    TeammembersPostRequest:
+      type: object
+      properties: {}
+      example: {}
     TeammembersPostResponse:
       type: object
       properties:

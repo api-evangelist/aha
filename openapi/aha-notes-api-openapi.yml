@@ -394,32 +394,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    NotesPostRequest:
-      type: object
-      properties:
-        page:
-          type: object
-          properties:
-            name:
-              type: string
-              example: New name for the note
-            description_attributes:
-              type: object
-              properties:
-                body:
-                  type: string
-                  example: <p>An awesome new note</p>
-              example:
-                body: <p>An awesome new note</p>
-          example:
-            name: New name for the note
-            description_attributes:
-              body: <p>An awesome new note</p>
-      example:
-        page:
-          name: New name for the note
-          description_attributes:
-            body: <p>An awesome new note</p>
     NotesPostResponse:
       type: object
       properties:
@@ -833,6 +807,32 @@ components:
             updatedAt: '2019-01-01T00:00:00Z'
             value: '2019-01-01'
             type: date
+    NotesPostRequest:
+      type: object
+      properties:
+        page:
+          type: object
+          properties:
+            name:
+              type: string
+              example: New name for the note
+            description_attributes:
+              type: object
+              properties:
+                body:
+                  type: string
+                  example: <p>An awesome new note</p>
+              example:
+                body: <p>An awesome new note</p>
+          example:
+            name: New name for the note
+            description_attributes:
+              body: <p>An awesome new note</p>
+      example:
+        page:
+          name: New name for the note
+          description_attributes:
+            body: <p>An awesome new note</p>
     NotesPutResponse:
       type: object
       properties:

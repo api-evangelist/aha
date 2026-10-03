@@ -250,7 +250,7 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    PersonasPutResponse:
+    PersonasGetResponse:
       type: object
       properties:
         persona:
@@ -261,7 +261,7 @@ components:
               example: '344093881'
             name:
               type: string
-              example: Julie
+              example: Jane the athlete
             color:
               type: integer
               example: 13421772
@@ -289,7 +289,7 @@ components:
               example: 0
           example:
             id: '344093881'
-            name: Julie
+            name: Jane the athlete
             color: 13421772
             occupation: null
             quote: null
@@ -302,7 +302,7 @@ components:
       example:
         persona:
           id: '344093881'
-          name: Julie
+          name: Jane the athlete
           color: 13421772
           occupation: null
           quote: null
@@ -374,7 +374,7 @@ components:
           resource: http://company.aha.io/personas/PRJ1-P-1
           custom_fields: []
           comments_count: 0
-    PersonasGetResponse:
+    PersonasPutResponse:
       type: object
       properties:
         persona:
@@ -385,7 +385,7 @@ components:
               example: '344093881'
             name:
               type: string
-              example: Jane the athlete
+              example: Julie
             color:
               type: integer
               example: 13421772
@@ -413,7 +413,7 @@ components:
               example: 0
           example:
             id: '344093881'
-            name: Jane the athlete
+            name: Julie
             color: 13421772
             occupation: null
             quote: null
@@ -426,7 +426,7 @@ components:
       example:
         persona:
           id: '344093881'
-          name: Jane the athlete
+          name: Julie
           color: 13421772
           occupation: null
           quote: null

@@ -559,471 +559,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    RequirementsGetResponse:
-      type: object
-      properties:
-        requirement:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '483368544'
-            name:
-              type: string
-              example: Body of requirement 1
-            reference_num:
-              type: string
-              example: PRJ1-1-1
-            position:
-              type: integer
-              example: 1
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            release_id:
-              type: integer
-              example: 278327321
-            created_by_user:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '1020675218'
-                name:
-                  type: string
-                  example: Mary Humpty
-                email:
-                  type: string
-                  example: no-reply@aha.io
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-              example:
-                id: '1020675218'
-                name: Mary Humpty
-                email: no-reply@aha.io
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-            workflow_status:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '934242751'
-                name:
-                  type: string
-                  example: New
-                position:
-                  type: integer
-                  example: 1
-                complete:
-                  type: boolean
-                  example: false
-                color:
-                  type: string
-                  example: '#dce7c6'
-              example:
-                id: '934242751'
-                name: New
-                position: 1
-                complete: false
-                color: '#dce7c6'
-            url:
-              type: string
-              example: http://company.aha.io/requirements/PRJ1-1-1
-            resource:
-              type: string
-              example: http://company.aha.io/api/v1/requirements/PRJ1-1-1
-            description:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '910541534'
-                body:
-                  type: string
-                  example: Body of requirement 1
-                editor_version:
-                  type: integer
-                  example: 1
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                attachments:
-                  type: array
-                  items: {}
-              example:
-                id: '910541534'
-                body: Body of requirement 1
-                editor_version: 1
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-            feature:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '1007868956'
-                reference_num:
-                  type: string
-                  example: PRJ1-1
-                name:
-                  type: string
-                  example: Feature 1
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                url:
-                  type: string
-                  example: http://company.aha.io/features/PRJ1-1
-                resource:
-                  type: string
-                  example: http://company.aha.io/api/v1/features/PRJ1-1
-                product_id:
-                  type: string
-                  example: '131414752'
-              example:
-                id: '1007868956'
-                reference_num: PRJ1-1
-                name: Feature 1
-                created_at: '2019-01-01T00:00:00.000Z'
-                url: http://company.aha.io/features/PRJ1-1
-                resource: http://company.aha.io/api/v1/features/PRJ1-1
-                product_id: '131414752'
-            assigned_to_user:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '16338845'
-                name:
-                  type: string
-                  example: John Smith
-                email:
-                  type: string
-                  example: no-reply@aha.io
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                default_assignee:
-                  type: boolean
-                  example: false
-              example:
-                id: '16338845'
-                name: John Smith
-                email: no-reply@aha.io
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                default_assignee: false
-            attachments:
-              type: array
-              items: {}
-            tags:
-              type: array
-              items: {}
-            full_tags:
-              type: array
-              items: {}
-            custom_fields:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  key:
-                    type: string
-                  name:
-                    type: string
-                  updatedAt:
-                    type: string
-                  value:
-                    type: string
-                  type:
-                    type: string
-                example:
-                  id: 848810602
-                  key: expected_completion_date
-                  name: Expected completion date
-                  updatedAt: '2019-01-01T00:00:00Z'
-                  value: '2019-01-01'
-                  type: date
-              example:
-              - id: 848810602
-                key: expected_completion_date
-                name: Expected completion date
-                updatedAt: '2019-01-01T00:00:00Z'
-                value: '2019-01-01'
-                type: date
-              - id: 731808726
-                key: requested_by
-                name: Requested By
-                updatedAt: '2019-01-01T00:00:00Z'
-                value: TK
-                type: string
-            integration_fields:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  name:
-                    type: string
-                  value:
-                    type: string
-                  integration_id:
-                    type: string
-                  service_name:
-                    type: string
-                  created_at:
-                    type: string
-                example:
-                  id: '32487847'
-                  name: key
-                  value: JRA-987
-                  integration_id: 342659513
-                  service_name: jira
-                  created_at: '2019-01-01T00:00:00.000Z'
-              example:
-              - id: '32487847'
-                name: key
-                value: JRA-987
-                integration_id: 342659513
-                service_name: jira
-                created_at: '2019-01-01T00:00:00.000Z'
-              - id: '417785887'
-                name: id
-                value: '991'
-                integration_id: 342659513
-                service_name: jira
-                created_at: '2019-01-01T00:00:00.000Z'
-              - id: '803330186'
-                name: aha::remote_entity
-                value: issue_10100
-                integration_id: 342659513
-                service_name: jira
-                created_at: '2019-01-01T00:00:00.000Z'
-            comments_count:
-              type: integer
-              example: 1
-          example:
-            id: '483368544'
-            name: Body of requirement 1
-            reference_num: PRJ1-1-1
-            position: 1
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            release_id: 278327321
-            created_by_user:
-              id: '1020675218'
-              name: Mary Humpty
-              email: no-reply@aha.io
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-            workflow_status:
-              id: '934242751'
-              name: New
-              position: 1
-              complete: false
-              color: '#dce7c6'
-            url: http://company.aha.io/requirements/PRJ1-1-1
-            resource: http://company.aha.io/api/v1/requirements/PRJ1-1-1
-            description:
-              id: '910541534'
-              body: Body of requirement 1
-              editor_version: 1
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-            feature:
-              id: '1007868956'
-              reference_num: PRJ1-1
-              name: Feature 1
-              created_at: '2019-01-01T00:00:00.000Z'
-              url: http://company.aha.io/features/PRJ1-1
-              resource: http://company.aha.io/api/v1/features/PRJ1-1
-              product_id: '131414752'
-            assigned_to_user:
-              id: '16338845'
-              name: John Smith
-              email: no-reply@aha.io
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              default_assignee: false
-            attachments: []
-            tags: []
-            full_tags: []
-            custom_fields:
-            - id: 848810602
-              key: expected_completion_date
-              name: Expected completion date
-              updatedAt: '2019-01-01T00:00:00Z'
-              value: '2019-01-01'
-              type: date
-            - id: 731808726
-              key: requested_by
-              name: Requested By
-              updatedAt: '2019-01-01T00:00:00Z'
-              value: TK
-              type: string
-            integration_fields:
-            - id: '32487847'
-              name: key
-              value: JRA-987
-              integration_id: 342659513
-              service_name: jira
-              created_at: '2019-01-01T00:00:00.000Z'
-            - id: '417785887'
-              name: id
-              value: '991'
-              integration_id: 342659513
-              service_name: jira
-              created_at: '2019-01-01T00:00:00.000Z'
-            - id: '803330186'
-              name: aha::remote_entity
-              value: issue_10100
-              integration_id: 342659513
-              service_name: jira
-              created_at: '2019-01-01T00:00:00.000Z'
-            comments_count: 1
-      example:
-        requirement:
-          id: '483368544'
-          name: Body of requirement 1
-          reference_num: PRJ1-1-1
-          position: 1
-          created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          release_id: 278327321
-          created_by_user:
-            id: '1020675218'
-            name: Mary Humpty
-            email: no-reply@aha.io
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-          workflow_status:
-            id: '934242751'
-            name: New
-            position: 1
-            complete: false
-            color: '#dce7c6'
-          url: http://company.aha.io/requirements/PRJ1-1-1
-          resource: http://company.aha.io/api/v1/requirements/PRJ1-1-1
-          description:
-            id: '910541534'
-            body: Body of requirement 1
-            editor_version: 1
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            attachments: []
-          feature:
-            id: '1007868956'
-            reference_num: PRJ1-1
-            name: Feature 1
-            created_at: '2019-01-01T00:00:00.000Z'
-            url: http://company.aha.io/features/PRJ1-1
-            resource: http://company.aha.io/api/v1/features/PRJ1-1
-            product_id: '131414752'
-          assigned_to_user:
-            id: '16338845'
-            name: John Smith
-            email: no-reply@aha.io
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            default_assignee: false
-          attachments: []
-          tags: []
-          full_tags: []
-          custom_fields:
-          - id: 848810602
-            key: expected_completion_date
-            name: Expected completion date
-            updatedAt: '2019-01-01T00:00:00Z'
-            value: '2019-01-01'
-            type: date
-          - id: 731808726
-            key: requested_by
-            name: Requested By
-            updatedAt: '2019-01-01T00:00:00Z'
-            value: TK
-            type: string
-          integration_fields:
-          - id: '32487847'
-            name: key
-            value: JRA-987
-            integration_id: 342659513
-            service_name: jira
-            created_at: '2019-01-01T00:00:00.000Z'
-          - id: '417785887'
-            name: id
-            value: '991'
-            integration_id: 342659513
-            service_name: jira
-            created_at: '2019-01-01T00:00:00.000Z'
-          - id: '803330186'
-            name: aha::remote_entity
-            value: issue_10100
-            integration_id: 342659513
-            service_name: jira
-            created_at: '2019-01-01T00:00:00.000Z'
-          comments_count: 1
-    RequirementsPostRequest:
-      type: object
-      properties:
-        requirement:
-          type: object
-          properties:
-            name:
-              type: string
-              example: New name
-            workflow_status:
-              type: object
-              properties:
-                name:
-                  type: string
-                  example: Designed
-              example:
-                name: Designed
-            description:
-              type: string
-              example: <p>This is the description</p>
-            assigned_to_user:
-              type: object
-              properties:
-                email:
-                  type: string
-                  example: no-reply@aha.io
-              example:
-                email: no-reply@aha.io
-          example:
-            name: New name
-            workflow_status:
-              name: Designed
-            description: <p>This is the description</p>
-            assigned_to_user:
-              email: no-reply@aha.io
-      example:
-        requirement:
-          name: New name
-          workflow_status:
-            name: Designed
-          description: <p>This is the description</p>
-          assigned_to_user:
-            email: no-reply@aha.io
     RequirementsPostResponse:
       type: object
       properties:
@@ -1750,6 +1285,471 @@ components:
           feature_only_original_estimate: null
           feature_only_remaining_estimate: null
           feature_only_work_done: null
+    RequirementsPostRequest:
+      type: object
+      properties:
+        requirement:
+          type: object
+          properties:
+            name:
+              type: string
+              example: New name
+            workflow_status:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Designed
+              example:
+                name: Designed
+            description:
+              type: string
+              example: <p>This is the description</p>
+            assigned_to_user:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: no-reply@aha.io
+              example:
+                email: no-reply@aha.io
+          example:
+            name: New name
+            workflow_status:
+              name: Designed
+            description: <p>This is the description</p>
+            assigned_to_user:
+              email: no-reply@aha.io
+      example:
+        requirement:
+          name: New name
+          workflow_status:
+            name: Designed
+          description: <p>This is the description</p>
+          assigned_to_user:
+            email: no-reply@aha.io
+    RequirementsGetResponse:
+      type: object
+      properties:
+        requirement:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '483368544'
+            name:
+              type: string
+              example: Body of requirement 1
+            reference_num:
+              type: string
+              example: PRJ1-1-1
+            position:
+              type: integer
+              example: 1
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            release_id:
+              type: integer
+              example: 278327321
+            created_by_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1020675218'
+                name:
+                  type: string
+                  example: Mary Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+            workflow_status:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '934242751'
+                name:
+                  type: string
+                  example: New
+                position:
+                  type: integer
+                  example: 1
+                complete:
+                  type: boolean
+                  example: false
+                color:
+                  type: string
+                  example: '#dce7c6'
+              example:
+                id: '934242751'
+                name: New
+                position: 1
+                complete: false
+                color: '#dce7c6'
+            url:
+              type: string
+              example: http://company.aha.io/requirements/PRJ1-1-1
+            resource:
+              type: string
+              example: http://company.aha.io/api/v1/requirements/PRJ1-1-1
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '910541534'
+                body:
+                  type: string
+                  example: Body of requirement 1
+                editor_version:
+                  type: integer
+                  example: 1
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: '910541534'
+                body: Body of requirement 1
+                editor_version: 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            feature:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1007868956'
+                reference_num:
+                  type: string
+                  example: PRJ1-1
+                name:
+                  type: string
+                  example: Feature 1
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                url:
+                  type: string
+                  example: http://company.aha.io/features/PRJ1-1
+                resource:
+                  type: string
+                  example: http://company.aha.io/api/v1/features/PRJ1-1
+                product_id:
+                  type: string
+                  example: '131414752'
+              example:
+                id: '1007868956'
+                reference_num: PRJ1-1
+                name: Feature 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: http://company.aha.io/features/PRJ1-1
+                resource: http://company.aha.io/api/v1/features/PRJ1-1
+                product_id: '131414752'
+            assigned_to_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '16338845'
+                name:
+                  type: string
+                  example: John Smith
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                default_assignee:
+                  type: boolean
+                  example: false
+              example:
+                id: '16338845'
+                name: John Smith
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                default_assignee: false
+            attachments:
+              type: array
+              items: {}
+            tags:
+              type: array
+              items: {}
+            full_tags:
+              type: array
+              items: {}
+            custom_fields:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  key:
+                    type: string
+                  name:
+                    type: string
+                  updatedAt:
+                    type: string
+                  value:
+                    type: string
+                  type:
+                    type: string
+                example:
+                  id: 848810602
+                  key: expected_completion_date
+                  name: Expected completion date
+                  updatedAt: '2019-01-01T00:00:00Z'
+                  value: '2019-01-01'
+                  type: date
+              example:
+              - id: 848810602
+                key: expected_completion_date
+                name: Expected completion date
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: '2019-01-01'
+                type: date
+              - id: 731808726
+                key: requested_by
+                name: Requested By
+                updatedAt: '2019-01-01T00:00:00Z'
+                value: TK
+                type: string
+            integration_fields:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  value:
+                    type: string
+                  integration_id:
+                    type: string
+                  service_name:
+                    type: string
+                  created_at:
+                    type: string
+                example:
+                  id: '32487847'
+                  name: key
+                  value: JRA-987
+                  integration_id: 342659513
+                  service_name: jira
+                  created_at: '2019-01-01T00:00:00.000Z'
+              example:
+              - id: '32487847'
+                name: key
+                value: JRA-987
+                integration_id: 342659513
+                service_name: jira
+                created_at: '2019-01-01T00:00:00.000Z'
+              - id: '417785887'
+                name: id
+                value: '991'
+                integration_id: 342659513
+                service_name: jira
+                created_at: '2019-01-01T00:00:00.000Z'
+              - id: '803330186'
+                name: aha::remote_entity
+                value: issue_10100
+                integration_id: 342659513
+                service_name: jira
+                created_at: '2019-01-01T00:00:00.000Z'
+            comments_count:
+              type: integer
+              example: 1
+          example:
+            id: '483368544'
+            name: Body of requirement 1
+            reference_num: PRJ1-1-1
+            position: 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            release_id: 278327321
+            created_by_user:
+              id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            workflow_status:
+              id: '934242751'
+              name: New
+              position: 1
+              complete: false
+              color: '#dce7c6'
+            url: http://company.aha.io/requirements/PRJ1-1-1
+            resource: http://company.aha.io/api/v1/requirements/PRJ1-1-1
+            description:
+              id: '910541534'
+              body: Body of requirement 1
+              editor_version: 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            feature:
+              id: '1007868956'
+              reference_num: PRJ1-1
+              name: Feature 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: http://company.aha.io/features/PRJ1-1
+              resource: http://company.aha.io/api/v1/features/PRJ1-1
+              product_id: '131414752'
+            assigned_to_user:
+              id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              default_assignee: false
+            attachments: []
+            tags: []
+            full_tags: []
+            custom_fields:
+            - id: 848810602
+              key: expected_completion_date
+              name: Expected completion date
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: '2019-01-01'
+              type: date
+            - id: 731808726
+              key: requested_by
+              name: Requested By
+              updatedAt: '2019-01-01T00:00:00Z'
+              value: TK
+              type: string
+            integration_fields:
+            - id: '32487847'
+              name: key
+              value: JRA-987
+              integration_id: 342659513
+              service_name: jira
+              created_at: '2019-01-01T00:00:00.000Z'
+            - id: '417785887'
+              name: id
+              value: '991'
+              integration_id: 342659513
+              service_name: jira
+              created_at: '2019-01-01T00:00:00.000Z'
+            - id: '803330186'
+              name: aha::remote_entity
+              value: issue_10100
+              integration_id: 342659513
+              service_name: jira
+              created_at: '2019-01-01T00:00:00.000Z'
+            comments_count: 1
+      example:
+        requirement:
+          id: '483368544'
+          name: Body of requirement 1
+          reference_num: PRJ1-1-1
+          position: 1
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          release_id: 278327321
+          created_by_user:
+            id: '1020675218'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          workflow_status:
+            id: '934242751'
+            name: New
+            position: 1
+            complete: false
+            color: '#dce7c6'
+          url: http://company.aha.io/requirements/PRJ1-1-1
+          resource: http://company.aha.io/api/v1/requirements/PRJ1-1-1
+          description:
+            id: '910541534'
+            body: Body of requirement 1
+            editor_version: 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+          feature:
+            id: '1007868956'
+            reference_num: PRJ1-1
+            name: Feature 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: http://company.aha.io/features/PRJ1-1
+            resource: http://company.aha.io/api/v1/features/PRJ1-1
+            product_id: '131414752'
+          assigned_to_user:
+            id: '16338845'
+            name: John Smith
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            default_assignee: false
+          attachments: []
+          tags: []
+          full_tags: []
+          custom_fields:
+          - id: 848810602
+            key: expected_completion_date
+            name: Expected completion date
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: '2019-01-01'
+            type: date
+          - id: 731808726
+            key: requested_by
+            name: Requested By
+            updatedAt: '2019-01-01T00:00:00Z'
+            value: TK
+            type: string
+          integration_fields:
+          - id: '32487847'
+            name: key
+            value: JRA-987
+            integration_id: 342659513
+            service_name: jira
+            created_at: '2019-01-01T00:00:00.000Z'
+          - id: '417785887'
+            name: id
+            value: '991'
+            integration_id: 342659513
+            service_name: jira
+            created_at: '2019-01-01T00:00:00.000Z'
+          - id: '803330186'
+            name: aha::remote_entity
+            value: issue_10100
+            integration_id: 342659513
+            service_name: jira
+            created_at: '2019-01-01T00:00:00.000Z'
+          comments_count: 1
   securitySchemes:
     OAuth2:
       type: oauth2
