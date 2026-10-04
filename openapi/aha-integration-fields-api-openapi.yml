@@ -1768,25 +1768,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    IntegrationfieldsPostRequest:
-      type: object
-      properties:
-        integration_field:
-          type: object
-          properties:
-            name:
-              type: string
-              example: key
-            value:
-              type: string
-              example: JRA-34
-          example:
-            name: key
-            value: JRA-34
-      example:
-        integration_field:
-          name: key
-          value: JRA-34
     IntegrationfieldsPostResponseArrayString:
       type: array
       items:
@@ -1795,63 +1776,6 @@ components:
       example:
       - '6776881149484343025'
       - '6776881149496067156'
-    IntegrationfieldsPostResponse:
-      type: object
-      properties:
-        integration_field:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149495233147'
-            name:
-              type: string
-              example: key
-            value:
-              type: string
-              example: JRA-34
-            integration_id:
-              type: integer
-              example: 204584239
-            service_name:
-              type: string
-              example: jira
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            integratable:
-              type: object
-              properties:
-                url:
-                  type: string
-                  example: http://company.aha.io/ideas/ideas/PRJ1-I-1
-                resource:
-                  type: string
-                  example: http://company.aha.io/api/v1/ideas/api%2Fv1%2FPRJ1-I-1
-              example:
-                url: http://company.aha.io/ideas/ideas/PRJ1-I-1
-                resource: http://company.aha.io/api/v1/ideas/api%2Fv1%2FPRJ1-I-1
-          example:
-            id: '6776881149495233147'
-            name: key
-            value: JRA-34
-            integration_id: 204584239
-            service_name: jira
-            created_at: '2019-01-01T00:00:00.000Z'
-            integratable:
-              url: http://company.aha.io/ideas/ideas/PRJ1-I-1
-              resource: http://company.aha.io/api/v1/ideas/api%2Fv1%2FPRJ1-I-1
-      example:
-        integration_field:
-          id: '6776881149495233147'
-          name: key
-          value: JRA-34
-          integration_id: 204584239
-          service_name: jira
-          created_at: '2019-01-01T00:00:00.000Z'
-          integratable:
-            url: http://company.aha.io/ideas/ideas/PRJ1-I-1
-            resource: http://company.aha.io/api/v1/ideas/api%2Fv1%2FPRJ1-I-1
     IntegrationfieldsPostResponseArrayInteger:
       type: array
       items:
@@ -2179,6 +2103,82 @@ components:
           total_records: 1
           total_pages: 1
           current_page: 1
+    IntegrationfieldsPostResponse:
+      type: object
+      properties:
+        integration_field:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149495233147'
+            name:
+              type: string
+              example: key
+            value:
+              type: string
+              example: JRA-34
+            integration_id:
+              type: integer
+              example: 204584239
+            service_name:
+              type: string
+              example: jira
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            integratable:
+              type: object
+              properties:
+                url:
+                  type: string
+                  example: http://company.aha.io/ideas/ideas/PRJ1-I-1
+                resource:
+                  type: string
+                  example: http://company.aha.io/api/v1/ideas/api%2Fv1%2FPRJ1-I-1
+              example:
+                url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+                resource: http://company.aha.io/api/v1/ideas/api%2Fv1%2FPRJ1-I-1
+          example:
+            id: '6776881149495233147'
+            name: key
+            value: JRA-34
+            integration_id: 204584239
+            service_name: jira
+            created_at: '2019-01-01T00:00:00.000Z'
+            integratable:
+              url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+              resource: http://company.aha.io/api/v1/ideas/api%2Fv1%2FPRJ1-I-1
+      example:
+        integration_field:
+          id: '6776881149495233147'
+          name: key
+          value: JRA-34
+          integration_id: 204584239
+          service_name: jira
+          created_at: '2019-01-01T00:00:00.000Z'
+          integratable:
+            url: http://company.aha.io/ideas/ideas/PRJ1-I-1
+            resource: http://company.aha.io/api/v1/ideas/api%2Fv1%2FPRJ1-I-1
+    IntegrationfieldsPostRequest:
+      type: object
+      properties:
+        integration_field:
+          type: object
+          properties:
+            name:
+              type: string
+              example: key
+            value:
+              type: string
+              example: JRA-34
+          example:
+            name: key
+            value: JRA-34
+      example:
+        integration_field:
+          name: key
+          value: JRA-34
   securitySchemes:
     OAuth2:
       type: oauth2

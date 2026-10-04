@@ -451,30 +451,6 @@ components:
                   display_value: '10.0'
             type: equation_sheet
           integration_fields: []
-    IdeaorganizationsPostRequest:
-      type: object
-      properties:
-        idea_organization:
-          type: object
-          properties:
-            name:
-              type: string
-              example: My organization
-            email_domains:
-              type: string
-              example: example.com, example.org
-            revenue:
-              type: string
-              example: '55000'
-          example:
-            name: My organization
-            email_domains: example.com, example.org
-            revenue: '55000'
-      example:
-        idea_organization:
-          name: My organization
-          email_domains: example.com, example.org
-          revenue: '55000'
     IdeaorganizationsPostResponse:
       type: object
       properties:
@@ -772,6 +748,30 @@ components:
                   display_value: '10.0'
             type: equation_sheet
           integration_fields: []
+    IdeaorganizationsPostRequest:
+      type: object
+      properties:
+        idea_organization:
+          type: object
+          properties:
+            name:
+              type: string
+              example: My organization
+            email_domains:
+              type: string
+              example: example.com, example.org
+            revenue:
+              type: string
+              example: '55000'
+          example:
+            name: My organization
+            email_domains: example.com, example.org
+            revenue: '55000'
+      example:
+        idea_organization:
+          name: My organization
+          email_domains: example.com, example.org
+          revenue: '55000'
   securitySchemes:
     OAuth2:
       type: oauth2

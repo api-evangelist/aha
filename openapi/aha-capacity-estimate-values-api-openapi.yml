@@ -397,391 +397,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    CapacityestimatevaluesPostResponse:
-      type: object
-      properties:
-        updated:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-                example: '6776881149487632203'
-              team_id:
-                type: integer
-                example: 563889676
-              team_membership_id:
-                type: 'null'
-              period_start:
-                type: string
-                example: '2019-01-01'
-              total:
-                type: number
-                example: 15.0
-              computed:
-                type: boolean
-                example: false
-              ignored:
-                type: boolean
-                example: false
-            example:
-              id: '6776881149487632203'
-              team_id: 563889676
-              team_membership_id: null
-              period_start: '2019-01-01'
-              total: 15.0
-              computed: false
-              ignored: false
-          example:
-          - id: '6776881149487632203'
-            team_id: 563889676
-            team_membership_id: null
-            period_start: '2019-01-01'
-            total: 15.0
-            computed: false
-            ignored: false
-          - id: '6776881149489311818'
-            team_id: 563889676
-            team_membership_id: null
-            period_start: null
-            total: 35.0
-            computed: true
-            ignored: false
-          - id: '6776881149490125878'
-            team_id: null
-            team_membership_id: null
-            period_start: null
-            total: 50.0
-            computed: true
-            ignored: false
-          - id: '6776881149490529746'
-            team_id: null
-            team_membership_id: null
-            period_start: '2019-01-01'
-            total: 25.0
-            computed: true
-            ignored: false
-          - id: '6776881149490943142'
-            team_id: 949295028
-            team_membership_id: null
-            period_start: '2019-01-01'
-            total: 5.0
-            computed: false
-            ignored: false
-          - id: '6776881149492175407'
-            team_id: null
-            team_membership_id: null
-            period_start: '2019-01-01'
-            total: 5.0
-            computed: true
-            ignored: false
-          - id: '6776881149493726512'
-            team_id: 563889676
-            team_membership_id: null
-            period_start: '2019-01-01'
-            total: 20.0
-            computed: false
-            ignored: false
-          - id: '6776881149494705557'
-            team_id: 949295028
-            team_membership_id: null
-            period_start: null
-            total: 15.0
-            computed: true
-            ignored: false
-          - id: '6776881149498133135'
-            team_id: 949295028
-            team_membership_id: null
-            period_start: '2019-01-01'
-            total: 10.0
-            computed: false
-            ignored: false
-          - id: '6776881149499236800'
-            team_id: null
-            team_membership_id: null
-            period_start: '2019-01-01'
-            total: 20.0
-            computed: true
-            ignored: false
-        destroyed:
-          type: array
-          items: {}
-      example:
-        updated:
-        - id: '6776881149487632203'
-          team_id: 563889676
-          team_membership_id: null
-          period_start: '2019-01-01'
-          total: 15.0
-          computed: false
-          ignored: false
-        - id: '6776881149489311818'
-          team_id: 563889676
-          team_membership_id: null
-          period_start: null
-          total: 35.0
-          computed: true
-          ignored: false
-        - id: '6776881149490125878'
-          team_id: null
-          team_membership_id: null
-          period_start: null
-          total: 50.0
-          computed: true
-          ignored: false
-        - id: '6776881149490529746'
-          team_id: null
-          team_membership_id: null
-          period_start: '2019-01-01'
-          total: 25.0
-          computed: true
-          ignored: false
-        - id: '6776881149490943142'
-          team_id: 949295028
-          team_membership_id: null
-          period_start: '2019-01-01'
-          total: 5.0
-          computed: false
-          ignored: false
-        - id: '6776881149492175407'
-          team_id: null
-          team_membership_id: null
-          period_start: '2019-01-01'
-          total: 5.0
-          computed: true
-          ignored: false
-        - id: '6776881149493726512'
-          team_id: 563889676
-          team_membership_id: null
-          period_start: '2019-01-01'
-          total: 20.0
-          computed: false
-          ignored: false
-        - id: '6776881149494705557'
-          team_id: 949295028
-          team_membership_id: null
-          period_start: null
-          total: 15.0
-          computed: true
-          ignored: false
-        - id: '6776881149498133135'
-          team_id: 949295028
-          team_membership_id: null
-          period_start: '2019-01-01'
-          total: 10.0
-          computed: false
-          ignored: false
-        - id: '6776881149499236800'
-          team_id: null
-          team_membership_id: null
-          period_start: '2019-01-01'
-          total: 20.0
-          computed: true
-          ignored: false
-        destroyed: []
-    CapacityestimatevaluesPostRequest:
-      type: object
-      properties: {}
-      example: {}
-    CapacityestimatevaluesGetResponse:
-      type: object
-      properties:
-        estimate_values:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-                example: '6776881149483568838'
-              team_id:
-                type: 'null'
-              team_membership_id:
-                type: 'null'
-              period_start:
-                type: string
-                example: '2019-01-01'
-              total:
-                type: number
-                example: 5.0
-              computed:
-                type: boolean
-                example: true
-              ignored:
-                type: boolean
-                example: false
-            example:
-              id: '6776881149483568838'
-              team_id: null
-              team_membership_id: null
-              period_start: '2019-01-01'
-              total: 5.0
-              computed: true
-              ignored: false
-          example:
-          - id: '6776881149483568838'
-            team_id: null
-            team_membership_id: null
-            period_start: '2019-01-01'
-            total: 5.0
-            computed: true
-            ignored: false
-          - id: '6776881149485225809'
-            team_id: 563889676
-            team_membership_id: null
-            period_start: '2019-01-01'
-            total: 20.0
-            computed: false
-            ignored: false
-          - id: '6776881149487362068'
-            team_id: 949295028
-            team_membership_id: null
-            period_start: '2019-01-01'
-            total: 10.0
-            computed: false
-            ignored: false
-          - id: '6776881149487778568'
-            team_id: 563889676
-            team_membership_id: null
-            period_start: '2019-01-01'
-            total: 15.0
-            computed: false
-            ignored: false
-          - id: '6776881149494637954'
-            team_id: null
-            team_membership_id: null
-            period_start: '2019-01-01'
-            total: 20.0
-            computed: true
-            ignored: false
-          - id: '6776881149497124166'
-            team_id: 949295028
-            team_membership_id: null
-            period_start: '2019-01-01'
-            total: 5.0
-            computed: false
-            ignored: false
-          - id: '6776881149497859029'
-            team_id: 563889676
-            team_membership_id: null
-            period_start: null
-            total: 35.0
-            computed: true
-            ignored: false
-          - id: '6776881149498218684'
-            team_id: null
-            team_membership_id: null
-            period_start: null
-            total: 50.0
-            computed: true
-            ignored: false
-          - id: '6776881149498683658'
-            team_id: null
-            team_membership_id: null
-            period_start: '2019-01-01'
-            total: 25.0
-            computed: true
-            ignored: false
-          - id: '6776881149498909376'
-            team_id: 949295028
-            team_membership_id: null
-            period_start: null
-            total: 15.0
-            computed: true
-            ignored: false
-        pagination:
-          type: object
-          properties:
-            total_records:
-              type: integer
-              example: 10
-            total_pages:
-              type: integer
-              example: 1
-            current_page:
-              type: integer
-              example: 1
-          example:
-            total_records: 10
-            total_pages: 1
-            current_page: 1
-      example:
-        estimate_values:
-        - id: '6776881149483568838'
-          team_id: null
-          team_membership_id: null
-          period_start: '2019-01-01'
-          total: 5.0
-          computed: true
-          ignored: false
-        - id: '6776881149485225809'
-          team_id: 563889676
-          team_membership_id: null
-          period_start: '2019-01-01'
-          total: 20.0
-          computed: false
-          ignored: false
-        - id: '6776881149487362068'
-          team_id: 949295028
-          team_membership_id: null
-          period_start: '2019-01-01'
-          total: 10.0
-          computed: false
-          ignored: false
-        - id: '6776881149487778568'
-          team_id: 563889676
-          team_membership_id: null
-          period_start: '2019-01-01'
-          total: 15.0
-          computed: false
-          ignored: false
-        - id: '6776881149494637954'
-          team_id: null
-          team_membership_id: null
-          period_start: '2019-01-01'
-          total: 20.0
-          computed: true
-          ignored: false
-        - id: '6776881149497124166'
-          team_id: 949295028
-          team_membership_id: null
-          period_start: '2019-01-01'
-          total: 5.0
-          computed: false
-          ignored: false
-        - id: '6776881149497859029'
-          team_id: 563889676
-          team_membership_id: null
-          period_start: null
-          total: 35.0
-          computed: true
-          ignored: false
-        - id: '6776881149498218684'
-          team_id: null
-          team_membership_id: null
-          period_start: null
-          total: 50.0
-          computed: true
-          ignored: false
-        - id: '6776881149498683658'
-          team_id: null
-          team_membership_id: null
-          period_start: '2019-01-01'
-          total: 25.0
-          computed: true
-          ignored: false
-        - id: '6776881149498909376'
-          team_id: 949295028
-          team_membership_id: null
-          period_start: null
-          total: 15.0
-          computed: true
-          ignored: false
-        pagination:
-          total_records: 10
-          total_pages: 1
-          current_page: 1
     CapacityestimatevaluesPutResponse:
       type: object
       properties:
@@ -1008,6 +623,391 @@ components:
           total: 10.0
           computed: false
           ignored: false
+    CapacityestimatevaluesGetResponse:
+      type: object
+      properties:
+        estimate_values:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: '6776881149483568838'
+              team_id:
+                type: 'null'
+              team_membership_id:
+                type: 'null'
+              period_start:
+                type: string
+                example: '2019-01-01'
+              total:
+                type: number
+                example: 5.0
+              computed:
+                type: boolean
+                example: true
+              ignored:
+                type: boolean
+                example: false
+            example:
+              id: '6776881149483568838'
+              team_id: null
+              team_membership_id: null
+              period_start: '2019-01-01'
+              total: 5.0
+              computed: true
+              ignored: false
+          example:
+          - id: '6776881149483568838'
+            team_id: null
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 5.0
+            computed: true
+            ignored: false
+          - id: '6776881149485225809'
+            team_id: 563889676
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 20.0
+            computed: false
+            ignored: false
+          - id: '6776881149487362068'
+            team_id: 949295028
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 10.0
+            computed: false
+            ignored: false
+          - id: '6776881149487778568'
+            team_id: 563889676
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 15.0
+            computed: false
+            ignored: false
+          - id: '6776881149494637954'
+            team_id: null
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 20.0
+            computed: true
+            ignored: false
+          - id: '6776881149497124166'
+            team_id: 949295028
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 5.0
+            computed: false
+            ignored: false
+          - id: '6776881149497859029'
+            team_id: 563889676
+            team_membership_id: null
+            period_start: null
+            total: 35.0
+            computed: true
+            ignored: false
+          - id: '6776881149498218684'
+            team_id: null
+            team_membership_id: null
+            period_start: null
+            total: 50.0
+            computed: true
+            ignored: false
+          - id: '6776881149498683658'
+            team_id: null
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 25.0
+            computed: true
+            ignored: false
+          - id: '6776881149498909376'
+            team_id: 949295028
+            team_membership_id: null
+            period_start: null
+            total: 15.0
+            computed: true
+            ignored: false
+        pagination:
+          type: object
+          properties:
+            total_records:
+              type: integer
+              example: 10
+            total_pages:
+              type: integer
+              example: 1
+            current_page:
+              type: integer
+              example: 1
+          example:
+            total_records: 10
+            total_pages: 1
+            current_page: 1
+      example:
+        estimate_values:
+        - id: '6776881149483568838'
+          team_id: null
+          team_membership_id: null
+          period_start: '2019-01-01'
+          total: 5.0
+          computed: true
+          ignored: false
+        - id: '6776881149485225809'
+          team_id: 563889676
+          team_membership_id: null
+          period_start: '2019-01-01'
+          total: 20.0
+          computed: false
+          ignored: false
+        - id: '6776881149487362068'
+          team_id: 949295028
+          team_membership_id: null
+          period_start: '2019-01-01'
+          total: 10.0
+          computed: false
+          ignored: false
+        - id: '6776881149487778568'
+          team_id: 563889676
+          team_membership_id: null
+          period_start: '2019-01-01'
+          total: 15.0
+          computed: false
+          ignored: false
+        - id: '6776881149494637954'
+          team_id: null
+          team_membership_id: null
+          period_start: '2019-01-01'
+          total: 20.0
+          computed: true
+          ignored: false
+        - id: '6776881149497124166'
+          team_id: 949295028
+          team_membership_id: null
+          period_start: '2019-01-01'
+          total: 5.0
+          computed: false
+          ignored: false
+        - id: '6776881149497859029'
+          team_id: 563889676
+          team_membership_id: null
+          period_start: null
+          total: 35.0
+          computed: true
+          ignored: false
+        - id: '6776881149498218684'
+          team_id: null
+          team_membership_id: null
+          period_start: null
+          total: 50.0
+          computed: true
+          ignored: false
+        - id: '6776881149498683658'
+          team_id: null
+          team_membership_id: null
+          period_start: '2019-01-01'
+          total: 25.0
+          computed: true
+          ignored: false
+        - id: '6776881149498909376'
+          team_id: 949295028
+          team_membership_id: null
+          period_start: null
+          total: 15.0
+          computed: true
+          ignored: false
+        pagination:
+          total_records: 10
+          total_pages: 1
+          current_page: 1
+    CapacityestimatevaluesPostRequest:
+      type: object
+      properties: {}
+      example: {}
+    CapacityestimatevaluesPostResponse:
+      type: object
+      properties:
+        updated:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: '6776881149487632203'
+              team_id:
+                type: integer
+                example: 563889676
+              team_membership_id:
+                type: 'null'
+              period_start:
+                type: string
+                example: '2019-01-01'
+              total:
+                type: number
+                example: 15.0
+              computed:
+                type: boolean
+                example: false
+              ignored:
+                type: boolean
+                example: false
+            example:
+              id: '6776881149487632203'
+              team_id: 563889676
+              team_membership_id: null
+              period_start: '2019-01-01'
+              total: 15.0
+              computed: false
+              ignored: false
+          example:
+          - id: '6776881149487632203'
+            team_id: 563889676
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 15.0
+            computed: false
+            ignored: false
+          - id: '6776881149489311818'
+            team_id: 563889676
+            team_membership_id: null
+            period_start: null
+            total: 35.0
+            computed: true
+            ignored: false
+          - id: '6776881149490125878'
+            team_id: null
+            team_membership_id: null
+            period_start: null
+            total: 50.0
+            computed: true
+            ignored: false
+          - id: '6776881149490529746'
+            team_id: null
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 25.0
+            computed: true
+            ignored: false
+          - id: '6776881149490943142'
+            team_id: 949295028
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 5.0
+            computed: false
+            ignored: false
+          - id: '6776881149492175407'
+            team_id: null
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 5.0
+            computed: true
+            ignored: false
+          - id: '6776881149493726512'
+            team_id: 563889676
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 20.0
+            computed: false
+            ignored: false
+          - id: '6776881149494705557'
+            team_id: 949295028
+            team_membership_id: null
+            period_start: null
+            total: 15.0
+            computed: true
+            ignored: false
+          - id: '6776881149498133135'
+            team_id: 949295028
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 10.0
+            computed: false
+            ignored: false
+          - id: '6776881149499236800'
+            team_id: null
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 20.0
+            computed: true
+            ignored: false
+        destroyed:
+          type: array
+          items: {}
+      example:
+        updated:
+        - id: '6776881149487632203'
+          team_id: 563889676
+          team_membership_id: null
+          period_start: '2019-01-01'
+          total: 15.0
+          computed: false
+          ignored: false
+        - id: '6776881149489311818'
+          team_id: 563889676
+          team_membership_id: null
+          period_start: null
+          total: 35.0
+          computed: true
+          ignored: false
+        - id: '6776881149490125878'
+          team_id: null
+          team_membership_id: null
+          period_start: null
+          total: 50.0
+          computed: true
+          ignored: false
+        - id: '6776881149490529746'
+          team_id: null
+          team_membership_id: null
+          period_start: '2019-01-01'
+          total: 25.0
+          computed: true
+          ignored: false
+        - id: '6776881149490943142'
+          team_id: 949295028
+          team_membership_id: null
+          period_start: '2019-01-01'
+          total: 5.0
+          computed: false
+          ignored: false
+        - id: '6776881149492175407'
+          team_id: null
+          team_membership_id: null
+          period_start: '2019-01-01'
+          total: 5.0
+          computed: true
+          ignored: false
+        - id: '6776881149493726512'
+          team_id: 563889676
+          team_membership_id: null
+          period_start: '2019-01-01'
+          total: 20.0
+          computed: false
+          ignored: false
+        - id: '6776881149494705557'
+          team_id: 949295028
+          team_membership_id: null
+          period_start: null
+          total: 15.0
+          computed: true
+          ignored: false
+        - id: '6776881149498133135'
+          team_id: 949295028
+          team_membership_id: null
+          period_start: '2019-01-01'
+          total: 10.0
+          computed: false
+          ignored: false
+        - id: '6776881149499236800'
+          team_id: null
+          team_membership_id: null
+          period_start: '2019-01-01'
+          total: 20.0
+          computed: true
+          ignored: false
+        destroyed: []
   securitySchemes:
     OAuth2:
       type: oauth2

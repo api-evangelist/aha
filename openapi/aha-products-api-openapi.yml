@@ -503,30 +503,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ProductsPostRequest:
-      type: object
-      properties:
-        product:
-          type: object
-          properties:
-            name:
-              type: string
-              example: New Product
-            description:
-              type: string
-              example: An amazing new product
-            prefix:
-              type: string
-              example: NEWPRODUCT
-          example:
-            name: New Product
-            description: An amazing new product
-            prefix: NEWPRODUCT
-      example:
-        product:
-          name: New Product
-          description: An amazing new product
-          prefix: NEWPRODUCT
     ProductsPostResponse:
       type: object
       properties:
@@ -949,6 +925,30 @@ components:
           default_capacity_units: 10
           enhanced_capacity_planning_enabled: false
           workspace_type: product_workspace
+    ProductsPostRequest:
+      type: object
+      properties:
+        product:
+          type: object
+          properties:
+            name:
+              type: string
+              example: New Product
+            description:
+              type: string
+              example: An amazing new product
+            prefix:
+              type: string
+              example: NEWPRODUCT
+          example:
+            name: New Product
+            description: An amazing new product
+            prefix: NEWPRODUCT
+      example:
+        product:
+          name: New Product
+          description: An amazing new product
+          prefix: NEWPRODUCT
     ProductsGetResponse:
       type: object
       properties:

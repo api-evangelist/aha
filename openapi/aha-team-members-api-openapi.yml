@@ -140,6 +140,43 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    TeammembersPostResponse:
+      type: object
+      properties:
+        team_member:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149494512236'
+            name:
+              type: string
+              example: Sam Doe
+            email:
+              type: string
+              example: sam.doe@example.com
+            user_id:
+              type: 'null'
+            virtual:
+              type: boolean
+              example: true
+          example:
+            id: '6776881149494512236'
+            name: Sam Doe
+            email: sam.doe@example.com
+            user_id: null
+            virtual: true
+      example:
+        team_member:
+          id: '6776881149494512236'
+          name: Sam Doe
+          email: sam.doe@example.com
+          user_id: null
+          virtual: true
+    TeammembersPostRequest:
+      type: object
+      properties: {}
+      example: {}
     TeammembersGetResponse:
       type: object
       properties:
@@ -211,43 +248,6 @@ components:
           total_records: 2
           total_pages: 1
           current_page: 1
-    TeammembersPostRequest:
-      type: object
-      properties: {}
-      example: {}
-    TeammembersPostResponse:
-      type: object
-      properties:
-        team_member:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149494512236'
-            name:
-              type: string
-              example: Sam Doe
-            email:
-              type: string
-              example: sam.doe@example.com
-            user_id:
-              type: 'null'
-            virtual:
-              type: boolean
-              example: true
-          example:
-            id: '6776881149494512236'
-            name: Sam Doe
-            email: sam.doe@example.com
-            user_id: null
-            virtual: true
-      example:
-        team_member:
-          id: '6776881149494512236'
-          name: Sam Doe
-          email: sam.doe@example.com
-          user_id: null
-          virtual: true
   securitySchemes:
     OAuth2:
       type: oauth2

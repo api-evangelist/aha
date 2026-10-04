@@ -299,7 +299,7 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    IdeasportalusersGetResponse:
+    IdeasportalusersPostResponse:
       type: object
       properties:
         portal_user:
@@ -307,16 +307,16 @@ components:
           properties:
             id:
               type: string
-              example: '646391926'
+              example: '6776881149497060074'
             email:
               type: string
-              example: john@long.com
+              example: sam.doe@example.com
             first_name:
               type: string
-              example: John
+              example: sam
             last_name:
               type: string
-              example: Long
+              example: doe
             enabled:
               type: boolean
               example: true
@@ -325,12 +325,12 @@ components:
               example: false
             employee:
               type: boolean
-              example: false
+              example: true
             max_endorsements_override:
               type: 'null'
             idea_user_id:
               type: string
-              example: '1056507375'
+              example: '6776881149491801214'
             created_at:
               type: string
               example: '2019-01-01T00:00:00.000Z'
@@ -340,29 +340,29 @@ components:
             unsubscribed_from_weekly_emails:
               type: 'null'
           example:
-            id: '646391926'
-            email: john@long.com
-            first_name: John
-            last_name: Long
+            id: '6776881149497060074'
+            email: sam.doe@example.com
+            first_name: sam
+            last_name: doe
             enabled: true
             verified: false
-            employee: false
+            employee: true
             max_endorsements_override: null
-            idea_user_id: '1056507375'
+            idea_user_id: '6776881149491801214'
             created_at: '2019-01-01T00:00:00.000Z'
             unsubscribed: false
             unsubscribed_from_weekly_emails: null
       example:
         portal_user:
-          id: '646391926'
-          email: john@long.com
-          first_name: John
-          last_name: Long
+          id: '6776881149497060074'
+          email: sam.doe@example.com
+          first_name: sam
+          last_name: doe
           enabled: true
           verified: false
-          employee: false
+          employee: true
           max_endorsements_override: null
-          idea_user_id: '1056507375'
+          idea_user_id: '6776881149491801214'
           created_at: '2019-01-01T00:00:00.000Z'
           unsubscribed: false
           unsubscribed_from_weekly_emails: null
@@ -434,7 +434,7 @@ components:
           created_at: '2019-01-01T00:00:00.000Z'
           unsubscribed: true
           unsubscribed_from_weekly_emails: true
-    IdeasportalusersPostResponse:
+    IdeasportalusersGetResponse:
       type: object
       properties:
         portal_user:
@@ -442,16 +442,16 @@ components:
           properties:
             id:
               type: string
-              example: '6776881149497060074'
+              example: '646391926'
             email:
               type: string
-              example: sam.doe@example.com
+              example: john@long.com
             first_name:
               type: string
-              example: sam
+              example: John
             last_name:
               type: string
-              example: doe
+              example: Long
             enabled:
               type: boolean
               example: true
@@ -460,12 +460,12 @@ components:
               example: false
             employee:
               type: boolean
-              example: true
+              example: false
             max_endorsements_override:
               type: 'null'
             idea_user_id:
               type: string
-              example: '6776881149491801214'
+              example: '1056507375'
             created_at:
               type: string
               example: '2019-01-01T00:00:00.000Z'
@@ -475,29 +475,29 @@ components:
             unsubscribed_from_weekly_emails:
               type: 'null'
           example:
-            id: '6776881149497060074'
-            email: sam.doe@example.com
-            first_name: sam
-            last_name: doe
+            id: '646391926'
+            email: john@long.com
+            first_name: John
+            last_name: Long
             enabled: true
             verified: false
-            employee: true
+            employee: false
             max_endorsements_override: null
-            idea_user_id: '6776881149491801214'
+            idea_user_id: '1056507375'
             created_at: '2019-01-01T00:00:00.000Z'
             unsubscribed: false
             unsubscribed_from_weekly_emails: null
       example:
         portal_user:
-          id: '6776881149497060074'
-          email: sam.doe@example.com
-          first_name: sam
-          last_name: doe
+          id: '646391926'
+          email: john@long.com
+          first_name: John
+          last_name: Long
           enabled: true
           verified: false
-          employee: true
+          employee: false
           max_endorsements_override: null
-          idea_user_id: '6776881149491801214'
+          idea_user_id: '1056507375'
           created_at: '2019-01-01T00:00:00.000Z'
           unsubscribed: false
           unsubscribed_from_weekly_emails: null

@@ -2577,122 +2577,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    CommentsPostResponse:
-      type: object
-      properties:
-        comment:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149487788674'
-            body:
-              type: string
-              example: <p>This is the comment body for a to-do.</p>
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            user:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '1020675218'
-                name:
-                  type: string
-                  example: Mary Humpty
-                email:
-                  type: string
-                  example: no-reply@aha.io
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-              example:
-                id: '1020675218'
-                name: Mary Humpty
-                email: no-reply@aha.io
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-            attachments:
-              type: array
-              items: {}
-            url:
-              type: string
-              example: http://company.aha.io/comments/6776881149487788674
-            resource:
-              type: string
-              example: http://company.aha.io/api/v1/comments/6776881149487788674
-            commentable:
-              type: object
-              properties:
-                type:
-                  type: string
-                  example: Task
-                id:
-                  type: string
-                  example: '748715293'
-                product_id:
-                  type: string
-                  example: '131414752'
-                url:
-                  type: string
-                  example: http://company.aha.io/tasks/748715293
-                resource:
-                  type: string
-                  example: http://company.aha.io/api/v1/tasks/748715293
-              example:
-                type: Task
-                id: '748715293'
-                product_id: '131414752'
-                url: http://company.aha.io/tasks/748715293
-                resource: http://company.aha.io/api/v1/tasks/748715293
-          example:
-            id: '6776881149487788674'
-            body: <p>This is the comment body for a to-do.</p>
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            user:
-              id: '1020675218'
-              name: Mary Humpty
-              email: no-reply@aha.io
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-            attachments: []
-            url: http://company.aha.io/comments/6776881149487788674
-            resource: http://company.aha.io/api/v1/comments/6776881149487788674
-            commentable:
-              type: Task
-              id: '748715293'
-              product_id: '131414752'
-              url: http://company.aha.io/tasks/748715293
-              resource: http://company.aha.io/api/v1/tasks/748715293
-      example:
-        comment:
-          id: '6776881149487788674'
-          body: <p>This is the comment body for a to-do.</p>
-          created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          user:
-            id: '1020675218'
-            name: Mary Humpty
-            email: no-reply@aha.io
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-          attachments: []
-          url: http://company.aha.io/comments/6776881149487788674
-          resource: http://company.aha.io/api/v1/comments/6776881149487788674
-          commentable:
-            type: Task
-            id: '748715293'
-            product_id: '131414752'
-            url: http://company.aha.io/tasks/748715293
-            resource: http://company.aha.io/api/v1/tasks/748715293
     CommentsPutResponse:
       type: object
       properties:
@@ -2927,6 +2811,122 @@ components:
       example:
         comment:
           body: <p>Updated comment body.</p>
+    CommentsPostResponse:
+      type: object
+      properties:
+        comment:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149487788674'
+            body:
+              type: string
+              example: <p>This is the comment body for a to-do.</p>
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '1020675218'
+                name:
+                  type: string
+                  example: Mary Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '1020675218'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+            attachments:
+              type: array
+              items: {}
+            url:
+              type: string
+              example: http://company.aha.io/comments/6776881149487788674
+            resource:
+              type: string
+              example: http://company.aha.io/api/v1/comments/6776881149487788674
+            commentable:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: Task
+                id:
+                  type: string
+                  example: '748715293'
+                product_id:
+                  type: string
+                  example: '131414752'
+                url:
+                  type: string
+                  example: http://company.aha.io/tasks/748715293
+                resource:
+                  type: string
+                  example: http://company.aha.io/api/v1/tasks/748715293
+              example:
+                type: Task
+                id: '748715293'
+                product_id: '131414752'
+                url: http://company.aha.io/tasks/748715293
+                resource: http://company.aha.io/api/v1/tasks/748715293
+          example:
+            id: '6776881149487788674'
+            body: <p>This is the comment body for a to-do.</p>
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            user:
+              id: '1020675218'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+            url: http://company.aha.io/comments/6776881149487788674
+            resource: http://company.aha.io/api/v1/comments/6776881149487788674
+            commentable:
+              type: Task
+              id: '748715293'
+              product_id: '131414752'
+              url: http://company.aha.io/tasks/748715293
+              resource: http://company.aha.io/api/v1/tasks/748715293
+      example:
+        comment:
+          id: '6776881149487788674'
+          body: <p>This is the comment body for a to-do.</p>
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          user:
+            id: '1020675218'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          attachments: []
+          url: http://company.aha.io/comments/6776881149487788674
+          resource: http://company.aha.io/api/v1/comments/6776881149487788674
+          commentable:
+            type: Task
+            id: '748715293'
+            product_id: '131414752'
+            url: http://company.aha.io/tasks/748715293
+            resource: http://company.aha.io/api/v1/tasks/748715293
   securitySchemes:
     OAuth2:
       type: oauth2

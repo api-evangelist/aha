@@ -456,141 +456,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    TeamsGetResponse:
-      type: object
-      properties:
-        team:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '949295028'
-            name:
-              type: string
-              example: Default team
-            team_members_count:
-              type: integer
-              example: 5
-            automatically_calculate_team_members_count:
-              type: boolean
-              example: false
-            capacity:
-              type: string
-              example: '205.0'
-            hourly_rate:
-              type: string
-              example: '100.0'
-            color:
-              type: string
-              example: '#666666'
-            start_date:
-              type: string
-              example: '2019-01-01'
-            end_date:
-              type: string
-              example: '2019-01-01'
-            project:
-              type: 'null'
-            schedule:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '441193141'
-                name:
-                  type: string
-                  example: Default schedule
-                hours_per_day:
-                  type: string
-                  example: '8.2'
-                story_points_per_day:
-                  type: string
-                  example: '1.0'
-                velocity:
-                  type: string
-                  example: '10.5'
-              example:
-                id: '441193141'
-                name: Default schedule
-                hours_per_day: '8.2'
-                story_points_per_day: '1.0'
-                velocity: '10.5'
-            custom_fields:
-              type: array
-              items: {}
-            team_members:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '960059005'
-                name:
-                  type: string
-                  example: Mary Humpty
-                email:
-                  type: string
-                  example: no-reply@aha.io
-                user_id:
-                  type: string
-                  example: '1020675218'
-                virtual:
-                  type: boolean
-                  example: false
-              example:
-                id: '960059005'
-                name: Mary Humpty
-                email: no-reply@aha.io
-                user_id: '1020675218'
-                virtual: false
-          example:
-            id: '949295028'
-            name: Default team
-            team_members_count: 5
-            automatically_calculate_team_members_count: false
-            capacity: '205.0'
-            hourly_rate: '100.0'
-            color: '#666666'
-            start_date: '2019-01-01'
-            end_date: '2019-01-01'
-            project: null
-            schedule:
-              id: '441193141'
-              name: Default schedule
-              hours_per_day: '8.2'
-              story_points_per_day: '1.0'
-              velocity: '10.5'
-            custom_fields: []
-            team_members:
-              id: '960059005'
-              name: Mary Humpty
-              email: no-reply@aha.io
-              user_id: '1020675218'
-              virtual: false
-      example:
-        team:
-          id: '949295028'
-          name: Default team
-          team_members_count: 5
-          automatically_calculate_team_members_count: false
-          capacity: '205.0'
-          hourly_rate: '100.0'
-          color: '#666666'
-          start_date: '2019-01-01'
-          end_date: '2019-01-01'
-          project: null
-          schedule:
-            id: '441193141'
-            name: Default schedule
-            hours_per_day: '8.2'
-            story_points_per_day: '1.0'
-            velocity: '10.5'
-          custom_fields: []
-          team_members:
-            id: '960059005'
-            name: Mary Humpty
-            email: no-reply@aha.io
-            user_id: '1020675218'
-            virtual: false
     TeamsPostRequest:
       type: object
       properties: {}
@@ -772,6 +637,141 @@ components:
             email: null
             user_id: null
             virtual: true
+    TeamsGetResponse:
+      type: object
+      properties:
+        team:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '949295028'
+            name:
+              type: string
+              example: Default team
+            team_members_count:
+              type: integer
+              example: 5
+            automatically_calculate_team_members_count:
+              type: boolean
+              example: false
+            capacity:
+              type: string
+              example: '205.0'
+            hourly_rate:
+              type: string
+              example: '100.0'
+            color:
+              type: string
+              example: '#666666'
+            start_date:
+              type: string
+              example: '2019-01-01'
+            end_date:
+              type: string
+              example: '2019-01-01'
+            project:
+              type: 'null'
+            schedule:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '441193141'
+                name:
+                  type: string
+                  example: Default schedule
+                hours_per_day:
+                  type: string
+                  example: '8.2'
+                story_points_per_day:
+                  type: string
+                  example: '1.0'
+                velocity:
+                  type: string
+                  example: '10.5'
+              example:
+                id: '441193141'
+                name: Default schedule
+                hours_per_day: '8.2'
+                story_points_per_day: '1.0'
+                velocity: '10.5'
+            custom_fields:
+              type: array
+              items: {}
+            team_members:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '960059005'
+                name:
+                  type: string
+                  example: Mary Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                user_id:
+                  type: string
+                  example: '1020675218'
+                virtual:
+                  type: boolean
+                  example: false
+              example:
+                id: '960059005'
+                name: Mary Humpty
+                email: no-reply@aha.io
+                user_id: '1020675218'
+                virtual: false
+          example:
+            id: '949295028'
+            name: Default team
+            team_members_count: 5
+            automatically_calculate_team_members_count: false
+            capacity: '205.0'
+            hourly_rate: '100.0'
+            color: '#666666'
+            start_date: '2019-01-01'
+            end_date: '2019-01-01'
+            project: null
+            schedule:
+              id: '441193141'
+              name: Default schedule
+              hours_per_day: '8.2'
+              story_points_per_day: '1.0'
+              velocity: '10.5'
+            custom_fields: []
+            team_members:
+              id: '960059005'
+              name: Mary Humpty
+              email: no-reply@aha.io
+              user_id: '1020675218'
+              virtual: false
+      example:
+        team:
+          id: '949295028'
+          name: Default team
+          team_members_count: 5
+          automatically_calculate_team_members_count: false
+          capacity: '205.0'
+          hourly_rate: '100.0'
+          color: '#666666'
+          start_date: '2019-01-01'
+          end_date: '2019-01-01'
+          project: null
+          schedule:
+            id: '441193141'
+            name: Default schedule
+            hours_per_day: '8.2'
+            story_points_per_day: '1.0'
+            velocity: '10.5'
+          custom_fields: []
+          team_members:
+            id: '960059005'
+            name: Mary Humpty
+            email: no-reply@aha.io
+            user_id: '1020675218'
+            virtual: false
     TeamsPostResponse:
       type: object
       properties:

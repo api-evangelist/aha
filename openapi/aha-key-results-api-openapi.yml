@@ -343,7 +343,7 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    KeyresultsGetResponse:
+    KeyresultsPostResponse:
       type: object
       properties:
         key_result:
@@ -351,16 +351,16 @@ components:
           properties:
             id:
               type: string
-              example: '631791848'
+              example: '6776881149483625245'
             name:
               type: string
-              example: KR 1
+              example: New name
             reference_num:
               type: string
               example: DEMOENT-G-1-KR-1
             position:
               type: integer
-              example: 2
+              example: 3
             created_at:
               type: string
               example: '2019-01-01T00:00:00.000Z'
@@ -368,25 +368,23 @@ components:
               type: string
               example: '2019-01-01T00:00:00.000Z'
             progress:
-              type: 'null'
+              type: integer
+              example: 0
             target_metric:
-              type: string
-              example: 100%
+              type: 'null'
             starting_metric:
-              type: string
-              example: 5%
+              type: 'null'
             current_metric:
-              type: string
-              example: 20%
+              type: 'null'
             description:
               type: object
               properties:
                 id:
                   type: string
-                  example: '6776881149495921680'
+                  example: '6776881149493544532'
                 body:
                   type: string
-                  example: ''
+                  example: <p>This is the description</p>
                 editor_version:
                   type: integer
                   example: 2
@@ -400,137 +398,132 @@ components:
                   type: array
                   items: {}
               example:
-                id: '6776881149495921680'
-                body: ''
+                id: '6776881149493544532'
+                body: <p>This is the description</p>
                 editor_version: 2
                 created_at: '2019-01-01T00:00:00.000Z'
                 updated_at: '2019-01-01T00:00:00.000Z'
                 attachments: []
             assigned_to_user:
-              type: 'null'
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '689956296'
+                name:
+                  type: string
+                  example: Henry Humpty
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                default_assignee:
+                  type: boolean
+                  example: false
+              example:
+                id: '689956296'
+                name: Henry Humpty
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                default_assignee: false
             workflow_status:
               type: object
               properties:
                 id:
                   type: string
-                  example: '934242751'
+                  example: '76947914'
                 name:
                   type: string
-                  example: New
+                  example: On Track
                 position:
                   type: integer
-                  example: 1
+                  example: 2
                 complete:
                   type: boolean
                   example: false
                 color:
                   type: string
-                  example: '#dce7c6'
+                  example: '#ecdd8f'
               example:
-                id: '934242751'
-                name: New
-                position: 1
+                id: '76947914'
+                name: On Track
+                position: 2
                 complete: false
-                color: '#dce7c6'
+                color: '#ecdd8f'
             custom_fields:
               type: array
               items: {}
           example:
-            id: '631791848'
-            name: KR 1
+            id: '6776881149483625245'
+            name: New name
             reference_num: DEMOENT-G-1-KR-1
-            position: 2
+            position: 3
             created_at: '2019-01-01T00:00:00.000Z'
             updated_at: '2019-01-01T00:00:00.000Z'
-            progress: null
-            target_metric: 100%
-            starting_metric: 5%
-            current_metric: 20%
+            progress: 0
+            target_metric: null
+            starting_metric: null
+            current_metric: null
             description:
-              id: '6776881149495921680'
-              body: ''
+              id: '6776881149493544532'
+              body: <p>This is the description</p>
               editor_version: 2
               created_at: '2019-01-01T00:00:00.000Z'
               updated_at: '2019-01-01T00:00:00.000Z'
               attachments: []
-            assigned_to_user: null
+            assigned_to_user:
+              id: '689956296'
+              name: Henry Humpty
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              default_assignee: false
             workflow_status:
-              id: '934242751'
-              name: New
-              position: 1
+              id: '76947914'
+              name: On Track
+              position: 2
               complete: false
-              color: '#dce7c6'
+              color: '#ecdd8f'
             custom_fields: []
       example:
         key_result:
-          id: '631791848'
-          name: KR 1
+          id: '6776881149483625245'
+          name: New name
           reference_num: DEMOENT-G-1-KR-1
-          position: 2
+          position: 3
           created_at: '2019-01-01T00:00:00.000Z'
           updated_at: '2019-01-01T00:00:00.000Z'
-          progress: null
-          target_metric: 100%
-          starting_metric: 5%
-          current_metric: 20%
+          progress: 0
+          target_metric: null
+          starting_metric: null
+          current_metric: null
           description:
-            id: '6776881149495921680'
-            body: ''
+            id: '6776881149493544532'
+            body: <p>This is the description</p>
             editor_version: 2
             created_at: '2019-01-01T00:00:00.000Z'
             updated_at: '2019-01-01T00:00:00.000Z'
             attachments: []
-          assigned_to_user: null
-          workflow_status:
-            id: '934242751'
-            name: New
-            position: 1
-            complete: false
-            color: '#dce7c6'
-          custom_fields: []
-    KeyresultsPostRequest:
-      type: object
-      properties:
-        key_result:
-          type: object
-          properties:
-            name:
-              type: string
-              example: New name
-            workflow_status:
-              type: object
-              properties:
-                name:
-                  type: string
-                  example: On track
-              example:
-                name: On track
-            description:
-              type: string
-              example: <p>This is the description</p>
-            assigned_to_user:
-              type: object
-              properties:
-                email:
-                  type: string
-                  example: no-reply@aha.io
-              example:
-                email: no-reply@aha.io
-          example:
-            name: New name
-            workflow_status:
-              name: On track
-            description: <p>This is the description</p>
-            assigned_to_user:
-              email: no-reply@aha.io
-      example:
-        key_result:
-          name: New name
-          workflow_status:
-            name: On track
-          description: <p>This is the description</p>
           assigned_to_user:
+            id: '689956296'
+            name: Henry Humpty
             email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            default_assignee: false
+          workflow_status:
+            id: '76947914'
+            name: On Track
+            position: 2
+            complete: false
+            color: '#ecdd8f'
+          custom_fields: []
     KeyresultsPutResponse:
       type: object
       properties:
@@ -714,7 +707,50 @@ components:
             updatedAt: '2019-01-01T00:00:00Z'
             value: my metric
             type: string
-    KeyresultsPostResponse:
+    KeyresultsPostRequest:
+      type: object
+      properties:
+        key_result:
+          type: object
+          properties:
+            name:
+              type: string
+              example: New name
+            workflow_status:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: On track
+              example:
+                name: On track
+            description:
+              type: string
+              example: <p>This is the description</p>
+            assigned_to_user:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: no-reply@aha.io
+              example:
+                email: no-reply@aha.io
+          example:
+            name: New name
+            workflow_status:
+              name: On track
+            description: <p>This is the description</p>
+            assigned_to_user:
+              email: no-reply@aha.io
+      example:
+        key_result:
+          name: New name
+          workflow_status:
+            name: On track
+          description: <p>This is the description</p>
+          assigned_to_user:
+            email: no-reply@aha.io
+    KeyresultsGetResponse:
       type: object
       properties:
         key_result:
@@ -722,16 +758,16 @@ components:
           properties:
             id:
               type: string
-              example: '6776881149483625245'
+              example: '631791848'
             name:
               type: string
-              example: New name
+              example: KR 1
             reference_num:
               type: string
               example: DEMOENT-G-1-KR-1
             position:
               type: integer
-              example: 3
+              example: 2
             created_at:
               type: string
               example: '2019-01-01T00:00:00.000Z'
@@ -739,23 +775,25 @@ components:
               type: string
               example: '2019-01-01T00:00:00.000Z'
             progress:
-              type: integer
-              example: 0
+              type: 'null'
             target_metric:
-              type: 'null'
+              type: string
+              example: 100%
             starting_metric:
-              type: 'null'
+              type: string
+              example: 5%
             current_metric:
-              type: 'null'
+              type: string
+              example: 20%
             description:
               type: object
               properties:
                 id:
                   type: string
-                  example: '6776881149493544532'
+                  example: '6776881149495921680'
                 body:
                   type: string
-                  example: <p>This is the description</p>
+                  example: ''
                 editor_version:
                   type: integer
                   example: 2
@@ -769,131 +807,93 @@ components:
                   type: array
                   items: {}
               example:
-                id: '6776881149493544532'
-                body: <p>This is the description</p>
+                id: '6776881149495921680'
+                body: ''
                 editor_version: 2
                 created_at: '2019-01-01T00:00:00.000Z'
                 updated_at: '2019-01-01T00:00:00.000Z'
                 attachments: []
             assigned_to_user:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '689956296'
-                name:
-                  type: string
-                  example: Henry Humpty
-                email:
-                  type: string
-                  example: no-reply@aha.io
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                default_assignee:
-                  type: boolean
-                  example: false
-              example:
-                id: '689956296'
-                name: Henry Humpty
-                email: no-reply@aha.io
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                default_assignee: false
+              type: 'null'
             workflow_status:
               type: object
               properties:
                 id:
                   type: string
-                  example: '76947914'
+                  example: '934242751'
                 name:
                   type: string
-                  example: On Track
+                  example: New
                 position:
                   type: integer
-                  example: 2
+                  example: 1
                 complete:
                   type: boolean
                   example: false
                 color:
                   type: string
-                  example: '#ecdd8f'
+                  example: '#dce7c6'
               example:
-                id: '76947914'
-                name: On Track
-                position: 2
+                id: '934242751'
+                name: New
+                position: 1
                 complete: false
-                color: '#ecdd8f'
+                color: '#dce7c6'
             custom_fields:
               type: array
               items: {}
           example:
-            id: '6776881149483625245'
-            name: New name
+            id: '631791848'
+            name: KR 1
             reference_num: DEMOENT-G-1-KR-1
-            position: 3
+            position: 2
             created_at: '2019-01-01T00:00:00.000Z'
             updated_at: '2019-01-01T00:00:00.000Z'
-            progress: 0
-            target_metric: null
-            starting_metric: null
-            current_metric: null
+            progress: null
+            target_metric: 100%
+            starting_metric: 5%
+            current_metric: 20%
             description:
-              id: '6776881149493544532'
-              body: <p>This is the description</p>
+              id: '6776881149495921680'
+              body: ''
               editor_version: 2
               created_at: '2019-01-01T00:00:00.000Z'
               updated_at: '2019-01-01T00:00:00.000Z'
               attachments: []
-            assigned_to_user:
-              id: '689956296'
-              name: Henry Humpty
-              email: no-reply@aha.io
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              default_assignee: false
+            assigned_to_user: null
             workflow_status:
-              id: '76947914'
-              name: On Track
-              position: 2
+              id: '934242751'
+              name: New
+              position: 1
               complete: false
-              color: '#ecdd8f'
+              color: '#dce7c6'
             custom_fields: []
       example:
         key_result:
-          id: '6776881149483625245'
-          name: New name
+          id: '631791848'
+          name: KR 1
           reference_num: DEMOENT-G-1-KR-1
-          position: 3
+          position: 2
           created_at: '2019-01-01T00:00:00.000Z'
           updated_at: '2019-01-01T00:00:00.000Z'
-          progress: 0
-          target_metric: null
-          starting_metric: null
-          current_metric: null
+          progress: null
+          target_metric: 100%
+          starting_metric: 5%
+          current_metric: 20%
           description:
-            id: '6776881149493544532'
-            body: <p>This is the description</p>
+            id: '6776881149495921680'
+            body: ''
             editor_version: 2
             created_at: '2019-01-01T00:00:00.000Z'
             updated_at: '2019-01-01T00:00:00.000Z'
             attachments: []
-          assigned_to_user:
-            id: '689956296'
-            name: Henry Humpty
-            email: no-reply@aha.io
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            default_assignee: false
+          assigned_to_user: null
           workflow_status:
-            id: '76947914'
-            name: On Track
-            position: 2
+            id: '934242751'
+            name: New
+            position: 1
             complete: false
-            color: '#ecdd8f'
+            color: '#dce7c6'
           custom_fields: []
   securitySchemes:
     OAuth2:

@@ -333,67 +333,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    IdeausersPostResponse:
-      type: object
-      properties:
-        idea_user:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149489958901'
-            name:
-              type: string
-              example: sam doe
-            email:
-              type: string
-              example: sam.doe@example.com
-            discovery_interview_count:
-              type: integer
-              example: 0
-            discovery_last_invite:
-              type: 'null'
-            discovery_last_interview:
-              type: 'null'
-            discovery_next_interview:
-              type: 'null'
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            idea_organizations:
-              type: array
-              items: {}
-            custom_fields:
-              type: array
-              items: {}
-            integration_fields:
-              type: array
-              items: {}
-          example:
-            id: '6776881149489958901'
-            name: sam doe
-            email: sam.doe@example.com
-            discovery_interview_count: 0
-            discovery_last_invite: null
-            discovery_last_interview: null
-            discovery_next_interview: null
-            created_at: '2019-01-01T00:00:00.000Z'
-            idea_organizations: []
-            custom_fields: []
-            integration_fields: []
-      example:
-        idea_user:
-          id: '6776881149489958901'
-          name: sam doe
-          email: sam.doe@example.com
-          discovery_interview_count: 0
-          discovery_last_invite: null
-          discovery_last_interview: null
-          discovery_next_interview: null
-          created_at: '2019-01-01T00:00:00.000Z'
-          idea_organizations: []
-          custom_fields: []
-          integration_fields: []
     IdeausersGetResponse:
       type: object
       properties:
@@ -548,6 +487,67 @@ components:
           id: '1056507375'
           name: John Long
           email: john@long.com
+          discovery_interview_count: 0
+          discovery_last_invite: null
+          discovery_last_interview: null
+          discovery_next_interview: null
+          created_at: '2019-01-01T00:00:00.000Z'
+          idea_organizations: []
+          custom_fields: []
+          integration_fields: []
+    IdeausersPostResponse:
+      type: object
+      properties:
+        idea_user:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149489958901'
+            name:
+              type: string
+              example: sam doe
+            email:
+              type: string
+              example: sam.doe@example.com
+            discovery_interview_count:
+              type: integer
+              example: 0
+            discovery_last_invite:
+              type: 'null'
+            discovery_last_interview:
+              type: 'null'
+            discovery_next_interview:
+              type: 'null'
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            idea_organizations:
+              type: array
+              items: {}
+            custom_fields:
+              type: array
+              items: {}
+            integration_fields:
+              type: array
+              items: {}
+          example:
+            id: '6776881149489958901'
+            name: sam doe
+            email: sam.doe@example.com
+            discovery_interview_count: 0
+            discovery_last_invite: null
+            discovery_last_interview: null
+            discovery_next_interview: null
+            created_at: '2019-01-01T00:00:00.000Z'
+            idea_organizations: []
+            custom_fields: []
+            integration_fields: []
+      example:
+        idea_user:
+          id: '6776881149489958901'
+          name: sam doe
+          email: sam.doe@example.com
           discovery_interview_count: 0
           discovery_last_invite: null
           discovery_last_interview: null

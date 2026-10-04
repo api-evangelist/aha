@@ -508,6 +508,106 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    IntegrationsPutResponse:
+      type: object
+      properties:
+        integration:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '204584239'
+            service_name:
+              type: string
+              example: jira
+            template_id:
+              type: 'null'
+            name:
+              type: string
+              example: Jira
+            enabled:
+              type: boolean
+              example: true
+            callback_token:
+              type: string
+              example: 22b7893e7fa1c4c60847090f78fbf0ec
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            last_error_at:
+              type: 'null'
+            last_webhook_request_at:
+              type: 'null'
+            url:
+              type: string
+              example: http://company.aha.io/integrations/204584239
+            resource:
+              type: string
+              example: http://company.aha.io/api/v1/integrations/204584239
+            jql_filter:
+              type: 'null'
+            owner:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: Project
+                id:
+                  type: string
+                  example: '131414752'
+                url:
+                  type: string
+                  example: http://company.aha.io/projects/PRJ1
+                resource:
+                  type: string
+                  example: http://company.aha.io/projects/PRJ1
+              example:
+                type: Project
+                id: '131414752'
+                url: http://company.aha.io/projects/PRJ1
+                resource: http://company.aha.io/projects/PRJ1
+          example:
+            id: '204584239'
+            service_name: jira
+            template_id: null
+            name: Jira
+            enabled: true
+            callback_token: 22b7893e7fa1c4c60847090f78fbf0ec
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            last_error_at: null
+            last_webhook_request_at: null
+            url: http://company.aha.io/integrations/204584239
+            resource: http://company.aha.io/api/v1/integrations/204584239
+            jql_filter: null
+            owner:
+              type: Project
+              id: '131414752'
+              url: http://company.aha.io/projects/PRJ1
+              resource: http://company.aha.io/projects/PRJ1
+      example:
+        integration:
+          id: '204584239'
+          service_name: jira
+          template_id: null
+          name: Jira
+          enabled: true
+          callback_token: 22b7893e7fa1c4c60847090f78fbf0ec
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          last_error_at: null
+          last_webhook_request_at: null
+          url: http://company.aha.io/integrations/204584239
+          resource: http://company.aha.io/api/v1/integrations/204584239
+          jql_filter: null
+          owner:
+            type: Project
+            id: '131414752'
+            url: http://company.aha.io/projects/PRJ1
+            resource: http://company.aha.io/projects/PRJ1
     IntegrationsPostRequest:
       type: object
       properties:
@@ -522,7 +622,7 @@ components:
       example:
         integration:
           enabled: true
-    IntegrationsPutResponse:
+    IntegrationsGetResponse:
       type: object
       properties:
         integration:
@@ -716,106 +816,6 @@ components:
           last_webhook_request_at: null
           url: http://company.aha.io/integrations/6776881149497259401
           resource: http://company.aha.io/api/v1/integrations/6776881149497259401
-          jql_filter: null
-          owner:
-            type: Project
-            id: '131414752'
-            url: http://company.aha.io/projects/PRJ1
-            resource: http://company.aha.io/projects/PRJ1
-    IntegrationsGetResponse:
-      type: object
-      properties:
-        integration:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '204584239'
-            service_name:
-              type: string
-              example: jira
-            template_id:
-              type: 'null'
-            name:
-              type: string
-              example: Jira
-            enabled:
-              type: boolean
-              example: true
-            callback_token:
-              type: string
-              example: 22b7893e7fa1c4c60847090f78fbf0ec
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            last_error_at:
-              type: 'null'
-            last_webhook_request_at:
-              type: 'null'
-            url:
-              type: string
-              example: http://company.aha.io/integrations/204584239
-            resource:
-              type: string
-              example: http://company.aha.io/api/v1/integrations/204584239
-            jql_filter:
-              type: 'null'
-            owner:
-              type: object
-              properties:
-                type:
-                  type: string
-                  example: Project
-                id:
-                  type: string
-                  example: '131414752'
-                url:
-                  type: string
-                  example: http://company.aha.io/projects/PRJ1
-                resource:
-                  type: string
-                  example: http://company.aha.io/projects/PRJ1
-              example:
-                type: Project
-                id: '131414752'
-                url: http://company.aha.io/projects/PRJ1
-                resource: http://company.aha.io/projects/PRJ1
-          example:
-            id: '204584239'
-            service_name: jira
-            template_id: null
-            name: Jira
-            enabled: true
-            callback_token: 22b7893e7fa1c4c60847090f78fbf0ec
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            last_error_at: null
-            last_webhook_request_at: null
-            url: http://company.aha.io/integrations/204584239
-            resource: http://company.aha.io/api/v1/integrations/204584239
-            jql_filter: null
-            owner:
-              type: Project
-              id: '131414752'
-              url: http://company.aha.io/projects/PRJ1
-              resource: http://company.aha.io/projects/PRJ1
-      example:
-        integration:
-          id: '204584239'
-          service_name: jira
-          template_id: null
-          name: Jira
-          enabled: true
-          callback_token: 22b7893e7fa1c4c60847090f78fbf0ec
-          created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          last_error_at: null
-          last_webhook_request_at: null
-          url: http://company.aha.io/integrations/204584239
-          resource: http://company.aha.io/api/v1/integrations/204584239
           jql_filter: null
           owner:
             type: Project

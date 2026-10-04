@@ -1744,6 +1744,469 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    GoalsGetResponse:
+      type: object
+      properties:
+        goal:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149493103487'
+            name:
+              type: string
+              example: Goal 001
+            reference_num:
+              type: string
+              example: PRJ3-G-1
+            effort:
+              type: integer
+              example: 10
+            value:
+              type: integer
+              example: 70
+            color:
+              type: string
+              example: '#397e82'
+            position:
+              type: integer
+              example: 1
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            product_id:
+              type: string
+              example: '702241743'
+            progress:
+              type: integer
+              example: 0
+            progress_source:
+              type: string
+              example: progress_manual
+            url:
+              type: string
+              example: http://company.aha.io/strategic_imperatives/PRJ3-G-1
+            resource:
+              type: string
+              example: http://company.aha.io/strategic_imperatives/PRJ3-G-1
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149493796208'
+                body:
+                  type: string
+                  example: ''
+                editor_version:
+                  type: integer
+                  example: 2
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: '6776881149493796208'
+                body: ''
+                editor_version: 2
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            success_metric:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Metric 001
+                description:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    body:
+                      type: string
+                    editor_version:
+                      type: string
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
+                    attachments:
+                      type: string
+                  example:
+                    id: '6776881149488589993'
+                    body: ''
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                workflow_status:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    position:
+                      type: string
+                    complete:
+                      type: string
+                    color:
+                      type: string
+                  example:
+                    id: '396368932'
+                    name: On Track
+                    position: 2
+                    complete: false
+                    color: '#ecdd8f'
+                workflow_status_times:
+                  type: array
+                  items:
+                    type: string
+                  example:
+                  - status_id: '396368932'
+                    status_name: On Track
+                    started_at: '2019-01-01T00:00:00.000Z'
+                    ended_at: null
+              example:
+                name: Metric 001
+                description:
+                  id: '6776881149488589993'
+                  body: ''
+                  editor_version: 2
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+                workflow_status:
+                  id: '396368932'
+                  name: On Track
+                  position: 2
+                  complete: false
+                  color: '#ecdd8f'
+                workflow_status_times:
+                - status_id: '396368932'
+                  status_name: On Track
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: null
+            project:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '702241743'
+                reference_prefix:
+                  type: string
+                  example: PRJ3
+                name:
+                  type: string
+                  example: Project 3
+                product_line:
+                  type: boolean
+                  example: false
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                workspace_type:
+                  type: string
+                  example: product_workspace
+                url:
+                  type: string
+                  example: http://company.aha.io/projects/PRJ3
+              example:
+                id: '702241743'
+                reference_prefix: PRJ3
+                name: Project 3
+                product_line: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                workspace_type: product_workspace
+                url: http://company.aha.io/projects/PRJ3
+            parent:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '352745835'
+                name:
+                  type: string
+                  example: Product Line Goal 1
+                url:
+                  type: string
+                  example: http://company.aha.io/strategic_imperatives/PL1-G-1
+                resource:
+                  type: string
+                  example: http://company.aha.io/api/v1/goals/PL1-G-1
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                description:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    body:
+                      type: string
+                    editor_version:
+                      type: string
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
+                    attachments:
+                      type: string
+                  example:
+                    id: '79634897'
+                    body: Description of project2_strategic_imperative1
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+              example:
+                id: '352745835'
+                name: Product Line Goal 1
+                url: http://company.aha.io/strategic_imperatives/PL1-G-1
+                resource: http://company.aha.io/api/v1/goals/PL1-G-1
+                created_at: '2019-01-01T00:00:00.000Z'
+                description:
+                  id: '79634897'
+                  body: Description of project2_strategic_imperative1
+                  editor_version: 1
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+            parents:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  url:
+                    type: string
+                  resource:
+                    type: string
+                  created_at:
+                    type: string
+                  description:
+                    type: string
+                example:
+                  id: '352745835'
+                  name: Product Line Goal 1
+                  url: http://company.aha.io/strategic_imperatives/PL1-G-1
+                  resource: http://company.aha.io/api/v1/goals/PL1-G-1
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  description:
+                    id: '79634897'
+                    body: Description of project2_strategic_imperative1
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+              example:
+              - id: '352745835'
+                name: Product Line Goal 1
+                url: http://company.aha.io/strategic_imperatives/PL1-G-1
+                resource: http://company.aha.io/api/v1/goals/PL1-G-1
+                created_at: '2019-01-01T00:00:00.000Z'
+                description:
+                  id: '79634897'
+                  body: Description of project2_strategic_imperative1
+                  editor_version: 1
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  attachments: []
+            initiatives:
+              type: array
+              items: {}
+            key_results:
+              type: array
+              items: {}
+            comments_count:
+              type: integer
+              example: 0
+            features:
+              type: array
+              items: {}
+            releases:
+              type: array
+              items: {}
+            custom_fields:
+              type: array
+              items: {}
+          example:
+            id: '6776881149493103487'
+            name: Goal 001
+            reference_num: PRJ3-G-1
+            effort: 10
+            value: 70
+            color: '#397e82'
+            position: 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            product_id: '702241743'
+            progress: 0
+            progress_source: progress_manual
+            url: http://company.aha.io/strategic_imperatives/PRJ3-G-1
+            resource: http://company.aha.io/strategic_imperatives/PRJ3-G-1
+            description:
+              id: '6776881149493796208'
+              body: ''
+              editor_version: 2
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            success_metric:
+              name: Metric 001
+              description:
+                id: '6776881149488589993'
+                body: ''
+                editor_version: 2
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+              workflow_status:
+                id: '396368932'
+                name: On Track
+                position: 2
+                complete: false
+                color: '#ecdd8f'
+              workflow_status_times:
+              - status_id: '396368932'
+                status_name: On Track
+                started_at: '2019-01-01T00:00:00.000Z'
+                ended_at: null
+            project:
+              id: '702241743'
+              reference_prefix: PRJ3
+              name: Project 3
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              workspace_type: product_workspace
+              url: http://company.aha.io/projects/PRJ3
+            parent:
+              id: '352745835'
+              name: Product Line Goal 1
+              url: http://company.aha.io/strategic_imperatives/PL1-G-1
+              resource: http://company.aha.io/api/v1/goals/PL1-G-1
+              created_at: '2019-01-01T00:00:00.000Z'
+              description:
+                id: '79634897'
+                body: Description of project2_strategic_imperative1
+                editor_version: 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            parents:
+            - id: '352745835'
+              name: Product Line Goal 1
+              url: http://company.aha.io/strategic_imperatives/PL1-G-1
+              resource: http://company.aha.io/api/v1/goals/PL1-G-1
+              created_at: '2019-01-01T00:00:00.000Z'
+              description:
+                id: '79634897'
+                body: Description of project2_strategic_imperative1
+                editor_version: 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            initiatives: []
+            key_results: []
+            comments_count: 0
+            features: []
+            releases: []
+            custom_fields: []
+      example:
+        goal:
+          id: '6776881149493103487'
+          name: Goal 001
+          reference_num: PRJ3-G-1
+          effort: 10
+          value: 70
+          color: '#397e82'
+          position: 1
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          product_id: '702241743'
+          progress: 0
+          progress_source: progress_manual
+          url: http://company.aha.io/strategic_imperatives/PRJ3-G-1
+          resource: http://company.aha.io/strategic_imperatives/PRJ3-G-1
+          description:
+            id: '6776881149493796208'
+            body: ''
+            editor_version: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+          success_metric:
+            name: Metric 001
+            description:
+              id: '6776881149488589993'
+              body: ''
+              editor_version: 2
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            workflow_status:
+              id: '396368932'
+              name: On Track
+              position: 2
+              complete: false
+              color: '#ecdd8f'
+            workflow_status_times:
+            - status_id: '396368932'
+              status_name: On Track
+              started_at: '2019-01-01T00:00:00.000Z'
+              ended_at: null
+          project:
+            id: '702241743'
+            reference_prefix: PRJ3
+            name: Project 3
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            workspace_type: product_workspace
+            url: http://company.aha.io/projects/PRJ3
+          parent:
+            id: '352745835'
+            name: Product Line Goal 1
+            url: http://company.aha.io/strategic_imperatives/PL1-G-1
+            resource: http://company.aha.io/api/v1/goals/PL1-G-1
+            created_at: '2019-01-01T00:00:00.000Z'
+            description:
+              id: '79634897'
+              body: Description of project2_strategic_imperative1
+              editor_version: 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+          parents:
+          - id: '352745835'
+            name: Product Line Goal 1
+            url: http://company.aha.io/strategic_imperatives/PL1-G-1
+            resource: http://company.aha.io/api/v1/goals/PL1-G-1
+            created_at: '2019-01-01T00:00:00.000Z'
+            description:
+              id: '79634897'
+              body: Description of project2_strategic_imperative1
+              editor_version: 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+          initiatives: []
+          key_results: []
+          comments_count: 0
+          features: []
+          releases: []
+          custom_fields: []
     GoalsPostResponse:
       type: object
       properties:
@@ -2865,469 +3328,6 @@ components:
         goal:
           description: An even smarter goal.
           workflow_status: On Track
-    GoalsGetResponse:
-      type: object
-      properties:
-        goal:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149493103487'
-            name:
-              type: string
-              example: Goal 001
-            reference_num:
-              type: string
-              example: PRJ3-G-1
-            effort:
-              type: integer
-              example: 10
-            value:
-              type: integer
-              example: 70
-            color:
-              type: string
-              example: '#397e82'
-            position:
-              type: integer
-              example: 1
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            product_id:
-              type: string
-              example: '702241743'
-            progress:
-              type: integer
-              example: 0
-            progress_source:
-              type: string
-              example: progress_manual
-            url:
-              type: string
-              example: http://company.aha.io/strategic_imperatives/PRJ3-G-1
-            resource:
-              type: string
-              example: http://company.aha.io/strategic_imperatives/PRJ3-G-1
-            description:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '6776881149493796208'
-                body:
-                  type: string
-                  example: ''
-                editor_version:
-                  type: integer
-                  example: 2
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                attachments:
-                  type: array
-                  items: {}
-              example:
-                id: '6776881149493796208'
-                body: ''
-                editor_version: 2
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-            success_metric:
-              type: object
-              properties:
-                name:
-                  type: string
-                  example: Metric 001
-                description:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    body:
-                      type: string
-                    editor_version:
-                      type: string
-                    created_at:
-                      type: string
-                    updated_at:
-                      type: string
-                    attachments:
-                      type: string
-                  example:
-                    id: '6776881149488589993'
-                    body: ''
-                    editor_version: 2
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    attachments: []
-                workflow_status:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    name:
-                      type: string
-                    position:
-                      type: string
-                    complete:
-                      type: string
-                    color:
-                      type: string
-                  example:
-                    id: '396368932'
-                    name: On Track
-                    position: 2
-                    complete: false
-                    color: '#ecdd8f'
-                workflow_status_times:
-                  type: array
-                  items:
-                    type: string
-                  example:
-                  - status_id: '396368932'
-                    status_name: On Track
-                    started_at: '2019-01-01T00:00:00.000Z'
-                    ended_at: null
-              example:
-                name: Metric 001
-                description:
-                  id: '6776881149488589993'
-                  body: ''
-                  editor_version: 2
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  attachments: []
-                workflow_status:
-                  id: '396368932'
-                  name: On Track
-                  position: 2
-                  complete: false
-                  color: '#ecdd8f'
-                workflow_status_times:
-                - status_id: '396368932'
-                  status_name: On Track
-                  started_at: '2019-01-01T00:00:00.000Z'
-                  ended_at: null
-            project:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '702241743'
-                reference_prefix:
-                  type: string
-                  example: PRJ3
-                name:
-                  type: string
-                  example: Project 3
-                product_line:
-                  type: boolean
-                  example: false
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                workspace_type:
-                  type: string
-                  example: product_workspace
-                url:
-                  type: string
-                  example: http://company.aha.io/projects/PRJ3
-              example:
-                id: '702241743'
-                reference_prefix: PRJ3
-                name: Project 3
-                product_line: false
-                created_at: '2019-01-01T00:00:00.000Z'
-                workspace_type: product_workspace
-                url: http://company.aha.io/projects/PRJ3
-            parent:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '352745835'
-                name:
-                  type: string
-                  example: Product Line Goal 1
-                url:
-                  type: string
-                  example: http://company.aha.io/strategic_imperatives/PL1-G-1
-                resource:
-                  type: string
-                  example: http://company.aha.io/api/v1/goals/PL1-G-1
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                description:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    body:
-                      type: string
-                    editor_version:
-                      type: string
-                    created_at:
-                      type: string
-                    updated_at:
-                      type: string
-                    attachments:
-                      type: string
-                  example:
-                    id: '79634897'
-                    body: Description of project2_strategic_imperative1
-                    editor_version: 1
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    attachments: []
-              example:
-                id: '352745835'
-                name: Product Line Goal 1
-                url: http://company.aha.io/strategic_imperatives/PL1-G-1
-                resource: http://company.aha.io/api/v1/goals/PL1-G-1
-                created_at: '2019-01-01T00:00:00.000Z'
-                description:
-                  id: '79634897'
-                  body: Description of project2_strategic_imperative1
-                  editor_version: 1
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  attachments: []
-            parents:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  name:
-                    type: string
-                  url:
-                    type: string
-                  resource:
-                    type: string
-                  created_at:
-                    type: string
-                  description:
-                    type: string
-                example:
-                  id: '352745835'
-                  name: Product Line Goal 1
-                  url: http://company.aha.io/strategic_imperatives/PL1-G-1
-                  resource: http://company.aha.io/api/v1/goals/PL1-G-1
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  description:
-                    id: '79634897'
-                    body: Description of project2_strategic_imperative1
-                    editor_version: 1
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    attachments: []
-              example:
-              - id: '352745835'
-                name: Product Line Goal 1
-                url: http://company.aha.io/strategic_imperatives/PL1-G-1
-                resource: http://company.aha.io/api/v1/goals/PL1-G-1
-                created_at: '2019-01-01T00:00:00.000Z'
-                description:
-                  id: '79634897'
-                  body: Description of project2_strategic_imperative1
-                  editor_version: 1
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  attachments: []
-            initiatives:
-              type: array
-              items: {}
-            key_results:
-              type: array
-              items: {}
-            comments_count:
-              type: integer
-              example: 0
-            features:
-              type: array
-              items: {}
-            releases:
-              type: array
-              items: {}
-            custom_fields:
-              type: array
-              items: {}
-          example:
-            id: '6776881149493103487'
-            name: Goal 001
-            reference_num: PRJ3-G-1
-            effort: 10
-            value: 70
-            color: '#397e82'
-            position: 1
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            product_id: '702241743'
-            progress: 0
-            progress_source: progress_manual
-            url: http://company.aha.io/strategic_imperatives/PRJ3-G-1
-            resource: http://company.aha.io/strategic_imperatives/PRJ3-G-1
-            description:
-              id: '6776881149493796208'
-              body: ''
-              editor_version: 2
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-            success_metric:
-              name: Metric 001
-              description:
-                id: '6776881149488589993'
-                body: ''
-                editor_version: 2
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-              workflow_status:
-                id: '396368932'
-                name: On Track
-                position: 2
-                complete: false
-                color: '#ecdd8f'
-              workflow_status_times:
-              - status_id: '396368932'
-                status_name: On Track
-                started_at: '2019-01-01T00:00:00.000Z'
-                ended_at: null
-            project:
-              id: '702241743'
-              reference_prefix: PRJ3
-              name: Project 3
-              product_line: false
-              created_at: '2019-01-01T00:00:00.000Z'
-              workspace_type: product_workspace
-              url: http://company.aha.io/projects/PRJ3
-            parent:
-              id: '352745835'
-              name: Product Line Goal 1
-              url: http://company.aha.io/strategic_imperatives/PL1-G-1
-              resource: http://company.aha.io/api/v1/goals/PL1-G-1
-              created_at: '2019-01-01T00:00:00.000Z'
-              description:
-                id: '79634897'
-                body: Description of project2_strategic_imperative1
-                editor_version: 1
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-            parents:
-            - id: '352745835'
-              name: Product Line Goal 1
-              url: http://company.aha.io/strategic_imperatives/PL1-G-1
-              resource: http://company.aha.io/api/v1/goals/PL1-G-1
-              created_at: '2019-01-01T00:00:00.000Z'
-              description:
-                id: '79634897'
-                body: Description of project2_strategic_imperative1
-                editor_version: 1
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-            initiatives: []
-            key_results: []
-            comments_count: 0
-            features: []
-            releases: []
-            custom_fields: []
-      example:
-        goal:
-          id: '6776881149493103487'
-          name: Goal 001
-          reference_num: PRJ3-G-1
-          effort: 10
-          value: 70
-          color: '#397e82'
-          position: 1
-          created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          product_id: '702241743'
-          progress: 0
-          progress_source: progress_manual
-          url: http://company.aha.io/strategic_imperatives/PRJ3-G-1
-          resource: http://company.aha.io/strategic_imperatives/PRJ3-G-1
-          description:
-            id: '6776881149493796208'
-            body: ''
-            editor_version: 2
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            attachments: []
-          success_metric:
-            name: Metric 001
-            description:
-              id: '6776881149488589993'
-              body: ''
-              editor_version: 2
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-            workflow_status:
-              id: '396368932'
-              name: On Track
-              position: 2
-              complete: false
-              color: '#ecdd8f'
-            workflow_status_times:
-            - status_id: '396368932'
-              status_name: On Track
-              started_at: '2019-01-01T00:00:00.000Z'
-              ended_at: null
-          project:
-            id: '702241743'
-            reference_prefix: PRJ3
-            name: Project 3
-            product_line: false
-            created_at: '2019-01-01T00:00:00.000Z'
-            workspace_type: product_workspace
-            url: http://company.aha.io/projects/PRJ3
-          parent:
-            id: '352745835'
-            name: Product Line Goal 1
-            url: http://company.aha.io/strategic_imperatives/PL1-G-1
-            resource: http://company.aha.io/api/v1/goals/PL1-G-1
-            created_at: '2019-01-01T00:00:00.000Z'
-            description:
-              id: '79634897'
-              body: Description of project2_strategic_imperative1
-              editor_version: 1
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-          parents:
-          - id: '352745835'
-            name: Product Line Goal 1
-            url: http://company.aha.io/strategic_imperatives/PL1-G-1
-            resource: http://company.aha.io/api/v1/goals/PL1-G-1
-            created_at: '2019-01-01T00:00:00.000Z'
-            description:
-              id: '79634897'
-              body: Description of project2_strategic_imperative1
-              editor_version: 1
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-          initiatives: []
-          key_results: []
-          comments_count: 0
-          features: []
-          releases: []
-          custom_fields: []
   securitySchemes:
     OAuth2:
       type: oauth2
