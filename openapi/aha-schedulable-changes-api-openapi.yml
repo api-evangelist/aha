@@ -571,10 +571,6 @@ components:
               friday: true
               saturday: false
               sunday: false
-    SchedulablechangesPostRequest:
-      type: object
-      properties: {}
-      example: {}
     SchedulablechangesPutResponse:
       type: object
       properties:
@@ -783,6 +779,10 @@ components:
               friday: true
               saturday: false
               sunday: false
+    SchedulablechangesPostRequest:
+      type: object
+      properties: {}
+      example: {}
     SchedulablechangesGetResponse:
       type: object
       properties:

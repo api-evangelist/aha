@@ -173,10 +173,6 @@ components:
           email: sam.doe@example.com
           user_id: null
           virtual: true
-    TeammembersPostRequest:
-      type: object
-      properties: {}
-      example: {}
     TeammembersGetResponse:
       type: object
       properties:
@@ -248,6 +244,10 @@ components:
           total_records: 2
           total_pages: 1
           current_page: 1
+    TeammembersPostRequest:
+      type: object
+      properties: {}
+      example: {}
   securitySchemes:
     OAuth2:
       type: oauth2

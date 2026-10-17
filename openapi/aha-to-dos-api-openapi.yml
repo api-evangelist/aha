@@ -630,20 +630,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    To-dosPostRequest:
-      type: object
-      properties:
-        task:
-          type: object
-          properties:
-            body:
-              type: string
-              example: <p>Can you please review this press release</p>
-          example:
-            body: <p>Can you please review this press release</p>
-      example:
-        task:
-          body: <p>Can you please review this press release</p>
     To-dosPutResponse:
       type: object
       properties:
@@ -849,6 +835,20 @@ components:
             name: A third Feature
             url: http://company.aha.io/features/PRJ3-2
             resource: http://company.aha.io/api/v1/features/PRJ3-2
+    To-dosPostRequest:
+      type: object
+      properties:
+        task:
+          type: object
+          properties:
+            body:
+              type: string
+              example: <p>Can you please review this press release</p>
+          example:
+            body: <p>Can you please review this press release</p>
+      example:
+        task:
+          body: <p>Can you please review this press release</p>
     To-dosGetResponse:
       type: object
       properties:

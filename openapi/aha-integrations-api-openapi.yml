@@ -608,20 +608,6 @@ components:
             id: '131414752'
             url: http://company.aha.io/projects/PRJ1
             resource: http://company.aha.io/projects/PRJ1
-    IntegrationsPostRequest:
-      type: object
-      properties:
-        integration:
-          type: object
-          properties:
-            enabled:
-              type: boolean
-              example: true
-          example:
-            enabled: true
-      example:
-        integration:
-          enabled: true
     IntegrationsGetResponse:
       type: object
       properties:
@@ -822,6 +808,20 @@ components:
             id: '131414752'
             url: http://company.aha.io/projects/PRJ1
             resource: http://company.aha.io/projects/PRJ1
+    IntegrationsPostRequest:
+      type: object
+      properties:
+        integration:
+          type: object
+          properties:
+            enabled:
+              type: boolean
+              example: true
+          example:
+            enabled: true
+      example:
+        integration:
+          enabled: true
   securitySchemes:
     OAuth2:
       type: oauth2

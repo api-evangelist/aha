@@ -218,6 +218,10 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    CustomfieldoptionsPostRequest:
+      type: object
+      properties: {}
+      example: {}
     CustomfieldoptionsPostResponse:
       type: object
       properties:
@@ -236,6 +240,26 @@ components:
       example:
         id: '6776881149485179355'
         value: New option
+        color: 6710886
+        hidden: false
+    CustomfieldoptionsDeleteResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: '486420793'
+        value:
+          type: string
+          example: P1
+        color:
+          type: integer
+          example: 6710886
+        hidden:
+          type: boolean
+          example: false
+      example:
+        id: '486420793'
+        value: P1
         color: 6710886
         hidden: false
     CustomfieldoptionsGetResponse:
@@ -306,30 +330,6 @@ components:
           value: P3
           color: 6710886
           hidden: false
-    CustomfieldoptionsPostRequest:
-      type: object
-      properties: {}
-      example: {}
-    CustomfieldoptionsDeleteResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          example: '486420793'
-        value:
-          type: string
-          example: P1
-        color:
-          type: integer
-          example: 6710886
-        hidden:
-          type: boolean
-          example: false
-      example:
-        id: '486420793'
-        value: P1
-        color: 6710886
-        hidden: false
     CustomfieldoptionsPutResponse:
       type: object
       properties:

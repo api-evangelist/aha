@@ -394,171 +394,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    NotesPutResponse:
-      type: object
-      properties:
-        page:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '280859787'
-            name:
-              type: string
-              example: Build products customers love
-            title:
-              type: string
-              example: PRJ1-N-6 Build products customers love
-            document_title:
-              type: string
-              example: Build products customers love | Aha!
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            reference_num:
-              type: string
-              example: PRJ1-N-6
-            emoji_value:
-              type: 'null'
-            document_type:
-              type: integer
-              example: 70
-            document_type_name:
-              type: string
-              example: external_link
-            editor_width:
-              type: 'null'
-            type_name:
-              type: string
-              example: external link
-            position:
-              type: integer
-              example: 500000
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            location:
-              type: 'null'
-            edit_locked:
-              type: boolean
-              example: false
-            external_url:
-              type: string
-              example: https://www.aha.io/solutions/product
-            url:
-              type: string
-              example: http://company.aha.io/pages/PRJ1-N-6
-            resource:
-              type: string
-              example: http://company.aha.io/api/v1/pages/PRJ1-N-6
-            product_id:
-              type: string
-              example: '131414752'
-            description:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: ''
-                body:
-                  type: string
-                  example: '#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>'
-                editor_version:
-                  type: integer
-                  example: 2
-                created_at:
-                  type: 'null'
-                updated_at:
-                  type: 'null'
-                attachments:
-                  type: array
-                  items: {}
-              example:
-                id: ''
-                body: '#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>'
-                editor_version: 2
-                created_at: null
-                updated_at: null
-                attachments: []
-            parent_id:
-              type: 'null'
-            tags:
-              type: array
-              items: {}
-            full_tags:
-              type: array
-              items: {}
-            comments_count:
-              type: integer
-              example: 0
-            custom_fields:
-              type: array
-              items: {}
-          example:
-            id: '280859787'
-            name: Build products customers love
-            title: PRJ1-N-6 Build products customers love
-            document_title: Build products customers love | Aha!
-            updated_at: '2019-01-01T00:00:00.000Z'
-            reference_num: PRJ1-N-6
-            emoji_value: null
-            document_type: 70
-            document_type_name: external_link
-            editor_width: null
-            type_name: external link
-            position: 500000
-            created_at: '2019-01-01T00:00:00.000Z'
-            location: null
-            edit_locked: false
-            external_url: https://www.aha.io/solutions/product
-            url: http://company.aha.io/pages/PRJ1-N-6
-            resource: http://company.aha.io/api/v1/pages/PRJ1-N-6
-            product_id: '131414752'
-            description:
-              id: ''
-              body: '#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>'
-              editor_version: 2
-              created_at: null
-              updated_at: null
-              attachments: []
-            parent_id: null
-            tags: []
-            full_tags: []
-            comments_count: 0
-            custom_fields: []
-      example:
-        page:
-          id: '280859787'
-          name: Build products customers love
-          title: PRJ1-N-6 Build products customers love
-          document_title: Build products customers love | Aha!
-          updated_at: '2019-01-01T00:00:00.000Z'
-          reference_num: PRJ1-N-6
-          emoji_value: null
-          document_type: 70
-          document_type_name: external_link
-          editor_width: null
-          type_name: external link
-          position: 500000
-          created_at: '2019-01-01T00:00:00.000Z'
-          location: null
-          edit_locked: false
-          external_url: https://www.aha.io/solutions/product
-          url: http://company.aha.io/pages/PRJ1-N-6
-          resource: http://company.aha.io/api/v1/pages/PRJ1-N-6
-          product_id: '131414752'
-          description:
-            id: ''
-            body: '#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>'
-            editor_version: 2
-            created_at: null
-            updated_at: null
-            attachments: []
-          parent_id: null
-          tags: []
-          full_tags: []
-          comments_count: 0
-          custom_fields: []
     NotesGetResponse:
       type: object
       properties:
@@ -802,6 +637,197 @@ components:
             updatedAt: '2019-01-01T00:00:00Z'
             value: '2019-01-01'
             type: date
+    NotesPutResponse:
+      type: object
+      properties:
+        page:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '280859787'
+            name:
+              type: string
+              example: Build products customers love
+            title:
+              type: string
+              example: PRJ1-N-6 Build products customers love
+            document_title:
+              type: string
+              example: Build products customers love | Aha!
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            reference_num:
+              type: string
+              example: PRJ1-N-6
+            emoji_value:
+              type: 'null'
+            document_type:
+              type: integer
+              example: 70
+            document_type_name:
+              type: string
+              example: external_link
+            editor_width:
+              type: 'null'
+            type_name:
+              type: string
+              example: external link
+            position:
+              type: integer
+              example: 500000
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            location:
+              type: 'null'
+            edit_locked:
+              type: boolean
+              example: false
+            external_url:
+              type: string
+              example: https://www.aha.io/solutions/product
+            url:
+              type: string
+              example: http://company.aha.io/pages/PRJ1-N-6
+            resource:
+              type: string
+              example: http://company.aha.io/api/v1/pages/PRJ1-N-6
+            product_id:
+              type: string
+              example: '131414752'
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: ''
+                body:
+                  type: string
+                  example: '#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>'
+                editor_version:
+                  type: integer
+                  example: 2
+                created_at:
+                  type: 'null'
+                updated_at:
+                  type: 'null'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: ''
+                body: '#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>'
+                editor_version: 2
+                created_at: null
+                updated_at: null
+                attachments: []
+            parent_id:
+              type: 'null'
+            tags:
+              type: array
+              items: {}
+            full_tags:
+              type: array
+              items: {}
+            comments_count:
+              type: integer
+              example: 0
+            custom_fields:
+              type: array
+              items: {}
+          example:
+            id: '280859787'
+            name: Build products customers love
+            title: PRJ1-N-6 Build products customers love
+            document_title: Build products customers love | Aha!
+            updated_at: '2019-01-01T00:00:00.000Z'
+            reference_num: PRJ1-N-6
+            emoji_value: null
+            document_type: 70
+            document_type_name: external_link
+            editor_width: null
+            type_name: external link
+            position: 500000
+            created_at: '2019-01-01T00:00:00.000Z'
+            location: null
+            edit_locked: false
+            external_url: https://www.aha.io/solutions/product
+            url: http://company.aha.io/pages/PRJ1-N-6
+            resource: http://company.aha.io/api/v1/pages/PRJ1-N-6
+            product_id: '131414752'
+            description:
+              id: ''
+              body: '#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>'
+              editor_version: 2
+              created_at: null
+              updated_at: null
+              attachments: []
+            parent_id: null
+            tags: []
+            full_tags: []
+            comments_count: 0
+            custom_fields: []
+      example:
+        page:
+          id: '280859787'
+          name: Build products customers love
+          title: PRJ1-N-6 Build products customers love
+          document_title: Build products customers love | Aha!
+          updated_at: '2019-01-01T00:00:00.000Z'
+          reference_num: PRJ1-N-6
+          emoji_value: null
+          document_type: 70
+          document_type_name: external_link
+          editor_width: null
+          type_name: external link
+          position: 500000
+          created_at: '2019-01-01T00:00:00.000Z'
+          location: null
+          edit_locked: false
+          external_url: https://www.aha.io/solutions/product
+          url: http://company.aha.io/pages/PRJ1-N-6
+          resource: http://company.aha.io/api/v1/pages/PRJ1-N-6
+          product_id: '131414752'
+          description:
+            id: ''
+            body: '#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>'
+            editor_version: 2
+            created_at: null
+            updated_at: null
+            attachments: []
+          parent_id: null
+          tags: []
+          full_tags: []
+          comments_count: 0
+          custom_fields: []
+    NotesPostRequest:
+      type: object
+      properties:
+        page:
+          type: object
+          properties:
+            name:
+              type: string
+              example: New name for the note
+            description_attributes:
+              type: object
+              properties:
+                body:
+                  type: string
+                  example: <p>An awesome new note</p>
+              example:
+                body: <p>An awesome new note</p>
+          example:
+            name: New name for the note
+            description_attributes:
+              body: <p>An awesome new note</p>
+      example:
+        page:
+          name: New name for the note
+          description_attributes:
+            body: <p>An awesome new note</p>
     NotesPostResponse:
       type: object
       properties:
@@ -972,32 +998,6 @@ components:
           full_tags: []
           comments_count: 0
           custom_fields: []
-    NotesPostRequest:
-      type: object
-      properties:
-        page:
-          type: object
-          properties:
-            name:
-              type: string
-              example: New name for the note
-            description_attributes:
-              type: object
-              properties:
-                body:
-                  type: string
-                  example: <p>An awesome new note</p>
-              example:
-                body: <p>An awesome new note</p>
-          example:
-            name: New name for the note
-            description_attributes:
-              body: <p>An awesome new note</p>
-      example:
-        page:
-          name: New name for the note
-          description_attributes:
-            body: <p>An awesome new note</p>
   securitySchemes:
     OAuth2:
       type: oauth2

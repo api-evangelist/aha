@@ -1768,22 +1768,25 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    IntegrationfieldsPostResponseArrayString:
-      type: array
-      items:
-        type: string
-        example: '6776881149484343025'
+    IntegrationfieldsPostRequest:
+      type: object
+      properties:
+        integration_field:
+          type: object
+          properties:
+            name:
+              type: string
+              example: key
+            value:
+              type: string
+              example: JRA-34
+          example:
+            name: key
+            value: JRA-34
       example:
-      - '6776881149484343025'
-      - '6776881149496067156'
-    IntegrationfieldsPostResponseArrayInteger:
-      type: array
-      items:
-        type: integer
-        example: 907392375
-      example:
-      - 907392375
-      - 790422735
+        integration_field:
+          name: key
+          value: JRA-34
     IntegrationfieldsGetResponse:
       type: object
       properties:
@@ -2103,6 +2106,14 @@ components:
           total_records: 1
           total_pages: 1
           current_page: 1
+    IntegrationfieldsPostResponseArrayString:
+      type: array
+      items:
+        type: string
+        example: '6776881149484343025'
+      example:
+      - '6776881149484343025'
+      - '6776881149496067156'
     IntegrationfieldsPostResponse:
       type: object
       properties:
@@ -2160,25 +2171,14 @@ components:
           integratable:
             url: http://company.aha.io/ideas/ideas/PRJ1-I-1
             resource: http://company.aha.io/api/v1/ideas/api%2Fv1%2FPRJ1-I-1
-    IntegrationfieldsPostRequest:
-      type: object
-      properties:
-        integration_field:
-          type: object
-          properties:
-            name:
-              type: string
-              example: key
-            value:
-              type: string
-              example: JRA-34
-          example:
-            name: key
-            value: JRA-34
+    IntegrationfieldsPostResponseArrayInteger:
+      type: array
+      items:
+        type: integer
+        example: 907392375
       example:
-        integration_field:
-          name: key
-          value: JRA-34
+      - 907392375
+      - 790422735
   securitySchemes:
     OAuth2:
       type: oauth2
