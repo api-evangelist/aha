@@ -64,7 +64,7 @@
     - connectors/applications/aha
     vendor_link: https://www.aha.io
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: aha-meltano
   label: Meltano
@@ -93,7 +93,7 @@
     quality:
     - bronze
     builder: 'community (Meltano Hub variant maintainers: airbyte)'
-  status: pending-partner-spec
+  status: not-a-workflow
   arazzo: null
 - slug: aha-google-workspace-own
   label: Google Workspace (own)
