@@ -20,13 +20,25 @@ security:
 tags:
 - name: Deletions
 paths:
-  /api/v1/deletions:
+  /deletions:
     get:
       summary: List contents of recycle bin
-      description: The recycle bin contains recently deleted workspaces, teams, and records. It is possible to restore items up to 7 days after they have been deleted.
+      description: The recycle bin contains recently deleted workspaces, teams, and records. It is possible to restore items up to 30 days after they have been deleted.
       tags:
       - Deletions
-      parameters: []
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
       responses:
         '200':
           description: Successful operation
@@ -44,17 +56,17 @@ paths:
                 pagination:
                   total_records: 0
                   total_pages: 0
-                  current_page: 1
+                  current_page: '1'
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1Deletions
+      operationId: getDeletions
       x-operation-id-source: derived
-  /api/v1/deletions/{id}/restore:
+  /deletions/{id}/restore:
     post:
       summary: restore a specific record
-      description: The recycle bin contains recently deleted workspaces, teams, and records. It is possible to restore items up to 7 days after they have been deleted.
+      description: The recycle bin contains recently deleted workspaces, teams, and records. It is possible to restore items up to 30 days after they have been deleted.
       tags:
       - Deletions
       parameters:
@@ -78,6 +90,8 @@ paths:
                 $ref: '#/components/schemas/DeletionsPostResponse'
               example:
                 deletion:
+                  id: '6776881149497698683'
+                  deleted_at: '2019-01-01T00:00:00.000Z'
                   status: restore_in_progress
                   record:
                     name: Feature 1
@@ -87,13 +101,11 @@ paths:
                     id: 1049303076
                     name: George Gently
                     email: no-reply@aha.io
-                  id: '6776881149497698683'
-                  deleted_at: '2019-01-01T00:00:00.000Z'
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: postApiV1DeletionsByIdRestore
+      operationId: postDeletionsByIdRestore
       x-operation-id-source: derived
 components:
   schemas:
@@ -113,24 +125,30 @@ components:
               type: integer
               example: 0
             current_page:
-              type: integer
-              example: 1
+              type: string
+              example: '1'
           example:
             total_records: 0
             total_pages: 0
-            current_page: 1
+            current_page: '1'
       example:
         deletions: []
         pagination:
           total_records: 0
           total_pages: 0
-          current_page: 1
+          current_page: '1'
     DeletionsPostResponse:
       type: object
       properties:
         deletion:
           type: object
           properties:
+            id:
+              type: string
+              example: '6776881149497698683'
+            deleted_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
             status:
               type: string
               example: restore_in_progress
@@ -166,13 +184,9 @@ components:
                 id: 1049303076
                 name: George Gently
                 email: no-reply@aha.io
-            id:
-              type: string
-              example: '6776881149497698683'
-            deleted_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
           example:
+            id: '6776881149497698683'
+            deleted_at: '2019-01-01T00:00:00.000Z'
             status: restore_in_progress
             record:
               name: Feature 1
@@ -182,10 +196,10 @@ components:
               id: 1049303076
               name: George Gently
               email: no-reply@aha.io
-            id: '6776881149497698683'
-            deleted_at: '2019-01-01T00:00:00.000Z'
       example:
         deletion:
+          id: '6776881149497698683'
+          deleted_at: '2019-01-01T00:00:00.000Z'
           status: restore_in_progress
           record:
             name: Feature 1
@@ -195,8 +209,6 @@ components:
             id: 1049303076
             name: George Gently
             email: no-reply@aha.io
-          id: '6776881149497698683'
-          deleted_at: '2019-01-01T00:00:00.000Z'
   securitySchemes:
     OAuth2:
       type: oauth2

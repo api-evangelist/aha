@@ -20,19 +20,23 @@ security:
 tags:
 - name: Custom Fields
 paths:
-  /api/v1/custom_field_definitions:
+  /custom_field_definitions:
     get:
       summary: List all custom fields
-      description: 'Custom fields are defined by record type, and are shared
+      description: 'To update a worksheet, match its `key` and `custom_fieldable_type`, then find the intended
 
-        across all workspaces across the account. Fields must be
+        input row by name in `worksheet_rows` (`equation: null`). Calculated rows expose their
 
-        added to a layout before they will appear on a record.
+        equation as a string. Rows are discoverable even
+
+        when the worksheet has no saved values.
 
 
-        For custom fields that include options, (e.g. tags, choice
+        Use the row''s `id`, not the definition''s `id`, as the update key. Row IDs can be reused
 
-        lists), you can also load the list of all available options.'
+        across records using the same worksheet definition, but not independently created or
+
+        copied worksheets. Existing record permissions still apply.'
       tags:
       - Custom Fields
       parameters: []
@@ -50,19 +54,41 @@ paths:
                 $ref: '#/components/schemas/CustomfieldsGetResponse'
               example:
                 custom_field_definitions:
-                - name: Priority
-                  id: '581360680'
+                - id: '581360680'
                   key: priority
+                  name: Priority
                   type: CustomFieldDefinitions::SelectConstant
-                  custom_fieldable_type: Feature
                   internal_name: null
+                  custom_fieldable_type: Feature
+                - id: '6776881149493117146'
+                  key: release_budget
+                  name: Release budget
+                  type: CustomFieldDefinitions::EquationField
+                  internal_name: null
+                  custom_fieldable_type: Release
+                  worksheet_rows:
+                  - id: '6651670327076753738'
+                    name: Revenue
+                    type: number
+                    format: currency
+                    equation: null
+                  - id: '6651670366942086967'
+                    name: Expenses
+                    type: number
+                    format: currency
+                    equation: null
+                  - id: '6651670393424268679'
+                    name: Profit
+                    type: number
+                    format: currency
+                    equation: field("Revenue") - field("Expenses")
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1CustomFieldDefinitions
+      operationId: getCustomFieldDefinitions
       x-operation-id-source: derived
-  /api/v1/custom_field_definitions/{custom_field_definition_id}/options:
+  /custom_field_definitions/{custom_field_definition_id}/options:
     get:
       summary: List options for a custom field
       description: 'Custom fields are defined by record type, and are shared
@@ -122,7 +148,7 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1CustomFieldDefinitionsByCustomFieldDefinitionIdOptions
+      operationId: getCustomFieldDefinitionsByCustomFieldDefinitionIdOptions
       x-operation-id-source: derived
 components:
   schemas:

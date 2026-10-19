@@ -1,0 +1,367 @@
+openapi: 3.2.0
+info:
+  title: Aha! Discovery groups API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Discovery groups
+paths:
+  /discovery_groups/{id}:
+    delete:
+      summary: Delete group
+      description: null
+      tags:
+      - Discovery groups
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: deleteDiscoveryGroupsById
+      x-operation-id-source: derived
+    get:
+      summary: Get a specific group
+      description: null
+      tags:
+      - Discovery groups
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/DiscoverygroupsGetResponse'
+              example:
+                discovery_group:
+                  id: '114593795'
+                  name: Group 1
+                  color: f2d9f2
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  idea_users_count: 0
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getDiscoveryGroupsById
+      x-operation-id-source: derived
+    put:
+      summary: Update group
+      description: null
+      tags:
+      - Discovery groups
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/DiscoverygroupsPutResponse'
+              example:
+                discovery_group:
+                  id: '114593795'
+                  name: A new group name
+                  color: e3f2d9
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  idea_users_count: 0
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiscoverygroupsPostRequest'
+            example:
+              discovery_group:
+                name: A new group name
+      operationId: putDiscoveryGroupsById
+      x-operation-id-source: derived
+  /discovery_groups:
+    get:
+      summary: List discovery groups
+      description: null
+      tags:
+      - Discovery groups
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/DiscoverygroupsGetResponse'
+              example:
+                discovery_groups:
+                - id: '114593795'
+                  name: Group 1
+                  color: f2d9f2
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getDiscoveryGroups
+      x-operation-id-source: derived
+    post:
+      summary: Create a group
+      description: null
+      tags:
+      - Discovery groups
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/DiscoverygroupsPostResponse'
+              example:
+                discovery_group:
+                  id: '6776881149488286427'
+                  name: My group
+                  color: f2dbd9
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  idea_users_count: 0
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiscoverygroupsPostRequest'
+            example:
+              discovery_group:
+                name: My group
+      operationId: postDiscoveryGroups
+      x-operation-id-source: derived
+components:
+  schemas:
+    DiscoverygroupsPostResponse:
+      type: object
+      properties:
+        discovery_group:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149488286427'
+            name:
+              type: string
+              example: My group
+            color:
+              type: string
+              example: f2dbd9
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            idea_users_count:
+              type: integer
+              example: 0
+          example:
+            id: '6776881149488286427'
+            name: My group
+            color: f2dbd9
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            idea_users_count: 0
+      example:
+        discovery_group:
+          id: '6776881149488286427'
+          name: My group
+          color: f2dbd9
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          idea_users_count: 0
+    DiscoverygroupsPutResponse:
+      type: object
+      properties:
+        discovery_group:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '114593795'
+            name:
+              type: string
+              example: A new group name
+            color:
+              type: string
+              example: e3f2d9
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            idea_users_count:
+              type: integer
+              example: 0
+          example:
+            id: '114593795'
+            name: A new group name
+            color: e3f2d9
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            idea_users_count: 0
+      example:
+        discovery_group:
+          id: '114593795'
+          name: A new group name
+          color: e3f2d9
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          idea_users_count: 0
+    DiscoverygroupsGetResponse:
+      type: object
+      properties:
+        discovery_group:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '114593795'
+            name:
+              type: string
+              example: Group 1
+            color:
+              type: string
+              example: f2d9f2
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            idea_users_count:
+              type: integer
+              example: 0
+          example:
+            id: '114593795'
+            name: Group 1
+            color: f2d9f2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            idea_users_count: 0
+      example:
+        discovery_group:
+          id: '114593795'
+          name: Group 1
+          color: f2d9f2
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          idea_users_count: 0
+    DiscoverygroupsPostRequest:
+      type: object
+      properties:
+        discovery_group:
+          type: object
+          properties:
+            name:
+              type: string
+              example: A new group name
+          example:
+            name: A new group name
+      example:
+        discovery_group:
+          name: A new group name
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

@@ -20,9 +20,9 @@ security:
 tags:
 - name: Creative briefs
 paths:
-  /api/v1/products/{product_id}/creative_briefs:
-    post:
-      summary: Create a creative brief
+  /products/{product_id}/creative_briefs/{id}:
+    delete:
+      summary: Delete a creative brief
       description: null
       tags:
       - Creative briefs
@@ -33,96 +33,6 @@ paths:
         schema:
           type: string
         description: ProductId identifier
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/CreativebriefsPostResponse'
-              example:
-                creative_brief:
-                  id: '6776881149490547091'
-                  name: April launch
-                  color: 13421772
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  url: http://company.aha.io/creative_briefs/6776881149490547091
-                  resource: http://company.aha.io/creative_briefs/6776881149490547091
-                  custom_fields: []
-                  comments_count: 0
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreativebriefsPostRequest'
-            example:
-              creative_brief:
-                name: April launch
-      operationId: postApiV1ProductsByProductIdCreativeBriefs
-      x-operation-id-source: derived
-    get:
-      summary: List creative briefs in a product
-      description: null
-      tags:
-      - Creative briefs
-      parameters:
-      - name: product_id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: ProductId identifier
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/CreativebriefsGetResponse'
-              example:
-                creative_briefs:
-                - id: '91171755'
-                  name: May launch
-                  created_at: '2019-01-01T00:00:00.000Z'
-                - id: '476477971'
-                  name: April launch
-                  created_at: '2019-01-01T00:00:00.000Z'
-                - id: '982259096'
-                  name: June launch
-                  created_at: '2019-01-01T00:00:00.000Z'
-                pagination:
-                  total_records: 3
-                  total_pages: 1
-                  current_page: 1
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      operationId: getApiV1ProductsByProductIdCreativeBriefs
-      x-operation-id-source: derived
-  /api/v1/creative_briefs/{id}:
-    get:
-      summary: Get a specific creative_brief
-      description: null
-      tags:
-      - Creative briefs
-      parameters:
       - name: id
         in: path
         required: true
@@ -130,35 +40,14 @@ paths:
           type: string
         description: Id identifier
       responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/CreativebriefsGetResponse'
-              example:
-                creative_brief:
-                  id: '476477971'
-                  name: April launch
-                  color: 13421772
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  url: http://company.aha.io/creative_briefs/476477971
-                  resource: http://company.aha.io/creative_briefs/476477971
-                  custom_fields: []
-                  comments_count: 0
+        '204':
+          description: No content - operation successful
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1CreativeBriefsById
+      operationId: deleteProductsByProductIdCreativeBriefsById
       x-operation-id-source: derived
-  /api/v1/products/{product_id}/creative_briefs/{id}:
     put:
       summary: Update a creative brief
       description: null
@@ -193,11 +82,11 @@ paths:
                 creative_brief:
                   id: '476477971'
                   name: December launch
-                  color: 13421772
                   created_at: '2019-01-01T00:00:00.000Z'
+                  color: 13421772
                   updated_at: '2019-01-01T00:00:00.000Z'
-                  url: http://company.aha.io/creative_briefs/476477971
-                  resource: http://company.aha.io/creative_briefs/476477971
+                  url: https://company.aha.io/creative_briefs/476477971
+                  resource: https://company.aha.io/creative_briefs/476477971
                   custom_fields: []
                   comments_count: 0
       security:
@@ -213,10 +102,53 @@ paths:
             example:
               creative_brief:
                 name: December launch
-      operationId: putApiV1ProductsByProductIdCreativeBriefsById
+      operationId: putProductsByProductIdCreativeBriefsById
       x-operation-id-source: derived
-    delete:
-      summary: Delete a creative brief
+  /creative_briefs/{id}:
+    get:
+      summary: Get a specific creative_brief
+      description: null
+      tags:
+      - Creative briefs
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CreativebriefsGetResponse'
+              example:
+                creative_brief:
+                  id: '476477971'
+                  name: April launch
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  color: 13421772
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/creative_briefs/476477971
+                  resource: https://company.aha.io/creative_briefs/476477971
+                  custom_fields: []
+                  comments_count: 0
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getCreativeBriefsById
+      x-operation-id-source: derived
+  /products/{product_id}/creative_briefs:
+    get:
+      summary: List creative briefs in a product
       description: null
       tags:
       - Creative briefs
@@ -227,24 +159,166 @@ paths:
         schema:
           type: string
         description: ProductId identifier
-      - name: id
-        in: path
-        required: true
+      - name: page
+        in: query
+        required: false
         schema:
           type: string
-        description: Id identifier
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
       responses:
-        '204':
-          description: No content - operation successful
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CreativebriefsGetResponse'
+              example:
+                creative_briefs:
+                - id: '91171755'
+                  name: May launch
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '476477971'
+                  name: April launch
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '982259096'
+                  name: June launch
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 3
+                  total_pages: 1
+                  current_page: 1
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: deleteApiV1ProductsByProductIdCreativeBriefsById
+      operationId: getProductsByProductIdCreativeBriefs
+      x-operation-id-source: derived
+    post:
+      summary: Create a creative brief
+      description: null
+      tags:
+      - Creative briefs
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CreativebriefsPostResponse'
+              example:
+                creative_brief:
+                  id: '6776881149490547091'
+                  name: April launch
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  color: 13421772
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/creative_briefs/6776881149490547091
+                  resource: https://company.aha.io/creative_briefs/6776881149490547091
+                  custom_fields: []
+                  comments_count: 0
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreativebriefsPostRequest'
+            example:
+              creative_brief:
+                name: April launch
+      operationId: postProductsByProductIdCreativeBriefs
       x-operation-id-source: derived
 components:
   schemas:
-    CreativebriefsPutResponse:
+    CreativebriefsGetResponse:
+      type: object
+      properties:
+        creative_briefs:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: '91171755'
+              name:
+                type: string
+                example: May launch
+              created_at:
+                type: string
+                example: '2019-01-01T00:00:00.000Z'
+            example:
+              id: '91171755'
+              name: May launch
+              created_at: '2019-01-01T00:00:00.000Z'
+          example:
+          - id: '91171755'
+            name: May launch
+            created_at: '2019-01-01T00:00:00.000Z'
+          - id: '476477971'
+            name: April launch
+            created_at: '2019-01-01T00:00:00.000Z'
+          - id: '982259096'
+            name: June launch
+            created_at: '2019-01-01T00:00:00.000Z'
+        pagination:
+          type: object
+          properties:
+            total_records:
+              type: integer
+              example: 3
+            total_pages:
+              type: integer
+              example: 1
+            current_page:
+              type: integer
+              example: 1
+          example:
+            total_records: 3
+            total_pages: 1
+            current_page: 1
+      example:
+        creative_briefs:
+        - id: '91171755'
+          name: May launch
+          created_at: '2019-01-01T00:00:00.000Z'
+        - id: '476477971'
+          name: April launch
+          created_at: '2019-01-01T00:00:00.000Z'
+        - id: '982259096'
+          name: June launch
+          created_at: '2019-01-01T00:00:00.000Z'
+        pagination:
+          total_records: 3
+          total_pages: 1
+          current_page: 1
+    CreativebriefsPostResponse:
       type: object
       properties:
         creative_brief:
@@ -252,25 +326,25 @@ components:
           properties:
             id:
               type: string
-              example: '476477971'
+              example: '6776881149490547091'
             name:
               type: string
-              example: December launch
-            color:
-              type: integer
-              example: 13421772
+              example: April launch
             created_at:
               type: string
               example: '2019-01-01T00:00:00.000Z'
+            color:
+              type: integer
+              example: 13421772
             updated_at:
               type: string
               example: '2019-01-01T00:00:00.000Z'
             url:
               type: string
-              example: http://company.aha.io/creative_briefs/476477971
+              example: https://company.aha.io/creative_briefs/6776881149490547091
             resource:
               type: string
-              example: http://company.aha.io/creative_briefs/476477971
+              example: https://company.aha.io/creative_briefs/6776881149490547091
             custom_fields:
               type: array
               items: {}
@@ -278,24 +352,24 @@ components:
               type: integer
               example: 0
           example:
-            id: '476477971'
-            name: December launch
-            color: 13421772
+            id: '6776881149490547091'
+            name: April launch
             created_at: '2019-01-01T00:00:00.000Z'
+            color: 13421772
             updated_at: '2019-01-01T00:00:00.000Z'
-            url: http://company.aha.io/creative_briefs/476477971
-            resource: http://company.aha.io/creative_briefs/476477971
+            url: https://company.aha.io/creative_briefs/6776881149490547091
+            resource: https://company.aha.io/creative_briefs/6776881149490547091
             custom_fields: []
             comments_count: 0
       example:
         creative_brief:
-          id: '476477971'
-          name: December launch
-          color: 13421772
+          id: '6776881149490547091'
+          name: April launch
           created_at: '2019-01-01T00:00:00.000Z'
+          color: 13421772
           updated_at: '2019-01-01T00:00:00.000Z'
-          url: http://company.aha.io/creative_briefs/476477971
-          resource: http://company.aha.io/creative_briefs/476477971
+          url: https://company.aha.io/creative_briefs/6776881149490547091
+          resource: https://company.aha.io/creative_briefs/6776881149490547091
           custom_fields: []
           comments_count: 0
     CreativebriefsPostRequest:
@@ -312,7 +386,7 @@ components:
       example:
         creative_brief:
           name: December launch
-    CreativebriefsGetResponse:
+    CreativebriefsPutResponse:
       type: object
       properties:
         creative_brief:
@@ -323,22 +397,22 @@ components:
               example: '476477971'
             name:
               type: string
-              example: April launch
-            color:
-              type: integer
-              example: 13421772
+              example: December launch
             created_at:
               type: string
               example: '2019-01-01T00:00:00.000Z'
+            color:
+              type: integer
+              example: 13421772
             updated_at:
               type: string
               example: '2019-01-01T00:00:00.000Z'
             url:
               type: string
-              example: http://company.aha.io/creative_briefs/476477971
+              example: https://company.aha.io/creative_briefs/476477971
             resource:
               type: string
-              example: http://company.aha.io/creative_briefs/476477971
+              example: https://company.aha.io/creative_briefs/476477971
             custom_fields:
               type: array
               items: {}
@@ -347,77 +421,23 @@ components:
               example: 0
           example:
             id: '476477971'
-            name: April launch
-            color: 13421772
+            name: December launch
             created_at: '2019-01-01T00:00:00.000Z'
+            color: 13421772
             updated_at: '2019-01-01T00:00:00.000Z'
-            url: http://company.aha.io/creative_briefs/476477971
-            resource: http://company.aha.io/creative_briefs/476477971
+            url: https://company.aha.io/creative_briefs/476477971
+            resource: https://company.aha.io/creative_briefs/476477971
             custom_fields: []
             comments_count: 0
       example:
         creative_brief:
           id: '476477971'
-          name: April launch
-          color: 13421772
+          name: December launch
           created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          url: http://company.aha.io/creative_briefs/476477971
-          resource: http://company.aha.io/creative_briefs/476477971
-          custom_fields: []
-          comments_count: 0
-    CreativebriefsPostResponse:
-      type: object
-      properties:
-        creative_brief:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149490547091'
-            name:
-              type: string
-              example: April launch
-            color:
-              type: integer
-              example: 13421772
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            url:
-              type: string
-              example: http://company.aha.io/creative_briefs/6776881149490547091
-            resource:
-              type: string
-              example: http://company.aha.io/creative_briefs/6776881149490547091
-            custom_fields:
-              type: array
-              items: {}
-            comments_count:
-              type: integer
-              example: 0
-          example:
-            id: '6776881149490547091'
-            name: April launch
-            color: 13421772
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            url: http://company.aha.io/creative_briefs/6776881149490547091
-            resource: http://company.aha.io/creative_briefs/6776881149490547091
-            custom_fields: []
-            comments_count: 0
-      example:
-        creative_brief:
-          id: '6776881149490547091'
-          name: April launch
           color: 13421772
-          created_at: '2019-01-01T00:00:00.000Z'
           updated_at: '2019-01-01T00:00:00.000Z'
-          url: http://company.aha.io/creative_briefs/6776881149490547091
-          resource: http://company.aha.io/creative_briefs/6776881149490547091
+          url: https://company.aha.io/creative_briefs/476477971
+          resource: https://company.aha.io/creative_briefs/476477971
           custom_fields: []
           comments_count: 0
   securitySchemes:

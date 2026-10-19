@@ -20,9 +20,9 @@ security:
 tags:
 - name: Custom Field Options
 paths:
-  /api/v1/custom_field_definitions/{custom_field_definition_id}/custom_field_options:
-    get:
-      summary: List all custom fields
+  /custom_field_definitions/{custom_field_definition_id}/custom_field_options/{id}:
+    delete:
+      summary: Delete a custom field option
       description: null
       tags:
       - Custom Field Options
@@ -33,6 +33,12 @@ paths:
         schema:
           type: string
         description: CustomFieldDefinitionId identifier
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
       responses:
         '200':
           description: Successful operation
@@ -44,62 +50,10 @@ paths:
           content:
             application/json; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/CustomfieldoptionsGetResponse'
+                $ref: '#/components/schemas/CustomfieldoptionsDeleteResponse'
               example:
-                custom_field_options:
-                - id: '100098181'
-                  value: P2
-                  color: 6710886
-                  hidden: false
-                - id: '462681378'
-                  value: P5
-                  color: 6710886
-                  hidden: false
-                - id: '486420793'
-                  value: P1
-                  color: 6710886
-                  hidden: false
-                - id: '747947447'
-                  value: P4
-                  color: 6710886
-                  hidden: false
-                - id: '854609942'
-                  value: P3
-                  color: 6710886
-                  hidden: false
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      operationId: getApiV1CustomFieldDefinitionsByCustomFieldDefinitionIdCustomFieldOptions
-      x-operation-id-source: derived
-    post:
-      summary: Create a custom field option
-      description: null
-      tags:
-      - Custom Field Options
-      parameters:
-      - name: custom_field_definition_id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: CustomFieldDefinitionId identifier
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/CustomfieldoptionsPostResponse'
-              example:
-                id: '6776881149485179355'
-                value: New option
+                id: '486420793'
+                value: P1
                 color: 6710886
                 hidden: false
       security:
@@ -112,12 +66,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CustomfieldoptionsPostRequest'
-            example:
-              custom_field_option:
-                value: New option
-      operationId: postApiV1CustomFieldDefinitionsByCustomFieldDefinitionIdCustomFieldOptions
+            example: {}
+      operationId: deleteCustomFieldDefinitionsByCustomFieldDefinitionIdCustomFieldOptionsById
       x-operation-id-source: derived
-  /api/v1/custom_field_definitions/{custom_field_definition_id}/custom_field_options/{id}:
     put:
       summary: Update a custom field option
       description: null
@@ -166,10 +117,11 @@ paths:
             example:
               custom_field_option:
                 value: New option2
-      operationId: putApiV1CustomFieldDefinitionsByCustomFieldDefinitionIdCustomFieldOptionsById
+      operationId: putCustomFieldDefinitionsByCustomFieldDefinitionIdCustomFieldOptionsById
       x-operation-id-source: derived
-    delete:
-      summary: Delete a custom field option
+  /custom_field_definitions/{custom_field_definition_id}/custom_field_options:
+    get:
+      summary: List all custom field options
       description: null
       tags:
       - Custom Field Options
@@ -180,12 +132,6 @@ paths:
         schema:
           type: string
         description: CustomFieldDefinitionId identifier
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: Id identifier
       responses:
         '200':
           description: Successful operation
@@ -197,10 +143,62 @@ paths:
           content:
             application/json; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/CustomfieldoptionsDeleteResponse'
+                $ref: '#/components/schemas/CustomfieldoptionsGetResponse'
               example:
-                id: '486420793'
-                value: P1
+                custom_field_options:
+                - id: '100098181'
+                  value: P2
+                  color: 6710886
+                  hidden: false
+                - id: '462681378'
+                  value: P5
+                  color: 6710886
+                  hidden: false
+                - id: '486420793'
+                  value: P1
+                  color: 6710886
+                  hidden: false
+                - id: '747947447'
+                  value: P4
+                  color: 6710886
+                  hidden: false
+                - id: '854609942'
+                  value: P3
+                  color: 6710886
+                  hidden: false
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getCustomFieldDefinitionsByCustomFieldDefinitionIdCustomFieldOptions
+      x-operation-id-source: derived
+    post:
+      summary: Create a custom field option
+      description: null
+      tags:
+      - Custom Field Options
+      parameters:
+      - name: custom_field_definition_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: CustomFieldDefinitionId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CustomfieldoptionsPostResponse'
+              example:
+                id: '6776881149485179355'
+                value: New option
                 color: 6710886
                 hidden: false
       security:
@@ -213,55 +211,13 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CustomfieldoptionsPostRequest'
-            example: {}
-      operationId: deleteApiV1CustomFieldDefinitionsByCustomFieldDefinitionIdCustomFieldOptionsById
+            example:
+              custom_field_option:
+                value: New option
+      operationId: postCustomFieldDefinitionsByCustomFieldDefinitionIdCustomFieldOptions
       x-operation-id-source: derived
 components:
   schemas:
-    CustomfieldoptionsPostRequest:
-      type: object
-      properties: {}
-      example: {}
-    CustomfieldoptionsPostResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          example: '6776881149485179355'
-        value:
-          type: string
-          example: New option
-        color:
-          type: integer
-          example: 6710886
-        hidden:
-          type: boolean
-          example: false
-      example:
-        id: '6776881149485179355'
-        value: New option
-        color: 6710886
-        hidden: false
-    CustomfieldoptionsDeleteResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          example: '486420793'
-        value:
-          type: string
-          example: P1
-        color:
-          type: integer
-          example: 6710886
-        hidden:
-          type: boolean
-          example: false
-      example:
-        id: '486420793'
-        value: P1
-        color: 6710886
-        hidden: false
     CustomfieldoptionsGetResponse:
       type: object
       properties:
@@ -330,6 +286,60 @@ components:
           value: P3
           color: 6710886
           hidden: false
+    CustomfieldoptionsPostRequest:
+      type: object
+      properties:
+        custom_field_option:
+          type: object
+          properties:
+            value:
+              type: string
+              example: New option2
+          example:
+            value: New option2
+      example:
+        custom_field_option:
+          value: New option2
+    CustomfieldoptionsPostResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: '6776881149485179355'
+        value:
+          type: string
+          example: New option
+        color:
+          type: integer
+          example: 6710886
+        hidden:
+          type: boolean
+          example: false
+      example:
+        id: '6776881149485179355'
+        value: New option
+        color: 6710886
+        hidden: false
+    CustomfieldoptionsDeleteResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: '486420793'
+        value:
+          type: string
+          example: P1
+        color:
+          type: integer
+          example: 6710886
+        hidden:
+          type: boolean
+          example: false
+      example:
+        id: '486420793'
+        value: P1
+        color: 6710886
+        hidden: false
     CustomfieldoptionsPutResponse:
       type: object
       properties:

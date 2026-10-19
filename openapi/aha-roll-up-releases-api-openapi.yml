@@ -20,7 +20,123 @@ security:
 tags:
 - name: Roll up releases
 paths:
-  /api/v1/roll_up_releases/{id}:
+  /products/{product_id}/roll_up_releases:
+    get:
+      summary: List roll up releases in a product
+      description: null
+      tags:
+      - Roll up releases
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RollupreleasesGetResponse'
+              example:
+                roll_up_releases:
+                - id: '6776881149485843899'
+                  reference_num: PL1-R-101
+                  name: My release 002
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  url: https://company.aha.io/master_releases/PL1-R-101
+                  resource: https://company.aha.io/api/v1/releases/PL1-R-101
+                - id: '6776881149489814133'
+                  reference_num: PL1-R-100
+                  name: My release 001
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  url: https://company.aha.io/master_releases/PL1-R-100
+                  resource: https://company.aha.io/api/v1/releases/PL1-R-100
+                pagination:
+                  total_records: 2
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getProductsByProductIdRollUpReleases
+      x-operation-id-source: derived
+    post:
+      summary: Create a project with a roll up release
+      description: null
+      tags:
+      - Roll up releases
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RollupreleasesPostResponse'
+              example:
+                roll_up_release:
+                  id: '6776881149490850247'
+                  reference_num: PL1-R-2
+                  name: Roll up release
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  url: https://company.aha.io/master_releases/PL1-R-2
+                  resource: https://company.aha.io/api/v1/releases/PL1-R-2
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RollupreleasesPostRequest'
+            example:
+              roll_up_release:
+                name: Roll up release
+                project_ids:
+                - PRJ2
+      operationId: postProductsByProductIdRollUpReleases
+      x-operation-id-source: derived
+  /roll_up_releases/{id}:
     get:
       summary: Get a specific roll up release
       description: null
@@ -50,19 +166,19 @@ paths:
                   id: '292454904'
                   reference_num: PRJ1-MR-1
                   name: Roll-up Release 1
+                  created_at: '2019-01-01T00:00:00.000Z'
                   start_date: '2019-01-01'
                   release_date: '2019-01-01'
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  url: http://company.aha.io/master_releases/PRJ1-MR-1
-                  resource: http://company.aha.io/api/v1/releases/PRJ1-MR-1
+                  url: https://company.aha.io/master_releases/PRJ1-MR-1
+                  resource: https://company.aha.io/api/v1/releases/PRJ1-MR-1
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1RollUpReleasesById
+      operationId: getRollUpReleasesById
       x-operation-id-source: derived
     put:
-      summary: Update a roll up release
+      summary: Add a project to a roll up release
       description: null
       tags:
       - Roll up releases
@@ -89,12 +205,12 @@ paths:
                 roll_up_release:
                   id: '292454904'
                   reference_num: PRJ1-MR-1
-                  name: Roll-up Release 1
+                  name: Different release
+                  created_at: '2019-01-01T00:00:00.000Z'
                   start_date: '2019-01-01'
                   release_date: '2019-01-01'
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  url: http://company.aha.io/master_releases/PRJ1-MR-1
-                  resource: http://company.aha.io/api/v1/releases/PRJ1-MR-1
+                  url: https://company.aha.io/master_releases/PRJ1-MR-1
+                  resource: https://company.aha.io/api/v1/releases/PRJ1-MR-1
       security:
       - OAuth2: []
       - ApiKeyAuth: []
@@ -107,211 +223,12 @@ paths:
               $ref: '#/components/schemas/RollupreleasesPostRequest'
             example:
               roll_up_release:
-                name: Different release
-      operationId: putApiV1RollUpReleasesById
-      x-operation-id-source: derived
-  /api/v1/products/{product_id}/roll_up_releases:
-    get:
-      summary: List roll up releases in a product
-      description: null
-      tags:
-      - Roll up releases
-      parameters:
-      - name: product_id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: ProductId identifier
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/RollupreleasesGetResponse'
-              example:
-                roll_up_releases:
-                - id: '6776881149485843899'
-                  reference_num: PL1-R-3
-                  name: My release 002
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  url: http://company.aha.io/master_releases/PL1-R-3
-                  resource: http://company.aha.io/api/v1/releases/PL1-R-3
-                - id: '6776881149489814133'
-                  reference_num: PL1-R-2
-                  name: My release 001
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  url: http://company.aha.io/master_releases/PL1-R-2
-                  resource: http://company.aha.io/api/v1/releases/PL1-R-2
-                pagination:
-                  total_records: 2
-                  total_pages: 1
-                  current_page: 1
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      operationId: getApiV1ProductsByProductIdRollUpReleases
-      x-operation-id-source: derived
-    post:
-      summary: Creates a roll up release
-      description: null
-      tags:
-      - Roll up releases
-      parameters:
-      - name: product_id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: ProductId identifier
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/RollupreleasesPostResponse'
-              example:
-                roll_up_release:
-                  id: '6776881149490916934'
-                  reference_num: PL1-R-2
-                  name: Roll up release
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  url: http://company.aha.io/master_releases/PL1-R-2
-                  resource: http://company.aha.io/api/v1/releases/PL1-R-2
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/RollupreleasesPostRequest'
-            example:
-              roll_up_release:
-                name: Roll up release
-                theme: A roll up release
-                release_date: '2019-01-01'
-      operationId: postApiV1ProductsByProductIdRollUpReleases
+                project_ids:
+                - PRJ2
+      operationId: putRollUpReleasesById
       x-operation-id-source: derived
 components:
   schemas:
-    RollupreleasesGetResponse:
-      type: object
-      properties:
-        roll_up_releases:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-                example: '6776881149485843899'
-              reference_num:
-                type: string
-                example: PL1-R-3
-              name:
-                type: string
-                example: My release 002
-              start_date:
-                type: string
-                example: '2019-01-01'
-              release_date:
-                type: string
-                example: '2019-01-01'
-              created_at:
-                type: string
-                example: '2019-01-01T00:00:00.000Z'
-              url:
-                type: string
-                example: http://company.aha.io/master_releases/PL1-R-3
-              resource:
-                type: string
-                example: http://company.aha.io/api/v1/releases/PL1-R-3
-            example:
-              id: '6776881149485843899'
-              reference_num: PL1-R-3
-              name: My release 002
-              start_date: '2019-01-01'
-              release_date: '2019-01-01'
-              created_at: '2019-01-01T00:00:00.000Z'
-              url: http://company.aha.io/master_releases/PL1-R-3
-              resource: http://company.aha.io/api/v1/releases/PL1-R-3
-          example:
-          - id: '6776881149485843899'
-            reference_num: PL1-R-3
-            name: My release 002
-            start_date: '2019-01-01'
-            release_date: '2019-01-01'
-            created_at: '2019-01-01T00:00:00.000Z'
-            url: http://company.aha.io/master_releases/PL1-R-3
-            resource: http://company.aha.io/api/v1/releases/PL1-R-3
-          - id: '6776881149489814133'
-            reference_num: PL1-R-2
-            name: My release 001
-            start_date: '2019-01-01'
-            release_date: '2019-01-01'
-            created_at: '2019-01-01T00:00:00.000Z'
-            url: http://company.aha.io/master_releases/PL1-R-2
-            resource: http://company.aha.io/api/v1/releases/PL1-R-2
-        pagination:
-          type: object
-          properties:
-            total_records:
-              type: integer
-              example: 2
-            total_pages:
-              type: integer
-              example: 1
-            current_page:
-              type: integer
-              example: 1
-          example:
-            total_records: 2
-            total_pages: 1
-            current_page: 1
-      example:
-        roll_up_releases:
-        - id: '6776881149485843899'
-          reference_num: PL1-R-3
-          name: My release 002
-          start_date: '2019-01-01'
-          release_date: '2019-01-01'
-          created_at: '2019-01-01T00:00:00.000Z'
-          url: http://company.aha.io/master_releases/PL1-R-3
-          resource: http://company.aha.io/api/v1/releases/PL1-R-3
-        - id: '6776881149489814133'
-          reference_num: PL1-R-2
-          name: My release 001
-          start_date: '2019-01-01'
-          release_date: '2019-01-01'
-          created_at: '2019-01-01T00:00:00.000Z'
-          url: http://company.aha.io/master_releases/PL1-R-2
-          resource: http://company.aha.io/api/v1/releases/PL1-R-2
-        pagination:
-          total_records: 2
-          total_pages: 1
-          current_page: 1
     RollupreleasesPutResponse:
       type: object
       properties:
@@ -326,55 +243,41 @@ components:
               example: PRJ1-MR-1
             name:
               type: string
-              example: Roll-up Release 1
+              example: Different release
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
             start_date:
               type: string
               example: '2019-01-01'
             release_date:
               type: string
               example: '2019-01-01'
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
             url:
               type: string
-              example: http://company.aha.io/master_releases/PRJ1-MR-1
+              example: https://company.aha.io/master_releases/PRJ1-MR-1
             resource:
               type: string
-              example: http://company.aha.io/api/v1/releases/PRJ1-MR-1
+              example: https://company.aha.io/api/v1/releases/PRJ1-MR-1
           example:
             id: '292454904'
             reference_num: PRJ1-MR-1
-            name: Roll-up Release 1
+            name: Different release
+            created_at: '2019-01-01T00:00:00.000Z'
             start_date: '2019-01-01'
             release_date: '2019-01-01'
-            created_at: '2019-01-01T00:00:00.000Z'
-            url: http://company.aha.io/master_releases/PRJ1-MR-1
-            resource: http://company.aha.io/api/v1/releases/PRJ1-MR-1
+            url: https://company.aha.io/master_releases/PRJ1-MR-1
+            resource: https://company.aha.io/api/v1/releases/PRJ1-MR-1
       example:
         roll_up_release:
           id: '292454904'
           reference_num: PRJ1-MR-1
-          name: Roll-up Release 1
+          name: Different release
+          created_at: '2019-01-01T00:00:00.000Z'
           start_date: '2019-01-01'
           release_date: '2019-01-01'
-          created_at: '2019-01-01T00:00:00.000Z'
-          url: http://company.aha.io/master_releases/PRJ1-MR-1
-          resource: http://company.aha.io/api/v1/releases/PRJ1-MR-1
-    RollupreleasesPostRequest:
-      type: object
-      properties:
-        roll_up_release:
-          type: object
-          properties:
-            name:
-              type: string
-              example: Different release
-          example:
-            name: Different release
-      example:
-        roll_up_release:
-          name: Different release
+          url: https://company.aha.io/master_releases/PRJ1-MR-1
+          resource: https://company.aha.io/api/v1/releases/PRJ1-MR-1
     RollupreleasesPostResponse:
       type: object
       properties:
@@ -383,47 +286,116 @@ components:
           properties:
             id:
               type: string
-              example: '6776881149490916934'
+              example: '6776881149490850247'
             reference_num:
               type: string
               example: PL1-R-2
             name:
               type: string
               example: Roll up release
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
             start_date:
               type: string
               example: '2019-01-01'
             release_date:
               type: string
               example: '2019-01-01'
+            url:
+              type: string
+              example: https://company.aha.io/master_releases/PL1-R-2
+            resource:
+              type: string
+              example: https://company.aha.io/api/v1/releases/PL1-R-2
+          example:
+            id: '6776881149490850247'
+            reference_num: PL1-R-2
+            name: Roll up release
+            created_at: '2019-01-01T00:00:00.000Z'
+            start_date: '2019-01-01'
+            release_date: '2019-01-01'
+            url: https://company.aha.io/master_releases/PL1-R-2
+            resource: https://company.aha.io/api/v1/releases/PL1-R-2
+      example:
+        roll_up_release:
+          id: '6776881149490850247'
+          reference_num: PL1-R-2
+          name: Roll up release
+          created_at: '2019-01-01T00:00:00.000Z'
+          start_date: '2019-01-01'
+          release_date: '2019-01-01'
+          url: https://company.aha.io/master_releases/PL1-R-2
+          resource: https://company.aha.io/api/v1/releases/PL1-R-2
+    RollupreleasesGetResponse:
+      type: object
+      properties:
+        roll_up_release:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '292454904'
+            reference_num:
+              type: string
+              example: PRJ1-MR-1
+            name:
+              type: string
+              example: Roll-up Release 1
             created_at:
               type: string
               example: '2019-01-01T00:00:00.000Z'
+            start_date:
+              type: string
+              example: '2019-01-01'
+            release_date:
+              type: string
+              example: '2019-01-01'
             url:
               type: string
-              example: http://company.aha.io/master_releases/PL1-R-2
+              example: https://company.aha.io/master_releases/PRJ1-MR-1
             resource:
               type: string
-              example: http://company.aha.io/api/v1/releases/PL1-R-2
+              example: https://company.aha.io/api/v1/releases/PRJ1-MR-1
           example:
-            id: '6776881149490916934'
-            reference_num: PL1-R-2
-            name: Roll up release
+            id: '292454904'
+            reference_num: PRJ1-MR-1
+            name: Roll-up Release 1
+            created_at: '2019-01-01T00:00:00.000Z'
             start_date: '2019-01-01'
             release_date: '2019-01-01'
-            created_at: '2019-01-01T00:00:00.000Z'
-            url: http://company.aha.io/master_releases/PL1-R-2
-            resource: http://company.aha.io/api/v1/releases/PL1-R-2
+            url: https://company.aha.io/master_releases/PRJ1-MR-1
+            resource: https://company.aha.io/api/v1/releases/PRJ1-MR-1
       example:
         roll_up_release:
-          id: '6776881149490916934'
-          reference_num: PL1-R-2
-          name: Roll up release
+          id: '292454904'
+          reference_num: PRJ1-MR-1
+          name: Roll-up Release 1
+          created_at: '2019-01-01T00:00:00.000Z'
           start_date: '2019-01-01'
           release_date: '2019-01-01'
-          created_at: '2019-01-01T00:00:00.000Z'
-          url: http://company.aha.io/master_releases/PL1-R-2
-          resource: http://company.aha.io/api/v1/releases/PL1-R-2
+          url: https://company.aha.io/master_releases/PRJ1-MR-1
+          resource: https://company.aha.io/api/v1/releases/PRJ1-MR-1
+    RollupreleasesPostRequest:
+      type: object
+      properties:
+        roll_up_release:
+          type: object
+          properties:
+            project_ids:
+              type: array
+              items:
+                type: string
+                example: PRJ2
+              example:
+              - PRJ2
+          example:
+            project_ids:
+            - PRJ2
+      example:
+        roll_up_release:
+          project_ids:
+          - PRJ2
   securitySchemes:
     OAuth2:
       type: oauth2

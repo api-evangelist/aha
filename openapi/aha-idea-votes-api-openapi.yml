@@ -20,9 +20,9 @@ security:
 tags:
 - name: Idea votes
 paths:
-  /api/v1/ideas/{idea_id}/endorsements:
-    post:
-      summary: Create an idea vote
+  /ideas/{idea_id}/endorsements/{id}:
+    delete:
+      summary: Delete an idea vote
       description: '"Idea votes" in the web interface are referenced as "idea endorsements" from API endpoints.'
       tags:
       - Idea votes
@@ -33,86 +33,23 @@ paths:
         schema:
           type: string
         description: IdeaId identifier
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
       responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/IdeavotesPostResponse'
-              example:
-                idea_endorsement:
-                  id: '6776881149485303077'
-                  idea_id: '58056975'
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  value: '2.0'
-                  link: https://example.com
-                  weight: 1
-                  endorsed_by_user:
-                    id: '1020675218'
-                    name: Mary Humpty
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  idea_organization:
-                    id: '138732915'
-                    name: Acme
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    url: http://company.aha.io/ideas/idea_organizations/138732915
-                    resource: http://company.aha.io/api/v1/idea_organizations/138732915
-                  description:
-                    id: '6776881149495543710'
-                    body: This is a description
-                    editor_version: 2
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    attachments: []
-                  integration_fields: []
-                  custom_fields: []
-                  idea:
-                    id: '58056975'
-                    reference_num: PRJ1-I-1
-                    name: Idea 1
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    workflow_status:
-                      id: '3259216'
-                      name: New
-                      position: 1
-                      complete: false
-                      color: '#dce7c6'
-                    description:
-                      id: '103757394'
-                      body: Description of idea 1
-                      editor_version: 1
-                      created_at: '2019-01-01T00:00:00.000Z'
-                      updated_at: '2019-01-01T00:00:00.000Z'
-                      attachments: []
-                    url: http://company.aha.io/ideas/ideas/PRJ1-I-1
-                    resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+        '204':
+          description: No content - operation successful
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/IdeavotesPostRequest'
-            example:
-              idea_endorsement:
-                email: no-reply@aha.io
-      operationId: postApiV1IdeasByIdeaIdEndorsements
+      operationId: deleteIdeasByIdeaIdEndorsementsById
       x-operation-id-source: derived
     get:
-      summary: List votes for an idea
+      summary: Get a specific vote for an idea
       description: '"Idea votes" in the web interface are referenced as "idea endorsements" from API endpoints.'
       tags:
       - Idea votes
@@ -123,12 +60,12 @@ paths:
         schema:
           type: string
         description: IdeaId identifier
-      - name: fields
-        in: query
-        required: false
+      - name: id
+        in: path
+        required: true
         schema:
           type: string
-        example: '*,associated_idea_organizations'
+        description: Id identifier
       responses:
         '200':
           description: Successful operation
@@ -142,38 +79,41 @@ paths:
               schema:
                 $ref: '#/components/schemas/IdeavotesGetResponse'
               example:
-                idea_endorsements:
-                - id: '53377392'
+                idea_endorsement:
+                  id: '53377392'
                   idea_id: '58056975'
                   created_at: '2019-01-01T00:00:00.000Z'
                   updated_at: '2019-01-01T00:00:00.000Z'
                   value: null
                   link: null
                   weight: 1
+                  endorsed_by_portal_user:
+                    id: '646391926'
+                    name: John Long
+                    email: john@long.com
+                    created_at: '2019-01-01T00:00:00.000Z'
                   endorsed_by_idea_user:
-                    id: '6776881149489779141'
-                    name: user@example.com
-                    email: user@example.com
+                    id: '1056507375'
+                    name: John Long
+                    email: john@long.com
                     created_at: '2019-01-01T00:00:00.000Z'
                     title: null
-                  associated_idea_organizations:
-                  - id: '138732915'
+                  idea_organization:
+                    id: '138732915'
                     name: Acme
                     created_at: '2019-01-01T00:00:00.000Z'
-                    url: http://company.aha.io/ideas/idea_organizations/138732915
-                    resource: http://company.aha.io/api/v1/idea_organizations/138732915
-                  - id: '6776881149495446266'
-                    name: Widgets
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    url: http://company.aha.io/ideas/idea_organizations/6776881149495446266
-                    resource: http://company.aha.io/api/v1/idea_organizations/6776881149495446266
-                  description:
-                    id: '6776881149484433841'
-                    body: ''
-                    editor_version: 2
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    attachments: []
+                    url: https://company.aha.io/ideas/idea_organizations/ACCOUNT-O-123
+                    resource: https://company.aha.io/api/v1/idea_organizations/ACCOUNT-O-123
+                  idea_users:
+                  - id: '670061655'
+                    first_name: Tim
+                    last_name: Smith
+                    email: tim@smith.com
+                  - id: '1056507375'
+                    first_name: John
+                    last_name: Long
+                    email: john@long.com
+                  description: null
                   integration_fields:
                   - id: '975466318'
                     name: key
@@ -184,8 +124,8 @@ paths:
                   custom_fields: []
                   idea:
                     id: '58056975'
-                    reference_num: PRJ1-I-1
                     name: Idea 1
+                    reference_num: PRJ1-I-1
                     created_at: '2019-01-01T00:00:00.000Z'
                     updated_at: '2019-01-01T00:00:00.000Z'
                     workflow_status:
@@ -194,124 +134,26 @@ paths:
                       position: 1
                       complete: false
                       color: '#dce7c6'
+                      workflow_status_category: null
                     description:
                       id: '103757394'
                       body: Description of idea 1
+                      notable_id: '58056975'
+                      notable_type: Ideas::Idea
                       editor_version: 1
                       created_at: '2019-01-01T00:00:00.000Z'
                       updated_at: '2019-01-01T00:00:00.000Z'
                       attachments: []
-                    url: http://company.aha.io/ideas/ideas/PRJ1-I-1
-                    resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
-                pagination:
-                  total_records: 1
-                  total_pages: 1
-                  current_page: 1
+                    url: https://company.aha.io/ideas/ideas/PRJ1-I-1
+                    resource: https://company.aha.io/api/v1/ideas/PRJ1-I-1
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1IdeasByIdeaIdEndorsements
+      operationId: getIdeasByIdeaIdEndorsementsById
       x-operation-id-source: derived
-  /api/v1/ideas/{idea_id}/endorsements?multiple_endorsements=true:
-    post:
-      summary: Create additional idea votes
-      description: Create an additional vote for a user who has already voted on the idea. Only permitted for an ideas portal where users are allowed multiple votes on the same idea.
-      tags:
-      - Idea votes
-      parameters:
-      - name: idea_id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: IdeaId identifier
-      - name: multiple_endorsements
-        in: query
-        required: false
-        schema:
-          type: string
-        example: 'true'
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/IdeavotesPostResponse'
-              example:
-                idea_endorsement:
-                  id: '6776881149490277785'
-                  idea_id: '140490859'
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  value: null
-                  link: null
-                  weight: 1
-                  endorsed_by_portal_user:
-                    id: '6776881149497726716'
-                    name: no-reply@aha.io
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                  endorsed_by_idea_user:
-                    id: '6776881149497315738'
-                    name: no-reply@aha.io
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    title: null
-                  description:
-                    id: ''
-                    body: ''
-                    editor_version: 2
-                    created_at: null
-                    updated_at: null
-                    attachments: []
-                  integration_fields: []
-                  custom_fields: []
-                  idea:
-                    id: '140490859'
-                    reference_num: PRJ1-I-8
-                    name: Some idea name 3
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    workflow_status:
-                      id: '3259216'
-                      name: New
-                      position: 1
-                      complete: false
-                      color: '#dce7c6'
-                    description:
-                      id: '6776881149495006288'
-                      body: ''
-                      editor_version: 2
-                      created_at: '2019-01-01T00:00:00.000Z'
-                      updated_at: '2019-01-01T00:00:00.000Z'
-                      attachments: []
-                    url: http://company.aha.io/ideas/ideas/PRJ1-I-8
-                    resource: http://company.aha.io/api/v1/ideas/PRJ1-I-8
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/IdeavotesPostRequest'
-            example:
-              idea_endorsement:
-                email: no-reply@aha.io
-      operationId: postApiV1IdeasByIdeaIdEndorsements?multipleEndorsements=true
-      x-operation-id-source: derived
-  /api/v1/ideas/{idea_id}/endorsements?idea_portal_id={idea_portal_id}:
-    post:
-      summary: Create an idea vote for a user, using the vote limits of an idea portal
+    put:
+      summary: Update an idea vote
       description: '"Idea votes" in the web interface are referenced as "idea endorsements" from API endpoints.'
       tags:
       - Idea votes
@@ -322,18 +164,12 @@ paths:
         schema:
           type: string
         description: IdeaId identifier
-      - name: idea_portal_id
+      - name: id
         in: path
         required: true
         schema:
           type: string
-        description: IdeaPortalId identifier
-      - name: idea_portal_id
-        in: query
-        required: false
-        schema:
-          type: string
-        example: '747493361'
+        description: Id identifier
       responses:
         '200':
           description: Successful operation
@@ -345,40 +181,52 @@ paths:
           content:
             application/json; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/IdeavotesPostResponse'
+                $ref: '#/components/schemas/IdeavotesPutResponse'
               example:
                 idea_endorsement:
-                  id: '6776881149496332684'
-                  idea_id: '140490859'
+                  id: '53377392'
+                  idea_id: '58056975'
                   created_at: '2019-01-01T00:00:00.000Z'
                   updated_at: '2019-01-01T00:00:00.000Z'
                   value: null
                   link: null
                   weight: 1
                   endorsed_by_portal_user:
-                    id: '6776881149488700322'
-                    name: no-reply@aha.io
-                    email: no-reply@aha.io
+                    id: '646391926'
+                    name: John Long
+                    email: john@long.com
                     created_at: '2019-01-01T00:00:00.000Z'
                   endorsed_by_idea_user:
-                    id: '6776881149490328278'
-                    name: no-reply@aha.io
-                    email: no-reply@aha.io
+                    id: '1056507375'
+                    name: John Long
+                    email: john@long.com
                     created_at: '2019-01-01T00:00:00.000Z'
                     title: null
-                  description:
-                    id: ''
-                    body: ''
-                    editor_version: 2
-                    created_at: null
-                    updated_at: null
-                    attachments: []
-                  integration_fields: []
-                  custom_fields: []
+                  idea_organization:
+                    id: '138732915'
+                    name: Acme
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/ideas/idea_organizations/ACCOUNT-O-123
+                    resource: https://company.aha.io/api/v1/idea_organizations/ACCOUNT-O-123
+                  description: null
+                  integration_fields:
+                  - id: '975466318'
+                    name: key
+                    value: JRA-123
+                    integration_id: 204584239
+                    service_name: jira
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  custom_fields:
+                  - id: '6776881149489855953'
+                    key: vote_priority
+                    name: Priority
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    type: string
+                    value: P3
                   idea:
-                    id: '140490859'
-                    reference_num: PRJ1-I-8
-                    name: Some idea name 3
+                    id: '58056975'
+                    name: Idea 1
+                    reference_num: PRJ1-I-1
                     created_at: '2019-01-01T00:00:00.000Z'
                     updated_at: '2019-01-01T00:00:00.000Z'
                     workflow_status:
@@ -387,15 +235,18 @@ paths:
                       position: 1
                       complete: false
                       color: '#dce7c6'
+                      workflow_status_category: null
                     description:
-                      id: '6776881149487885666'
-                      body: ''
-                      editor_version: 2
+                      id: '103757394'
+                      body: Description of idea 1
+                      notable_id: '58056975'
+                      notable_type: Ideas::Idea
+                      editor_version: 1
                       created_at: '2019-01-01T00:00:00.000Z'
                       updated_at: '2019-01-01T00:00:00.000Z'
                       attachments: []
-                    url: http://company.aha.io/ideas/ideas/PRJ1-I-8
-                    resource: http://company.aha.io/api/v1/ideas/PRJ1-I-8
+                    url: https://company.aha.io/ideas/ideas/PRJ1-I-1
+                    resource: https://company.aha.io/api/v1/ideas/PRJ1-I-1
       security:
       - OAuth2: []
       - ApiKeyAuth: []
@@ -408,17 +259,34 @@ paths:
               $ref: '#/components/schemas/IdeavotesPostRequest'
             example:
               idea_endorsement:
-                email: no-reply@aha.io
-                idea_portal_id: 747493361
-      operationId: postApiV1IdeasByIdeaIdEndorsements?ideaPortalId={ideaPortalId}
+                value: 123.45
+      operationId: putIdeasByIdeaIdEndorsementsById
       x-operation-id-source: derived
-  /api/v1/ideas/endorsements:
+  /idea_organizations/{idea_organization_id}/endorsements:
     get:
-      summary: List votes for an account
+      summary: List votes for an organization
       description: '"Idea votes" in the web interface are referenced as "idea endorsements" from API endpoints.'
       tags:
       - Idea votes
-      parameters: []
+      parameters:
+      - name: idea_organization_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: IdeaOrganizationId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
       responses:
         '200':
           description: Successful operation
@@ -455,8 +323,275 @@ paths:
                     id: '138732915'
                     name: Acme
                     created_at: '2019-01-01T00:00:00.000Z'
-                    url: http://company.aha.io/ideas/idea_organizations/138732915
-                    resource: http://company.aha.io/api/v1/idea_organizations/138732915
+                    url: https://company.aha.io/ideas/idea_organizations/ACCOUNT-O-123
+                    resource: https://company.aha.io/api/v1/idea_organizations/ACCOUNT-O-123
+                - id: '449162139'
+                  idea_id: '849214356'
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  value: null
+                  link: null
+                  weight: 1
+                  endorsed_by_portal_user:
+                    id: '646391926'
+                    name: John Long
+                    email: john@long.com
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  endorsed_by_idea_user:
+                    id: '1056507375'
+                    name: John Long
+                    email: john@long.com
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    title: null
+                  idea_organization:
+                    id: '138732915'
+                    name: Acme
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/ideas/idea_organizations/ACCOUNT-O-123
+                    resource: https://company.aha.io/api/v1/idea_organizations/ACCOUNT-O-123
+                pagination:
+                  total_records: 2
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getIdeaOrganizationsByIdeaOrganizationIdEndorsements
+      x-operation-id-source: derived
+  /ideas/{idea_id}/endorsements:
+    get:
+      summary: Get all related idea organizations for votes associated with an idea
+      description: Use the field "associated_idea_organizations" to get a list of all related idea organizations associated with each vote. This field can also be used when retrieving a single idea endorement.
+      tags:
+      - Idea votes
+      parameters:
+      - name: idea_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: IdeaId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      - name: fields
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '*,associated_idea_organizations'
+      - name: proxy
+        in: query
+        required: false
+        schema:
+          type: string
+        example: 'true'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeavotesGetResponse'
+              example:
+                idea_endorsements:
+                - id: '53377392'
+                  idea_id: '58056975'
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  value: null
+                  link: null
+                  weight: 1
+                  endorsed_by_portal_user:
+                    id: '646391926'
+                    name: John Long
+                    email: john@long.com
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  endorsed_by_idea_user:
+                    id: '1056507375'
+                    name: John Long
+                    email: john@long.com
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    title: null
+                  idea_organization:
+                    id: '138732915'
+                    name: Acme
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/ideas/idea_organizations/ACCOUNT-O-123
+                    resource: https://company.aha.io/api/v1/idea_organizations/ACCOUNT-O-123
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getIdeasByIdeaIdEndorsements
+      x-operation-id-source: derived
+    post:
+      summary: Create a proxy vote
+      description: '"Idea votes" in the web interface are referenced as "idea endorsements" from API endpoints.'
+      tags:
+      - Idea votes
+      parameters:
+      - name: idea_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: IdeaId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeavotesPostResponse'
+              example:
+                idea_endorsement:
+                  id: '6776881149486941469'
+                  idea_id: '58056975'
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  value: null
+                  link: null
+                  weight: 1
+                  endorsed_by_portal_user:
+                    id: '6776881149490588735'
+                    name: no-reply@aha.io
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  endorsed_by_idea_user:
+                    id: '6776881149484990844'
+                    name: no-reply@aha.io
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    title: null
+                  description: null
+                  integration_fields: []
+                  custom_fields: []
+                  idea:
+                    id: '58056975'
+                    name: Idea 1
+                    reference_num: PRJ1-I-1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    workflow_status:
+                      id: '3259216'
+                      name: New
+                      position: 1
+                      complete: false
+                      color: '#dce7c6'
+                      workflow_status_category: null
+                    description:
+                      id: '103757394'
+                      body: Description of idea 1
+                      notable_id: '58056975'
+                      notable_type: Ideas::Idea
+                      editor_version: 1
+                      created_at: '2019-01-01T00:00:00.000Z'
+                      updated_at: '2019-01-01T00:00:00.000Z'
+                      attachments: []
+                    url: https://company.aha.io/ideas/ideas/PRJ1-I-1
+                    resource: https://company.aha.io/api/v1/ideas/PRJ1-I-1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdeavotesPostRequest'
+            example:
+              idea_endorsement:
+                idea_id: PRJ1-I-1
+                email: no-reply@aha.io
+                idea_organization_id: 138732915
+                value: 2
+                link: https://example.com
+                description: This is a description
+      operationId: postIdeasByIdeaIdEndorsements
+      x-operation-id-source: derived
+  /ideas/endorsements:
+    get:
+      summary: List votes for an account
+      description: '"Idea votes" in the web interface are referenced as "idea endorsements" from API endpoints.'
+      tags:
+      - Idea votes
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeavotesGetResponse'
+              example:
+                idea_endorsements:
+                - id: '53377392'
+                  idea_id: '58056975'
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  value: null
+                  link: null
+                  weight: 1
+                  endorsed_by_portal_user:
+                    id: '646391926'
+                    name: John Long
+                    email: john@long.com
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  endorsed_by_idea_user:
+                    id: '1056507375'
+                    name: John Long
+                    email: john@long.com
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    title: null
+                  idea_organization:
+                    id: '138732915'
+                    name: Acme
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/ideas/idea_organizations/ACCOUNT-O-123
+                    resource: https://company.aha.io/api/v1/idea_organizations/ACCOUNT-O-123
                 - id: '260764892'
                   idea_id: '397084149'
                   created_at: '2019-01-01T00:00:00.000Z'
@@ -515,8 +650,8 @@ paths:
                     id: '138732915'
                     name: Acme
                     created_at: '2019-01-01T00:00:00.000Z'
-                    url: http://company.aha.io/ideas/idea_organizations/138732915
-                    resource: http://company.aha.io/api/v1/idea_organizations/138732915
+                    url: https://company.aha.io/ideas/idea_organizations/ACCOUNT-O-123
+                    resource: https://company.aha.io/api/v1/idea_organizations/ACCOUNT-O-123
                 - id: '562337269'
                   idea_id: '140490859'
                   created_at: '2019-01-01T00:00:00.000Z'
@@ -579,12 +714,12 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1IdeasEndorsements
+      operationId: getIdeasEndorsements
       x-operation-id-source: derived
-  /api/v1/ideas/{idea_id}/endorsements?proxy=true:
-    get:
-      summary: List only proxy votes for an idea
-      description: Only returns votes that have an associated organization (proxy votes).
+  /ideas/{idea_id}/endorsements?idea_portal_id={idea_portal_id}:
+    post:
+      summary: Create an idea vote for a user, using the vote limits of an idea portal
+      description: '"Idea votes" in the web interface are referenced as "idea endorsements" from API endpoints.'
       tags:
       - Idea votes
       parameters:
@@ -594,7 +729,99 @@ paths:
         schema:
           type: string
         description: IdeaId identifier
-      - name: proxy
+      - name: idea_portal_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: IdeaPortalId identifier
+      - name: idea_portal_id
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '747493361'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeavotesPostResponse'
+              example:
+                idea_endorsement:
+                  id: '6776881149496332684'
+                  idea_id: '140490859'
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  value: null
+                  link: null
+                  weight: 1
+                  endorsed_by_portal_user:
+                    id: '6776881149488700322'
+                    name: no-reply@aha.io
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  endorsed_by_idea_user:
+                    id: '6776881149490328278'
+                    name: no-reply@aha.io
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    title: null
+                  description: null
+                  integration_fields: []
+                  custom_fields: []
+                  idea:
+                    id: '140490859'
+                    name: Some idea name 3
+                    reference_num: PRJ1-I-8
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    workflow_status:
+                      id: '3259216'
+                      name: New
+                      position: 1
+                      complete: false
+                      color: '#dce7c6'
+                      workflow_status_category: null
+                    description: null
+                    url: https://company.aha.io/ideas/ideas/PRJ1-I-8
+                    resource: https://company.aha.io/api/v1/ideas/PRJ1-I-8
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdeavotesPostRequest'
+            example:
+              idea_endorsement:
+                email: no-reply@aha.io
+                idea_portal_id: 747493361
+      operationId: postIdeasByIdeaIdEndorsements?ideaPortalId={ideaPortalId}
+      x-operation-id-source: derived
+  /ideas/{idea_id}/endorsements?multiple_endorsements=true:
+    post:
+      summary: Create additional idea votes
+      description: Create an additional vote for a user who has already voted on the idea. Only permitted for an ideas portal where users are allowed multiple votes on the same idea.
+      tags:
+      - Idea votes
+      parameters:
+      - name: idea_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: IdeaId identifier
+      - name: multiple_endorsements
         in: query
         required: false
         schema:
@@ -611,147 +838,34 @@ paths:
           content:
             application/json; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/IdeavotesGetResponse'
+                $ref: '#/components/schemas/IdeavotesPostResponse'
               example:
-                idea_endorsements:
-                - id: '53377392'
-                  idea_id: '58056975'
+                idea_endorsement:
+                  id: '6776881149490277785'
+                  idea_id: '140490859'
                   created_at: '2019-01-01T00:00:00.000Z'
                   updated_at: '2019-01-01T00:00:00.000Z'
                   value: null
                   link: null
                   weight: 1
                   endorsed_by_portal_user:
-                    id: '646391926'
-                    name: John Long
-                    email: john@long.com
-                    created_at: '2019-01-01T00:00:00.000Z'
-                  endorsed_by_idea_user:
-                    id: '1056507375'
-                    name: John Long
-                    email: john@long.com
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    title: null
-                  idea_organization:
-                    id: '138732915'
-                    name: Acme
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    url: http://company.aha.io/ideas/idea_organizations/138732915
-                    resource: http://company.aha.io/api/v1/idea_organizations/138732915
-                - id: '6776881149498445225'
-                  idea_id: '58056975'
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  value: null
-                  link: null
-                  weight: 1
-                  endorsed_by_user:
-                    id: '1020675218'
-                    name: Mary Humpty
+                    id: '6776881149497726716'
+                    name: no-reply@aha.io
                     email: no-reply@aha.io
                     created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  idea_organization:
-                    id: '138732915'
-                    name: Acme
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    url: http://company.aha.io/ideas/idea_organizations/138732915
-                    resource: http://company.aha.io/api/v1/idea_organizations/138732915
-                pagination:
-                  total_records: 2
-                  total_pages: 1
-                  current_page: 1
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      operationId: getApiV1IdeasByIdeaIdEndorsements?proxy=true
-      x-operation-id-source: derived
-  /api/v1/ideas/{idea_id}/endorsements/{id}:
-    get:
-      summary: Get a specific vote for an idea
-      description: '"Idea votes" in the web interface are referenced as "idea endorsements" from API endpoints.'
-      tags:
-      - Idea votes
-      parameters:
-      - name: idea_id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: IdeaId identifier
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: Id identifier
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/IdeavotesGetResponse'
-              example:
-                idea_endorsement:
-                  id: '53377392'
-                  idea_id: '58056975'
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  value: null
-                  link: null
-                  weight: 1
-                  endorsed_by_portal_user:
-                    id: '646391926'
-                    name: John Long
-                    email: john@long.com
-                    created_at: '2019-01-01T00:00:00.000Z'
                   endorsed_by_idea_user:
-                    id: '1056507375'
-                    name: John Long
-                    email: john@long.com
+                    id: '6776881149497315738'
+                    name: no-reply@aha.io
+                    email: no-reply@aha.io
                     created_at: '2019-01-01T00:00:00.000Z'
                     title: null
-                  idea_organization:
-                    id: '138732915'
-                    name: Acme
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    url: http://company.aha.io/ideas/idea_organizations/138732915
-                    resource: http://company.aha.io/api/v1/idea_organizations/138732915
-                  idea_users:
-                  - id: '670061655'
-                    first_name: Tim
-                    last_name: Smith
-                    email: tim@smith.com
-                  - id: '1056507375'
-                    first_name: John
-                    last_name: Long
-                    email: john@long.com
-                  description:
-                    id: '6776881149490876559'
-                    body: ''
-                    editor_version: 2
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    attachments: []
-                  integration_fields:
-                  - id: '975466318'
-                    name: key
-                    value: JRA-123
-                    integration_id: 204584239
-                    service_name: jira
-                    created_at: '2019-01-01T00:00:00.000Z'
+                  description: null
+                  integration_fields: []
                   custom_fields: []
                   idea:
-                    id: '58056975'
-                    reference_num: PRJ1-I-1
-                    name: Idea 1
+                    id: '140490859'
+                    name: Some idea name 3
+                    reference_num: PRJ1-I-8
                     created_at: '2019-01-01T00:00:00.000Z'
                     updated_at: '2019-01-01T00:00:00.000Z'
                     workflow_status:
@@ -760,119 +874,10 @@ paths:
                       position: 1
                       complete: false
                       color: '#dce7c6'
-                    description:
-                      id: '103757394'
-                      body: Description of idea 1
-                      editor_version: 1
-                      created_at: '2019-01-01T00:00:00.000Z'
-                      updated_at: '2019-01-01T00:00:00.000Z'
-                      attachments: []
-                    url: http://company.aha.io/ideas/ideas/PRJ1-I-1
-                    resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      operationId: getApiV1IdeasByIdeaIdEndorsementsById
-      x-operation-id-source: derived
-    put:
-      summary: Update an idea vote
-      description: '"Idea votes" in the web interface are referenced as "idea endorsements" from API endpoints.'
-      tags:
-      - Idea votes
-      parameters:
-      - name: idea_id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: IdeaId identifier
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: Id identifier
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/IdeavotesPutResponse'
-              example:
-                idea_endorsement:
-                  id: '53377392'
-                  idea_id: '58056975'
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  value: null
-                  link: null
-                  weight: 1
-                  endorsed_by_portal_user:
-                    id: '646391926'
-                    name: John Long
-                    email: john@long.com
-                    created_at: '2019-01-01T00:00:00.000Z'
-                  endorsed_by_idea_user:
-                    id: '1056507375'
-                    name: John Long
-                    email: john@long.com
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    title: null
-                  idea_organization:
-                    id: '138732915'
-                    name: Acme
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    url: http://company.aha.io/ideas/idea_organizations/138732915
-                    resource: http://company.aha.io/api/v1/idea_organizations/138732915
-                  description:
-                    id: ''
-                    body: ''
-                    editor_version: 2
-                    created_at: null
-                    updated_at: null
-                    attachments: []
-                  integration_fields:
-                  - id: '975466318'
-                    name: key
-                    value: JRA-123
-                    integration_id: 204584239
-                    service_name: jira
-                    created_at: '2019-01-01T00:00:00.000Z'
-                  custom_fields:
-                  - id: '6776881149489855953'
-                    key: vote_priority
-                    name: Priority
-                    updatedAt: '2019-01-01T00:00:00Z'
-                    value: P3
-                    type: string
-                  idea:
-                    id: '58056975'
-                    reference_num: PRJ1-I-1
-                    name: Idea 1
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    workflow_status:
-                      id: '3259216'
-                      name: New
-                      position: 1
-                      complete: false
-                      color: '#dce7c6'
-                    description:
-                      id: '103757394'
-                      body: Description of idea 1
-                      editor_version: 1
-                      created_at: '2019-01-01T00:00:00.000Z'
-                      updated_at: '2019-01-01T00:00:00.000Z'
-                      attachments: []
-                    url: http://company.aha.io/ideas/ideas/PRJ1-I-1
-                    resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+                      workflow_status_category: null
+                    description: null
+                    url: https://company.aha.io/ideas/ideas/PRJ1-I-8
+                    resource: https://company.aha.io/api/v1/ideas/PRJ1-I-8
       security:
       - OAuth2: []
       - ApiKeyAuth: []
@@ -885,38 +890,647 @@ paths:
               $ref: '#/components/schemas/IdeavotesPostRequest'
             example:
               idea_endorsement:
-                value: 123.45
-      operationId: putApiV1IdeasByIdeaIdEndorsementsById
-      x-operation-id-source: derived
-    delete:
-      summary: Delete an idea vote
-      description: '"Idea votes" in the web interface are referenced as "idea endorsements" from API endpoints.'
-      tags:
-      - Idea votes
-      parameters:
-      - name: idea_id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: IdeaId identifier
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: Id identifier
-      responses:
-        '204':
-          description: No content - operation successful
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      operationId: deleteApiV1IdeasByIdeaIdEndorsementsById
+                email: no-reply@aha.io
+      operationId: postIdeasByIdeaIdEndorsements?multipleEndorsements=true
       x-operation-id-source: derived
 components:
   schemas:
+    IdeavotesGetResponse:
+      type: object
+      properties:
+        idea_endorsements:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: '53377392'
+              idea_id:
+                type: string
+                example: '58056975'
+              created_at:
+                type: string
+                example: '2019-01-01T00:00:00.000Z'
+              updated_at:
+                type: string
+                example: '2019-01-01T00:00:00.000Z'
+              value:
+                type: 'null'
+              link:
+                type: 'null'
+              weight:
+                type: integer
+                example: 1
+              endorsed_by_portal_user:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  email:
+                    type: string
+                  created_at:
+                    type: string
+                example:
+                  id: '646391926'
+                  name: John Long
+                  email: john@long.com
+                  created_at: '2019-01-01T00:00:00.000Z'
+              endorsed_by_idea_user:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  email:
+                    type: string
+                  created_at:
+                    type: string
+                  title:
+                    type: 'null'
+                example:
+                  id: '1056507375'
+                  name: John Long
+                  email: john@long.com
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  title: null
+              idea_organization:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  created_at:
+                    type: string
+                  url:
+                    type: string
+                  resource:
+                    type: string
+                example:
+                  id: '138732915'
+                  name: Acme
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/ideas/idea_organizations/ACCOUNT-O-123
+                  resource: https://company.aha.io/api/v1/idea_organizations/ACCOUNT-O-123
+            example:
+              id: '53377392'
+              idea_id: '58056975'
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              value: null
+              link: null
+              weight: 1
+              endorsed_by_portal_user:
+                id: '646391926'
+                name: John Long
+                email: john@long.com
+                created_at: '2019-01-01T00:00:00.000Z'
+              endorsed_by_idea_user:
+                id: '1056507375'
+                name: John Long
+                email: john@long.com
+                created_at: '2019-01-01T00:00:00.000Z'
+                title: null
+              idea_organization:
+                id: '138732915'
+                name: Acme
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: https://company.aha.io/ideas/idea_organizations/ACCOUNT-O-123
+                resource: https://company.aha.io/api/v1/idea_organizations/ACCOUNT-O-123
+          example:
+          - id: '53377392'
+            idea_id: '58056975'
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            value: null
+            link: null
+            weight: 1
+            endorsed_by_portal_user:
+              id: '646391926'
+              name: John Long
+              email: john@long.com
+              created_at: '2019-01-01T00:00:00.000Z'
+            endorsed_by_idea_user:
+              id: '1056507375'
+              name: John Long
+              email: john@long.com
+              created_at: '2019-01-01T00:00:00.000Z'
+              title: null
+            idea_organization:
+              id: '138732915'
+              name: Acme
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/ideas/idea_organizations/ACCOUNT-O-123
+              resource: https://company.aha.io/api/v1/idea_organizations/ACCOUNT-O-123
+          - id: '260764892'
+            idea_id: '397084149'
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            value: null
+            link: null
+            weight: 1
+            endorsed_by_portal_user:
+              id: '143214937'
+              name: Joe Shmo
+              email: joe@shmo.com
+              created_at: '2019-01-01T00:00:00.000Z'
+            endorsed_by_idea_user:
+              id: '284648642'
+              name: Joe Shmo
+              email: joe@shmo.com
+              created_at: '2019-01-01T00:00:00.000Z'
+              title: null
+          - id: '377726308'
+            idea_id: '245519441'
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            value: null
+            link: null
+            weight: 1
+            endorsed_by_portal_user:
+              id: '143214937'
+              name: Joe Shmo
+              email: joe@shmo.com
+              created_at: '2019-01-01T00:00:00.000Z'
+            endorsed_by_idea_user:
+              id: '284648642'
+              name: Joe Shmo
+              email: joe@shmo.com
+              created_at: '2019-01-01T00:00:00.000Z'
+              title: null
+          - id: '449162139'
+            idea_id: '849214356'
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            value: null
+            link: null
+            weight: 1
+            endorsed_by_portal_user:
+              id: '646391926'
+              name: John Long
+              email: john@long.com
+              created_at: '2019-01-01T00:00:00.000Z'
+            endorsed_by_idea_user:
+              id: '1056507375'
+              name: John Long
+              email: john@long.com
+              created_at: '2019-01-01T00:00:00.000Z'
+              title: null
+            idea_organization:
+              id: '138732915'
+              name: Acme
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/ideas/idea_organizations/ACCOUNT-O-123
+              resource: https://company.aha.io/api/v1/idea_organizations/ACCOUNT-O-123
+          - id: '562337269'
+            idea_id: '140490859'
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            value: null
+            link: null
+            weight: 1
+            endorsed_by_portal_user:
+              id: '143214937'
+              name: Joe Shmo
+              email: joe@shmo.com
+              created_at: '2019-01-01T00:00:00.000Z'
+            endorsed_by_idea_user:
+              id: '284648642'
+              name: Joe Shmo
+              email: joe@shmo.com
+              created_at: '2019-01-01T00:00:00.000Z'
+              title: null
+          - id: '1062165688'
+            idea_id: '444379319'
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            value: null
+            link: null
+            weight: 1
+            endorsed_by_portal_user:
+              id: '646391926'
+              name: John Long
+              email: john@long.com
+              created_at: '2019-01-01T00:00:00.000Z'
+            endorsed_by_idea_user:
+              id: '1056507375'
+              name: John Long
+              email: john@long.com
+              created_at: '2019-01-01T00:00:00.000Z'
+              title: null
+          - id: '1071644760'
+            idea_id: '290908627'
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            value: null
+            link: null
+            weight: 1
+            endorsed_by_portal_user:
+              id: '143214937'
+              name: Joe Shmo
+              email: joe@shmo.com
+              created_at: '2019-01-01T00:00:00.000Z'
+            endorsed_by_idea_user:
+              id: '284648642'
+              name: Joe Shmo
+              email: joe@shmo.com
+              created_at: '2019-01-01T00:00:00.000Z'
+              title: null
+        pagination:
+          type: object
+          properties:
+            total_records:
+              type: integer
+              example: 7
+            total_pages:
+              type: integer
+              example: 1
+            current_page:
+              type: integer
+              example: 1
+          example:
+            total_records: 7
+            total_pages: 1
+            current_page: 1
+      example:
+        idea_endorsements:
+        - id: '53377392'
+          idea_id: '58056975'
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          value: null
+          link: null
+          weight: 1
+          endorsed_by_portal_user:
+            id: '646391926'
+            name: John Long
+            email: john@long.com
+            created_at: '2019-01-01T00:00:00.000Z'
+          endorsed_by_idea_user:
+            id: '1056507375'
+            name: John Long
+            email: john@long.com
+            created_at: '2019-01-01T00:00:00.000Z'
+            title: null
+          idea_organization:
+            id: '138732915'
+            name: Acme
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/ideas/idea_organizations/ACCOUNT-O-123
+            resource: https://company.aha.io/api/v1/idea_organizations/ACCOUNT-O-123
+        - id: '260764892'
+          idea_id: '397084149'
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          value: null
+          link: null
+          weight: 1
+          endorsed_by_portal_user:
+            id: '143214937'
+            name: Joe Shmo
+            email: joe@shmo.com
+            created_at: '2019-01-01T00:00:00.000Z'
+          endorsed_by_idea_user:
+            id: '284648642'
+            name: Joe Shmo
+            email: joe@shmo.com
+            created_at: '2019-01-01T00:00:00.000Z'
+            title: null
+        - id: '377726308'
+          idea_id: '245519441'
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          value: null
+          link: null
+          weight: 1
+          endorsed_by_portal_user:
+            id: '143214937'
+            name: Joe Shmo
+            email: joe@shmo.com
+            created_at: '2019-01-01T00:00:00.000Z'
+          endorsed_by_idea_user:
+            id: '284648642'
+            name: Joe Shmo
+            email: joe@shmo.com
+            created_at: '2019-01-01T00:00:00.000Z'
+            title: null
+        - id: '449162139'
+          idea_id: '849214356'
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          value: null
+          link: null
+          weight: 1
+          endorsed_by_portal_user:
+            id: '646391926'
+            name: John Long
+            email: john@long.com
+            created_at: '2019-01-01T00:00:00.000Z'
+          endorsed_by_idea_user:
+            id: '1056507375'
+            name: John Long
+            email: john@long.com
+            created_at: '2019-01-01T00:00:00.000Z'
+            title: null
+          idea_organization:
+            id: '138732915'
+            name: Acme
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/ideas/idea_organizations/ACCOUNT-O-123
+            resource: https://company.aha.io/api/v1/idea_organizations/ACCOUNT-O-123
+        - id: '562337269'
+          idea_id: '140490859'
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          value: null
+          link: null
+          weight: 1
+          endorsed_by_portal_user:
+            id: '143214937'
+            name: Joe Shmo
+            email: joe@shmo.com
+            created_at: '2019-01-01T00:00:00.000Z'
+          endorsed_by_idea_user:
+            id: '284648642'
+            name: Joe Shmo
+            email: joe@shmo.com
+            created_at: '2019-01-01T00:00:00.000Z'
+            title: null
+        - id: '1062165688'
+          idea_id: '444379319'
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          value: null
+          link: null
+          weight: 1
+          endorsed_by_portal_user:
+            id: '646391926'
+            name: John Long
+            email: john@long.com
+            created_at: '2019-01-01T00:00:00.000Z'
+          endorsed_by_idea_user:
+            id: '1056507375'
+            name: John Long
+            email: john@long.com
+            created_at: '2019-01-01T00:00:00.000Z'
+            title: null
+        - id: '1071644760'
+          idea_id: '290908627'
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          value: null
+          link: null
+          weight: 1
+          endorsed_by_portal_user:
+            id: '143214937'
+            name: Joe Shmo
+            email: joe@shmo.com
+            created_at: '2019-01-01T00:00:00.000Z'
+          endorsed_by_idea_user:
+            id: '284648642'
+            name: Joe Shmo
+            email: joe@shmo.com
+            created_at: '2019-01-01T00:00:00.000Z'
+            title: null
+        pagination:
+          total_records: 7
+          total_pages: 1
+          current_page: 1
+    IdeavotesPostRequest:
+      type: object
+      properties:
+        idea_endorsement:
+          type: object
+          properties:
+            value:
+              type: number
+              example: 123.45
+          example:
+            value: 123.45
+      example:
+        idea_endorsement:
+          value: 123.45
+    IdeavotesPostResponse:
+      type: object
+      properties:
+        idea_endorsement:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149490277785'
+            idea_id:
+              type: string
+              example: '140490859'
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            value:
+              type: 'null'
+            link:
+              type: 'null'
+            weight:
+              type: integer
+              example: 1
+            endorsed_by_portal_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149497726716'
+                name:
+                  type: string
+                  example: no-reply@aha.io
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+              example:
+                id: '6776881149497726716'
+                name: no-reply@aha.io
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+            endorsed_by_idea_user:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149497315738'
+                name:
+                  type: string
+                  example: no-reply@aha.io
+                email:
+                  type: string
+                  example: no-reply@aha.io
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                title:
+                  type: 'null'
+              example:
+                id: '6776881149497315738'
+                name: no-reply@aha.io
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                title: null
+            description:
+              type: 'null'
+            integration_fields:
+              type: array
+              items: {}
+            custom_fields:
+              type: array
+              items: {}
+            idea:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '140490859'
+                name:
+                  type: string
+                  example: Some idea name 3
+                reference_num:
+                  type: string
+                  example: PRJ1-I-8
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                workflow_status:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    position:
+                      type: string
+                    complete:
+                      type: string
+                    color:
+                      type: string
+                    workflow_status_category:
+                      type: 'null'
+                  example:
+                    id: '3259216'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                    workflow_status_category: null
+                description:
+                  type: 'null'
+                url:
+                  type: string
+                  example: https://company.aha.io/ideas/ideas/PRJ1-I-8
+                resource:
+                  type: string
+                  example: https://company.aha.io/api/v1/ideas/PRJ1-I-8
+              example:
+                id: '140490859'
+                name: Some idea name 3
+                reference_num: PRJ1-I-8
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                workflow_status:
+                  id: '3259216'
+                  name: New
+                  position: 1
+                  complete: false
+                  color: '#dce7c6'
+                  workflow_status_category: null
+                description: null
+                url: https://company.aha.io/ideas/ideas/PRJ1-I-8
+                resource: https://company.aha.io/api/v1/ideas/PRJ1-I-8
+          example:
+            id: '6776881149490277785'
+            idea_id: '140490859'
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            value: null
+            link: null
+            weight: 1
+            endorsed_by_portal_user:
+              id: '6776881149497726716'
+              name: no-reply@aha.io
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+            endorsed_by_idea_user:
+              id: '6776881149497315738'
+              name: no-reply@aha.io
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              title: null
+            description: null
+            integration_fields: []
+            custom_fields: []
+            idea:
+              id: '140490859'
+              name: Some idea name 3
+              reference_num: PRJ1-I-8
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              workflow_status:
+                id: '3259216'
+                name: New
+                position: 1
+                complete: false
+                color: '#dce7c6'
+                workflow_status_category: null
+              description: null
+              url: https://company.aha.io/ideas/ideas/PRJ1-I-8
+              resource: https://company.aha.io/api/v1/ideas/PRJ1-I-8
+      example:
+        idea_endorsement:
+          id: '6776881149490277785'
+          idea_id: '140490859'
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          value: null
+          link: null
+          weight: 1
+          endorsed_by_portal_user:
+            id: '6776881149497726716'
+            name: no-reply@aha.io
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+          endorsed_by_idea_user:
+            id: '6776881149497315738'
+            name: no-reply@aha.io
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            title: null
+          description: null
+          integration_fields: []
+          custom_fields: []
+          idea:
+            id: '140490859'
+            name: Some idea name 3
+            reference_num: PRJ1-I-8
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            workflow_status:
+              id: '3259216'
+              name: New
+              position: 1
+              complete: false
+              color: '#dce7c6'
+              workflow_status_category: null
+            description: null
+            url: https://company.aha.io/ideas/ideas/PRJ1-I-8
+            resource: https://company.aha.io/api/v1/ideas/PRJ1-I-8
     IdeavotesPutResponse:
       type: object
       properties:
@@ -999,42 +1613,18 @@ components:
                   example: '2019-01-01T00:00:00.000Z'
                 url:
                   type: string
-                  example: http://company.aha.io/ideas/idea_organizations/138732915
+                  example: https://company.aha.io/ideas/idea_organizations/ACCOUNT-O-123
                 resource:
                   type: string
-                  example: http://company.aha.io/api/v1/idea_organizations/138732915
+                  example: https://company.aha.io/api/v1/idea_organizations/ACCOUNT-O-123
               example:
                 id: '138732915'
                 name: Acme
                 created_at: '2019-01-01T00:00:00.000Z'
-                url: http://company.aha.io/ideas/idea_organizations/138732915
-                resource: http://company.aha.io/api/v1/idea_organizations/138732915
+                url: https://company.aha.io/ideas/idea_organizations/ACCOUNT-O-123
+                resource: https://company.aha.io/api/v1/idea_organizations/ACCOUNT-O-123
             description:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: ''
-                body:
-                  type: string
-                  example: ''
-                editor_version:
-                  type: integer
-                  example: 2
-                created_at:
-                  type: 'null'
-                updated_at:
-                  type: 'null'
-                attachments:
-                  type: array
-                  items: {}
-              example:
-                id: ''
-                body: ''
-                editor_version: 2
-                created_at: null
-                updated_at: null
-                attachments: []
+              type: 'null'
             integration_fields:
               type: array
               items:
@@ -1079,36 +1669,36 @@ components:
                     type: string
                   updatedAt:
                     type: string
-                  value:
-                    type: string
                   type:
+                    type: string
+                  value:
                     type: string
                 example:
                   id: '6776881149489855953'
                   key: vote_priority
                   name: Priority
                   updatedAt: '2019-01-01T00:00:00Z'
-                  value: P3
                   type: string
+                  value: P3
               example:
               - id: '6776881149489855953'
                 key: vote_priority
                 name: Priority
                 updatedAt: '2019-01-01T00:00:00Z'
-                value: P3
                 type: string
+                value: P3
             idea:
               type: object
               properties:
                 id:
                   type: string
                   example: '58056975'
-                reference_num:
-                  type: string
-                  example: PRJ1-I-1
                 name:
                   type: string
                   example: Idea 1
+                reference_num:
+                  type: string
+                  example: PRJ1-I-1
                 created_at:
                   type: string
                   example: '2019-01-01T00:00:00.000Z'
@@ -1128,18 +1718,25 @@ components:
                       type: string
                     color:
                       type: string
+                    workflow_status_category:
+                      type: 'null'
                   example:
                     id: '3259216'
                     name: New
                     position: 1
                     complete: false
                     color: '#dce7c6'
+                    workflow_status_category: null
                 description:
                   type: object
                   properties:
                     id:
                       type: string
                     body:
+                      type: string
+                    notable_id:
+                      type: string
+                    notable_type:
                       type: string
                     editor_version:
                       type: string
@@ -1152,20 +1749,22 @@ components:
                   example:
                     id: '103757394'
                     body: Description of idea 1
+                    notable_id: '58056975'
+                    notable_type: Ideas::Idea
                     editor_version: 1
                     created_at: '2019-01-01T00:00:00.000Z'
                     updated_at: '2019-01-01T00:00:00.000Z'
                     attachments: []
                 url:
                   type: string
-                  example: http://company.aha.io/ideas/ideas/PRJ1-I-1
+                  example: https://company.aha.io/ideas/ideas/PRJ1-I-1
                 resource:
                   type: string
-                  example: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+                  example: https://company.aha.io/api/v1/ideas/PRJ1-I-1
               example:
                 id: '58056975'
-                reference_num: PRJ1-I-1
                 name: Idea 1
+                reference_num: PRJ1-I-1
                 created_at: '2019-01-01T00:00:00.000Z'
                 updated_at: '2019-01-01T00:00:00.000Z'
                 workflow_status:
@@ -1174,15 +1773,18 @@ components:
                   position: 1
                   complete: false
                   color: '#dce7c6'
+                  workflow_status_category: null
                 description:
                   id: '103757394'
                   body: Description of idea 1
+                  notable_id: '58056975'
+                  notable_type: Ideas::Idea
                   editor_version: 1
                   created_at: '2019-01-01T00:00:00.000Z'
                   updated_at: '2019-01-01T00:00:00.000Z'
                   attachments: []
-                url: http://company.aha.io/ideas/ideas/PRJ1-I-1
-                resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+                url: https://company.aha.io/ideas/ideas/PRJ1-I-1
+                resource: https://company.aha.io/api/v1/ideas/PRJ1-I-1
           example:
             id: '53377392'
             idea_id: '58056975'
@@ -1206,15 +1808,9 @@ components:
               id: '138732915'
               name: Acme
               created_at: '2019-01-01T00:00:00.000Z'
-              url: http://company.aha.io/ideas/idea_organizations/138732915
-              resource: http://company.aha.io/api/v1/idea_organizations/138732915
-            description:
-              id: ''
-              body: ''
-              editor_version: 2
-              created_at: null
-              updated_at: null
-              attachments: []
+              url: https://company.aha.io/ideas/idea_organizations/ACCOUNT-O-123
+              resource: https://company.aha.io/api/v1/idea_organizations/ACCOUNT-O-123
+            description: null
             integration_fields:
             - id: '975466318'
               name: key
@@ -1227,12 +1823,12 @@ components:
               key: vote_priority
               name: Priority
               updatedAt: '2019-01-01T00:00:00Z'
-              value: P3
               type: string
+              value: P3
             idea:
               id: '58056975'
-              reference_num: PRJ1-I-1
               name: Idea 1
+              reference_num: PRJ1-I-1
               created_at: '2019-01-01T00:00:00.000Z'
               updated_at: '2019-01-01T00:00:00.000Z'
               workflow_status:
@@ -1241,15 +1837,18 @@ components:
                 position: 1
                 complete: false
                 color: '#dce7c6'
+                workflow_status_category: null
               description:
                 id: '103757394'
                 body: Description of idea 1
+                notable_id: '58056975'
+                notable_type: Ideas::Idea
                 editor_version: 1
                 created_at: '2019-01-01T00:00:00.000Z'
                 updated_at: '2019-01-01T00:00:00.000Z'
                 attachments: []
-              url: http://company.aha.io/ideas/ideas/PRJ1-I-1
-              resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+              url: https://company.aha.io/ideas/ideas/PRJ1-I-1
+              resource: https://company.aha.io/api/v1/ideas/PRJ1-I-1
       example:
         idea_endorsement:
           id: '53377392'
@@ -1274,15 +1873,9 @@ components:
             id: '138732915'
             name: Acme
             created_at: '2019-01-01T00:00:00.000Z'
-            url: http://company.aha.io/ideas/idea_organizations/138732915
-            resource: http://company.aha.io/api/v1/idea_organizations/138732915
-          description:
-            id: ''
-            body: ''
-            editor_version: 2
-            created_at: null
-            updated_at: null
-            attachments: []
+            url: https://company.aha.io/ideas/idea_organizations/ACCOUNT-O-123
+            resource: https://company.aha.io/api/v1/idea_organizations/ACCOUNT-O-123
+          description: null
           integration_fields:
           - id: '975466318'
             name: key
@@ -1295,12 +1888,12 @@ components:
             key: vote_priority
             name: Priority
             updatedAt: '2019-01-01T00:00:00Z'
-            value: P3
             type: string
+            value: P3
           idea:
             id: '58056975'
-            reference_num: PRJ1-I-1
             name: Idea 1
+            reference_num: PRJ1-I-1
             created_at: '2019-01-01T00:00:00.000Z'
             updated_at: '2019-01-01T00:00:00.000Z'
             workflow_status:
@@ -1309,722 +1902,18 @@ components:
               position: 1
               complete: false
               color: '#dce7c6'
+              workflow_status_category: null
             description:
               id: '103757394'
               body: Description of idea 1
+              notable_id: '58056975'
+              notable_type: Ideas::Idea
               editor_version: 1
               created_at: '2019-01-01T00:00:00.000Z'
               updated_at: '2019-01-01T00:00:00.000Z'
               attachments: []
-            url: http://company.aha.io/ideas/ideas/PRJ1-I-1
-            resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
-    IdeavotesPostRequest:
-      type: object
-      properties:
-        idea_endorsement:
-          type: object
-          properties:
-            value:
-              type: number
-              example: 123.45
-          example:
-            value: 123.45
-      example:
-        idea_endorsement:
-          value: 123.45
-    IdeavotesPostResponse:
-      type: object
-      properties:
-        idea_endorsement:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149496332684'
-            idea_id:
-              type: string
-              example: '140490859'
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            value:
-              type: 'null'
-            link:
-              type: 'null'
-            weight:
-              type: integer
-              example: 1
-            endorsed_by_portal_user:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '6776881149488700322'
-                name:
-                  type: string
-                  example: no-reply@aha.io
-                email:
-                  type: string
-                  example: no-reply@aha.io
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-              example:
-                id: '6776881149488700322'
-                name: no-reply@aha.io
-                email: no-reply@aha.io
-                created_at: '2019-01-01T00:00:00.000Z'
-            endorsed_by_idea_user:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '6776881149490328278'
-                name:
-                  type: string
-                  example: no-reply@aha.io
-                email:
-                  type: string
-                  example: no-reply@aha.io
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                title:
-                  type: 'null'
-              example:
-                id: '6776881149490328278'
-                name: no-reply@aha.io
-                email: no-reply@aha.io
-                created_at: '2019-01-01T00:00:00.000Z'
-                title: null
-            description:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: ''
-                body:
-                  type: string
-                  example: ''
-                editor_version:
-                  type: integer
-                  example: 2
-                created_at:
-                  type: 'null'
-                updated_at:
-                  type: 'null'
-                attachments:
-                  type: array
-                  items: {}
-              example:
-                id: ''
-                body: ''
-                editor_version: 2
-                created_at: null
-                updated_at: null
-                attachments: []
-            integration_fields:
-              type: array
-              items: {}
-            custom_fields:
-              type: array
-              items: {}
-            idea:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '140490859'
-                reference_num:
-                  type: string
-                  example: PRJ1-I-8
-                name:
-                  type: string
-                  example: Some idea name 3
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                workflow_status:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    name:
-                      type: string
-                    position:
-                      type: string
-                    complete:
-                      type: string
-                    color:
-                      type: string
-                  example:
-                    id: '3259216'
-                    name: New
-                    position: 1
-                    complete: false
-                    color: '#dce7c6'
-                description:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    body:
-                      type: string
-                    editor_version:
-                      type: string
-                    created_at:
-                      type: string
-                    updated_at:
-                      type: string
-                    attachments:
-                      type: string
-                  example:
-                    id: '6776881149487885666'
-                    body: ''
-                    editor_version: 2
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    attachments: []
-                url:
-                  type: string
-                  example: http://company.aha.io/ideas/ideas/PRJ1-I-8
-                resource:
-                  type: string
-                  example: http://company.aha.io/api/v1/ideas/PRJ1-I-8
-              example:
-                id: '140490859'
-                reference_num: PRJ1-I-8
-                name: Some idea name 3
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                workflow_status:
-                  id: '3259216'
-                  name: New
-                  position: 1
-                  complete: false
-                  color: '#dce7c6'
-                description:
-                  id: '6776881149487885666'
-                  body: ''
-                  editor_version: 2
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  attachments: []
-                url: http://company.aha.io/ideas/ideas/PRJ1-I-8
-                resource: http://company.aha.io/api/v1/ideas/PRJ1-I-8
-          example:
-            id: '6776881149496332684'
-            idea_id: '140490859'
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            value: null
-            link: null
-            weight: 1
-            endorsed_by_portal_user:
-              id: '6776881149488700322'
-              name: no-reply@aha.io
-              email: no-reply@aha.io
-              created_at: '2019-01-01T00:00:00.000Z'
-            endorsed_by_idea_user:
-              id: '6776881149490328278'
-              name: no-reply@aha.io
-              email: no-reply@aha.io
-              created_at: '2019-01-01T00:00:00.000Z'
-              title: null
-            description:
-              id: ''
-              body: ''
-              editor_version: 2
-              created_at: null
-              updated_at: null
-              attachments: []
-            integration_fields: []
-            custom_fields: []
-            idea:
-              id: '140490859'
-              reference_num: PRJ1-I-8
-              name: Some idea name 3
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              workflow_status:
-                id: '3259216'
-                name: New
-                position: 1
-                complete: false
-                color: '#dce7c6'
-              description:
-                id: '6776881149487885666'
-                body: ''
-                editor_version: 2
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-              url: http://company.aha.io/ideas/ideas/PRJ1-I-8
-              resource: http://company.aha.io/api/v1/ideas/PRJ1-I-8
-      example:
-        idea_endorsement:
-          id: '6776881149496332684'
-          idea_id: '140490859'
-          created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          value: null
-          link: null
-          weight: 1
-          endorsed_by_portal_user:
-            id: '6776881149488700322'
-            name: no-reply@aha.io
-            email: no-reply@aha.io
-            created_at: '2019-01-01T00:00:00.000Z'
-          endorsed_by_idea_user:
-            id: '6776881149490328278'
-            name: no-reply@aha.io
-            email: no-reply@aha.io
-            created_at: '2019-01-01T00:00:00.000Z'
-            title: null
-          description:
-            id: ''
-            body: ''
-            editor_version: 2
-            created_at: null
-            updated_at: null
-            attachments: []
-          integration_fields: []
-          custom_fields: []
-          idea:
-            id: '140490859'
-            reference_num: PRJ1-I-8
-            name: Some idea name 3
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            workflow_status:
-              id: '3259216'
-              name: New
-              position: 1
-              complete: false
-              color: '#dce7c6'
-            description:
-              id: '6776881149487885666'
-              body: ''
-              editor_version: 2
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-            url: http://company.aha.io/ideas/ideas/PRJ1-I-8
-            resource: http://company.aha.io/api/v1/ideas/PRJ1-I-8
-    IdeavotesGetResponse:
-      type: object
-      properties:
-        idea_endorsement:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '53377392'
-            idea_id:
-              type: string
-              example: '58056975'
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            value:
-              type: 'null'
-            link:
-              type: 'null'
-            weight:
-              type: integer
-              example: 1
-            endorsed_by_portal_user:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '646391926'
-                name:
-                  type: string
-                  example: John Long
-                email:
-                  type: string
-                  example: john@long.com
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-              example:
-                id: '646391926'
-                name: John Long
-                email: john@long.com
-                created_at: '2019-01-01T00:00:00.000Z'
-            endorsed_by_idea_user:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '1056507375'
-                name:
-                  type: string
-                  example: John Long
-                email:
-                  type: string
-                  example: john@long.com
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                title:
-                  type: 'null'
-              example:
-                id: '1056507375'
-                name: John Long
-                email: john@long.com
-                created_at: '2019-01-01T00:00:00.000Z'
-                title: null
-            idea_organization:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '138732915'
-                name:
-                  type: string
-                  example: Acme
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                url:
-                  type: string
-                  example: http://company.aha.io/ideas/idea_organizations/138732915
-                resource:
-                  type: string
-                  example: http://company.aha.io/api/v1/idea_organizations/138732915
-              example:
-                id: '138732915'
-                name: Acme
-                created_at: '2019-01-01T00:00:00.000Z'
-                url: http://company.aha.io/ideas/idea_organizations/138732915
-                resource: http://company.aha.io/api/v1/idea_organizations/138732915
-            idea_users:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  first_name:
-                    type: string
-                  last_name:
-                    type: string
-                  email:
-                    type: string
-                example:
-                  id: '670061655'
-                  first_name: Tim
-                  last_name: Smith
-                  email: tim@smith.com
-              example:
-              - id: '670061655'
-                first_name: Tim
-                last_name: Smith
-                email: tim@smith.com
-              - id: '1056507375'
-                first_name: John
-                last_name: Long
-                email: john@long.com
-            description:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '6776881149490876559'
-                body:
-                  type: string
-                  example: ''
-                editor_version:
-                  type: integer
-                  example: 2
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                attachments:
-                  type: array
-                  items: {}
-              example:
-                id: '6776881149490876559'
-                body: ''
-                editor_version: 2
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-            integration_fields:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  name:
-                    type: string
-                  value:
-                    type: string
-                  integration_id:
-                    type: string
-                  service_name:
-                    type: string
-                  created_at:
-                    type: string
-                example:
-                  id: '975466318'
-                  name: key
-                  value: JRA-123
-                  integration_id: 204584239
-                  service_name: jira
-                  created_at: '2019-01-01T00:00:00.000Z'
-              example:
-              - id: '975466318'
-                name: key
-                value: JRA-123
-                integration_id: 204584239
-                service_name: jira
-                created_at: '2019-01-01T00:00:00.000Z'
-            custom_fields:
-              type: array
-              items: {}
-            idea:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '58056975'
-                reference_num:
-                  type: string
-                  example: PRJ1-I-1
-                name:
-                  type: string
-                  example: Idea 1
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                workflow_status:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    name:
-                      type: string
-                    position:
-                      type: string
-                    complete:
-                      type: string
-                    color:
-                      type: string
-                  example:
-                    id: '3259216'
-                    name: New
-                    position: 1
-                    complete: false
-                    color: '#dce7c6'
-                description:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    body:
-                      type: string
-                    editor_version:
-                      type: string
-                    created_at:
-                      type: string
-                    updated_at:
-                      type: string
-                    attachments:
-                      type: string
-                  example:
-                    id: '103757394'
-                    body: Description of idea 1
-                    editor_version: 1
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    attachments: []
-                url:
-                  type: string
-                  example: http://company.aha.io/ideas/ideas/PRJ1-I-1
-                resource:
-                  type: string
-                  example: http://company.aha.io/api/v1/ideas/PRJ1-I-1
-              example:
-                id: '58056975'
-                reference_num: PRJ1-I-1
-                name: Idea 1
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                workflow_status:
-                  id: '3259216'
-                  name: New
-                  position: 1
-                  complete: false
-                  color: '#dce7c6'
-                description:
-                  id: '103757394'
-                  body: Description of idea 1
-                  editor_version: 1
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  attachments: []
-                url: http://company.aha.io/ideas/ideas/PRJ1-I-1
-                resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
-          example:
-            id: '53377392'
-            idea_id: '58056975'
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            value: null
-            link: null
-            weight: 1
-            endorsed_by_portal_user:
-              id: '646391926'
-              name: John Long
-              email: john@long.com
-              created_at: '2019-01-01T00:00:00.000Z'
-            endorsed_by_idea_user:
-              id: '1056507375'
-              name: John Long
-              email: john@long.com
-              created_at: '2019-01-01T00:00:00.000Z'
-              title: null
-            idea_organization:
-              id: '138732915'
-              name: Acme
-              created_at: '2019-01-01T00:00:00.000Z'
-              url: http://company.aha.io/ideas/idea_organizations/138732915
-              resource: http://company.aha.io/api/v1/idea_organizations/138732915
-            idea_users:
-            - id: '670061655'
-              first_name: Tim
-              last_name: Smith
-              email: tim@smith.com
-            - id: '1056507375'
-              first_name: John
-              last_name: Long
-              email: john@long.com
-            description:
-              id: '6776881149490876559'
-              body: ''
-              editor_version: 2
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-            integration_fields:
-            - id: '975466318'
-              name: key
-              value: JRA-123
-              integration_id: 204584239
-              service_name: jira
-              created_at: '2019-01-01T00:00:00.000Z'
-            custom_fields: []
-            idea:
-              id: '58056975'
-              reference_num: PRJ1-I-1
-              name: Idea 1
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              workflow_status:
-                id: '3259216'
-                name: New
-                position: 1
-                complete: false
-                color: '#dce7c6'
-              description:
-                id: '103757394'
-                body: Description of idea 1
-                editor_version: 1
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-              url: http://company.aha.io/ideas/ideas/PRJ1-I-1
-              resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
-      example:
-        idea_endorsement:
-          id: '53377392'
-          idea_id: '58056975'
-          created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          value: null
-          link: null
-          weight: 1
-          endorsed_by_portal_user:
-            id: '646391926'
-            name: John Long
-            email: john@long.com
-            created_at: '2019-01-01T00:00:00.000Z'
-          endorsed_by_idea_user:
-            id: '1056507375'
-            name: John Long
-            email: john@long.com
-            created_at: '2019-01-01T00:00:00.000Z'
-            title: null
-          idea_organization:
-            id: '138732915'
-            name: Acme
-            created_at: '2019-01-01T00:00:00.000Z'
-            url: http://company.aha.io/ideas/idea_organizations/138732915
-            resource: http://company.aha.io/api/v1/idea_organizations/138732915
-          idea_users:
-          - id: '670061655'
-            first_name: Tim
-            last_name: Smith
-            email: tim@smith.com
-          - id: '1056507375'
-            first_name: John
-            last_name: Long
-            email: john@long.com
-          description:
-            id: '6776881149490876559'
-            body: ''
-            editor_version: 2
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            attachments: []
-          integration_fields:
-          - id: '975466318'
-            name: key
-            value: JRA-123
-            integration_id: 204584239
-            service_name: jira
-            created_at: '2019-01-01T00:00:00.000Z'
-          custom_fields: []
-          idea:
-            id: '58056975'
-            reference_num: PRJ1-I-1
-            name: Idea 1
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            workflow_status:
-              id: '3259216'
-              name: New
-              position: 1
-              complete: false
-              color: '#dce7c6'
-            description:
-              id: '103757394'
-              body: Description of idea 1
-              editor_version: 1
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-            url: http://company.aha.io/ideas/ideas/PRJ1-I-1
-            resource: http://company.aha.io/api/v1/ideas/PRJ1-I-1
+            url: https://company.aha.io/ideas/ideas/PRJ1-I-1
+            resource: https://company.aha.io/api/v1/ideas/PRJ1-I-1
   securitySchemes:
     OAuth2:
       type: oauth2

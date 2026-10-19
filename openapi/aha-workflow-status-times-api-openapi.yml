@@ -1,0 +1,1369 @@
+openapi: 3.2.0
+info:
+  title: Aha! Workflow status times API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Workflow status times
+paths:
+  /workflow_status_times/{id}:
+    delete:
+      summary: Delete a workflow status time
+      description: 'This API endpoint should be treated carefully as it could allow you to create invalid status transition times.
+
+        It requires activation on the account. Please contact support@aha.io to request access.
+
+
+        If you are looking to only list the workflow status history on a record, you can do so like this:
+
+        `/api/v1/?fields=reference_num,workflow_status_times`'
+      tags:
+      - Workflow status times
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: deleteWorkflowStatusTimesById
+      x-operation-id-source: derived
+    get:
+      summary: Get a single workflow status time
+      description: 'This API endpoint should be treated carefully as it could allow you to create invalid status transition times.
+
+        It requires activation on the account. Please contact support@aha.io to request access.
+
+
+        If you are looking to only list the workflow status history on a record, you can do so like this:
+
+        `/api/v1/?fields=reference_num,workflow_status_times`'
+      tags:
+      - Workflow status times
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/WorkflowstatustimesGetResponse'
+              example:
+                workflow_status_time:
+                  id: '6776881149498344107'
+                  workflow_status_id: '934242751'
+                  status_name: New
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: '2019-01-01T00:00:00.000Z'
+                  created_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getWorkflowStatusTimesById
+      x-operation-id-source: derived
+    put:
+      summary: Update a workflow status time
+      description: 'This API endpoint should be treated carefully as it could allow you to create invalid status transition times.
+
+        It requires activation on the account. Please contact support@aha.io to request access.
+
+
+        If you are looking to only list the workflow status history on a record, you can do so like this:
+
+        `/api/v1/?fields=reference_num,workflow_status_times`'
+      tags:
+      - Workflow status times
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/WorkflowstatustimesPutResponse'
+              example:
+                workflow_status_time:
+                  id: '6776881149489341806'
+                  workflow_status_id: '934242751'
+                  status_name: New
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: '2019-01-01T00:00:00.000Z'
+                  created_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkflowstatustimesPostRequest'
+            example:
+              workflow_status_time:
+                started_at: '2019-01-01T00:00:00Z'
+                ended_at: '2019-01-01T00:00:00Z'
+      operationId: putWorkflowStatusTimesById
+      x-operation-id-source: derived
+  /epics/{epic_id}/workflow_status_times:
+    get:
+      summary: List workflow status times for an epic
+      description: 'This API endpoint should be treated carefully as it could allow you to create invalid status transition times.
+
+        It requires activation on the account. Please contact support@aha.io to request access.
+
+
+        If you are looking to only list the workflow status history on a record, you can do so like this:
+
+        `/api/v1/?fields=reference_num,workflow_status_times`'
+      tags:
+      - Workflow status times
+      parameters:
+      - name: epic_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: EpicId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/WorkflowstatustimesGetResponse'
+              example:
+                workflow_status_times:
+                - id: '6776881149492808451'
+                  workflow_status_id: '934242751'
+                  status_name: New
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: '2019-01-01T00:00:00.000Z'
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getEpicsByEpicIdWorkflowStatusTimes
+      x-operation-id-source: derived
+    post:
+      summary: Create a workflow status time for an epic
+      description: 'This API endpoint should be treated carefully as it could allow you to create invalid status transition times.
+
+        It requires activation on the account. Please contact support@aha.io to request access.
+
+
+        If you are looking to only list the workflow status history on a record, you can do so like this:
+
+        `/api/v1/?fields=reference_num,workflow_status_times`'
+      tags:
+      - Workflow status times
+      parameters:
+      - name: epic_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: EpicId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/WorkflowstatustimesPostResponse'
+              example:
+                workflow_status_time:
+                  id: '6776881149491479743'
+                  workflow_status_id: '934242751'
+                  status_name: New
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: '2019-01-01T00:00:00.000Z'
+                  created_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkflowstatustimesPostRequest'
+            example:
+              workflow_status_time:
+                workflow_status_id: 934242751
+                started_at: '2019-01-01T00:00:00Z'
+                ended_at: '2019-01-01T00:00:00Z'
+      operationId: postEpicsByEpicIdWorkflowStatusTimes
+      x-operation-id-source: derived
+  /features/{feature_id}/workflow_status_times:
+    get:
+      summary: List workflow status times for a feature
+      description: 'This API endpoint should be treated carefully as it could allow you to create invalid status transition times.
+
+        It requires activation on the account. Please contact support@aha.io to request access.
+
+
+        If you are looking to only list the workflow status history on a record, you can do so like this:
+
+        `/api/v1/?fields=reference_num,workflow_status_times`'
+      tags:
+      - Workflow status times
+      parameters:
+      - name: feature_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: FeatureId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/WorkflowstatustimesGetResponse'
+              example:
+                workflow_status_times:
+                - id: '6776881149496839088'
+                  workflow_status_id: '934242751'
+                  status_name: New
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: '2019-01-01T00:00:00.000Z'
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getFeaturesByFeatureIdWorkflowStatusTimes
+      x-operation-id-source: derived
+    post:
+      summary: Create a workflow status time for a feature
+      description: 'This API endpoint should be treated carefully as it could allow you to create invalid status transition times.
+
+        It requires activation on the account. Please contact support@aha.io to request access.
+
+
+        If you are looking to only list the workflow status history on a record, you can do so like this:
+
+        `/api/v1/?fields=reference_num,workflow_status_times`'
+      tags:
+      - Workflow status times
+      parameters:
+      - name: feature_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: FeatureId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/WorkflowstatustimesPostResponse'
+              example:
+                workflow_status_time:
+                  id: '6776881149499470792'
+                  workflow_status_id: '934242751'
+                  status_name: New
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: '2019-01-01T00:00:00.000Z'
+                  created_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkflowstatustimesPostRequest'
+            example:
+              workflow_status_time:
+                workflow_status_id: 934242751
+                started_at: '2019-01-01T00:00:00Z'
+                ended_at: '2019-01-01T00:00:00Z'
+      operationId: postFeaturesByFeatureIdWorkflowStatusTimes
+      x-operation-id-source: derived
+  /ideas/{idea_id}/workflow_status_times:
+    get:
+      summary: List workflow status times for an idea
+      description: 'This API endpoint should be treated carefully as it could allow you to create invalid status transition times.
+
+        It requires activation on the account. Please contact support@aha.io to request access.
+
+
+        If you are looking to only list the workflow status history on a record, you can do so like this:
+
+        `/api/v1/?fields=reference_num,workflow_status_times`'
+      tags:
+      - Workflow status times
+      parameters:
+      - name: idea_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: IdeaId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/WorkflowstatustimesGetResponse'
+              example:
+                workflow_status_times:
+                - id: '6776881149484736113'
+                  workflow_status_id: '3259216'
+                  status_name: New
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: '2019-01-01T00:00:00.000Z'
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getIdeasByIdeaIdWorkflowStatusTimes
+      x-operation-id-source: derived
+    post:
+      summary: Create a workflow status time for an idea
+      description: 'This API endpoint should be treated carefully as it could allow you to create invalid status transition times.
+
+        It requires activation on the account. Please contact support@aha.io to request access.
+
+
+        If you are looking to only list the workflow status history on a record, you can do so like this:
+
+        `/api/v1/?fields=reference_num,workflow_status_times`'
+      tags:
+      - Workflow status times
+      parameters:
+      - name: idea_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: IdeaId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/WorkflowstatustimesPostResponse'
+              example:
+                workflow_status_time:
+                  id: '6776881149499938545'
+                  workflow_status_id: '3259216'
+                  status_name: New
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: '2019-01-01T00:00:00.000Z'
+                  created_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkflowstatustimesPostRequest'
+            example:
+              workflow_status_time:
+                workflow_status_id: 3259216
+                started_at: '2019-01-01T00:00:00Z'
+                ended_at: '2019-01-01T00:00:00Z'
+      operationId: postIdeasByIdeaIdWorkflowStatusTimes
+      x-operation-id-source: derived
+  /initiatives/{initiative_id}/workflow_status_times:
+    get:
+      summary: List workflow status times for an initiative
+      description: 'This API endpoint should be treated carefully as it could allow you to create invalid status transition times.
+
+        It requires activation on the account. Please contact support@aha.io to request access.
+
+
+        If you are looking to only list the workflow status history on a record, you can do so like this:
+
+        `/api/v1/?fields=reference_num,workflow_status_times`'
+      tags:
+      - Workflow status times
+      parameters:
+      - name: initiative_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: InitiativeId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/WorkflowstatustimesGetResponse'
+              example:
+                workflow_status_times:
+                - id: '6776881149494969408'
+                  workflow_status_id: '53968949'
+                  status_name: Not Started
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: '2019-01-01T00:00:00.000Z'
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getInitiativesByInitiativeIdWorkflowStatusTimes
+      x-operation-id-source: derived
+    post:
+      summary: Create a workflow status time for an initiative
+      description: 'This API endpoint should be treated carefully as it could allow you to create invalid status transition times.
+
+        It requires activation on the account. Please contact support@aha.io to request access.
+
+
+        If you are looking to only list the workflow status history on a record, you can do so like this:
+
+        `/api/v1/?fields=reference_num,workflow_status_times`'
+      tags:
+      - Workflow status times
+      parameters:
+      - name: initiative_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: InitiativeId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/WorkflowstatustimesPostResponse'
+              example:
+                workflow_status_time:
+                  id: '6776881149485305915'
+                  workflow_status_id: '53968949'
+                  status_name: Not Started
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: '2019-01-01T00:00:00.000Z'
+                  created_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkflowstatustimesPostRequest'
+            example:
+              workflow_status_time:
+                workflow_status_id: 53968949
+                started_at: '2019-01-01T00:00:00Z'
+                ended_at: '2019-01-01T00:00:00Z'
+      operationId: postInitiativesByInitiativeIdWorkflowStatusTimes
+      x-operation-id-source: derived
+  /key_results/{key_result_id}/workflow_status_times:
+    get:
+      summary: List workflow status times for a key result
+      description: 'This API endpoint should be treated carefully as it could allow you to create invalid status transition times.
+
+        It requires activation on the account. Please contact support@aha.io to request access.
+
+
+        If you are looking to only list the workflow status history on a record, you can do so like this:
+
+        `/api/v1/?fields=reference_num,workflow_status_times`'
+      tags:
+      - Workflow status times
+      parameters:
+      - name: key_result_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: KeyResultId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/WorkflowstatustimesGetResponse'
+              example:
+                workflow_status_times:
+                - id: '6776881149487912648'
+                  workflow_status_id: '496533981'
+                  status_name: Not Started
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: '2019-01-01T00:00:00.000Z'
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getKeyResultsByKeyResultIdWorkflowStatusTimes
+      x-operation-id-source: derived
+    post:
+      summary: Create a workflow status time for a key result
+      description: 'This API endpoint should be treated carefully as it could allow you to create invalid status transition times.
+
+        It requires activation on the account. Please contact support@aha.io to request access.
+
+
+        If you are looking to only list the workflow status history on a record, you can do so like this:
+
+        `/api/v1/?fields=reference_num,workflow_status_times`'
+      tags:
+      - Workflow status times
+      parameters:
+      - name: key_result_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: KeyResultId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/WorkflowstatustimesPostResponse'
+              example:
+                workflow_status_time:
+                  id: '6776881149484796395'
+                  workflow_status_id: '496533981'
+                  status_name: Not Started
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: '2019-01-01T00:00:00.000Z'
+                  created_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkflowstatustimesPostRequest'
+            example:
+              workflow_status_time:
+                workflow_status_id: 496533981
+                started_at: '2019-01-01T00:00:00Z'
+                ended_at: '2019-01-01T00:00:00Z'
+      operationId: postKeyResultsByKeyResultIdWorkflowStatusTimes
+      x-operation-id-source: derived
+  /master_features/{master_feature_id}/workflow_status_times:
+    get:
+      summary: List workflow status times for a master feature
+      description: 'This API endpoint should be treated carefully as it could allow you to create invalid status transition times.
+
+        It requires activation on the account. Please contact support@aha.io to request access.
+
+
+        If you are looking to only list the workflow status history on a record, you can do so like this:
+
+        `/api/v1/?fields=reference_num,workflow_status_times`'
+      tags:
+      - Workflow status times
+      parameters:
+      - name: master_feature_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: MasterFeatureId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/WorkflowstatustimesGetResponse'
+              example:
+                workflow_status_times:
+                - id: '6776881149490478180'
+                  workflow_status_id: '934242751'
+                  status_name: New
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: '2019-01-01T00:00:00.000Z'
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getMasterFeaturesByMasterFeatureIdWorkflowStatusTimes
+      x-operation-id-source: derived
+    post:
+      summary: Create a workflow status time for a master feature
+      description: 'This API endpoint should be treated carefully as it could allow you to create invalid status transition times.
+
+        It requires activation on the account. Please contact support@aha.io to request access.
+
+
+        If you are looking to only list the workflow status history on a record, you can do so like this:
+
+        `/api/v1/?fields=reference_num,workflow_status_times`'
+      tags:
+      - Workflow status times
+      parameters:
+      - name: master_feature_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: MasterFeatureId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/WorkflowstatustimesPostResponse'
+              example:
+                workflow_status_time:
+                  id: '6776881149499653883'
+                  workflow_status_id: '934242751'
+                  status_name: New
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: '2019-01-01T00:00:00.000Z'
+                  created_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkflowstatustimesPostRequest'
+            example:
+              workflow_status_time:
+                workflow_status_id: 934242751
+                started_at: '2019-01-01T00:00:00Z'
+                ended_at: '2019-01-01T00:00:00Z'
+      operationId: postMasterFeaturesByMasterFeatureIdWorkflowStatusTimes
+      x-operation-id-source: derived
+  /pages/{page_id}/workflow_status_times:
+    get:
+      summary: List workflow status times for a page
+      description: 'This API endpoint should be treated carefully as it could allow you to create invalid status transition times.
+
+        It requires activation on the account. Please contact support@aha.io to request access.
+
+
+        If you are looking to only list the workflow status history on a record, you can do so like this:
+
+        `/api/v1/?fields=reference_num,workflow_status_times`'
+      tags:
+      - Workflow status times
+      parameters:
+      - name: page_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: PageId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/WorkflowstatustimesGetResponse'
+              example:
+                workflow_status_times:
+                - id: '6776881149493346663'
+                  workflow_status_id: '369936966'
+                  status_name: Not Started
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: '2019-01-01T00:00:00.000Z'
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getPagesByPageIdWorkflowStatusTimes
+      x-operation-id-source: derived
+    post:
+      summary: Create a workflow status time for a page
+      description: 'This API endpoint should be treated carefully as it could allow you to create invalid status transition times.
+
+        It requires activation on the account. Please contact support@aha.io to request access.
+
+
+        If you are looking to only list the workflow status history on a record, you can do so like this:
+
+        `/api/v1/?fields=reference_num,workflow_status_times`'
+      tags:
+      - Workflow status times
+      parameters:
+      - name: page_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: PageId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/WorkflowstatustimesPostResponse'
+              example:
+                workflow_status_time:
+                  id: '6776881149487453619'
+                  workflow_status_id: '369936966'
+                  status_name: Not Started
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: '2019-01-01T00:00:00.000Z'
+                  created_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkflowstatustimesPostRequest'
+            example:
+              workflow_status_time:
+                workflow_status_id: 369936966
+                started_at: '2019-01-01T00:00:00Z'
+                ended_at: '2019-01-01T00:00:00Z'
+      operationId: postPagesByPageIdWorkflowStatusTimes
+      x-operation-id-source: derived
+  /releases/{release_id}/workflow_status_times:
+    get:
+      summary: List workflow status times for a release
+      description: 'This API endpoint should be treated carefully as it could allow you to create invalid status transition times.
+
+        It requires activation on the account. Please contact support@aha.io to request access.
+
+
+        If you are looking to only list the workflow status history on a record, you can do so like this:
+
+        `/api/v1/?fields=reference_num,workflow_status_times`'
+      tags:
+      - Workflow status times
+      parameters:
+      - name: release_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ReleaseId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/WorkflowstatustimesGetResponse'
+              example:
+                workflow_status_times:
+                - id: '6776881149497020069'
+                  workflow_status_id: '738862546'
+                  status_name: New
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: '2019-01-01T00:00:00.000Z'
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getReleasesByReleaseIdWorkflowStatusTimes
+      x-operation-id-source: derived
+    post:
+      summary: Create a workflow status time for a release
+      description: 'This API endpoint should be treated carefully as it could allow you to create invalid status transition times.
+
+        It requires activation on the account. Please contact support@aha.io to request access.
+
+
+        If you are looking to only list the workflow status history on a record, you can do so like this:
+
+        `/api/v1/?fields=reference_num,workflow_status_times`'
+      tags:
+      - Workflow status times
+      parameters:
+      - name: release_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ReleaseId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/WorkflowstatustimesPostResponse'
+              example:
+                workflow_status_time:
+                  id: '6776881149491696587'
+                  workflow_status_id: '738862546'
+                  status_name: New
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: '2019-01-01T00:00:00.000Z'
+                  created_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkflowstatustimesPostRequest'
+            example:
+              workflow_status_time:
+                workflow_status_id: 738862546
+                started_at: '2019-01-01T00:00:00Z'
+                ended_at: '2019-01-01T00:00:00Z'
+      operationId: postReleasesByReleaseIdWorkflowStatusTimes
+      x-operation-id-source: derived
+  /requirements/{requirement_id}/workflow_status_times:
+    get:
+      summary: List workflow status times for a requirement
+      description: 'This API endpoint should be treated carefully as it could allow you to create invalid status transition times.
+
+        It requires activation on the account. Please contact support@aha.io to request access.
+
+
+        If you are looking to only list the workflow status history on a record, you can do so like this:
+
+        `/api/v1/?fields=reference_num,workflow_status_times`'
+      tags:
+      - Workflow status times
+      parameters:
+      - name: requirement_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: RequirementId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/WorkflowstatustimesGetResponse'
+              example:
+                workflow_status_times:
+                - id: '6776881149496345759'
+                  workflow_status_id: '934242751'
+                  status_name: New
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: '2019-01-01T00:00:00.000Z'
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getRequirementsByRequirementIdWorkflowStatusTimes
+      x-operation-id-source: derived
+    post:
+      summary: Create a workflow status time for a requirement
+      description: 'This API endpoint should be treated carefully as it could allow you to create invalid status transition times.
+
+        It requires activation on the account. Please contact support@aha.io to request access.
+
+
+        If you are looking to only list the workflow status history on a record, you can do so like this:
+
+        `/api/v1/?fields=reference_num,workflow_status_times`'
+      tags:
+      - Workflow status times
+      parameters:
+      - name: requirement_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: RequirementId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/WorkflowstatustimesPostResponse'
+              example:
+                workflow_status_time:
+                  id: '6776881149493086129'
+                  workflow_status_id: '934242751'
+                  status_name: New
+                  started_at: '2019-01-01T00:00:00.000Z'
+                  ended_at: '2019-01-01T00:00:00.000Z'
+                  created_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkflowstatustimesPostRequest'
+            example:
+              workflow_status_time:
+                workflow_status_id: 934242751
+                started_at: '2019-01-01T00:00:00Z'
+                ended_at: '2019-01-01T00:00:00Z'
+      operationId: postRequirementsByRequirementIdWorkflowStatusTimes
+      x-operation-id-source: derived
+components:
+  schemas:
+    WorkflowstatustimesPostRequest:
+      type: object
+      properties:
+        workflow_status_time:
+          type: object
+          properties:
+            started_at:
+              type: string
+              example: '2019-01-01T00:00:00Z'
+            ended_at:
+              type: string
+              example: '2019-01-01T00:00:00Z'
+          example:
+            started_at: '2019-01-01T00:00:00Z'
+            ended_at: '2019-01-01T00:00:00Z'
+      example:
+        workflow_status_time:
+          started_at: '2019-01-01T00:00:00Z'
+          ended_at: '2019-01-01T00:00:00Z'
+    WorkflowstatustimesGetResponse:
+      type: object
+      properties:
+        workflow_status_time:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149498344107'
+            workflow_status_id:
+              type: string
+              example: '934242751'
+            status_name:
+              type: string
+              example: New
+            started_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            ended_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+          example:
+            id: '6776881149498344107'
+            workflow_status_id: '934242751'
+            status_name: New
+            started_at: '2019-01-01T00:00:00.000Z'
+            ended_at: '2019-01-01T00:00:00.000Z'
+            created_at: '2019-01-01T00:00:00.000Z'
+      example:
+        workflow_status_time:
+          id: '6776881149498344107'
+          workflow_status_id: '934242751'
+          status_name: New
+          started_at: '2019-01-01T00:00:00.000Z'
+          ended_at: '2019-01-01T00:00:00.000Z'
+          created_at: '2019-01-01T00:00:00.000Z'
+    WorkflowstatustimesPutResponse:
+      type: object
+      properties:
+        workflow_status_time:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149489341806'
+            workflow_status_id:
+              type: string
+              example: '934242751'
+            status_name:
+              type: string
+              example: New
+            started_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            ended_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+          example:
+            id: '6776881149489341806'
+            workflow_status_id: '934242751'
+            status_name: New
+            started_at: '2019-01-01T00:00:00.000Z'
+            ended_at: '2019-01-01T00:00:00.000Z'
+            created_at: '2019-01-01T00:00:00.000Z'
+      example:
+        workflow_status_time:
+          id: '6776881149489341806'
+          workflow_status_id: '934242751'
+          status_name: New
+          started_at: '2019-01-01T00:00:00.000Z'
+          ended_at: '2019-01-01T00:00:00.000Z'
+          created_at: '2019-01-01T00:00:00.000Z'
+    WorkflowstatustimesPostResponse:
+      type: object
+      properties:
+        workflow_status_time:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149493086129'
+            workflow_status_id:
+              type: string
+              example: '934242751'
+            status_name:
+              type: string
+              example: New
+            started_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            ended_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+          example:
+            id: '6776881149493086129'
+            workflow_status_id: '934242751'
+            status_name: New
+            started_at: '2019-01-01T00:00:00.000Z'
+            ended_at: '2019-01-01T00:00:00.000Z'
+            created_at: '2019-01-01T00:00:00.000Z'
+      example:
+        workflow_status_time:
+          id: '6776881149493086129'
+          workflow_status_id: '934242751'
+          status_name: New
+          started_at: '2019-01-01T00:00:00.000Z'
+          ended_at: '2019-01-01T00:00:00.000Z'
+          created_at: '2019-01-01T00:00:00.000Z'
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

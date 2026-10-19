@@ -20,9 +20,9 @@ security:
 tags:
 - name: Release phases
 paths:
-  /api/v1/releases/{id}/release_phases:
-    get:
-      summary: List release phases for a release
+  /release_phases/{id}:
+    delete:
+      summary: Delete a release phase
       description: null
       tags:
       - Release phases
@@ -34,102 +34,14 @@ paths:
           type: string
         description: Id identifier
       responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/ReleasephasesGetResponse'
-              example:
-                release_phases:
-                - id: '20526005'
-                  name: Alpha
-                  start_on: '2019-01-01'
-                  end_on: '2019-01-01'
-                  type: phase
-                  release_id: 278327321
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  progress: null
-                  progress_source: progress_manual
-                  duration_source: duration_manual
-                  description:
-                    id: '243384959'
-                    body: Description of release phase 1
-                    editor_version: 1
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    attachments: []
-                - id: '405824017'
-                  name: Beta
-                  start_on: '2019-01-01'
-                  end_on: '2019-01-01'
-                  type: milestone
-                  release_id: 278327321
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  progress: null
-                  progress_source: progress_manual
-                  duration_source: duration_manual
-                  description:
-                    id: '965145324'
-                    body: Description of release phase 2
-                    editor_version: 1
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    attachments: []
-                - id: '792154778'
-                  name: Beta [2]
-                  start_on: '2019-01-01'
-                  end_on: '2019-01-01'
-                  type: milestone
-                  release_id: 278327321
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  progress: null
-                  progress_source: progress_manual
-                  duration_source: duration_manual
-                  description:
-                    id: '6776881149494153311'
-                    body: ''
-                    editor_version: 2
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    attachments: []
-                - id: '827574075'
-                  name: Gamma
-                  start_on: '2019-01-01'
-                  end_on: '2019-01-01'
-                  type: milestone
-                  release_id: 278327321
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  progress: null
-                  progress_source: progress_manual
-                  duration_source: duration_manual
-                  description:
-                    id: '6776881149486508174'
-                    body: ''
-                    editor_version: 2
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    attachments: []
-                pagination:
-                  total_records: 4
-                  total_pages: 1
-                  current_page: 1
+        '204':
+          description: No content - operation successful
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1ReleasesByIdReleasePhases
+      operationId: deleteReleasePhasesById
       x-operation-id-source: derived
-  /api/v1/release_phases/{id}:
     get:
       summary: Get a specific release phase
       description: null
@@ -170,15 +82,19 @@ paths:
                   description:
                     id: '243384959'
                     body: Description of release phase 1
+                    notable_id: '20526005'
+                    notable_type: ReleasePhase
                     editor_version: 1
                     created_at: '2019-01-01T00:00:00.000Z'
                     updated_at: '2019-01-01T00:00:00.000Z'
                     attachments: []
+                  integration_fields: []
+                  custom_fields: []
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1ReleasePhasesById
+      operationId: getReleasePhasesById
       x-operation-id-source: derived
     put:
       summary: Update a release phase
@@ -214,16 +130,20 @@ paths:
                   release_id: 278327321
                   created_at: '2019-01-01T00:00:00.000Z'
                   updated_at: '2019-01-01T00:00:00.000Z'
-                  progress: 25
-                  progress_source: progress_manual
+                  progress: 0
+                  progress_source: progress_from_features
                   duration_source: duration_manual
                   description:
                     id: '243384959'
                     body: Description of release phase 1
+                    notable_id: '20526005'
+                    notable_type: ReleasePhase
                     editor_version: 1
                     created_at: '2019-01-01T00:00:00.000Z'
                     updated_at: '2019-01-01T00:00:00.000Z'
                     attachments: []
+                  integration_fields: []
+                  custom_fields: []
       security:
       - OAuth2: []
       - ApiKeyAuth: []
@@ -239,36 +159,27 @@ paths:
                 name: Another name
                 description: <p>new description</p>
                 phase_type: milestone
-      operationId: putApiV1ReleasePhasesById
+      operationId: putReleasePhasesById
       x-operation-id-source: derived
-    delete:
-      summary: Delete a release phase
-      description: null
-      tags:
-      - Release phases
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: Id identifier
-      responses:
-        '204':
-          description: No content - operation successful
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      operationId: deleteApiV1ReleasePhasesById
-      x-operation-id-source: derived
-  /api/v1/release_phases:
+  /release_phases:
     get:
       summary: List release phases in the account
       description: null
       tags:
       - Release phases
-      parameters: []
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
       responses:
         '200':
           description: Successful operation
@@ -297,10 +208,14 @@ paths:
                   description:
                     id: '243384959'
                     body: Description of release phase 1
+                    notable_id: '20526005'
+                    notable_type: ReleasePhase
                     editor_version: 1
                     created_at: '2019-01-01T00:00:00.000Z'
                     updated_at: '2019-01-01T00:00:00.000Z'
                     attachments: []
+                  integration_fields: []
+                  custom_fields: []
                 - id: '405824017'
                   name: Beta
                   start_on: '2019-01-01'
@@ -315,10 +230,14 @@ paths:
                   description:
                     id: '965145324'
                     body: Description of release phase 2
+                    notable_id: '405824017'
+                    notable_type: ReleasePhase
                     editor_version: 1
                     created_at: '2019-01-01T00:00:00.000Z'
                     updated_at: '2019-01-01T00:00:00.000Z'
                     attachments: []
+                  integration_fields: []
+                  custom_fields: []
                 - id: '792154778'
                   name: Beta [2]
                   start_on: '2019-01-01'
@@ -330,13 +249,9 @@ paths:
                   progress: null
                   progress_source: progress_manual
                   duration_source: duration_manual
-                  description:
-                    id: '6776881149487000230'
-                    body: ''
-                    editor_version: 2
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    attachments: []
+                  description: null
+                  integration_fields: []
+                  custom_fields: []
                 - id: '827574075'
                   name: Gamma
                   start_on: '2019-01-01'
@@ -348,13 +263,15 @@ paths:
                   progress: null
                   progress_source: progress_manual
                   duration_source: duration_manual
-                  description:
-                    id: '6776881149494371573'
-                    body: ''
-                    editor_version: 2
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    attachments: []
+                  description: null
+                  integration_fields: []
+                  custom_fields:
+                  - id: 816664815
+                    key: text_field
+                    name: TextField1
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    type: string
+                    value: Hot dog taco
                 pagination:
                   total_records: 4
                   total_pages: 1
@@ -363,10 +280,10 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1ReleasePhases
+      operationId: getReleasePhases
       x-operation-id-source: derived
     post:
-      summary: Create a release phase
+      summary: Create a release milestone
       description: null
       tags:
       - Release phases
@@ -385,24 +302,28 @@ paths:
                 $ref: '#/components/schemas/ReleasephasesPostResponse'
               example:
                 release_phase:
-                  id: '6776881149493480488'
-                  name: New release milestone
+                  id: '6776881149486841155'
+                  name: New release phase
                   start_on: '2019-01-01'
                   end_on: '2019-01-01'
-                  type: milestone
+                  type: phase
                   release_id: 278327321
                   created_at: '2019-01-01T00:00:00.000Z'
                   updated_at: '2019-01-01T00:00:00.000Z'
                   progress: 0
-                  progress_source: progress_manual
+                  progress_source: progress_from_todos
                   duration_source: duration_manual
                   description:
-                    id: '6776881149492778822'
+                    id: '6776881149492719286'
                     body: <p>This is the description</p>
+                    notable_id: '6776881149486841155'
+                    notable_type: ReleasePhase
                     editor_version: 2
                     created_at: '2019-01-01T00:00:00.000Z'
                     updated_at: '2019-01-01T00:00:00.000Z'
                     attachments: []
+                  integration_fields: []
+                  custom_fields: []
       security:
       - OAuth2: []
       - ApiKeyAuth: []
@@ -415,252 +336,142 @@ paths:
               $ref: '#/components/schemas/ReleasephasesPostRequest'
             example:
               release_phase:
-                name: New release phase
-                phase_type: phase
+                name: New release milestone
+                phase_type: milestone
                 release_id: 278327321
                 start_on: '2019-01-01'
-                end_on: '2019-01-01'
                 description: <p>This is the description</p>
-      operationId: postApiV1ReleasePhases
+      operationId: postReleasePhases
+      x-operation-id-source: derived
+  /releases/{id}/release_phases:
+    get:
+      summary: List release phases for a release
+      description: null
+      tags:
+      - Release phases
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ReleasephasesGetResponse'
+              example:
+                release_phases:
+                - id: '20526005'
+                  name: Alpha
+                  start_on: '2019-01-01'
+                  end_on: '2019-01-01'
+                  type: phase
+                  release_id: 278327321
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  description:
+                    id: '243384959'
+                    body: Description of release phase 1
+                    notable_id: '20526005'
+                    notable_type: ReleasePhase
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  integration_fields: []
+                  custom_fields: []
+                - id: '405824017'
+                  name: Beta
+                  start_on: '2019-01-01'
+                  end_on: '2019-01-01'
+                  type: milestone
+                  release_id: 278327321
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  description:
+                    id: '965145324'
+                    body: Description of release phase 2
+                    notable_id: '405824017'
+                    notable_type: ReleasePhase
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  integration_fields: []
+                  custom_fields: []
+                - id: '792154778'
+                  name: Beta [2]
+                  start_on: '2019-01-01'
+                  end_on: '2019-01-01'
+                  type: milestone
+                  release_id: 278327321
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  description: null
+                  integration_fields: []
+                  custom_fields: []
+                - id: '827574075'
+                  name: Gamma
+                  start_on: '2019-01-01'
+                  end_on: '2019-01-01'
+                  type: milestone
+                  release_id: 278327321
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  progress: null
+                  progress_source: progress_manual
+                  duration_source: duration_manual
+                  description: null
+                  integration_fields: []
+                  custom_fields:
+                  - id: 816664815
+                    key: text_field
+                    name: TextField1
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    type: string
+                    value: Hot dog taco
+                pagination:
+                  total_records: 4
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getReleasesByIdReleasePhases
       x-operation-id-source: derived
 components:
   schemas:
-    ReleasephasesPostRequest:
-      type: object
-      properties:
-        release_phase:
-          type: object
-          properties:
-            name:
-              type: string
-              example: Another name
-            description:
-              type: string
-              example: <p>new description</p>
-            phase_type:
-              type: string
-              example: milestone
-          example:
-            name: Another name
-            description: <p>new description</p>
-            phase_type: milestone
-      example:
-        release_phase:
-          name: Another name
-          description: <p>new description</p>
-          phase_type: milestone
-    ReleasephasesPutResponse:
-      type: object
-      properties:
-        release_phase:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '20526005'
-            name:
-              type: string
-              example: Alpha
-            start_on:
-              type: string
-              example: '2019-01-01'
-            end_on:
-              type: string
-              example: '2019-01-01'
-            type:
-              type: string
-              example: phase
-            release_id:
-              type: integer
-              example: 278327321
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            progress:
-              type: integer
-              example: 25
-            progress_source:
-              type: string
-              example: progress_manual
-            duration_source:
-              type: string
-              example: duration_manual
-            description:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '243384959'
-                body:
-                  type: string
-                  example: Description of release phase 1
-                editor_version:
-                  type: integer
-                  example: 1
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                attachments:
-                  type: array
-                  items: {}
-              example:
-                id: '243384959'
-                body: Description of release phase 1
-                editor_version: 1
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-          example:
-            id: '20526005'
-            name: Alpha
-            start_on: '2019-01-01'
-            end_on: '2019-01-01'
-            type: phase
-            release_id: 278327321
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            progress: 25
-            progress_source: progress_manual
-            duration_source: duration_manual
-            description:
-              id: '243384959'
-              body: Description of release phase 1
-              editor_version: 1
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-      example:
-        release_phase:
-          id: '20526005'
-          name: Alpha
-          start_on: '2019-01-01'
-          end_on: '2019-01-01'
-          type: phase
-          release_id: 278327321
-          created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          progress: 25
-          progress_source: progress_manual
-          duration_source: duration_manual
-          description:
-            id: '243384959'
-            body: Description of release phase 1
-            editor_version: 1
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            attachments: []
-    ReleasephasesPostResponse:
-      type: object
-      properties:
-        release_phase:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149493480488'
-            name:
-              type: string
-              example: New release milestone
-            start_on:
-              type: string
-              example: '2019-01-01'
-            end_on:
-              type: string
-              example: '2019-01-01'
-            type:
-              type: string
-              example: milestone
-            release_id:
-              type: integer
-              example: 278327321
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            progress:
-              type: integer
-              example: 0
-            progress_source:
-              type: string
-              example: progress_manual
-            duration_source:
-              type: string
-              example: duration_manual
-            description:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '6776881149492778822'
-                body:
-                  type: string
-                  example: <p>This is the description</p>
-                editor_version:
-                  type: integer
-                  example: 2
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                attachments:
-                  type: array
-                  items: {}
-              example:
-                id: '6776881149492778822'
-                body: <p>This is the description</p>
-                editor_version: 2
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-          example:
-            id: '6776881149493480488'
-            name: New release milestone
-            start_on: '2019-01-01'
-            end_on: '2019-01-01'
-            type: milestone
-            release_id: 278327321
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            progress: 0
-            progress_source: progress_manual
-            duration_source: duration_manual
-            description:
-              id: '6776881149492778822'
-              body: <p>This is the description</p>
-              editor_version: 2
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-      example:
-        release_phase:
-          id: '6776881149493480488'
-          name: New release milestone
-          start_on: '2019-01-01'
-          end_on: '2019-01-01'
-          type: milestone
-          release_id: 278327321
-          created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          progress: 0
-          progress_source: progress_manual
-          duration_source: duration_manual
-          description:
-            id: '6776881149492778822'
-            body: <p>This is the description</p>
-            editor_version: 2
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            attachments: []
     ReleasephasesGetResponse:
       type: object
       properties:
@@ -708,6 +519,10 @@ components:
                     type: string
                   body:
                     type: string
+                  notable_id:
+                    type: string
+                  notable_type:
+                    type: string
                   editor_version:
                     type: string
                   created_at:
@@ -719,10 +534,18 @@ components:
                 example:
                   id: '243384959'
                   body: Description of release phase 1
+                  notable_id: '20526005'
+                  notable_type: ReleasePhase
                   editor_version: 1
                   created_at: '2019-01-01T00:00:00.000Z'
                   updated_at: '2019-01-01T00:00:00.000Z'
                   attachments: []
+              integration_fields:
+                type: array
+                items: {}
+              custom_fields:
+                type: array
+                items: {}
             example:
               id: '20526005'
               name: Alpha
@@ -738,10 +561,14 @@ components:
               description:
                 id: '243384959'
                 body: Description of release phase 1
+                notable_id: '20526005'
+                notable_type: ReleasePhase
                 editor_version: 1
                 created_at: '2019-01-01T00:00:00.000Z'
                 updated_at: '2019-01-01T00:00:00.000Z'
                 attachments: []
+              integration_fields: []
+              custom_fields: []
           example:
           - id: '20526005'
             name: Alpha
@@ -757,10 +584,14 @@ components:
             description:
               id: '243384959'
               body: Description of release phase 1
+              notable_id: '20526005'
+              notable_type: ReleasePhase
               editor_version: 1
               created_at: '2019-01-01T00:00:00.000Z'
               updated_at: '2019-01-01T00:00:00.000Z'
               attachments: []
+            integration_fields: []
+            custom_fields: []
           - id: '405824017'
             name: Beta
             start_on: '2019-01-01'
@@ -775,10 +606,14 @@ components:
             description:
               id: '965145324'
               body: Description of release phase 2
+              notable_id: '405824017'
+              notable_type: ReleasePhase
               editor_version: 1
               created_at: '2019-01-01T00:00:00.000Z'
               updated_at: '2019-01-01T00:00:00.000Z'
               attachments: []
+            integration_fields: []
+            custom_fields: []
           - id: '792154778'
             name: Beta [2]
             start_on: '2019-01-01'
@@ -790,13 +625,9 @@ components:
             progress: null
             progress_source: progress_manual
             duration_source: duration_manual
-            description:
-              id: '6776881149487000230'
-              body: ''
-              editor_version: 2
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
+            description: null
+            integration_fields: []
+            custom_fields: []
           - id: '827574075'
             name: Gamma
             start_on: '2019-01-01'
@@ -808,13 +639,15 @@ components:
             progress: null
             progress_source: progress_manual
             duration_source: duration_manual
-            description:
-              id: '6776881149494371573'
-              body: ''
-              editor_version: 2
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
+            description: null
+            integration_fields: []
+            custom_fields:
+            - id: 816664815
+              key: text_field
+              name: TextField1
+              updatedAt: '2019-01-01T00:00:00Z'
+              type: string
+              value: Hot dog taco
         pagination:
           type: object
           properties:
@@ -847,10 +680,14 @@ components:
           description:
             id: '243384959'
             body: Description of release phase 1
+            notable_id: '20526005'
+            notable_type: ReleasePhase
             editor_version: 1
             created_at: '2019-01-01T00:00:00.000Z'
             updated_at: '2019-01-01T00:00:00.000Z'
             attachments: []
+          integration_fields: []
+          custom_fields: []
         - id: '405824017'
           name: Beta
           start_on: '2019-01-01'
@@ -865,10 +702,14 @@ components:
           description:
             id: '965145324'
             body: Description of release phase 2
+            notable_id: '405824017'
+            notable_type: ReleasePhase
             editor_version: 1
             created_at: '2019-01-01T00:00:00.000Z'
             updated_at: '2019-01-01T00:00:00.000Z'
             attachments: []
+          integration_fields: []
+          custom_fields: []
         - id: '792154778'
           name: Beta [2]
           start_on: '2019-01-01'
@@ -880,13 +721,9 @@ components:
           progress: null
           progress_source: progress_manual
           duration_source: duration_manual
-          description:
-            id: '6776881149487000230'
-            body: ''
-            editor_version: 2
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            attachments: []
+          description: null
+          integration_fields: []
+          custom_fields: []
         - id: '827574075'
           name: Gamma
           start_on: '2019-01-01'
@@ -898,17 +735,299 @@ components:
           progress: null
           progress_source: progress_manual
           duration_source: duration_manual
-          description:
-            id: '6776881149494371573'
-            body: ''
-            editor_version: 2
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            attachments: []
+          description: null
+          integration_fields: []
+          custom_fields:
+          - id: 816664815
+            key: text_field
+            name: TextField1
+            updatedAt: '2019-01-01T00:00:00Z'
+            type: string
+            value: Hot dog taco
         pagination:
           total_records: 4
           total_pages: 1
           current_page: 1
+    ReleasephasesPutResponse:
+      type: object
+      properties:
+        release_phase:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '20526005'
+            name:
+              type: string
+              example: Alpha
+            start_on:
+              type: string
+              example: '2019-01-01'
+            end_on:
+              type: string
+              example: '2019-01-01'
+            type:
+              type: string
+              example: phase
+            release_id:
+              type: integer
+              example: 278327321
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            progress:
+              type: integer
+              example: 0
+            progress_source:
+              type: string
+              example: progress_from_features
+            duration_source:
+              type: string
+              example: duration_manual
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '243384959'
+                body:
+                  type: string
+                  example: Description of release phase 1
+                notable_id:
+                  type: string
+                  example: '20526005'
+                notable_type:
+                  type: string
+                  example: ReleasePhase
+                editor_version:
+                  type: integer
+                  example: 1
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: '243384959'
+                body: Description of release phase 1
+                notable_id: '20526005'
+                notable_type: ReleasePhase
+                editor_version: 1
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            integration_fields:
+              type: array
+              items: {}
+            custom_fields:
+              type: array
+              items: {}
+          example:
+            id: '20526005'
+            name: Alpha
+            start_on: '2019-01-01'
+            end_on: '2019-01-01'
+            type: phase
+            release_id: 278327321
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            progress: 0
+            progress_source: progress_from_features
+            duration_source: duration_manual
+            description:
+              id: '243384959'
+              body: Description of release phase 1
+              notable_id: '20526005'
+              notable_type: ReleasePhase
+              editor_version: 1
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            integration_fields: []
+            custom_fields: []
+      example:
+        release_phase:
+          id: '20526005'
+          name: Alpha
+          start_on: '2019-01-01'
+          end_on: '2019-01-01'
+          type: phase
+          release_id: 278327321
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          progress: 0
+          progress_source: progress_from_features
+          duration_source: duration_manual
+          description:
+            id: '243384959'
+            body: Description of release phase 1
+            notable_id: '20526005'
+            notable_type: ReleasePhase
+            editor_version: 1
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+          integration_fields: []
+          custom_fields: []
+    ReleasephasesPostRequest:
+      type: object
+      properties:
+        release_phase:
+          type: object
+          properties:
+            name:
+              type: string
+              example: Another name
+            description:
+              type: string
+              example: <p>new description</p>
+            phase_type:
+              type: string
+              example: milestone
+          example:
+            name: Another name
+            description: <p>new description</p>
+            phase_type: milestone
+      example:
+        release_phase:
+          name: Another name
+          description: <p>new description</p>
+          phase_type: milestone
+    ReleasephasesPostResponse:
+      type: object
+      properties:
+        release_phase:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149486841155'
+            name:
+              type: string
+              example: New release phase
+            start_on:
+              type: string
+              example: '2019-01-01'
+            end_on:
+              type: string
+              example: '2019-01-01'
+            type:
+              type: string
+              example: phase
+            release_id:
+              type: integer
+              example: 278327321
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            progress:
+              type: integer
+              example: 0
+            progress_source:
+              type: string
+              example: progress_from_todos
+            duration_source:
+              type: string
+              example: duration_manual
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149492719286'
+                body:
+                  type: string
+                  example: <p>This is the description</p>
+                notable_id:
+                  type: string
+                  example: '6776881149486841155'
+                notable_type:
+                  type: string
+                  example: ReleasePhase
+                editor_version:
+                  type: integer
+                  example: 2
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: '6776881149492719286'
+                body: <p>This is the description</p>
+                notable_id: '6776881149486841155'
+                notable_type: ReleasePhase
+                editor_version: 2
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            integration_fields:
+              type: array
+              items: {}
+            custom_fields:
+              type: array
+              items: {}
+          example:
+            id: '6776881149486841155'
+            name: New release phase
+            start_on: '2019-01-01'
+            end_on: '2019-01-01'
+            type: phase
+            release_id: 278327321
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            progress: 0
+            progress_source: progress_from_todos
+            duration_source: duration_manual
+            description:
+              id: '6776881149492719286'
+              body: <p>This is the description</p>
+              notable_id: '6776881149486841155'
+              notable_type: ReleasePhase
+              editor_version: 2
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            integration_fields: []
+            custom_fields: []
+      example:
+        release_phase:
+          id: '6776881149486841155'
+          name: New release phase
+          start_on: '2019-01-01'
+          end_on: '2019-01-01'
+          type: phase
+          release_id: 278327321
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          progress: 0
+          progress_source: progress_from_todos
+          duration_source: duration_manual
+          description:
+            id: '6776881149492719286'
+            body: <p>This is the description</p>
+            notable_id: '6776881149486841155'
+            notable_type: ReleasePhase
+            editor_version: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+          integration_fields: []
+          custom_fields: []
   securitySchemes:
     OAuth2:
       type: oauth2

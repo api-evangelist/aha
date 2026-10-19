@@ -20,13 +20,25 @@ security:
 tags:
 - name: Strategic positionings
 paths:
-  /api/v1/strategy_positions:
+  /strategy_positions:
     get:
       summary: List strategic positionings
       description: null
       tags:
       - Strategic positionings
-      parameters: []
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
       responses:
         '200':
           description: Successful operation
@@ -44,37 +56,41 @@ paths:
                 - id: '51832287'
                   name: Aha! strategic positioning model canvas
                   kind: Positioning
+                  url: https://company.aha.io/business_models/PRJ1-M-2
+                  resource: https://company.aha.io/business_models/PRJ1-M-2
+                  reference_num: PRJ1-M-2
                   components:
                   - id: 260808894
                     name: Value Proposition
                     description: ''
-                  url: http://company.aha.io/business_models/51832287
-                  resource: http://company.aha.io/business_models/51832287
+                  description: null
                   project:
                     id: '131414752'
                     reference_prefix: PRJ1
                     name: Project 1
                     product_line: false
                     created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
                     workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
                 - id: '453528824'
                   name: Aha! strategic positioning model canvas
                   kind: Positioning
+                  url: https://company.aha.io/business_models/PRJ2-M-2
+                  resource: https://company.aha.io/business_models/PRJ2-M-2
+                  reference_num: PRJ2-M-2
                   components:
                   - id: 37485938
                     name: Growth opportunity
                     description: ''
-                  url: http://company.aha.io/business_models/453528824
-                  resource: http://company.aha.io/business_models/453528824
+                  description: null
                   project:
                     id: '517761884'
                     reference_prefix: PRJ2
                     name: Project 2
                     product_line: false
                     created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ2
                     workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ2
                 pagination:
                   total_records: 2
                   total_pages: 1
@@ -83,9 +99,9 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1StrategyPositions
+      operationId: getStrategyPositions
       x-operation-id-source: derived
-  /api/v1/strategy_positions/{id}:
+  /strategy_positions/{id}:
     get:
       summary: Get a specific strategic positioning
       description: null
@@ -115,25 +131,27 @@ paths:
                   id: '453528824'
                   name: Aha! strategic positioning model canvas
                   kind: Positioning
+                  url: https://company.aha.io/business_models/PRJ2-M-2
+                  resource: https://company.aha.io/business_models/PRJ2-M-2
+                  reference_num: PRJ2-M-2
                   components:
                   - id: 37485938
                     name: Growth opportunity
                     description: ''
-                  url: http://company.aha.io/business_models/453528824
-                  resource: http://company.aha.io/business_models/453528824
+                  description: null
                   project:
                     id: '517761884'
                     reference_prefix: PRJ2
                     name: Project 2
                     product_line: false
                     created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ2
                     workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ2
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1StrategyPositionsById
+      operationId: getStrategyPositionsById
       x-operation-id-source: derived
 components:
   schemas:
@@ -152,6 +170,15 @@ components:
             kind:
               type: string
               example: Positioning
+            url:
+              type: string
+              example: https://company.aha.io/business_models/PRJ2-M-2
+            resource:
+              type: string
+              example: https://company.aha.io/business_models/PRJ2-M-2
+            reference_num:
+              type: string
+              example: PRJ2-M-2
             components:
               type: array
               items:
@@ -171,12 +198,8 @@ components:
               - id: 37485938
                 name: Growth opportunity
                 description: ''
-            url:
-              type: string
-              example: http://company.aha.io/business_models/453528824
-            resource:
-              type: string
-              example: http://company.aha.io/business_models/453528824
+            description:
+              type: 'null'
             project:
               type: object
               properties:
@@ -195,57 +218,61 @@ components:
                 created_at:
                   type: string
                   example: '2019-01-01T00:00:00.000Z'
+                url:
+                  type: string
+                  example: https://company.aha.io/projects/PRJ2
                 workspace_type:
                   type: string
                   example: product_workspace
-                url:
-                  type: string
-                  example: http://company.aha.io/projects/PRJ2
               example:
                 id: '517761884'
                 reference_prefix: PRJ2
                 name: Project 2
                 product_line: false
                 created_at: '2019-01-01T00:00:00.000Z'
+                url: https://company.aha.io/projects/PRJ2
                 workspace_type: product_workspace
-                url: http://company.aha.io/projects/PRJ2
           example:
             id: '453528824'
             name: Aha! strategic positioning model canvas
             kind: Positioning
+            url: https://company.aha.io/business_models/PRJ2-M-2
+            resource: https://company.aha.io/business_models/PRJ2-M-2
+            reference_num: PRJ2-M-2
             components:
             - id: 37485938
               name: Growth opportunity
               description: ''
-            url: http://company.aha.io/business_models/453528824
-            resource: http://company.aha.io/business_models/453528824
+            description: null
             project:
               id: '517761884'
               reference_prefix: PRJ2
               name: Project 2
               product_line: false
               created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/projects/PRJ2
               workspace_type: product_workspace
-              url: http://company.aha.io/projects/PRJ2
       example:
         strategy_positioning:
           id: '453528824'
           name: Aha! strategic positioning model canvas
           kind: Positioning
+          url: https://company.aha.io/business_models/PRJ2-M-2
+          resource: https://company.aha.io/business_models/PRJ2-M-2
+          reference_num: PRJ2-M-2
           components:
           - id: 37485938
             name: Growth opportunity
             description: ''
-          url: http://company.aha.io/business_models/453528824
-          resource: http://company.aha.io/business_models/453528824
+          description: null
           project:
             id: '517761884'
             reference_prefix: PRJ2
             name: Project 2
             product_line: false
             created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/projects/PRJ2
             workspace_type: product_workspace
-            url: http://company.aha.io/projects/PRJ2
   securitySchemes:
     OAuth2:
       type: oauth2

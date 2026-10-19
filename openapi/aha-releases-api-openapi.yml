@@ -20,7 +20,7 @@ security:
 tags:
 - name: Releases
 paths:
-  /api/v1/releases/{id}:
+  /releases/{id}:
     get:
       summary: Get a specific release
       description: null
@@ -56,7 +56,7 @@ paths:
                   development_started_on: '2019-01-01'
                   release_date: '2019-01-01'
                   external_release_date: '2019-01-01'
-                  external_release_date_description: Sep 11, 2025
+                  external_release_date_description: Aug 14, 2026
                   external_date_resolution: exact
                   released: false
                   parking_lot: false
@@ -72,12 +72,14 @@ paths:
                   theme:
                     id: '522610666'
                     body: Theme of the release
+                    notable_id: '278327321'
+                    notable_type: Release
                     editor_version: 1
                     created_at: '2019-01-01T00:00:00.000Z'
                     updated_at: '2019-01-01T00:00:00.000Z'
                     attachments: []
-                  url: http://company.aha.io/releases/PRJ1-R-1
-                  resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
+                  url: https://company.aha.io/releases/PRJ1-R-1
+                  resource: https://company.aha.io/api/v1/releases/PRJ1-R-1
                   integration_fields:
                   - id: '68217473'
                     name: id
@@ -90,19 +92,19 @@ paths:
                     key: note
                     name: Note
                     updatedAt: '2019-01-01T00:00:00Z'
+                    type: note
+                    value: <p>sample text</p>
                     body: <p>sample text</p>
                     editor_version: 1
                     created_at: '2019-01-01T00:00:00.000Z'
                     updated_at: '2019-01-01T00:00:00.000Z'
                     attachments: []
-                    value: <p>sample text</p>
-                    type: note
                   - id: 424324947
                     key: text_field
                     name: TextField
                     updatedAt: '2019-01-01T00:00:00Z'
-                    value: Acme Corp
                     type: string
+                    value: Acme Corp
                   comments_count: 1
                   workflow_status:
                     id: '738862546'
@@ -110,6 +112,7 @@ paths:
                     position: 1
                     complete: false
                     color: '#dce7c6'
+                    workflow_status_category: null
                   owner:
                     id: '16338845'
                     name: John Smith
@@ -119,12 +122,14 @@ paths:
                   goals:
                   - id: '602095703'
                     name: Goal 1
-                    url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
-                    resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+                    url: https://company.aha.io/strategic_imperatives/DEMOENT-G-1
+                    resource: https://company.aha.io/api/v1/goals/DEMOENT-G-1
                     created_at: '2019-01-01T00:00:00.000Z'
                     description:
                       id: '166463080'
                       body: Description of goal 1
+                      notable_id: '602095703'
+                      notable_type: StrategicImperative
                       editor_version: 1
                       created_at: '2019-01-01T00:00:00.000Z'
                       updated_at: '2019-01-01T00:00:00.000Z'
@@ -132,14 +137,16 @@ paths:
                   key_results: []
                   initiatives:
                   - id: '423077122'
-                    reference_num: PRJ1-S-1
                     name: Initiative 1
-                    url: http://company.aha.io/initiatives/PRJ1-S-1
-                    resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+                    reference_num: PRJ1-S-1
                     created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/initiatives/PRJ1-S-1
+                    resource: https://company.aha.io/api/v1/initiatives/PRJ1-S-1
                     description:
                       id: '673273729'
                       body: Description of initiative 1
+                      notable_id: '423077122'
+                      notable_type: Initiative
                       editor_version: 1
                       created_at: '2019-01-01T00:00:00.000Z'
                       updated_at: '2019-01-01T00:00:00.000Z'
@@ -163,8 +170,8 @@ paths:
                     name: Project 1
                     product_line: false
                     created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
                     workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
                   created_by_user:
                     id: '16338845'
                     name: John Smith
@@ -175,11 +182,11 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1ReleasesById
+      operationId: getReleasesById
       x-operation-id-source: derived
-  /api/v1/products/{product_id}/releases:
-    post:
-      summary: Create a release
+  /products/{product_id}/releases/{id}:
+    delete:
+      summary: Delete a release
       description: null
       tags:
       - Releases
@@ -190,996 +197,6 @@ paths:
         schema:
           type: string
         description: ProductId identifier
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/ReleasesPostResponse'
-              example:
-                release:
-                  id: '6776881149495764123'
-                  product_id: '131414752'
-                  reference_num: PRJ1-R-5
-                  name: Release 3
-                  start_date: null
-                  end_date: null
-                  development_started_on: null
-                  release_date: '2019-01-01'
-                  external_release_date: '2019-01-01'
-                  external_release_date_description: Oct 4, 2025
-                  external_date_resolution: sync
-                  released: false
-                  parking_lot: false
-                  master_release: false
-                  released_on: null
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  position: 1
-                  progress: 0
-                  progress_source: progress_from_features_completed
-                  duration_source: duration_manual
-                  status_changed_on: '2019-01-01'
-                  theme:
-                    id: '6776881149493840411'
-                    body: ''
-                    editor_version: 2
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    attachments: []
-                  url: http://company.aha.io/releases/PRJ1-R-5
-                  resource: http://company.aha.io/api/v1/releases/PRJ1-R-5
-                  integration_fields: []
-                  custom_fields: []
-                  comments_count: 0
-                  workflow_status:
-                    id: '738862546'
-                    name: New
-                    position: 1
-                    complete: false
-                    color: '#dce7c6'
-                  owner:
-                    id: '1020675218'
-                    name: Mary Humpty
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  goals: []
-                  key_results: []
-                  initiatives:
-                  - id: '4125886'
-                    reference_num: PRJ1-S-2
-                    name: Initiative 2
-                    url: http://company.aha.io/initiatives/PRJ1-S-2
-                    resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-2
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    description:
-                      id: '824706757'
-                      body: Description of initiative 2
-                      editor_version: 1
-                      created_at: '2019-01-01T00:00:00.000Z'
-                      updated_at: '2019-01-01T00:00:00.000Z'
-                      attachments: []
-                    integration_fields: []
-                  - id: '423077122'
-                    reference_num: PRJ1-S-1
-                    name: Initiative 1
-                    url: http://company.aha.io/initiatives/PRJ1-S-1
-                    resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    description:
-                      id: '673273729'
-                      body: Description of initiative 1
-                      editor_version: 1
-                      created_at: '2019-01-01T00:00:00.000Z'
-                      updated_at: '2019-01-01T00:00:00.000Z'
-                      attachments: []
-                    integration_fields:
-                    - id: '546711007'
-                      name: id
-                      value: '9913333'
-                      integration_id: 186281709
-                      service_name: jira
-                      created_at: '2019-01-01T00:00:00.000Z'
-                    - id: '966751335'
-                      name: key
-                      value: JRA-987222
-                      integration_id: 186281709
-                      service_name: jira
-                      created_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '131414752'
-                    reference_prefix: PRJ1
-                    name: Project 1
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
-                  workflow_status_times:
-                  - status_id: '738862546'
-                    status_name: New
-                    started_at: '2019-01-01T00:00:00.000Z'
-                    ended_at: null
-                  created_by_user:
-                    id: '1020675218'
-                    name: Mary Humpty
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ReleasesPostRequest'
-            example:
-              release:
-                owner: no-reply@aha.io
-                initiatives: Initiative 1
-                name: Release 3
-                status: New
-                theme: Our first big release
-                external_date_resolution: month
-      operationId: postApiV1ProductsByProductIdReleases
-      x-operation-id-source: derived
-    get:
-      summary: List releases in a product
-      description: null
-      tags:
-      - Releases
-      parameters:
-      - name: product_id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: ProductId identifier
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/ReleasesGetResponse'
-              example:
-                releases:
-                - id: '141021264'
-                  reference_num: PRJ1-MR-2
-                  name: Roll-up Release 2
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  parking_lot: false
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '131414752'
-                  integration_fields: []
-                  url: http://company.aha.io/master_releases/PRJ1-MR-2
-                  resource: http://company.aha.io/api/v1/releases/PRJ1-MR-2
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '131414752'
-                    reference_prefix: PRJ1
-                    name: Project 1
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
-                - id: '161456549'
-                  reference_num: PRJ1-R-2
-                  name: Release 2
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  parking_lot: false
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '131414752'
-                  integration_fields: []
-                  url: http://company.aha.io/releases/PRJ1-R-2
-                  resource: http://company.aha.io/api/v1/releases/PRJ1-R-2
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '131414752'
-                    reference_prefix: PRJ1
-                    name: Project 1
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
-                - id: '278327321'
-                  reference_num: PRJ1-R-1
-                  name: Release 1
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  parking_lot: false
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '131414752'
-                  integration_fields:
-                  - id: '68217473'
-                    name: id
-                    value: '777'
-                    integration_id: 204584239
-                    service_name: jira
-                    created_at: '2019-01-01T00:00:00.000Z'
-                  url: http://company.aha.io/releases/PRJ1-R-1
-                  resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '131414752'
-                    reference_prefix: PRJ1
-                    name: Project 1
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
-                - id: '292454904'
-                  reference_num: PRJ1-MR-1
-                  name: Roll-up Release 1
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  parking_lot: false
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '131414752'
-                  integration_fields: []
-                  url: http://company.aha.io/master_releases/PRJ1-MR-1
-                  resource: http://company.aha.io/api/v1/releases/PRJ1-MR-1
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '131414752'
-                    reference_prefix: PRJ1
-                    name: Project 1
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
-                - id: '325518644'
-                  reference_num: PRJ1-R-4
-                  name: Sub release 1
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  parking_lot: false
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '131414752'
-                  integration_fields: []
-                  url: http://company.aha.io/releases/PRJ1-R-4
-                  resource: http://company.aha.io/api/v1/releases/PRJ1-R-4
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '131414752'
-                    reference_prefix: PRJ1
-                    name: Project 1
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
-                  parent:
-                    id: '141021264'
-                    reference_num: PRJ1-MR-2
-                    name: Roll-up Release 2
-                    start_date: '2019-01-01'
-                    release_date: '2019-01-01'
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    url: http://company.aha.io/master_releases/PRJ1-MR-2
-                    resource: http://company.aha.io/api/v1/releases/PRJ1-MR-2
-                - id: '1050186040'
-                  reference_num: PRJ1-R-3
-                  name: Release 3
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  parking_lot: false
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '131414752'
-                  integration_fields:
-                  - id: '453734818'
-                    name: id
-                    value: '4221'
-                    integration_id: 342659513
-                    service_name: jira
-                    created_at: '2019-01-01T00:00:00.000Z'
-                  url: http://company.aha.io/releases/PRJ1-R-3
-                  resource: http://company.aha.io/api/v1/releases/PRJ1-R-3
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '131414752'
-                    reference_prefix: PRJ1
-                    name: Project 1
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
-                pagination:
-                  total_records: 6
-                  total_pages: 1
-                  current_page: 1
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      operationId: getApiV1ProductsByProductIdReleases
-      x-operation-id-source: derived
-  /api/v1/goals/{goal_id}/releases:
-    get:
-      summary: List releases associated with a goal
-      description: null
-      tags:
-      - Releases
-      parameters:
-      - name: goal_id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: GoalId identifier
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/ReleasesGetResponse'
-              example:
-                releases:
-                - id: '278327321'
-                  reference_num: PRJ1-R-1
-                  name: Release 1
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  parking_lot: false
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '131414752'
-                  integration_fields:
-                  - id: '68217473'
-                    name: id
-                    value: '777'
-                    integration_id: 204584239
-                    service_name: jira
-                    created_at: '2019-01-01T00:00:00.000Z'
-                  url: http://company.aha.io/releases/PRJ1-R-1
-                  resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '131414752'
-                    reference_prefix: PRJ1
-                    name: Project 1
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
-                pagination:
-                  total_records: 1
-                  total_pages: 1
-                  current_page: 1
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      operationId: getApiV1GoalsByGoalIdReleases
-      x-operation-id-source: derived
-  /api/v1/initiatives/{initiative_id}/releases:
-    get:
-      summary: List releases associated with an initiative
-      description: null
-      tags:
-      - Releases
-      parameters:
-      - name: initiative_id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: InitiativeId identifier
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/ReleasesGetResponse'
-              example:
-                releases:
-                - id: '161456549'
-                  reference_num: PRJ1-R-2
-                  name: Release 2
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  parking_lot: false
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '131414752'
-                  integration_fields: []
-                  url: http://company.aha.io/releases/PRJ1-R-2
-                  resource: http://company.aha.io/api/v1/releases/PRJ1-R-2
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '131414752'
-                    reference_prefix: PRJ1
-                    name: Project 1
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
-                - id: '278327321'
-                  reference_num: PRJ1-R-1
-                  name: Release 1
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  parking_lot: false
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '131414752'
-                  integration_fields:
-                  - id: '68217473'
-                    name: id
-                    value: '777'
-                    integration_id: 204584239
-                    service_name: jira
-                    created_at: '2019-01-01T00:00:00.000Z'
-                  url: http://company.aha.io/releases/PRJ1-R-1
-                  resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '131414752'
-                    reference_prefix: PRJ1
-                    name: Project 1
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
-                pagination:
-                  total_records: 2
-                  total_pages: 1
-                  current_page: 1
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      operationId: getApiV1InitiativesByInitiativeIdReleases
-      x-operation-id-source: derived
-  /api/v1/releases/{release_id}/releases:
-    get:
-      summary: List releases under a roll-up release
-      description: null
-      tags:
-      - Releases
-      parameters:
-      - name: release_id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: ReleaseId identifier
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/ReleasesGetResponse'
-              example:
-                releases:
-                - id: '325518644'
-                  reference_num: PRJ1-R-4
-                  name: Sub release 1
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  parking_lot: false
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '131414752'
-                  integration_fields: []
-                  url: http://company.aha.io/releases/PRJ1-R-4
-                  resource: http://company.aha.io/api/v1/releases/PRJ1-R-4
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '131414752'
-                    reference_prefix: PRJ1
-                    name: Project 1
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
-                  parent:
-                    id: '141021264'
-                    reference_num: PRJ1-MR-2
-                    name: Roll-up Release 2
-                    start_date: '2019-01-01'
-                    release_date: '2019-01-01'
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    url: http://company.aha.io/master_releases/PRJ1-MR-2
-                    resource: http://company.aha.io/api/v1/releases/PRJ1-MR-2
-                pagination:
-                  total_records: 1
-                  total_pages: 1
-                  current_page: 1
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      operationId: getApiV1ReleasesByReleaseIdReleases
-      x-operation-id-source: derived
-  /api/v1/roll_up_releases/{release_id}/releases:
-    get:
-      summary: List releases under a roll-up release
-      description: null
-      tags:
-      - Releases
-      parameters:
-      - name: release_id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: ReleaseId identifier
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/ReleasesGetResponse'
-              example:
-                releases:
-                - id: '85510963'
-                  reference_num: PRJ4-R-4
-                  name: Parking lot for Project 4
-                  parking_lot: true
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '935317104'
-                  integration_fields: []
-                  url: http://company.aha.io/releases/PRJ4-R-4
-                  resource: http://company.aha.io/api/v1/releases/PRJ4-R-4
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '935317104'
-                    reference_prefix: PRJ4
-                    name: Project 4
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ4
-                - id: '141021264'
-                  reference_num: PRJ1-MR-2
-                  name: Roll-up Release 2
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  parking_lot: false
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '131414752'
-                  integration_fields: []
-                  url: http://company.aha.io/master_releases/PRJ1-MR-2
-                  resource: http://company.aha.io/api/v1/releases/PRJ1-MR-2
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '131414752'
-                    reference_prefix: PRJ1
-                    name: Project 1
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
-                - id: '161456549'
-                  reference_num: PRJ1-R-2
-                  name: Release 2
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  parking_lot: false
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '131414752'
-                  integration_fields: []
-                  url: http://company.aha.io/releases/PRJ1-R-2
-                  resource: http://company.aha.io/api/v1/releases/PRJ1-R-2
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '131414752'
-                    reference_prefix: PRJ1
-                    name: Project 1
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
-                - id: '278327321'
-                  reference_num: PRJ1-R-1
-                  name: Release 1
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  parking_lot: false
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '131414752'
-                  integration_fields:
-                  - id: '68217473'
-                    name: id
-                    value: '777'
-                    integration_id: 204584239
-                    service_name: jira
-                    created_at: '2019-01-01T00:00:00.000Z'
-                  url: http://company.aha.io/releases/PRJ1-R-1
-                  resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '131414752'
-                    reference_prefix: PRJ1
-                    name: Project 1
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
-                - id: '292454904'
-                  reference_num: PRJ1-MR-1
-                  name: Roll-up Release 1
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  parking_lot: false
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '131414752'
-                  integration_fields: []
-                  url: http://company.aha.io/master_releases/PRJ1-MR-1
-                  resource: http://company.aha.io/api/v1/releases/PRJ1-MR-1
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '131414752'
-                    reference_prefix: PRJ1
-                    name: Project 1
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
-                - id: '325518644'
-                  reference_num: PRJ1-R-4
-                  name: Sub release 1
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  parking_lot: false
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '131414752'
-                  integration_fields: []
-                  url: http://company.aha.io/releases/PRJ1-R-4
-                  resource: http://company.aha.io/api/v1/releases/PRJ1-R-4
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '131414752'
-                    reference_prefix: PRJ1
-                    name: Project 1
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
-                  parent:
-                    id: '141021264'
-                    reference_num: PRJ1-MR-2
-                    name: Roll-up Release 2
-                    start_date: '2019-01-01'
-                    release_date: '2019-01-01'
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    url: http://company.aha.io/master_releases/PRJ1-MR-2
-                    resource: http://company.aha.io/api/v1/releases/PRJ1-MR-2
-                - id: '342040612'
-                  reference_num: PRJ3-R-1
-                  name: Release 3 Project 3
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  parking_lot: false
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '702241743'
-                  integration_fields: []
-                  url: http://company.aha.io/releases/PRJ3-R-1
-                  resource: http://company.aha.io/api/v1/releases/PRJ3-R-1
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '702241743'
-                    reference_prefix: PRJ3
-                    name: Project 3
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ3
-                - id: '414276209'
-                  reference_num: PRJ4-R-3
-                  name: Release month old (shipped)
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  parking_lot: false
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '935317104'
-                  integration_fields: []
-                  url: http://company.aha.io/releases/PRJ4-R-3
-                  resource: http://company.aha.io/api/v1/releases/PRJ4-R-3
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '935317104'
-                    reference_prefix: PRJ4
-                    name: Project 4
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ4
-                - id: '637342960'
-                  reference_num: PRJ2-R-2
-                  name: Parking lot for Project 2
-                  parking_lot: true
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '517761884'
-                  integration_fields: []
-                  url: http://company.aha.io/releases/PRJ2-R-2
-                  resource: http://company.aha.io/api/v1/releases/PRJ2-R-2
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '517761884'
-                    reference_prefix: PRJ2
-                    name: Project 2
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ2
-                - id: '800484072'
-                  reference_num: PRJ4-R-2
-                  name: Release week old (shipped)
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  parking_lot: false
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '935317104'
-                  integration_fields: []
-                  url: http://company.aha.io/releases/PRJ4-R-2
-                  resource: http://company.aha.io/api/v1/releases/PRJ4-R-2
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '935317104'
-                    reference_prefix: PRJ4
-                    name: Project 4
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ4
-                - id: '918502240'
-                  reference_num: PRJ4-R-1
-                  name: Release 4
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  parking_lot: false
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '935317104'
-                  integration_fields: []
-                  url: http://company.aha.io/releases/PRJ4-R-1
-                  resource: http://company.aha.io/api/v1/releases/PRJ4-R-1
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '935317104'
-                    reference_prefix: PRJ4
-                    name: Project 4
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ4
-                - id: '946589036'
-                  reference_num: PRJe-R-4
-                  name: Parking lot
-                  parking_lot: true
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '702241743'
-                  integration_fields: []
-                  url: http://company.aha.io/releases/PRJe-R-4
-                  resource: http://company.aha.io/api/v1/releases/PRJe-R-4
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '702241743'
-                    reference_prefix: PRJ3
-                    name: Project 3
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ3
-                - id: '1000426269'
-                  reference_num: PRJ2-R-1
-                  name: Release 2
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  parking_lot: false
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '517761884'
-                  integration_fields: []
-                  url: http://company.aha.io/releases/PRJ2-R-1
-                  resource: http://company.aha.io/api/v1/releases/PRJ2-R-1
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '517761884'
-                    reference_prefix: PRJ2
-                    name: Project 2
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ2
-                - id: '1050186040'
-                  reference_num: PRJ1-R-3
-                  name: Release 3
-                  start_date: '2019-01-01'
-                  release_date: '2019-01-01'
-                  parking_lot: false
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  product_id: '131414752'
-                  integration_fields:
-                  - id: '453734818'
-                    name: id
-                    value: '4221'
-                    integration_id: 342659513
-                    service_name: jira
-                    created_at: '2019-01-01T00:00:00.000Z'
-                  url: http://company.aha.io/releases/PRJ1-R-3
-                  resource: http://company.aha.io/api/v1/releases/PRJ1-R-3
-                  owner:
-                    id: '16338845'
-                    name: John Smith
-                    email: no-reply@aha.io
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                  project:
-                    id: '131414752'
-                    reference_prefix: PRJ1
-                    name: Project 1
-                    product_line: false
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
-                pagination:
-                  total_records: 14
-                  total_pages: 1
-                  current_page: 1
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      operationId: getApiV1RollUpReleasesByReleaseIdReleases
-      x-operation-id-source: derived
-  /api/v1/releases/{id}/duplicate:
-    post:
-      summary: Duplicate a release
-      description: null
-      tags:
-      - Releases
-      parameters:
       - name: id
         in: path
         required: true
@@ -1187,30 +204,16 @@ paths:
           type: string
         description: Id identifier
       responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/ReleasesPostResponse'
-              example:
-                release:
-                  id: '6776881149492110971'
-                  name: '[Copy] Release 1'
+        '204':
+          description: No content - operation successful
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: postApiV1ReleasesByIdDuplicate
+      operationId: deleteProductsByProductIdReleasesById
       x-operation-id-source: derived
-  /api/v1/products/{product_id}/releases/{id}:
     put:
-      summary: Update a release
+      summary: Add a release to a roll up release
       description: null
       tags:
       - Releases
@@ -1250,7 +253,7 @@ paths:
                   development_started_on: '2019-01-01'
                   release_date: '2019-01-01'
                   external_release_date: '2019-01-01'
-                  external_release_date_description: Sep 11, 2025
+                  external_release_date_description: Aug 14, 2026
                   external_date_resolution: exact
                   released: false
                   parking_lot: false
@@ -1266,12 +269,14 @@ paths:
                   theme:
                     id: '522610666'
                     body: Theme of the release
+                    notable_id: '278327321'
+                    notable_type: Release
                     editor_version: 1
                     created_at: '2019-01-01T00:00:00.000Z'
                     updated_at: '2019-01-01T00:00:00.000Z'
                     attachments: []
-                  url: http://company.aha.io/releases/PRJ1-R-1
-                  resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
+                  url: https://company.aha.io/releases/PRJ1-R-1
+                  resource: https://company.aha.io/api/v1/releases/PRJ1-R-1
                   integration_fields:
                   - id: '68217473'
                     name: id
@@ -1284,19 +289,19 @@ paths:
                     key: note
                     name: Note
                     updatedAt: '2019-01-01T00:00:00Z'
+                    type: note
+                    value: <p>sample text</p>
                     body: <p>sample text</p>
                     editor_version: 1
                     created_at: '2019-01-01T00:00:00.000Z'
                     updated_at: '2019-01-01T00:00:00.000Z'
                     attachments: []
-                    value: <p>sample text</p>
-                    type: note
                   - id: 424324947
                     key: text_field
                     name: TextField
                     updatedAt: '2019-01-01T00:00:00Z'
-                    value: Acme Corp
                     type: string
+                    value: Acme Corp
                   comments_count: 1
                   workflow_status:
                     id: '738862546'
@@ -1304,6 +309,7 @@ paths:
                     position: 1
                     complete: false
                     color: '#dce7c6'
+                    workflow_status_category: null
                   owner:
                     id: '16338845'
                     name: John Smith
@@ -1313,12 +319,14 @@ paths:
                   goals:
                   - id: '602095703'
                     name: Goal 1
-                    url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
-                    resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+                    url: https://company.aha.io/strategic_imperatives/DEMOENT-G-1
+                    resource: https://company.aha.io/api/v1/goals/DEMOENT-G-1
                     created_at: '2019-01-01T00:00:00.000Z'
                     description:
                       id: '166463080'
                       body: Description of goal 1
+                      notable_id: '602095703'
+                      notable_type: StrategicImperative
                       editor_version: 1
                       created_at: '2019-01-01T00:00:00.000Z'
                       updated_at: '2019-01-01T00:00:00.000Z'
@@ -1330,17 +338,8 @@ paths:
                     name: Project 1
                     product_line: false
                     created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
                     workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
-                  parent:
-                    id: '292454904'
-                    reference_num: PRJ1-MR-1
-                    name: Roll-up Release 1
-                    start_date: '2019-01-01'
-                    release_date: '2019-01-01'
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    url: http://company.aha.io/master_releases/PRJ1-MR-1
-                    resource: http://company.aha.io/api/v1/releases/PRJ1-MR-1
                   created_by_user:
                     id: '16338845'
                     name: John Smith
@@ -1360,11 +359,197 @@ paths:
             example:
               release:
                 initiatives: []
-                name: Smarter release
-      operationId: putApiV1ProductsByProductIdReleasesById
+                parent_id: 292454904
+      operationId: putProductsByProductIdReleasesById
       x-operation-id-source: derived
-    delete:
-      summary: Delete a release
+  /goals/{goal_id}/releases:
+    get:
+      summary: List releases associated with a goal
+      description: null
+      tags:
+      - Releases
+      parameters:
+      - name: goal_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: GoalId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ReleasesGetResponse'
+              example:
+                releases:
+                - id: '278327321'
+                  product_id: '131414752'
+                  reference_num: PRJ1-R-1
+                  name: Release 1
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/releases/PRJ1-R-1
+                  resource: https://company.aha.io/api/v1/releases/PRJ1-R-1
+                  integration_fields:
+                  - id: '68217473'
+                    name: id
+                    value: '777'
+                    integration_id: 204584239
+                    service_name: jira
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
+                    workspace_type: product_workspace
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getGoalsByGoalIdReleases
+      x-operation-id-source: derived
+  /initiatives/{initiative_id}/releases:
+    get:
+      summary: List releases associated with an initiative
+      description: null
+      tags:
+      - Releases
+      parameters:
+      - name: initiative_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: InitiativeId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ReleasesGetResponse'
+              example:
+                releases:
+                - id: '161456549'
+                  product_id: '131414752'
+                  reference_num: PRJ1-R-2
+                  name: Release 2
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/releases/PRJ1-R-2
+                  resource: https://company.aha.io/api/v1/releases/PRJ1-R-2
+                  integration_fields: []
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
+                    workspace_type: product_workspace
+                - id: '278327321'
+                  product_id: '131414752'
+                  reference_num: PRJ1-R-1
+                  name: Release 1
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/releases/PRJ1-R-1
+                  resource: https://company.aha.io/api/v1/releases/PRJ1-R-1
+                  integration_fields:
+                  - id: '68217473'
+                    name: id
+                    value: '777'
+                    integration_id: 204584239
+                    service_name: jira
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
+                    workspace_type: product_workspace
+                pagination:
+                  total_records: 2
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getInitiativesByInitiativeIdReleases
+      x-operation-id-source: derived
+  /products/{product_id}/releases:
+    get:
+      summary: List releases in a product
       description: null
       tags:
       - Releases
@@ -1375,6 +560,850 @@ paths:
         schema:
           type: string
         description: ProductId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ReleasesGetResponse'
+              example:
+                releases:
+                - id: '141021264'
+                  product_id: '131414752'
+                  reference_num: PRJ1-MR-2
+                  name: Roll-up Release 2
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/master_releases/PRJ1-MR-2
+                  resource: https://company.aha.io/api/v1/releases/PRJ1-MR-2
+                  integration_fields: []
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
+                    workspace_type: product_workspace
+                - id: '161456549'
+                  product_id: '131414752'
+                  reference_num: PRJ1-R-2
+                  name: Release 2
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/releases/PRJ1-R-2
+                  resource: https://company.aha.io/api/v1/releases/PRJ1-R-2
+                  integration_fields: []
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
+                    workspace_type: product_workspace
+                - id: '278327321'
+                  product_id: '131414752'
+                  reference_num: PRJ1-R-1
+                  name: Release 1
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/releases/PRJ1-R-1
+                  resource: https://company.aha.io/api/v1/releases/PRJ1-R-1
+                  integration_fields:
+                  - id: '68217473'
+                    name: id
+                    value: '777'
+                    integration_id: 204584239
+                    service_name: jira
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
+                    workspace_type: product_workspace
+                - id: '292454904'
+                  product_id: '131414752'
+                  reference_num: PRJ1-MR-1
+                  name: Roll-up Release 1
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/master_releases/PRJ1-MR-1
+                  resource: https://company.aha.io/api/v1/releases/PRJ1-MR-1
+                  integration_fields: []
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
+                    workspace_type: product_workspace
+                - id: '325518644'
+                  product_id: '131414752'
+                  reference_num: PRJ1-R-4
+                  name: Sub release 1
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/releases/PRJ1-R-4
+                  resource: https://company.aha.io/api/v1/releases/PRJ1-R-4
+                  integration_fields: []
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
+                    workspace_type: product_workspace
+                  parent:
+                    id: '141021264'
+                    reference_num: PRJ1-MR-2
+                    name: Roll-up Release 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    start_date: '2019-01-01'
+                    release_date: '2019-01-01'
+                    url: https://company.aha.io/master_releases/PRJ1-MR-2
+                    resource: https://company.aha.io/api/v1/releases/PRJ1-MR-2
+                - id: '1050186040'
+                  product_id: '131414752'
+                  reference_num: PRJ1-R-3
+                  name: Release 3
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/releases/PRJ1-R-3
+                  resource: https://company.aha.io/api/v1/releases/PRJ1-R-3
+                  integration_fields:
+                  - id: '453734818'
+                    name: id
+                    value: '4221'
+                    integration_id: 342659513
+                    service_name: jira
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
+                    workspace_type: product_workspace
+                pagination:
+                  total_records: 6
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getProductsByProductIdReleases
+      x-operation-id-source: derived
+    post:
+      summary: Create a parking lot release
+      description: null
+      tags:
+      - Releases
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ReleasesPostResponse'
+              example:
+                release:
+                  id: '6776881149491125388'
+                  product_id: '131414752'
+                  reference_num: PRJ1-R-5
+                  name: Release 3
+                  start_date: null
+                  end_date: null
+                  development_started_on: null
+                  release_date: '2019-01-01'
+                  external_release_date: '2019-01-01'
+                  external_release_date_description: Sep 7, 2026
+                  external_date_resolution: sync
+                  released: false
+                  parking_lot: false
+                  master_release: false
+                  released_on: null
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  position: 1
+                  progress: 0
+                  progress_source: progress_from_features_completed
+                  duration_source: duration_manual
+                  status_changed_on: '2019-01-01'
+                  theme:
+                    id: '6776881149495843340'
+                    body: ''
+                    notable_id: '6776881149491125388'
+                    notable_type: Release
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  url: https://company.aha.io/releases/PRJ1-R-5
+                  resource: https://company.aha.io/api/v1/releases/PRJ1-R-5
+                  integration_fields: []
+                  custom_fields: []
+                  comments_count: 0
+                  workflow_status:
+                    id: '738862546'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                    workflow_status_category: null
+                  owner:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  goals: []
+                  key_results: []
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
+                    workspace_type: product_workspace
+                  workflow_status_times:
+                  - status_id: '738862546'
+                    status_name: New
+                    started_at: '2019-01-01T00:00:00.000Z'
+                    ended_at: null
+                  created_by_user:
+                    id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  watchers:
+                  - id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  - id: '689956296'
+                    name: Henry Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  - id: '1020675218'
+                    name: Mary Humpty
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReleasesPostRequest'
+            example:
+              release:
+                owner: no-reply@aha.io
+                initiatives: []
+                name: Release 3
+                status: New
+                theme: Our first big release
+                external_date_resolution: week
+                parking_lot: true
+      operationId: postProductsByProductIdReleases
+      x-operation-id-source: derived
+  /releases/{release_id}/releases:
+    get:
+      summary: List releases under a roll-up release
+      description: null
+      tags:
+      - Releases
+      parameters:
+      - name: release_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ReleaseId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ReleasesGetResponse'
+              example:
+                releases:
+                - id: '325518644'
+                  product_id: '131414752'
+                  reference_num: PRJ1-R-4
+                  name: Sub release 1
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/releases/PRJ1-R-4
+                  resource: https://company.aha.io/api/v1/releases/PRJ1-R-4
+                  integration_fields: []
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
+                    workspace_type: product_workspace
+                  parent:
+                    id: '141021264'
+                    reference_num: PRJ1-MR-2
+                    name: Roll-up Release 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    start_date: '2019-01-01'
+                    release_date: '2019-01-01'
+                    url: https://company.aha.io/master_releases/PRJ1-MR-2
+                    resource: https://company.aha.io/api/v1/releases/PRJ1-MR-2
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getReleasesByReleaseIdReleases
+      x-operation-id-source: derived
+  /roll_up_releases/{release_id}/releases:
+    get:
+      summary: List releases under a roll-up release
+      description: null
+      tags:
+      - Releases
+      parameters:
+      - name: release_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ReleaseId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ReleasesGetResponse'
+              example:
+                releases:
+                - id: '85510963'
+                  product_id: '935317104'
+                  reference_num: PRJ4-R-4
+                  name: Parking lot for Project 4
+                  parking_lot: true
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/releases/PRJ4-R-4
+                  resource: https://company.aha.io/api/v1/releases/PRJ4-R-4
+                  integration_fields: []
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '935317104'
+                    reference_prefix: PRJ4
+                    name: Project 4
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ4
+                    workspace_type: product_workspace
+                - id: '141021264'
+                  product_id: '131414752'
+                  reference_num: PRJ1-MR-2
+                  name: Roll-up Release 2
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/master_releases/PRJ1-MR-2
+                  resource: https://company.aha.io/api/v1/releases/PRJ1-MR-2
+                  integration_fields: []
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
+                    workspace_type: product_workspace
+                - id: '161456549'
+                  product_id: '131414752'
+                  reference_num: PRJ1-R-2
+                  name: Release 2
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/releases/PRJ1-R-2
+                  resource: https://company.aha.io/api/v1/releases/PRJ1-R-2
+                  integration_fields: []
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
+                    workspace_type: product_workspace
+                - id: '278327321'
+                  product_id: '131414752'
+                  reference_num: PRJ1-R-1
+                  name: Release 1
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/releases/PRJ1-R-1
+                  resource: https://company.aha.io/api/v1/releases/PRJ1-R-1
+                  integration_fields:
+                  - id: '68217473'
+                    name: id
+                    value: '777'
+                    integration_id: 204584239
+                    service_name: jira
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
+                    workspace_type: product_workspace
+                - id: '292454904'
+                  product_id: '131414752'
+                  reference_num: PRJ1-MR-1
+                  name: Roll-up Release 1
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/master_releases/PRJ1-MR-1
+                  resource: https://company.aha.io/api/v1/releases/PRJ1-MR-1
+                  integration_fields: []
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
+                    workspace_type: product_workspace
+                - id: '325518644'
+                  product_id: '131414752'
+                  reference_num: PRJ1-R-4
+                  name: Sub release 1
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/releases/PRJ1-R-4
+                  resource: https://company.aha.io/api/v1/releases/PRJ1-R-4
+                  integration_fields: []
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
+                    workspace_type: product_workspace
+                  parent:
+                    id: '141021264'
+                    reference_num: PRJ1-MR-2
+                    name: Roll-up Release 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    start_date: '2019-01-01'
+                    release_date: '2019-01-01'
+                    url: https://company.aha.io/master_releases/PRJ1-MR-2
+                    resource: https://company.aha.io/api/v1/releases/PRJ1-MR-2
+                - id: '342040612'
+                  product_id: '702241743'
+                  reference_num: PRJ3-R-1
+                  name: Release 3 Project 3
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/releases/PRJ3-R-1
+                  resource: https://company.aha.io/api/v1/releases/PRJ3-R-1
+                  integration_fields: []
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '702241743'
+                    reference_prefix: PRJ3
+                    name: Project 3
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ3
+                    workspace_type: product_workspace
+                - id: '414276209'
+                  product_id: '935317104'
+                  reference_num: PRJ4-R-3
+                  name: Release month old (shipped)
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/releases/PRJ4-R-3
+                  resource: https://company.aha.io/api/v1/releases/PRJ4-R-3
+                  integration_fields: []
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '935317104'
+                    reference_prefix: PRJ4
+                    name: Project 4
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ4
+                    workspace_type: product_workspace
+                - id: '637342960'
+                  product_id: '517761884'
+                  reference_num: PRJ2-R-2
+                  name: Parking lot for Project 2
+                  parking_lot: true
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/releases/PRJ2-R-2
+                  resource: https://company.aha.io/api/v1/releases/PRJ2-R-2
+                  integration_fields: []
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '517761884'
+                    reference_prefix: PRJ2
+                    name: Project 2
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ2
+                    workspace_type: product_workspace
+                - id: '800484072'
+                  product_id: '935317104'
+                  reference_num: PRJ4-R-2
+                  name: Release week old (shipped)
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/releases/PRJ4-R-2
+                  resource: https://company.aha.io/api/v1/releases/PRJ4-R-2
+                  integration_fields: []
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '935317104'
+                    reference_prefix: PRJ4
+                    name: Project 4
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ4
+                    workspace_type: product_workspace
+                - id: '918502240'
+                  product_id: '935317104'
+                  reference_num: PRJ4-R-1
+                  name: Release 4
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/releases/PRJ4-R-1
+                  resource: https://company.aha.io/api/v1/releases/PRJ4-R-1
+                  integration_fields: []
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '935317104'
+                    reference_prefix: PRJ4
+                    name: Project 4
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ4
+                    workspace_type: product_workspace
+                - id: '946589036'
+                  product_id: '702241743'
+                  reference_num: PRJe-R-4
+                  name: Parking lot
+                  parking_lot: true
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/releases/PRJe-R-4
+                  resource: https://company.aha.io/api/v1/releases/PRJe-R-4
+                  integration_fields: []
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '702241743'
+                    reference_prefix: PRJ3
+                    name: Project 3
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ3
+                    workspace_type: product_workspace
+                - id: '1000426269'
+                  product_id: '517761884'
+                  reference_num: PRJ2-R-1
+                  name: Release 2
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/releases/PRJ2-R-1
+                  resource: https://company.aha.io/api/v1/releases/PRJ2-R-1
+                  integration_fields: []
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '517761884'
+                    reference_prefix: PRJ2
+                    name: Project 2
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ2
+                    workspace_type: product_workspace
+                - id: '1050186040'
+                  product_id: '131414752'
+                  reference_num: PRJ1-R-3
+                  name: Release 3
+                  start_date: '2019-01-01'
+                  release_date: '2019-01-01'
+                  parking_lot: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/releases/PRJ1-R-3
+                  resource: https://company.aha.io/api/v1/releases/PRJ1-R-3
+                  integration_fields:
+                  - id: '453734818'
+                    name: id
+                    value: '4221'
+                    integration_id: 342659513
+                    service_name: jira
+                    created_at: '2019-01-01T00:00:00.000Z'
+                  owner:
+                    id: '16338845'
+                    name: John Smith
+                    email: no-reply@aha.io
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                  project:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
+                    workspace_type: product_workspace
+                pagination:
+                  total_records: 14
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getRollUpReleasesByReleaseIdReleases
+      x-operation-id-source: derived
+  /releases/{id}/duplicate:
+    post:
+      summary: Duplicate a release
+      description: null
+      tags:
+      - Releases
+      parameters:
       - name: id
         in: path
         required: true
@@ -1382,16 +1411,923 @@ paths:
           type: string
         description: Id identifier
       responses:
-        '204':
-          description: No content - operation successful
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ReleasesPostResponse'
+              example:
+                release:
+                  id: '6776881149499851715'
+                  name: '[Copy] Release 1'
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: deleteApiV1ProductsByProductIdReleasesById
+      operationId: postReleasesByIdDuplicate
       x-operation-id-source: derived
 components:
   schemas:
+    ReleasesPostResponse:
+      type: object
+      properties:
+        release:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149499851715'
+            name:
+              type: string
+              example: '[Copy] Release 1'
+          example:
+            id: '6776881149499851715'
+            name: '[Copy] Release 1'
+      example:
+        release:
+          id: '6776881149499851715'
+          name: '[Copy] Release 1'
+    ReleasesGetResponse:
+      type: object
+      properties:
+        releases:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: '85510963'
+              product_id:
+                type: string
+                example: '935317104'
+              reference_num:
+                type: string
+                example: PRJ4-R-4
+              name:
+                type: string
+                example: Parking lot for Project 4
+              parking_lot:
+                type: boolean
+                example: true
+              created_at:
+                type: string
+                example: '2019-01-01T00:00:00.000Z'
+              url:
+                type: string
+                example: https://company.aha.io/releases/PRJ4-R-4
+              resource:
+                type: string
+                example: https://company.aha.io/api/v1/releases/PRJ4-R-4
+              integration_fields:
+                type: array
+                items: {}
+              owner:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  email:
+                    type: string
+                  created_at:
+                    type: string
+                  updated_at:
+                    type: string
+                example:
+                  id: '16338845'
+                  name: John Smith
+                  email: no-reply@aha.io
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+              project:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  reference_prefix:
+                    type: string
+                  name:
+                    type: string
+                  product_line:
+                    type: string
+                  created_at:
+                    type: string
+                  url:
+                    type: string
+                  workspace_type:
+                    type: string
+                example:
+                  id: '935317104'
+                  reference_prefix: PRJ4
+                  name: Project 4
+                  product_line: false
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/projects/PRJ4
+                  workspace_type: product_workspace
+            example:
+              id: '85510963'
+              product_id: '935317104'
+              reference_num: PRJ4-R-4
+              name: Parking lot for Project 4
+              parking_lot: true
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/releases/PRJ4-R-4
+              resource: https://company.aha.io/api/v1/releases/PRJ4-R-4
+              integration_fields: []
+              owner:
+                id: '16338845'
+                name: John Smith
+                email: no-reply@aha.io
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+              project:
+                id: '935317104'
+                reference_prefix: PRJ4
+                name: Project 4
+                product_line: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: https://company.aha.io/projects/PRJ4
+                workspace_type: product_workspace
+          example:
+          - id: '85510963'
+            product_id: '935317104'
+            reference_num: PRJ4-R-4
+            name: Parking lot for Project 4
+            parking_lot: true
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/releases/PRJ4-R-4
+            resource: https://company.aha.io/api/v1/releases/PRJ4-R-4
+            integration_fields: []
+            owner:
+              id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            project:
+              id: '935317104'
+              reference_prefix: PRJ4
+              name: Project 4
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/projects/PRJ4
+              workspace_type: product_workspace
+          - id: '141021264'
+            product_id: '131414752'
+            reference_num: PRJ1-MR-2
+            name: Roll-up Release 2
+            start_date: '2019-01-01'
+            release_date: '2019-01-01'
+            parking_lot: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/master_releases/PRJ1-MR-2
+            resource: https://company.aha.io/api/v1/releases/PRJ1-MR-2
+            integration_fields: []
+            owner:
+              id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            project:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/projects/PRJ1
+              workspace_type: product_workspace
+          - id: '161456549'
+            product_id: '131414752'
+            reference_num: PRJ1-R-2
+            name: Release 2
+            start_date: '2019-01-01'
+            release_date: '2019-01-01'
+            parking_lot: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/releases/PRJ1-R-2
+            resource: https://company.aha.io/api/v1/releases/PRJ1-R-2
+            integration_fields: []
+            owner:
+              id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            project:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/projects/PRJ1
+              workspace_type: product_workspace
+          - id: '278327321'
+            product_id: '131414752'
+            reference_num: PRJ1-R-1
+            name: Release 1
+            start_date: '2019-01-01'
+            release_date: '2019-01-01'
+            parking_lot: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/releases/PRJ1-R-1
+            resource: https://company.aha.io/api/v1/releases/PRJ1-R-1
+            integration_fields:
+            - id: '68217473'
+              name: id
+              value: '777'
+              integration_id: 204584239
+              service_name: jira
+              created_at: '2019-01-01T00:00:00.000Z'
+            owner:
+              id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            project:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/projects/PRJ1
+              workspace_type: product_workspace
+          - id: '292454904'
+            product_id: '131414752'
+            reference_num: PRJ1-MR-1
+            name: Roll-up Release 1
+            start_date: '2019-01-01'
+            release_date: '2019-01-01'
+            parking_lot: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/master_releases/PRJ1-MR-1
+            resource: https://company.aha.io/api/v1/releases/PRJ1-MR-1
+            integration_fields: []
+            owner:
+              id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            project:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/projects/PRJ1
+              workspace_type: product_workspace
+          - id: '325518644'
+            product_id: '131414752'
+            reference_num: PRJ1-R-4
+            name: Sub release 1
+            start_date: '2019-01-01'
+            release_date: '2019-01-01'
+            parking_lot: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/releases/PRJ1-R-4
+            resource: https://company.aha.io/api/v1/releases/PRJ1-R-4
+            integration_fields: []
+            owner:
+              id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            project:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/projects/PRJ1
+              workspace_type: product_workspace
+            parent:
+              id: '141021264'
+              reference_num: PRJ1-MR-2
+              name: Roll-up Release 2
+              created_at: '2019-01-01T00:00:00.000Z'
+              start_date: '2019-01-01'
+              release_date: '2019-01-01'
+              url: https://company.aha.io/master_releases/PRJ1-MR-2
+              resource: https://company.aha.io/api/v1/releases/PRJ1-MR-2
+          - id: '342040612'
+            product_id: '702241743'
+            reference_num: PRJ3-R-1
+            name: Release 3 Project 3
+            start_date: '2019-01-01'
+            release_date: '2019-01-01'
+            parking_lot: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/releases/PRJ3-R-1
+            resource: https://company.aha.io/api/v1/releases/PRJ3-R-1
+            integration_fields: []
+            owner:
+              id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            project:
+              id: '702241743'
+              reference_prefix: PRJ3
+              name: Project 3
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/projects/PRJ3
+              workspace_type: product_workspace
+          - id: '414276209'
+            product_id: '935317104'
+            reference_num: PRJ4-R-3
+            name: Release month old (shipped)
+            start_date: '2019-01-01'
+            release_date: '2019-01-01'
+            parking_lot: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/releases/PRJ4-R-3
+            resource: https://company.aha.io/api/v1/releases/PRJ4-R-3
+            integration_fields: []
+            owner:
+              id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            project:
+              id: '935317104'
+              reference_prefix: PRJ4
+              name: Project 4
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/projects/PRJ4
+              workspace_type: product_workspace
+          - id: '637342960'
+            product_id: '517761884'
+            reference_num: PRJ2-R-2
+            name: Parking lot for Project 2
+            parking_lot: true
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/releases/PRJ2-R-2
+            resource: https://company.aha.io/api/v1/releases/PRJ2-R-2
+            integration_fields: []
+            owner:
+              id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            project:
+              id: '517761884'
+              reference_prefix: PRJ2
+              name: Project 2
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/projects/PRJ2
+              workspace_type: product_workspace
+          - id: '800484072'
+            product_id: '935317104'
+            reference_num: PRJ4-R-2
+            name: Release week old (shipped)
+            start_date: '2019-01-01'
+            release_date: '2019-01-01'
+            parking_lot: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/releases/PRJ4-R-2
+            resource: https://company.aha.io/api/v1/releases/PRJ4-R-2
+            integration_fields: []
+            owner:
+              id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            project:
+              id: '935317104'
+              reference_prefix: PRJ4
+              name: Project 4
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/projects/PRJ4
+              workspace_type: product_workspace
+          - id: '918502240'
+            product_id: '935317104'
+            reference_num: PRJ4-R-1
+            name: Release 4
+            start_date: '2019-01-01'
+            release_date: '2019-01-01'
+            parking_lot: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/releases/PRJ4-R-1
+            resource: https://company.aha.io/api/v1/releases/PRJ4-R-1
+            integration_fields: []
+            owner:
+              id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            project:
+              id: '935317104'
+              reference_prefix: PRJ4
+              name: Project 4
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/projects/PRJ4
+              workspace_type: product_workspace
+          - id: '946589036'
+            product_id: '702241743'
+            reference_num: PRJe-R-4
+            name: Parking lot
+            parking_lot: true
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/releases/PRJe-R-4
+            resource: https://company.aha.io/api/v1/releases/PRJe-R-4
+            integration_fields: []
+            owner:
+              id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            project:
+              id: '702241743'
+              reference_prefix: PRJ3
+              name: Project 3
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/projects/PRJ3
+              workspace_type: product_workspace
+          - id: '1000426269'
+            product_id: '517761884'
+            reference_num: PRJ2-R-1
+            name: Release 2
+            start_date: '2019-01-01'
+            release_date: '2019-01-01'
+            parking_lot: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/releases/PRJ2-R-1
+            resource: https://company.aha.io/api/v1/releases/PRJ2-R-1
+            integration_fields: []
+            owner:
+              id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            project:
+              id: '517761884'
+              reference_prefix: PRJ2
+              name: Project 2
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/projects/PRJ2
+              workspace_type: product_workspace
+          - id: '1050186040'
+            product_id: '131414752'
+            reference_num: PRJ1-R-3
+            name: Release 3
+            start_date: '2019-01-01'
+            release_date: '2019-01-01'
+            parking_lot: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/releases/PRJ1-R-3
+            resource: https://company.aha.io/api/v1/releases/PRJ1-R-3
+            integration_fields:
+            - id: '453734818'
+              name: id
+              value: '4221'
+              integration_id: 342659513
+              service_name: jira
+              created_at: '2019-01-01T00:00:00.000Z'
+            owner:
+              id: '16338845'
+              name: John Smith
+              email: no-reply@aha.io
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+            project:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/projects/PRJ1
+              workspace_type: product_workspace
+        pagination:
+          type: object
+          properties:
+            total_records:
+              type: integer
+              example: 14
+            total_pages:
+              type: integer
+              example: 1
+            current_page:
+              type: integer
+              example: 1
+          example:
+            total_records: 14
+            total_pages: 1
+            current_page: 1
+      example:
+        releases:
+        - id: '85510963'
+          product_id: '935317104'
+          reference_num: PRJ4-R-4
+          name: Parking lot for Project 4
+          parking_lot: true
+          created_at: '2019-01-01T00:00:00.000Z'
+          url: https://company.aha.io/releases/PRJ4-R-4
+          resource: https://company.aha.io/api/v1/releases/PRJ4-R-4
+          integration_fields: []
+          owner:
+            id: '16338845'
+            name: John Smith
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          project:
+            id: '935317104'
+            reference_prefix: PRJ4
+            name: Project 4
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/projects/PRJ4
+            workspace_type: product_workspace
+        - id: '141021264'
+          product_id: '131414752'
+          reference_num: PRJ1-MR-2
+          name: Roll-up Release 2
+          start_date: '2019-01-01'
+          release_date: '2019-01-01'
+          parking_lot: false
+          created_at: '2019-01-01T00:00:00.000Z'
+          url: https://company.aha.io/master_releases/PRJ1-MR-2
+          resource: https://company.aha.io/api/v1/releases/PRJ1-MR-2
+          integration_fields: []
+          owner:
+            id: '16338845'
+            name: John Smith
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          project:
+            id: '131414752'
+            reference_prefix: PRJ1
+            name: Project 1
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/projects/PRJ1
+            workspace_type: product_workspace
+        - id: '161456549'
+          product_id: '131414752'
+          reference_num: PRJ1-R-2
+          name: Release 2
+          start_date: '2019-01-01'
+          release_date: '2019-01-01'
+          parking_lot: false
+          created_at: '2019-01-01T00:00:00.000Z'
+          url: https://company.aha.io/releases/PRJ1-R-2
+          resource: https://company.aha.io/api/v1/releases/PRJ1-R-2
+          integration_fields: []
+          owner:
+            id: '16338845'
+            name: John Smith
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          project:
+            id: '131414752'
+            reference_prefix: PRJ1
+            name: Project 1
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/projects/PRJ1
+            workspace_type: product_workspace
+        - id: '278327321'
+          product_id: '131414752'
+          reference_num: PRJ1-R-1
+          name: Release 1
+          start_date: '2019-01-01'
+          release_date: '2019-01-01'
+          parking_lot: false
+          created_at: '2019-01-01T00:00:00.000Z'
+          url: https://company.aha.io/releases/PRJ1-R-1
+          resource: https://company.aha.io/api/v1/releases/PRJ1-R-1
+          integration_fields:
+          - id: '68217473'
+            name: id
+            value: '777'
+            integration_id: 204584239
+            service_name: jira
+            created_at: '2019-01-01T00:00:00.000Z'
+          owner:
+            id: '16338845'
+            name: John Smith
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          project:
+            id: '131414752'
+            reference_prefix: PRJ1
+            name: Project 1
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/projects/PRJ1
+            workspace_type: product_workspace
+        - id: '292454904'
+          product_id: '131414752'
+          reference_num: PRJ1-MR-1
+          name: Roll-up Release 1
+          start_date: '2019-01-01'
+          release_date: '2019-01-01'
+          parking_lot: false
+          created_at: '2019-01-01T00:00:00.000Z'
+          url: https://company.aha.io/master_releases/PRJ1-MR-1
+          resource: https://company.aha.io/api/v1/releases/PRJ1-MR-1
+          integration_fields: []
+          owner:
+            id: '16338845'
+            name: John Smith
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          project:
+            id: '131414752'
+            reference_prefix: PRJ1
+            name: Project 1
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/projects/PRJ1
+            workspace_type: product_workspace
+        - id: '325518644'
+          product_id: '131414752'
+          reference_num: PRJ1-R-4
+          name: Sub release 1
+          start_date: '2019-01-01'
+          release_date: '2019-01-01'
+          parking_lot: false
+          created_at: '2019-01-01T00:00:00.000Z'
+          url: https://company.aha.io/releases/PRJ1-R-4
+          resource: https://company.aha.io/api/v1/releases/PRJ1-R-4
+          integration_fields: []
+          owner:
+            id: '16338845'
+            name: John Smith
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          project:
+            id: '131414752'
+            reference_prefix: PRJ1
+            name: Project 1
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/projects/PRJ1
+            workspace_type: product_workspace
+          parent:
+            id: '141021264'
+            reference_num: PRJ1-MR-2
+            name: Roll-up Release 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            start_date: '2019-01-01'
+            release_date: '2019-01-01'
+            url: https://company.aha.io/master_releases/PRJ1-MR-2
+            resource: https://company.aha.io/api/v1/releases/PRJ1-MR-2
+        - id: '342040612'
+          product_id: '702241743'
+          reference_num: PRJ3-R-1
+          name: Release 3 Project 3
+          start_date: '2019-01-01'
+          release_date: '2019-01-01'
+          parking_lot: false
+          created_at: '2019-01-01T00:00:00.000Z'
+          url: https://company.aha.io/releases/PRJ3-R-1
+          resource: https://company.aha.io/api/v1/releases/PRJ3-R-1
+          integration_fields: []
+          owner:
+            id: '16338845'
+            name: John Smith
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          project:
+            id: '702241743'
+            reference_prefix: PRJ3
+            name: Project 3
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/projects/PRJ3
+            workspace_type: product_workspace
+        - id: '414276209'
+          product_id: '935317104'
+          reference_num: PRJ4-R-3
+          name: Release month old (shipped)
+          start_date: '2019-01-01'
+          release_date: '2019-01-01'
+          parking_lot: false
+          created_at: '2019-01-01T00:00:00.000Z'
+          url: https://company.aha.io/releases/PRJ4-R-3
+          resource: https://company.aha.io/api/v1/releases/PRJ4-R-3
+          integration_fields: []
+          owner:
+            id: '16338845'
+            name: John Smith
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          project:
+            id: '935317104'
+            reference_prefix: PRJ4
+            name: Project 4
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/projects/PRJ4
+            workspace_type: product_workspace
+        - id: '637342960'
+          product_id: '517761884'
+          reference_num: PRJ2-R-2
+          name: Parking lot for Project 2
+          parking_lot: true
+          created_at: '2019-01-01T00:00:00.000Z'
+          url: https://company.aha.io/releases/PRJ2-R-2
+          resource: https://company.aha.io/api/v1/releases/PRJ2-R-2
+          integration_fields: []
+          owner:
+            id: '16338845'
+            name: John Smith
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          project:
+            id: '517761884'
+            reference_prefix: PRJ2
+            name: Project 2
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/projects/PRJ2
+            workspace_type: product_workspace
+        - id: '800484072'
+          product_id: '935317104'
+          reference_num: PRJ4-R-2
+          name: Release week old (shipped)
+          start_date: '2019-01-01'
+          release_date: '2019-01-01'
+          parking_lot: false
+          created_at: '2019-01-01T00:00:00.000Z'
+          url: https://company.aha.io/releases/PRJ4-R-2
+          resource: https://company.aha.io/api/v1/releases/PRJ4-R-2
+          integration_fields: []
+          owner:
+            id: '16338845'
+            name: John Smith
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          project:
+            id: '935317104'
+            reference_prefix: PRJ4
+            name: Project 4
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/projects/PRJ4
+            workspace_type: product_workspace
+        - id: '918502240'
+          product_id: '935317104'
+          reference_num: PRJ4-R-1
+          name: Release 4
+          start_date: '2019-01-01'
+          release_date: '2019-01-01'
+          parking_lot: false
+          created_at: '2019-01-01T00:00:00.000Z'
+          url: https://company.aha.io/releases/PRJ4-R-1
+          resource: https://company.aha.io/api/v1/releases/PRJ4-R-1
+          integration_fields: []
+          owner:
+            id: '16338845'
+            name: John Smith
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          project:
+            id: '935317104'
+            reference_prefix: PRJ4
+            name: Project 4
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/projects/PRJ4
+            workspace_type: product_workspace
+        - id: '946589036'
+          product_id: '702241743'
+          reference_num: PRJe-R-4
+          name: Parking lot
+          parking_lot: true
+          created_at: '2019-01-01T00:00:00.000Z'
+          url: https://company.aha.io/releases/PRJe-R-4
+          resource: https://company.aha.io/api/v1/releases/PRJe-R-4
+          integration_fields: []
+          owner:
+            id: '16338845'
+            name: John Smith
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          project:
+            id: '702241743'
+            reference_prefix: PRJ3
+            name: Project 3
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/projects/PRJ3
+            workspace_type: product_workspace
+        - id: '1000426269'
+          product_id: '517761884'
+          reference_num: PRJ2-R-1
+          name: Release 2
+          start_date: '2019-01-01'
+          release_date: '2019-01-01'
+          parking_lot: false
+          created_at: '2019-01-01T00:00:00.000Z'
+          url: https://company.aha.io/releases/PRJ2-R-1
+          resource: https://company.aha.io/api/v1/releases/PRJ2-R-1
+          integration_fields: []
+          owner:
+            id: '16338845'
+            name: John Smith
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          project:
+            id: '517761884'
+            reference_prefix: PRJ2
+            name: Project 2
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/projects/PRJ2
+            workspace_type: product_workspace
+        - id: '1050186040'
+          product_id: '131414752'
+          reference_num: PRJ1-R-3
+          name: Release 3
+          start_date: '2019-01-01'
+          release_date: '2019-01-01'
+          parking_lot: false
+          created_at: '2019-01-01T00:00:00.000Z'
+          url: https://company.aha.io/releases/PRJ1-R-3
+          resource: https://company.aha.io/api/v1/releases/PRJ1-R-3
+          integration_fields:
+          - id: '453734818'
+            name: id
+            value: '4221'
+            integration_id: 342659513
+            service_name: jira
+            created_at: '2019-01-01T00:00:00.000Z'
+          owner:
+            id: '16338845'
+            name: John Smith
+            email: no-reply@aha.io
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+          project:
+            id: '131414752'
+            reference_prefix: PRJ1
+            name: Project 1
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/projects/PRJ1
+            workspace_type: product_workspace
+        pagination:
+          total_records: 14
+          total_pages: 1
+          current_page: 1
+    ReleasesPostRequest:
+      type: object
+      properties:
+        release:
+          type: object
+          properties:
+            initiatives:
+              type: array
+              items: {}
+            parent_id:
+              type: integer
+              example: 292454904
+          example:
+            initiatives: []
+            parent_id: 292454904
+      example:
+        release:
+          initiatives: []
+          parent_id: 292454904
     ReleasesPutResponse:
       type: object
       properties:
@@ -1426,7 +2362,7 @@ components:
               example: '2019-01-01'
             external_release_date_description:
               type: string
-              example: Sep 11, 2025
+              example: Oct 13, 2026
             external_date_resolution:
               type: string
               example: exact
@@ -1468,6 +2404,12 @@ components:
                 body:
                   type: string
                   example: Theme of the release
+                notable_id:
+                  type: string
+                  example: '278327321'
+                notable_type:
+                  type: string
+                  example: Release
                 editor_version:
                   type: integer
                   example: 1
@@ -1483,16 +2425,18 @@ components:
               example:
                 id: '522610666'
                 body: Theme of the release
+                notable_id: '278327321'
+                notable_type: Release
                 editor_version: 1
                 created_at: '2019-01-01T00:00:00.000Z'
                 updated_at: '2019-01-01T00:00:00.000Z'
                 attachments: []
             url:
               type: string
-              example: http://company.aha.io/releases/PRJ1-R-1
+              example: https://company.aha.io/releases/PRJ1-R-1
             resource:
               type: string
-              example: http://company.aha.io/api/v1/releases/PRJ1-R-1
+              example: https://company.aha.io/api/v1/releases/PRJ1-R-1
             integration_fields:
               type: array
               items:
@@ -1537,6 +2481,10 @@ components:
                     type: string
                   updatedAt:
                     type: string
+                  type:
+                    type: string
+                  value:
+                    type: string
                   body:
                     type: string
                   editor_version:
@@ -1547,40 +2495,55 @@ components:
                     type: string
                   attachments:
                     type: string
-                  value:
-                    type: string
-                  type:
-                    type: string
                 example:
                   id: '432637490'
                   key: note
                   name: Note
                   updatedAt: '2019-01-01T00:00:00Z'
+                  type: note
+                  value: <p>sample text</p>
                   body: <p>sample text</p>
                   editor_version: 1
                   created_at: '2019-01-01T00:00:00.000Z'
                   updated_at: '2019-01-01T00:00:00.000Z'
                   attachments: []
-                  value: <p>sample text</p>
-                  type: note
               example:
               - id: '432637490'
                 key: note
                 name: Note
                 updatedAt: '2019-01-01T00:00:00Z'
+                type: note
+                value: <p>sample text</p>
                 body: <p>sample text</p>
                 editor_version: 1
                 created_at: '2019-01-01T00:00:00.000Z'
                 updated_at: '2019-01-01T00:00:00.000Z'
                 attachments: []
-                value: <p>sample text</p>
-                type: note
+              - id: '6776881149483941173'
+                key: release_budget
+                name: Release budget
+                updatedAt: '2019-01-01T00:00:00Z'
+                type: equation_sheet
+                value:
+                  values:
+                    '6651670327076753738':
+                      value: 123.0
+                      name: Revenue
+                      display_value: $123.00
+                      raw_display_value: $123.00
+                    '6651670393424268679':
+                      value: null
+                      error_message: Missing input value
+                      error_position: null
+                      name: Profit
+                      display_value: null
+                      raw_display_value: null
               - id: 424324947
                 key: text_field
                 name: TextField
                 updatedAt: '2019-01-01T00:00:00Z'
-                value: Acme Corp
                 type: string
+                value: Acme Corp
             comments_count:
               type: integer
               example: 1
@@ -1602,12 +2565,15 @@ components:
                 color:
                   type: string
                   example: '#dce7c6'
+                workflow_status_category:
+                  type: 'null'
               example:
                 id: '738862546'
                 name: New
                 position: 1
                 complete: false
                 color: '#dce7c6'
+                workflow_status_category: null
             owner:
               type: object
               properties:
@@ -1652,12 +2618,14 @@ components:
                 example:
                   id: '602095703'
                   name: Goal 1
-                  url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
-                  resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+                  url: https://company.aha.io/strategic_imperatives/DEMOENT-G-1
+                  resource: https://company.aha.io/api/v1/goals/DEMOENT-G-1
                   created_at: '2019-01-01T00:00:00.000Z'
                   description:
                     id: '166463080'
                     body: Description of goal 1
+                    notable_id: '602095703'
+                    notable_type: StrategicImperative
                     editor_version: 1
                     created_at: '2019-01-01T00:00:00.000Z'
                     updated_at: '2019-01-01T00:00:00.000Z'
@@ -1665,606 +2633,14 @@ components:
               example:
               - id: '602095703'
                 name: Goal 1
-                url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
-                resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+                url: https://company.aha.io/strategic_imperatives/DEMOENT-G-1
+                resource: https://company.aha.io/api/v1/goals/DEMOENT-G-1
                 created_at: '2019-01-01T00:00:00.000Z'
                 description:
                   id: '166463080'
                   body: Description of goal 1
-                  editor_version: 1
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  attachments: []
-            key_results:
-              type: array
-              items: {}
-            project:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '131414752'
-                reference_prefix:
-                  type: string
-                  example: PRJ1
-                name:
-                  type: string
-                  example: Project 1
-                product_line:
-                  type: boolean
-                  example: false
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                workspace_type:
-                  type: string
-                  example: product_workspace
-                url:
-                  type: string
-                  example: http://company.aha.io/projects/PRJ1
-              example:
-                id: '131414752'
-                reference_prefix: PRJ1
-                name: Project 1
-                product_line: false
-                created_at: '2019-01-01T00:00:00.000Z'
-                workspace_type: product_workspace
-                url: http://company.aha.io/projects/PRJ1
-            parent:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '292454904'
-                reference_num:
-                  type: string
-                  example: PRJ1-MR-1
-                name:
-                  type: string
-                  example: Roll-up Release 1
-                start_date:
-                  type: string
-                  example: '2019-01-01'
-                release_date:
-                  type: string
-                  example: '2019-01-01'
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                url:
-                  type: string
-                  example: http://company.aha.io/master_releases/PRJ1-MR-1
-                resource:
-                  type: string
-                  example: http://company.aha.io/api/v1/releases/PRJ1-MR-1
-              example:
-                id: '292454904'
-                reference_num: PRJ1-MR-1
-                name: Roll-up Release 1
-                start_date: '2019-01-01'
-                release_date: '2019-01-01'
-                created_at: '2019-01-01T00:00:00.000Z'
-                url: http://company.aha.io/master_releases/PRJ1-MR-1
-                resource: http://company.aha.io/api/v1/releases/PRJ1-MR-1
-            created_by_user:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '16338845'
-                name:
-                  type: string
-                  example: John Smith
-                email:
-                  type: string
-                  example: no-reply@aha.io
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-              example:
-                id: '16338845'
-                name: John Smith
-                email: no-reply@aha.io
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-          example:
-            id: '278327321'
-            product_id: '131414752'
-            reference_num: PRJ1-R-1
-            name: Release 1
-            start_date: '2019-01-01'
-            end_date: null
-            development_started_on: '2019-01-01'
-            release_date: '2019-01-01'
-            external_release_date: '2019-01-01'
-            external_release_date_description: Sep 11, 2025
-            external_date_resolution: exact
-            released: false
-            parking_lot: false
-            master_release: false
-            released_on: null
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            position: null
-            progress: null
-            progress_source: progress_manual
-            duration_source: duration_manual
-            status_changed_on: null
-            theme:
-              id: '522610666'
-              body: Theme of the release
-              editor_version: 1
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-            url: http://company.aha.io/releases/PRJ1-R-1
-            resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
-            integration_fields:
-            - id: '68217473'
-              name: id
-              value: '777'
-              integration_id: 204584239
-              service_name: jira
-              created_at: '2019-01-01T00:00:00.000Z'
-            custom_fields:
-            - id: '432637490'
-              key: note
-              name: Note
-              updatedAt: '2019-01-01T00:00:00Z'
-              body: <p>sample text</p>
-              editor_version: 1
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-              value: <p>sample text</p>
-              type: note
-            - id: 424324947
-              key: text_field
-              name: TextField
-              updatedAt: '2019-01-01T00:00:00Z'
-              value: Acme Corp
-              type: string
-            comments_count: 1
-            workflow_status:
-              id: '738862546'
-              name: New
-              position: 1
-              complete: false
-              color: '#dce7c6'
-            owner:
-              id: '16338845'
-              name: John Smith
-              email: no-reply@aha.io
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-            goals:
-            - id: '602095703'
-              name: Goal 1
-              url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
-              resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
-              created_at: '2019-01-01T00:00:00.000Z'
-              description:
-                id: '166463080'
-                body: Description of goal 1
-                editor_version: 1
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-            key_results: []
-            project:
-              id: '131414752'
-              reference_prefix: PRJ1
-              name: Project 1
-              product_line: false
-              created_at: '2019-01-01T00:00:00.000Z'
-              workspace_type: product_workspace
-              url: http://company.aha.io/projects/PRJ1
-            parent:
-              id: '292454904'
-              reference_num: PRJ1-MR-1
-              name: Roll-up Release 1
-              start_date: '2019-01-01'
-              release_date: '2019-01-01'
-              created_at: '2019-01-01T00:00:00.000Z'
-              url: http://company.aha.io/master_releases/PRJ1-MR-1
-              resource: http://company.aha.io/api/v1/releases/PRJ1-MR-1
-            created_by_user:
-              id: '16338845'
-              name: John Smith
-              email: no-reply@aha.io
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-      example:
-        release:
-          id: '278327321'
-          product_id: '131414752'
-          reference_num: PRJ1-R-1
-          name: Release 1
-          start_date: '2019-01-01'
-          end_date: null
-          development_started_on: '2019-01-01'
-          release_date: '2019-01-01'
-          external_release_date: '2019-01-01'
-          external_release_date_description: Sep 11, 2025
-          external_date_resolution: exact
-          released: false
-          parking_lot: false
-          master_release: false
-          released_on: null
-          created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          position: null
-          progress: null
-          progress_source: progress_manual
-          duration_source: duration_manual
-          status_changed_on: null
-          theme:
-            id: '522610666'
-            body: Theme of the release
-            editor_version: 1
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            attachments: []
-          url: http://company.aha.io/releases/PRJ1-R-1
-          resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
-          integration_fields:
-          - id: '68217473'
-            name: id
-            value: '777'
-            integration_id: 204584239
-            service_name: jira
-            created_at: '2019-01-01T00:00:00.000Z'
-          custom_fields:
-          - id: '432637490'
-            key: note
-            name: Note
-            updatedAt: '2019-01-01T00:00:00Z'
-            body: <p>sample text</p>
-            editor_version: 1
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            attachments: []
-            value: <p>sample text</p>
-            type: note
-          - id: 424324947
-            key: text_field
-            name: TextField
-            updatedAt: '2019-01-01T00:00:00Z'
-            value: Acme Corp
-            type: string
-          comments_count: 1
-          workflow_status:
-            id: '738862546'
-            name: New
-            position: 1
-            complete: false
-            color: '#dce7c6'
-          owner:
-            id: '16338845'
-            name: John Smith
-            email: no-reply@aha.io
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-          goals:
-          - id: '602095703'
-            name: Goal 1
-            url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
-            resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
-            created_at: '2019-01-01T00:00:00.000Z'
-            description:
-              id: '166463080'
-              body: Description of goal 1
-              editor_version: 1
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-          key_results: []
-          project:
-            id: '131414752'
-            reference_prefix: PRJ1
-            name: Project 1
-            product_line: false
-            created_at: '2019-01-01T00:00:00.000Z'
-            workspace_type: product_workspace
-            url: http://company.aha.io/projects/PRJ1
-          parent:
-            id: '292454904'
-            reference_num: PRJ1-MR-1
-            name: Roll-up Release 1
-            start_date: '2019-01-01'
-            release_date: '2019-01-01'
-            created_at: '2019-01-01T00:00:00.000Z'
-            url: http://company.aha.io/master_releases/PRJ1-MR-1
-            resource: http://company.aha.io/api/v1/releases/PRJ1-MR-1
-          created_by_user:
-            id: '16338845'
-            name: John Smith
-            email: no-reply@aha.io
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-    ReleasesGetResponse:
-      type: object
-      properties:
-        release:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '278327321'
-            product_id:
-              type: string
-              example: '131414752'
-            reference_num:
-              type: string
-              example: PRJ1-R-1
-            name:
-              type: string
-              example: Release 1
-            start_date:
-              type: string
-              example: '2019-01-01'
-            end_date:
-              type: 'null'
-            development_started_on:
-              type: string
-              example: '2019-01-01'
-            release_date:
-              type: string
-              example: '2019-01-01'
-            external_release_date:
-              type: string
-              example: '2019-01-01'
-            external_release_date_description:
-              type: string
-              example: Sep 11, 2025
-            external_date_resolution:
-              type: string
-              example: exact
-            released:
-              type: boolean
-              example: false
-            parking_lot:
-              type: boolean
-              example: false
-            master_release:
-              type: boolean
-              example: false
-            released_on:
-              type: string
-              example: '2019-01-01'
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            position:
-              type: 'null'
-            progress:
-              type: 'null'
-            progress_source:
-              type: string
-              example: progress_manual
-            duration_source:
-              type: string
-              example: duration_manual
-            status_changed_on:
-              type: 'null'
-            theme:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '522610666'
-                body:
-                  type: string
-                  example: Theme of the release
-                editor_version:
-                  type: integer
-                  example: 1
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                attachments:
-                  type: array
-                  items: {}
-              example:
-                id: '522610666'
-                body: Theme of the release
-                editor_version: 1
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-            url:
-              type: string
-              example: http://company.aha.io/releases/PRJ1-R-1
-            resource:
-              type: string
-              example: http://company.aha.io/api/v1/releases/PRJ1-R-1
-            integration_fields:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  name:
-                    type: string
-                  value:
-                    type: string
-                  integration_id:
-                    type: string
-                  service_name:
-                    type: string
-                  created_at:
-                    type: string
-                example:
-                  id: '68217473'
-                  name: id
-                  value: '777'
-                  integration_id: 204584239
-                  service_name: jira
-                  created_at: '2019-01-01T00:00:00.000Z'
-              example:
-              - id: '68217473'
-                name: id
-                value: '777'
-                integration_id: 204584239
-                service_name: jira
-                created_at: '2019-01-01T00:00:00.000Z'
-            custom_fields:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  key:
-                    type: string
-                  name:
-                    type: string
-                  updatedAt:
-                    type: string
-                  body:
-                    type: string
-                  editor_version:
-                    type: string
-                  created_at:
-                    type: string
-                  updated_at:
-                    type: string
-                  attachments:
-                    type: string
-                  value:
-                    type: string
-                  type:
-                    type: string
-                example:
-                  id: '432637490'
-                  key: note
-                  name: Note
-                  updatedAt: '2019-01-01T00:00:00Z'
-                  body: <p>sample text</p>
-                  editor_version: 1
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  attachments: []
-                  value: <p>sample text</p>
-                  type: note
-              example:
-              - id: '432637490'
-                key: note
-                name: Note
-                updatedAt: '2019-01-01T00:00:00Z'
-                body: <p>sample text</p>
-                editor_version: 1
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-                value: <p>sample text</p>
-                type: note
-              - id: 424324947
-                key: text_field
-                name: TextField
-                updatedAt: '2019-01-01T00:00:00Z'
-                value: Acme Corp
-                type: string
-            comments_count:
-              type: integer
-              example: 1
-            workflow_status:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '738862546'
-                name:
-                  type: string
-                  example: New
-                position:
-                  type: integer
-                  example: 1
-                complete:
-                  type: boolean
-                  example: false
-                color:
-                  type: string
-                  example: '#dce7c6'
-              example:
-                id: '738862546'
-                name: New
-                position: 1
-                complete: false
-                color: '#dce7c6'
-            owner:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '16338845'
-                name:
-                  type: string
-                  example: John Smith
-                email:
-                  type: string
-                  example: no-reply@aha.io
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-              example:
-                id: '16338845'
-                name: John Smith
-                email: no-reply@aha.io
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-            goals:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  name:
-                    type: string
-                  url:
-                    type: string
-                  resource:
-                    type: string
-                  created_at:
-                    type: string
-                  description:
-                    type: string
-                example:
-                  id: '602095703'
-                  name: Goal 1
-                  url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
-                  resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  description:
-                    id: '166463080'
-                    body: Description of goal 1
-                    editor_version: 1
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    attachments: []
-              example:
-              - id: '602095703'
-                name: Goal 1
-                url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
-                resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
-                created_at: '2019-01-01T00:00:00.000Z'
-                description:
-                  id: '166463080'
-                  body: Description of goal 1
+                  notable_id: '602095703'
+                  notable_type: StrategicImperative
                   editor_version: 1
                   created_at: '2019-01-01T00:00:00.000Z'
                   updated_at: '2019-01-01T00:00:00.000Z'
@@ -2279,15 +2655,15 @@ components:
                 properties:
                   id:
                     type: string
+                  name:
+                    type: string
                   reference_num:
                     type: string
-                  name:
+                  created_at:
                     type: string
                   url:
                     type: string
                   resource:
-                    type: string
-                  created_at:
                     type: string
                   description:
                     type: string
@@ -2295,14 +2671,16 @@ components:
                     type: string
                 example:
                   id: '423077122'
-                  reference_num: PRJ1-S-1
                   name: Initiative 1
-                  url: http://company.aha.io/initiatives/PRJ1-S-1
-                  resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+                  reference_num: PRJ1-S-1
                   created_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/initiatives/PRJ1-S-1
+                  resource: https://company.aha.io/api/v1/initiatives/PRJ1-S-1
                   description:
                     id: '673273729'
                     body: Description of initiative 1
+                    notable_id: '423077122'
+                    notable_type: Initiative
                     editor_version: 1
                     created_at: '2019-01-01T00:00:00.000Z'
                     updated_at: '2019-01-01T00:00:00.000Z'
@@ -2322,14 +2700,16 @@ components:
                     created_at: '2019-01-01T00:00:00.000Z'
               example:
               - id: '423077122'
-                reference_num: PRJ1-S-1
                 name: Initiative 1
-                url: http://company.aha.io/initiatives/PRJ1-S-1
-                resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+                reference_num: PRJ1-S-1
                 created_at: '2019-01-01T00:00:00.000Z'
+                url: https://company.aha.io/initiatives/PRJ1-S-1
+                resource: https://company.aha.io/api/v1/initiatives/PRJ1-S-1
                 description:
                   id: '673273729'
                   body: Description of initiative 1
+                  notable_id: '423077122'
+                  notable_type: Initiative
                   editor_version: 1
                   created_at: '2019-01-01T00:00:00.000Z'
                   updated_at: '2019-01-01T00:00:00.000Z'
@@ -2365,20 +2745,20 @@ components:
                 created_at:
                   type: string
                   example: '2019-01-01T00:00:00.000Z'
+                url:
+                  type: string
+                  example: https://company.aha.io/projects/PRJ1
                 workspace_type:
                   type: string
                   example: product_workspace
-                url:
-                  type: string
-                  example: http://company.aha.io/projects/PRJ1
               example:
                 id: '131414752'
                 reference_prefix: PRJ1
                 name: Project 1
                 product_line: false
                 created_at: '2019-01-01T00:00:00.000Z'
+                url: https://company.aha.io/projects/PRJ1
                 workspace_type: product_workspace
-                url: http://company.aha.io/projects/PRJ1
             created_by_user:
               type: object
               properties:
@@ -2413,12 +2793,12 @@ components:
             development_started_on: '2019-01-01'
             release_date: '2019-01-01'
             external_release_date: '2019-01-01'
-            external_release_date_description: Sep 11, 2025
+            external_release_date_description: Oct 13, 2026
             external_date_resolution: exact
             released: false
             parking_lot: false
             master_release: false
-            released_on: '2019-01-01'
+            released_on: null
             created_at: '2019-01-01T00:00:00.000Z'
             updated_at: '2019-01-01T00:00:00.000Z'
             position: null
@@ -2429,12 +2809,14 @@ components:
             theme:
               id: '522610666'
               body: Theme of the release
+              notable_id: '278327321'
+              notable_type: Release
               editor_version: 1
               created_at: '2019-01-01T00:00:00.000Z'
               updated_at: '2019-01-01T00:00:00.000Z'
               attachments: []
-            url: http://company.aha.io/releases/PRJ1-R-1
-            resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
+            url: https://company.aha.io/releases/PRJ1-R-1
+            resource: https://company.aha.io/api/v1/releases/PRJ1-R-1
             integration_fields:
             - id: '68217473'
               name: id
@@ -2447,19 +2829,38 @@ components:
               key: note
               name: Note
               updatedAt: '2019-01-01T00:00:00Z'
+              type: note
+              value: <p>sample text</p>
               body: <p>sample text</p>
               editor_version: 1
               created_at: '2019-01-01T00:00:00.000Z'
               updated_at: '2019-01-01T00:00:00.000Z'
               attachments: []
-              value: <p>sample text</p>
-              type: note
+            - id: '6776881149483941173'
+              key: release_budget
+              name: Release budget
+              updatedAt: '2019-01-01T00:00:00Z'
+              type: equation_sheet
+              value:
+                values:
+                  '6651670327076753738':
+                    value: 123.0
+                    name: Revenue
+                    display_value: $123.00
+                    raw_display_value: $123.00
+                  '6651670393424268679':
+                    value: null
+                    error_message: Missing input value
+                    error_position: null
+                    name: Profit
+                    display_value: null
+                    raw_display_value: null
             - id: 424324947
               key: text_field
               name: TextField
               updatedAt: '2019-01-01T00:00:00Z'
-              value: Acme Corp
               type: string
+              value: Acme Corp
             comments_count: 1
             workflow_status:
               id: '738862546'
@@ -2467,6 +2868,7 @@ components:
               position: 1
               complete: false
               color: '#dce7c6'
+              workflow_status_category: null
             owner:
               id: '16338845'
               name: John Smith
@@ -2476,12 +2878,14 @@ components:
             goals:
             - id: '602095703'
               name: Goal 1
-              url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
-              resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+              url: https://company.aha.io/strategic_imperatives/DEMOENT-G-1
+              resource: https://company.aha.io/api/v1/goals/DEMOENT-G-1
               created_at: '2019-01-01T00:00:00.000Z'
               description:
                 id: '166463080'
                 body: Description of goal 1
+                notable_id: '602095703'
+                notable_type: StrategicImperative
                 editor_version: 1
                 created_at: '2019-01-01T00:00:00.000Z'
                 updated_at: '2019-01-01T00:00:00.000Z'
@@ -2489,14 +2893,16 @@ components:
             key_results: []
             initiatives:
             - id: '423077122'
-              reference_num: PRJ1-S-1
               name: Initiative 1
-              url: http://company.aha.io/initiatives/PRJ1-S-1
-              resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+              reference_num: PRJ1-S-1
               created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/initiatives/PRJ1-S-1
+              resource: https://company.aha.io/api/v1/initiatives/PRJ1-S-1
               description:
                 id: '673273729'
                 body: Description of initiative 1
+                notable_id: '423077122'
+                notable_type: Initiative
                 editor_version: 1
                 created_at: '2019-01-01T00:00:00.000Z'
                 updated_at: '2019-01-01T00:00:00.000Z'
@@ -2520,8 +2926,8 @@ components:
               name: Project 1
               product_line: false
               created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/projects/PRJ1
               workspace_type: product_workspace
-              url: http://company.aha.io/projects/PRJ1
             created_by_user:
               id: '16338845'
               name: John Smith
@@ -2539,12 +2945,12 @@ components:
           development_started_on: '2019-01-01'
           release_date: '2019-01-01'
           external_release_date: '2019-01-01'
-          external_release_date_description: Sep 11, 2025
+          external_release_date_description: Oct 13, 2026
           external_date_resolution: exact
           released: false
           parking_lot: false
           master_release: false
-          released_on: '2019-01-01'
+          released_on: null
           created_at: '2019-01-01T00:00:00.000Z'
           updated_at: '2019-01-01T00:00:00.000Z'
           position: null
@@ -2555,12 +2961,14 @@ components:
           theme:
             id: '522610666'
             body: Theme of the release
+            notable_id: '278327321'
+            notable_type: Release
             editor_version: 1
             created_at: '2019-01-01T00:00:00.000Z'
             updated_at: '2019-01-01T00:00:00.000Z'
             attachments: []
-          url: http://company.aha.io/releases/PRJ1-R-1
-          resource: http://company.aha.io/api/v1/releases/PRJ1-R-1
+          url: https://company.aha.io/releases/PRJ1-R-1
+          resource: https://company.aha.io/api/v1/releases/PRJ1-R-1
           integration_fields:
           - id: '68217473'
             name: id
@@ -2573,19 +2981,38 @@ components:
             key: note
             name: Note
             updatedAt: '2019-01-01T00:00:00Z'
+            type: note
+            value: <p>sample text</p>
             body: <p>sample text</p>
             editor_version: 1
             created_at: '2019-01-01T00:00:00.000Z'
             updated_at: '2019-01-01T00:00:00.000Z'
             attachments: []
-            value: <p>sample text</p>
-            type: note
+          - id: '6776881149483941173'
+            key: release_budget
+            name: Release budget
+            updatedAt: '2019-01-01T00:00:00Z'
+            type: equation_sheet
+            value:
+              values:
+                '6651670327076753738':
+                  value: 123.0
+                  name: Revenue
+                  display_value: $123.00
+                  raw_display_value: $123.00
+                '6651670393424268679':
+                  value: null
+                  error_message: Missing input value
+                  error_position: null
+                  name: Profit
+                  display_value: null
+                  raw_display_value: null
           - id: 424324947
             key: text_field
             name: TextField
             updatedAt: '2019-01-01T00:00:00Z'
-            value: Acme Corp
             type: string
+            value: Acme Corp
           comments_count: 1
           workflow_status:
             id: '738862546'
@@ -2593,6 +3020,7 @@ components:
             position: 1
             complete: false
             color: '#dce7c6'
+            workflow_status_category: null
           owner:
             id: '16338845'
             name: John Smith
@@ -2602,12 +3030,14 @@ components:
           goals:
           - id: '602095703'
             name: Goal 1
-            url: http://company.aha.io/strategic_imperatives/DEMOENT-G-1
-            resource: http://company.aha.io/api/v1/goals/DEMOENT-G-1
+            url: https://company.aha.io/strategic_imperatives/DEMOENT-G-1
+            resource: https://company.aha.io/api/v1/goals/DEMOENT-G-1
             created_at: '2019-01-01T00:00:00.000Z'
             description:
               id: '166463080'
               body: Description of goal 1
+              notable_id: '602095703'
+              notable_type: StrategicImperative
               editor_version: 1
               created_at: '2019-01-01T00:00:00.000Z'
               updated_at: '2019-01-01T00:00:00.000Z'
@@ -2615,14 +3045,16 @@ components:
           key_results: []
           initiatives:
           - id: '423077122'
-            reference_num: PRJ1-S-1
             name: Initiative 1
-            url: http://company.aha.io/initiatives/PRJ1-S-1
-            resource: http://company.aha.io/api/v1/initiatives/PRJ1-S-1
+            reference_num: PRJ1-S-1
             created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/initiatives/PRJ1-S-1
+            resource: https://company.aha.io/api/v1/initiatives/PRJ1-S-1
             description:
               id: '673273729'
               body: Description of initiative 1
+              notable_id: '423077122'
+              notable_type: Initiative
               editor_version: 1
               created_at: '2019-01-01T00:00:00.000Z'
               updated_at: '2019-01-01T00:00:00.000Z'
@@ -2646,52 +3078,14 @@ components:
             name: Project 1
             product_line: false
             created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/projects/PRJ1
             workspace_type: product_workspace
-            url: http://company.aha.io/projects/PRJ1
           created_by_user:
             id: '16338845'
             name: John Smith
             email: no-reply@aha.io
             created_at: '2019-01-01T00:00:00.000Z'
             updated_at: '2019-01-01T00:00:00.000Z'
-    ReleasesPostResponse:
-      type: object
-      properties:
-        release:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149492110971'
-            name:
-              type: string
-              example: '[Copy] Release 1'
-          example:
-            id: '6776881149492110971'
-            name: '[Copy] Release 1'
-      example:
-        release:
-          id: '6776881149492110971'
-          name: '[Copy] Release 1'
-    ReleasesPostRequest:
-      type: object
-      properties:
-        release:
-          type: object
-          properties:
-            initiatives:
-              type: array
-              items: {}
-            name:
-              type: string
-              example: Smarter release
-          example:
-            initiatives: []
-            name: Smarter release
-      example:
-        release:
-          initiatives: []
-          name: Smarter release
   securitySchemes:
     OAuth2:
       type: oauth2

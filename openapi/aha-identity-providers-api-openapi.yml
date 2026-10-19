@@ -20,7 +20,7 @@ security:
 tags:
 - name: Identity Providers
 paths:
-  /api/v1/identity_providers:
+  /identity_providers:
     get:
       summary: List active identity providers that can be used for SSO
       description: null
@@ -51,9 +51,9 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1IdentityProviders
+      operationId: getIdentityProviders
       x-operation-id-source: derived
-  /api/v1/identity_providers/{id}:
+  /identity_providers/{id}:
     get:
       summary: Get a specific identity provider
       description: null
@@ -90,7 +90,7 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1IdentityProvidersById
+      operationId: getIdentityProvidersById
       x-operation-id-source: derived
 components:
   schemas:

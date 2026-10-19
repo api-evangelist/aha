@@ -20,13 +20,19 @@ security:
 tags:
 - name: Users
 paths:
-  /api/v1/products/{product_id}/users:
-    post:
-      summary: Create a user
+  /users/{id}/product_roles/{product_id}:
+    delete:
+      summary: Delete a user's product role
       description: null
       tags:
       - Users
       parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
       - name: product_id
         in: path
         required: true
@@ -34,44 +40,43 @@ paths:
           type: string
         description: ProductId identifier
       responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/UsersPostResponse'
-              example:
-                role: 20
-                role_description: Owner
-                user:
-                  id: '6776881149496250378'
-                  name: sam doe
-                  email: sam.doe@example.com
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
+        '204':
+          description: No content - operation successful
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UsersPostRequest'
-            example:
-              user:
-                email: sam.doe@example.com
-                first_name: sam
-                last_name: doe
-                role: product_owner
-      operationId: postApiV1ProductsByProductIdUsers
+      operationId: deleteUsersByIdProductRolesByProductId
       x-operation-id-source: derived
+  /users/{id}/user_roles/{product_id}:
+    delete:
+      summary: Delete a user's custom role
+      description: null
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: deleteUsersByIdUserRolesByProductId
+      x-operation-id-source: derived
+  /products/{product_id}/users:
     get:
       summary: List users associated with a product
       description: null
@@ -84,6 +89,18 @@ paths:
         schema:
           type: string
         description: ProductId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
       responses:
         '200':
           description: Successful operation
@@ -194,15 +211,78 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1ProductsByProductIdUsers
+      operationId: getProductsByProductIdUsers
       x-operation-id-source: derived
-  /api/v1/users:
+    post:
+      summary: Create a contributor user
+      description: null
+      tags:
+      - Users
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/UsersPostResponse'
+              example:
+                role: 50
+                role_description: Viewer
+                user:
+                  id: '6776881149484848333'
+                  name: sam doe
+                  email: sam.doe@example.com
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsersPostRequest'
+            example:
+              user:
+                email: sam.doe@example.com
+                first_name: sam
+                last_name: doe
+                role: contributor
+      operationId: postProductsByProductIdUsers
+      x-operation-id-source: derived
+  /users:
     get:
       summary: List users
       description: '**Custom roles are an Enterprise+ exclusive feature.**'
       tags:
       - Users
-      parameters: []
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
       responses:
         '200':
           description: Successful operation
@@ -232,10 +312,9 @@ paths:
                   user_roles: []
                   enabled: true
                   paid_seat: true
+                  administrator: false
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: false
                   administrator_roles:
                     administer_account: false
                     administer_billing: false
@@ -253,10 +332,9 @@ paths:
                   user_roles: []
                   enabled: true
                   paid_seat: true
+                  administrator: true
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: true
                   administrator_roles:
                     administer_account: true
                     administer_billing: true
@@ -286,7 +364,7 @@ paths:
                   - role: 20
                     role_description: Owner
                     product_id: '787060436'
-                    product_name: null
+                    product_name: Development Team
                   - role: 20
                     role_description: Owner
                     product_id: '682804944'
@@ -298,16 +376,15 @@ paths:
                   user_roles: []
                   enabled: true
                   paid_seat: true
+                  administrator: true
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: true
                   administrator_roles:
                     administer_account: true
                     administer_billing: false
                     administer_configuration: true
                   paid_seat_group:
-                    id: 572805993
+                    id: '572805993'
                     name: Group 2
                   identity_provider:
                     type: password
@@ -322,10 +399,9 @@ paths:
                   user_roles: []
                   enabled: true
                   paid_seat: true
+                  administrator: true
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: true
                   administrator_roles:
                     administer_account: true
                     administer_billing: true
@@ -343,10 +419,9 @@ paths:
                   user_roles: []
                   enabled: true
                   paid_seat: true
+                  administrator: false
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: false
                   administrator_roles:
                     administer_account: false
                     administer_billing: false
@@ -364,10 +439,9 @@ paths:
                   user_roles: []
                   enabled: true
                   paid_seat: true
+                  administrator: false
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: false
                   administrator_roles:
                     administer_account: false
                     administer_billing: false
@@ -393,10 +467,9 @@ paths:
                   user_roles: []
                   enabled: true
                   paid_seat: true
+                  administrator: false
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: false
                   administrator_roles:
                     administer_account: false
                     administer_billing: false
@@ -418,10 +491,9 @@ paths:
                   user_roles: []
                   enabled: true
                   paid_seat: true
+                  administrator: false
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: false
                   administrator_roles:
                     administer_account: false
                     administer_billing: false
@@ -439,16 +511,15 @@ paths:
                   user_roles: []
                   enabled: true
                   paid_seat: true
+                  administrator: true
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: true
                   administrator_roles:
                     administer_account: true
                     administer_billing: true
                     administer_configuration: true
                   paid_seat_group:
-                    id: 992805589
+                    id: '992805589'
                     name: Group 1
                   identity_provider:
                     type: password
@@ -467,10 +538,9 @@ paths:
                   user_roles: []
                   enabled: true
                   paid_seat: true
+                  administrator: false
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: false
                   administrator_roles:
                     administer_account: false
                     administer_billing: false
@@ -492,10 +562,9 @@ paths:
                   user_roles: []
                   enabled: true
                   paid_seat: true
+                  administrator: false
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: false
                   administrator_roles:
                     administer_account: false
                     administer_billing: false
@@ -513,10 +582,9 @@ paths:
                   user_roles: []
                   enabled: true
                   paid_seat: true
+                  administrator: false
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: false
                   administrator_roles:
                     administer_account: false
                     administer_billing: false
@@ -534,10 +602,9 @@ paths:
                   user_roles: []
                   enabled: true
                   paid_seat: true
+                  administrator: true
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: true
                   administrator_roles:
                     administer_account: false
                     administer_billing: true
@@ -559,10 +626,9 @@ paths:
                   user_roles: []
                   enabled: true
                   paid_seat: true
+                  administrator: false
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: false
                   administrator_roles:
                     administer_account: false
                     administer_billing: false
@@ -584,10 +650,9 @@ paths:
                   user_roles: []
                   enabled: true
                   paid_seat: true
+                  administrator: false
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: false
                   administrator_roles:
                     administer_account: false
                     administer_billing: false
@@ -605,10 +670,9 @@ paths:
                   user_roles: []
                   enabled: true
                   paid_seat: true
+                  administrator: true
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: true
                   administrator_roles:
                     administer_account: true
                     administer_billing: true
@@ -630,10 +694,9 @@ paths:
                   user_roles: []
                   enabled: true
                   paid_seat: true
+                  administrator: false
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: false
                   administrator_roles:
                     administer_account: false
                     administer_billing: false
@@ -651,10 +714,9 @@ paths:
                   user_roles: []
                   enabled: true
                   paid_seat: true
+                  administrator: true
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: true
                   administrator_roles:
                     administer_account: true
                     administer_billing: true
@@ -676,16 +738,15 @@ paths:
                   user_roles: []
                   enabled: true
                   paid_seat: true
+                  administrator: true
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: true
                   administrator_roles:
                     administer_account: true
                     administer_billing: false
                     administer_configuration: true
                   paid_seat_group:
-                    id: 572805993
+                    id: '572805993'
                     name: Group 2
                   identity_provider:
                     type: password
@@ -712,10 +773,9 @@ paths:
                   user_roles: []
                   enabled: true
                   paid_seat: true
+                  administrator: false
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: false
                   administrator_roles:
                     administer_account: false
                     administer_billing: false
@@ -734,6 +794,10 @@ paths:
                     role_description: Owner
                     product_id: '131414752'
                     product_name: Project 1
+                  - role: 20
+                    role_description: Owner
+                    product_id: '787060436'
+                    product_name: Development Team
                   user_roles:
                   - role_id: 409541421
                     name: Project scoped role 1
@@ -743,10 +807,9 @@ paths:
                       id: 303742481
                   enabled: true
                   paid_seat: true
+                  administrator: true
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: true
                   administrator_roles:
                     administer_account: true
                     administer_billing: true
@@ -761,9 +824,9 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1Users
+      operationId: getUsers
       x-operation-id-source: derived
-  /api/v1/users/{id}:
+  /users/{id}:
     get:
       summary: Get a specific user
       description: null
@@ -802,12 +865,15 @@ paths:
                     role_description: Owner
                     product_id: '131414752'
                     product_name: Project 1
+                  - role: 20
+                    role_description: Owner
+                    product_id: '787060436'
+                    product_name: Development Team
                   enabled: true
                   paid_seat: true
+                  administrator: true
                   roadmaps_seat: true
                   develop_seat: false
-                  teamwork_seat: false
-                  administrator: true
                   administrator_roles:
                     administer_account: true
                     administer_billing: true
@@ -818,7 +884,7 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1UsersById
+      operationId: getUsersById
       x-operation-id-source: derived
     put:
       summary: Update a user
@@ -867,9 +933,6 @@ paths:
                   product_name: null
                 enabled: false
                 paid_seat: true
-                roadmaps_seat: true
-                develop_seat: false
-                teamwork_seat: false
                 administrator: false
                 administrator_roles:
                   administer_account: false
@@ -891,9 +954,9 @@ paths:
               user:
                 first_name: Sarah
                 enabled: false
-      operationId: putApiV1UsersById
+      operationId: putUsersById
       x-operation-id-source: derived
-  /api/v1/users/{id}/product_roles:
+  /users/{id}/product_roles:
     get:
       summary: List a user's product roles
       description: null
@@ -906,6 +969,18 @@ paths:
         schema:
           type: string
         description: Id identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
       responses:
         '200':
           description: Successful operation
@@ -922,17 +997,21 @@ paths:
                 product_roles:
                 - role: 20
                   role_description: Owner
+                  product_id: '787060436'
+                  product_name: Development Team
+                - role: 20
+                  role_description: Owner
                   product_id: '131414752'
                   product_name: Project 1
                 pagination:
-                  total_records: 1
+                  total_records: 2
                   total_pages: 1
                   current_page: 1
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1UsersByIdProductRoles
+      operationId: getUsersByIdProductRoles
       x-operation-id-source: derived
     post:
       summary: Update a user's product roles
@@ -977,37 +1056,9 @@ paths:
               product_role:
                 role: product_owner
                 product_id: PRJ3
-      operationId: postApiV1UsersByIdProductRoles
+      operationId: postUsersByIdProductRoles
       x-operation-id-source: derived
-  /api/v1/users/{id}/product_roles/{product_id}:
-    delete:
-      summary: Delete a user's product role
-      description: null
-      tags:
-      - Users
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: Id identifier
-      - name: product_id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: ProductId identifier
-      responses:
-        '204':
-          description: No content - operation successful
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      operationId: deleteApiV1UsersByIdProductRolesByProductId
-      x-operation-id-source: derived
-  /api/v1/users/{id}/user_roles:
+  /users/{id}/user_roles:
     get:
       summary: List a user's custom roles
       description: null
@@ -1020,6 +1071,18 @@ paths:
         schema:
           type: string
         description: Id identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
       responses:
         '200':
           description: Successful operation
@@ -1048,7 +1111,7 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1UsersByIdUserRoles
+      operationId: getUsersByIdUserRoles
       x-operation-id-source: derived
     post:
       summary: Update a user's custom roles
@@ -1095,35 +1158,7 @@ paths:
               user_role:
                 custom_role_id: 409541421
                 product_id: 131414752
-      operationId: postApiV1UsersByIdUserRoles
-      x-operation-id-source: derived
-  /api/v1/users/{id}/user_roles/{product_id}:
-    delete:
-      summary: Delete a user's custom role
-      description: null
-      tags:
-      - Users
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: Id identifier
-      - name: product_id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: ProductId identifier
-      responses:
-        '204':
-          description: No content - operation successful
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      operationId: deleteApiV1UsersByIdUserRolesByProductId
+      operationId: postUsersByIdUserRoles
       x-operation-id-source: derived
 components:
   schemas:
@@ -1192,15 +1227,6 @@ components:
         paid_seat:
           type: boolean
           example: true
-        roadmaps_seat:
-          type: boolean
-          example: true
-        develop_seat:
-          type: boolean
-          example: false
-        teamwork_seat:
-          type: boolean
-          example: false
         administrator:
           type: boolean
           example: false
@@ -1251,9 +1277,6 @@ components:
           product_name: null
         enabled: false
         paid_seat: true
-        roadmaps_seat: true
-        develop_seat: false
-        teamwork_seat: false
         administrator: false
         administrator_roles:
           administer_account: false
@@ -1261,6 +1284,57 @@ components:
           administer_configuration: false
         identity_provider:
           type: password
+    UsersPostResponse:
+      type: object
+      properties:
+        role_id:
+          type: integer
+          example: 409541421
+        name:
+          type: string
+          example: Project scoped role 1
+        scope:
+          type: object
+          properties:
+            type:
+              type: string
+              example: project
+            name:
+              type: string
+              example: Project 1
+            id:
+              type: integer
+              example: 131414752
+          example:
+            type: project
+            name: Project 1
+            id: 131414752
+      example:
+        role_id: 409541421
+        name: Project scoped role 1
+        scope:
+          type: project
+          name: Project 1
+          id: 131414752
+    UsersPostRequest:
+      type: object
+      properties:
+        user:
+          type: object
+          properties:
+            first_name:
+              type: string
+              example: Sarah
+            enabled:
+              type: boolean
+              example: false
+          example:
+            first_name: Sarah
+            enabled: false
+      example:
+        user:
+          first_name: Sarah
+          enabled: false
     UsersGetResponse:
       type: object
       properties:
@@ -1330,57 +1404,6 @@ components:
           total_records: 1
           total_pages: 1
           current_page: 1
-    UsersPostRequest:
-      type: object
-      properties:
-        user_role:
-          type: object
-          properties:
-            custom_role_id:
-              type: integer
-              example: 409541421
-            product_id:
-              type: integer
-              example: 131414752
-          example:
-            custom_role_id: 409541421
-            product_id: 131414752
-      example:
-        user_role:
-          custom_role_id: 409541421
-          product_id: 131414752
-    UsersPostResponse:
-      type: object
-      properties:
-        role_id:
-          type: integer
-          example: 409541421
-        name:
-          type: string
-          example: Project scoped role 1
-        scope:
-          type: object
-          properties:
-            type:
-              type: string
-              example: project
-            name:
-              type: string
-              example: Project 1
-            id:
-              type: integer
-              example: 131414752
-          example:
-            type: project
-            name: Project 1
-            id: 131414752
-      example:
-        role_id: 409541421
-        name: Project scoped role 1
-        scope:
-          type: project
-          name: Project 1
-          id: 131414752
   securitySchemes:
     OAuth2:
       type: oauth2

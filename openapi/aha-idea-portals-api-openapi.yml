@@ -20,9 +20,148 @@ security:
 tags:
 - name: Idea Portals
 paths:
-  /api/v1/products/{product_id}/idea_portals:
+  /idea_portals:
+    get:
+      summary: List all idea portals in an account
+      description: null
+      tags:
+      - Idea Portals
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeaPortalsGetResponse'
+              example:
+                idea_portals:
+                - id: '297813804'
+                  title: Ideas 3
+                  portal_enabled: true
+                  access_type: public
+                  external_url: https://testideaportal2.ideas.aha.io/
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '650606523'
+                  title: Ideas 2
+                  portal_enabled: true
+                  access_type: public
+                  external_url: https://testideaportal1.ideas.aha.io/
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '675900055'
+                  title: portal with 1 endorsement per idea
+                  portal_enabled: true
+                  access_type: submit-only
+                  external_url: https://testideaportal3.ideas.aha.io/ideas/new
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '747493361'
+                  title: portal with 2 endorsements per idea
+                  portal_enabled: true
+                  access_type: submit-only
+                  external_url: https://testideaportal4.ideas.aha.io/ideas/new
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '1070474755'
+                  title: Ideas 1
+                  portal_enabled: true
+                  access_type: submit-only
+                  external_url: https://testideaportal.ideas.aha.io/ideas/new
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 5
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getIdeaPortals
+      x-operation-id-source: derived
+  /products/{product_id}/idea_portals:
     get:
       summary: List idea portals in a product
+      description: null
+      tags:
+      - Idea Portals
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeaPortalsGetResponse'
+              example:
+                idea_portals:
+                - id: '297813804'
+                  title: Ideas 3
+                  portal_enabled: true
+                  access_type: public
+                  external_url: https://testideaportal2.ideas.aha.io/
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '650606523'
+                  title: Ideas 2
+                  portal_enabled: true
+                  access_type: public
+                  external_url: https://testideaportal1.ideas.aha.io/
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '1070474755'
+                  title: Ideas 1
+                  portal_enabled: true
+                  access_type: submit-only
+                  external_url: https://testideaportal.ideas.aha.io/ideas/new
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 3
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getProductsByProductIdIdeaPortals
+      x-operation-id-source: derived
+    post:
+      summary: Add idea portals to a product
       description: null
       tags:
       - Idea Portals
@@ -44,56 +183,54 @@ paths:
           content:
             application/json; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/IdeaPortalsGetResponse'
+                $ref: '#/components/schemas/IdeaPortalsPostResponse'
               example:
                 idea_portals:
                 - id: '297813804'
                   title: Ideas 3
                   portal_enabled: true
                   access_type: public
-                  external_url: https://testideaportal2.ideas.aha.io:8338/
+                  external_url: https://testideaportal2.ideas.aha.io/
                   created_at: '2019-01-01T00:00:00.000Z'
                 - id: '650606523'
                   title: Ideas 2
                   portal_enabled: true
                   access_type: public
-                  external_url: https://testideaportal1.ideas.aha.io:8338/
+                  external_url: https://testideaportal1.ideas.aha.io/
                   created_at: '2019-01-01T00:00:00.000Z'
                 - id: '1070474755'
                   title: Ideas 1
                   portal_enabled: true
                   access_type: submit-only
-                  external_url: https://testideaportal.ideas.aha.io:8338/ideas/new
+                  external_url: https://testideaportal.ideas.aha.io/ideas/new
                   created_at: '2019-01-01T00:00:00.000Z'
-                pagination:
-                  total_records: 3
-                  total_pages: 1
-                  current_page: 1
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1ProductsByProductIdIdeaPortals
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdeaPortalsPostRequest'
+            example:
+              idea_portal_ids:
+              - '1070474755'
+      operationId: postProductsByProductIdIdeaPortals
       x-operation-id-source: derived
-  /api/v1/idea_portals:
-    get:
-      summary: List all idea portals in an account
+    put:
+      summary: Replace the idea portals linked to a product
       description: null
       tags:
       - Idea Portals
       parameters:
-      - name: page
-        in: query
-        required: false
+      - name: product_id
+        in: path
+        required: true
         schema:
           type: string
-        example: '1'
-      - name: per_page
-        in: query
-        required: false
-        schema:
-          type: string
-        example: '10'
+        description: ProductId identifier
       responses:
         '200':
           description: Successful operation
@@ -105,48 +242,29 @@ paths:
           content:
             application/json; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/IdeaPortalsGetResponse'
+                $ref: '#/components/schemas/IdeaPortalsPutResponse'
               example:
                 idea_portals:
-                - id: '297813804'
-                  title: Ideas 3
-                  portal_enabled: true
-                  access_type: public
-                  external_url: https://testideaportal2.ideas.aha.io:8338/
-                  created_at: '2019-01-01T00:00:00.000Z'
-                - id: '650606523'
-                  title: Ideas 2
-                  portal_enabled: true
-                  access_type: public
-                  external_url: https://testideaportal1.ideas.aha.io:8338/
-                  created_at: '2019-01-01T00:00:00.000Z'
-                - id: '675900055'
-                  title: portal with 1 endorsement per idea
-                  portal_enabled: true
-                  access_type: submit-only
-                  external_url: https://testideaportal3.ideas.aha.io:8338/ideas/new
-                  created_at: '2019-01-01T00:00:00.000Z'
-                - id: '747493361'
-                  title: portal with 2 endorsements per idea
-                  portal_enabled: true
-                  access_type: submit-only
-                  external_url: https://testideaportal4.ideas.aha.io:8338/ideas/new
-                  created_at: '2019-01-01T00:00:00.000Z'
                 - id: '1070474755'
                   title: Ideas 1
                   portal_enabled: true
                   access_type: submit-only
-                  external_url: https://testideaportal.ideas.aha.io:8338/ideas/new
+                  external_url: https://testideaportal.ideas.aha.io/ideas/new
                   created_at: '2019-01-01T00:00:00.000Z'
-                pagination:
-                  total_records: 5
-                  total_pages: 1
-                  current_page: 1
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1IdeaPortals
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdeaPortalsPostRequest'
+            example:
+              idea_portal_ids:
+              - '1070474755'
+      operationId: putProductsByProductIdIdeaPortals
       x-operation-id-source: derived
 components:
   schemas:
@@ -172,7 +290,7 @@ components:
                 example: public
               external_url:
                 type: string
-                example: https://testideaportal2.ideas.aha.io:8338/
+                example: https://testideaportal2.ideas.aha.io/
               created_at:
                 type: string
                 example: '2019-01-01T00:00:00.000Z'
@@ -181,45 +299,33 @@ components:
               title: Ideas 3
               portal_enabled: true
               access_type: public
-              external_url: https://testideaportal2.ideas.aha.io:8338/
+              external_url: https://testideaportal2.ideas.aha.io/
               created_at: '2019-01-01T00:00:00.000Z'
           example:
           - id: '297813804'
             title: Ideas 3
             portal_enabled: true
             access_type: public
-            external_url: https://testideaportal2.ideas.aha.io:8338/
+            external_url: https://testideaportal2.ideas.aha.io/
             created_at: '2019-01-01T00:00:00.000Z'
           - id: '650606523'
             title: Ideas 2
             portal_enabled: true
             access_type: public
-            external_url: https://testideaportal1.ideas.aha.io:8338/
-            created_at: '2019-01-01T00:00:00.000Z'
-          - id: '675900055'
-            title: portal with 1 endorsement per idea
-            portal_enabled: true
-            access_type: submit-only
-            external_url: https://testideaportal3.ideas.aha.io:8338/ideas/new
-            created_at: '2019-01-01T00:00:00.000Z'
-          - id: '747493361'
-            title: portal with 2 endorsements per idea
-            portal_enabled: true
-            access_type: submit-only
-            external_url: https://testideaportal4.ideas.aha.io:8338/ideas/new
+            external_url: https://testideaportal1.ideas.aha.io/
             created_at: '2019-01-01T00:00:00.000Z'
           - id: '1070474755'
             title: Ideas 1
             portal_enabled: true
             access_type: submit-only
-            external_url: https://testideaportal.ideas.aha.io:8338/ideas/new
+            external_url: https://testideaportal.ideas.aha.io/ideas/new
             created_at: '2019-01-01T00:00:00.000Z'
         pagination:
           type: object
           properties:
             total_records:
               type: integer
-              example: 5
+              example: 3
             total_pages:
               type: integer
               example: 1
@@ -227,7 +333,7 @@ components:
               type: integer
               example: 1
           example:
-            total_records: 5
+            total_records: 3
             total_pages: 1
             current_page: 1
       example:
@@ -236,36 +342,157 @@ components:
           title: Ideas 3
           portal_enabled: true
           access_type: public
-          external_url: https://testideaportal2.ideas.aha.io:8338/
+          external_url: https://testideaportal2.ideas.aha.io/
           created_at: '2019-01-01T00:00:00.000Z'
         - id: '650606523'
           title: Ideas 2
           portal_enabled: true
           access_type: public
-          external_url: https://testideaportal1.ideas.aha.io:8338/
-          created_at: '2019-01-01T00:00:00.000Z'
-        - id: '675900055'
-          title: portal with 1 endorsement per idea
-          portal_enabled: true
-          access_type: submit-only
-          external_url: https://testideaportal3.ideas.aha.io:8338/ideas/new
-          created_at: '2019-01-01T00:00:00.000Z'
-        - id: '747493361'
-          title: portal with 2 endorsements per idea
-          portal_enabled: true
-          access_type: submit-only
-          external_url: https://testideaportal4.ideas.aha.io:8338/ideas/new
+          external_url: https://testideaportal1.ideas.aha.io/
           created_at: '2019-01-01T00:00:00.000Z'
         - id: '1070474755'
           title: Ideas 1
           portal_enabled: true
           access_type: submit-only
-          external_url: https://testideaportal.ideas.aha.io:8338/ideas/new
+          external_url: https://testideaportal.ideas.aha.io/ideas/new
           created_at: '2019-01-01T00:00:00.000Z'
         pagination:
-          total_records: 5
+          total_records: 3
           total_pages: 1
           current_page: 1
+    IdeaPortalsPostResponse:
+      type: object
+      properties:
+        idea_portals:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: '297813804'
+              title:
+                type: string
+                example: Ideas 3
+              portal_enabled:
+                type: boolean
+                example: true
+              access_type:
+                type: string
+                example: public
+              external_url:
+                type: string
+                example: https://testideaportal2.ideas.aha.io/
+              created_at:
+                type: string
+                example: '2019-01-01T00:00:00.000Z'
+            example:
+              id: '297813804'
+              title: Ideas 3
+              portal_enabled: true
+              access_type: public
+              external_url: https://testideaportal2.ideas.aha.io/
+              created_at: '2019-01-01T00:00:00.000Z'
+          example:
+          - id: '297813804'
+            title: Ideas 3
+            portal_enabled: true
+            access_type: public
+            external_url: https://testideaportal2.ideas.aha.io/
+            created_at: '2019-01-01T00:00:00.000Z'
+          - id: '650606523'
+            title: Ideas 2
+            portal_enabled: true
+            access_type: public
+            external_url: https://testideaportal1.ideas.aha.io/
+            created_at: '2019-01-01T00:00:00.000Z'
+          - id: '1070474755'
+            title: Ideas 1
+            portal_enabled: true
+            access_type: submit-only
+            external_url: https://testideaportal.ideas.aha.io/ideas/new
+            created_at: '2019-01-01T00:00:00.000Z'
+      example:
+        idea_portals:
+        - id: '297813804'
+          title: Ideas 3
+          portal_enabled: true
+          access_type: public
+          external_url: https://testideaportal2.ideas.aha.io/
+          created_at: '2019-01-01T00:00:00.000Z'
+        - id: '650606523'
+          title: Ideas 2
+          portal_enabled: true
+          access_type: public
+          external_url: https://testideaportal1.ideas.aha.io/
+          created_at: '2019-01-01T00:00:00.000Z'
+        - id: '1070474755'
+          title: Ideas 1
+          portal_enabled: true
+          access_type: submit-only
+          external_url: https://testideaportal.ideas.aha.io/ideas/new
+          created_at: '2019-01-01T00:00:00.000Z'
+    IdeaPortalsPutResponse:
+      type: object
+      properties:
+        idea_portals:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: '1070474755'
+              title:
+                type: string
+                example: Ideas 1
+              portal_enabled:
+                type: boolean
+                example: true
+              access_type:
+                type: string
+                example: submit-only
+              external_url:
+                type: string
+                example: https://testideaportal.ideas.aha.io/ideas/new
+              created_at:
+                type: string
+                example: '2019-01-01T00:00:00.000Z'
+            example:
+              id: '1070474755'
+              title: Ideas 1
+              portal_enabled: true
+              access_type: submit-only
+              external_url: https://testideaportal.ideas.aha.io/ideas/new
+              created_at: '2019-01-01T00:00:00.000Z'
+          example:
+          - id: '1070474755'
+            title: Ideas 1
+            portal_enabled: true
+            access_type: submit-only
+            external_url: https://testideaportal.ideas.aha.io/ideas/new
+            created_at: '2019-01-01T00:00:00.000Z'
+      example:
+        idea_portals:
+        - id: '1070474755'
+          title: Ideas 1
+          portal_enabled: true
+          access_type: submit-only
+          external_url: https://testideaportal.ideas.aha.io/ideas/new
+          created_at: '2019-01-01T00:00:00.000Z'
+    IdeaPortalsPostRequest:
+      type: object
+      properties:
+        idea_portal_ids:
+          type: array
+          items:
+            type: string
+            example: '1070474755'
+          example:
+          - '1070474755'
+      example:
+        idea_portal_ids:
+        - '1070474755'
   securitySchemes:
     OAuth2:
       type: oauth2

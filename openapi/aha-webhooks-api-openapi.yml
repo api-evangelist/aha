@@ -20,42 +20,7 @@ security:
 tags:
 - name: Webhooks
 paths:
-  /api/v1/webhooks/{token}:
-    post:
-      summary: Process a Jira webhook
-      description: 'Receives and processes a webhook from Jira when an issue is updated.
-
-
-        Typical Jira webhook payload includes:
-
-        - issue: { id: "12345", key: "PROJ-123", fields: { summary: "Feature name", status: { name: "In Progress" } } }
-
-        - webhookEvent: "jira:issue_updated"
-
-        - timestamp: "2019-01-01T00:00:00Z"'
-      tags:
-      - Webhooks
-      parameters:
-      - name: token
-        in: path
-        required: true
-        schema:
-          type: string
-        description: Token identifier
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json
-              schema:
-                type: string
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      operationId: postApiV1WebhooksByToken
-      x-operation-id-source: derived
+  /webhooks/{token}:
     get:
       summary: Validate webhook endpoint
       description: 'This endpoint allows integration services to validate that the webhook URL
@@ -84,7 +49,37 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1WebhooksByToken
+      operationId: getWebhooksByToken
+      x-operation-id-source: derived
+    post:
+      summary: Handle Asana resthook confirmation
+      description: 'Asana and other services implementing the Resthooks specification send
+
+        a confirmation request with an X-Hook-Secret header when setting up webhooks.
+
+        Aha! responds with the same secret to confirm the webhook endpoint is valid.'
+      tags:
+      - Webhooks
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Token identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json
+              schema:
+                type: string
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: postWebhooksByToken
       x-operation-id-source: derived
 components:
   securitySchemes:

@@ -20,7 +20,7 @@ security:
 tags:
 - name: Idea categories
 paths:
-  /api/v1/products/{product_id}/idea_categories:
+  /products/{product_id}/idea_categories:
     get:
       summary: List idea categories in a product
       description: null
@@ -33,6 +33,18 @@ paths:
         schema:
           type: string
         description: ProductId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
       responses:
         '200':
           description: Successful operation
@@ -70,10 +82,75 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1ProductsByProductIdIdeaCategories
+      operationId: getProductsByProductIdIdeaCategories
+      x-operation-id-source: derived
+    post:
+      summary: Create a nested idea category
+      description: null
+      tags:
+      - Idea categories
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeacategoriesPostResponse'
+              example:
+                id: '6776881149490010668'
+                name: New category
+                parent_id: null
+                project_id: 131414752
+                created_at: '2019-01-01T00:00:00.000Z'
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdeacategoriesPostRequest'
+            example:
+              idea_category:
+                name: Child category
+                parent_id: 552935478
+      operationId: postProductsByProductIdIdeaCategories
       x-operation-id-source: derived
 components:
   schemas:
+    IdeacategoriesPostRequest:
+      type: object
+      properties:
+        idea_category:
+          type: object
+          properties:
+            name:
+              type: string
+              example: Child category
+            parent_id:
+              type: integer
+              example: 552935478
+          example:
+            name: Child category
+            parent_id: 552935478
+      example:
+        idea_category:
+          name: Child category
+          parent_id: 552935478
     IdeacategoriesGetResponse:
       type: object
       properties:
@@ -155,6 +232,29 @@ components:
           total_records: 3
           total_pages: 1
           current_page: 1
+    IdeacategoriesPostResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: '6776881149490010668'
+        name:
+          type: string
+          example: New category
+        parent_id:
+          type: 'null'
+        project_id:
+          type: integer
+          example: 131414752
+        created_at:
+          type: string
+          example: '2019-01-01T00:00:00.000Z'
+      example:
+        id: '6776881149490010668'
+        name: New category
+        parent_id: null
+        project_id: 131414752
+        created_at: '2019-01-01T00:00:00.000Z'
   securitySchemes:
     OAuth2:
       type: oauth2

@@ -1,0 +1,594 @@
+openapi: 3.2.0
+info:
+  title: Aha! Idea themes API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Idea themes
+paths:
+  /idea_themes/{id}:
+    delete:
+      summary: Delete an idea theme
+      description: null
+      tags:
+      - Idea themes
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: deleteIdeaThemesById
+      x-operation-id-source: derived
+    get:
+      summary: Get a specific idea theme
+      description: null
+      tags:
+      - Idea themes
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeathemesGetResponse'
+              example:
+                idea_theme:
+                  id: '6776881149491590316'
+                  reference_num: PRJ1-I-101
+                  name: Performance
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  description: null
+                  product:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
+                    workspace_type: product_workspace
+                  ideas: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getIdeaThemesById
+      x-operation-id-source: derived
+    put:
+      summary: Update an idea theme
+      description: null
+      tags:
+      - Idea themes
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeathemesPutResponse'
+              example:
+                idea_theme:
+                  id: '6776881149497103673'
+                  reference_num: PRJ1-I-102
+                  name: Updated theme
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  description: null
+                  product:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
+                    workspace_type: product_workspace
+                  ideas: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdeathemesPostRequest'
+            example:
+              idea_theme:
+                name: Updated theme
+      operationId: putIdeaThemesById
+      x-operation-id-source: derived
+  /idea_themes:
+    get:
+      summary: List idea themes
+      description: null
+      tags:
+      - Idea themes
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeathemesGetResponse'
+              example:
+                idea_themes:
+                - id: '6776881149495115194'
+                  reference_num: PRJ1-I-100
+                  name: Performance
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 1
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getIdeaThemes
+      x-operation-id-source: derived
+    post:
+      summary: Create an idea theme
+      description: null
+      tags:
+      - Idea themes
+      parameters: []
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeathemesPostResponse'
+              example:
+                idea_theme:
+                  id: '6776881149491199918'
+                  reference_num: PRJ1-T-1
+                  name: New theme
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  description:
+                    id: '6776881149496975329'
+                    body: <p>Theme description</p>
+                    notable_id: '6776881149491199918'
+                    notable_type: Ideas::IdeaTheme
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  product:
+                    id: '131414752'
+                    reference_prefix: PRJ1
+                    name: Project 1
+                    product_line: false
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
+                    workspace_type: product_workspace
+                  ideas: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdeathemesPostRequest'
+            example:
+              product_id: PRJ1
+              idea_theme:
+                name: New theme
+                description_attributes:
+                  body: <p>Theme description</p>
+      operationId: postIdeaThemes
+      x-operation-id-source: derived
+components:
+  schemas:
+    IdeathemesPutResponse:
+      type: object
+      properties:
+        idea_theme:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149497103673'
+            reference_num:
+              type: string
+              example: PRJ1-I-102
+            name:
+              type: string
+              example: Updated theme
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            description:
+              type: 'null'
+            product:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '131414752'
+                reference_prefix:
+                  type: string
+                  example: PRJ1
+                name:
+                  type: string
+                  example: Project 1
+                product_line:
+                  type: boolean
+                  example: false
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                url:
+                  type: string
+                  example: https://company.aha.io/projects/PRJ1
+                workspace_type:
+                  type: string
+                  example: product_workspace
+              example:
+                id: '131414752'
+                reference_prefix: PRJ1
+                name: Project 1
+                product_line: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: https://company.aha.io/projects/PRJ1
+                workspace_type: product_workspace
+            ideas:
+              type: array
+              items: {}
+          example:
+            id: '6776881149497103673'
+            reference_num: PRJ1-I-102
+            name: Updated theme
+            created_at: '2019-01-01T00:00:00.000Z'
+            description: null
+            product:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/projects/PRJ1
+              workspace_type: product_workspace
+            ideas: []
+      example:
+        idea_theme:
+          id: '6776881149497103673'
+          reference_num: PRJ1-I-102
+          name: Updated theme
+          created_at: '2019-01-01T00:00:00.000Z'
+          description: null
+          product:
+            id: '131414752'
+            reference_prefix: PRJ1
+            name: Project 1
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/projects/PRJ1
+            workspace_type: product_workspace
+          ideas: []
+    IdeathemesPostResponse:
+      type: object
+      properties:
+        idea_theme:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149491199918'
+            reference_num:
+              type: string
+              example: PRJ1-T-1
+            name:
+              type: string
+              example: New theme
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            description:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '6776881149496975329'
+                body:
+                  type: string
+                  example: <p>Theme description</p>
+                notable_id:
+                  type: string
+                  example: '6776881149491199918'
+                notable_type:
+                  type: string
+                  example: Ideas::IdeaTheme
+                editor_version:
+                  type: integer
+                  example: 2
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                updated_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                attachments:
+                  type: array
+                  items: {}
+              example:
+                id: '6776881149496975329'
+                body: <p>Theme description</p>
+                notable_id: '6776881149491199918'
+                notable_type: Ideas::IdeaTheme
+                editor_version: 2
+                created_at: '2019-01-01T00:00:00.000Z'
+                updated_at: '2019-01-01T00:00:00.000Z'
+                attachments: []
+            product:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '131414752'
+                reference_prefix:
+                  type: string
+                  example: PRJ1
+                name:
+                  type: string
+                  example: Project 1
+                product_line:
+                  type: boolean
+                  example: false
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                url:
+                  type: string
+                  example: https://company.aha.io/projects/PRJ1
+                workspace_type:
+                  type: string
+                  example: product_workspace
+              example:
+                id: '131414752'
+                reference_prefix: PRJ1
+                name: Project 1
+                product_line: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: https://company.aha.io/projects/PRJ1
+                workspace_type: product_workspace
+            ideas:
+              type: array
+              items: {}
+          example:
+            id: '6776881149491199918'
+            reference_num: PRJ1-T-1
+            name: New theme
+            created_at: '2019-01-01T00:00:00.000Z'
+            description:
+              id: '6776881149496975329'
+              body: <p>Theme description</p>
+              notable_id: '6776881149491199918'
+              notable_type: Ideas::IdeaTheme
+              editor_version: 2
+              created_at: '2019-01-01T00:00:00.000Z'
+              updated_at: '2019-01-01T00:00:00.000Z'
+              attachments: []
+            product:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/projects/PRJ1
+              workspace_type: product_workspace
+            ideas: []
+      example:
+        idea_theme:
+          id: '6776881149491199918'
+          reference_num: PRJ1-T-1
+          name: New theme
+          created_at: '2019-01-01T00:00:00.000Z'
+          description:
+            id: '6776881149496975329'
+            body: <p>Theme description</p>
+            notable_id: '6776881149491199918'
+            notable_type: Ideas::IdeaTheme
+            editor_version: 2
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            attachments: []
+          product:
+            id: '131414752'
+            reference_prefix: PRJ1
+            name: Project 1
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/projects/PRJ1
+            workspace_type: product_workspace
+          ideas: []
+    IdeathemesPostRequest:
+      type: object
+      properties:
+        idea_theme:
+          type: object
+          properties:
+            name:
+              type: string
+              example: Updated theme
+          example:
+            name: Updated theme
+      example:
+        idea_theme:
+          name: Updated theme
+    IdeathemesGetResponse:
+      type: object
+      properties:
+        idea_theme:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149491590316'
+            reference_num:
+              type: string
+              example: PRJ1-I-101
+            name:
+              type: string
+              example: Performance
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            description:
+              type: 'null'
+            product:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '131414752'
+                reference_prefix:
+                  type: string
+                  example: PRJ1
+                name:
+                  type: string
+                  example: Project 1
+                product_line:
+                  type: boolean
+                  example: false
+                created_at:
+                  type: string
+                  example: '2019-01-01T00:00:00.000Z'
+                url:
+                  type: string
+                  example: https://company.aha.io/projects/PRJ1
+                workspace_type:
+                  type: string
+                  example: product_workspace
+              example:
+                id: '131414752'
+                reference_prefix: PRJ1
+                name: Project 1
+                product_line: false
+                created_at: '2019-01-01T00:00:00.000Z'
+                url: https://company.aha.io/projects/PRJ1
+                workspace_type: product_workspace
+            ideas:
+              type: array
+              items: {}
+          example:
+            id: '6776881149491590316'
+            reference_num: PRJ1-I-101
+            name: Performance
+            created_at: '2019-01-01T00:00:00.000Z'
+            description: null
+            product:
+              id: '131414752'
+              reference_prefix: PRJ1
+              name: Project 1
+              product_line: false
+              created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/projects/PRJ1
+              workspace_type: product_workspace
+            ideas: []
+      example:
+        idea_theme:
+          id: '6776881149491590316'
+          reference_num: PRJ1-I-101
+          name: Performance
+          created_at: '2019-01-01T00:00:00.000Z'
+          description: null
+          product:
+            id: '131414752'
+            reference_prefix: PRJ1
+            name: Project 1
+            product_line: false
+            created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/projects/PRJ1
+            workspace_type: product_workspace
+          ideas: []
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

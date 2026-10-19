@@ -20,19 +20,25 @@ security:
 tags:
 - name: Capacity scenarios
 paths:
-  /api/v1/capacity_scenarios:
+  /capacity_scenarios:
     get:
       summary: List capacity scenarios
       description: null
       tags:
       - Capacity scenarios
       parameters:
-      - name: '{}'
+      - name: page
         in: query
         required: false
         schema:
           type: string
-        example: null
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
       responses:
         '200':
           description: Successful operation
@@ -79,9 +85,9 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1CapacityScenarios
+      operationId: getCapacityScenarios
       x-operation-id-source: derived
-  /api/v1/capacity_scenarios/{id}:
+  /capacity_scenarios/{id}:
     get:
       summary: Get a capacity scenario
       description: null
@@ -126,7 +132,7 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1CapacityScenariosById
+      operationId: getCapacityScenariosById
       x-operation-id-source: derived
 components:
   schemas:

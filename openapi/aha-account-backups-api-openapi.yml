@@ -20,7 +20,7 @@ security:
 tags:
 - name: Account backups
 paths:
-  /api/v1/account_backups:
+  /account_backups:
     get:
       summary: List account backups
       description: 'Account backups let you create a complete off-site backup of your Aha! account.
@@ -61,18 +61,18 @@ paths:
                   status_description: Completed
                   created_at: '2019-01-01T00:00:00.000Z'
                   file_size: ''
-                  download_url: http://company.aha.io/api/v1/account_backups/1.tgz
+                  download_url: https://company.aha.io/api/v1/account_backups/1.tgz
                 - id: '2'
                   status_code: 2
                   status_description: Completed
                   created_at: '2019-01-01T00:00:00.000Z'
                   file_size: ''
-                  download_url: http://company.aha.io/api/v1/account_backups/2.tgz
+                  download_url: https://company.aha.io/api/v1/account_backups/2.tgz
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1AccountBackups
+      operationId: getAccountBackups
       x-operation-id-source: derived
     post:
       summary: Create an account backup
@@ -110,9 +110,9 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: postApiV1AccountBackups
+      operationId: postAccountBackups
       x-operation-id-source: derived
-  /api/v1/account_backups/{id}:
+  /account_backups/{id}:
     get:
       summary: Get a specific account backup
       description: 'The status field indicates whether the backup is ready. The possible
@@ -149,9 +149,9 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1AccountBackupsById
+      operationId: getAccountBackupsById
       x-operation-id-source: derived
-  /api/v1/account_backups/{id}.tgz:
+  /account_backups/{id}.tgz:
     get:
       summary: Download an account backup
       description: 'Account backups let you create a complete off-site backup of your Aha! account.
@@ -191,39 +191,10 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1AccountBackups{id}Tgz
+      operationId: getAccountBackups{id}Tgz
       x-operation-id-source: derived
 components:
   schemas:
-    AccountbackupsPostResponse:
-      type: object
-      properties:
-        account_backup:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149498172525'
-            status_code:
-              type: integer
-              example: 0
-            status_description:
-              type: string
-              example: In Queue
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-          example:
-            id: '6776881149498172525'
-            status_code: 0
-            status_description: In Queue
-            created_at: '2019-01-01T00:00:00.000Z'
-      example:
-        account_backup:
-          id: '6776881149498172525'
-          status_code: 0
-          status_description: In Queue
-          created_at: '2019-01-01T00:00:00.000Z'
     AccountbackupsGetResponse:
       type: object
       properties:
@@ -252,6 +223,35 @@ components:
           id: '6776881149499462668'
           status_code: 3
           status_description: Error
+          created_at: '2019-01-01T00:00:00.000Z'
+    AccountbackupsPostResponse:
+      type: object
+      properties:
+        account_backup:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149498172525'
+            status_code:
+              type: integer
+              example: 0
+            status_description:
+              type: string
+              example: In Queue
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+          example:
+            id: '6776881149498172525'
+            status_code: 0
+            status_description: In Queue
+            created_at: '2019-01-01T00:00:00.000Z'
+      example:
+        account_backup:
+          id: '6776881149498172525'
+          status_code: 0
+          status_description: In Queue
           created_at: '2019-01-01T00:00:00.000Z'
   securitySchemes:
     OAuth2:

@@ -20,9 +20,9 @@ security:
 tags:
 - name: Team Memberships
 paths:
-  /api/v1/teams/{team_id}/team_memberships:
-    post:
-      summary: Add user to a team
+  /teams/{team_id}/team_memberships/{id}:
+    delete:
+      summary: Remove a user from a team
       description: Team memberships for capacity planning teams. Users can be either Aha! users or virtual users
       tags:
       - Team Memberships
@@ -33,6 +33,12 @@ paths:
         schema:
           type: string
         description: TeamId identifier
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
       responses:
         '204':
           description: No content - operation successful
@@ -46,11 +52,10 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/TeammembershipsPostRequest'
-            example:
-              team_membership:
-                user_id: 689956296
-      operationId: postApiV1TeamsByTeamIdTeamMemberships
+            example: {}
+      operationId: deleteTeamsByTeamIdTeamMembershipsById
       x-operation-id-source: derived
+  /teams/{team_id}/team_memberships:
     get:
       summary: List team memberships for a team
       description: Team memberships for capacity planning teams. Users can be either Aha! users or virtual users
@@ -63,6 +68,18 @@ paths:
         schema:
           type: string
         description: TeamId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
       - name: fields
         in: query
         required: false
@@ -113,11 +130,10 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1TeamsByTeamIdTeamMemberships
+      operationId: getTeamsByTeamIdTeamMemberships
       x-operation-id-source: derived
-  /api/v1/teams/{team_id}/team_memberships/{id}:
-    delete:
-      summary: Remove a user from a team
+    post:
+      summary: Add user to a team
       description: Team memberships for capacity planning teams. Users can be either Aha! users or virtual users
       tags:
       - Team Memberships
@@ -128,12 +144,6 @@ paths:
         schema:
           type: string
         description: TeamId identifier
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: Id identifier
       responses:
         '204':
           description: No content - operation successful
@@ -147,15 +157,13 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/TeammembershipsPostRequest'
-            example: {}
-      operationId: deleteApiV1TeamsByTeamIdTeamMembershipsById
+            example:
+              team_membership:
+                user_id: 689956296
+      operationId: postTeamsByTeamIdTeamMemberships
       x-operation-id-source: derived
 components:
   schemas:
-    TeammembershipsPostRequest:
-      type: object
-      properties: {}
-      example: {}
     TeammembershipsGetResponse:
       type: object
       properties:
@@ -278,6 +286,20 @@ components:
           total_records: 2
           total_pages: 1
           current_page: 1
+    TeammembershipsPostRequest:
+      type: object
+      properties:
+        team_membership:
+          type: object
+          properties:
+            user_id:
+              type: integer
+              example: 689956296
+          example:
+            user_id: 689956296
+      example:
+        team_membership:
+          user_id: 689956296
   securitySchemes:
     OAuth2:
       type: oauth2

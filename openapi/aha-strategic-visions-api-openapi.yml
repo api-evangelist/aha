@@ -20,13 +20,25 @@ security:
 tags:
 - name: Strategic visions
 paths:
-  /api/v1/strategy_visions:
+  /strategy_visions:
     get:
       summary: List strategic visions
       description: null
       tags:
       - Strategic visions
-      parameters: []
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
       responses:
         '200':
           description: Successful operation
@@ -47,16 +59,16 @@ paths:
                   updated_at: '2019-01-01T00:00:00.000Z'
                   description: null
                   strategy_vision_components: []
-                  url: http://company.aha.io/project_strategies/262392474
-                  resource: http://company.aha.io/project_strategies/262392474
+                  url: https://company.aha.io/project_strategies/262392474
+                  resource: https://company.aha.io/project_strategies/262392474
                   project:
                     id: '517761884'
                     reference_prefix: PRJ2
                     name: Project 2
                     product_line: false
                     created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ2
                     workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ2
                 - id: '613708188'
                   name: Project 1 Strategy
                   created_at: '2019-01-01T00:00:00.000Z'
@@ -69,16 +81,16 @@ paths:
                   - id: 1055079655
                     name: Our strengths
                     title: null
-                  url: http://company.aha.io/project_strategies/613708188
-                  resource: http://company.aha.io/project_strategies/613708188
+                  url: https://company.aha.io/project_strategies/613708188
+                  resource: https://company.aha.io/project_strategies/613708188
                   project:
                     id: '131414752'
                     reference_prefix: PRJ1
                     name: Project 1
                     product_line: false
                     created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
                     workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
                 pagination:
                   total_records: 2
                   total_pages: 1
@@ -87,9 +99,9 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1StrategyVisions
+      operationId: getStrategyVisions
       x-operation-id-source: derived
-  /api/v1/strategy_visions/{id}:
+  /strategy_visions/{id}:
     get:
       summary: Get a specific strategic vision
       description: null
@@ -128,21 +140,21 @@ paths:
                   - id: 1055079655
                     name: Our strengths
                     title: null
-                  url: http://company.aha.io/project_strategies/613708188
-                  resource: http://company.aha.io/project_strategies/613708188
+                  url: https://company.aha.io/project_strategies/613708188
+                  resource: https://company.aha.io/project_strategies/613708188
                   project:
                     id: '131414752'
                     reference_prefix: PRJ1
                     name: Project 1
                     product_line: false
                     created_at: '2019-01-01T00:00:00.000Z'
+                    url: https://company.aha.io/projects/PRJ1
                     workspace_type: product_workspace
-                    url: http://company.aha.io/projects/PRJ1
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1StrategyVisionsById
+      operationId: getStrategyVisionsById
       x-operation-id-source: derived
 components:
   schemas:
@@ -190,10 +202,10 @@ components:
                 title: null
             url:
               type: string
-              example: http://company.aha.io/project_strategies/613708188
+              example: https://company.aha.io/project_strategies/613708188
             resource:
               type: string
-              example: http://company.aha.io/project_strategies/613708188
+              example: https://company.aha.io/project_strategies/613708188
             project:
               type: object
               properties:
@@ -212,20 +224,20 @@ components:
                 created_at:
                   type: string
                   example: '2019-01-01T00:00:00.000Z'
+                url:
+                  type: string
+                  example: https://company.aha.io/projects/PRJ1
                 workspace_type:
                   type: string
                   example: product_workspace
-                url:
-                  type: string
-                  example: http://company.aha.io/projects/PRJ1
               example:
                 id: '131414752'
                 reference_prefix: PRJ1
                 name: Project 1
                 product_line: false
                 created_at: '2019-01-01T00:00:00.000Z'
+                url: https://company.aha.io/projects/PRJ1
                 workspace_type: product_workspace
-                url: http://company.aha.io/projects/PRJ1
           example:
             id: '613708188'
             name: Project 1 Strategy
@@ -239,16 +251,16 @@ components:
             - id: 1055079655
               name: Our strengths
               title: null
-            url: http://company.aha.io/project_strategies/613708188
-            resource: http://company.aha.io/project_strategies/613708188
+            url: https://company.aha.io/project_strategies/613708188
+            resource: https://company.aha.io/project_strategies/613708188
             project:
               id: '131414752'
               reference_prefix: PRJ1
               name: Project 1
               product_line: false
               created_at: '2019-01-01T00:00:00.000Z'
+              url: https://company.aha.io/projects/PRJ1
               workspace_type: product_workspace
-              url: http://company.aha.io/projects/PRJ1
       example:
         strategy_vision:
           id: '613708188'
@@ -263,16 +275,16 @@ components:
           - id: 1055079655
             name: Our strengths
             title: null
-          url: http://company.aha.io/project_strategies/613708188
-          resource: http://company.aha.io/project_strategies/613708188
+          url: https://company.aha.io/project_strategies/613708188
+          resource: https://company.aha.io/project_strategies/613708188
           project:
             id: '131414752'
             reference_prefix: PRJ1
             name: Project 1
             product_line: false
             created_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/projects/PRJ1
             workspace_type: product_workspace
-            url: http://company.aha.io/projects/PRJ1
   securitySchemes:
     OAuth2:
       type: oauth2

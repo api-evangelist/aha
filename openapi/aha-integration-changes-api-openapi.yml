@@ -20,7 +20,7 @@ security:
 tags:
 - name: Integration changes
 paths:
-  /api/v1/integration_changes:
+  /integration_changes:
     post:
       summary: Send a record to an integration
       description: This endpoint mimicks the "Send to integration" button on a record in the UI.
@@ -41,6 +41,8 @@ paths:
                 $ref: '#/components/schemas/IntegrationchangesPostResponse'
               example:
                 status: success
+                integration_change_job_ids:
+                - '7605651643413037057'
       security:
       - OAuth2: []
       - ApiKeyAuth: []
@@ -55,10 +57,27 @@ paths:
               integration_id: 204584239
               model_class: Feature
               model_id: 1007868956
-      operationId: postApiV1IntegrationChanges
+      operationId: postIntegrationChanges
       x-operation-id-source: derived
 components:
   schemas:
+    IntegrationchangesPostResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        integration_change_job_ids:
+          type: array
+          items:
+            type: string
+            example: '7605651643413037057'
+          example:
+          - '7605651643413037057'
+      example:
+        status: success
+        integration_change_job_ids:
+        - '7605651643413037057'
     IntegrationchangesPostRequest:
       type: object
       properties:
@@ -75,14 +94,6 @@ components:
         integration_id: 204584239
         model_class: Feature
         model_id: 1007868956
-    IntegrationchangesPostResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: success
-      example:
-        status: success
   securitySchemes:
     OAuth2:
       type: oauth2

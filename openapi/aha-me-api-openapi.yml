@@ -20,7 +20,7 @@ security:
 tags:
 - name: Me
 paths:
-  /api/v1/me:
+  /me:
     get:
       summary: Get the current user profile
       description: Retrieves current user information including account memberships and basic profile data
@@ -32,7 +32,7 @@ paths:
         required: false
         schema:
           type: string
-        example: '#<RSpec::Matchers::BuiltIn::Include:0x0000000336976830>'
+        example: '#<RSpec::Matchers::BuiltIn::Include:0x00000003595344c0>'
       responses:
         '200':
           description: Successful operation
@@ -50,15 +50,9 @@ paths:
                   id: '1020675218'
                   name: Mary Humpty
                   email: no-reply@aha.io
-                  timezone: America/Los_Angeles
                   created_at: '2019-01-01T00:00:00.000Z'
                   updated_at: '2019-01-01T00:00:00.000Z'
-                  accessed_at: '2019-01-01T00:00:00.000Z'
                   product_roles:
-                  - role: 20
-                    role_description: Owner
-                    product_id: '131414752'
-                    product_name: Project 1
                   - role: 20
                     role_description: Owner
                     product_id: '517761884'
@@ -67,6 +61,10 @@ paths:
                     role_description: Owner
                     product_id: '610602692'
                     product_name: Product Line 1
+                  - role: 20
+                    role_description: Owner
+                    product_id: '131414752'
+                    product_name: Project 1
                   preferences:
                     current_product_id: 12123897
                   accounts:
@@ -80,46 +78,12 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1Me
+      operationId: getMe
       x-operation-id-source: derived
-  /api/v1/me/assigned:
+  /me/assigned:
     get:
-      summary: List records assigned to the current user
-      description: 'The Me API provides access to current user information, assigned records, and pending tasks.
-
-        This endpoint serves as the primary interface for user-specific data and personal workspace functionality.
-
-
-        **Core Functionality**:
-
-        - **User Profile** - Current user information including accounts and permissions
-
-        - **Assigned Records** - All records assigned to the current user across different types
-
-        - **Task Management** - Pending tasks assigned to the current user
-
-
-        **User Context**:
-
-        - All endpoints return data scoped to the authenticated user
-
-        - Account context is automatically determined from user session
-
-        - Permissions are enforced based on user roles and project access
-
-
-        **Response Structure**:
-
-        - User profile includes account memberships and role information
-
-        - Assigned records include features, epics, requirements, ideas, releases, and tasks
-
-        - Task lists include status information and completion tracking
-
-
-        **Authentication**: Standard API authentication (OAuth, session cookies, HTTP Basic until 2025).
-
-        All operations require valid authentication and return user-specific data.'
+      summary: Handle invalid record type filter
+      description: Returns appropriate response when invalid record type filter is provided
       tags:
       - Me
       parameters:
@@ -129,6 +93,18 @@ paths:
         schema:
           type: string
         example: InvalidType
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
       responses:
         '200':
           description: Successful operation
@@ -142,7 +118,70 @@ paths:
               schema:
                 $ref: '#/components/schemas/MeGetResponse'
               example:
-                assigned: []
+                assigned:
+                - record_type: Ideas::Idea
+                  id: 58056975
+                  name: Idea 1
+                  reference_num: PRJ1-I-1
+                  workflow_status:
+                    id: '3259216'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                    workflow_status_category: null
+                - record_type: Release
+                  id: 278327321
+                  name: Release 1
+                  reference_num: PRJ1-R-1
+                  workflow_status:
+                    id: '738862546'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                    workflow_status_category: null
+                - record_type: Requirement
+                  id: 483368544
+                  name: Body of requirement 1
+                  reference_num: PRJ1-1-1
+                  workflow_status:
+                    id: '934242751'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                    workflow_status_category: null
+                - record_type: Task
+                  id: 748715293
+                  name: Task name
+                  status: partially_complete
+                  due_date: '2019-01-01'
+                  current_task_user:
+                    id: '6776881149489654138'
+                    status: pending
+                - record_type: Epic
+                  id: 999605892
+                  name: Epic 1
+                  reference_num: PRJ1-E-1
+                  workflow_status:
+                    id: '934242751'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                    workflow_status_category: null
+                - record_type: Feature
+                  id: 1007868956
+                  name: Feature 1
+                  reference_num: PRJ1-1
+                  workflow_status:
+                    id: '934242751'
+                    name: New
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                    workflow_status_category: null
         '401':
           description: Unauthorized
           headers:
@@ -154,9 +193,9 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1MeAssigned
+      operationId: getMeAssigned
       x-operation-id-source: derived
-  /api/v1/me/tasks:
+  /me/tasks:
     get:
       summary: List pending tasks assigned to the current user
       description: 'The Me API provides access to current user information, assigned records, and pending tasks.
@@ -196,7 +235,19 @@ paths:
         All operations require valid authentication and return user-specific data.'
       tags:
       - Me
-      parameters: []
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
       responses:
         '200':
           description: Successful operation
@@ -224,18 +275,71 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1MeTasks
+      operationId: getMeTasks
       x-operation-id-source: derived
 components:
   schemas:
     MeGetResponse:
       type: object
       properties:
-        assigned:
+        tasks:
           type: array
-          items: {}
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: '6776881149494751081'
+              name:
+                type: string
+                example: Review first widget
+              due_date:
+                type: 'null'
+              status:
+                type: string
+                example: pending
+              created_at:
+                type: string
+                example: '2019-01-01T00:00:00.000Z'
+            example:
+              id: '6776881149494751081'
+              name: Review first widget
+              due_date: null
+              status: pending
+              created_at: '2019-01-01T00:00:00.000Z'
+          example:
+          - id: '6776881149494751081'
+            name: Review first widget
+            due_date: null
+            status: pending
+            created_at: '2019-01-01T00:00:00.000Z'
+        pagination:
+          type: object
+          properties:
+            total_records:
+              type: integer
+              example: 1
+            total_pages:
+              type: integer
+              example: 1
+            current_page:
+              type: integer
+              example: 1
+          example:
+            total_records: 1
+            total_pages: 1
+            current_page: 1
       example:
-        assigned: []
+        tasks:
+        - id: '6776881149494751081'
+          name: Review first widget
+          due_date: null
+          status: pending
+          created_at: '2019-01-01T00:00:00.000Z'
+        pagination:
+          total_records: 1
+          total_pages: 1
+          current_page: 1
   securitySchemes:
     OAuth2:
       type: oauth2

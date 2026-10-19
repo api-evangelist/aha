@@ -20,7 +20,264 @@ security:
 tags:
 - name: Capacity estimate values
 paths:
-  /api/v1/capacity_investments/{id}/estimate_values:
+  /estimate_values/{id}:
+    delete:
+      summary: Delete an estimate value
+      description: Returns all updated and destroyed estimate values, including computed sums and ignored values.
+      tags:
+      - Capacity estimate values
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CapacityestimatevaluesDeleteResponse'
+              example:
+                updated:
+                - id: '6776881149491741642'
+                  team_id: null
+                  team_membership_id: null
+                  period_start: null
+                  total: 40.0
+                  computed: true
+                  ignored: false
+                - id: '6776881149493435663'
+                  team_id: null
+                  team_membership_id: null
+                  period_start: '2019-01-01'
+                  total: 15.0
+                  computed: true
+                  ignored: false
+                - id: '6776881149496255620'
+                  team_id: 949295028
+                  team_membership_id: null
+                  period_start: null
+                  total: 5.0
+                  computed: true
+                  ignored: false
+                destroyed:
+                - id: '6776881149486253923'
+                  team_id: 949295028
+                  team_membership_id: null
+                  period_start: '2019-01-01'
+                  total: 10.0
+                  computed: false
+                  ignored: false
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CapacityestimatevaluesPostRequest'
+            example: {}
+      operationId: deleteEstimateValuesById
+      x-operation-id-source: derived
+    put:
+      summary: Update an estimate value
+      description: Returns all updated estimate values, including computed sums and ignored values.
+      tags:
+      - Capacity estimate values
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CapacityestimatevaluesPutResponse'
+              example:
+                updated:
+                - id: '6776881149487468817'
+                  team_id: 949295028
+                  team_membership_id: null
+                  period_start: null
+                  total: 25.0
+                  computed: true
+                  ignored: false
+                - id: '6776881149490802007'
+                  team_id: null
+                  team_membership_id: null
+                  period_start: '2019-01-01'
+                  total: 35.0
+                  computed: true
+                  ignored: false
+                - id: '6776881149491123830'
+                  team_id: 949295028
+                  team_membership_id: null
+                  period_start: '2019-01-01'
+                  total: 20.0
+                  computed: false
+                  ignored: false
+                - id: '6776881149492562019'
+                  team_id: null
+                  team_membership_id: null
+                  period_start: null
+                  total: 60.0
+                  computed: true
+                  ignored: false
+                destroyed: []
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CapacityestimatevaluesPostRequest'
+            example:
+              estimate_value:
+                total: 20
+      operationId: putEstimateValuesById
+      x-operation-id-source: derived
+  /capacity_investments/{id}/estimate_values:
+    get:
+      summary: List estimate values for a capacity investment
+      description: null
+      tags:
+      - Capacity estimate values
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CapacityestimatevaluesGetResponse'
+              example:
+                estimate_values:
+                - id: '6776881149483568838'
+                  team_id: null
+                  team_membership_id: null
+                  period_start: '2019-01-01'
+                  total: 5.0
+                  computed: true
+                  ignored: false
+                - id: '6776881149485225809'
+                  team_id: 563889676
+                  team_membership_id: null
+                  period_start: '2019-01-01'
+                  total: 20.0
+                  computed: false
+                  ignored: false
+                - id: '6776881149487362068'
+                  team_id: 949295028
+                  team_membership_id: null
+                  period_start: '2019-01-01'
+                  total: 10.0
+                  computed: false
+                  ignored: false
+                - id: '6776881149487778568'
+                  team_id: 563889676
+                  team_membership_id: null
+                  period_start: '2019-01-01'
+                  total: 15.0
+                  computed: false
+                  ignored: false
+                - id: '6776881149494637954'
+                  team_id: null
+                  team_membership_id: null
+                  period_start: '2019-01-01'
+                  total: 20.0
+                  computed: true
+                  ignored: false
+                - id: '6776881149497124166'
+                  team_id: 949295028
+                  team_membership_id: null
+                  period_start: '2019-01-01'
+                  total: 5.0
+                  computed: false
+                  ignored: false
+                - id: '6776881149497859029'
+                  team_id: 563889676
+                  team_membership_id: null
+                  period_start: null
+                  total: 35.0
+                  computed: true
+                  ignored: false
+                - id: '6776881149498218684'
+                  team_id: null
+                  team_membership_id: null
+                  period_start: null
+                  total: 50.0
+                  computed: true
+                  ignored: false
+                - id: '6776881149498683658'
+                  team_id: null
+                  team_membership_id: null
+                  period_start: '2019-01-01'
+                  total: 25.0
+                  computed: true
+                  ignored: false
+                - id: '6776881149498909376'
+                  team_id: 949295028
+                  team_membership_id: null
+                  period_start: null
+                  total: 15.0
+                  computed: true
+                  ignored: false
+                pagination:
+                  total_records: 10
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getCapacityInvestmentsByIdEstimateValues
+      x-operation-id-source: derived
     post:
       summary: Create estimate values for a capacity investment
       description: 'Estimate value objects should include the following keys: `team_id`, `period_start`, and `total`. This endpoint uses an "upsert" flow, updating existing records, or creating new ones if they do not exist. Returns all updated and destroyed estimate values, including computed sums and ignored values.'
@@ -142,262 +399,11 @@ paths:
               - team_id: 563889676
                 period_start: '2019-01-01'
                 total: 20
-      operationId: postApiV1CapacityInvestmentsByIdEstimateValues
-      x-operation-id-source: derived
-    get:
-      summary: List estimate values for a capacity investment
-      description: null
-      tags:
-      - Capacity estimate values
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: Id identifier
-      - name: '{}'
-        in: query
-        required: false
-        schema:
-          type: string
-        example: null
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/CapacityestimatevaluesGetResponse'
-              example:
-                estimate_values:
-                - id: '6776881149483568838'
-                  team_id: null
-                  team_membership_id: null
-                  period_start: '2019-01-01'
-                  total: 5.0
-                  computed: true
-                  ignored: false
-                - id: '6776881149485225809'
-                  team_id: 563889676
-                  team_membership_id: null
-                  period_start: '2019-01-01'
-                  total: 20.0
-                  computed: false
-                  ignored: false
-                - id: '6776881149487362068'
-                  team_id: 949295028
-                  team_membership_id: null
-                  period_start: '2019-01-01'
-                  total: 10.0
-                  computed: false
-                  ignored: false
-                - id: '6776881149487778568'
-                  team_id: 563889676
-                  team_membership_id: null
-                  period_start: '2019-01-01'
-                  total: 15.0
-                  computed: false
-                  ignored: false
-                - id: '6776881149494637954'
-                  team_id: null
-                  team_membership_id: null
-                  period_start: '2019-01-01'
-                  total: 20.0
-                  computed: true
-                  ignored: false
-                - id: '6776881149497124166'
-                  team_id: 949295028
-                  team_membership_id: null
-                  period_start: '2019-01-01'
-                  total: 5.0
-                  computed: false
-                  ignored: false
-                - id: '6776881149497859029'
-                  team_id: 563889676
-                  team_membership_id: null
-                  period_start: null
-                  total: 35.0
-                  computed: true
-                  ignored: false
-                - id: '6776881149498218684'
-                  team_id: null
-                  team_membership_id: null
-                  period_start: null
-                  total: 50.0
-                  computed: true
-                  ignored: false
-                - id: '6776881149498683658'
-                  team_id: null
-                  team_membership_id: null
-                  period_start: '2019-01-01'
-                  total: 25.0
-                  computed: true
-                  ignored: false
-                - id: '6776881149498909376'
-                  team_id: 949295028
-                  team_membership_id: null
-                  period_start: null
-                  total: 15.0
-                  computed: true
-                  ignored: false
-                pagination:
-                  total_records: 10
-                  total_pages: 1
-                  current_page: 1
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      operationId: getApiV1CapacityInvestmentsByIdEstimateValues
-      x-operation-id-source: derived
-  /api/v1/estimate_values/{id}:
-    put:
-      summary: Update an estimate value
-      description: Returns all updated estimate values, including computed sums and ignored values.
-      tags:
-      - Capacity estimate values
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: Id identifier
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/CapacityestimatevaluesPutResponse'
-              example:
-                updated:
-                - id: '6776881149487468817'
-                  team_id: 949295028
-                  team_membership_id: null
-                  period_start: null
-                  total: 25.0
-                  computed: true
-                  ignored: false
-                - id: '6776881149490802007'
-                  team_id: null
-                  team_membership_id: null
-                  period_start: '2019-01-01'
-                  total: 35.0
-                  computed: true
-                  ignored: false
-                - id: '6776881149491123830'
-                  team_id: 949295028
-                  team_membership_id: null
-                  period_start: '2019-01-01'
-                  total: 20.0
-                  computed: false
-                  ignored: false
-                - id: '6776881149492562019'
-                  team_id: null
-                  team_membership_id: null
-                  period_start: null
-                  total: 60.0
-                  computed: true
-                  ignored: false
-                destroyed: []
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CapacityestimatevaluesPostRequest'
-            example:
-              estimate_value:
-                total: 20
-      operationId: putApiV1EstimateValuesById
-      x-operation-id-source: derived
-    delete:
-      summary: Delete an estimate value
-      description: Returns all updated and destroyed estimate values, including computed sums and ignored values.
-      tags:
-      - Capacity estimate values
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: Id identifier
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/CapacityestimatevaluesDeleteResponse'
-              example:
-                updated:
-                - id: '6776881149491741642'
-                  team_id: null
-                  team_membership_id: null
-                  period_start: null
-                  total: 40.0
-                  computed: true
-                  ignored: false
-                - id: '6776881149493435663'
-                  team_id: null
-                  team_membership_id: null
-                  period_start: '2019-01-01'
-                  total: 15.0
-                  computed: true
-                  ignored: false
-                - id: '6776881149496255620'
-                  team_id: 949295028
-                  team_membership_id: null
-                  period_start: null
-                  total: 5.0
-                  computed: true
-                  ignored: false
-                destroyed:
-                - id: '6776881149486253923'
-                  team_id: 949295028
-                  team_membership_id: null
-                  period_start: '2019-01-01'
-                  total: 10.0
-                  computed: false
-                  ignored: false
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CapacityestimatevaluesPostRequest'
-            example: {}
-      operationId: deleteApiV1EstimateValuesById
+      operationId: postCapacityInvestmentsByIdEstimateValues
       x-operation-id-source: derived
 components:
   schemas:
-    CapacityestimatevaluesDeleteResponse:
+    CapacityestimatevaluesPostResponse:
       type: object
       properties:
         updated:
@@ -407,63 +413,10 @@ components:
             properties:
               id:
                 type: string
-                example: '6776881149491741642'
-              team_id:
-                type: 'null'
-              team_membership_id:
-                type: 'null'
-              period_start:
-                type: 'null'
-              total:
-                type: number
-                example: 40.0
-              computed:
-                type: boolean
-                example: true
-              ignored:
-                type: boolean
-                example: false
-            example:
-              id: '6776881149491741642'
-              team_id: null
-              team_membership_id: null
-              period_start: null
-              total: 40.0
-              computed: true
-              ignored: false
-          example:
-          - id: '6776881149491741642'
-            team_id: null
-            team_membership_id: null
-            period_start: null
-            total: 40.0
-            computed: true
-            ignored: false
-          - id: '6776881149493435663'
-            team_id: null
-            team_membership_id: null
-            period_start: '2019-01-01'
-            total: 15.0
-            computed: true
-            ignored: false
-          - id: '6776881149496255620'
-            team_id: 949295028
-            team_membership_id: null
-            period_start: null
-            total: 5.0
-            computed: true
-            ignored: false
-        destroyed:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-                example: '6776881149486253923'
+                example: '6776881149487632203'
               team_id:
                 type: integer
-                example: 949295028
+                example: 563889676
               team_membership_id:
                 type: 'null'
               period_start:
@@ -471,7 +424,7 @@ components:
                 example: '2019-01-01'
               total:
                 type: number
-                example: 10.0
+                example: 15.0
               computed:
                 type: boolean
                 example: false
@@ -479,114 +432,82 @@ components:
                 type: boolean
                 example: false
             example:
-              id: '6776881149486253923'
-              team_id: 949295028
+              id: '6776881149487632203'
+              team_id: 563889676
               team_membership_id: null
               period_start: '2019-01-01'
-              total: 10.0
+              total: 15.0
               computed: false
               ignored: false
           example:
-          - id: '6776881149486253923'
+          - id: '6776881149487632203'
+            team_id: 563889676
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 15.0
+            computed: false
+            ignored: false
+          - id: '6776881149489311818'
+            team_id: 563889676
+            team_membership_id: null
+            period_start: null
+            total: 35.0
+            computed: true
+            ignored: false
+          - id: '6776881149490125878'
+            team_id: null
+            team_membership_id: null
+            period_start: null
+            total: 50.0
+            computed: true
+            ignored: false
+          - id: '6776881149490529746'
+            team_id: null
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 25.0
+            computed: true
+            ignored: false
+          - id: '6776881149490943142'
+            team_id: 949295028
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 5.0
+            computed: false
+            ignored: false
+          - id: '6776881149492175407'
+            team_id: null
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 5.0
+            computed: true
+            ignored: false
+          - id: '6776881149493726512'
+            team_id: 563889676
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 20.0
+            computed: false
+            ignored: false
+          - id: '6776881149494705557'
+            team_id: 949295028
+            team_membership_id: null
+            period_start: null
+            total: 15.0
+            computed: true
+            ignored: false
+          - id: '6776881149498133135'
             team_id: 949295028
             team_membership_id: null
             period_start: '2019-01-01'
             total: 10.0
             computed: false
             ignored: false
-      example:
-        updated:
-        - id: '6776881149491741642'
-          team_id: null
-          team_membership_id: null
-          period_start: null
-          total: 40.0
-          computed: true
-          ignored: false
-        - id: '6776881149493435663'
-          team_id: null
-          team_membership_id: null
-          period_start: '2019-01-01'
-          total: 15.0
-          computed: true
-          ignored: false
-        - id: '6776881149496255620'
-          team_id: 949295028
-          team_membership_id: null
-          period_start: null
-          total: 5.0
-          computed: true
-          ignored: false
-        destroyed:
-        - id: '6776881149486253923'
-          team_id: 949295028
-          team_membership_id: null
-          period_start: '2019-01-01'
-          total: 10.0
-          computed: false
-          ignored: false
-    CapacityestimatevaluesPutResponse:
-      type: object
-      properties:
-        updated:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-                example: '6776881149487468817'
-              team_id:
-                type: integer
-                example: 949295028
-              team_membership_id:
-                type: 'null'
-              period_start:
-                type: 'null'
-              total:
-                type: number
-                example: 25.0
-              computed:
-                type: boolean
-                example: true
-              ignored:
-                type: boolean
-                example: false
-            example:
-              id: '6776881149487468817'
-              team_id: 949295028
-              team_membership_id: null
-              period_start: null
-              total: 25.0
-              computed: true
-              ignored: false
-          example:
-          - id: '6776881149487468817'
-            team_id: 949295028
-            team_membership_id: null
-            period_start: null
-            total: 25.0
-            computed: true
-            ignored: false
-          - id: '6776881149490802007'
+          - id: '6776881149499236800'
             team_id: null
-            team_membership_id: null
-            period_start: '2019-01-01'
-            total: 35.0
-            computed: true
-            ignored: false
-          - id: '6776881149491123830'
-            team_id: 949295028
             team_membership_id: null
             period_start: '2019-01-01'
             total: 20.0
-            computed: false
-            ignored: false
-          - id: '6776881149492562019'
-            team_id: null
-            team_membership_id: null
-            period_start: null
-            total: 60.0
             computed: true
             ignored: false
         destroyed:
@@ -594,32 +515,74 @@ components:
           items: {}
       example:
         updated:
-        - id: '6776881149487468817'
-          team_id: 949295028
-          team_membership_id: null
-          period_start: null
-          total: 25.0
-          computed: true
-          ignored: false
-        - id: '6776881149490802007'
-          team_id: null
+        - id: '6776881149487632203'
+          team_id: 563889676
           team_membership_id: null
           period_start: '2019-01-01'
+          total: 15.0
+          computed: false
+          ignored: false
+        - id: '6776881149489311818'
+          team_id: 563889676
+          team_membership_id: null
+          period_start: null
           total: 35.0
           computed: true
           ignored: false
-        - id: '6776881149491123830'
+        - id: '6776881149490125878'
+          team_id: null
+          team_membership_id: null
+          period_start: null
+          total: 50.0
+          computed: true
+          ignored: false
+        - id: '6776881149490529746'
+          team_id: null
+          team_membership_id: null
+          period_start: '2019-01-01'
+          total: 25.0
+          computed: true
+          ignored: false
+        - id: '6776881149490943142'
           team_id: 949295028
+          team_membership_id: null
+          period_start: '2019-01-01'
+          total: 5.0
+          computed: false
+          ignored: false
+        - id: '6776881149492175407'
+          team_id: null
+          team_membership_id: null
+          period_start: '2019-01-01'
+          total: 5.0
+          computed: true
+          ignored: false
+        - id: '6776881149493726512'
+          team_id: 563889676
           team_membership_id: null
           period_start: '2019-01-01'
           total: 20.0
           computed: false
           ignored: false
-        - id: '6776881149492562019'
-          team_id: null
+        - id: '6776881149494705557'
+          team_id: 949295028
           team_membership_id: null
           period_start: null
-          total: 60.0
+          total: 15.0
+          computed: true
+          ignored: false
+        - id: '6776881149498133135'
+          team_id: 949295028
+          team_membership_id: null
+          period_start: '2019-01-01'
+          total: 10.0
+          computed: false
+          ignored: false
+        - id: '6776881149499236800'
+          team_id: null
+          team_membership_id: null
+          period_start: '2019-01-01'
+          total: 20.0
           computed: true
           ignored: false
         destroyed: []
@@ -823,9 +786,19 @@ components:
           current_page: 1
     CapacityestimatevaluesPostRequest:
       type: object
-      properties: {}
-      example: {}
-    CapacityestimatevaluesPostResponse:
+      properties:
+        estimate_value:
+          type: object
+          properties:
+            total:
+              type: integer
+              example: 20
+          example:
+            total: 20
+      example:
+        estimate_value:
+          total: 20
+    CapacityestimatevaluesPutResponse:
       type: object
       properties:
         updated:
@@ -835,101 +808,58 @@ components:
             properties:
               id:
                 type: string
-                example: '6776881149487632203'
+                example: '6776881149487468817'
               team_id:
                 type: integer
-                example: 563889676
+                example: 949295028
               team_membership_id:
                 type: 'null'
               period_start:
-                type: string
-                example: '2019-01-01'
+                type: 'null'
               total:
                 type: number
-                example: 15.0
+                example: 25.0
               computed:
                 type: boolean
-                example: false
+                example: true
               ignored:
                 type: boolean
                 example: false
             example:
-              id: '6776881149487632203'
-              team_id: 563889676
+              id: '6776881149487468817'
+              team_id: 949295028
               team_membership_id: null
-              period_start: '2019-01-01'
-              total: 15.0
-              computed: false
+              period_start: null
+              total: 25.0
+              computed: true
               ignored: false
           example:
-          - id: '6776881149487632203'
-            team_id: 563889676
-            team_membership_id: null
-            period_start: '2019-01-01'
-            total: 15.0
-            computed: false
-            ignored: false
-          - id: '6776881149489311818'
-            team_id: 563889676
+          - id: '6776881149487468817'
+            team_id: 949295028
             team_membership_id: null
             period_start: null
-            total: 35.0
-            computed: true
-            ignored: false
-          - id: '6776881149490125878'
-            team_id: null
-            team_membership_id: null
-            period_start: null
-            total: 50.0
-            computed: true
-            ignored: false
-          - id: '6776881149490529746'
-            team_id: null
-            team_membership_id: null
-            period_start: '2019-01-01'
             total: 25.0
             computed: true
             ignored: false
-          - id: '6776881149490943142'
-            team_id: 949295028
-            team_membership_id: null
-            period_start: '2019-01-01'
-            total: 5.0
-            computed: false
-            ignored: false
-          - id: '6776881149492175407'
+          - id: '6776881149490802007'
             team_id: null
             team_membership_id: null
             period_start: '2019-01-01'
-            total: 5.0
+            total: 35.0
             computed: true
             ignored: false
-          - id: '6776881149493726512'
-            team_id: 563889676
+          - id: '6776881149491123830'
+            team_id: 949295028
             team_membership_id: null
             period_start: '2019-01-01'
             total: 20.0
             computed: false
             ignored: false
-          - id: '6776881149494705557'
-            team_id: 949295028
+          - id: '6776881149492562019'
+            team_id: null
             team_membership_id: null
             period_start: null
-            total: 15.0
-            computed: true
-            ignored: false
-          - id: '6776881149498133135'
-            team_id: 949295028
-            team_membership_id: null
-            period_start: '2019-01-01'
-            total: 10.0
-            computed: false
-            ignored: false
-          - id: '6776881149499236800'
-            team_id: null
-            team_membership_id: null
-            period_start: '2019-01-01'
-            total: 20.0
+            total: 60.0
             computed: true
             ignored: false
         destroyed:
@@ -937,77 +867,163 @@ components:
           items: {}
       example:
         updated:
-        - id: '6776881149487632203'
-          team_id: 563889676
-          team_membership_id: null
-          period_start: '2019-01-01'
-          total: 15.0
-          computed: false
-          ignored: false
-        - id: '6776881149489311818'
-          team_id: 563889676
+        - id: '6776881149487468817'
+          team_id: 949295028
           team_membership_id: null
           period_start: null
-          total: 35.0
-          computed: true
-          ignored: false
-        - id: '6776881149490125878'
-          team_id: null
-          team_membership_id: null
-          period_start: null
-          total: 50.0
-          computed: true
-          ignored: false
-        - id: '6776881149490529746'
-          team_id: null
-          team_membership_id: null
-          period_start: '2019-01-01'
           total: 25.0
           computed: true
           ignored: false
-        - id: '6776881149490943142'
-          team_id: 949295028
-          team_membership_id: null
-          period_start: '2019-01-01'
-          total: 5.0
-          computed: false
-          ignored: false
-        - id: '6776881149492175407'
+        - id: '6776881149490802007'
           team_id: null
           team_membership_id: null
           period_start: '2019-01-01'
-          total: 5.0
+          total: 35.0
           computed: true
           ignored: false
-        - id: '6776881149493726512'
-          team_id: 563889676
+        - id: '6776881149491123830'
+          team_id: 949295028
           team_membership_id: null
           period_start: '2019-01-01'
           total: 20.0
           computed: false
           ignored: false
-        - id: '6776881149494705557'
-          team_id: 949295028
+        - id: '6776881149492562019'
+          team_id: null
           team_membership_id: null
           period_start: null
+          total: 60.0
+          computed: true
+          ignored: false
+        destroyed: []
+    CapacityestimatevaluesDeleteResponse:
+      type: object
+      properties:
+        updated:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: '6776881149491741642'
+              team_id:
+                type: 'null'
+              team_membership_id:
+                type: 'null'
+              period_start:
+                type: 'null'
+              total:
+                type: number
+                example: 40.0
+              computed:
+                type: boolean
+                example: true
+              ignored:
+                type: boolean
+                example: false
+            example:
+              id: '6776881149491741642'
+              team_id: null
+              team_membership_id: null
+              period_start: null
+              total: 40.0
+              computed: true
+              ignored: false
+          example:
+          - id: '6776881149491741642'
+            team_id: null
+            team_membership_id: null
+            period_start: null
+            total: 40.0
+            computed: true
+            ignored: false
+          - id: '6776881149493435663'
+            team_id: null
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 15.0
+            computed: true
+            ignored: false
+          - id: '6776881149496255620'
+            team_id: 949295028
+            team_membership_id: null
+            period_start: null
+            total: 5.0
+            computed: true
+            ignored: false
+        destroyed:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: '6776881149486253923'
+              team_id:
+                type: integer
+                example: 949295028
+              team_membership_id:
+                type: 'null'
+              period_start:
+                type: string
+                example: '2019-01-01'
+              total:
+                type: number
+                example: 10.0
+              computed:
+                type: boolean
+                example: false
+              ignored:
+                type: boolean
+                example: false
+            example:
+              id: '6776881149486253923'
+              team_id: 949295028
+              team_membership_id: null
+              period_start: '2019-01-01'
+              total: 10.0
+              computed: false
+              ignored: false
+          example:
+          - id: '6776881149486253923'
+            team_id: 949295028
+            team_membership_id: null
+            period_start: '2019-01-01'
+            total: 10.0
+            computed: false
+            ignored: false
+      example:
+        updated:
+        - id: '6776881149491741642'
+          team_id: null
+          team_membership_id: null
+          period_start: null
+          total: 40.0
+          computed: true
+          ignored: false
+        - id: '6776881149493435663'
+          team_id: null
+          team_membership_id: null
+          period_start: '2019-01-01'
           total: 15.0
           computed: true
           ignored: false
-        - id: '6776881149498133135'
+        - id: '6776881149496255620'
+          team_id: 949295028
+          team_membership_id: null
+          period_start: null
+          total: 5.0
+          computed: true
+          ignored: false
+        destroyed:
+        - id: '6776881149486253923'
           team_id: 949295028
           team_membership_id: null
           period_start: '2019-01-01'
           total: 10.0
           computed: false
           ignored: false
-        - id: '6776881149499236800'
-          team_id: null
-          team_membership_id: null
-          period_start: '2019-01-01'
-          total: 20.0
-          computed: true
-          ignored: false
-        destroyed: []
   securitySchemes:
     OAuth2:
       type: oauth2

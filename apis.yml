@@ -223,20 +223,6 @@ apis:
     url: https://www.aha.io/api
   - type: ReDoc
     url: https://www.aha.io/redoc-static.html
-- aid: aha:aha-custom-pivots-api
-  name: Aha.io Custom pivots API
-  description: The Custom pivots API from Aha.io — 1 operation(s) for custom pivots.
-  humanURL: https://www.aha.io/api
-  baseURL: https://{subdomain}.aha.io/api/v1
-  tags:
-  - Custom pivots
-  properties:
-  - type: OpenAPI
-    url: openapi/aha-custom-pivots-api-openapi.yml
-  - type: Documentation
-    url: https://www.aha.io/api
-  - type: ReDoc
-    url: https://www.aha.io/redoc-static.html
 - aid: aha:aha-custom-table-record-links-api
   name: Aha.io Custom table record links API
   description: >-
@@ -903,6 +889,119 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/aha-workflows-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-assistant-usage-api
+  name: Aha.io Assistant usage API
+  description: The Assistant usage API from Aha.io — 1 operation(s) for assistant usage.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Assistant usage
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-assistant-usage-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-custom-reports-api
+  name: Aha.io Custom reports API
+  description: The Custom reports API from Aha.io — 1 operation(s) for custom reports.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Custom reports
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-custom-reports-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-discovery-groups-api
+  name: Aha.io Discovery groups API
+  description: The Discovery groups API from Aha.io — 2 operation(s) for discovery groups.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Discovery groups
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-discovery-groups-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-idea-themes-api
+  name: Aha.io Idea themes API
+  description: The Idea themes API from Aha.io — 2 operation(s) for idea themes.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Idea themes
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-idea-themes-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-integration-change-jobs-api
+  name: Aha.io Integration change jobs API
+  description: >-
+    The Integration change jobs API from Aha.io — 1 operation(s) for integration change jobs.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Integration change jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-integration-change-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-knowledge-base-pages-api
+  name: Aha.io Knowledge base pages API
+  description: The Knowledge base pages API from Aha.io — 2 operation(s) for knowledge base pages.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Knowledge base pages
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-knowledge-base-pages-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-knowledge-bases-api
+  name: Aha.io Knowledge bases API
+  description: The Knowledge bases API from Aha.io — 1 operation(s) for knowledge bases.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Knowledge bases
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-knowledge-bases-api-openapi.yml
+  - type: Documentation
+    url: https://www.aha.io/api
+  - type: ReDoc
+    url: https://www.aha.io/redoc-static.html
+- aid: aha:aha-workflow-status-times-api
+  name: Aha.io Workflow status times API
+  description: The Workflow status times API from Aha.io — 10 operation(s) for workflow status times.
+  humanURL: https://www.aha.io/api
+  baseURL: https://{subdomain}.aha.io/api/v1
+  tags:
+  - Workflow status times
+  properties:
+  - type: OpenAPI
+    url: openapi/aha-workflow-status-times-api-openapi.yml
   - type: Documentation
     url: https://www.aha.io/api
   - type: ReDoc

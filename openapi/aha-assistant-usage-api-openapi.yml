@@ -1,0 +1,190 @@
+openapi: 3.2.0
+info:
+  title: Aha! Assistant usage API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Assistant usage
+paths:
+  /usage/assistant_users:
+    get:
+      summary: List assistant users within a time window
+      description: Retrieve per-user AI assistant activity to monitor adoption trends and export daily usage snapshots.
+      tags:
+      - Assistant usage
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      - name: start_at
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2019-01-01T00:00:00Z'
+      - name: end_at
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '2019-01-01T00:00:00Z'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/AssistantusageGetResponse'
+              example:
+                users:
+                - id: 871344824
+                  name: Joan Smith
+                  email: no-reply@aha.io
+                  message_count: 2
+                - id: 1020675218
+                  name: Mary Humpty
+                  email: no-reply@aha.io
+                  message_count: 1
+                pagination:
+                  total_records: 2
+                  total_pages: 1
+                  current_page: 1
+        '422':
+          description: Validation error
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/AssistantusageGet422Response'
+              example:
+                error: end_at must be after start_at
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getUsageAssistantUsers
+      x-operation-id-source: derived
+components:
+  schemas:
+    AssistantusageGetResponse:
+      type: object
+      properties:
+        users:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 871344824
+              name:
+                type: string
+                example: Joan Smith
+              email:
+                type: string
+                example: no-reply@aha.io
+              message_count:
+                type: integer
+                example: 2
+            example:
+              id: 871344824
+              name: Joan Smith
+              email: no-reply@aha.io
+              message_count: 2
+          example:
+          - id: 871344824
+            name: Joan Smith
+            email: no-reply@aha.io
+            message_count: 2
+          - id: 1020675218
+            name: Mary Humpty
+            email: no-reply@aha.io
+            message_count: 1
+        pagination:
+          type: object
+          properties:
+            total_records:
+              type: integer
+              example: 2
+            total_pages:
+              type: integer
+              example: 1
+            current_page:
+              type: integer
+              example: 1
+          example:
+            total_records: 2
+            total_pages: 1
+            current_page: 1
+      example:
+        users:
+        - id: 871344824
+          name: Joan Smith
+          email: no-reply@aha.io
+          message_count: 2
+        - id: 1020675218
+          name: Mary Humpty
+          email: no-reply@aha.io
+          message_count: 1
+        pagination:
+          total_records: 2
+          total_pages: 1
+          current_page: 1
+    AssistantusageGet422Response:
+      type: object
+      properties:
+        error:
+          type: string
+          example: end_at must be after start_at
+      example:
+        error: end_at must be after start_at
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

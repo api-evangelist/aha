@@ -20,9 +20,9 @@ security:
 tags:
 - name: Competitors
 paths:
-  /api/v1/products/{product_id}/competitors:
-    get:
-      summary: List competitors in a product
+  /products/{product_id}/competitors/{id}:
+    delete:
+      summary: Delete a competitor
       description: null
       tags:
       - Competitors
@@ -33,98 +33,6 @@ paths:
         schema:
           type: string
         description: ProductId identifier
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/CompetitorsGetResponse'
-              example:
-                competitors:
-                - id: '457085224'
-                  name: TrackFast
-                  created_at: '2019-01-01T00:00:00.000Z'
-                - id: '741974453'
-                  name: Road Racer
-                  created_at: '2019-01-01T00:00:00.000Z'
-                - id: '892399625'
-                  name: 360 Tracker
-                  created_at: '2019-01-01T00:00:00.000Z'
-                pagination:
-                  total_records: 3
-                  total_pages: 1
-                  current_page: 1
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      operationId: getApiV1ProductsByProductIdCompetitors
-      x-operation-id-source: derived
-    post:
-      summary: Create a competitor
-      description: null
-      tags:
-      - Competitors
-      parameters:
-      - name: product_id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: ProductId identifier
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/CompetitorsPostResponse'
-              example:
-                competitor:
-                  id: '6776881149490638099'
-                  name: Plan-a-lot
-                  color: 29647
-                  subtitle: null
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  url: http://company.aha.io/competitors/PRJ1-C-1
-                  resource: http://company.aha.io/competitors/PRJ1-C-1
-                  custom_fields: []
-                  comments_count: 0
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CompetitorsPostRequest'
-            example:
-              competitor:
-                name: Plan-a-lot
-                color: 29647
-      operationId: postApiV1ProductsByProductIdCompetitors
-      x-operation-id-source: derived
-  /api/v1/competitors/{id}:
-    get:
-      summary: Get a specific competitor
-      description: null
-      tags:
-      - Competitors
-      parameters:
       - name: id
         in: path
         required: true
@@ -132,42 +40,14 @@ paths:
           type: string
         description: Id identifier
       responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/CompetitorsGetResponse'
-              example:
-                competitor:
-                  id: '892399625'
-                  name: 360 Tracker
-                  color: 29647
-                  subtitle: null
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  url: http://company.aha.io/competitors/PROD-C-1
-                  resource: http://company.aha.io/competitors/PROD-C-1
-                  custom_fields:
-                  - id: 415795050
-                    key: revenue
-                    name: Revenue
-                    updatedAt: '2019-01-01T00:00:00Z'
-                    value: '300.0'
-                    type: number
-                  comments_count: 1
+        '204':
+          description: No content - operation successful
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1CompetitorsById
+      operationId: deleteProductsByProductIdCompetitorsById
       x-operation-id-source: derived
-  /api/v1/products/{product_id}/competitors/{id}:
     put:
       summary: Update a competitor
       description: null
@@ -202,19 +82,20 @@ paths:
                 competitor:
                   id: '892399625'
                   name: Plan-a-lot
-                  color: 29647
-                  subtitle: null
                   created_at: '2019-01-01T00:00:00.000Z'
+                  color: 29647
+                  reference_num: PROD-C-1
+                  subtitle: null
                   updated_at: '2019-01-01T00:00:00.000Z'
-                  url: http://company.aha.io/competitors/PROD-C-1
-                  resource: http://company.aha.io/competitors/PROD-C-1
+                  url: https://company.aha.io/competitors/PROD-C-1
+                  resource: https://company.aha.io/competitors/PROD-C-1
                   custom_fields:
                   - id: 415795050
                     key: revenue
                     name: Revenue
                     updatedAt: '2019-01-01T00:00:00Z'
-                    value: '300.0'
                     type: number
+                    value: '300.0'
                   comments_count: 1
       security:
       - OAuth2: []
@@ -229,10 +110,61 @@ paths:
             example:
               competitor:
                 name: Plan-a-lot
-      operationId: putApiV1ProductsByProductIdCompetitorsById
+      operationId: putProductsByProductIdCompetitorsById
       x-operation-id-source: derived
-    delete:
-      summary: Delete a competitor
+  /competitors/{id}:
+    get:
+      summary: Get a specific competitor
+      description: null
+      tags:
+      - Competitors
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CompetitorsGetResponse'
+              example:
+                competitor:
+                  id: '892399625'
+                  name: 360 Tracker
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  color: 29647
+                  reference_num: PROD-C-1
+                  subtitle: null
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/competitors/PROD-C-1
+                  resource: https://company.aha.io/competitors/PROD-C-1
+                  custom_fields:
+                  - id: 415795050
+                    key: revenue
+                    name: Revenue
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    type: number
+                    value: '300.0'
+                  comments_count: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getCompetitorsById
+      x-operation-id-source: derived
+  /products/{product_id}/competitors:
+    get:
+      summary: List competitors in a product
       description: null
       tags:
       - Competitors
@@ -243,121 +175,106 @@ paths:
         schema:
           type: string
         description: ProductId identifier
-      - name: id
-        in: path
-        required: true
+      - name: page
+        in: query
+        required: false
         schema:
           type: string
-        description: Id identifier
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
       responses:
-        '204':
-          description: No content - operation successful
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CompetitorsGetResponse'
+              example:
+                competitors:
+                - id: '457085224'
+                  name: TrackFast
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '741974453'
+                  name: Road Racer
+                  created_at: '2019-01-01T00:00:00.000Z'
+                - id: '892399625'
+                  name: 360 Tracker
+                  created_at: '2019-01-01T00:00:00.000Z'
+                pagination:
+                  total_records: 3
+                  total_pages: 1
+                  current_page: 1
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: deleteApiV1ProductsByProductIdCompetitorsById
+      operationId: getProductsByProductIdCompetitors
+      x-operation-id-source: derived
+    post:
+      summary: Create a competitor
+      description: null
+      tags:
+      - Competitors
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CompetitorsPostResponse'
+              example:
+                competitor:
+                  id: '6776881149490638099'
+                  name: Plan-a-lot
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  color: 29647
+                  reference_num: PRJ1-C-1
+                  subtitle: null
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  url: https://company.aha.io/competitors/PRJ1-C-1
+                  resource: https://company.aha.io/competitors/PRJ1-C-1
+                  custom_fields: []
+                  comments_count: 0
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompetitorsPostRequest'
+            example:
+              competitor:
+                name: Plan-a-lot
+                color: 29647
+      operationId: postProductsByProductIdCompetitors
       x-operation-id-source: derived
 components:
   schemas:
-    CompetitorsGetResponse:
-      type: object
-      properties:
-        competitor:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '892399625'
-            name:
-              type: string
-              example: 360 Tracker
-            color:
-              type: integer
-              example: 29647
-            subtitle:
-              type: 'null'
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            url:
-              type: string
-              example: http://company.aha.io/competitors/PROD-C-1
-            resource:
-              type: string
-              example: http://company.aha.io/competitors/PROD-C-1
-            custom_fields:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  key:
-                    type: string
-                  name:
-                    type: string
-                  updatedAt:
-                    type: string
-                  value:
-                    type: string
-                  type:
-                    type: string
-                example:
-                  id: 415795050
-                  key: revenue
-                  name: Revenue
-                  updatedAt: '2019-01-01T00:00:00Z'
-                  value: '300.0'
-                  type: number
-              example:
-              - id: 415795050
-                key: revenue
-                name: Revenue
-                updatedAt: '2019-01-01T00:00:00Z'
-                value: '300.0'
-                type: number
-            comments_count:
-              type: integer
-              example: 1
-          example:
-            id: '892399625'
-            name: 360 Tracker
-            color: 29647
-            subtitle: null
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            url: http://company.aha.io/competitors/PROD-C-1
-            resource: http://company.aha.io/competitors/PROD-C-1
-            custom_fields:
-            - id: 415795050
-              key: revenue
-              name: Revenue
-              updatedAt: '2019-01-01T00:00:00Z'
-              value: '300.0'
-              type: number
-            comments_count: 1
-      example:
-        competitor:
-          id: '892399625'
-          name: 360 Tracker
-          color: 29647
-          subtitle: null
-          created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          url: http://company.aha.io/competitors/PROD-C-1
-          resource: http://company.aha.io/competitors/PROD-C-1
-          custom_fields:
-          - id: 415795050
-            key: revenue
-            name: Revenue
-            updatedAt: '2019-01-01T00:00:00Z'
-            value: '300.0'
-            type: number
-          comments_count: 1
     CompetitorsPutResponse:
       type: object
       properties:
@@ -370,23 +287,26 @@ components:
             name:
               type: string
               example: Plan-a-lot
-            color:
-              type: integer
-              example: 29647
-            subtitle:
-              type: 'null'
             created_at:
               type: string
               example: '2019-01-01T00:00:00.000Z'
+            color:
+              type: integer
+              example: 29647
+            reference_num:
+              type: string
+              example: PROD-C-1
+            subtitle:
+              type: 'null'
             updated_at:
               type: string
               example: '2019-01-01T00:00:00.000Z'
             url:
               type: string
-              example: http://company.aha.io/competitors/PROD-C-1
+              example: https://company.aha.io/competitors/PROD-C-1
             resource:
               type: string
-              example: http://company.aha.io/competitors/PROD-C-1
+              example: https://company.aha.io/competitors/PROD-C-1
             custom_fields:
               type: array
               items:
@@ -400,120 +320,126 @@ components:
                     type: string
                   updatedAt:
                     type: string
-                  value:
-                    type: string
                   type:
+                    type: string
+                  value:
                     type: string
                 example:
                   id: 415795050
                   key: revenue
                   name: Revenue
                   updatedAt: '2019-01-01T00:00:00Z'
-                  value: '300.0'
                   type: number
+                  value: '300.0'
               example:
               - id: 415795050
                 key: revenue
                 name: Revenue
                 updatedAt: '2019-01-01T00:00:00Z'
-                value: '300.0'
                 type: number
+                value: '300.0'
             comments_count:
               type: integer
               example: 1
           example:
             id: '892399625'
             name: Plan-a-lot
-            color: 29647
-            subtitle: null
             created_at: '2019-01-01T00:00:00.000Z'
+            color: 29647
+            reference_num: PROD-C-1
+            subtitle: null
             updated_at: '2019-01-01T00:00:00.000Z'
-            url: http://company.aha.io/competitors/PROD-C-1
-            resource: http://company.aha.io/competitors/PROD-C-1
+            url: https://company.aha.io/competitors/PROD-C-1
+            resource: https://company.aha.io/competitors/PROD-C-1
             custom_fields:
             - id: 415795050
               key: revenue
               name: Revenue
               updatedAt: '2019-01-01T00:00:00Z'
-              value: '300.0'
               type: number
+              value: '300.0'
             comments_count: 1
       example:
         competitor:
           id: '892399625'
           name: Plan-a-lot
-          color: 29647
-          subtitle: null
           created_at: '2019-01-01T00:00:00.000Z'
+          color: 29647
+          reference_num: PROD-C-1
+          subtitle: null
           updated_at: '2019-01-01T00:00:00.000Z'
-          url: http://company.aha.io/competitors/PROD-C-1
-          resource: http://company.aha.io/competitors/PROD-C-1
+          url: https://company.aha.io/competitors/PROD-C-1
+          resource: https://company.aha.io/competitors/PROD-C-1
           custom_fields:
           - id: 415795050
             key: revenue
             name: Revenue
             updatedAt: '2019-01-01T00:00:00Z'
-            value: '300.0'
             type: number
+            value: '300.0'
           comments_count: 1
-    CompetitorsPostResponse:
+    CompetitorsGetResponse:
       type: object
       properties:
-        competitor:
+        competitors:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: '457085224'
+              name:
+                type: string
+                example: TrackFast
+              created_at:
+                type: string
+                example: '2019-01-01T00:00:00.000Z'
+            example:
+              id: '457085224'
+              name: TrackFast
+              created_at: '2019-01-01T00:00:00.000Z'
+          example:
+          - id: '457085224'
+            name: TrackFast
+            created_at: '2019-01-01T00:00:00.000Z'
+          - id: '741974453'
+            name: Road Racer
+            created_at: '2019-01-01T00:00:00.000Z'
+          - id: '892399625'
+            name: 360 Tracker
+            created_at: '2019-01-01T00:00:00.000Z'
+        pagination:
           type: object
           properties:
-            id:
-              type: string
-              example: '6776881149490638099'
-            name:
-              type: string
-              example: Plan-a-lot
-            color:
+            total_records:
               type: integer
-              example: 29647
-            subtitle:
-              type: 'null'
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            url:
-              type: string
-              example: http://company.aha.io/competitors/PRJ1-C-1
-            resource:
-              type: string
-              example: http://company.aha.io/competitors/PRJ1-C-1
-            custom_fields:
-              type: array
-              items: {}
-            comments_count:
+              example: 3
+            total_pages:
               type: integer
-              example: 0
+              example: 1
+            current_page:
+              type: integer
+              example: 1
           example:
-            id: '6776881149490638099'
-            name: Plan-a-lot
-            color: 29647
-            subtitle: null
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            url: http://company.aha.io/competitors/PRJ1-C-1
-            resource: http://company.aha.io/competitors/PRJ1-C-1
-            custom_fields: []
-            comments_count: 0
+            total_records: 3
+            total_pages: 1
+            current_page: 1
       example:
-        competitor:
-          id: '6776881149490638099'
-          name: Plan-a-lot
-          color: 29647
-          subtitle: null
+        competitors:
+        - id: '457085224'
+          name: TrackFast
           created_at: '2019-01-01T00:00:00.000Z'
-          updated_at: '2019-01-01T00:00:00.000Z'
-          url: http://company.aha.io/competitors/PRJ1-C-1
-          resource: http://company.aha.io/competitors/PRJ1-C-1
-          custom_fields: []
-          comments_count: 0
+        - id: '741974453'
+          name: Road Racer
+          created_at: '2019-01-01T00:00:00.000Z'
+        - id: '892399625'
+          name: 360 Tracker
+          created_at: '2019-01-01T00:00:00.000Z'
+        pagination:
+          total_records: 3
+          total_pages: 1
+          current_page: 1
     CompetitorsPostRequest:
       type: object
       properties:
@@ -528,6 +454,69 @@ components:
       example:
         competitor:
           name: Plan-a-lot
+    CompetitorsPostResponse:
+      type: object
+      properties:
+        competitor:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '6776881149490638099'
+            name:
+              type: string
+              example: Plan-a-lot
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            color:
+              type: integer
+              example: 29647
+            reference_num:
+              type: string
+              example: PRJ1-C-1
+            subtitle:
+              type: 'null'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            url:
+              type: string
+              example: https://company.aha.io/competitors/PRJ1-C-1
+            resource:
+              type: string
+              example: https://company.aha.io/competitors/PRJ1-C-1
+            custom_fields:
+              type: array
+              items: {}
+            comments_count:
+              type: integer
+              example: 0
+          example:
+            id: '6776881149490638099'
+            name: Plan-a-lot
+            created_at: '2019-01-01T00:00:00.000Z'
+            color: 29647
+            reference_num: PRJ1-C-1
+            subtitle: null
+            updated_at: '2019-01-01T00:00:00.000Z'
+            url: https://company.aha.io/competitors/PRJ1-C-1
+            resource: https://company.aha.io/competitors/PRJ1-C-1
+            custom_fields: []
+            comments_count: 0
+      example:
+        competitor:
+          id: '6776881149490638099'
+          name: Plan-a-lot
+          created_at: '2019-01-01T00:00:00.000Z'
+          color: 29647
+          reference_num: PRJ1-C-1
+          subtitle: null
+          updated_at: '2019-01-01T00:00:00.000Z'
+          url: https://company.aha.io/competitors/PRJ1-C-1
+          resource: https://company.aha.io/competitors/PRJ1-C-1
+          custom_fields: []
+          comments_count: 0
   securitySchemes:
     OAuth2:
       type: oauth2

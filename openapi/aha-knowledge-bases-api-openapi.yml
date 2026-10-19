@@ -1,0 +1,145 @@
+openapi: 3.2.0
+info:
+  title: Aha! Knowledge bases API
+  version: 1.0.0
+  description: Complete API documentation for Aha! generated from actual test responses
+  contact:
+    name: Aha! Support
+    url: https://www.aha.io/support
+servers:
+- url: https://{account-domain}.aha.io/api/v1
+  description: Aha! API Server
+  variables:
+    account-domain:
+      description: Your Aha! account domain
+      default: company
+security:
+- OAuth2: []
+- ApiKeyAuth: []
+- CookieAuth: []
+tags:
+- name: Knowledge Bases
+paths:
+  /knowledge_bases/{id}:
+    get:
+      summary: Get a specific knowledge base
+      description: null
+      tags:
+      - Knowledge Bases
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/KnowledgebasesGetResponse'
+              example:
+                knowledge_base:
+                  id: '701841993'
+                  product_id: '185962166'
+                  title: Standalone Advanced Knowledge base
+                  url: https://knowledge-company.aha.site/kb/knowledge-base-standalone/knowledge-only-parent-note~934552841
+                  status: enabled
+                  publishing_method: instant
+                  authentication_methods:
+                  - public
+                  folder_display: Expand top level
+                  source_documents: shown
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getKnowledgeBasesById
+      x-operation-id-source: derived
+components:
+  schemas:
+    KnowledgebasesGetResponse:
+      type: object
+      properties:
+        knowledge_base:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '701841993'
+            product_id:
+              type: string
+              example: '185962166'
+            title:
+              type: string
+              example: Standalone Advanced Knowledge base
+            url:
+              type: string
+              example: https://knowledge-company.aha.site/kb/knowledge-base-standalone/knowledge-only-parent-note~934552841
+            status:
+              type: string
+              example: enabled
+            publishing_method:
+              type: string
+              example: instant
+            authentication_methods:
+              type: array
+              items:
+                type: string
+                example: public
+              example:
+              - public
+            folder_display:
+              type: string
+              example: Expand top level
+            source_documents:
+              type: string
+              example: shown
+          example:
+            id: '701841993'
+            product_id: '185962166'
+            title: Standalone Advanced Knowledge base
+            url: https://knowledge-company.aha.site/kb/knowledge-base-standalone/knowledge-only-parent-note~934552841
+            status: enabled
+            publishing_method: instant
+            authentication_methods:
+            - public
+            folder_display: Expand top level
+            source_documents: shown
+      example:
+        knowledge_base:
+          id: '701841993'
+          product_id: '185962166'
+          title: Standalone Advanced Knowledge base
+          url: https://knowledge-company.aha.site/kb/knowledge-base-standalone/knowledge-only-parent-note~934552841
+          status: enabled
+          publishing_method: instant
+          authentication_methods:
+          - public
+          folder_display: Expand top level
+          source_documents: shown
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth2 authentication with bearer tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{account-domain}.aha.io/oauth/authorize
+          tokenUrl: https://{account-domain}.aha.io/oauth/token
+          scopes: {}
+    ApiKeyAuth:
+      type: http
+      scheme: bearer
+      description: API key authentication using Bearer token in Authorization header. Generate API keys at https://secure.aha.io/settings/api_keys
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Cookie-based authentication for web browser integration

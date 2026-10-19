@@ -20,13 +20,25 @@ security:
 tags:
 - name: Schedules
 paths:
-  /api/v1/schedules:
+  /schedules:
     get:
       summary: List schedules
       description: Retrieves schedules for capacity planning, showing working hours, velocity, and weekly patterns
       tags:
       - Schedules
       parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
       - name: fields
         in: query
         required: false
@@ -70,7 +82,7 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1Schedules
+      operationId: getSchedules
       x-operation-id-source: derived
 components:
   schemas:

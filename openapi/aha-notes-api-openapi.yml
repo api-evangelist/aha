@@ -20,207 +20,28 @@ security:
 tags:
 - name: Notes
 paths:
-  /api/v1/products/{product_id}/pages:
-    post:
-      summary: Create a note
+  /pages/{id}:
+    delete:
+      summary: Delete a note
       description: '"Notes" in the web interface are referenced as "pages" from API endpoints.'
       tags:
       - Notes
       parameters:
-      - name: product_id
+      - name: id
         in: path
         required: true
         schema:
           type: string
-        description: ProductId identifier
+        description: Id identifier
       responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/NotesPostResponse'
-              example:
-                page:
-                  id: '6776881149490967959'
-                  name: null
-                  title: PRJ1-N-11 Untitled
-                  document_title: Untitled | Aha!
-                  updated_at: '2019-01-01T00:00:00.000Z'
-                  reference_num: PRJ1-N-11
-                  emoji_value: null
-                  document_type: 80
-                  document_type_name: internal_link
-                  editor_width: null
-                  type_name: internal link
-                  position: null
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  location: null
-                  edit_locked: false
-                  linked_record_id: 1007868956
-                  linked_record_type: Feature
-                  url: http://company.aha.io/pages/PRJ1-N-11
-                  resource: http://company.aha.io/api/v1/pages/PRJ1-N-11
-                  product_id: '131414752'
-                  description:
-                    id: '6776881149488431496'
-                    body: ''
-                    editor_version: 2
-                    created_at: '2019-01-01T00:00:00.000Z'
-                    updated_at: '2019-01-01T00:00:00.000Z'
-                    attachments: []
-                  parent_id: null
-                  tags: []
-                  full_tags: []
-                  comments_count: 0
-                  custom_fields: []
+        '204':
+          description: No content - operation successful
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/NotesPostRequest'
-            example:
-              page:
-                name: Note 3
-                description_attributes:
-                  body: <p>An awesome new note</p>
-      operationId: postApiV1ProductsByProductIdPages
+      operationId: deletePagesById
       x-operation-id-source: derived
-    get:
-      summary: List notes for a product
-      description: '"Notes" in the web interface are referenced as "pages" from API endpoints.'
-      tags:
-      - Notes
-      parameters:
-      - name: product_id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: ProductId identifier
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/NotesGetResponse'
-              example:
-                pages:
-                - id: '123524136'
-                  name: Title of the meeting note
-                  title: PRJ1-N-9 Title of the meeting note
-                  reference_num: PRJ1-N-9
-                  url: http://company.aha.io/pages/PRJ1-N-9
-                  resource: http://company.aha.io/api/v1/pages/PRJ1-N-9
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  parent_id: null
-                - id: '199011658'
-                  name: Title of the child note
-                  title: PRJ1-N-4 Title of the child note
-                  reference_num: PRJ1-N-4
-                  url: http://company.aha.io/pages/PRJ1-N-4
-                  resource: http://company.aha.io/api/v1/pages/PRJ1-N-4
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  parent_id: 702939369
-                - id: '249102634'
-                  name: null
-                  title: PRJ1-N-7 Untitled
-                  reference_num: PRJ1-N-7
-                  url: http://company.aha.io/pages/PRJ1-N-7
-                  resource: http://company.aha.io/api/v1/pages/PRJ1-N-7
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  parent_id: null
-                - id: '256116692'
-                  name: Shared page title
-                  title: PRJ1-N-10 Shared page title
-                  reference_num: PRJ1-N-10
-                  url: http://company.aha.io/pages/PRJ1-N-10
-                  resource: http://company.aha.io/api/v1/pages/PRJ1-N-10
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  parent_id: null
-                - id: '280859787'
-                  name: External link
-                  title: PRJ1-N-6 External link
-                  reference_num: PRJ1-N-6
-                  url: http://company.aha.io/pages/PRJ1-N-6
-                  resource: http://company.aha.io/api/v1/pages/PRJ1-N-6
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  parent_id: null
-                - id: '549832152'
-                  name: Title of the second whiteboard
-                  title: PRJ1-N-6 Title of the second whiteboard
-                  reference_num: PRJ1-N-6
-                  url: http://company.aha.io/pages/PRJ1-N-6
-                  resource: http://company.aha.io/api/v1/pages/PRJ1-N-6
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  parent_id: null
-                - id: '666543134'
-                  name: Title of the second note
-                  title: PRJ1-N-2 Title of the second note
-                  reference_num: PRJ1-N-2
-                  url: http://company.aha.io/pages/PRJ1-N-2
-                  resource: http://company.aha.io/api/v1/pages/PRJ1-N-2
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  parent_id: null
-                - id: '702939369'
-                  name: Title of the parent note
-                  title: PRJ1-N-3 Title of the parent note
-                  reference_num: PRJ1-N-3
-                  url: http://company.aha.io/pages/PRJ1-N-3
-                  resource: http://company.aha.io/api/v1/pages/PRJ1-N-3
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  parent_id: null
-                - id: '969708644'
-                  name: Title of the first whiteboard
-                  title: PRJ1-N-5 Title of the first whiteboard
-                  reference_num: PRJ1-N-5
-                  url: http://company.aha.io/pages/PRJ1-N-5
-                  resource: http://company.aha.io/api/v1/pages/PRJ1-N-5
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  parent_id: null
-                - id: '970863041'
-                  name: null
-                  title: PRJ1-N-8 Untitled
-                  reference_num: PRJ1-N-8
-                  url: http://company.aha.io/pages/PRJ1-N-8
-                  resource: http://company.aha.io/api/v1/pages/PRJ1-N-8
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  parent_id: null
-                - id: '1051981226'
-                  name: Title of the first note
-                  title: PRJ1-N-1 Title of the first note
-                  reference_num: PRJ1-N-1
-                  url: http://company.aha.io/pages/PRJ1-N-1
-                  resource: http://company.aha.io/api/v1/pages/PRJ1-N-1
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  parent_id: null
-                pagination:
-                  total_records: 11
-                  total_pages: 1
-                  current_page: 1
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      operationId: getApiV1ProductsByProductIdPages
-      x-operation-id-source: derived
-  /api/v1/pages/{id}:
     get:
       summary: Get a specific note
       description: '"Notes" in the web interface are referenced as "pages" from API endpoints.'
@@ -251,28 +72,30 @@ paths:
                   name: Title of the first note
                   title: PRJ1-N-1 Title of the first note
                   document_title: Title of the first note | Aha!
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  parent_id: null
                   updated_at: '2019-01-01T00:00:00.000Z'
                   reference_num: PRJ1-N-1
+                  url: https://company.aha.io/pages/PRJ1-N-1
+                  resource: https://company.aha.io/api/v1/pages/PRJ1-N-1
                   emoji_value: null
                   document_type: 10
                   document_type_name: note
-                  editor_width: FULL
+                  editor_width: NARROW
                   type_name: note
                   position: 100000
-                  created_at: '2019-01-01T00:00:00.000Z'
                   location: null
                   edit_locked: false
-                  url: http://company.aha.io/pages/PRJ1-N-1
-                  resource: http://company.aha.io/api/v1/pages/PRJ1-N-1
                   product_id: '131414752'
                   description:
                     id: '669149001'
                     body: Description of note 1
+                    notable_id: '1051981226'
+                    notable_type: Page
                     editor_version: 1
                     created_at: '2019-01-01T00:00:00.000Z'
                     updated_at: '2019-01-01T00:00:00.000Z'
                     attachments: []
-                  parent_id: null
                   tags:
                   - Infrastructure
                   - Sales
@@ -289,13 +112,20 @@ paths:
                     key: review_date
                     name: Review date
                     updatedAt: '2019-01-01T00:00:00Z'
-                    value: '2019-01-01'
                     type: date
+                    value: '2019-01-01'
+                  workflow_status:
+                    id: '369936966'
+                    name: Not Started
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                    workflow_status_category: null
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1PagesById
+      operationId: getPagesById
       x-operation-id-source: derived
     put:
       summary: Update a note
@@ -327,33 +157,34 @@ paths:
                   name: Build products customers love
                   title: PRJ1-N-6 Build products customers love
                   document_title: Build products customers love | Aha!
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  parent_id: null
                   updated_at: '2019-01-01T00:00:00.000Z'
                   reference_num: PRJ1-N-6
+                  url: https://company.aha.io/pages/PRJ1-N-6
+                  resource: https://company.aha.io/api/v1/pages/PRJ1-N-6
                   emoji_value: null
                   document_type: 70
                   document_type_name: external_link
                   editor_width: null
                   type_name: external link
                   position: 500000
-                  created_at: '2019-01-01T00:00:00.000Z'
                   location: null
                   edit_locked: false
                   external_url: https://www.aha.io/solutions/product
-                  url: http://company.aha.io/pages/PRJ1-N-6
-                  resource: http://company.aha.io/api/v1/pages/PRJ1-N-6
                   product_id: '131414752'
-                  description:
-                    id: ''
-                    body: '#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>'
-                    editor_version: 2
-                    created_at: null
-                    updated_at: null
-                    attachments: []
-                  parent_id: null
+                  description: null
                   tags: []
                   full_tags: []
                   comments_count: 0
                   custom_fields: []
+                  workflow_status:
+                    id: '369936966'
+                    name: Not Started
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                    workflow_status_category: null
       security:
       - OAuth2: []
       - ApiKeyAuth: []
@@ -369,11 +200,243 @@ paths:
                 name: New name for the note
                 description_attributes:
                   body: <p>An awesome new note</p>
-      operationId: putApiV1PagesById
+                  table_of_contents_enabled: true
+      operationId: putPagesById
       x-operation-id-source: derived
-    delete:
-      summary: Delete a note
+  /products/{product_id}/pages:
+    get:
+      summary: List notes for a product
       description: '"Notes" in the web interface are referenced as "pages" from API endpoints.'
+      tags:
+      - Notes
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/NotesGetResponse'
+              example:
+                pages:
+                - id: '123524136'
+                  name: Title of the meeting note
+                  title: PRJ1-N-9 Title of the meeting note
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  parent_id: null
+                  reference_num: PRJ1-N-9
+                  url: https://company.aha.io/pages/PRJ1-N-9
+                  resource: https://company.aha.io/api/v1/pages/PRJ1-N-9
+                - id: '199011658'
+                  name: Title of the child note
+                  title: PRJ1-N-4 Title of the child note
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  parent_id: 702939369
+                  reference_num: PRJ1-N-4
+                  url: https://company.aha.io/pages/PRJ1-N-4
+                  resource: https://company.aha.io/api/v1/pages/PRJ1-N-4
+                - id: '249102634'
+                  name: null
+                  title: PRJ1-N-7 Untitled
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  parent_id: null
+                  reference_num: PRJ1-N-7
+                  url: https://company.aha.io/pages/PRJ1-N-7
+                  resource: https://company.aha.io/api/v1/pages/PRJ1-N-7
+                - id: '256116692'
+                  name: Shared page title
+                  title: PRJ1-N-10 Shared page title
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  parent_id: null
+                  reference_num: PRJ1-N-10
+                  url: https://company.aha.io/pages/PRJ1-N-10
+                  resource: https://company.aha.io/api/v1/pages/PRJ1-N-10
+                - id: '280859787'
+                  name: External link
+                  title: PRJ1-N-6 External link
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  parent_id: null
+                  reference_num: PRJ1-N-6
+                  url: https://company.aha.io/pages/PRJ1-N-6
+                  resource: https://company.aha.io/api/v1/pages/PRJ1-N-6
+                - id: '549832152'
+                  name: Title of the second whiteboard
+                  title: PRJ1-N-6 Title of the second whiteboard
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  parent_id: null
+                  reference_num: PRJ1-N-6
+                  url: https://company.aha.io/pages/PRJ1-N-6
+                  resource: https://company.aha.io/api/v1/pages/PRJ1-N-6
+                - id: '666543134'
+                  name: Title of the second note
+                  title: PRJ1-N-2 Title of the second note
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  parent_id: null
+                  reference_num: PRJ1-N-2
+                  url: https://company.aha.io/pages/PRJ1-N-2
+                  resource: https://company.aha.io/api/v1/pages/PRJ1-N-2
+                - id: '702939369'
+                  name: Title of the parent note
+                  title: PRJ1-N-3 Title of the parent note
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  parent_id: null
+                  reference_num: PRJ1-N-3
+                  url: https://company.aha.io/pages/PRJ1-N-3
+                  resource: https://company.aha.io/api/v1/pages/PRJ1-N-3
+                - id: '819124458'
+                  name: Title of the first prototype
+                  title: PRJ1-N-14 Title of the first prototype
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  parent_id: null
+                  reference_num: PRJ1-N-14
+                  url: https://company.aha.io/pages/PRJ1-N-14
+                  resource: https://company.aha.io/api/v1/pages/PRJ1-N-14
+                - id: '969708644'
+                  name: Title of the first whiteboard
+                  title: PRJ1-N-5 Title of the first whiteboard
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  parent_id: null
+                  reference_num: PRJ1-N-5
+                  url: https://company.aha.io/pages/PRJ1-N-5
+                  resource: https://company.aha.io/api/v1/pages/PRJ1-N-5
+                - id: '970863041'
+                  name: null
+                  title: PRJ1-N-8 Untitled
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  parent_id: null
+                  reference_num: PRJ1-N-8
+                  url: https://company.aha.io/pages/PRJ1-N-8
+                  resource: https://company.aha.io/api/v1/pages/PRJ1-N-8
+                - id: '1051981226'
+                  name: Title of the first note
+                  title: PRJ1-N-1 Title of the first note
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  parent_id: null
+                  reference_num: PRJ1-N-1
+                  url: https://company.aha.io/pages/PRJ1-N-1
+                  resource: https://company.aha.io/api/v1/pages/PRJ1-N-1
+                pagination:
+                  total_records: 12
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getProductsByProductIdPages
+      x-operation-id-source: derived
+    post:
+      summary: Create a note
+      description: '"Notes" in the web interface are referenced as "pages" from API endpoints.'
+      tags:
+      - Notes
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ProductId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/NotesPostResponse'
+              example:
+                page:
+                  id: '6776881149490967959'
+                  name: null
+                  title: PRJ1-N-15 Untitled
+                  document_title: Untitled | Aha!
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  parent_id: null
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  reference_num: PRJ1-N-15
+                  url: https://company.aha.io/pages/PRJ1-N-15
+                  resource: https://company.aha.io/api/v1/pages/PRJ1-N-15
+                  emoji_value: null
+                  document_type: 80
+                  document_type_name: internal_link
+                  editor_width: null
+                  type_name: internal link
+                  position: null
+                  location: null
+                  edit_locked: false
+                  linked_record_id: 1007868956
+                  linked_record_type: Feature
+                  product_id: '131414752'
+                  description:
+                    id: '6776881149494485991'
+                    body: ''
+                    notable_id: '6776881149490967959'
+                    notable_type: Page
+                    editor_version: 2
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  tags: []
+                  full_tags: []
+                  comments_count: 0
+                  custom_fields: []
+                  workflow_status:
+                    id: '369936966'
+                    name: Not Started
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                    workflow_status_category: null
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotesPostRequest'
+            example:
+              page:
+                name: Note 3
+                description_attributes:
+                  body: <p>An awesome new note</p>
+                  table_of_contents_enabled: true
+      operationId: postProductsByProductIdPages
+      x-operation-id-source: derived
+  /pages/{id}/publish:
+    post:
+      summary: Publish a note to knowledge bases
+      description: Publishes the note to every knowledge base that contains it. Publishing occurs asynchronously, so the published status will not update immediately.
       tags:
       - Notes
       parameters:
@@ -384,17 +447,140 @@ paths:
           type: string
         description: Id identifier
       responses:
-        '204':
-          description: No content - operation successful
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/NotesPostResponse'
+              example:
+                page:
+                  id: '1051981226'
+                  name: Title of the first note
+                  title: PRJ1-N-1 Title of the first note
+                  document_title: Title of the first note | Aha!
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  parent_id: null
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  reference_num: PRJ1-N-1
+                  url: https://company.aha.io/pages/PRJ1-N-1
+                  resource: https://company.aha.io/api/v1/pages/PRJ1-N-1
+                  emoji_value: null
+                  document_type: 10
+                  document_type_name: note
+                  editor_width: NARROW
+                  type_name: note
+                  position: 100000
+                  location: null
+                  edit_locked: false
+                  product_id: '131414752'
+                  description:
+                    id: '669149001'
+                    body: Description of note 1
+                    notable_id: '1051981226'
+                    notable_type: Page
+                    editor_version: 1
+                    created_at: '2019-01-01T00:00:00.000Z'
+                    updated_at: '2019-01-01T00:00:00.000Z'
+                    attachments: []
+                  tags:
+                  - Infrastructure
+                  - Sales
+                  full_tags:
+                  - id: 775582684
+                    name: Infrastructure
+                    color: '#7552e0'
+                  - id: 926098016
+                    name: Sales
+                    color: '#e0da52'
+                  comments_count: 0
+                  custom_fields:
+                  - id: 416524155
+                    key: review_date
+                    name: Review date
+                    updatedAt: '2019-01-01T00:00:00Z'
+                    type: date
+                    value: '2019-01-01'
+                  workflow_status:
+                    id: '369936966'
+                    name: Not Started
+                    position: 1
+                    complete: false
+                    color: '#dce7c6'
+                    workflow_status_category: null
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: deleteApiV1PagesById
+      operationId: postPagesByIdPublish
+      x-operation-id-source: derived
+  /pages/{id}/unpublish:
+    post:
+      summary: Unpublish a note from knowledge bases
+      description: Unpublishes the note from every knowledge base that contains it. Unpublishing is immediate, but is not recursive.
+      tags:
+      - Notes
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json
+              schema:
+                type: string
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: postPagesByIdUnpublish
       x-operation-id-source: derived
 components:
   schemas:
-    NotesGetResponse:
+    NotesPostRequest:
+      type: object
+      properties:
+        page:
+          type: object
+          properties:
+            name:
+              type: string
+              example: New name for the note
+            description_attributes:
+              type: object
+              properties:
+                body:
+                  type: string
+                  example: <p>An awesome new note</p>
+                table_of_contents_enabled:
+                  type: boolean
+                  example: true
+              example:
+                body: <p>An awesome new note</p>
+                table_of_contents_enabled: true
+          example:
+            name: New name for the note
+            description_attributes:
+              body: <p>An awesome new note</p>
+              table_of_contents_enabled: true
+      example:
+        page:
+          name: New name for the note
+          description_attributes:
+            body: <p>An awesome new note</p>
+            table_of_contents_enabled: true
+    NotesPostResponse:
       type: object
       properties:
         page:
@@ -402,53 +588,58 @@ components:
           properties:
             id:
               type: string
-              example: '1051981226'
+              example: '6776881149490967959'
             name:
-              type: string
-              example: Title of the first note
+              type: 'null'
             title:
               type: string
-              example: PRJ1-N-1 Title of the first note
+              example: PRJ1-N-15 Untitled
             document_title:
               type: string
-              example: Title of the first note | Aha!
+              example: Untitled | Aha!
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            parent_id:
+              type: 'null'
             updated_at:
               type: string
               example: '2019-01-01T00:00:00.000Z'
             reference_num:
               type: string
-              example: PRJ1-N-1
+              example: PRJ1-N-15
+            url:
+              type: string
+              example: https://company.aha.io/pages/PRJ1-N-15
+            resource:
+              type: string
+              example: https://company.aha.io/api/v1/pages/PRJ1-N-15
             emoji_value:
               type: 'null'
             document_type:
               type: integer
-              example: 10
+              example: 80
             document_type_name:
               type: string
-              example: note
+              example: internal_link
             editor_width:
-              type: string
-              example: FULL
+              type: 'null'
             type_name:
               type: string
-              example: note
+              example: internal link
             position:
-              type: integer
-              example: 100000
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
+              type: 'null'
             location:
               type: 'null'
             edit_locked:
               type: boolean
               example: false
-            url:
+            linked_record_id:
+              type: integer
+              example: 1007868956
+            linked_record_type:
               type: string
-              example: http://company.aha.io/pages/PRJ1-N-1
-            resource:
-              type: string
-              example: http://company.aha.io/api/v1/pages/PRJ1-N-1
+              example: Feature
             product_id:
               type: string
               example: '131414752'
@@ -457,13 +648,19 @@ components:
               properties:
                 id:
                   type: string
-                  example: '669149001'
+                  example: '6776881149494485991'
                 body:
                   type: string
-                  example: Description of note 1
+                  example: ''
+                notable_id:
+                  type: string
+                  example: '6776881149490967959'
+                notable_type:
+                  type: string
+                  example: Page
                 editor_version:
                   type: integer
-                  example: 1
+                  example: 2
                 created_at:
                   type: string
                   example: '2019-01-01T00:00:00.000Z'
@@ -474,169 +671,393 @@ components:
                   type: array
                   items: {}
               example:
-                id: '669149001'
-                body: Description of note 1
-                editor_version: 1
+                id: '6776881149494485991'
+                body: ''
+                notable_id: '6776881149490967959'
+                notable_type: Page
+                editor_version: 2
                 created_at: '2019-01-01T00:00:00.000Z'
                 updated_at: '2019-01-01T00:00:00.000Z'
                 attachments: []
-            parent_id:
-              type: 'null'
             tags:
               type: array
-              items:
-                type: string
-                example: Infrastructure
-              example:
-              - Infrastructure
-              - Sales
+              items: {}
             full_tags:
               type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  name:
-                    type: string
-                  color:
-                    type: string
-                example:
-                  id: 775582684
-                  name: Infrastructure
-                  color: '#7552e0'
-              example:
-              - id: 775582684
-                name: Infrastructure
-                color: '#7552e0'
-              - id: 926098016
-                name: Sales
-                color: '#e0da52'
+              items: {}
             comments_count:
               type: integer
               example: 0
             custom_fields:
               type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  key:
-                    type: string
-                  name:
-                    type: string
-                  updatedAt:
-                    type: string
-                  value:
-                    type: string
-                  type:
-                    type: string
-                example:
-                  id: 416524155
-                  key: review_date
-                  name: Review date
-                  updatedAt: '2019-01-01T00:00:00Z'
-                  value: '2019-01-01'
-                  type: date
+              items: {}
+            workflow_status:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '369936966'
+                name:
+                  type: string
+                  example: Not Started
+                position:
+                  type: integer
+                  example: 1
+                complete:
+                  type: boolean
+                  example: false
+                color:
+                  type: string
+                  example: '#dce7c6'
+                workflow_status_category:
+                  type: 'null'
               example:
-              - id: 416524155
-                key: review_date
-                name: Review date
-                updatedAt: '2019-01-01T00:00:00Z'
-                value: '2019-01-01'
-                type: date
+                id: '369936966'
+                name: Not Started
+                position: 1
+                complete: false
+                color: '#dce7c6'
+                workflow_status_category: null
           example:
-            id: '1051981226'
-            name: Title of the first note
-            title: PRJ1-N-1 Title of the first note
-            document_title: Title of the first note | Aha!
-            updated_at: '2019-01-01T00:00:00.000Z'
-            reference_num: PRJ1-N-1
-            emoji_value: null
-            document_type: 10
-            document_type_name: note
-            editor_width: FULL
-            type_name: note
-            position: 100000
+            id: '6776881149490967959'
+            name: null
+            title: PRJ1-N-15 Untitled
+            document_title: Untitled | Aha!
             created_at: '2019-01-01T00:00:00.000Z'
+            parent_id: null
+            updated_at: '2019-01-01T00:00:00.000Z'
+            reference_num: PRJ1-N-15
+            url: https://company.aha.io/pages/PRJ1-N-15
+            resource: https://company.aha.io/api/v1/pages/PRJ1-N-15
+            emoji_value: null
+            document_type: 80
+            document_type_name: internal_link
+            editor_width: null
+            type_name: internal link
+            position: null
             location: null
             edit_locked: false
-            url: http://company.aha.io/pages/PRJ1-N-1
-            resource: http://company.aha.io/api/v1/pages/PRJ1-N-1
+            linked_record_id: 1007868956
+            linked_record_type: Feature
             product_id: '131414752'
             description:
-              id: '669149001'
-              body: Description of note 1
-              editor_version: 1
+              id: '6776881149494485991'
+              body: ''
+              notable_id: '6776881149490967959'
+              notable_type: Page
+              editor_version: 2
               created_at: '2019-01-01T00:00:00.000Z'
               updated_at: '2019-01-01T00:00:00.000Z'
               attachments: []
-            parent_id: null
-            tags:
-            - Infrastructure
-            - Sales
-            full_tags:
-            - id: 775582684
-              name: Infrastructure
-              color: '#7552e0'
-            - id: 926098016
-              name: Sales
-              color: '#e0da52'
+            tags: []
+            full_tags: []
             comments_count: 0
-            custom_fields:
-            - id: 416524155
-              key: review_date
-              name: Review date
-              updatedAt: '2019-01-01T00:00:00Z'
-              value: '2019-01-01'
-              type: date
+            custom_fields: []
+            workflow_status:
+              id: '369936966'
+              name: Not Started
+              position: 1
+              complete: false
+              color: '#dce7c6'
+              workflow_status_category: null
       example:
         page:
-          id: '1051981226'
-          name: Title of the first note
-          title: PRJ1-N-1 Title of the first note
-          document_title: Title of the first note | Aha!
-          updated_at: '2019-01-01T00:00:00.000Z'
-          reference_num: PRJ1-N-1
-          emoji_value: null
-          document_type: 10
-          document_type_name: note
-          editor_width: FULL
-          type_name: note
-          position: 100000
+          id: '6776881149490967959'
+          name: null
+          title: PRJ1-N-15 Untitled
+          document_title: Untitled | Aha!
           created_at: '2019-01-01T00:00:00.000Z'
+          parent_id: null
+          updated_at: '2019-01-01T00:00:00.000Z'
+          reference_num: PRJ1-N-15
+          url: https://company.aha.io/pages/PRJ1-N-15
+          resource: https://company.aha.io/api/v1/pages/PRJ1-N-15
+          emoji_value: null
+          document_type: 80
+          document_type_name: internal_link
+          editor_width: null
+          type_name: internal link
+          position: null
           location: null
           edit_locked: false
-          url: http://company.aha.io/pages/PRJ1-N-1
-          resource: http://company.aha.io/api/v1/pages/PRJ1-N-1
+          linked_record_id: 1007868956
+          linked_record_type: Feature
           product_id: '131414752'
           description:
-            id: '669149001'
-            body: Description of note 1
-            editor_version: 1
+            id: '6776881149494485991'
+            body: ''
+            notable_id: '6776881149490967959'
+            notable_type: Page
+            editor_version: 2
             created_at: '2019-01-01T00:00:00.000Z'
             updated_at: '2019-01-01T00:00:00.000Z'
             attachments: []
-          parent_id: null
-          tags:
-          - Infrastructure
-          - Sales
-          full_tags:
-          - id: 775582684
-            name: Infrastructure
-            color: '#7552e0'
-          - id: 926098016
-            name: Sales
-            color: '#e0da52'
+          tags: []
+          full_tags: []
           comments_count: 0
-          custom_fields:
-          - id: 416524155
-            key: review_date
-            name: Review date
-            updatedAt: '2019-01-01T00:00:00Z'
-            value: '2019-01-01'
-            type: date
+          custom_fields: []
+          workflow_status:
+            id: '369936966'
+            name: Not Started
+            position: 1
+            complete: false
+            color: '#dce7c6'
+            workflow_status_category: null
+    NotesGetResponse:
+      type: object
+      properties:
+        pages:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: '123524136'
+              name:
+                type: string
+                example: Title of the meeting note
+              title:
+                type: string
+                example: PRJ1-N-9 Title of the meeting note
+              created_at:
+                type: string
+                example: '2019-01-01T00:00:00.000Z'
+              parent_id:
+                type: 'null'
+              reference_num:
+                type: string
+                example: PRJ1-N-9
+              url:
+                type: string
+                example: https://company.aha.io/pages/PRJ1-N-9
+              resource:
+                type: string
+                example: https://company.aha.io/api/v1/pages/PRJ1-N-9
+            example:
+              id: '123524136'
+              name: Title of the meeting note
+              title: PRJ1-N-9 Title of the meeting note
+              created_at: '2019-01-01T00:00:00.000Z'
+              parent_id: null
+              reference_num: PRJ1-N-9
+              url: https://company.aha.io/pages/PRJ1-N-9
+              resource: https://company.aha.io/api/v1/pages/PRJ1-N-9
+          example:
+          - id: '123524136'
+            name: Title of the meeting note
+            title: PRJ1-N-9 Title of the meeting note
+            created_at: '2019-01-01T00:00:00.000Z'
+            parent_id: null
+            reference_num: PRJ1-N-9
+            url: https://company.aha.io/pages/PRJ1-N-9
+            resource: https://company.aha.io/api/v1/pages/PRJ1-N-9
+          - id: '199011658'
+            name: Title of the child note
+            title: PRJ1-N-4 Title of the child note
+            created_at: '2019-01-01T00:00:00.000Z'
+            parent_id: 702939369
+            reference_num: PRJ1-N-4
+            url: https://company.aha.io/pages/PRJ1-N-4
+            resource: https://company.aha.io/api/v1/pages/PRJ1-N-4
+          - id: '249102634'
+            name: null
+            title: PRJ1-N-7 Untitled
+            created_at: '2019-01-01T00:00:00.000Z'
+            parent_id: null
+            reference_num: PRJ1-N-7
+            url: https://company.aha.io/pages/PRJ1-N-7
+            resource: https://company.aha.io/api/v1/pages/PRJ1-N-7
+          - id: '256116692'
+            name: Shared page title
+            title: PRJ1-N-10 Shared page title
+            created_at: '2019-01-01T00:00:00.000Z'
+            parent_id: null
+            reference_num: PRJ1-N-10
+            url: https://company.aha.io/pages/PRJ1-N-10
+            resource: https://company.aha.io/api/v1/pages/PRJ1-N-10
+          - id: '280859787'
+            name: External link
+            title: PRJ1-N-6 External link
+            created_at: '2019-01-01T00:00:00.000Z'
+            parent_id: null
+            reference_num: PRJ1-N-6
+            url: https://company.aha.io/pages/PRJ1-N-6
+            resource: https://company.aha.io/api/v1/pages/PRJ1-N-6
+          - id: '549832152'
+            name: Title of the second whiteboard
+            title: PRJ1-N-6 Title of the second whiteboard
+            created_at: '2019-01-01T00:00:00.000Z'
+            parent_id: null
+            reference_num: PRJ1-N-6
+            url: https://company.aha.io/pages/PRJ1-N-6
+            resource: https://company.aha.io/api/v1/pages/PRJ1-N-6
+          - id: '666543134'
+            name: Title of the second note
+            title: PRJ1-N-2 Title of the second note
+            created_at: '2019-01-01T00:00:00.000Z'
+            parent_id: null
+            reference_num: PRJ1-N-2
+            url: https://company.aha.io/pages/PRJ1-N-2
+            resource: https://company.aha.io/api/v1/pages/PRJ1-N-2
+          - id: '702939369'
+            name: Title of the parent note
+            title: PRJ1-N-3 Title of the parent note
+            created_at: '2019-01-01T00:00:00.000Z'
+            parent_id: null
+            reference_num: PRJ1-N-3
+            url: https://company.aha.io/pages/PRJ1-N-3
+            resource: https://company.aha.io/api/v1/pages/PRJ1-N-3
+          - id: '819124458'
+            name: Title of the first prototype
+            title: PRJ1-N-14 Title of the first prototype
+            created_at: '2019-01-01T00:00:00.000Z'
+            parent_id: null
+            reference_num: PRJ1-N-14
+            url: https://company.aha.io/pages/PRJ1-N-14
+            resource: https://company.aha.io/api/v1/pages/PRJ1-N-14
+          - id: '969708644'
+            name: Title of the first whiteboard
+            title: PRJ1-N-5 Title of the first whiteboard
+            created_at: '2019-01-01T00:00:00.000Z'
+            parent_id: null
+            reference_num: PRJ1-N-5
+            url: https://company.aha.io/pages/PRJ1-N-5
+            resource: https://company.aha.io/api/v1/pages/PRJ1-N-5
+          - id: '970863041'
+            name: null
+            title: PRJ1-N-8 Untitled
+            created_at: '2019-01-01T00:00:00.000Z'
+            parent_id: null
+            reference_num: PRJ1-N-8
+            url: https://company.aha.io/pages/PRJ1-N-8
+            resource: https://company.aha.io/api/v1/pages/PRJ1-N-8
+          - id: '1051981226'
+            name: Title of the first note
+            title: PRJ1-N-1 Title of the first note
+            created_at: '2019-01-01T00:00:00.000Z'
+            parent_id: null
+            reference_num: PRJ1-N-1
+            url: https://company.aha.io/pages/PRJ1-N-1
+            resource: https://company.aha.io/api/v1/pages/PRJ1-N-1
+        pagination:
+          type: object
+          properties:
+            total_records:
+              type: integer
+              example: 12
+            total_pages:
+              type: integer
+              example: 1
+            current_page:
+              type: integer
+              example: 1
+          example:
+            total_records: 12
+            total_pages: 1
+            current_page: 1
+      example:
+        pages:
+        - id: '123524136'
+          name: Title of the meeting note
+          title: PRJ1-N-9 Title of the meeting note
+          created_at: '2019-01-01T00:00:00.000Z'
+          parent_id: null
+          reference_num: PRJ1-N-9
+          url: https://company.aha.io/pages/PRJ1-N-9
+          resource: https://company.aha.io/api/v1/pages/PRJ1-N-9
+        - id: '199011658'
+          name: Title of the child note
+          title: PRJ1-N-4 Title of the child note
+          created_at: '2019-01-01T00:00:00.000Z'
+          parent_id: 702939369
+          reference_num: PRJ1-N-4
+          url: https://company.aha.io/pages/PRJ1-N-4
+          resource: https://company.aha.io/api/v1/pages/PRJ1-N-4
+        - id: '249102634'
+          name: null
+          title: PRJ1-N-7 Untitled
+          created_at: '2019-01-01T00:00:00.000Z'
+          parent_id: null
+          reference_num: PRJ1-N-7
+          url: https://company.aha.io/pages/PRJ1-N-7
+          resource: https://company.aha.io/api/v1/pages/PRJ1-N-7
+        - id: '256116692'
+          name: Shared page title
+          title: PRJ1-N-10 Shared page title
+          created_at: '2019-01-01T00:00:00.000Z'
+          parent_id: null
+          reference_num: PRJ1-N-10
+          url: https://company.aha.io/pages/PRJ1-N-10
+          resource: https://company.aha.io/api/v1/pages/PRJ1-N-10
+        - id: '280859787'
+          name: External link
+          title: PRJ1-N-6 External link
+          created_at: '2019-01-01T00:00:00.000Z'
+          parent_id: null
+          reference_num: PRJ1-N-6
+          url: https://company.aha.io/pages/PRJ1-N-6
+          resource: https://company.aha.io/api/v1/pages/PRJ1-N-6
+        - id: '549832152'
+          name: Title of the second whiteboard
+          title: PRJ1-N-6 Title of the second whiteboard
+          created_at: '2019-01-01T00:00:00.000Z'
+          parent_id: null
+          reference_num: PRJ1-N-6
+          url: https://company.aha.io/pages/PRJ1-N-6
+          resource: https://company.aha.io/api/v1/pages/PRJ1-N-6
+        - id: '666543134'
+          name: Title of the second note
+          title: PRJ1-N-2 Title of the second note
+          created_at: '2019-01-01T00:00:00.000Z'
+          parent_id: null
+          reference_num: PRJ1-N-2
+          url: https://company.aha.io/pages/PRJ1-N-2
+          resource: https://company.aha.io/api/v1/pages/PRJ1-N-2
+        - id: '702939369'
+          name: Title of the parent note
+          title: PRJ1-N-3 Title of the parent note
+          created_at: '2019-01-01T00:00:00.000Z'
+          parent_id: null
+          reference_num: PRJ1-N-3
+          url: https://company.aha.io/pages/PRJ1-N-3
+          resource: https://company.aha.io/api/v1/pages/PRJ1-N-3
+        - id: '819124458'
+          name: Title of the first prototype
+          title: PRJ1-N-14 Title of the first prototype
+          created_at: '2019-01-01T00:00:00.000Z'
+          parent_id: null
+          reference_num: PRJ1-N-14
+          url: https://company.aha.io/pages/PRJ1-N-14
+          resource: https://company.aha.io/api/v1/pages/PRJ1-N-14
+        - id: '969708644'
+          name: Title of the first whiteboard
+          title: PRJ1-N-5 Title of the first whiteboard
+          created_at: '2019-01-01T00:00:00.000Z'
+          parent_id: null
+          reference_num: PRJ1-N-5
+          url: https://company.aha.io/pages/PRJ1-N-5
+          resource: https://company.aha.io/api/v1/pages/PRJ1-N-5
+        - id: '970863041'
+          name: null
+          title: PRJ1-N-8 Untitled
+          created_at: '2019-01-01T00:00:00.000Z'
+          parent_id: null
+          reference_num: PRJ1-N-8
+          url: https://company.aha.io/pages/PRJ1-N-8
+          resource: https://company.aha.io/api/v1/pages/PRJ1-N-8
+        - id: '1051981226'
+          name: Title of the first note
+          title: PRJ1-N-1 Title of the first note
+          created_at: '2019-01-01T00:00:00.000Z'
+          parent_id: null
+          reference_num: PRJ1-N-1
+          url: https://company.aha.io/pages/PRJ1-N-1
+          resource: https://company.aha.io/api/v1/pages/PRJ1-N-1
+        pagination:
+          total_records: 12
+          total_pages: 1
+          current_page: 1
     NotesPutResponse:
       type: object
       properties:
@@ -655,12 +1076,23 @@ components:
             document_title:
               type: string
               example: Build products customers love | Aha!
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            parent_id:
+              type: 'null'
             updated_at:
               type: string
               example: '2019-01-01T00:00:00.000Z'
             reference_num:
               type: string
               example: PRJ1-N-6
+            url:
+              type: string
+              example: https://company.aha.io/pages/PRJ1-N-6
+            resource:
+              type: string
+              example: https://company.aha.io/api/v1/pages/PRJ1-N-6
             emoji_value:
               type: 'null'
             document_type:
@@ -677,9 +1109,6 @@ components:
             position:
               type: integer
               example: 500000
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
             location:
               type: 'null'
             edit_locked:
@@ -688,42 +1117,10 @@ components:
             external_url:
               type: string
               example: https://www.aha.io/solutions/product
-            url:
-              type: string
-              example: http://company.aha.io/pages/PRJ1-N-6
-            resource:
-              type: string
-              example: http://company.aha.io/api/v1/pages/PRJ1-N-6
             product_id:
               type: string
               example: '131414752'
             description:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: ''
-                body:
-                  type: string
-                  example: '#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>'
-                editor_version:
-                  type: integer
-                  example: 2
-                created_at:
-                  type: 'null'
-                updated_at:
-                  type: 'null'
-                attachments:
-                  type: array
-                  items: {}
-              example:
-                id: ''
-                body: '#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>'
-                editor_version: 2
-                created_at: null
-                updated_at: null
-                attachments: []
-            parent_id:
               type: 'null'
             tags:
               type: array
@@ -737,267 +1134,100 @@ components:
             custom_fields:
               type: array
               items: {}
+            workflow_status:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '369936966'
+                name:
+                  type: string
+                  example: Not Started
+                position:
+                  type: integer
+                  example: 1
+                complete:
+                  type: boolean
+                  example: false
+                color:
+                  type: string
+                  example: '#dce7c6'
+                workflow_status_category:
+                  type: 'null'
+              example:
+                id: '369936966'
+                name: Not Started
+                position: 1
+                complete: false
+                color: '#dce7c6'
+                workflow_status_category: null
           example:
             id: '280859787'
             name: Build products customers love
             title: PRJ1-N-6 Build products customers love
             document_title: Build products customers love | Aha!
+            created_at: '2019-01-01T00:00:00.000Z'
+            parent_id: null
             updated_at: '2019-01-01T00:00:00.000Z'
             reference_num: PRJ1-N-6
+            url: https://company.aha.io/pages/PRJ1-N-6
+            resource: https://company.aha.io/api/v1/pages/PRJ1-N-6
             emoji_value: null
             document_type: 70
             document_type_name: external_link
             editor_width: null
             type_name: external link
             position: 500000
-            created_at: '2019-01-01T00:00:00.000Z'
             location: null
             edit_locked: false
             external_url: https://www.aha.io/solutions/product
-            url: http://company.aha.io/pages/PRJ1-N-6
-            resource: http://company.aha.io/api/v1/pages/PRJ1-N-6
             product_id: '131414752'
-            description:
-              id: ''
-              body: '#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>'
-              editor_version: 2
-              created_at: null
-              updated_at: null
-              attachments: []
-            parent_id: null
+            description: null
             tags: []
             full_tags: []
             comments_count: 0
             custom_fields: []
+            workflow_status:
+              id: '369936966'
+              name: Not Started
+              position: 1
+              complete: false
+              color: '#dce7c6'
+              workflow_status_category: null
       example:
         page:
           id: '280859787'
           name: Build products customers love
           title: PRJ1-N-6 Build products customers love
           document_title: Build products customers love | Aha!
+          created_at: '2019-01-01T00:00:00.000Z'
+          parent_id: null
           updated_at: '2019-01-01T00:00:00.000Z'
           reference_num: PRJ1-N-6
+          url: https://company.aha.io/pages/PRJ1-N-6
+          resource: https://company.aha.io/api/v1/pages/PRJ1-N-6
           emoji_value: null
           document_type: 70
           document_type_name: external_link
           editor_width: null
           type_name: external link
           position: 500000
-          created_at: '2019-01-01T00:00:00.000Z'
           location: null
           edit_locked: false
           external_url: https://www.aha.io/solutions/product
-          url: http://company.aha.io/pages/PRJ1-N-6
-          resource: http://company.aha.io/api/v1/pages/PRJ1-N-6
           product_id: '131414752'
-          description:
-            id: ''
-            body: '#<note:0x000000032dc8fa20></note:0x000000032dc8fa20>'
-            editor_version: 2
-            created_at: null
-            updated_at: null
-            attachments: []
-          parent_id: null
+          description: null
           tags: []
           full_tags: []
           comments_count: 0
           custom_fields: []
-    NotesPostRequest:
-      type: object
-      properties:
-        page:
-          type: object
-          properties:
-            name:
-              type: string
-              example: New name for the note
-            description_attributes:
-              type: object
-              properties:
-                body:
-                  type: string
-                  example: <p>An awesome new note</p>
-              example:
-                body: <p>An awesome new note</p>
-          example:
-            name: New name for the note
-            description_attributes:
-              body: <p>An awesome new note</p>
-      example:
-        page:
-          name: New name for the note
-          description_attributes:
-            body: <p>An awesome new note</p>
-    NotesPostResponse:
-      type: object
-      properties:
-        page:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '6776881149490967959'
-            name:
-              type: 'null'
-            title:
-              type: string
-              example: PRJ1-N-11 Untitled
-            document_title:
-              type: string
-              example: Untitled | Aha!
-            updated_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            reference_num:
-              type: string
-              example: PRJ1-N-11
-            emoji_value:
-              type: 'null'
-            document_type:
-              type: integer
-              example: 80
-            document_type_name:
-              type: string
-              example: internal_link
-            editor_width:
-              type: 'null'
-            type_name:
-              type: string
-              example: internal link
-            position:
-              type: 'null'
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            location:
-              type: 'null'
-            edit_locked:
-              type: boolean
-              example: false
-            linked_record_id:
-              type: integer
-              example: 1007868956
-            linked_record_type:
-              type: string
-              example: Feature
-            url:
-              type: string
-              example: http://company.aha.io/pages/PRJ1-N-11
-            resource:
-              type: string
-              example: http://company.aha.io/api/v1/pages/PRJ1-N-11
-            product_id:
-              type: string
-              example: '131414752'
-            description:
-              type: object
-              properties:
-                id:
-                  type: string
-                  example: '6776881149488431496'
-                body:
-                  type: string
-                  example: ''
-                editor_version:
-                  type: integer
-                  example: 2
-                created_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                updated_at:
-                  type: string
-                  example: '2019-01-01T00:00:00.000Z'
-                attachments:
-                  type: array
-                  items: {}
-              example:
-                id: '6776881149488431496'
-                body: ''
-                editor_version: 2
-                created_at: '2019-01-01T00:00:00.000Z'
-                updated_at: '2019-01-01T00:00:00.000Z'
-                attachments: []
-            parent_id:
-              type: 'null'
-            tags:
-              type: array
-              items: {}
-            full_tags:
-              type: array
-              items: {}
-            comments_count:
-              type: integer
-              example: 0
-            custom_fields:
-              type: array
-              items: {}
-          example:
-            id: '6776881149490967959'
-            name: null
-            title: PRJ1-N-11 Untitled
-            document_title: Untitled | Aha!
-            updated_at: '2019-01-01T00:00:00.000Z'
-            reference_num: PRJ1-N-11
-            emoji_value: null
-            document_type: 80
-            document_type_name: internal_link
-            editor_width: null
-            type_name: internal link
-            position: null
-            created_at: '2019-01-01T00:00:00.000Z'
-            location: null
-            edit_locked: false
-            linked_record_id: 1007868956
-            linked_record_type: Feature
-            url: http://company.aha.io/pages/PRJ1-N-11
-            resource: http://company.aha.io/api/v1/pages/PRJ1-N-11
-            product_id: '131414752'
-            description:
-              id: '6776881149488431496'
-              body: ''
-              editor_version: 2
-              created_at: '2019-01-01T00:00:00.000Z'
-              updated_at: '2019-01-01T00:00:00.000Z'
-              attachments: []
-            parent_id: null
-            tags: []
-            full_tags: []
-            comments_count: 0
-            custom_fields: []
-      example:
-        page:
-          id: '6776881149490967959'
-          name: null
-          title: PRJ1-N-11 Untitled
-          document_title: Untitled | Aha!
-          updated_at: '2019-01-01T00:00:00.000Z'
-          reference_num: PRJ1-N-11
-          emoji_value: null
-          document_type: 80
-          document_type_name: internal_link
-          editor_width: null
-          type_name: internal link
-          position: null
-          created_at: '2019-01-01T00:00:00.000Z'
-          location: null
-          edit_locked: false
-          linked_record_id: 1007868956
-          linked_record_type: Feature
-          url: http://company.aha.io/pages/PRJ1-N-11
-          resource: http://company.aha.io/api/v1/pages/PRJ1-N-11
-          product_id: '131414752'
-          description:
-            id: '6776881149488431496'
-            body: ''
-            editor_version: 2
-            created_at: '2019-01-01T00:00:00.000Z'
-            updated_at: '2019-01-01T00:00:00.000Z'
-            attachments: []
-          parent_id: null
-          tags: []
-          full_tags: []
-          comments_count: 0
-          custom_fields: []
+          workflow_status:
+            id: '369936966'
+            name: Not Started
+            position: 1
+            complete: false
+            color: '#dce7c6'
+            workflow_status_category: null
   securitySchemes:
     OAuth2:
       type: oauth2

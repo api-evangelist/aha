@@ -20,7 +20,7 @@ security:
 tags:
 - name: Ideas portal user subscriptions
 paths:
-  /api/v1/idea_portals/{idea_portal_id}/portal_users/{portal_user_id}/portal_user_subscriptions:
+  /idea_portals/{idea_portal_id}/portal_users/{portal_user_id}/portal_user_subscriptions:
     get:
       summary: List a portal user's preferences for the portal summary email
       description: null
@@ -62,10 +62,10 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1IdeaPortalsByIdeaPortalIdPortalUsersByPortalUserIdPortalUserSubscriptions
+      operationId: getIdeaPortalsByIdeaPortalIdPortalUsersByPortalUserIdPortalUserSubscriptions
       x-operation-id-source: derived
     post:
-      summary: Set a portal user's preferences to specific project and category updates
+      summary: Set a portal user's preferences to specific categories
       description: null
       tags:
       - Ideas portal user subscriptions
@@ -97,10 +97,10 @@ paths:
               example:
                 portal_user_subscriptions:
                   preferences:
+                  - type: project
+                    id: 131414752
                   - type: category
                     id: 251347229
-                  - type: category
-                    id: 552935478
       security:
       - OAuth2: []
       - ApiKeyAuth: []
@@ -114,13 +114,13 @@ paths:
             example:
               portal_user_subscriptions:
                 preferences:
-                - type: project
-                  id: 131414752
                 - type: category
                   id: 251347229
-      operationId: postApiV1IdeaPortalsByIdeaPortalIdPortalUsersByPortalUserIdPortalUserSubscriptions
+                - type: category
+                  id: 552935478
+      operationId: postIdeaPortalsByIdeaPortalIdPortalUsersByPortalUserIdPortalUserSubscriptions
       x-operation-id-source: derived
-  /api/v1/idea_portals/{idea_portal_id}/portal_users/{portal_user_id}/portal_user_subscriptions/subscribe_to_all:
+  /idea_portals/{idea_portal_id}/portal_users/{portal_user_id}/portal_user_subscriptions/subscribe_to_all:
     post:
       summary: Subscribe a portal user to updates from all projects and categories
       description: null
@@ -146,10 +146,84 @@ paths:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: postApiV1IdeaPortalsByIdeaPortalIdPortalUsersByPortalUserIdPortalUserSubscriptionsSubscribeToAll
+      operationId: postIdeaPortalsByIdeaPortalIdPortalUsersByPortalUserIdPortalUserSubscriptionsSubscribeToAll
       x-operation-id-source: derived
 components:
   schemas:
+    IdeasportalusersubscriptionsPostRequest:
+      type: object
+      properties:
+        portal_user_subscriptions:
+          type: object
+          properties:
+            preferences:
+              type: array
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: category
+                  id:
+                    type: integer
+                    example: 251347229
+                example:
+                  type: category
+                  id: 251347229
+              example:
+              - type: category
+                id: 251347229
+              - type: category
+                id: 552935478
+          example:
+            preferences:
+            - type: category
+              id: 251347229
+            - type: category
+              id: 552935478
+      example:
+        portal_user_subscriptions:
+          preferences:
+          - type: category
+            id: 251347229
+          - type: category
+            id: 552935478
+    IdeasportalusersubscriptionsPostResponse:
+      type: object
+      properties:
+        portal_user_subscriptions:
+          type: object
+          properties:
+            preferences:
+              type: array
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                  id:
+                    type: string
+                example:
+                  type: project
+                  id: 131414752
+              example:
+              - type: project
+                id: 131414752
+              - type: category
+                id: 251347229
+          example:
+            preferences:
+            - type: project
+              id: 131414752
+            - type: category
+              id: 251347229
+      example:
+        portal_user_subscriptions:
+          preferences:
+          - type: project
+            id: 131414752
+          - type: category
+            id: 251347229
     IdeasportalusersubscriptionsGetResponse:
       type: object
       properties:
@@ -186,80 +260,6 @@ components:
             id: 131414752
           - type: category
             id: 251347229
-    IdeasportalusersubscriptionsPostRequest:
-      type: object
-      properties:
-        portal_user_subscriptions:
-          type: object
-          properties:
-            preferences:
-              type: array
-              items:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: project
-                  id:
-                    type: integer
-                    example: 131414752
-                example:
-                  type: project
-                  id: 131414752
-              example:
-              - type: project
-                id: 131414752
-              - type: category
-                id: 251347229
-          example:
-            preferences:
-            - type: project
-              id: 131414752
-            - type: category
-              id: 251347229
-      example:
-        portal_user_subscriptions:
-          preferences:
-          - type: project
-            id: 131414752
-          - type: category
-            id: 251347229
-    IdeasportalusersubscriptionsPostResponse:
-      type: object
-      properties:
-        portal_user_subscriptions:
-          type: object
-          properties:
-            preferences:
-              type: array
-              items:
-                type: object
-                properties:
-                  type:
-                    type: string
-                  id:
-                    type: string
-                example:
-                  type: category
-                  id: 251347229
-              example:
-              - type: category
-                id: 251347229
-              - type: category
-                id: 552935478
-          example:
-            preferences:
-            - type: category
-              id: 251347229
-            - type: category
-              id: 552935478
-      example:
-        portal_user_subscriptions:
-          preferences:
-          - type: category
-            id: 251347229
-          - type: category
-            id: 552935478
   securitySchemes:
     OAuth2:
       type: oauth2

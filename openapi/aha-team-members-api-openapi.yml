@@ -20,7 +20,88 @@ security:
 tags:
 - name: Team Members
 paths:
-  /api/v1/team_members:
+  /team_members/{id}:
+    delete:
+      summary: Delete a virtual team member
+      description: Manage virtual users used in capacity planning
+      tags:
+      - Team Members
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Id identifier
+      responses:
+        '204':
+          description: No content - operation successful
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeammembersPostRequest'
+            example: {}
+      operationId: deleteTeamMembersById
+      x-operation-id-source: derived
+  /team_members:
+    get:
+      summary: List virtual team members
+      description: Manage virtual users used in capacity planning
+      tags:
+      - Team Members
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/TeammembersGetResponse'
+              example:
+                team_members:
+                - id: '540018633'
+                  name: John Johnson
+                  email: john.johnson@corporation.com
+                  user_id: null
+                  virtual: true
+                - id: '960059005'
+                  name: Mary Humpty
+                  email: no-reply@aha.io
+                  user_id: '1020675218'
+                  virtual: false
+                pagination:
+                  total_records: 2
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getTeamMembers
+      x-operation-id-source: derived
     post:
       summary: Create a virtual user
       description: Manage virtual users used in capacity planning
@@ -61,82 +142,7 @@ paths:
                 first_name: Sam
                 last_name: Doe
                 email: sam.doe@example.com
-      operationId: postApiV1TeamMembers
-      x-operation-id-source: derived
-    get:
-      summary: List virtual team members
-      description: Manage virtual users used in capacity planning
-      tags:
-      - Team Members
-      parameters:
-      - name: '{}'
-        in: query
-        required: false
-        schema:
-          type: string
-        example: null
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/TeammembersGetResponse'
-              example:
-                team_members:
-                - id: '540018633'
-                  name: John Johnson
-                  email: john.johnson@corporation.com
-                  user_id: null
-                  virtual: true
-                - id: '960059005'
-                  name: Mary Humpty
-                  email: no-reply@aha.io
-                  user_id: '1020675218'
-                  virtual: false
-                pagination:
-                  total_records: 2
-                  total_pages: 1
-                  current_page: 1
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      operationId: getApiV1TeamMembers
-      x-operation-id-source: derived
-  /api/v1/team_members/{id}:
-    delete:
-      summary: Delete a virtual team member
-      description: Manage virtual users used in capacity planning
-      tags:
-      - Team Members
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-        description: Id identifier
-      responses:
-        '204':
-          description: No content - operation successful
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TeammembersPostRequest'
-            example: {}
-      operationId: deleteApiV1TeamMembersById
+      operationId: postTeamMembers
       x-operation-id-source: derived
 components:
   schemas:
@@ -173,6 +179,30 @@ components:
           email: sam.doe@example.com
           user_id: null
           virtual: true
+    TeammembersPostRequest:
+      type: object
+      properties:
+        team_member:
+          type: object
+          properties:
+            first_name:
+              type: string
+              example: Sam
+            last_name:
+              type: string
+              example: Doe
+            email:
+              type: string
+              example: sam.doe@example.com
+          example:
+            first_name: Sam
+            last_name: Doe
+            email: sam.doe@example.com
+      example:
+        team_member:
+          first_name: Sam
+          last_name: Doe
+          email: sam.doe@example.com
     TeammembersGetResponse:
       type: object
       properties:
@@ -244,10 +274,6 @@ components:
           total_records: 2
           total_pages: 1
           current_page: 1
-    TeammembersPostRequest:
-      type: object
-      properties: {}
-      example: {}
   securitySchemes:
     OAuth2:
       type: oauth2

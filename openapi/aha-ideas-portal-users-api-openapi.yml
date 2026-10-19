@@ -20,9 +20,9 @@ security:
 tags:
 - name: Ideas portal users
 paths:
-  /api/v1/idea_portals/{idea_portal_id}/portal_users:
-    post:
-      summary: Create a portal user
+  /idea_portals/{idea_portal_id}/portal_users/{id}:
+    delete:
+      summary: Delete a portal user
       description: null
       tags:
       - Ideas portal users
@@ -33,134 +33,21 @@ paths:
         schema:
           type: string
         description: IdeaPortalId identifier
-      responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/IdeasportalusersPostResponse'
-              example:
-                portal_user:
-                  id: '6776881149497060074'
-                  email: sam.doe@example.com
-                  first_name: sam
-                  last_name: doe
-                  enabled: true
-                  verified: false
-                  employee: true
-                  max_endorsements_override: null
-                  idea_user_id: '6776881149491801214'
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  unsubscribed: false
-                  unsubscribed_from_weekly_emails: null
-      security:
-      - OAuth2: []
-      - ApiKeyAuth: []
-      - CookieAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/IdeasportalusersPostRequest'
-            example:
-              portal_user:
-                email: sam.doe@example.com
-                first_name: sam
-                last_name: doe
-      operationId: postApiV1IdeaPortalsByIdeaPortalIdPortalUsers
-      x-operation-id-source: derived
-    get:
-      summary: List portal users for an ideas portal
-      description: null
-      tags:
-      - Ideas portal users
-      parameters:
-      - name: idea_portal_id
+      - name: id
         in: path
         required: true
         schema:
           type: string
-        description: IdeaPortalId identifier
+        description: Id identifier
       responses:
-        '200':
-          description: Successful operation
-          headers:
-            Content-Type:
-              description: application/json; charset=utf-8
-              schema:
-                type: string
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/IdeasportalusersGetResponse'
-              example:
-                portal_users:
-                - id: '144817500'
-                  email: timmy@smith.com
-                  first_name: Timmy
-                  last_name: Smith
-                  enabled: true
-                  verified: true
-                  employee: true
-                  max_endorsements_override: null
-                  idea_user_id: '446386906'
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  unsubscribed: false
-                  unsubscribed_from_weekly_emails: null
-                - id: '477635308'
-                  email: no-reply@aha.io
-                  first_name: Bill
-                  last_name: Billings
-                  enabled: true
-                  verified: false
-                  employee: false
-                  max_endorsements_override: null
-                  idea_user_id: '870840916'
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  unsubscribed: false
-                  unsubscribed_from_weekly_emails: null
-                - id: '646391926'
-                  email: john@long.com
-                  first_name: John
-                  last_name: Long
-                  enabled: true
-                  verified: false
-                  employee: false
-                  max_endorsements_override: null
-                  idea_user_id: '1056507375'
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  unsubscribed: false
-                  unsubscribed_from_weekly_emails: null
-                - id: '1066301902'
-                  email: tim@smith.com
-                  first_name: Tim
-                  last_name: Smith
-                  enabled: true
-                  verified: false
-                  employee: false
-                  max_endorsements_override: null
-                  idea_user_id: '670061655'
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  unsubscribed: false
-                  unsubscribed_from_weekly_emails: null
-                pagination:
-                  total_records: 4
-                  total_pages: 1
-                  current_page: 1
+        '204':
+          description: No content - operation successful
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1IdeaPortalsByIdeaPortalIdPortalUsers
+      operationId: deleteIdeaPortalsByIdeaPortalIdPortalUsersById
       x-operation-id-source: derived
-  /api/v1/idea_portals/{idea_portal_id}/portal_users/{id}:
     get:
       summary: Get a specific portal user
       description: null
@@ -195,6 +82,9 @@ paths:
                 portal_user:
                   id: '646391926'
                   email: john@long.com
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  idea_portal_id: '1070474755'
                   first_name: John
                   last_name: Long
                   enabled: true
@@ -202,17 +92,16 @@ paths:
                   employee: false
                   max_endorsements_override: null
                   idea_user_id: '1056507375'
-                  created_at: '2019-01-01T00:00:00.000Z'
                   unsubscribed: false
                   unsubscribed_from_weekly_emails: null
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: getApiV1IdeaPortalsByIdeaPortalIdPortalUsersById
+      operationId: getIdeaPortalsByIdeaPortalIdPortalUsersById
       x-operation-id-source: derived
     put:
-      summary: Update a portal user
+      summary: Unsubscribe portal user from all communications
       description: null
       tags:
       - Ideas portal users
@@ -245,16 +134,18 @@ paths:
                 portal_user:
                   id: '646391926'
                   email: john@long.com
-                  first_name: John
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  idea_portal_id: '1070474755'
+                  first_name: Sarah
                   last_name: Long
                   enabled: true
                   verified: false
                   employee: false
                   max_endorsements_override: null
                   idea_user_id: '1056507375'
-                  created_at: '2019-01-01T00:00:00.000Z'
-                  unsubscribed: true
-                  unsubscribed_from_weekly_emails: true
+                  unsubscribed: false
+                  unsubscribed_from_weekly_emails: null
       security:
       - OAuth2: []
       - ApiKeyAuth: []
@@ -267,11 +158,13 @@ paths:
               $ref: '#/components/schemas/IdeasportalusersPostRequest'
             example:
               portal_user:
-                first_name: Sarah
-      operationId: putApiV1IdeaPortalsByIdeaPortalIdPortalUsersById
+                unsubscribed: true
+                unsubscribed_from_weekly_emails: true
+      operationId: putIdeaPortalsByIdeaPortalIdPortalUsersById
       x-operation-id-source: derived
-    delete:
-      summary: Delete a portal user
+  /idea_portals/{idea_portal_id}/portal_users:
+    get:
+      summary: List portal users for a specific idea user
       description: null
       tags:
       - Ideas portal users
@@ -282,6 +175,340 @@ paths:
         schema:
           type: string
         description: IdeaPortalId identifier
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      - name: idea_user_id
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1056507375'
+      - name: has_portal_user_subscriptions
+        in: query
+        required: false
+        schema:
+          type: string
+        example: 'true'
+      - name: fields
+        in: query
+        required: false
+        schema:
+          type: string
+        example:
+        - portal_user_subscriptions
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeasportalusersGetResponse'
+              example:
+                portal_users:
+                - id: '144817500'
+                  email: timmy@smith.com
+                  idea_portal_id: '1070474755'
+                  first_name: Timmy
+                  last_name: Smith
+                  enabled: true
+                  verified: true
+                  employee: true
+                  max_endorsements_override: null
+                  idea_user_id: '446386906'
+                  unsubscribed: false
+                  unsubscribed_from_weekly_emails: null
+                  portal_user_subscriptions:
+                    preferences: []
+                - id: '477635308'
+                  email: no-reply@aha.io
+                  idea_portal_id: '1070474755'
+                  first_name: Bill
+                  last_name: Billings
+                  enabled: true
+                  verified: false
+                  employee: false
+                  max_endorsements_override: null
+                  idea_user_id: '870840916'
+                  unsubscribed: false
+                  unsubscribed_from_weekly_emails: null
+                  portal_user_subscriptions:
+                    preferences: []
+                - id: '646391926'
+                  email: john@long.com
+                  idea_portal_id: '1070474755'
+                  first_name: John
+                  last_name: Long
+                  enabled: true
+                  verified: false
+                  employee: false
+                  max_endorsements_override: null
+                  idea_user_id: '1056507375'
+                  unsubscribed: false
+                  unsubscribed_from_weekly_emails: null
+                  portal_user_subscriptions:
+                    preferences:
+                    - type: project
+                      id: 517761884
+                    - type: category
+                      id: 552935478
+                - id: '1066301902'
+                  email: tim@smith.com
+                  idea_portal_id: '1070474755'
+                  first_name: Tim
+                  last_name: Smith
+                  enabled: true
+                  verified: false
+                  employee: false
+                  max_endorsements_override: null
+                  idea_user_id: '670061655'
+                  unsubscribed: false
+                  unsubscribed_from_weekly_emails: null
+                  portal_user_subscriptions:
+                    preferences: []
+                pagination:
+                  total_records: 4
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getIdeaPortalsByIdeaPortalIdPortalUsers
+      x-operation-id-source: derived
+    post:
+      summary: Create a portal user
+      description: null
+      tags:
+      - Ideas portal users
+      parameters:
+      - name: idea_portal_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: IdeaPortalId identifier
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeasportalusersPostResponse'
+              example:
+                portal_user:
+                  id: '6776834763843791935'
+                  email: sam.doe@example.com
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  idea_portal_id: '1070474755'
+                  first_name: sam
+                  last_name: doe
+                  enabled: true
+                  verified: false
+                  employee: true
+                  max_endorsements_override: null
+                  idea_user_id: '6776834763838194044'
+                  unsubscribed: false
+                  unsubscribed_from_weekly_emails: null
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdeasportalusersPostRequest'
+            example:
+              portal_user:
+                email: sam.doe@example.com
+                first_name: sam
+                last_name: doe
+      operationId: postIdeaPortalsByIdeaPortalIdPortalUsers
+      x-operation-id-source: derived
+  /portal_users:
+    get:
+      summary: List all portal users in the account
+      description: null
+      tags:
+      - Ideas portal users
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '1'
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: string
+        example: '30'
+      responses:
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeasportalusersGetResponse'
+              example:
+                portal_users:
+                - id: '143214937'
+                  email: joe@shmo.com
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  idea_portal_id: '675900055'
+                  first_name: Joe
+                  last_name: Shmo
+                  enabled: true
+                  verified: false
+                  employee: false
+                  max_endorsements_override: null
+                  idea_user_id: '284648642'
+                  unsubscribed: false
+                  unsubscribed_from_weekly_emails: null
+                - id: '144817500'
+                  email: timmy@smith.com
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  idea_portal_id: '1070474755'
+                  first_name: Timmy
+                  last_name: Smith
+                  enabled: true
+                  verified: true
+                  employee: true
+                  max_endorsements_override: null
+                  idea_user_id: '446386906'
+                  unsubscribed: false
+                  unsubscribed_from_weekly_emails: null
+                - id: '289659737'
+                  email: timmy@smith.com
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  idea_portal_id: '650606523'
+                  first_name: Timmy
+                  last_name: Smith
+                  enabled: true
+                  verified: true
+                  employee: true
+                  max_endorsements_override: null
+                  idea_user_id: '446386906'
+                  unsubscribed: false
+                  unsubscribed_from_weekly_emails: null
+                - id: '384687358'
+                  email: sammy@smith.com
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  idea_portal_id: '650606523'
+                  first_name: Sammy
+                  last_name: Smith
+                  enabled: true
+                  verified: true
+                  employee: false
+                  max_endorsements_override: null
+                  idea_user_id: '244576613'
+                  unsubscribed: false
+                  unsubscribed_from_weekly_emails: null
+                - id: '477635308'
+                  email: no-reply@aha.io
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  idea_portal_id: '1070474755'
+                  first_name: Bill
+                  last_name: Billings
+                  enabled: true
+                  verified: false
+                  employee: false
+                  max_endorsements_override: null
+                  idea_user_id: '870840916'
+                  unsubscribed: false
+                  unsubscribed_from_weekly_emails: null
+                - id: '569044079'
+                  email: johnvery@long.com
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  idea_portal_id: '297813804'
+                  first_name: John
+                  last_name: Long
+                  enabled: true
+                  verified: false
+                  employee: false
+                  max_endorsements_override: null
+                  idea_user_id: '966050294'
+                  unsubscribed: false
+                  unsubscribed_from_weekly_emails: null
+                - id: '646391926'
+                  email: john@long.com
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  idea_portal_id: '1070474755'
+                  first_name: John
+                  last_name: Long
+                  enabled: true
+                  verified: false
+                  employee: false
+                  max_endorsements_override: null
+                  idea_user_id: '1056507375'
+                  unsubscribed: false
+                  unsubscribed_from_weekly_emails: null
+                - id: '1066301902'
+                  email: tim@smith.com
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  idea_portal_id: '1070474755'
+                  first_name: Tim
+                  last_name: Smith
+                  enabled: true
+                  verified: false
+                  employee: false
+                  max_endorsements_override: null
+                  idea_user_id: '670061655'
+                  unsubscribed: false
+                  unsubscribed_from_weekly_emails: null
+                pagination:
+                  total_records: 8
+                  total_pages: 1
+                  current_page: 1
+      security:
+      - OAuth2: []
+      - ApiKeyAuth: []
+      - CookieAuth: []
+      operationId: getPortalUsers
+      x-operation-id-source: derived
+  /portal_users/{id}:
+    get:
+      summary: Get a specific portal user in the account
+      description: null
+      tags:
+      - Ideas portal users
+      parameters:
       - name: id
         in: path
         required: true
@@ -289,16 +516,214 @@ paths:
           type: string
         description: Id identifier
       responses:
-        '204':
-          description: No content - operation successful
+        '200':
+          description: Successful operation
+          headers:
+            Content-Type:
+              description: application/json; charset=utf-8
+              schema:
+                type: string
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/IdeasportalusersGetResponse'
+              example:
+                portal_user:
+                  id: '646391926'
+                  email: john@long.com
+                  created_at: '2019-01-01T00:00:00.000Z'
+                  updated_at: '2019-01-01T00:00:00.000Z'
+                  idea_portal_id: '1070474755'
+                  first_name: John
+                  last_name: Long
+                  enabled: true
+                  verified: false
+                  employee: false
+                  max_endorsements_override: null
+                  idea_user_id: '1056507375'
+                  unsubscribed: false
+                  unsubscribed_from_weekly_emails: null
       security:
       - OAuth2: []
       - ApiKeyAuth: []
       - CookieAuth: []
-      operationId: deleteApiV1IdeaPortalsByIdeaPortalIdPortalUsersById
+      operationId: getPortalUsersById
       x-operation-id-source: derived
 components:
   schemas:
+    IdeasportalusersPostRequest:
+      type: object
+      properties:
+        portal_user:
+          type: object
+          properties:
+            unsubscribed:
+              type: boolean
+              example: true
+            unsubscribed_from_weekly_emails:
+              type: boolean
+              example: true
+          example:
+            unsubscribed: true
+            unsubscribed_from_weekly_emails: true
+      example:
+        portal_user:
+          unsubscribed: true
+          unsubscribed_from_weekly_emails: true
+    IdeasportalusersGetResponse:
+      type: object
+      properties:
+        portal_user:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '646391926'
+            email:
+              type: string
+              example: john@long.com
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            idea_portal_id:
+              type: string
+              example: '1070474755'
+            first_name:
+              type: string
+              example: John
+            last_name:
+              type: string
+              example: Long
+            enabled:
+              type: boolean
+              example: true
+            verified:
+              type: boolean
+              example: false
+            employee:
+              type: boolean
+              example: false
+            max_endorsements_override:
+              type: 'null'
+            idea_user_id:
+              type: string
+              example: '1056507375'
+            unsubscribed:
+              type: boolean
+              example: false
+            unsubscribed_from_weekly_emails:
+              type: 'null'
+          example:
+            id: '646391926'
+            email: john@long.com
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            idea_portal_id: '1070474755'
+            first_name: John
+            last_name: Long
+            enabled: true
+            verified: false
+            employee: false
+            max_endorsements_override: null
+            idea_user_id: '1056507375'
+            unsubscribed: false
+            unsubscribed_from_weekly_emails: null
+      example:
+        portal_user:
+          id: '646391926'
+          email: john@long.com
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          idea_portal_id: '1070474755'
+          first_name: John
+          last_name: Long
+          enabled: true
+          verified: false
+          employee: false
+          max_endorsements_override: null
+          idea_user_id: '1056507375'
+          unsubscribed: false
+          unsubscribed_from_weekly_emails: null
+    IdeasportalusersPutResponse:
+      type: object
+      properties:
+        portal_user:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '646391926'
+            email:
+              type: string
+              example: john@long.com
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            idea_portal_id:
+              type: string
+              example: '1070474755'
+            first_name:
+              type: string
+              example: Sarah
+            last_name:
+              type: string
+              example: Long
+            enabled:
+              type: boolean
+              example: true
+            verified:
+              type: boolean
+              example: false
+            employee:
+              type: boolean
+              example: false
+            max_endorsements_override:
+              type: 'null'
+            idea_user_id:
+              type: string
+              example: '1056507375'
+            unsubscribed:
+              type: boolean
+              example: false
+            unsubscribed_from_weekly_emails:
+              type: 'null'
+          example:
+            id: '646391926'
+            email: john@long.com
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            idea_portal_id: '1070474755'
+            first_name: Sarah
+            last_name: Long
+            enabled: true
+            verified: false
+            employee: false
+            max_endorsements_override: null
+            idea_user_id: '1056507375'
+            unsubscribed: false
+            unsubscribed_from_weekly_emails: null
+      example:
+        portal_user:
+          id: '646391926'
+          email: john@long.com
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          idea_portal_id: '1070474755'
+          first_name: Sarah
+          last_name: Long
+          enabled: true
+          verified: false
+          employee: false
+          max_endorsements_override: null
+          idea_user_id: '1056507375'
+          unsubscribed: false
+          unsubscribed_from_weekly_emails: null
     IdeasportalusersPostResponse:
       type: object
       properties:
@@ -307,10 +732,19 @@ components:
           properties:
             id:
               type: string
-              example: '6776881149497060074'
+              example: '6776834763843791935'
             email:
               type: string
               example: sam.doe@example.com
+            created_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            updated_at:
+              type: string
+              example: '2019-01-01T00:00:00.000Z'
+            idea_portal_id:
+              type: string
+              example: '1070474755'
             first_name:
               type: string
               example: sam
@@ -330,191 +764,43 @@ components:
               type: 'null'
             idea_user_id:
               type: string
-              example: '6776881149491801214'
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
+              example: '6776834763838194044'
             unsubscribed:
               type: boolean
               example: false
             unsubscribed_from_weekly_emails:
               type: 'null'
           example:
-            id: '6776881149497060074'
+            id: '6776834763843791935'
             email: sam.doe@example.com
+            created_at: '2019-01-01T00:00:00.000Z'
+            updated_at: '2019-01-01T00:00:00.000Z'
+            idea_portal_id: '1070474755'
             first_name: sam
             last_name: doe
             enabled: true
             verified: false
             employee: true
             max_endorsements_override: null
-            idea_user_id: '6776881149491801214'
-            created_at: '2019-01-01T00:00:00.000Z'
+            idea_user_id: '6776834763838194044'
             unsubscribed: false
             unsubscribed_from_weekly_emails: null
       example:
         portal_user:
-          id: '6776881149497060074'
+          id: '6776834763843791935'
           email: sam.doe@example.com
+          created_at: '2019-01-01T00:00:00.000Z'
+          updated_at: '2019-01-01T00:00:00.000Z'
+          idea_portal_id: '1070474755'
           first_name: sam
           last_name: doe
           enabled: true
           verified: false
           employee: true
           max_endorsements_override: null
-          idea_user_id: '6776881149491801214'
-          created_at: '2019-01-01T00:00:00.000Z'
+          idea_user_id: '6776834763838194044'
           unsubscribed: false
           unsubscribed_from_weekly_emails: null
-    IdeasportalusersGetResponse:
-      type: object
-      properties:
-        portal_user:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '646391926'
-            email:
-              type: string
-              example: john@long.com
-            first_name:
-              type: string
-              example: John
-            last_name:
-              type: string
-              example: Long
-            enabled:
-              type: boolean
-              example: true
-            verified:
-              type: boolean
-              example: false
-            employee:
-              type: boolean
-              example: false
-            max_endorsements_override:
-              type: 'null'
-            idea_user_id:
-              type: string
-              example: '1056507375'
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            unsubscribed:
-              type: boolean
-              example: false
-            unsubscribed_from_weekly_emails:
-              type: 'null'
-          example:
-            id: '646391926'
-            email: john@long.com
-            first_name: John
-            last_name: Long
-            enabled: true
-            verified: false
-            employee: false
-            max_endorsements_override: null
-            idea_user_id: '1056507375'
-            created_at: '2019-01-01T00:00:00.000Z'
-            unsubscribed: false
-            unsubscribed_from_weekly_emails: null
-      example:
-        portal_user:
-          id: '646391926'
-          email: john@long.com
-          first_name: John
-          last_name: Long
-          enabled: true
-          verified: false
-          employee: false
-          max_endorsements_override: null
-          idea_user_id: '1056507375'
-          created_at: '2019-01-01T00:00:00.000Z'
-          unsubscribed: false
-          unsubscribed_from_weekly_emails: null
-    IdeasportalusersPutResponse:
-      type: object
-      properties:
-        portal_user:
-          type: object
-          properties:
-            id:
-              type: string
-              example: '646391926'
-            email:
-              type: string
-              example: john@long.com
-            first_name:
-              type: string
-              example: John
-            last_name:
-              type: string
-              example: Long
-            enabled:
-              type: boolean
-              example: true
-            verified:
-              type: boolean
-              example: false
-            employee:
-              type: boolean
-              example: false
-            max_endorsements_override:
-              type: 'null'
-            idea_user_id:
-              type: string
-              example: '1056507375'
-            created_at:
-              type: string
-              example: '2019-01-01T00:00:00.000Z'
-            unsubscribed:
-              type: boolean
-              example: true
-            unsubscribed_from_weekly_emails:
-              type: boolean
-              example: true
-          example:
-            id: '646391926'
-            email: john@long.com
-            first_name: John
-            last_name: Long
-            enabled: true
-            verified: false
-            employee: false
-            max_endorsements_override: null
-            idea_user_id: '1056507375'
-            created_at: '2019-01-01T00:00:00.000Z'
-            unsubscribed: true
-            unsubscribed_from_weekly_emails: true
-      example:
-        portal_user:
-          id: '646391926'
-          email: john@long.com
-          first_name: John
-          last_name: Long
-          enabled: true
-          verified: false
-          employee: false
-          max_endorsements_override: null
-          idea_user_id: '1056507375'
-          created_at: '2019-01-01T00:00:00.000Z'
-          unsubscribed: true
-          unsubscribed_from_weekly_emails: true
-    IdeasportalusersPostRequest:
-      type: object
-      properties:
-        portal_user:
-          type: object
-          properties:
-            first_name:
-              type: string
-              example: Sarah
-          example:
-            first_name: Sarah
-      example:
-        portal_user:
-          first_name: Sarah
   securitySchemes:
     OAuth2:
       type: oauth2
