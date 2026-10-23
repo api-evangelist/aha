@@ -112,3 +112,9 @@ components:
       in: cookie
       name: session
       description: Cookie-based authentication for web browser integration
+x-provenance:
+  method: harvested
+  publisher: Aha.io
+  source: https://www.aha.io/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
