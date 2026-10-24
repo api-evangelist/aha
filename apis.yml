@@ -913,6 +913,8 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
+  - Custom Reports
+  tags_raw:
   - Custom reports
   properties:
   - type: OpenAPI
@@ -927,6 +929,8 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
+  - Discovery Groups
+  tags_raw:
   - Discovery groups
   properties:
   - type: OpenAPI
@@ -984,6 +988,8 @@ apis:
   humanURL: https://www.aha.io/api
   baseURL: https://{subdomain}.aha.io/api/v1
   tags:
+  - Knowledge Bases
+  tags_raw:
   - Knowledge bases
   properties:
   - type: OpenAPI
