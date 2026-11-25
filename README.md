@@ -72,7 +72,7 @@ Aha! is a product development suite that combines roadmapping, idea management, 
 
 Everything profiled for Aha.io is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/aha/](https://apis.io/providers/aha/)** — or go straight to one of the APIs or properties below.
 
-### APIs (59)
+### APIs (66)
 
 - [Aha.io Account backups API](https://apis.io/apis/aha/aha-account-backups-api/) — The Account backups API from Aha.io — 3 operation(s) for account backups.
 - [Aha.io Attachments API](https://apis.io/apis/aha/aha-attachments-api/) — The Attachments API from Aha.io — 7 operation(s) for attachments.
@@ -86,7 +86,6 @@ Everything profiled for Aha.io is published on APIs.io rather than in this repos
 - [Aha.io Custom field options API](https://apis.io/apis/aha/aha-custom-field-options-api/) — The Custom field options API from Aha.io — 2 operation(s) for custom field options.
 - [Aha.io Custom fields API](https://apis.io/apis/aha/aha-custom-fields-api/) — The Custom fields API from Aha.io — 2 operation(s) for custom fields.
 - [Aha.io Custom Layouts API](https://apis.io/apis/aha/aha-custom-layouts-api/) — The Custom Layouts API from Aha.io — 2 operation(s) for custom layouts.
-- [Aha.io Custom pivots API](https://apis.io/apis/aha/aha-custom-pivots-api/) — The Custom pivots API from Aha.io — 1 operation(s) for custom pivots.
 - [Aha.io Custom table record links API](https://apis.io/apis/aha/aha-custom-table-record-links-api/) — The Custom table record links API from Aha.io — 8 operation(s) for custom table record links.
 - [Aha.io Custom table records API](https://apis.io/apis/aha/aha-custom-table-records-api/) — The Custom table records API from Aha.io — 2 operation(s) for custom table records.
 - [Aha.io Deletions API](https://apis.io/apis/aha/aha-deletions-api/) — The Deletions API from Aha.io — 2 operation(s) for deletions.
@@ -133,6 +132,14 @@ Everything profiled for Aha.io is published on APIs.io rather than in this repos
 - [Aha.io Users API](https://apis.io/apis/aha/aha-users-api/) — The Users API from Aha.io — 7 operation(s) for users.
 - [Aha.io Webhooks API](https://apis.io/apis/aha/aha-webhooks-api/) — The Webhooks API from Aha.io — 1 operation(s) for webhooks.
 - [Aha.io Workflows API](https://apis.io/apis/aha/aha-workflows-api/) — The Workflows API from Aha.io — 2 operation(s) for workflows.
+- [Aha.io Assistant usage API](https://apis.io/apis/aha/aha-assistant-usage-api/) — The Assistant usage API from Aha.io — 1 operation(s) for assistant usage.
+- [Aha.io Custom reports API](https://apis.io/apis/aha/aha-custom-reports-api/) — The Custom reports API from Aha.io — 1 operation(s) for custom reports.
+- [Aha.io Discovery groups API](https://apis.io/apis/aha/aha-discovery-groups-api/) — The Discovery groups API from Aha.io — 2 operation(s) for discovery groups.
+- [Aha.io Idea themes API](https://apis.io/apis/aha/aha-idea-themes-api/) — The Idea themes API from Aha.io — 2 operation(s) for idea themes.
+- [Aha.io Integration change jobs API](https://apis.io/apis/aha/aha-integration-change-jobs-api/) — The Integration change jobs API from Aha.io — 1 operation(s) for integration change jobs.
+- [Aha.io Knowledge base pages API](https://apis.io/apis/aha/aha-knowledge-base-pages-api/) — The Knowledge base pages API from Aha.io — 2 operation(s) for knowledge base pages.
+- [Aha.io Knowledge bases API](https://apis.io/apis/aha/aha-knowledge-bases-api/) — The Knowledge bases API from Aha.io — 1 operation(s) for knowledge bases.
+- [Aha.io Workflow status times API](https://apis.io/apis/aha/aha-workflow-status-times-api/) — The Workflow status times API from Aha.io — 10 operation(s) for workflow status times.
 
 ### Published properties
 
@@ -142,7 +149,7 @@ Each property below is a page on APIs.io carrying the machine-readable artifact 
 
 Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Aha Agentic Access](https://apis.io/agentic-access/aha/aha-agentic-access/)
+- [Aha.io Agentic Access](https://apis.io/agentic-access/aha/aha-agentic-access/)
 
 #### Collections (60)
 
@@ -175,31 +182,43 @@ Postman and Open Collection request collections.
 - [Aha! Account backups Idea Portals API](https://apis.io/collections/aha/open-aha-idea-portals-api/)
 - …and 35 more published on APIs.io
 
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Aha.io API Rules](https://apis.io/rules/aha/aha-rules/)
+
 #### Security (2)
 
 Authentication, trust centre, and vulnerability disclosure.
 
-- [Aha Authentication](https://apis.io/security/aha/aha-authentication/)
-- [Aha Domain Security](https://apis.io/security/aha/aha-domain-security/)
+- [Aha.io Authentication](https://apis.io/security/aha/aha-authentication/)
+- [Aha.io Domain Security](https://apis.io/security/aha/aha-domain-security/)
 
 #### OAuth scopes (1)
 
 The permissions the API asks for.
 
-- [Aha Scopes](https://apis.io/scopes/aha/aha-scopes/)
+- [Aha.io Scopes](https://apis.io/scopes/aha/aha-scopes/)
 
 #### Plans and pricing (2)
 
 Published plans, tiers and prices.
 
-- [Aha Plans Pricing](https://apis.io/plans/aha/aha-plans-pricing/)
-- [Aha Price Estimates](https://apis.io/plans/aha/aha-price-estimates/)
+- [Aha.io Plans Pricing](https://apis.io/plans/aha/aha-plans-pricing/)
+- [Aha.io Price Estimates](https://apis.io/plans/aha/aha-price-estimates/)
 
 #### Rate limits (1)
 
 Published request limits.
 
-- [Aha Rate Limits](https://apis.io/rate-limits/aha/aha-rate-limits/)
+- [Aha.io Rate Limits](https://apis.io/rate-limits/aha/aha-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Aha.io Finops](https://apis.io/finops/aha/aha-finops/)
 
 ## Where to find this API
 
@@ -213,18 +232,18 @@ Links to the company's own pages. This repository publishes no copy of their spe
 
 ## API Evangelist rating
 
-**Kin Score 40.8** — developing · rubric 0.25.0 · scored 2026-10-23
+**Kin Score 41.2** — developing · rubric 0.28.1 · scored 2026-11-21
 
 | Facet | Score |
 |---|---|
 | Discoverability | 66.1 |
-| Contract quality | 50.1 |
-| Contract governance | 0.0 |
-| Operational transparency | 34.2 |
+| Contract quality | 52.8 |
+| Contract governance | 13.6 |
+| Operational transparency | 33.3 |
 | Developer ergonomics | 23.8 |
-| Access clarity | 55.3 |
+| Access clarity | 51.1 |
 
-**Agent readiness 33.6** — agent-ready
+**Agent readiness 32.9** — agent-ready
 
 | Agent-readiness dimension | Result |
 |---|---|
@@ -249,8 +268,12 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | Agentic Commerce | — |
 | Pagination Ratio | partial |
 | Operation Distinctiveness | distinct |
+| MCP Tool Quality | na |
+| Onboarding Descriptor | — |
+| Dns Aid Index | na |
+| Markdown Negotiation | na |
 
-**Regulatory alignment 21.6** — Horizontal (data, software, accessibility, platform)
+**Regulatory alignment 15.7** — Horizontal (data, software, accessibility, platform)
 
 The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/aha/](https://apis.io/providers/aha/).
 
